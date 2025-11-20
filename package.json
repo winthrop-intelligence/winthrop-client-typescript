@@ -1,0 +1,39 @@
+{
+  "name": "@winthrop-intelligence/winthrop-client-typescript",
+  "version": "1.39.0",
+  "description": "TypeScript client for WinAD API",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "generate": "openapi-typescript-codegen --input index.yaml --output ./src --client fetch --name WinADClient",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "winad",
+    "winthrop",
+    "api-client",
+    "typescript"
+  ],
+  "author": "Winthrop Intelligence",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winthrop-intelligence/winthrop-client-typescript.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "openapi-typescript-codegen": "^0.29.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.12"
+  }
+}

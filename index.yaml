@@ -1,0 +1,3981 @@
+---
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: WinAD API
+  description: Programmatic access to the WinAD application itself
+servers:
+  - description: Development server
+    url: http://app:3000/api/v1
+    x-winthrop-development: "/api/v1"
+  - description: in-cluster access
+    url: http://app.default.svc.cluster.local:3000/api/v1
+    x-winthrop-gateway-mountpoint: "/api/v1"
+paths:
+  "/administrators":
+    get:
+      description: Retrieve some or all administrators
+      operationId: get_administrators
+      responses:
+        "200":
+          description: Administrators were found
+          content:
+            application/json:
+              schema:
+                title: AdministratorCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Administrator"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/administrators/{administratorId}":
+    get:
+      description: Retrieve a single administrator
+      operationId: get_administrator
+      responses:
+        "200":
+          description: Administrator was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Administrator"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: administratorId
+          in: path
+          description: ID of administrator to retrieve
+          required: true
+          schema:
+            type: integer
+  "/audited_financial_report_statuses":
+    get:
+      description: Retrieve some or all audited financial report statuses
+      operationId: get_audited_financial_report_statuses
+      responses:
+        "200":
+          description: Audited financial report statuses were found
+          content:
+            application/json:
+              schema:
+                title: AuditedFinancialReportStatusCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/AuditedFinancialReportStatus"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/audited_financial_report_statuses/{auditedFinancialReportStatusId}":
+    get:
+      description: Retrieve a single audited financial report status
+      operationId: get_audited_financial_report_status
+      responses:
+        "200":
+          description: Audited financial report status was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AuditedFinancialReportStatus"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: auditedFinancialReportStatusId
+          in: path
+          description: ID of audited financial report status to retrieve
+          required: true
+          schema:
+            type: integer
+  "/coach_compensations/get_coach_compensation":
+    get:
+      description:
+        Retrieve compensation estimate (base salary, year, and COL-adjusted
+        salary) for a private school coach
+      operationId: get_coach_compensation
+      responses:
+        "200":
+          description: Coach compensation calculated successfully
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CoachCompensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Coach or school not found
+        "422":
+          description: Missing or invalid parameters
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+      parameters:
+        - name: coaches_ids
+          in: query
+          description: IDs of the coaches
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: user_school_id
+          in: query
+          description: ID of the school whose cost-of-living index should be used
+          required: true
+          schema:
+            type: integer
+  "/coaches":
+    get:
+      description: Retrieve some or all coaches
+      operationId: get_coaches
+      responses:
+        "200":
+          description: Coaches were found
+          content:
+            application/json:
+              schema:
+                title: CoachCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Coach"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/coaches/search":
+    post:
+      description: Search Coaches by priority_ids
+      operationId: search_coaches
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Filters"
+      responses:
+        "200":
+          description: Coaches were found
+          content:
+            application/json:
+              schema:
+                title: CoachCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Coach"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+  "/coaches/{coachId}":
+    get:
+      description: Retrieve a single coach
+      operationId: get_coach
+      responses:
+        "200":
+          description: Coach was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Coach"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: coachId
+          in: path
+          description: ID of coach to retrieve
+          required: true
+          schema:
+            type: integer
+    patch:
+      description: Update a coach
+      operationId: update_coach
+      responses:
+        "200":
+          description: Coach was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Coach"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: coachId
+          in: path
+          description: ID of coach to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description:
+          Attributes to update. Currently only supports email, phone, bio,
+          bio_text. Others will be ignored.
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Coach"
+  "/coaches/{coachId}/similar_coaches":
+    get:
+      description: Retrieve similar coaches based on coach ID
+      operationId: get_similar_coaches
+      responses:
+        "200":
+          description: Coaches were found
+          content:
+            application/json:
+              schema:
+                title: CoachCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Coach"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/ransackQuery"
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - name: coachId
+          in: path
+          description: ID of coach to retrieve
+          required: true
+          schema:
+            type: integer
+  "/compensations":
+    get:
+      description: Retrieve some or all compensations
+      operationId: get_compensations
+      responses:
+        "200":
+          description: Compensations were found
+          content:
+            application/json:
+              schema:
+                title: CompensationCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Compensation"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/compensations/average_conference_comp":
+    get:
+      description: Retrieve average compensation for a conference
+      operationId: average_conference_comp
+      responses:
+        "200":
+          description: Average compensation calculated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AverageCompensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: conference_id
+          in: query
+          description: ID of the conference
+          required: true
+          schema:
+            type: integer
+        - name: season_years
+          in: query
+          description: Season years
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: sport_ids
+          in: query
+          description: IDs of the sports
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: position_type_ids
+          in: query
+          description: IDs of the position types
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+  "/compensations/average_division_comp":
+    get:
+      description: Retrieve average compensation for a division
+      operationId: average_division_comp
+      responses:
+        "200":
+          description: Average compensation calculated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AverageCompensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: division_id
+          in: query
+          description: ID of the division
+          required: true
+          schema:
+            type: integer
+        - name: season_years
+          in: query
+          description: Season years
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: sport_ids
+          in: query
+          description: IDs of the sports
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: position_type_ids
+          in: query
+          description: IDs of the position types
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+  "/compensations/average_school_comp":
+    get:
+      description: Retrieve average compensation for a school
+      operationId: average_school_comp
+      responses:
+        "200":
+          description: Average compensation calculated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AverageCompensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: school_id
+          in: query
+          description: ID of the school
+          required: true
+          schema:
+            type: integer
+        - name: season_years
+          in: query
+          description: Season years
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: sport_ids
+          in: query
+          description: IDs of the sports
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: position_type_ids
+          in: query
+          description: IDs of the position types
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+  "/compensations/average_subdivision_comp":
+    get:
+      description: Retrieve average compensation for a subdivision
+      operationId: average_subdivision_comp
+      responses:
+        "200":
+          description: Average compensation calculated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AverageCompensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: subdivision_id
+          in: query
+          description: ID of the subdivision
+          required: true
+          schema:
+            type: integer
+        - name: season_years
+          in: query
+          description: Season years
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: sport_ids
+          in: query
+          description: IDs of the sports
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: position_type_ids
+          in: query
+          description: IDs of the position types
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+  "/compensations/{compensationId}":
+    get:
+      description: Retrieve a single compensation
+      operationId: get_compensation
+      responses:
+        "200":
+          description: Compensation was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Compensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: compensationId
+          in: path
+          description: ID of compensation to retrieve
+          required: true
+          schema:
+            type: integer
+    patch:
+      description: Update a compensation
+      operationId: update_compensation
+      responses:
+        "200":
+          description: Compensation was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Compensation"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: compensationId
+          in: path
+          description: ID of compensation to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Compensation to update
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Compensation"
+  "/conferences":
+    get:
+      description: Retrieve some or all conferences
+      operationId: get_conferences
+      responses:
+        "200":
+          description: Conferences were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: ConferenceCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Conference"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+    post:
+      description: Create a new Conference
+      operationId: create_conference
+      responses:
+        "201":
+          description: Conference was created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Conference"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to create the Conference
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Conference"
+  "/conferences/{conferenceId}":
+    get:
+      description: Retrieve a single Conference
+      operationId: get_conference
+      responses:
+        "200":
+          description: Conference was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Conference"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: conferenceId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Conference
+    put:
+      description: Update a single Conference
+      operationId: update_conference
+      responses:
+        "200":
+          description: Conference was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Conference"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to update the Conference
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+        "404":
+          description: Not Found
+      parameters:
+        - name: conferenceId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Conference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Conference"
+        required: true
+        description: Conference attributes to update
+    delete:
+      description: Delete a single Conference
+      operationId: delete_conference
+      responses:
+        "204":
+          description: Conference was deleted
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: conferenceId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Conference
+  "/conferenceships":
+    get:
+      description: Retrieve some or all conferenceships
+      operationId: get_conferenceships
+      responses:
+        "200":
+          description: Conferenceships were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: ConferenceshipCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Conferenceship"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+    post:
+      description: Create a new Conferenceship
+      operationId: create_conferenceship
+      responses:
+        "201":
+          description: Conferenceship was created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Conferenceship"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to create the Conferenceship
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Conferenceship"
+  "/conferenceships/{conferenceshipId}":
+    get:
+      description: Retrieve a single Conferenceship
+      operationId: get_conferenceship
+      responses:
+        "200":
+          description: Conferenceship was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Conferenceship"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: conferenceshipId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Conferenceship
+    put:
+      description: Update a single Conferenceship
+      operationId: update_conferenceship
+      responses:
+        "200":
+          description: Conferenceship was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Conferenceship"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to update the Conferenceship
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+        "404":
+          description: Not Found
+      parameters:
+        - name: conferenceshipId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Conferenceship
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Conferenceship"
+        required: true
+        description: Conferenceship attributes to update
+    delete:
+      description: Delete a single Conferenceship
+      operationId: delete_conferenceship
+      responses:
+        "204":
+          description: Conferenceship was deleted
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: conferenceshipId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Conferenceship
+  "/contacts":
+    get:
+      description: Retrieve some or all contacts
+      operationId: get_contacts
+      responses:
+        "200":
+          description: Contacts were found
+          content:
+            application/json:
+              schema:
+                title: ContactCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Contact"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/contacts/{contactId}":
+    get:
+      description: Retrieve a single contact
+      operationId: get_contact
+      responses:
+        "200":
+          description: Contact was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Contact"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: contactId
+          in: path
+          description: ID of contact to retrieve
+          required: true
+          schema:
+            type: integer
+  "/contracts":
+    get:
+      description: Retrieve some or all contracts
+      operationId: get_contracts
+      responses:
+        "200":
+          description: Contracts were found
+          content:
+            application/json:
+              schema:
+                title: ContractCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Contract"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/contracts/{contractId}":
+    get:
+      description: Retrieve a single contract
+      operationId: get_contract
+      responses:
+        "200":
+          description: Contract was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Contract"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: contractId
+          in: path
+          description: ID of contract to retrieve
+          required: true
+          schema:
+            type: integer
+  "/deal_statuses":
+    get:
+      description: Retrieve some or all deal statuses
+      operationId: get_deal_statuses
+      responses:
+        "200":
+          description: Deal statuses were found
+          content:
+            application/json:
+              schema:
+                title: DealStatusCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/DealStatus"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/deal_statuses/{dealStatusId}":
+    get:
+      description: Retrieve a single deal status
+      operationId: get_deal_status
+      responses:
+        "200":
+          description: Deal status was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DealStatus"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: dealStatusId
+          in: path
+          description: ID of deal status to retrieve
+          required: true
+          schema:
+            type: integer
+  "/deals":
+    get:
+      description: Retrieve some or all deals
+      operationId: get_deals
+      responses:
+        "200":
+          description: Deals were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: DealCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Deal"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/deals/{dealId}":
+    get:
+      description: Retrieve a single Deal
+      operationId: get_deal
+      responses:
+        "200":
+          description: Deal was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Deal"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: dealId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Deal
+  "/divisions":
+    get:
+      description: Retrieve some or all divisions
+      operationId: get_divisions
+      responses:
+        "200":
+          description: Divisions were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: DivisionCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Division"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/divisions/{divisionId}":
+    get:
+      description: Retrieve a single Division
+      operationId: get_division
+      responses:
+        "200":
+          description: Division was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Division"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: divisionId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Division
+  "/financials_qc":
+    get:
+      description: Retrieve schools with thier financials qc
+      tags:
+        - reporting
+      operationId: get_schools_financials_qc
+      responses:
+        "200":
+          description: some schools with thier financials qc report
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FinancialQc"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/foia_labels":
+    get:
+      description: Retrieve some or all foia labels
+      operationId: get_foia_labels
+      responses:
+        "200":
+          description: Foia labels were found
+          content:
+            application/json:
+              schema:
+                title: FoiaLabelCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/FoiaLabel"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+    post:
+      description: Create a new foia label
+      operationId: create_foia_label
+      responses:
+        "201":
+          description: Foia label was created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FoiaLabel"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to create foia label
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+      requestBody:
+        description: Foia label to create
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/FoiaLabel"
+  "/foia_labels/{foiaLabelId}":
+    get:
+      description: Retrieve a single foia label
+      operationId: get_foia_label
+      responses:
+        "200":
+          description: Foia label was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FoiaLabel"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: foiaLabelId
+          in: path
+          description: ID of foia label to retrieve
+          required: true
+          schema:
+            type: integer
+    patch:
+      description: Update a single foia label
+      operationId: update_foia_label
+      responses:
+        "200":
+          description: Foia label was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FoiaLabel"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: foiaLabelId
+          in: path
+          description: ID of foia label to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Foia label to update
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/FoiaLabel"
+    delete:
+      description: Delete a single foia label
+      operationId: delete_foia_label
+      responses:
+        "204":
+          description: Foia label was deleted
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: foiaLabelId
+          in: path
+          description: ID of foia label to delete
+          required: true
+          schema:
+            type: integer
+  "/foia_requests":
+    get:
+      description: Retrieve some or all foia requests
+      operationId: get_foia_requests
+      responses:
+        "200":
+          description: Foia requests were found
+          content:
+            application/json:
+              schema:
+                title: FoiaRequestCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/FoiaRequest"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+    post:
+      description: Create a new foia request
+      operationId: create_foia_request
+      responses:
+        "201":
+          description: Foia request was created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FoiaRequest"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to create foia request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+      requestBody:
+        description: Foia request to create
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/FoiaRequest"
+  "/foia_requests/{foiaRequestId}":
+    get:
+      description: Retrieve a single foia request
+      operationId: get_foia_request
+      responses:
+        "200":
+          description: Foia request was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FoiaRequest"
+          links:
+            school:
+              operationId: get_school
+              description: Retrieve the school associated with this foia request
+              parameters:
+                schoolId: "$response.body#/school_id"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: foiaRequestId
+          in: path
+          description: ID of foia request to retrieve
+          required: true
+          schema:
+            type: integer
+    patch:
+      description: Update a single foia request
+      operationId: update_foia_request
+      responses:
+        "200":
+          description: Foia request was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FoiaRequest"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: foiaRequestId
+          in: path
+          description: ID of foia request to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Foia request to update
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/FoiaRequest"
+    delete:
+      description: Delete a single foia request
+      operationId: delete_foia_request
+      responses:
+        "204":
+          description: Foia request was deleted
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: foiaRequestId
+          in: path
+          description: ID of foia request to delete
+          required: true
+          schema:
+            type: integer
+  "/games":
+    get:
+      description: Retrieve some or all games
+      operationId: get_games
+      responses:
+        "200":
+          description: Games were found
+          content:
+            application/json:
+              schema:
+                title: GameCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Game"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/games/{gameId}":
+    get:
+      description: Retrieve a single game
+      operationId: get_game
+      responses:
+        "200":
+          description: Game was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Game"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: gameId
+          in: path
+          description: ID of game to retrieve
+          required: true
+          schema:
+            type: integer
+  "/income_reports":
+    get:
+      description: Retrieve some or all income reports
+      operationId: get_income_reports
+      responses:
+        "200":
+          description: Income reports were found
+          content:
+            application/json:
+              schema:
+                title: IncomeReportCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/IncomeReport"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/income_reports/{incomeReportId}":
+    get:
+      description: Retrieve a single income report
+      operationId: get_income_report
+      responses:
+        "200":
+          description: Income report was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/IncomeReport"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: incomeReportId
+          in: path
+          description: ID of income report to retrieve
+          required: true
+          schema:
+            type: integer
+  "/ncaa_financial_report_statuses":
+    get:
+      description: Retrieve some or all ncaa financial report statuses
+      operationId: get_ncaa_financial_report_statuses
+      responses:
+        "200":
+          description: Ncaa financial report statuses were found
+          content:
+            application/json:
+              schema:
+                title: NcaaFinancialReportStatusCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/NcaaFinancialReportStatus"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId}":
+    get:
+      description: Retrieve a single ncaa financial report status
+      operationId: get_ncaa_financial_report_status
+      responses:
+        "200":
+          description: Ncaa financial report status was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/NcaaFinancialReportStatus"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: ncaaFinancialReportStatusId
+          in: path
+          description: ID of ncaa financial report status to retrieve
+          required: true
+          schema:
+            type: integer
+  "/positions":
+    get:
+      description: Retrieve some or all positions
+      operationId: get_positions
+      responses:
+        "200":
+          description: Positions were found
+          content:
+            application/json:
+              schema:
+                title: PositionCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Position"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/positions/{positionId}":
+    get:
+      description: Retrieve a single position
+      operationId: get_position
+      responses:
+        "200":
+          description: Position was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Position"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: positionId
+          in: path
+          description: ID of position to retrieve
+          required: true
+          schema:
+            type: integer
+  "/raw_contracts":
+    get:
+      description: Retrieve some or all raw_contracts
+      operationId: get_raw_contracts
+      responses:
+        "200":
+          description: Raw Contracts were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: RawContractCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/RawContract"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/raw_contracts/{raw_contractId}":
+    get:
+      description: Retrieve a single RawContract
+      operationId: get_raw_contract
+      responses:
+        "200":
+          description: Raw Contract was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RawContract"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: raw_contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the RawContract
+  "/reports/coach_contract_requests":
+    get:
+      description: Retrieve some or all coach contract requests
+      tags:
+        - reporting
+      operationId: get_coach_contract_requests
+      responses:
+        "200":
+          description: Coach contract requests were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/coach_history":
+    get:
+      description: Retrieve some or all coach history
+      tags:
+        - reporting
+      operationId: get_coach_history
+      responses:
+        "200":
+          description: Coach history was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/conferenceships":
+    get:
+      description: Retrieve some or all conferenceships
+      tags:
+        - reporting
+      operationId: get_conferenceships
+      responses:
+        "200":
+          description: Conferenceships were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/foia_details":
+    get:
+      description: Retrieve some or all foia details
+      tags:
+        - reporting
+      operationId: get_foia_details
+      responses:
+        "200":
+          description: Foia details were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/games":
+    get:
+      description: Retrieve some or all games
+      tags:
+        - reporting
+      operationId: get_games
+      responses:
+        "200":
+          description: Games were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/invoices":
+    get:
+      description: Retrieve some or all client invoices
+      tags:
+        - reporting
+      operationId: get_invoices
+      responses:
+        "200":
+          description: Invoices were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/school_contract_requests":
+    get:
+      description: Retrieve some or all school contract requests
+      tags:
+        - reporting
+      operationId: get_school_contract_requests
+      responses:
+        "200":
+          description: School contract requests were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/reports/subscriptions":
+    get:
+      description: Retrieve subscriptions
+      tags:
+        - reporting
+      operationId: get_subscriptions
+      responses:
+        "200":
+          description: some subscriptions
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ReportResult"
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/requested_items":
+    get:
+      description: Retrieve some or all requested items
+      operationId: get_requested_items
+      responses:
+        "200":
+          description: Requested items were found
+          content:
+            application/json:
+              schema:
+                title: RequestedItemCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/RequestedItem"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+    post:
+      description: Create a new requested item
+      operationId: create_requested_item
+      responses:
+        "201":
+          description: Requested item was created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RequestedItem"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unable to create requested item
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UnprocessableEntity"
+      requestBody:
+        description: Requested item to create
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RequestedItem"
+  "/requested_items/{requestedItemId}":
+    get:
+      description: Retrieve a single requested item
+      operationId: get_requested_item
+      responses:
+        "200":
+          description: Requested item was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RequestedItem"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: requestedItemId
+          in: path
+          description: ID of requested item to retrieve
+          required: true
+          schema:
+            type: integer
+    patch:
+      description: Update a single requested item
+      operationId: update_requested_item
+      responses:
+        "200":
+          description: Requested item was updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RequestedItem"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: requestedItemId
+          in: path
+          description: ID of requested item to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Requested item to update
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RequestedItem"
+    delete:
+      description: Delete a single requested item
+      operationId: delete_requested_item
+      responses:
+        "204":
+          description: Requested item was deleted
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: requestedItemId
+          in: path
+          description: ID of requested item to delete
+          required: true
+          schema:
+            type: integer
+  "/schools":
+    get:
+      description: Retrieve some or all schools
+      operationId: get_schools
+      responses:
+        "200":
+          description: Schools were found
+          content:
+            application/json:
+              schema:
+                title: SchoolCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/School"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/schools/{schoolId}/alternate_names":
+    get:
+      description: Retrieve alternate names for a specific school
+      operationId: get_school_alternate_names
+      responses:
+        '200':
+          description: Alternate names were found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: string
+                    example: ["Alabama", "UA", "Bama"]
+        '401':
+          description: Unauthorized
+        '404':
+          description: School not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "School not found"
+      parameters:
+        - name: schoolId
+          in: path
+          description: ID of school to retrieve alternate names for
+          required: true
+          schema:
+            type: integer
+  "/schools/compare_coli":
+    get:
+      description: Retrieve the COLI-adjusted compensation
+      operationId: compare_coli
+      responses:
+        "200":
+          description: COLI-adjusted compensation found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/COLIAdjusted"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Cost of living index not found
+        "422":
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Missing required attributes
+        "401":
+          description: Unauthorized
+      parameters:
+        - name: school_id
+          in: query
+          description: ID of the School
+          required: true
+          schema:
+            type: integer
+        - name: other_person_school_id
+          in: query
+          description: ID of the other person School
+          required: true
+          schema:
+            type: integer
+        - name: other_person_total_compensation
+          in: query
+          description: Other person total compensation amount
+          required: true
+          schema:
+            type: integer
+  "/schools/{schoolId}":
+    get:
+      description: Retrieve a single school
+      operationId: get_school
+      responses:
+        "200":
+          description: School was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/School"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: schoolId
+          in: path
+          description: ID of school to retrieve
+          required: true
+          schema:
+            type: integer
+  "/seasons":
+    get:
+      description: Retrieve some or all seasons
+      operationId: get_seasons
+      responses:
+        "200":
+          description: Seasons were found
+          content:
+            application/json:
+              schema:
+                title: SeasonCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Season"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/seasons/{seasonId}":
+    get:
+      description: Retrieve a single season
+      operationId: get_season
+      responses:
+        "200":
+          description: Season was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Season"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: seasonId
+          in: path
+          description: ID of season to retrieve
+          required: true
+          schema:
+            type: integer
+  "/sports":
+    get:
+      description: Retrieve some or all sports
+      operationId: get_sports
+      responses:
+        "200":
+          description: Sports were found
+          content:
+            application/json:
+              schema:
+                title: SportCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Sport"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/sports/{sportId}":
+    get:
+      description: Retrieve a single sport
+      operationId: get_sport
+      responses:
+        "200":
+          description: Sport was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Sport"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: sportId
+          in: path
+          description: ID of sport to retrieve
+          required: true
+          schema:
+            type: integer
+  "/subdivisions":
+    get:
+      description: Retrieve some or all subdivisions
+      operationId: get_subdivisions
+      responses:
+        "200":
+          description: Subdivisions were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: SubdivisionCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Subdivision"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/subdivisions/{subdivisionId}":
+    get:
+      description: Retrieve a single Subdivision
+      operationId: get_subdivision
+      responses:
+        "200":
+          description: Subdivision was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Subdivision"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: subdivisionId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Subdivision
+  "/subscriptions":
+    get:
+      description: Retrieve the all subscriptions
+      operationId: get_subscriptions
+      responses:
+        "200":
+          description: Subscriptions were found
+          content:
+            application/json:
+              schema:
+                title: SubscriptionCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Subscription"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/subscriptions/{subscriptionId}":
+    get:
+      description: Retrieve a single Subscription
+      operationId: get_subscription
+      responses:
+        "200":
+          description: Subscription was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Subscription"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: subscriptionId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Subscription
+  "/system_setting":
+    get:
+      description: Retrieve the current system settings
+      operationId: get_system_settings
+      responses:
+        "200":
+          description: System settings were found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/SystemSetting"
+        "401":
+          description: Unauthorized
+  "/users":
+    get:
+      description: Retrieve some or all users
+      operationId: get_users
+      responses:
+        "200":
+          description: Users were found
+          content:
+            application/json:
+              schema:
+                title: UserCollection
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/User"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/users/me":
+    get:
+      description: Retrieve a single user
+      operationId: user_me
+      responses:
+        "200":
+          description: User was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/User"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+  "/users/verify_user_intercollegiate_access":
+    get:
+      description:
+        Verifies whether the user has intercollegiate access based on their
+        email.
+      operationId: verify_user_intercollegiate_access
+      responses:
+        "200":
+          description: Successful response with the access granted status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_granted:
+                    type: boolean
+                    description: Indicates whether the user has intercollegiate access
+                    example: true
+        "401":
+          description: Unauthorized
+        "404":
+          description: User Not Found
+      parameters:
+        - name: user_email
+          in: query
+          required: true
+          description: The email of the user whose intercollegiate access is being verified.
+          schema:
+            type: string
+            format: email
+  "/users/{userId}":
+    get:
+      description: Retrieve a single user
+      operationId: get_user
+      responses:
+        "200":
+          description: User was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/User"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user to retrieve
+          required: true
+          schema:
+            type: integer
+  "/vendors":
+    get:
+      description: Retrieve some or all vendors
+      operationId: get_vendors
+      responses:
+        "200":
+          description: Vendors were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: VendorCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Vendor"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+  "/vendors/{vendorId}":
+    get:
+      description: Retrieve a single Vendor
+      operationId: get_vendor
+      responses:
+        "200":
+          description: Vendor was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Vendor"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: vendorId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the Vendor
+  "/wire_changes":
+    get:
+      description:
+        Returns WireChange records. Supports Ransack-style filters (`q[...]`).
+        Includes related position_types and sports arrays in each object. Each item
+        also includes coach avatar (if present) and school logo images.
+      operationId: get_wire_changes
+      responses:
+        "200":
+          description: Wire changes found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+                  wire_changes:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/WireChange"
+        "401":
+          description: Unauthorized
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+        - name: q[coach_id_eq]
+          in: query
+          schema:
+            type: integer
+          description: Filter by coach ID
+        - name: q[school_id_eq]
+          in: query
+          schema:
+            type: integer
+          description: Filter by school ID
+        - name: q[sport_id_eq]
+          in: query
+          schema:
+            type: integer
+          description: Filter by sport ID
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+    Oauth2Client:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: "/oauth/token"
+          scopes: {}
+  parameters:
+    pageParam:
+      name: page
+      in: query
+      description: results page to retrieve.
+      required: false
+      schema:
+        type: integer
+        default: 1
+    perPageParam:
+      name: per_page
+      in: query
+      description: number of results per page.
+      required: false
+      schema:
+        type: integer
+        default: 20
+    ransackQuery:
+      name: q
+      in: query
+      description: Ransack query
+      required: false
+      schema:
+        type: object
+      style: form
+  schemas:
+    Administrator:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        coach_id:
+          type: integer
+          example: 1
+        coach_first_name:
+          type: string
+          example: John
+        coach_last_name:
+          type: string
+          example: Doe
+        coach_name:
+          type: string
+          example: John Doe
+        season_id:
+          type: integer
+          example: 1
+        position_id:
+          type: integer
+          example: 1
+        school_id:
+          type: integer
+          example: 1
+        conference_id:
+          type: integer
+          example: 1
+        division_id:
+          type: integer
+          example: 1
+        geo_division_id:
+          type: integer
+          example: 1
+        compensation_id:
+          type: integer
+          example: 1
+        contract_id:
+          type: integer
+          example: 1
+        year:
+          type: integer
+          example: 2019
+        position_title:
+          type: string
+          example: This is a position title
+        school_name:
+          type: string
+          example: This is a school name
+        school_short_name:
+          type: string
+          example: This is a school short name
+        state:
+          type: string
+          example: This is a state
+        usnwr_ranking:
+          type: integer
+          example: 1
+        directors_cup_ranking:
+          type: integer
+          example: 1
+        compensation_cents:
+          type: integer
+          example: 10000
+        compensation_base_salary_cents:
+          type: integer
+          example: 10000
+        compensation_type:
+          type: string
+          enum:
+            - yearly
+            - hourly
+            - "990"
+        compensation_outside_income_cents:
+          type: integer
+          example: 10000
+        compensation_deferred_comp_cents:
+          type: integer
+          example: 10000
+        compensation_one_time_bonus_cents:
+          type: integer
+          example: 10000
+        compensation_contingent_bonus:
+          type: boolean
+          example: true
+        compensation_buyout_terms:
+          type: string
+          example: This is a compensation buyout terms
+        compensation_is_car_provided:
+          type: boolean
+          example: true
+        compensation_country_club_dues_cents:
+          type: integer
+          example: 10000
+        compensation_country_club_membership_paid:
+          type: boolean
+          example: false
+        compensation_media_link:
+          type: string
+          example: This is a compensation media link
+        contract_starts_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        contract_expires_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        diversity:
+          type: boolean
+          example: false
+        gender:
+          type: string
+          enum:
+            - M
+            - F
+            - ""
+          example: M
+        alma_mater_id:
+          type: integer
+          example: 2
+        private:
+          type: boolean
+          example: false
+        sport_id:
+          type: integer
+          example: 2089953594
+        coli:
+          type: number
+          example: 11.09
+        coach:
+          "$ref": "#/components/schemas/Coach"
+        departments:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PositionType"
+    AuditedFinancialReportStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        school_id:
+          type: integer
+          example: 1
+        year:
+          type: integer
+          example: 2019
+        status:
+          type: string
+          enum:
+            - Available
+            - Missing
+            - Not Available
+          description:
+            The status of the audited financial report. Available means
+            the report is in the system. Missing means the report is not in the system.
+            Not Available means the report is not required for the year.
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+      required:
+        - school_id
+        - year
+    Avatar:
+      type: object
+      properties:
+        original_url:
+          type: string
+          example: https://winthrop-development.s3.amazonaws.com/logos/original/1836339699/Alabama_Crimson_Tide.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2AOM4MHPY54WAI5M%2F20230628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230628T205207Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=048b817de488c6f8517b260f3494555236ee7593720d7a7695a43e7e320f262c
+          description: Signed, expiring url for the original logo image
+        medium_url:
+          type: string
+          example: https://winthrop-development.s3.amazonaws.com/logos/medium/1836339699/Alabama_Crimson_Tide.gif
+          description: Signed, expiring url for the medium logo image
+        small_url:
+          type: string
+          example: https://winthrop-development.s3.amazonaws.com/logos/small/1836339699/Alabama_Crimson_Tide.gif
+          description: Signed, expiring url for the small logo image
+        image_remote_url:
+          type: string
+          example: https://source.example.com/user/c_v_r/100x100
+          description: Remote URL for Coach Avatar
+    AverageCompensation:
+      type: object
+      properties:
+        mean:
+          type: number
+          format: float
+        median:
+          type: number
+          format: float
+        mode:
+          type: number
+          format: float
+        min:
+          type: number
+          format: float
+        max:
+          type: number
+          format: float
+        percentile_25:
+          type: number
+          format: float
+        percentile_75:
+          type: number
+          format: float
+    COLIAdjusted:
+      type: object
+      properties:
+        coli_adjusted_total:
+          type: integer
+          example: 12000
+    Coach:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        email:
+          type: string
+          example: jdoe@alabama.edu
+        phone:
+          type: string
+          example: 555-555-5555
+        leader:
+          type: boolean
+          example: false
+        bio:
+          type: string
+          example: https://rolltide.com/staff-directory/greg-byrne/519
+        bio_text:
+          type: string
+          example: Example Bio Text
+        dob:
+          type: string
+          format: date
+          example: "2019-01-01"
+        alma_mater_id:
+          type: integer
+          example: 1
+          description: ID of School, You can view Alma Mater using School API
+        alma_mater_year:
+          type: string
+          example: "2009"
+        hometown_city:
+          type: string
+          example: Omaha
+        hometown_state:
+          type: string
+          example: PA
+        twitter_handle:
+          type: string
+          example: Example_User3
+        linkedin:
+          type: string
+          example: example-user-9974688
+        instagram_handle:
+          type: string
+          example: example_User4
+        current_tenure_years:
+          type: integer
+          example: 1
+        avatar:
+          "$ref": "#/components/schemas/Avatar"
+        years_of_experience:
+          type: integer
+          example: 1
+        external_years_experience:
+          type: integer
+          example: 1
+        athletic_years_of_experience:
+          type: integer
+          example: 1
+        avatar_scraping_disabled:
+          type: boolean
+          example: false
+        latest_salary:
+          type: integer
+          example: 1
+        latest_salary_year:
+          type: integer
+          example: 2000
+        last_bio_text_updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        instagram_scraping_disabled:
+          type: boolean
+          example: false
+        linkedin_scraping_disabled:
+          type: boolean
+          example: false
+        twitter_scraping_disabled:
+          type: boolean
+          example: false
+        email_scraping_disabled:
+          type: boolean
+          example: false
+        mobility_index:
+          type: integer
+          example: 5
+        has_new_job:
+          type: boolean
+          example: false
+    CoachCompensation:
+      type: object
+      properties:
+        coach_id:
+          type: integer
+          example: 1
+        estimated:
+          type: boolean
+          example: false
+        salary:
+          type: number
+          format: float
+          description: The base salary (rounded to 2 decimal places)
+          example: 32500000.0
+        year:
+          type: integer
+          example: 2025
+        coli_salary:
+          type: number
+          format: float
+          example: 29900000.0
+    Compensation:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        bonus_comp_cents:
+          type: integer
+          example: 10000
+        deferred_comp_cents:
+          type: integer
+          example: 10000
+        talent_fee:
+          type: integer
+          example: 10000
+        is_car_provided:
+          type: boolean
+          example: false
+        country_club_dues_cents:
+          type: integer
+          example: 10000
+        coach_id:
+          type: integer
+          example: 1
+        buyout_terms:
+          type: string
+          example: This is a buyout term
+        executed_on:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        expires_on:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        start_on:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        end_on:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        average_yearly_comp_cents:
+          type: integer
+          example: 10000
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        outside_income_cents:
+          type: integer
+          example: 10000
+        one_time_bonus_cents:
+          type: integer
+          example: 10000
+        comment:
+          type: string
+          example: This is a comment
+        country_club_membership_paid:
+          type: boolean
+          example: false
+        base_salary_cents:
+          type: integer
+          example: 10000
+        bonus_has_contingents:
+          type: boolean
+          example: false
+        calculated_guaranteed_comp_cents:
+          type: integer
+          example: 10000
+        contingent_bonus:
+          type: boolean
+          example: true
+        noncontingent_bonus_comp_cents:
+          type: integer
+          example: 10000
+        compensation_type:
+          type: string
+          example: This is a compensation type
+        media_link:
+          type: string
+          example: This is a media link
+        contract_status_id:
+          type: integer
+          example: 1
+        year:
+          type: integer
+          example: 2019
+        school_id:
+          type: integer
+          example: 1
+        contract:
+          "$ref": "#/components/schemas/Contract"
+    Conference:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        name_display:
+          type: string
+        nickname:
+          type: string
+        headquarters:
+          type: string
+        founded:
+          type: integer
+        division_id:
+          type: integer
+        ord:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        external_url:
+          type: string
+    Conferenceship:
+      type: object
+      properties:
+        id:
+          type: integer
+        school_id:
+          type: integer
+        sport_id:
+          type: integer
+        conference_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        school_id:
+          type: integer
+          example: 2
+        coach_id:
+          type: integer
+          example: 3
+        sport_id:
+          type: integer
+          example: 4
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+    Contract:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        executed_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        expires_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        start_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        end_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        at_will:
+          type: boolean
+          example: false
+        verified:
+          type: boolean
+          example: false
+        contractable_type:
+          type: string
+          example: Coach
+          enum:
+            - Coach
+            - Person
+        contractable_id:
+          type: integer
+          example: 1
+        raw_contract_id:
+          type: integer
+          example: 1
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+    Deal:
+      type: object
+      properties:
+        id:
+          type: integer
+        school_id:
+          type: integer
+        vendor_id:
+          type: integer
+        start_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        end_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        signed:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        text:
+          type: string
+        autorenew:
+          type: boolean
+        deal_type_id:
+          type: integer
+        archived:
+          type: boolean
+        deal_status_type_id:
+          type: integer
+        verified:
+          type: boolean
+    DealStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        school_id:
+          type: integer
+          example: 2
+        auto_renew:
+          type: boolean
+          example: false
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        source_note:
+          type: string
+          example: This is a note
+        note:
+          type: string
+          example: This is a note
+        deal_status_type_id:
+          type: integer
+          example: 3
+        deal_type_id:
+          type: integer
+          example: 4
+      required:
+        - school_id
+        - deal_type_id
+    Division:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        name_display:
+          type: string
+        nickname:
+          type: string
+    Filters:
+      type: object
+      name: filters
+      properties:
+        filters:
+          type: object
+          description: Key-value pairs for filtering coaches
+          example:
+            priority_ids:
+              - 1
+              - 2
+            page: 1
+            per_page: 100
+            q: {}
+    FinancialQc:
+      type: object
+      properties:
+        school_id:
+          type: integer
+          example: 1
+        school_name:
+          type: string
+          example: Example School
+        ncca_pdf:
+          type: boolean
+          example: true
+        audited_pdf:
+          type: boolean
+          example: false
+        nca_csv:
+          type: boolean
+          example: true
+        school_info_csv:
+          type: boolean
+          example: false
+        sport_stats_csv:
+          type: boolean
+          example: true
+        year:
+          type: integer
+          example: 2024
+    FoiaLabel:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: August Coaches 2015
+        archived:
+          type: boolean
+          example: false
+      required:
+        - name
+    FoiaRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        school_id:
+          type: integer
+          example: 2
+        created_by_id:
+          type: integer
+          example: 3
+        updated_by_id:
+          type: integer
+          example: 4
+        state:
+          type: string
+          enum:
+            - ACTIVE
+            - ARCHIVED
+        foia_label_id:
+          type: integer
+          example: 5
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+      required:
+        - school_id
+        - state
+    Game:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        home_school_id:
+          type: integer
+          example: 2
+        away_school_id:
+          type: integer
+          example: 3
+        sport_id:
+          type: integer
+          example: 4
+        game_date:
+          type: string
+          format: date
+          example: "2019-01-01T00:00:00.000Z"
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        neutral:
+          type: boolean
+          example: false
+        city:
+          type: string
+          example: This is a city
+        game_contract_id:
+          type: integer
+          example: 5
+        state_id:
+          type: integer
+          example: 6
+        description:
+          type: string
+          example: This is a description
+        in_conference:
+          type: boolean
+          example: false
+        season_year_tbd:
+          type: integer
+          example: 7
+        home_school_score:
+          type: integer
+          example: 8
+        away_school_score:
+          type: integer
+          example: 9
+        overtime:
+          type: integer
+          example: 10
+        season_year:
+          type: integer
+          example: 11
+      required:
+        - sport_id
+    IncomeReport:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        coach_id:
+          type: integer
+          example: 2
+        raw_contract_id:
+          type: integer
+          example: 3
+        year:
+          type: integer
+          example: 2020
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        notes:
+          type: string
+          example: This is a note
+        contract_status_id:
+          type: integer
+          example: 5
+      required:
+        - coach_id
+        - year
+    Logo:
+      type: object
+      properties:
+        original_url:
+          type: string
+          example: https://example.com/logos/original/logo.gif
+          description: Signed, expiring url for the original logo image
+        medium_url:
+          type: string
+          example: https://example.com/logos/medium/logo.gif
+          description: Signed, expiring url for the medium logo image
+        small_url:
+          type: string
+          example: https://example.com/logos/small/logo.gif
+          description: Signed, expiring url for the small logo image
+    Meta:
+      type: object
+      properties:
+        current_page:
+          type: integer
+          example: 2
+        total_pages:
+          type: integer
+          example: 7
+        total_entries:
+          type: integer
+          example: 654
+        next_page:
+          type: integer
+          example: 3
+        previous_page:
+          type: integer
+          example: 1
+    NcaaFinancialReportStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        school_id:
+          type: integer
+          example: 2
+        year:
+          type: integer
+          example: 2020
+        available:
+          type: boolean
+          example: false
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+    Position:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        season_id:
+          type: integer
+          example: 2
+        coach_id:
+          type: integer
+          example: 3
+        start_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        end_on:
+          type: string
+          format: date
+          example: "2019-01-01"
+        partial_season:
+          type: boolean
+          example: false
+        compensation_id:
+          type: integer
+          example: 4
+        coach_apr:
+          type: integer
+          example: 5
+        title:
+          type: string
+          example: This is a title
+        name_display:
+          type: string
+          example: This is a display name
+        departing:
+          type: boolean
+          example: false
+        departing_set_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        creation_reason:
+          type: string
+          nullable: true
+          enum:
+            - renewed
+            - new_hire
+            - promotion
+            - extension
+            -
+        creation_reason_updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        coach:
+          "$ref": "#/components/schemas/Coach"
+        sport:
+          "$ref": "#/components/schemas/Sport"
+        school:
+          "$ref": "#/components/schemas/School"
+        article_link:
+          type: string
+          example: https://google.com
+        article_title:
+          type: string
+          example: This is the title
+        article_description:
+          type: string
+          example: This is the description for this article
+        article_site_name:
+          type: string
+          example: Test Site
+        article_publish_time:
+          type: string
+          example: "2019-01-01T00:00:00.000Z"
+        article_image_url:
+          type: string
+          example: https://google.com
+        position_types:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PositionType"
+    PositionType:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: POSITION NAME
+        name_display:
+          type: string
+          example: Position Name
+        ord:
+          type: integer
+          example: 2
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        position_type_group:
+          "$ref": "#/components/schemas/PositionTypeGroup"
+        force_display_title:
+          type: boolean
+          example: false
+        intercollegiate_only:
+          type: boolean
+          example: false
+    PositionTypeGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: POSITION TYPE GROUP NAME
+        name_display:
+          type: string
+          example: Position Type Group Name
+        ord:
+          type: integer
+          example: 2
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+    RawContract:
+      type: object
+      properties:
+        id:
+          type: integer
+        asset_file_size:
+          type: integer
+        asset_content_type:
+          type: string
+        asset_file_name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        contract_type_id:
+          type: integer
+        uploaded:
+          type: integer
+        deal_id:
+          type: integer
+        school_id:
+          type: integer
+        school_revenue_year:
+          type: integer
+        audited_financial_year:
+          type: integer
+        text:
+          type: string
+        use_flexpaper:
+          type: boolean
+        game_contracts_count:
+          type: integer
+        drive_id:
+          type: string
+        migrated_successfully:
+          type: boolean
+        migration_failure_reason:
+          type: string
+        unstract_pdf_text:
+          type: string
+        unstract_responses_details:
+          type:
+        layout_preserved_pdf_text:
+          type: string
+    ReportResult:
+      type: object
+    RequestedItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        foia_request_id:
+          type: integer
+          example: 2
+        requestable_id:
+          type: integer
+          example: 3
+        requestable_type:
+          type: string
+          enum:
+            - DealStatus
+            - Game
+            - Compensation
+            - IncomeReport
+            - NcaaFinancialReportStatus
+            - AuditedFinancialReportStatus
+        received:
+          type: boolean
+          example: false
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        coach_id:
+          type: integer
+          example: 4
+        status:
+          type: string
+          enum:
+            - pending
+            - not_available
+            - received
+      required:
+        - foia_request_id
+        - requestable_id
+        - requestable_type
+    School:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: University of Alabama
+        short_name:
+          type: string
+          example: Alabama
+        location:
+          type: string
+          example: Tuscaloosa, AL
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        city:
+          type: string
+          example: Tuscaloosa
+        nickname:
+          type: string
+          example: Crimson Tide
+        external_url:
+          type: string
+          example: http://www.rolltide.com
+        colors:
+          type: string
+          example: Crimson, White
+        state:
+          type: string
+          example: AL
+        primary_conference_id:
+          type: integer
+          example: 1
+        cost_of_living_index_city_code:
+          type: string
+          example: 01-46220-900
+        current_directors_cup_ranking:
+          type: integer
+          example: 27
+        current_usnwr_ranking:
+          type: integer
+          example: 153
+        private:
+          type: boolean
+          example: false
+        school_classification_id:
+          type: integer
+          example: 18
+        logo_updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        youtube_search_name:
+          type: string
+          example: University of Alabama
+        latitude:
+          type: number
+          example: 33.2098
+        longitude:
+          type: number
+          example: -87.5692
+        address_1:
+          type: string
+          example: 739 University Blvd
+        address_2:
+          type: string
+          example: Box 870158
+        zip_code:
+          type: string
+          example: "35487"
+        logo_image:
+          title: SchoolLogo
+          "$ref": "#/components/schemas/Logo"
+        athletic_director:
+          "$ref": "#/components/schemas/Coach"
+        athletics_url:
+          type: string
+          example: ""
+        wikipedia_url:
+          type: string
+          example: ""
+        athletics_wikipedia_url:
+          type: string
+          example: ""
+        external_logo_image:
+          title: SchoolExternalLogo
+          "$ref": "#/components/schemas/Logo"
+        school_status:
+          type: string
+          enum:
+            - active
+            - closed
+            - international
+        athletics_instagram_handle:
+          type: string
+          example: ""
+        athletics_twitter_handle:
+          type: string
+          example: ""
+        external_instagram_handle:
+          type: string
+          example: ""
+        external_twitter_handle:
+          type: string
+          example: ""
+        ncaa_id:
+          type: integer
+          example: 306
+        conference:
+          "$ref": "#/components/schemas/Conference"
+        division:
+          "$ref": "#/components/schemas/Division"
+        subdivisions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Subdivision"
+    Season:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: 2019-2020
+        description:
+          type: string
+          example: 2019-2020
+        school_id:
+          type: integer
+          example: 2
+        sport_id:
+          type: integer
+          example: 3
+        year:
+          type: integer
+          example: 2019
+        wins:
+          type: integer
+          example: 4
+        losses:
+          type: integer
+          example: 5
+        conference_wins:
+          type: integer
+          example: 6
+        conference_losses:
+          type: integer
+          example: 7
+        apr:
+          type: integer
+          example: 8
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        win_percent:
+          type: number
+          example: 0.5
+        ties:
+          type: integer
+          example: 9
+        rpi:
+          type: integer
+          example: 10
+        prev_rpi:
+          type: integer
+          example: 11
+        conference_position:
+          type: integer
+          example: 12
+        conference_num_positions:
+          type: integer
+          example: 13
+        coach_apr:
+          type: integer
+          example: 14
+        attendance:
+          type: integer
+          example: 15
+        conference_ties:
+          type: integer
+          example: 16
+        recruit_ranking:
+          type: integer
+          example: 17
+        offensive_efficiency:
+          type: number
+          example: 18.0
+        defensive_efficiency:
+          type: number
+          example: 19.0
+        sos_ranking:
+          type: integer
+          example: 20
+        sos:
+          type: number
+          example: 21.0
+        home_wins:
+          type: integer
+          example: 22
+        home_losses:
+          type: integer
+          example: 23
+        home_win_percent:
+          type: number
+          example: 0.5
+        asr:
+          type: integer
+          example: 24
+        head_coach:
+          "$ref": "#/components/schemas/Coach"
+        assistant_coaches:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Coach"
+    Sport:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: BOWLING
+        name_aka:
+          type: string
+          example: bowling
+        name_display:
+          type: string
+          example: Bowling
+        gender_code:
+          type: string
+          enum:
+            - M
+            - W
+        emerging:
+          type: boolean
+          example: false
+        meet_sport:
+          type: boolean
+          example: false
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        ncaa_id:
+          type: string
+          example: MBA
+    Subdivision:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        name_display:
+          type: string
+        division_id:
+          type: integer
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 335
+        accountable_id:
+          type: integer
+          example: 1
+        creator_id:
+          type: integer
+          example: 2
+        start_at:
+          type: string
+          format: date
+          example: "2019-01-01"
+        end_at:
+          type: string
+          format: date
+          example: "2020-01-01"
+        amount_cents:
+          type: integer
+          example: 10000
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        subscription_type_id:
+          type: integer
+          example: 4
+        autorenew:
+          type: boolean
+          example: true
+        activity_cache_id:
+          type: integer
+          example: 5
+        old_email_domain:
+          type: string
+          example: xyz.xyz
+        account_id:
+          type: integer
+          example: 10
+        contract_term:
+          type: integer
+          example: 12
+        raw_contract_id:
+          type: integer
+          example: 123
+        slug:
+          type: string
+          example: "3534255"
+        contract_accepted:
+          type: boolean
+          example: false
+        active:
+          type: boolean
+          example: false
+        contract_accepted_ip_address:
+          type: string
+          example: 233.34.24.28
+        renewal:
+          type: boolean
+          example: false
+        renewing:
+          type: boolean
+          example: false
+        invoicing:
+          type: boolean
+          example: true
+        notes:
+          type: string
+          example: This is a note
+        send_renewal:
+          type: boolean
+          example: true
+        standard_agreement:
+          type: boolean
+          example: true
+        active_users_count:
+          type: integer
+          example: 5
+        has_intercollegiate_access:
+          type: boolean
+          example: true
+    SystemSetting:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        current_season_year:
+          type: integer
+          example: 2019
+        current_financials_season_year:
+          type: integer
+          example: 2019
+        schedule_season_year:
+          type: integer
+          example: 2020
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+    UnprocessableEntity:
+      type: object
+      properties:
+        errors:
+          type: object
+          example:
+            name:
+              - can't be blank
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        email:
+          type: string
+          example: joe@example.com
+        first_name:
+          type: string
+          example: Joe
+        last_name:
+          type: string
+          example: Smith
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        state:
+          type: string
+          enum:
+            - created
+            - suspended
+            - active
+            - pending
+        title:
+          type: string
+          example: Director of Athletics
+        accountable_id:
+          type: integer
+          example: 1
+        accountable_type:
+          type: string
+          example: School
+        coach_id:
+          type: integer
+          example: 1
+        divisions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Division"
+        roles:
+          type: array
+          items:
+            type: string
+    Vendor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        deal_type_id:
+          type: integer
+    WireChange:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        school_id:
+          type: integer
+          format: int64
+        effective_date:
+          type: string
+          format: date-time
+          nullable: true
+        wire_type:
+          type: string
+          nullable: true
+          enum:
+            - new_hire
+            - promotion
+            - extension
+            - departed
+        position_title:
+          type: string
+          nullable: true
+        article_link:
+          type: string
+          nullable: true
+        article_title:
+          type: string
+          nullable: true
+        article_description:
+          type: string
+          nullable: true
+        article_site_name:
+          type: string
+          nullable: true
+        article_publish_time:
+          type: string
+          format: date-time
+          nullable: true
+        article_image_url:
+          type: string
+          nullable: true
+        coach:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+            first_name:
+              type: string
+            last_name:
+              type: string
+            avatar:
+              "$ref": "#/components/schemas/Avatar"
+              nullable: true
+        school:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+            logo_image:
+              "$ref": "#/components/schemas/Logo"
+              nullable: true
+            external_logo_image:
+              "$ref": "#/components/schemas/Logo"
+              nullable: true
+        position_types:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PositionType"
+        sports:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Sport"
+      required:
+        - id
+        - school_id
+security:
+  - ApiKey: []
+  - Oauth2Client: []
