@@ -20,6 +20,7 @@ import type { Filters } from '../models/Filters';
 import type { FoiaLabel } from '../models/FoiaLabel';
 import type { FoiaRequest } from '../models/FoiaRequest';
 import type { Game } from '../models/Game';
+import type { GameContract } from '../models/GameContract';
 import type { IncomeReport } from '../models/IncomeReport';
 import type { Meta } from '../models/Meta';
 import type { NcaaFinancialReportStatus } from '../models/NcaaFinancialReportStatus';
@@ -1211,6 +1212,57 @@ export class DefaultService {
         });
     }
     /**
+     * Retrieve some or all game_contracts
+     * @param page results page to retrieve.
+     * @param perPage number of results per page.
+     * @param q Ransack query
+     * @returns any Game Contracts were found
+     * @throws ApiError
+     */
+    public getGameContracts(
+        page: number = 1,
+        perPage: number = 20,
+        q?: Record<string, any>,
+    ): CancelablePromise<{
+        data?: Array<GameContract>;
+        meta?: Meta;
+    }> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/game_contracts',
+            query: {
+                'page': page,
+                'per_page': perPage,
+                'q': q,
+            },
+            errors: {
+                401: `Unauthorized`,
+                404: `Not Found`,
+            },
+        });
+    }
+    /**
+     * Retrieve a single GameContract
+     * @param gameContractId ID of the GameContract
+     * @returns GameContract Game Contract was found
+     * @throws ApiError
+     */
+    public getGameContract(
+        gameContractId: number,
+    ): CancelablePromise<GameContract> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/game_contracts/{game_contractId}',
+            path: {
+                'game_contractId': gameContractId,
+            },
+            errors: {
+                401: `Unauthorized`,
+                404: `Not Found`,
+            },
+        });
+    }
+    /**
      * Retrieve some or all games
      * @param page results page to retrieve.
      * @param perPage number of results per page.
@@ -1607,29 +1659,6 @@ export class DefaultService {
         });
     }
     /**
-     * Retrieve alternate names for a specific school
-     * @param schoolId ID of school to retrieve alternate names for
-     * @returns any Alternate names were found
-     * @throws ApiError
-     */
-    public getSchoolAlternateNames(
-        schoolId: number,
-    ): CancelablePromise<{
-        data?: Array<string>;
-    }> {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/schools/{schoolId}/alternate_names',
-            path: {
-                'schoolId': schoolId,
-            },
-            errors: {
-                401: `Unauthorized`,
-                404: `School not found`,
-            },
-        });
-    }
-    /**
      * Retrieve the COLI-adjusted compensation
      * @param schoolId ID of the School
      * @param otherPersonSchoolId ID of the other person School
@@ -1675,6 +1704,29 @@ export class DefaultService {
             errors: {
                 401: `Unauthorized`,
                 404: `Not Found`,
+            },
+        });
+    }
+    /**
+     * Retrieve alternate names for a specific school
+     * @param schoolId ID of school to retrieve alternate names for
+     * @returns any Alternate names were found
+     * @throws ApiError
+     */
+    public getSchoolAlternateNames(
+        schoolId: number,
+    ): CancelablePromise<{
+        data?: Array<string>;
+    }> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/schools/{schoolId}/alternate_names',
+            path: {
+                'schoolId': schoolId,
+            },
+            errors: {
+                401: `Unauthorized`,
+                404: `School not found`,
             },
         });
     }

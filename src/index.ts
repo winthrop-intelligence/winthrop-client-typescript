@@ -30,6 +30,7 @@ export type { FinancialQc } from './models/FinancialQc';
 export type { FoiaLabel } from './models/FoiaLabel';
 export { FoiaRequest } from './models/FoiaRequest';
 export type { Game } from './models/Game';
+export type { GameContract } from './models/GameContract';
 export type { IncomeReport } from './models/IncomeReport';
 export type { Logo } from './models/Logo';
 export type { Meta } from './models/Meta';

@@ -1279,6 +1279,56 @@ paths:
           required: true
           schema:
             type: integer
+  "/game_contracts":
+    get:
+      description: Retrieve some or all game_contracts
+      operationId: get_game_contracts
+      responses:
+        "200":
+          description: Game Contracts were found
+          content:
+            application/json:
+              schema:
+                type: object
+                title: GameContractCollection
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/GameContract"
+                  meta:
+                    "$ref": "#/components/schemas/Meta"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - "$ref": "#/components/parameters/pageParam"
+        - "$ref": "#/components/parameters/perPageParam"
+        - "$ref": "#/components/parameters/ransackQuery"
+
+  "/game_contracts/{game_contractId}":
+    get:
+      description: Retrieve a single GameContract
+      operationId: get_game_contract
+      responses:
+        "200":
+          description: Game Contract was found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/GameContract"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+      parameters:
+        - name: game_contractId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the GameContract
   "/games":
     get:
       description: Retrieve some or all games
@@ -1786,42 +1836,6 @@ paths:
         - "$ref": "#/components/parameters/pageParam"
         - "$ref": "#/components/parameters/perPageParam"
         - "$ref": "#/components/parameters/ransackQuery"
-  "/schools/{schoolId}/alternate_names":
-    get:
-      description: Retrieve alternate names for a specific school
-      operationId: get_school_alternate_names
-      responses:
-        '200':
-          description: Alternate names were found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      type: string
-                    example: ["Alabama", "UA", "Bama"]
-        '401':
-          description: Unauthorized
-        '404':
-          description: School not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: "School not found"
-      parameters:
-        - name: schoolId
-          in: path
-          description: ID of school to retrieve alternate names for
-          required: true
-          schema:
-            type: integer
   "/schools/compare_coli":
     get:
       description: Retrieve the COLI-adjusted compensation
@@ -1893,6 +1907,45 @@ paths:
         - name: schoolId
           in: path
           description: ID of school to retrieve
+          required: true
+          schema:
+            type: integer
+  "/schools/{schoolId}/alternate_names":
+    get:
+      description: Retrieve alternate names for a specific school
+      operationId: get_school_alternate_names
+      responses:
+        "200":
+          description: Alternate names were found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - Alabama
+                      - UA
+                      - Bama
+        "401":
+          description: Unauthorized
+        "404":
+          description: School not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: School not found
+      parameters:
+        - name: schoolId
+          in: path
+          description: ID of school to retrieve alternate names for
           required: true
           schema:
             type: integer
@@ -3114,6 +3167,59 @@ components:
           example: 11
       required:
         - sport_id
+    GameContract:
+      type: object
+      properties:
+        id:
+          type: integer
+        home_school_id:
+          type: integer
+        away_school_id:
+          type: integer
+        sport_id:
+          type: integer
+        game_date:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        game_date_tbd:
+          type: string
+        comp_cents:
+          type: integer
+        variable:
+          type: boolean
+        cancel_fee_cents:
+          type: integer
+        signed_on:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        raw_contract_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2019-01-01T00:00:00.000Z"
+        comp_tbd:
+          type: boolean
+        tbd:
+          type: boolean
+        season_year_tbd:
+          type: integer
+        cancelled:
+          type: boolean
+        season_year:
+          type: integer
+        game_type:
+          type: string
+        off_site_location:
+          type: string
+        verified:
+          type: boolean
     IncomeReport:
       type: object
       properties:
@@ -3385,7 +3491,7 @@ components:
         unstract_pdf_text:
           type: string
         unstract_responses_details:
-          type:
+          type: string
         layout_preserved_pdf_text:
           type: string
     ReportResult:

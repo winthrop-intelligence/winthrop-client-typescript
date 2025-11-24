@@ -22,7 +22,7 @@ export type RawContract = {
     migrated_successfully?: boolean;
     migration_failure_reason?: string;
     unstract_pdf_text?: string;
-    unstract_responses_details?: any;
+    unstract_responses_details?: string;
     layout_preserved_pdf_text?: string;
 };
 
