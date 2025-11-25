@@ -9,6 +9,8 @@ import { AuditedFinancialReportStatusCollection } from '../models/AuditedFinanci
 import { Avatar } from '../models/Avatar';
 import { AverageCompensation } from '../models/AverageCompensation';
 import { COLIAdjusted } from '../models/COLIAdjusted';
+import { Cashflow } from '../models/Cashflow';
+import { CashflowCollection } from '../models/CashflowCollection';
 import { Category } from '../models/Category';
 import { CategoryCollection } from '../models/CategoryCollection';
 import { Coach } from '../models/Coach';
@@ -257,6 +259,15 @@ export interface DefaultApiCompareColiRequest {
     otherPersonTotalCompensation: number
 }
 
+export interface DefaultApiCreateCashflowRequest {
+    /**
+     * 
+     * @type Cashflow
+     * @memberof DefaultApicreateCashflow
+     */
+    cashflow?: Cashflow
+}
+
 export interface DefaultApiCreateConferenceRequest {
     /**
      * 
@@ -309,6 +320,25 @@ export interface DefaultApiCreateRequestedItemRequest {
      * @memberof DefaultApicreateRequestedItem
      */
     requestedItem: RequestedItem
+}
+
+export interface DefaultApiCreateSeasonRequest {
+    /**
+     * 
+     * @type Season
+     * @memberof DefaultApicreateSeason
+     */
+    season?: Season
+}
+
+export interface DefaultApiDeleteCashflowRequest {
+    /**
+     * ID of the Cashflow
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApideleteCashflow
+     */
+    cashflowId: number
 }
 
 export interface DefaultApiDeleteConferenceRequest {
@@ -369,6 +399,16 @@ export interface DefaultApiDeleteRequestedItemRequest {
      * @memberof DefaultApideleteRequestedItem
      */
     requestedItemId: number
+}
+
+export interface DefaultApiDeleteSeasonRequest {
+    /**
+     * ID of the Season
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApideleteSeason
+     */
+    seasonId: number
 }
 
 export interface DefaultApiGetAdministratorRequest {
@@ -435,6 +475,40 @@ export interface DefaultApiGetAuditedFinancialReportStatusesRequest {
      * Defaults to: undefined
      * @type any
      * @memberof DefaultApigetAuditedFinancialReportStatuses
+     */
+    q?: any
+}
+
+export interface DefaultApiGetCashflowRequest {
+    /**
+     * ID of the Cashflow
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApigetCashflow
+     */
+    cashflowId: number
+}
+
+export interface DefaultApiGetCashflowsRequest {
+    /**
+     * results page to retrieve.
+     * Defaults to: 1
+     * @type number
+     * @memberof DefaultApigetCashflows
+     */
+    page?: number
+    /**
+     * number of results per page.
+     * Defaults to: 20
+     * @type number
+     * @memberof DefaultApigetCashflows
+     */
+    perPage?: number
+    /**
+     * Ransack query
+     * Defaults to: undefined
+     * @type any
+     * @memberof DefaultApigetCashflows
      */
     q?: any
 }
@@ -1182,7 +1256,7 @@ export interface DefaultApiGetSchoolsRequest {
 
 export interface DefaultApiGetSeasonRequest {
     /**
-     * ID of season to retrieve
+     * ID of the Season
      * Defaults to: undefined
      * @type number
      * @memberof DefaultApigetSeason
@@ -1472,6 +1546,22 @@ export interface DefaultApiSearchCoachesRequest {
     filters?: Filters
 }
 
+export interface DefaultApiUpdateCashflowRequest {
+    /**
+     * ID of the Cashflow
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApiupdateCashflow
+     */
+    cashflowId: number
+    /**
+     * Cashflow attributes to update
+     * @type Cashflow
+     * @memberof DefaultApiupdateCashflow
+     */
+    cashflow: Cashflow
+}
+
 export interface DefaultApiUpdateCoachRequest {
     /**
      * ID of coach to update
@@ -1600,6 +1690,22 @@ export interface DefaultApiUpdateRequestedItemRequest {
     requestedItem: RequestedItem
 }
 
+export interface DefaultApiUpdateSeasonRequest {
+    /**
+     * ID of the Season
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApiupdateSeason
+     */
+    seasonId: number
+    /**
+     * Season attributes to update
+     * @type Season
+     * @memberof DefaultApiupdateSeason
+     */
+    season: Season
+}
+
 export interface DefaultApiUserMeRequest {
 }
 
@@ -1701,6 +1807,22 @@ export class ObjectDefaultApi {
     }
 
     /**
+     * Create a new Cashflow
+     * @param param the request object
+     */
+    public createCashflowWithHttpInfo(param: DefaultApiCreateCashflowRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<Cashflow>> {
+        return this.api.createCashflowWithHttpInfo(param.cashflow,  options).toPromise();
+    }
+
+    /**
+     * Create a new Cashflow
+     * @param param the request object
+     */
+    public createCashflow(param: DefaultApiCreateCashflowRequest = {}, options?: ConfigurationOptions): Promise<Cashflow> {
+        return this.api.createCashflow(param.cashflow,  options).toPromise();
+    }
+
+    /**
      * Create a new Conference
      * @param param the request object
      */
@@ -1796,6 +1918,38 @@ export class ObjectDefaultApi {
      */
     public createRequestedItem(param: DefaultApiCreateRequestedItemRequest, options?: ConfigurationOptions): Promise<RequestedItem> {
         return this.api.createRequestedItem(param.requestedItem,  options).toPromise();
+    }
+
+    /**
+     * Create a new Season
+     * @param param the request object
+     */
+    public createSeasonWithHttpInfo(param: DefaultApiCreateSeasonRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<Season>> {
+        return this.api.createSeasonWithHttpInfo(param.season,  options).toPromise();
+    }
+
+    /**
+     * Create a new Season
+     * @param param the request object
+     */
+    public createSeason(param: DefaultApiCreateSeasonRequest = {}, options?: ConfigurationOptions): Promise<Season> {
+        return this.api.createSeason(param.season,  options).toPromise();
+    }
+
+    /**
+     * Delete a single Cashflow
+     * @param param the request object
+     */
+    public deleteCashflowWithHttpInfo(param: DefaultApiDeleteCashflowRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+        return this.api.deleteCashflowWithHttpInfo(param.cashflowId,  options).toPromise();
+    }
+
+    /**
+     * Delete a single Cashflow
+     * @param param the request object
+     */
+    public deleteCashflow(param: DefaultApiDeleteCashflowRequest, options?: ConfigurationOptions): Promise<void> {
+        return this.api.deleteCashflow(param.cashflowId,  options).toPromise();
     }
 
     /**
@@ -1897,6 +2051,22 @@ export class ObjectDefaultApi {
     }
 
     /**
+     * Delete a single Season
+     * @param param the request object
+     */
+    public deleteSeasonWithHttpInfo(param: DefaultApiDeleteSeasonRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+        return this.api.deleteSeasonWithHttpInfo(param.seasonId,  options).toPromise();
+    }
+
+    /**
+     * Delete a single Season
+     * @param param the request object
+     */
+    public deleteSeason(param: DefaultApiDeleteSeasonRequest, options?: ConfigurationOptions): Promise<void> {
+        return this.api.deleteSeason(param.seasonId,  options).toPromise();
+    }
+
+    /**
      * Retrieve a single administrator
      * @param param the request object
      */
@@ -1958,6 +2128,38 @@ export class ObjectDefaultApi {
      */
     public getAuditedFinancialReportStatuses(param: DefaultApiGetAuditedFinancialReportStatusesRequest = {}, options?: ConfigurationOptions): Promise<AuditedFinancialReportStatusCollection> {
         return this.api.getAuditedFinancialReportStatuses(param.page, param.perPage, param.q,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a single Cashflow
+     * @param param the request object
+     */
+    public getCashflowWithHttpInfo(param: DefaultApiGetCashflowRequest, options?: ConfigurationOptions): Promise<HttpInfo<Cashflow>> {
+        return this.api.getCashflowWithHttpInfo(param.cashflowId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a single Cashflow
+     * @param param the request object
+     */
+    public getCashflow(param: DefaultApiGetCashflowRequest, options?: ConfigurationOptions): Promise<Cashflow> {
+        return this.api.getCashflow(param.cashflowId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve some or all cashflows
+     * @param param the request object
+     */
+    public getCashflowsWithHttpInfo(param: DefaultApiGetCashflowsRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<CashflowCollection>> {
+        return this.api.getCashflowsWithHttpInfo(param.page, param.perPage, param.q,  options).toPromise();
+    }
+
+    /**
+     * Retrieve some or all cashflows
+     * @param param the request object
+     */
+    public getCashflows(param: DefaultApiGetCashflowsRequest = {}, options?: ConfigurationOptions): Promise<CashflowCollection> {
+        return this.api.getCashflows(param.page, param.perPage, param.q,  options).toPromise();
     }
 
     /**
@@ -2673,7 +2875,7 @@ export class ObjectDefaultApi {
     }
 
     /**
-     * Retrieve a single season
+     * Retrieve a single Season
      * @param param the request object
      */
     public getSeasonWithHttpInfo(param: DefaultApiGetSeasonRequest, options?: ConfigurationOptions): Promise<HttpInfo<Season>> {
@@ -2681,7 +2883,7 @@ export class ObjectDefaultApi {
     }
 
     /**
-     * Retrieve a single season
+     * Retrieve a single Season
      * @param param the request object
      */
     public getSeason(param: DefaultApiGetSeasonRequest, options?: ConfigurationOptions): Promise<Season> {
@@ -2929,6 +3131,22 @@ export class ObjectDefaultApi {
     }
 
     /**
+     * Update a single Cashflow
+     * @param param the request object
+     */
+    public updateCashflowWithHttpInfo(param: DefaultApiUpdateCashflowRequest, options?: ConfigurationOptions): Promise<HttpInfo<Cashflow>> {
+        return this.api.updateCashflowWithHttpInfo(param.cashflowId, param.cashflow,  options).toPromise();
+    }
+
+    /**
+     * Update a single Cashflow
+     * @param param the request object
+     */
+    public updateCashflow(param: DefaultApiUpdateCashflowRequest, options?: ConfigurationOptions): Promise<Cashflow> {
+        return this.api.updateCashflow(param.cashflowId, param.cashflow,  options).toPromise();
+    }
+
+    /**
      * Update a coach
      * @param param the request object
      */
@@ -3056,6 +3274,22 @@ export class ObjectDefaultApi {
      */
     public updateRequestedItem(param: DefaultApiUpdateRequestedItemRequest, options?: ConfigurationOptions): Promise<RequestedItem> {
         return this.api.updateRequestedItem(param.requestedItemId, param.requestedItem,  options).toPromise();
+    }
+
+    /**
+     * Update a single Season
+     * @param param the request object
+     */
+    public updateSeasonWithHttpInfo(param: DefaultApiUpdateSeasonRequest, options?: ConfigurationOptions): Promise<HttpInfo<Season>> {
+        return this.api.updateSeasonWithHttpInfo(param.seasonId, param.season,  options).toPromise();
+    }
+
+    /**
+     * Update a single Season
+     * @param param the request object
+     */
+    public updateSeason(param: DefaultApiUpdateSeasonRequest, options?: ConfigurationOptions): Promise<Season> {
+        return this.api.updateSeason(param.seasonId, param.season,  options).toPromise();
     }
 
     /**

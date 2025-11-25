@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
+import { Cashflow } from '../models/Cashflow';
 import { Meta } from '../models/Meta';
-import { Sport } from '../models/Sport';
 import { HttpFile } from '../http/http';
 
-export class SportCollection {
-    'data'?: Array<Sport>;
+export class CashflowCollection {
+    'data'?: Array<Cashflow>;
     'meta'?: Meta;
 
     static readonly discriminator: string | undefined = undefined;
@@ -26,7 +26,7 @@ export class SportCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Sport>",
+            "type": "Array<Cashflow>",
             "format": ""
         },
         {
@@ -37,7 +37,7 @@ export class SportCollection {
         }    ];
 
     static getAttributeTypeMap() {
-        return SportCollection.attributeTypeMap;
+        return CashflowCollection.attributeTypeMap;
     }
 
     public constructor() {

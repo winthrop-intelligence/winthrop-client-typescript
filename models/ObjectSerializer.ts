@@ -5,6 +5,8 @@ export * from '../models/AuditedFinancialReportStatusCollection';
 export * from '../models/Avatar';
 export * from '../models/AverageCompensation';
 export * from '../models/COLIAdjusted';
+export * from '../models/Cashflow';
+export * from '../models/CashflowCollection';
 export * from '../models/Category';
 export * from '../models/CategoryCollection';
 export * from '../models/Coach';
@@ -109,6 +111,8 @@ import { AuditedFinancialReportStatusCollection } from '../models/AuditedFinanci
 import { Avatar } from '../models/Avatar';
 import { AverageCompensation } from '../models/AverageCompensation';
 import { COLIAdjusted } from '../models/COLIAdjusted';
+import { Cashflow } from '../models/Cashflow';
+import { CashflowCollection } from '../models/CashflowCollection';
 import { Category } from '../models/Category';
 import { CategoryCollection } from '../models/CategoryCollection';
 import { Coach } from '../models/Coach';
@@ -242,6 +246,8 @@ let typeMap: {[index: string]: any} = {
     "Avatar": Avatar,
     "AverageCompensation": AverageCompensation,
     "COLIAdjusted": COLIAdjusted,
+    "Cashflow": Cashflow,
+    "CashflowCollection": CashflowCollection,
     "Category": Category,
     "CategoryCollection": CategoryCollection,
     "Coach": Coach,

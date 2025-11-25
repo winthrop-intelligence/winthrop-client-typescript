@@ -12,18 +12,14 @@
 
 import { HttpFile } from '../http/http';
 
-export class Conference {
+export class Cashflow {
     'id'?: number;
-    'name'?: string;
-    'nameDisplay'?: string;
-    'nickname'?: string;
-    'headquarters'?: string;
-    'founded'?: number;
-    'divisionId'?: number;
-    'ord'?: number;
+    'seasonId'?: number;
+    'cashflowGroupId'?: number;
+    'amount'?: number;
     'createdAt'?: Date;
     'updatedAt'?: Date;
-    'externalUrl'?: string;
+    'name'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -37,44 +33,20 @@ export class Conference {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "nameDisplay",
-            "baseName": "name_display",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "nickname",
-            "baseName": "nickname",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "headquarters",
-            "baseName": "headquarters",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "founded",
-            "baseName": "founded",
+            "name": "seasonId",
+            "baseName": "season_id",
             "type": "number",
             "format": ""
         },
         {
-            "name": "divisionId",
-            "baseName": "division_id",
+            "name": "cashflowGroupId",
+            "baseName": "cashflow_group_id",
             "type": "number",
             "format": ""
         },
         {
-            "name": "ord",
-            "baseName": "ord",
+            "name": "amount",
+            "baseName": "amount",
             "type": "number",
             "format": ""
         },
@@ -91,14 +63,14 @@ export class Conference {
             "format": "date-time"
         },
         {
-            "name": "externalUrl",
-            "baseName": "external_url",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return Conference.attributeTypeMap;
+        return Cashflow.attributeTypeMap;
     }
 
     public constructor() {

@@ -9,22 +9,28 @@ Method | HTTP request | Description
 [**averageSchoolComp**](DefaultApi.md#averageSchoolComp) | **GET** /api/v1/compensations/average_school_comp | 
 [**averageSubdivisionComp**](DefaultApi.md#averageSubdivisionComp) | **GET** /api/v1/compensations/average_subdivision_comp | 
 [**compareColi**](DefaultApi.md#compareColi) | **GET** /api/v1/schools/compare_coli | 
+[**createCashflow**](DefaultApi.md#createCashflow) | **POST** /api/v1/cashflows | 
 [**createConference**](DefaultApi.md#createConference) | **POST** /api/v1/conferences | 
 [**createConferenceship**](DefaultApi.md#createConferenceship) | **POST** /api/v1/conferenceships | 
 [**createFoiaLabel**](DefaultApi.md#createFoiaLabel) | **POST** /api/v1/foia_labels | 
 [**createFoiaRequest**](DefaultApi.md#createFoiaRequest) | **POST** /api/v1/foia_requests | 
 [**createJobPost**](DefaultApi.md#createJobPost) | **POST** /central_jobs/job_posts | Create a job post
 [**createRequestedItem**](DefaultApi.md#createRequestedItem) | **POST** /api/v1/requested_items | 
+[**createSeason**](DefaultApi.md#createSeason) | **POST** /api/v1/seasons | 
+[**deleteCashflow**](DefaultApi.md#deleteCashflow) | **DELETE** /api/v1/cashflows/{cashflowId} | 
 [**deleteConference**](DefaultApi.md#deleteConference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 [**deleteConferenceship**](DefaultApi.md#deleteConferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
 [**deleteFoiaLabel**](DefaultApi.md#deleteFoiaLabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
 [**deleteFoiaRequest**](DefaultApi.md#deleteFoiaRequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} | 
 [**deleteJobPost**](DefaultApi.md#deleteJobPost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post
 [**deleteRequestedItem**](DefaultApi.md#deleteRequestedItem) | **DELETE** /api/v1/requested_items/{requestedItemId} | 
+[**deleteSeason**](DefaultApi.md#deleteSeason) | **DELETE** /api/v1/seasons/{seasonId} | 
 [**getAdministrator**](DefaultApi.md#getAdministrator) | **GET** /api/v1/administrators/{administratorId} | 
 [**getAdministrators**](DefaultApi.md#getAdministrators) | **GET** /api/v1/administrators | 
 [**getAuditedFinancialReportStatus**](DefaultApi.md#getAuditedFinancialReportStatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} | 
 [**getAuditedFinancialReportStatuses**](DefaultApi.md#getAuditedFinancialReportStatuses) | **GET** /api/v1/audited_financial_report_statuses | 
+[**getCashflow**](DefaultApi.md#getCashflow) | **GET** /api/v1/cashflows/{cashflowId} | 
+[**getCashflows**](DefaultApi.md#getCashflows) | **GET** /api/v1/cashflows | 
 [**getCategories**](DefaultApi.md#getCategories) | **GET** /central_jobs/categories | List all categories
 [**getCoach**](DefaultApi.md#getCoach) | **GET** /api/v1/coaches/{coachId} | 
 [**getCoachCompensation**](DefaultApi.md#getCoachCompensation) | **GET** /api/v1/coach_compensations/get_coach_compensation | 
@@ -85,6 +91,7 @@ Method | HTTP request | Description
 [**getVendors**](DefaultApi.md#getVendors) | **GET** /api/v1/vendors | 
 [**getWireChanges**](DefaultApi.md#getWireChanges) | **GET** /api/v1/wire_changes | 
 [**searchCoaches**](DefaultApi.md#searchCoaches) | **POST** /api/v1/coaches/search | 
+[**updateCashflow**](DefaultApi.md#updateCashflow) | **PUT** /api/v1/cashflows/{cashflowId} | 
 [**updateCoach**](DefaultApi.md#updateCoach) | **PATCH** /api/v1/coaches/{coachId} | 
 [**updateCompensation**](DefaultApi.md#updateCompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
 [**updateConference**](DefaultApi.md#updateConference) | **PUT** /api/v1/conferences/{conferenceId} | 
@@ -93,6 +100,7 @@ Method | HTTP request | Description
 [**updateFoiaRequest**](DefaultApi.md#updateFoiaRequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} | 
 [**updateJobPost**](DefaultApi.md#updateJobPost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post
 [**updateRequestedItem**](DefaultApi.md#updateRequestedItem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
+[**updateSeason**](DefaultApi.md#updateSeason) | **PUT** /api/v1/seasons/{seasonId} | 
 [**userMe**](DefaultApi.md#userMe) | **GET** /api/v1/users/me | 
 [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyUserIntercollegiateAccess) | **GET** /api/v1/users/verify_user_intercollegiate_access | 
 
@@ -436,6 +444,69 @@ Name | Type | Description  | Notes
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
 **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **createCashflow**
+> Cashflow createCashflow()
+
+Create a new Cashflow
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiCreateCashflowRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiCreateCashflowRequest = {
+  
+  cashflow: {
+    id: 1,
+    seasonId: 1,
+    cashflowGroupId: 1,
+    amount: 1,
+    createdAt: new Date('2019-01-01T00:00:00Z'),
+    updatedAt: new Date('2019-01-01T00:00:00Z'),
+    name: "name_example",
+  },
+};
+
+const data = await apiInstance.createCashflow(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cashflow** | **Cashflow**|  |
+
+
+### Return type
+
+**Cashflow**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Cashflow was created |  -  |
+**401** | Unauthorized |  -  |
+**422** | Unable to create the Cashflow |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -842,6 +913,148 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **createSeason**
+> Season createSeason()
+
+Create a new Season
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiCreateSeasonRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiCreateSeasonRequest = {
+  
+  season: {
+    id: 1,
+    name: "name_example",
+    description: "description_example",
+    schoolId: 1,
+    sportId: 1,
+    year: 1,
+    wins: 1,
+    losses: 1,
+    conferenceWins: 1,
+    conferenceLosses: 1,
+    apr: 1,
+    createdAt: new Date('2019-01-01T00:00:00Z'),
+    updatedAt: new Date('2019-01-01T00:00:00Z'),
+    winPercent: 3.14,
+    ties: 1,
+    rpi: 1,
+    prevRpi: 1,
+    conferencePosition: 1,
+    conferenceNumPositions: 1,
+    coachApr: 1,
+    attendance: 1,
+    conferenceTies: 1,
+    recruitRanking: 1,
+    offensiveEfficiency: 3.14,
+    defensiveEfficiency: 3.14,
+    sosRanking: 1,
+    sos: 3.14,
+    homeWins: 1,
+    homeLosses: 1,
+    homeWinPercent: 3.14,
+    asr: 1,
+  },
+};
+
+const data = await apiInstance.createSeason(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **season** | **Season**|  |
+
+
+### Return type
+
+**Season**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Season was created |  -  |
+**401** | Unauthorized |  -  |
+**422** | Unable to create the Season |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **deleteCashflow**
+> void deleteCashflow()
+
+Delete a single Cashflow
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiDeleteCashflowRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiDeleteCashflowRequest = {
+    // ID of the Cashflow
+  cashflowId: 1,
+};
+
+const data = await apiInstance.deleteCashflow(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cashflowId** | [**number**] | ID of the Cashflow | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Cashflow was deleted |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **deleteConference**
 > void deleteConference()
 
@@ -1171,6 +1384,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **deleteSeason**
+> void deleteSeason()
+
+Delete a single Season
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiDeleteSeasonRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiDeleteSeasonRequest = {
+    // ID of the Season
+  seasonId: 1,
+};
+
+const data = await apiInstance.deleteSeason(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **seasonId** | [**number**] | ID of the Season | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Season was deleted |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **getAdministrator**
 > Administrator getAdministrator()
 
@@ -1398,6 +1666,122 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Audited financial report statuses were found |  -  |
 **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getCashflow**
+> Cashflow getCashflow()
+
+Retrieve a single Cashflow
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetCashflowRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiGetCashflowRequest = {
+    // ID of the Cashflow
+  cashflowId: 1,
+};
+
+const data = await apiInstance.getCashflow(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cashflowId** | [**number**] | ID of the Cashflow | defaults to undefined
+
+
+### Return type
+
+**Cashflow**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Cashflow was found |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getCashflows**
+> CashflowCollection getCashflows()
+
+Retrieve some or all cashflows
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetCashflowsRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiGetCashflowsRequest = {
+    // results page to retrieve. (optional)
+  page: 1,
+    // number of results per page. (optional)
+  perPage: 20,
+    // Ransack query (optional)
+  q: {},
+};
+
+const data = await apiInstance.getCashflows(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
+ **perPage** | [**number**] | number of results per page. | (optional) defaults to 20
+ **q** | **any** | Ransack query | (optional) defaults to undefined
+
+
+### Return type
+
+**CashflowCollection**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Cashflows were found |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -3939,7 +4323,7 @@ Name | Type | Description  | Notes
 # **getSeason**
 > Season getSeason()
 
-Retrieve a single season
+Retrieve a single Season
 
 ### Example
 
@@ -3952,7 +4336,7 @@ const configuration = createConfiguration();
 const apiInstance = new DefaultApi(configuration);
 
 const request: DefaultApiGetSeasonRequest = {
-    // ID of season to retrieve
+    // ID of the Season
   seasonId: 1,
 };
 
@@ -3965,7 +4349,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **seasonId** | [**number**] | ID of season to retrieve | defaults to undefined
+ **seasonId** | [**number**] | ID of the Season | defaults to undefined
 
 
 ### Return type
@@ -4048,6 +4432,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Seasons were found |  -  |
 **401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -4863,6 +5248,73 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **updateCashflow**
+> Cashflow updateCashflow(cashflow)
+
+Update a single Cashflow
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiUpdateCashflowRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiUpdateCashflowRequest = {
+    // ID of the Cashflow
+  cashflowId: 1,
+    // Cashflow attributes to update
+  cashflow: {
+    id: 1,
+    seasonId: 1,
+    cashflowGroupId: 1,
+    amount: 1,
+    createdAt: new Date('2019-01-01T00:00:00Z'),
+    updatedAt: new Date('2019-01-01T00:00:00Z'),
+    name: "name_example",
+  },
+};
+
+const data = await apiInstance.updateCashflow(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cashflow** | **Cashflow**| Cashflow attributes to update |
+ **cashflowId** | [**number**] | ID of the Cashflow | defaults to undefined
+
+
+### Return type
+
+**Cashflow**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Cashflow was updated |  -  |
+**401** | Unauthorized |  -  |
+**422** | Unable to update the Cashflow |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **updateCoach**
 > Coach updateCoach(coach)
 
@@ -5479,6 +5931,97 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Requested item was updated |  -  |
 **401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **updateSeason**
+> Season updateSeason(season)
+
+Update a single Season
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiUpdateSeasonRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiUpdateSeasonRequest = {
+    // ID of the Season
+  seasonId: 1,
+    // Season attributes to update
+  season: {
+    id: 1,
+    name: "name_example",
+    description: "description_example",
+    schoolId: 1,
+    sportId: 1,
+    year: 1,
+    wins: 1,
+    losses: 1,
+    conferenceWins: 1,
+    conferenceLosses: 1,
+    apr: 1,
+    createdAt: new Date('2019-01-01T00:00:00Z'),
+    updatedAt: new Date('2019-01-01T00:00:00Z'),
+    winPercent: 3.14,
+    ties: 1,
+    rpi: 1,
+    prevRpi: 1,
+    conferencePosition: 1,
+    conferenceNumPositions: 1,
+    coachApr: 1,
+    attendance: 1,
+    conferenceTies: 1,
+    recruitRanking: 1,
+    offensiveEfficiency: 3.14,
+    defensiveEfficiency: 3.14,
+    sosRanking: 1,
+    sos: 3.14,
+    homeWins: 1,
+    homeLosses: 1,
+    homeWinPercent: 3.14,
+    asr: 1,
+  },
+};
+
+const data = await apiInstance.updateSeason(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **season** | **Season**| Season attributes to update |
+ **seasonId** | [**number**] | ID of the Season | defaults to undefined
+
+
+### Return type
+
+**Season**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Season was updated |  -  |
+**401** | Unauthorized |  -  |
+**422** | Unable to update the Season |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

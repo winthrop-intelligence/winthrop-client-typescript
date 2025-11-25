@@ -10,6 +10,8 @@ import { AuditedFinancialReportStatusCollection } from '../models/AuditedFinanci
 import { Avatar } from '../models/Avatar';
 import { AverageCompensation } from '../models/AverageCompensation';
 import { COLIAdjusted } from '../models/COLIAdjusted';
+import { Cashflow } from '../models/Cashflow';
+import { CashflowCollection } from '../models/CashflowCollection';
 import { Category } from '../models/Category';
 import { CategoryCollection } from '../models/CategoryCollection';
 import { Coach } from '../models/Coach';
@@ -312,6 +314,38 @@ export class ObservableDefaultApi {
     }
 
     /**
+     * Create a new Cashflow
+     * @param [cashflow]
+     */
+    public createCashflowWithHttpInfo(cashflow?: Cashflow, _options?: ConfigurationOptions): Observable<HttpInfo<Cashflow>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.createCashflow(cashflow, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createCashflowWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Create a new Cashflow
+     * @param [cashflow]
+     */
+    public createCashflow(cashflow?: Cashflow, _options?: ConfigurationOptions): Observable<Cashflow> {
+        return this.createCashflowWithHttpInfo(cashflow, _options).pipe(map((apiResponse: HttpInfo<Cashflow>) => apiResponse.data));
+    }
+
+    /**
      * Create a new Conference
      * @param [conference]
      */
@@ -503,6 +537,70 @@ export class ObservableDefaultApi {
      */
     public createRequestedItem(requestedItem: RequestedItem, _options?: ConfigurationOptions): Observable<RequestedItem> {
         return this.createRequestedItemWithHttpInfo(requestedItem, _options).pipe(map((apiResponse: HttpInfo<RequestedItem>) => apiResponse.data));
+    }
+
+    /**
+     * Create a new Season
+     * @param [season]
+     */
+    public createSeasonWithHttpInfo(season?: Season, _options?: ConfigurationOptions): Observable<HttpInfo<Season>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.createSeason(season, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createSeasonWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Create a new Season
+     * @param [season]
+     */
+    public createSeason(season?: Season, _options?: ConfigurationOptions): Observable<Season> {
+        return this.createSeasonWithHttpInfo(season, _options).pipe(map((apiResponse: HttpInfo<Season>) => apiResponse.data));
+    }
+
+    /**
+     * Delete a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public deleteCashflowWithHttpInfo(cashflowId: number, _options?: ConfigurationOptions): Observable<HttpInfo<void>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.deleteCashflow(cashflowId, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteCashflowWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Delete a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public deleteCashflow(cashflowId: number, _options?: ConfigurationOptions): Observable<void> {
+        return this.deleteCashflowWithHttpInfo(cashflowId, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
@@ -700,6 +798,38 @@ export class ObservableDefaultApi {
     }
 
     /**
+     * Delete a single Season
+     * @param seasonId ID of the Season
+     */
+    public deleteSeasonWithHttpInfo(seasonId: number, _options?: ConfigurationOptions): Observable<HttpInfo<void>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.deleteSeason(seasonId, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteSeasonWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Delete a single Season
+     * @param seasonId ID of the Season
+     */
+    public deleteSeason(seasonId: number, _options?: ConfigurationOptions): Observable<void> {
+        return this.deleteSeasonWithHttpInfo(seasonId, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
      * Retrieve a single administrator
      * @param administratorId ID of administrator to retrieve
      */
@@ -833,6 +963,74 @@ export class ObservableDefaultApi {
      */
     public getAuditedFinancialReportStatuses(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<AuditedFinancialReportStatusCollection> {
         return this.getAuditedFinancialReportStatusesWithHttpInfo(page, perPage, q, _options).pipe(map((apiResponse: HttpInfo<AuditedFinancialReportStatusCollection>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieve a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public getCashflowWithHttpInfo(cashflowId: number, _options?: ConfigurationOptions): Observable<HttpInfo<Cashflow>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getCashflow(cashflowId, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getCashflowWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public getCashflow(cashflowId: number, _options?: ConfigurationOptions): Observable<Cashflow> {
+        return this.getCashflowWithHttpInfo(cashflowId, _options).pipe(map((apiResponse: HttpInfo<Cashflow>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieve some or all cashflows
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getCashflowsWithHttpInfo(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<HttpInfo<CashflowCollection>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getCashflows(page, perPage, q, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getCashflowsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve some or all cashflows
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getCashflows(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<CashflowCollection> {
+        return this.getCashflowsWithHttpInfo(page, perPage, q, _options).pipe(map((apiResponse: HttpInfo<CashflowCollection>) => apiResponse.data));
     }
 
     /**
@@ -2338,8 +2536,8 @@ export class ObservableDefaultApi {
     }
 
     /**
-     * Retrieve a single season
-     * @param seasonId ID of season to retrieve
+     * Retrieve a single Season
+     * @param seasonId ID of the Season
      */
     public getSeasonWithHttpInfo(seasonId: number, _options?: ConfigurationOptions): Observable<HttpInfo<Season>> {
         const _config = mergeConfiguration(this.configuration, _options);
@@ -2362,8 +2560,8 @@ export class ObservableDefaultApi {
     }
 
     /**
-     * Retrieve a single season
-     * @param seasonId ID of season to retrieve
+     * Retrieve a single Season
+     * @param seasonId ID of the Season
      */
     public getSeason(seasonId: number, _options?: ConfigurationOptions): Observable<Season> {
         return this.getSeasonWithHttpInfo(seasonId, _options).pipe(map((apiResponse: HttpInfo<Season>) => apiResponse.data));
@@ -2888,6 +3086,40 @@ export class ObservableDefaultApi {
     }
 
     /**
+     * Update a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     * @param cashflow Cashflow attributes to update
+     */
+    public updateCashflowWithHttpInfo(cashflowId: number, cashflow: Cashflow, _options?: ConfigurationOptions): Observable<HttpInfo<Cashflow>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.updateCashflow(cashflowId, cashflow, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateCashflowWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Update a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     * @param cashflow Cashflow attributes to update
+     */
+    public updateCashflow(cashflowId: number, cashflow: Cashflow, _options?: ConfigurationOptions): Observable<Cashflow> {
+        return this.updateCashflowWithHttpInfo(cashflowId, cashflow, _options).pipe(map((apiResponse: HttpInfo<Cashflow>) => apiResponse.data));
+    }
+
+    /**
      * Update a coach
      * @param coachId ID of coach to update
      * @param coach Attributes to update. Currently only supports email, phone, bio, bio_text. Others will be ignored.
@@ -3159,6 +3391,40 @@ export class ObservableDefaultApi {
      */
     public updateRequestedItem(requestedItemId: number, requestedItem: RequestedItem, _options?: ConfigurationOptions): Observable<RequestedItem> {
         return this.updateRequestedItemWithHttpInfo(requestedItemId, requestedItem, _options).pipe(map((apiResponse: HttpInfo<RequestedItem>) => apiResponse.data));
+    }
+
+    /**
+     * Update a single Season
+     * @param seasonId ID of the Season
+     * @param season Season attributes to update
+     */
+    public updateSeasonWithHttpInfo(seasonId: number, season: Season, _options?: ConfigurationOptions): Observable<HttpInfo<Season>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.updateSeason(seasonId, season, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateSeasonWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Update a single Season
+     * @param seasonId ID of the Season
+     * @param season Season attributes to update
+     */
+    public updateSeason(seasonId: number, season: Season, _options?: ConfigurationOptions): Observable<Season> {
+        return this.updateSeasonWithHttpInfo(seasonId, season, _options).pipe(map((apiResponse: HttpInfo<Season>) => apiResponse.data));
     }
 
     /**

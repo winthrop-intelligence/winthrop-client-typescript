@@ -9,6 +9,8 @@ import { AuditedFinancialReportStatusCollection } from '../models/AuditedFinanci
 import { Avatar } from '../models/Avatar';
 import { AverageCompensation } from '../models/AverageCompensation';
 import { COLIAdjusted } from '../models/COLIAdjusted';
+import { Cashflow } from '../models/Cashflow';
+import { CashflowCollection } from '../models/CashflowCollection';
 import { Category } from '../models/Category';
 import { CategoryCollection } from '../models/CategoryCollection';
 import { Coach } from '../models/Coach';
@@ -248,6 +250,26 @@ export class PromiseDefaultApi {
     }
 
     /**
+     * Create a new Cashflow
+     * @param [cashflow]
+     */
+    public createCashflowWithHttpInfo(cashflow?: Cashflow, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Cashflow>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.createCashflowWithHttpInfo(cashflow, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Create a new Cashflow
+     * @param [cashflow]
+     */
+    public createCashflow(cashflow?: Cashflow, _options?: PromiseConfigurationOptions): Promise<Cashflow> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.createCashflow(cashflow, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
      * Create a new Conference
      * @param [conference]
      */
@@ -366,6 +388,46 @@ export class PromiseDefaultApi {
     public createRequestedItem(requestedItem: RequestedItem, _options?: PromiseConfigurationOptions): Promise<RequestedItem> {
         const observableOptions = wrapOptions(_options);
         const result = this.api.createRequestedItem(requestedItem, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Create a new Season
+     * @param [season]
+     */
+    public createSeasonWithHttpInfo(season?: Season, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Season>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.createSeasonWithHttpInfo(season, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Create a new Season
+     * @param [season]
+     */
+    public createSeason(season?: Season, _options?: PromiseConfigurationOptions): Promise<Season> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.createSeason(season, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public deleteCashflowWithHttpInfo(cashflowId: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.deleteCashflowWithHttpInfo(cashflowId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public deleteCashflow(cashflowId: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.deleteCashflow(cashflowId, observableOptions);
         return result.toPromise();
     }
 
@@ -492,6 +554,26 @@ export class PromiseDefaultApi {
     }
 
     /**
+     * Delete a single Season
+     * @param seasonId ID of the Season
+     */
+    public deleteSeasonWithHttpInfo(seasonId: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.deleteSeasonWithHttpInfo(seasonId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete a single Season
+     * @param seasonId ID of the Season
+     */
+    public deleteSeason(seasonId: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.deleteSeason(seasonId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
      * Retrieve a single administrator
      * @param administratorId ID of administrator to retrieve
      */
@@ -576,6 +658,50 @@ export class PromiseDefaultApi {
     public getAuditedFinancialReportStatuses(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<AuditedFinancialReportStatusCollection> {
         const observableOptions = wrapOptions(_options);
         const result = this.api.getAuditedFinancialReportStatuses(page, perPage, q, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public getCashflowWithHttpInfo(cashflowId: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Cashflow>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getCashflowWithHttpInfo(cashflowId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     */
+    public getCashflow(cashflowId: number, _options?: PromiseConfigurationOptions): Promise<Cashflow> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getCashflow(cashflowId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve some or all cashflows
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getCashflowsWithHttpInfo(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<HttpInfo<CashflowCollection>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getCashflowsWithHttpInfo(page, perPage, q, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve some or all cashflows
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getCashflows(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<CashflowCollection> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getCashflows(page, perPage, q, observableOptions);
         return result.toPromise();
     }
 
@@ -1554,8 +1680,8 @@ export class PromiseDefaultApi {
     }
 
     /**
-     * Retrieve a single season
-     * @param seasonId ID of season to retrieve
+     * Retrieve a single Season
+     * @param seasonId ID of the Season
      */
     public getSeasonWithHttpInfo(seasonId: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Season>> {
         const observableOptions = wrapOptions(_options);
@@ -1564,8 +1690,8 @@ export class PromiseDefaultApi {
     }
 
     /**
-     * Retrieve a single season
-     * @param seasonId ID of season to retrieve
+     * Retrieve a single Season
+     * @param seasonId ID of the Season
      */
     public getSeason(seasonId: number, _options?: PromiseConfigurationOptions): Promise<Season> {
         const observableOptions = wrapOptions(_options);
@@ -1912,6 +2038,28 @@ export class PromiseDefaultApi {
     }
 
     /**
+     * Update a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     * @param cashflow Cashflow attributes to update
+     */
+    public updateCashflowWithHttpInfo(cashflowId: number, cashflow: Cashflow, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Cashflow>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.updateCashflowWithHttpInfo(cashflowId, cashflow, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Update a single Cashflow
+     * @param cashflowId ID of the Cashflow
+     * @param cashflow Cashflow attributes to update
+     */
+    public updateCashflow(cashflowId: number, cashflow: Cashflow, _options?: PromiseConfigurationOptions): Promise<Cashflow> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.updateCashflow(cashflowId, cashflow, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
      * Update a coach
      * @param coachId ID of coach to update
      * @param coach Attributes to update. Currently only supports email, phone, bio, bio_text. Others will be ignored.
@@ -2086,6 +2234,28 @@ export class PromiseDefaultApi {
     public updateRequestedItem(requestedItemId: number, requestedItem: RequestedItem, _options?: PromiseConfigurationOptions): Promise<RequestedItem> {
         const observableOptions = wrapOptions(_options);
         const result = this.api.updateRequestedItem(requestedItemId, requestedItem, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Update a single Season
+     * @param seasonId ID of the Season
+     * @param season Season attributes to update
+     */
+    public updateSeasonWithHttpInfo(seasonId: number, season: Season, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Season>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.updateSeasonWithHttpInfo(seasonId, season, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Update a single Season
+     * @param seasonId ID of the Season
+     * @param season Season attributes to update
+     */
+    public updateSeason(seasonId: number, season: Season, _options?: PromiseConfigurationOptions): Promise<Season> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.updateSeason(seasonId, season, observableOptions);
         return result.toPromise();
     }
 

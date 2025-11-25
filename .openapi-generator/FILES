@@ -1,6 +1,5 @@
 .gitattributes
 .gitignore
-.openapi-generator-ignore
 README.md
 apis/DefaultApi.ts
 apis/DossierApi.ts
@@ -30,6 +29,8 @@ models/AuditedFinancialReportStatusCollection.ts
 models/Avatar.ts
 models/AverageCompensation.ts
 models/COLIAdjusted.ts
+models/Cashflow.ts
+models/CashflowCollection.ts
 models/Category.ts
 models/CategoryCollection.ts
 models/Coach.ts
