@@ -76,7 +76,11 @@ import { SubscriptionCollection } from '../models/SubscriptionCollection';
 import { SystemSetting } from '../models/SystemSetting';
 import { UnprocessableEntity } from '../models/UnprocessableEntity';
 import { User } from '../models/User';
+import { UserActivitySummary } from '../models/UserActivitySummary';
+import { UserActivitySummaryCollection } from '../models/UserActivitySummaryCollection';
 import { UserCollection } from '../models/UserCollection';
+import { UserRequest } from '../models/UserRequest';
+import { UserRequestCollection } from '../models/UserRequestCollection';
 import { Vendor } from '../models/Vendor';
 import { VendorCollection } from '../models/VendorCollection';
 import { VerifyUserIntercollegiateAccess200Response } from '../models/VerifyUserIntercollegiateAccess200Response';
@@ -4173,6 +4177,200 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * Retrieve some or all user_activity_summaries
+     * @param page results page to retrieve.
+     * @param perPage number of results per page.
+     * @param q Ransack query
+     */
+    public async getUserActivitySummaries(page?: number, perPage?: number, q?: any, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/user_activity_summaries';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
+        }
+
+        // Query Params
+        if (perPage !== undefined) {
+            requestContext.setQueryParam("per_page", ObjectSerializer.serialize(perPage, "number", ""));
+        }
+
+        // Query Params
+        if (q !== undefined) {
+            requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "any", ""));
+        }
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKey"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["Oauth2"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param userActivitySummaryId ID of the UserActivitySummary
+     */
+    public async getUserActivitySummary(userActivitySummaryId: number, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userActivitySummaryId' is not null or undefined
+        if (userActivitySummaryId === null || userActivitySummaryId === undefined) {
+            throw new RequiredError("DefaultApi", "getUserActivitySummary", "userActivitySummaryId");
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/user_activity_summaries/{user_activity_summaryId}'
+            .replace('{' + 'user_activity_summaryId' + '}', encodeURIComponent(String(userActivitySummaryId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKey"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["Oauth2"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param userRequestId ID of the UserRequest
+     */
+    public async getUserRequest(userRequestId: number, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'userRequestId' is not null or undefined
+        if (userRequestId === null || userRequestId === undefined) {
+            throw new RequiredError("DefaultApi", "getUserRequest", "userRequestId");
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/user_requests/{user_requestId}'
+            .replace('{' + 'user_requestId' + '}', encodeURIComponent(String(userRequestId)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKey"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["Oauth2"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param page results page to retrieve.
+     * @param perPage number of results per page.
+     * @param q Ransack query
+     */
+    public async getUserRequests(page?: number, perPage?: number, q?: any, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/user_requests';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
+        }
+
+        // Query Params
+        if (perPage !== undefined) {
+            requestContext.setQueryParam("per_page", ObjectSerializer.serialize(perPage, "number", ""));
+        }
+
+        // Query Params
+        if (q !== undefined) {
+            requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "any", ""));
+        }
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKey"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["Oauth2"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * Retrieve some or all users
      * @param page results page to retrieve.
      * @param perPage number of results per page.
@@ -7934,6 +8132,146 @@ export class DefaultApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "User", ""
             ) as User;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getUserActivitySummaries
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUserActivitySummariesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserActivitySummaryCollection >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UserActivitySummaryCollection = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserActivitySummaryCollection", ""
+            ) as UserActivitySummaryCollection;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UserActivitySummaryCollection = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserActivitySummaryCollection", ""
+            ) as UserActivitySummaryCollection;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getUserActivitySummary
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUserActivitySummaryWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserActivitySummary >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UserActivitySummary = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserActivitySummary", ""
+            ) as UserActivitySummary;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UserActivitySummary = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserActivitySummary", ""
+            ) as UserActivitySummary;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getUserRequest
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUserRequestWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserRequest >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UserRequest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserRequest", ""
+            ) as UserRequest;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UserRequest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserRequest", ""
+            ) as UserRequest;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getUserRequests
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUserRequestsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserRequestCollection >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UserRequestCollection = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserRequestCollection", ""
+            ) as UserRequestCollection;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UserRequestCollection = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserRequestCollection", ""
+            ) as UserRequestCollection;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

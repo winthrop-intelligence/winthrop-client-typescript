@@ -100,7 +100,11 @@ import { Tag } from '../models/Tag';
 import { UnauthorizedError } from '../models/UnauthorizedError';
 import { UnprocessableEntity } from '../models/UnprocessableEntity';
 import { User } from '../models/User';
+import { UserActivitySummary } from '../models/UserActivitySummary';
+import { UserActivitySummaryCollection } from '../models/UserActivitySummaryCollection';
 import { UserCollection } from '../models/UserCollection';
+import { UserRequest } from '../models/UserRequest';
+import { UserRequestCollection } from '../models/UserRequestCollection';
 import { ValidationError } from '../models/ValidationError';
 import { Vendor } from '../models/Vendor';
 import { VendorCollection } from '../models/VendorCollection';
@@ -2905,6 +2909,142 @@ export class ObservableDefaultApi {
      */
     public getUser(userId: number, _options?: ConfigurationOptions): Observable<User> {
         return this.getUserWithHttpInfo(userId, _options).pipe(map((apiResponse: HttpInfo<User>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieve some or all user_activity_summaries
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserActivitySummariesWithHttpInfo(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<HttpInfo<UserActivitySummaryCollection>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getUserActivitySummaries(page, perPage, q, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserActivitySummariesWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve some or all user_activity_summaries
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserActivitySummaries(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<UserActivitySummaryCollection> {
+        return this.getUserActivitySummariesWithHttpInfo(page, perPage, q, _options).pipe(map((apiResponse: HttpInfo<UserActivitySummaryCollection>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param userActivitySummaryId ID of the UserActivitySummary
+     */
+    public getUserActivitySummaryWithHttpInfo(userActivitySummaryId: number, _options?: ConfigurationOptions): Observable<HttpInfo<UserActivitySummary>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getUserActivitySummary(userActivitySummaryId, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserActivitySummaryWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param userActivitySummaryId ID of the UserActivitySummary
+     */
+    public getUserActivitySummary(userActivitySummaryId: number, _options?: ConfigurationOptions): Observable<UserActivitySummary> {
+        return this.getUserActivitySummaryWithHttpInfo(userActivitySummaryId, _options).pipe(map((apiResponse: HttpInfo<UserActivitySummary>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param userRequestId ID of the UserRequest
+     */
+    public getUserRequestWithHttpInfo(userRequestId: number, _options?: ConfigurationOptions): Observable<HttpInfo<UserRequest>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getUserRequest(userRequestId, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserRequestWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param userRequestId ID of the UserRequest
+     */
+    public getUserRequest(userRequestId: number, _options?: ConfigurationOptions): Observable<UserRequest> {
+        return this.getUserRequestWithHttpInfo(userRequestId, _options).pipe(map((apiResponse: HttpInfo<UserRequest>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserRequestsWithHttpInfo(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<HttpInfo<UserRequestCollection>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getUserRequests(page, perPage, q, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUserRequestsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserRequests(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<UserRequestCollection> {
+        return this.getUserRequestsWithHttpInfo(page, perPage, q, _options).pipe(map((apiResponse: HttpInfo<UserRequestCollection>) => apiResponse.data));
     }
 
     /**

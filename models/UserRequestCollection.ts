@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { Administrator } from '../models/Administrator';
 import { Meta } from '../models/Meta';
+import { UserRequest } from '../models/UserRequest';
 import { HttpFile } from '../http/http';
 
-export class AdministratorCollection {
-    'data'?: Array<Administrator>;
+export class UserRequestCollection {
+    'data'?: Array<UserRequest>;
     'meta'?: Meta;
 
     static readonly discriminator: string | undefined = undefined;
@@ -26,7 +26,7 @@ export class AdministratorCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Administrator>",
+            "type": "Array<UserRequest>",
             "format": ""
         },
         {
@@ -37,7 +37,7 @@ export class AdministratorCollection {
         }    ];
 
     static getAttributeTypeMap() {
-        return AdministratorCollection.attributeTypeMap;
+        return UserRequestCollection.attributeTypeMap;
     }
 
     public constructor() {

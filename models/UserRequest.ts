@@ -12,16 +12,21 @@
 
 import { HttpFile } from '../http/http';
 
-export class RequestedItem {
+export class UserRequest {
     'id'?: number;
-    'foiaRequestId': number;
-    'requestableId': number;
-    'requestableType': RequestedItemRequestableTypeEnum;
-    'received'?: boolean;
+    'userId'?: number;
+    'url'?: string;
+    'ipAddress'?: string;
+    'data1'?: string;
     'createdAt'?: Date;
     'updatedAt'?: Date;
-    'coachId'?: number;
-    'status'?: RequestedItemStatusEnum;
+    'requestType'?: number;
+    'tab'?: string;
+    'city'?: string;
+    'state'?: string;
+    'latitude'?: number;
+    'longitude'?: number;
+    'deviceId'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,27 +40,27 @@ export class RequestedItem {
             "format": ""
         },
         {
-            "name": "foiaRequestId",
-            "baseName": "foia_request_id",
+            "name": "userId",
+            "baseName": "user_id",
             "type": "number",
             "format": ""
         },
         {
-            "name": "requestableId",
-            "baseName": "requestable_id",
-            "type": "number",
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "requestableType",
-            "baseName": "requestable_type",
-            "type": "RequestedItemRequestableTypeEnum",
+            "name": "ipAddress",
+            "baseName": "ip_address",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "received",
-            "baseName": "received",
-            "type": "boolean",
+            "name": "data1",
+            "baseName": "data1",
+            "type": "string",
             "format": ""
         },
         {
@@ -71,37 +76,52 @@ export class RequestedItem {
             "format": "date-time"
         },
         {
-            "name": "coachId",
-            "baseName": "coach_id",
+            "name": "requestType",
+            "baseName": "request_type",
             "type": "number",
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "RequestedItemStatusEnum",
+            "name": "tab",
+            "baseName": "tab",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "city",
+            "baseName": "city",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "state",
+            "baseName": "state",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "latitude",
+            "baseName": "latitude",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "longitude",
+            "baseName": "longitude",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "deviceId",
+            "baseName": "device_id",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return RequestedItem.attributeTypeMap;
+        return UserRequest.attributeTypeMap;
     }
 
     public constructor() {
     }
 }
-
-export enum RequestedItemRequestableTypeEnum {
-    DealStatus = 'DealStatus',
-    Game = 'Game',
-    Compensation = 'Compensation',
-    IncomeReport = 'IncomeReport',
-    NcaaFinancialReportStatus = 'NcaaFinancialReportStatus',
-    AuditedFinancialReportStatus = 'AuditedFinancialReportStatus'
-}
-export enum RequestedItemStatusEnum {
-    Pending = 'pending',
-    NotAvailable = 'not_available',
-    Received = 'received'
-}
-

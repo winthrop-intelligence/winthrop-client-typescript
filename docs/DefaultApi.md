@@ -86,6 +86,10 @@ Method | HTTP request | Description
 [**getSubscriptions**](DefaultApi.md#getSubscriptions) | **GET** /api/v1/subscriptions | 
 [**getSystemSettings**](DefaultApi.md#getSystemSettings) | **GET** /api/v1/system_setting | 
 [**getUser**](DefaultApi.md#getUser) | **GET** /api/v1/users/{userId} | 
+[**getUserActivitySummaries**](DefaultApi.md#getUserActivitySummaries) | **GET** /api/v1/user_activity_summaries | 
+[**getUserActivitySummary**](DefaultApi.md#getUserActivitySummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} | 
+[**getUserRequest**](DefaultApi.md#getUserRequest) | **GET** /api/v1/user_requests/{user_requestId} | 
+[**getUserRequests**](DefaultApi.md#getUserRequests) | **GET** /api/v1/user_requests | 
 [**getUsers**](DefaultApi.md#getUsers) | **GET** /api/v1/users | 
 [**getVendor**](DefaultApi.md#getVendor) | **GET** /api/v1/vendors/{vendorId} | 
 [**getVendors**](DefaultApi.md#getVendors) | **GET** /api/v1/vendors | 
@@ -4942,6 +4946,238 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | User was found |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getUserActivitySummaries**
+> UserActivitySummaryCollection getUserActivitySummaries()
+
+Retrieve some or all user_activity_summaries
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetUserActivitySummariesRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiGetUserActivitySummariesRequest = {
+    // results page to retrieve. (optional)
+  page: 1,
+    // number of results per page. (optional)
+  perPage: 20,
+    // Ransack query (optional)
+  q: {},
+};
+
+const data = await apiInstance.getUserActivitySummaries(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
+ **perPage** | [**number**] | number of results per page. | (optional) defaults to 20
+ **q** | **any** | Ransack query | (optional) defaults to undefined
+
+
+### Return type
+
+**UserActivitySummaryCollection**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User Activity Summaries were found |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getUserActivitySummary**
+> UserActivitySummary getUserActivitySummary()
+
+Retrieve a single UserActivitySummary
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetUserActivitySummaryRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiGetUserActivitySummaryRequest = {
+    // ID of the UserActivitySummary
+  userActivitySummaryId: 1,
+};
+
+const data = await apiInstance.getUserActivitySummary(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userActivitySummaryId** | [**number**] | ID of the UserActivitySummary | defaults to undefined
+
+
+### Return type
+
+**UserActivitySummary**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User Activity Summary was found |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getUserRequest**
+> UserRequest getUserRequest()
+
+Retrieve a single UserRequest
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetUserRequestRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiGetUserRequestRequest = {
+    // ID of the UserRequest
+  userRequestId: 1,
+};
+
+const data = await apiInstance.getUserRequest(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userRequestId** | [**number**] | ID of the UserRequest | defaults to undefined
+
+
+### Return type
+
+**UserRequest**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User Request was found |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getUserRequests**
+> UserRequestCollection getUserRequests()
+
+Retrieve some or all user_requests
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetUserRequestsRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request: DefaultApiGetUserRequestsRequest = {
+    // results page to retrieve. (optional)
+  page: 1,
+    // number of results per page. (optional)
+  perPage: 20,
+    // Ransack query (optional)
+  q: {},
+};
+
+const data = await apiInstance.getUserRequests(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
+ **perPage** | [**number**] | number of results per page. | (optional) defaults to 20
+ **q** | **any** | Ransack query | (optional) defaults to undefined
+
+
+### Return type
+
+**UserRequestCollection**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User Requests were found |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 

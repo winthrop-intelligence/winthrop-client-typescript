@@ -99,7 +99,11 @@ import { Tag } from '../models/Tag';
 import { UnauthorizedError } from '../models/UnauthorizedError';
 import { UnprocessableEntity } from '../models/UnprocessableEntity';
 import { User } from '../models/User';
+import { UserActivitySummary } from '../models/UserActivitySummary';
+import { UserActivitySummaryCollection } from '../models/UserActivitySummaryCollection';
 import { UserCollection } from '../models/UserCollection';
+import { UserRequest } from '../models/UserRequest';
+import { UserRequestCollection } from '../models/UserRequestCollection';
 import { ValidationError } from '../models/ValidationError';
 import { Vendor } from '../models/Vendor';
 import { VendorCollection } from '../models/VendorCollection';
@@ -1916,6 +1920,94 @@ export class PromiseDefaultApi {
     public getUser(userId: number, _options?: PromiseConfigurationOptions): Promise<User> {
         const observableOptions = wrapOptions(_options);
         const result = this.api.getUser(userId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_activity_summaries
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserActivitySummariesWithHttpInfo(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<HttpInfo<UserActivitySummaryCollection>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserActivitySummariesWithHttpInfo(page, perPage, q, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_activity_summaries
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserActivitySummaries(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<UserActivitySummaryCollection> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserActivitySummaries(page, perPage, q, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param userActivitySummaryId ID of the UserActivitySummary
+     */
+    public getUserActivitySummaryWithHttpInfo(userActivitySummaryId: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<UserActivitySummary>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserActivitySummaryWithHttpInfo(userActivitySummaryId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param userActivitySummaryId ID of the UserActivitySummary
+     */
+    public getUserActivitySummary(userActivitySummaryId: number, _options?: PromiseConfigurationOptions): Promise<UserActivitySummary> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserActivitySummary(userActivitySummaryId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param userRequestId ID of the UserRequest
+     */
+    public getUserRequestWithHttpInfo(userRequestId: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<UserRequest>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserRequestWithHttpInfo(userRequestId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param userRequestId ID of the UserRequest
+     */
+    public getUserRequest(userRequestId: number, _options?: PromiseConfigurationOptions): Promise<UserRequest> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserRequest(userRequestId, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserRequestsWithHttpInfo(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<HttpInfo<UserRequestCollection>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserRequestsWithHttpInfo(page, perPage, q, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param [page] results page to retrieve.
+     * @param [perPage] number of results per page.
+     * @param [q] Ransack query
+     */
+    public getUserRequests(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<UserRequestCollection> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getUserRequests(page, perPage, q, observableOptions);
         return result.toPromise();
     }
 

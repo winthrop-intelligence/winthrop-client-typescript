@@ -99,7 +99,11 @@ import { Tag } from '../models/Tag';
 import { UnauthorizedError } from '../models/UnauthorizedError';
 import { UnprocessableEntity } from '../models/UnprocessableEntity';
 import { User } from '../models/User';
+import { UserActivitySummary } from '../models/UserActivitySummary';
+import { UserActivitySummaryCollection } from '../models/UserActivitySummaryCollection';
 import { UserCollection } from '../models/UserCollection';
+import { UserRequest } from '../models/UserRequest';
+import { UserRequestCollection } from '../models/UserRequestCollection';
 import { ValidationError } from '../models/ValidationError';
 import { Vendor } from '../models/Vendor';
 import { VendorCollection } from '../models/VendorCollection';
@@ -1432,6 +1436,74 @@ export interface DefaultApiGetUserRequest {
      * @memberof DefaultApigetUser
      */
     userId: number
+}
+
+export interface DefaultApiGetUserActivitySummariesRequest {
+    /**
+     * results page to retrieve.
+     * Defaults to: 1
+     * @type number
+     * @memberof DefaultApigetUserActivitySummaries
+     */
+    page?: number
+    /**
+     * number of results per page.
+     * Defaults to: 20
+     * @type number
+     * @memberof DefaultApigetUserActivitySummaries
+     */
+    perPage?: number
+    /**
+     * Ransack query
+     * Defaults to: undefined
+     * @type any
+     * @memberof DefaultApigetUserActivitySummaries
+     */
+    q?: any
+}
+
+export interface DefaultApiGetUserActivitySummaryRequest {
+    /**
+     * ID of the UserActivitySummary
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApigetUserActivitySummary
+     */
+    userActivitySummaryId: number
+}
+
+export interface DefaultApiGetUserRequestRequest {
+    /**
+     * ID of the UserRequest
+     * Defaults to: undefined
+     * @type number
+     * @memberof DefaultApigetUserRequest
+     */
+    userRequestId: number
+}
+
+export interface DefaultApiGetUserRequestsRequest {
+    /**
+     * results page to retrieve.
+     * Defaults to: 1
+     * @type number
+     * @memberof DefaultApigetUserRequests
+     */
+    page?: number
+    /**
+     * number of results per page.
+     * Defaults to: 20
+     * @type number
+     * @memberof DefaultApigetUserRequests
+     */
+    perPage?: number
+    /**
+     * Ransack query
+     * Defaults to: undefined
+     * @type any
+     * @memberof DefaultApigetUserRequests
+     */
+    q?: any
 }
 
 export interface DefaultApiGetUsersRequest {
@@ -3048,6 +3120,70 @@ export class ObjectDefaultApi {
      */
     public getUser(param: DefaultApiGetUserRequest, options?: ConfigurationOptions): Promise<User> {
         return this.api.getUser(param.userId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_activity_summaries
+     * @param param the request object
+     */
+    public getUserActivitySummariesWithHttpInfo(param: DefaultApiGetUserActivitySummariesRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<UserActivitySummaryCollection>> {
+        return this.api.getUserActivitySummariesWithHttpInfo(param.page, param.perPage, param.q,  options).toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_activity_summaries
+     * @param param the request object
+     */
+    public getUserActivitySummaries(param: DefaultApiGetUserActivitySummariesRequest = {}, options?: ConfigurationOptions): Promise<UserActivitySummaryCollection> {
+        return this.api.getUserActivitySummaries(param.page, param.perPage, param.q,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param param the request object
+     */
+    public getUserActivitySummaryWithHttpInfo(param: DefaultApiGetUserActivitySummaryRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserActivitySummary>> {
+        return this.api.getUserActivitySummaryWithHttpInfo(param.userActivitySummaryId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a single UserActivitySummary
+     * @param param the request object
+     */
+    public getUserActivitySummary(param: DefaultApiGetUserActivitySummaryRequest, options?: ConfigurationOptions): Promise<UserActivitySummary> {
+        return this.api.getUserActivitySummary(param.userActivitySummaryId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param param the request object
+     */
+    public getUserRequestWithHttpInfo(param: DefaultApiGetUserRequestRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserRequest>> {
+        return this.api.getUserRequestWithHttpInfo(param.userRequestId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a single UserRequest
+     * @param param the request object
+     */
+    public getUserRequest(param: DefaultApiGetUserRequestRequest, options?: ConfigurationOptions): Promise<UserRequest> {
+        return this.api.getUserRequest(param.userRequestId,  options).toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param param the request object
+     */
+    public getUserRequestsWithHttpInfo(param: DefaultApiGetUserRequestsRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<UserRequestCollection>> {
+        return this.api.getUserRequestsWithHttpInfo(param.page, param.perPage, param.q,  options).toPromise();
+    }
+
+    /**
+     * Retrieve some or all user_requests
+     * @param param the request object
+     */
+    public getUserRequests(param: DefaultApiGetUserRequestsRequest = {}, options?: ConfigurationOptions): Promise<UserRequestCollection> {
+        return this.api.getUserRequests(param.page, param.perPage, param.q,  options).toPromise();
     }
 
     /**

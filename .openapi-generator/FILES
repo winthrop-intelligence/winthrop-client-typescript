@@ -120,7 +120,11 @@ models/Tag.ts
 models/UnauthorizedError.ts
 models/UnprocessableEntity.ts
 models/User.ts
+models/UserActivitySummary.ts
+models/UserActivitySummaryCollection.ts
 models/UserCollection.ts
+models/UserRequest.ts
+models/UserRequestCollection.ts
 models/ValidationError.ts
 models/Vendor.ts
 models/VendorCollection.ts

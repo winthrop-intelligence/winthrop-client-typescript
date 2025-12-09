@@ -95,7 +95,11 @@ export * from '../models/Tag';
 export * from '../models/UnauthorizedError';
 export * from '../models/UnprocessableEntity';
 export * from '../models/User';
+export * from '../models/UserActivitySummary';
+export * from '../models/UserActivitySummaryCollection';
 export * from '../models/UserCollection';
+export * from '../models/UserRequest';
+export * from '../models/UserRequestCollection';
 export * from '../models/ValidationError';
 export * from '../models/Vendor';
 export * from '../models/VendorCollection';
@@ -201,7 +205,11 @@ import { Tag } from '../models/Tag';
 import { UnauthorizedError } from '../models/UnauthorizedError';
 import { UnprocessableEntity } from '../models/UnprocessableEntity';
 import { User      , UserStateEnum         } from '../models/User';
+import { UserActivitySummary } from '../models/UserActivitySummary';
+import { UserActivitySummaryCollection } from '../models/UserActivitySummaryCollection';
 import { UserCollection } from '../models/UserCollection';
+import { UserRequest } from '../models/UserRequest';
+import { UserRequestCollection } from '../models/UserRequestCollection';
 import { ValidationError } from '../models/ValidationError';
 import { Vendor } from '../models/Vendor';
 import { VendorCollection } from '../models/VendorCollection';
@@ -336,7 +344,11 @@ let typeMap: {[index: string]: any} = {
     "UnauthorizedError": UnauthorizedError,
     "UnprocessableEntity": UnprocessableEntity,
     "User": User,
+    "UserActivitySummary": UserActivitySummary,
+    "UserActivitySummaryCollection": UserActivitySummaryCollection,
     "UserCollection": UserCollection,
+    "UserRequest": UserRequest,
+    "UserRequestCollection": UserRequestCollection,
     "ValidationError": ValidationError,
     "Vendor": Vendor,
     "VendorCollection": VendorCollection,

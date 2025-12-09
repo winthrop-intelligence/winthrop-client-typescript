@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { Administrator } from '../models/Administrator';
 import { Meta } from '../models/Meta';
+import { UserActivitySummary } from '../models/UserActivitySummary';
 import { HttpFile } from '../http/http';
 
-export class AdministratorCollection {
-    'data'?: Array<Administrator>;
+export class UserActivitySummaryCollection {
+    'data'?: Array<UserActivitySummary>;
     'meta'?: Meta;
 
     static readonly discriminator: string | undefined = undefined;
@@ -26,7 +26,7 @@ export class AdministratorCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Administrator>",
+            "type": "Array<UserActivitySummary>",
             "format": ""
         },
         {
@@ -37,7 +37,7 @@ export class AdministratorCollection {
         }    ];
 
     static getAttributeTypeMap() {
-        return AdministratorCollection.attributeTypeMap;
+        return UserActivitySummaryCollection.attributeTypeMap;
     }
 
     public constructor() {

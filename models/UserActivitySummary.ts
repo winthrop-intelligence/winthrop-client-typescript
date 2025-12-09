@@ -12,13 +12,17 @@
 
 import { HttpFile } from '../http/http';
 
-export class PositionTypeGroup {
+export class UserActivitySummary {
     'id'?: number;
-    'name'?: string;
-    'nameDisplay'?: string;
-    'ord'?: number;
+    'month'?: number;
+    'year'?: number;
+    'activityCount'?: number;
+    'userCount'?: number;
+    'activeUserCount'?: number;
     'createdAt'?: Date;
     'updatedAt'?: Date;
+    'schoolCount'?: number;
+    'activeSchoolCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -32,20 +36,32 @@ export class PositionTypeGroup {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
+            "name": "month",
+            "baseName": "month",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "nameDisplay",
-            "baseName": "name_display",
-            "type": "string",
+            "name": "year",
+            "baseName": "year",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "ord",
-            "baseName": "ord",
+            "name": "activityCount",
+            "baseName": "activity_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "userCount",
+            "baseName": "user_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "activeUserCount",
+            "baseName": "active_user_count",
             "type": "number",
             "format": ""
         },
@@ -60,10 +76,22 @@ export class PositionTypeGroup {
             "baseName": "updated_at",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "schoolCount",
+            "baseName": "school_count",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "activeSchoolCount",
+            "baseName": "active_school_count",
+            "type": "number",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return PositionTypeGroup.attributeTypeMap;
+        return UserActivitySummary.attributeTypeMap;
     }
 
     public constructor() {
