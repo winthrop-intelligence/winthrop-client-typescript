@@ -25,7 +25,6 @@ export class Deal {
     'autorenew'?: boolean;
     'dealTypeId'?: number;
     'archived'?: boolean;
-    'dealStatusTypeId'?: number;
     'verified'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -103,12 +102,6 @@ export class Deal {
             "name": "archived",
             "baseName": "archived",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "dealStatusTypeId",
-            "baseName": "deal_status_type_id",
-            "type": "number",
             "format": ""
         },
         {

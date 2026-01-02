@@ -45,6 +45,8 @@ import { Game } from '../models/Game';
 import { GameCollection } from '../models/GameCollection';
 import { GameContract } from '../models/GameContract';
 import { GameContractCollection } from '../models/GameContractCollection';
+import { GetJobPostsAthleticsCount200Response } from '../models/GetJobPostsAthleticsCount200Response';
+import { GetJobPostsAthleticsCount200ResponseData } from '../models/GetJobPostsAthleticsCount200ResponseData';
 import { GetSchoolAlternateNames200Response } from '../models/GetSchoolAlternateNames200Response';
 import { GetSchoolAlternateNames404Response } from '../models/GetSchoolAlternateNames404Response';
 import { GetWireChanges200Response } from '../models/GetWireChanges200Response';
@@ -1066,6 +1068,9 @@ export interface DefaultApiGetJobPostsRequest {
      * @memberof DefaultApigetJobPosts
      */
     q?: any
+}
+
+export interface DefaultApiGetJobPostsAthleticsCountRequest {
 }
 
 export interface DefaultApiGetNcaaFinancialReportStatusRequest {
@@ -2750,6 +2755,24 @@ export class ObjectDefaultApi {
      */
     public getJobPosts(param: DefaultApiGetJobPostsRequest = {}, options?: ConfigurationOptions): Promise<JobPostCollection> {
         return this.api.getJobPosts(param.page, param.perPage, param.q,  options).toPromise();
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     * @param param the request object
+     */
+    public getJobPostsAthleticsCountWithHttpInfo(param: DefaultApiGetJobPostsAthleticsCountRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<GetJobPostsAthleticsCount200Response>> {
+        return this.api.getJobPostsAthleticsCountWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     * @param param the request object
+     */
+    public getJobPostsAthleticsCount(param: DefaultApiGetJobPostsAthleticsCountRequest = {}, options?: ConfigurationOptions): Promise<GetJobPostsAthleticsCount200Response> {
+        return this.api.getJobPostsAthleticsCount( options).toPromise();
     }
 
     /**

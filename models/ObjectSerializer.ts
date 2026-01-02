@@ -41,6 +41,8 @@ export * from '../models/Game';
 export * from '../models/GameCollection';
 export * from '../models/GameContract';
 export * from '../models/GameContractCollection';
+export * from '../models/GetJobPostsAthleticsCount200Response';
+export * from '../models/GetJobPostsAthleticsCount200ResponseData';
 export * from '../models/GetSchoolAlternateNames200Response';
 export * from '../models/GetSchoolAlternateNames404Response';
 export * from '../models/GetWireChanges200Response';
@@ -151,6 +153,8 @@ import { Game } from '../models/Game';
 import { GameCollection } from '../models/GameCollection';
 import { GameContract } from '../models/GameContract';
 import { GameContractCollection } from '../models/GameContractCollection';
+import { GetJobPostsAthleticsCount200Response } from '../models/GetJobPostsAthleticsCount200Response';
+import { GetJobPostsAthleticsCount200ResponseData } from '../models/GetJobPostsAthleticsCount200ResponseData';
 import { GetSchoolAlternateNames200Response } from '../models/GetSchoolAlternateNames200Response';
 import { GetSchoolAlternateNames404Response } from '../models/GetSchoolAlternateNames404Response';
 import { GetWireChanges200Response } from '../models/GetWireChanges200Response';
@@ -290,6 +294,8 @@ let typeMap: {[index: string]: any} = {
     "GameCollection": GameCollection,
     "GameContract": GameContract,
     "GameContractCollection": GameContractCollection,
+    "GetJobPostsAthleticsCount200Response": GetJobPostsAthleticsCount200Response,
+    "GetJobPostsAthleticsCount200ResponseData": GetJobPostsAthleticsCount200ResponseData,
     "GetSchoolAlternateNames200Response": GetSchoolAlternateNames200Response,
     "GetSchoolAlternateNames404Response": GetSchoolAlternateNames404Response,
     "GetWireChanges200Response": GetWireChanges200Response,

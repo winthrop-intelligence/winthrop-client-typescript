@@ -63,6 +63,7 @@ Method | HTTP request | Description
 [**getIncomeReports**](DefaultApi.md#getIncomeReports) | **GET** /api/v1/income_reports | 
 [**getJobPost**](DefaultApi.md#getJobPost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post
 [**getJobPosts**](DefaultApi.md#getJobPosts) | **GET** /central_jobs/job_posts | List all job posts
+[**getJobPostsAthleticsCount**](DefaultApi.md#getJobPostsAthleticsCount) | **GET** /central_jobs/job_posts/athletics_count | Get total athletics job posts count
 [**getNcaaFinancialReportStatus**](DefaultApi.md#getNcaaFinancialReportStatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} | 
 [**getNcaaFinancialReportStatuses**](DefaultApi.md#getNcaaFinancialReportStatuses) | **GET** /api/v1/ncaa_financial_report_statuses | 
 [**getNewsFeed**](DefaultApi.md#getNewsFeed) | **GET** /wi_jobs/news_feeds/{newsFeedId} | Get a news feed
@@ -3635,6 +3636,53 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Job posts were found |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getJobPostsAthleticsCount**
+> GetJobPostsAthleticsCount200Response getJobPostsAthleticsCount()
+
+Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+
+### Example
+
+
+```typescript
+import { createConfiguration, DefaultApi } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
+
+const request = {};
+
+const data = await apiInstance.getJobPostsAthleticsCount(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**GetJobPostsAthleticsCount200Response**
+
+### Authorization
+
+[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Total athletics job posts count retrieved successfully |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

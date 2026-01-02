@@ -47,6 +47,7 @@ import { Game } from '../models/Game';
 import { GameCollection } from '../models/GameCollection';
 import { GameContract } from '../models/GameContract';
 import { GameContractCollection } from '../models/GameContractCollection';
+import { GetJobPostsAthleticsCount200Response } from '../models/GetJobPostsAthleticsCount200Response';
 import { GetSchoolAlternateNames200Response } from '../models/GetSchoolAlternateNames200Response';
 import { GetSchoolAlternateNames404Response } from '../models/GetSchoolAlternateNames404Response';
 import { GetWireChanges200Response } from '../models/GetWireChanges200Response';
@@ -3057,6 +3058,41 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         if (q !== undefined) {
             requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "any", ""));
         }
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKey"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["Oauth2"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     */
+    public async getJobPostsAthleticsCount(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/central_jobs/job_posts/athletics_count';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
         let authMethod: SecurityAuthentication | undefined;
@@ -7350,6 +7386,38 @@ export class DefaultApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "JobPostCollection", ""
             ) as JobPostCollection;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getJobPostsAthleticsCount
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getJobPostsAthleticsCountWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetJobPostsAthleticsCount200Response >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GetJobPostsAthleticsCount200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetJobPostsAthleticsCount200Response", ""
+            ) as GetJobPostsAthleticsCount200Response;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GetJobPostsAthleticsCount200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetJobPostsAthleticsCount200Response", ""
+            ) as GetJobPostsAthleticsCount200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

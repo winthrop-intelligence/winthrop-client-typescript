@@ -46,6 +46,8 @@ import { Game } from '../models/Game';
 import { GameCollection } from '../models/GameCollection';
 import { GameContract } from '../models/GameContract';
 import { GameContractCollection } from '../models/GameContractCollection';
+import { GetJobPostsAthleticsCount200Response } from '../models/GetJobPostsAthleticsCount200Response';
+import { GetJobPostsAthleticsCount200ResponseData } from '../models/GetJobPostsAthleticsCount200ResponseData';
 import { GetSchoolAlternateNames200Response } from '../models/GetSchoolAlternateNames200Response';
 import { GetSchoolAlternateNames404Response } from '../models/GetSchoolAlternateNames404Response';
 import { GetWireChanges200Response } from '../models/GetWireChanges200Response';
@@ -2131,6 +2133,38 @@ export class ObservableDefaultApi {
      */
     public getJobPosts(page?: number, perPage?: number, q?: any, _options?: ConfigurationOptions): Observable<JobPostCollection> {
         return this.getJobPostsWithHttpInfo(page, perPage, q, _options).pipe(map((apiResponse: HttpInfo<JobPostCollection>) => apiResponse.data));
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     */
+    public getJobPostsAthleticsCountWithHttpInfo(_options?: ConfigurationOptions): Observable<HttpInfo<GetJobPostsAthleticsCount200Response>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getJobPostsAthleticsCount(_config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getJobPostsAthleticsCountWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     */
+    public getJobPostsAthleticsCount(_options?: ConfigurationOptions): Observable<GetJobPostsAthleticsCount200Response> {
+        return this.getJobPostsAthleticsCountWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<GetJobPostsAthleticsCount200Response>) => apiResponse.data));
     }
 
     /**

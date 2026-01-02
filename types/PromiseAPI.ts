@@ -45,6 +45,8 @@ import { Game } from '../models/Game';
 import { GameCollection } from '../models/GameCollection';
 import { GameContract } from '../models/GameContract';
 import { GameContractCollection } from '../models/GameContractCollection';
+import { GetJobPostsAthleticsCount200Response } from '../models/GetJobPostsAthleticsCount200Response';
+import { GetJobPostsAthleticsCount200ResponseData } from '../models/GetJobPostsAthleticsCount200ResponseData';
 import { GetSchoolAlternateNames200Response } from '../models/GetSchoolAlternateNames200Response';
 import { GetSchoolAlternateNames404Response } from '../models/GetSchoolAlternateNames404Response';
 import { GetWireChanges200Response } from '../models/GetWireChanges200Response';
@@ -1418,6 +1420,26 @@ export class PromiseDefaultApi {
     public getJobPosts(page?: number, perPage?: number, q?: any, _options?: PromiseConfigurationOptions): Promise<JobPostCollection> {
         const observableOptions = wrapOptions(_options);
         const result = this.api.getJobPosts(page, perPage, q, observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     */
+    public getJobPostsAthleticsCountWithHttpInfo(_options?: PromiseConfigurationOptions): Promise<HttpInfo<GetJobPostsAthleticsCount200Response>> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getJobPostsAthleticsCountWithHttpInfo(observableOptions);
+        return result.toPromise();
+    }
+
+    /**
+     * Returns the total count of athletics job posts (where LLM and ML both agree it\'s athletics, OR human override is athletics, OR has Athletic Department category)
+     * Get total athletics job posts count
+     */
+    public getJobPostsAthleticsCount(_options?: PromiseConfigurationOptions): Promise<GetJobPostsAthleticsCount200Response> {
+        const observableOptions = wrapOptions(_options);
+        const result = this.api.getJobPostsAthleticsCount(observableOptions);
         return result.toPromise();
     }
 
