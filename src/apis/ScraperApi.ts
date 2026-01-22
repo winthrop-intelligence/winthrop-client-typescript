@@ -22,7 +22,7 @@ import {
     ScraperToJSON,
 } from '../models/index';
 
-export interface RunScraperRequest {
+export interface ScraperApiRunScraperRequest {
     command: string;
     body?: object;
 }
@@ -76,7 +76,7 @@ export class ScraperApi extends runtime.BaseAPI {
      * Run a specified scraper with given arguments
      * Run a scraper
      */
-    async runScraperRaw(requestParameters: RunScraperRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async runScraperRaw(requestParameters: ScraperApiRunScraperRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['command'] == null) {
             throw new runtime.RequiredError(
                 'command',
@@ -118,7 +118,7 @@ export class ScraperApi extends runtime.BaseAPI {
      * Run a specified scraper with given arguments
      * Run a scraper
      */
-    async runScraper(requestParameters: RunScraperRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async runScraper(requestParameters: ScraperApiRunScraperRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.runScraperRaw(requestParameters, initOverrides);
     }
 

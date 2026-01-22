@@ -37,7 +37,7 @@ import {
     UnauthorizedErrorToJSON,
 } from '../models/index';
 
-export interface PredictRequest {
+export interface MlAthleticApiPredictRequest {
     predictBody?: PredictBody;
 }
 
@@ -87,7 +87,7 @@ export class MlAthleticApi extends runtime.BaseAPI {
     /**
      * Classify a job post as athletic or not.
      */
-    async predictRaw(requestParameters: PredictRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredictSuccess>> {
+    async predictRaw(requestParameters: MlAthleticApiPredictRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PredictSuccess>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -116,7 +116,7 @@ export class MlAthleticApi extends runtime.BaseAPI {
     /**
      * Classify a job post as athletic or not.
      */
-    async predict(requestParameters: PredictRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PredictSuccess> {
+    async predict(requestParameters: MlAthleticApiPredictRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PredictSuccess> {
         const response = await this.predictRaw(requestParameters, initOverrides);
         return await response.value();
     }

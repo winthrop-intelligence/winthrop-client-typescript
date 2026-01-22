@@ -31,15 +31,15 @@ import {
     NewsFeedCollectionToJSON,
 } from '../models/index';
 
-export interface CreateNewsFeedsRequest {
+export interface IntercollegiateApiCreateNewsFeedsRequest {
     newsFeed?: NewsFeed;
 }
 
-export interface GetJobPostRequest {
+export interface IntercollegiateApiGetJobPostRequest {
     jobPostId: number;
 }
 
-export interface GetJobPostsRequest {
+export interface IntercollegiateApiGetJobPostsRequest {
     page?: number;
     perPage?: number;
     q?: object;
@@ -53,7 +53,7 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     /**
      * Create news feed
      */
-    async createNewsFeedsRaw(requestParameters: CreateNewsFeedsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewsFeed>> {
+    async createNewsFeedsRaw(requestParameters: IntercollegiateApiCreateNewsFeedsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewsFeed>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -86,7 +86,7 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     /**
      * Create news feed
      */
-    async createNewsFeeds(requestParameters: CreateNewsFeedsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewsFeed> {
+    async createNewsFeeds(requestParameters: IntercollegiateApiCreateNewsFeedsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewsFeed> {
         const response = await this.createNewsFeedsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -94,7 +94,7 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     /**
      * Retrieve a job post by ID
      */
-    async getJobPostRaw(requestParameters: GetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Job>> {
+    async getJobPostRaw(requestParameters: IntercollegiateApiGetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Job>> {
         if (requestParameters['jobPostId'] == null) {
             throw new runtime.RequiredError(
                 'jobPostId',
@@ -132,7 +132,7 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     /**
      * Retrieve a job post by ID
      */
-    async getJobPost(requestParameters: GetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Job> {
+    async getJobPost(requestParameters: IntercollegiateApiGetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Job> {
         const response = await this.getJobPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -140,7 +140,7 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all active jobs
      */
-    async getJobPostsRaw(requestParameters: GetJobPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobCollection>> {
+    async getJobPostsRaw(requestParameters: IntercollegiateApiGetJobPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -182,7 +182,7 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all active jobs
      */
-    async getJobPosts(requestParameters: GetJobPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobCollection> {
+    async getJobPosts(requestParameters: IntercollegiateApiGetJobPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobCollection> {
         const response = await this.getJobPostsRaw(requestParameters, initOverrides);
         return await response.value();
     }

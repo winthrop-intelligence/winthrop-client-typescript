@@ -25,7 +25,7 @@ import {
     HTTPValidationErrorToJSON,
 } from '../models/index';
 
-export interface UniversityDossierReportDossierWinadIdGetRequest {
+export interface DossierApiUniversityDossierReportDossierWinadIdGetRequest {
     winadId: number;
 }
 
@@ -37,7 +37,7 @@ export class DossierApi extends runtime.BaseAPI {
     /**
      * University Dossier Report
      */
-    async universityDossierReportDossierWinadIdGetRaw(requestParameters: UniversityDossierReportDossierWinadIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DossierReportResponse>> {
+    async universityDossierReportDossierWinadIdGetRaw(requestParameters: DossierApiUniversityDossierReportDossierWinadIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DossierReportResponse>> {
         if (requestParameters['winadId'] == null) {
             throw new runtime.RequiredError(
                 'winadId',
@@ -75,7 +75,7 @@ export class DossierApi extends runtime.BaseAPI {
     /**
      * University Dossier Report
      */
-    async universityDossierReportDossierWinadIdGet(requestParameters: UniversityDossierReportDossierWinadIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DossierReportResponse> {
+    async universityDossierReportDossierWinadIdGet(requestParameters: DossierApiUniversityDossierReportDossierWinadIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DossierReportResponse> {
         const response = await this.universityDossierReportDossierWinadIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }

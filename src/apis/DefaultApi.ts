@@ -247,441 +247,441 @@ import {
     VerifyUserIntercollegiateAccess200ResponseToJSON,
 } from '../models/index';
 
-export interface AverageConferenceCompRequest {
+export interface DefaultApiAverageConferenceCompRequest {
     conferenceId: number;
     seasonYears: Array<number>;
     sportIds: Array<number>;
     positionTypeIds: Array<number>;
 }
 
-export interface AverageDivisionCompRequest {
+export interface DefaultApiAverageDivisionCompRequest {
     divisionId: number;
     seasonYears: Array<number>;
     sportIds: Array<number>;
     positionTypeIds: Array<number>;
 }
 
-export interface AverageSchoolCompRequest {
+export interface DefaultApiAverageSchoolCompRequest {
     schoolId: number;
     seasonYears: Array<number>;
     sportIds: Array<number>;
     positionTypeIds: Array<number>;
 }
 
-export interface AverageSubdivisionCompRequest {
+export interface DefaultApiAverageSubdivisionCompRequest {
     subdivisionId: number;
     seasonYears: Array<number>;
     sportIds: Array<number>;
     positionTypeIds: Array<number>;
 }
 
-export interface CompareColiRequest {
+export interface DefaultApiCompareColiRequest {
     schoolId: number;
     otherPersonSchoolId: number;
     otherPersonTotalCompensation: number;
 }
 
-export interface CreateCashflowRequest {
+export interface DefaultApiCreateCashflowRequest {
     cashflow?: Cashflow;
 }
 
-export interface CreateConferenceRequest {
+export interface DefaultApiCreateConferenceRequest {
     conference?: Conference;
 }
 
-export interface CreateConferenceshipRequest {
+export interface DefaultApiCreateConferenceshipRequest {
     conferenceship?: Conferenceship;
 }
 
-export interface CreateFoiaLabelRequest {
+export interface DefaultApiCreateFoiaLabelRequest {
     foiaLabel: FoiaLabel;
 }
 
-export interface CreateFoiaRequestRequest {
+export interface DefaultApiCreateFoiaRequestRequest {
     foiaRequest: FoiaRequest;
 }
 
-export interface CreateJobPostRequest {
+export interface DefaultApiCreateJobPostRequest {
     jobPost?: JobPost;
 }
 
-export interface CreateRequestedItemRequest {
+export interface DefaultApiCreateRequestedItemRequest {
     requestedItem: RequestedItem;
 }
 
-export interface CreateSeasonRequest {
+export interface DefaultApiCreateSeasonRequest {
     season?: Season;
 }
 
-export interface DeleteCashflowRequest {
+export interface DefaultApiDeleteCashflowRequest {
     cashflowId: number;
 }
 
-export interface DeleteConferenceRequest {
+export interface DefaultApiDeleteConferenceRequest {
     conferenceId: number;
 }
 
-export interface DeleteConferenceshipRequest {
+export interface DefaultApiDeleteConferenceshipRequest {
     conferenceshipId: number;
 }
 
-export interface DeleteFoiaLabelRequest {
+export interface DefaultApiDeleteFoiaLabelRequest {
     foiaLabelId: number;
 }
 
-export interface DeleteFoiaRequestRequest {
+export interface DefaultApiDeleteFoiaRequestRequest {
     foiaRequestId: number;
 }
 
-export interface DeleteJobPostRequest {
+export interface DefaultApiDeleteJobPostRequest {
     jobPostId: number;
 }
 
-export interface DeleteRequestedItemRequest {
+export interface DefaultApiDeleteRequestedItemRequest {
     requestedItemId: number;
 }
 
-export interface DeleteSeasonRequest {
+export interface DefaultApiDeleteSeasonRequest {
     seasonId: number;
 }
 
-export interface GetAdministratorRequest {
+export interface DefaultApiGetAdministratorRequest {
     administratorId: number;
 }
 
-export interface GetAdministratorsRequest {
+export interface DefaultApiGetAdministratorsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetAuditedFinancialReportStatusRequest {
+export interface DefaultApiGetAuditedFinancialReportStatusRequest {
     auditedFinancialReportStatusId: number;
 }
 
-export interface GetAuditedFinancialReportStatusesRequest {
+export interface DefaultApiGetAuditedFinancialReportStatusesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetCashflowRequest {
+export interface DefaultApiGetCashflowRequest {
     cashflowId: number;
 }
 
-export interface GetCashflowsRequest {
+export interface DefaultApiGetCashflowsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetCategoriesRequest {
+export interface DefaultApiGetCategoriesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetCoachRequest {
+export interface DefaultApiGetCoachRequest {
     coachId: number;
 }
 
-export interface GetCoachCompensationRequest {
+export interface DefaultApiGetCoachCompensationRequest {
     coachesIds: Array<number>;
     userSchoolId: number;
 }
 
-export interface GetCoachesRequest {
+export interface DefaultApiGetCoachesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetCompensationRequest {
+export interface DefaultApiGetCompensationRequest {
     compensationId: number;
 }
 
-export interface GetCompensationsRequest {
+export interface DefaultApiGetCompensationsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetConferenceRequest {
+export interface DefaultApiGetConferenceRequest {
     conferenceId: number;
 }
 
-export interface GetConferencesRequest {
+export interface DefaultApiGetConferencesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetConferenceshipRequest {
+export interface DefaultApiGetConferenceshipRequest {
     conferenceshipId: number;
 }
 
-export interface GetConferenceshipsRequest {
+export interface DefaultApiGetConferenceshipsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetContactRequest {
+export interface DefaultApiGetContactRequest {
     contactId: number;
 }
 
-export interface GetContactsRequest {
+export interface DefaultApiGetContactsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetContractRequest {
+export interface DefaultApiGetContractRequest {
     contractId: number;
 }
 
-export interface GetContractsRequest {
+export interface DefaultApiGetContractsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetDealRequest {
+export interface DefaultApiGetDealRequest {
     dealId: number;
 }
 
-export interface GetDealStatusRequest {
+export interface DefaultApiGetDealStatusRequest {
     dealStatusId: number;
 }
 
-export interface GetDealStatusesRequest {
+export interface DefaultApiGetDealStatusesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetDealsRequest {
+export interface DefaultApiGetDealsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetDivisionRequest {
+export interface DefaultApiGetDivisionRequest {
     divisionId: number;
 }
 
-export interface GetDivisionsRequest {
+export interface DefaultApiGetDivisionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetFoiaLabelRequest {
+export interface DefaultApiGetFoiaLabelRequest {
     foiaLabelId: number;
 }
 
-export interface GetFoiaLabelsRequest {
+export interface DefaultApiGetFoiaLabelsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetFoiaRequestRequest {
+export interface DefaultApiGetFoiaRequestRequest {
     foiaRequestId: number;
 }
 
-export interface GetFoiaRequestsRequest {
+export interface DefaultApiGetFoiaRequestsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetGameRequest {
+export interface DefaultApiGetGameRequest {
     gameId: number;
 }
 
-export interface GetGameContractRequest {
+export interface DefaultApiGetGameContractRequest {
     gameContractId: number;
 }
 
-export interface GetGameContractsRequest {
+export interface DefaultApiGetGameContractsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetGamesRequest {
+export interface DefaultApiGetGamesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetIncomeReportRequest {
+export interface DefaultApiGetIncomeReportRequest {
     incomeReportId: number;
 }
 
-export interface GetIncomeReportsRequest {
+export interface DefaultApiGetIncomeReportsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetJobPostRequest {
+export interface DefaultApiGetJobPostRequest {
     jobPostId: number;
 }
 
-export interface GetJobPostsRequest {
+export interface DefaultApiGetJobPostsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetNcaaFinancialReportStatusRequest {
+export interface DefaultApiGetNcaaFinancialReportStatusRequest {
     ncaaFinancialReportStatusId: number;
 }
 
-export interface GetNcaaFinancialReportStatusesRequest {
+export interface DefaultApiGetNcaaFinancialReportStatusesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetNewsFeedRequest {
+export interface DefaultApiGetNewsFeedRequest {
     newsFeedId: number;
 }
 
-export interface GetPositionRequest {
+export interface DefaultApiGetPositionRequest {
     positionId: number;
 }
 
-export interface GetPositionsRequest {
+export interface DefaultApiGetPositionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetRawContractRequest {
+export interface DefaultApiGetRawContractRequest {
     rawContractId: number;
 }
 
-export interface GetRawContractsRequest {
+export interface DefaultApiGetRawContractsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetRequestedItemRequest {
+export interface DefaultApiGetRequestedItemRequest {
     requestedItemId: number;
 }
 
-export interface GetRequestedItemsRequest {
+export interface DefaultApiGetRequestedItemsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetSchoolRequest {
+export interface DefaultApiGetSchoolRequest {
     schoolId: number;
 }
 
-export interface GetSchoolAlternateNamesRequest {
+export interface DefaultApiGetSchoolAlternateNamesRequest {
     schoolId: number;
 }
 
-export interface GetSchoolsRequest {
+export interface DefaultApiGetSchoolsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetSeasonRequest {
+export interface DefaultApiGetSeasonRequest {
     seasonId: number;
 }
 
-export interface GetSeasonsRequest {
+export interface DefaultApiGetSeasonsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetSimilarCoachesRequest {
+export interface DefaultApiGetSimilarCoachesRequest {
     coachId: number;
     q?: object;
     page?: number;
     perPage?: number;
 }
 
-export interface GetSportRequest {
+export interface DefaultApiGetSportRequest {
     sportId: number;
 }
 
-export interface GetSportsRequest {
+export interface DefaultApiGetSportsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetSubdivisionRequest {
+export interface DefaultApiGetSubdivisionRequest {
     subdivisionId: number;
 }
 
-export interface GetSubdivisionsRequest {
+export interface DefaultApiGetSubdivisionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetSubscriptionRequest {
+export interface DefaultApiGetSubscriptionRequest {
     subscriptionId: number;
 }
 
-export interface GetSubscriptionsRequest {
+export interface DefaultApiGetSubscriptionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetUserRequest {
+export interface DefaultApiGetUserRequest {
     userId: number;
 }
 
-export interface GetUserActivitySummariesRequest {
+export interface DefaultApiGetUserActivitySummariesRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetUserActivitySummaryRequest {
+export interface DefaultApiGetUserActivitySummaryRequest {
     userActivitySummaryId: number;
 }
 
-export interface GetUserRequestRequest {
+export interface DefaultApiGetUserRequestRequest {
     userRequestId: number;
 }
 
-export interface GetUserRequestsRequest {
+export interface DefaultApiGetUserRequestsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetUsersRequest {
+export interface DefaultApiGetUsersRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetVendorRequest {
+export interface DefaultApiGetVendorRequest {
     vendorId: number;
 }
 
-export interface GetVendorsRequest {
+export interface DefaultApiGetVendorsRequest {
     page?: number;
     perPage?: number;
     q?: object;
 }
 
-export interface GetWireChangesRequest {
+export interface DefaultApiGetWireChangesRequest {
     page?: number;
     perPage?: number;
     q?: object;
@@ -690,61 +690,61 @@ export interface GetWireChangesRequest {
     qSportIdEq?: number;
 }
 
-export interface SearchCoachesRequest {
+export interface DefaultApiSearchCoachesRequest {
     filters?: Filters;
 }
 
-export interface UpdateCashflowRequest {
+export interface DefaultApiUpdateCashflowRequest {
     cashflowId: number;
     cashflow: Cashflow;
 }
 
-export interface UpdateCoachRequest {
+export interface DefaultApiUpdateCoachRequest {
     coachId: number;
     coach: Coach;
 }
 
-export interface UpdateCompensationRequest {
+export interface DefaultApiUpdateCompensationRequest {
     compensationId: number;
     compensation: Compensation;
 }
 
-export interface UpdateConferenceRequest {
+export interface DefaultApiUpdateConferenceRequest {
     conferenceId: number;
     conference: Conference;
 }
 
-export interface UpdateConferenceshipRequest {
+export interface DefaultApiUpdateConferenceshipRequest {
     conferenceshipId: number;
     conferenceship: Conferenceship;
 }
 
-export interface UpdateFoiaLabelRequest {
+export interface DefaultApiUpdateFoiaLabelRequest {
     foiaLabelId: number;
     foiaLabel: FoiaLabel;
 }
 
-export interface UpdateFoiaRequestRequest {
+export interface DefaultApiUpdateFoiaRequestRequest {
     foiaRequestId: number;
     foiaRequest: FoiaRequest;
 }
 
-export interface UpdateJobPostRequest {
+export interface DefaultApiUpdateJobPostRequest {
     jobPostId: number;
     jobPost?: JobPost;
 }
 
-export interface UpdateRequestedItemRequest {
+export interface DefaultApiUpdateRequestedItemRequest {
     requestedItemId: number;
     requestedItem: RequestedItem;
 }
 
-export interface UpdateSeasonRequest {
+export interface DefaultApiUpdateSeasonRequest {
     seasonId: number;
     season: Season;
 }
 
-export interface VerifyUserIntercollegiateAccessRequest {
+export interface DefaultApiVerifyUserIntercollegiateAccessRequest {
     userEmail: string;
 }
 
@@ -756,7 +756,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a conference
      */
-    async averageConferenceCompRaw(requestParameters: AverageConferenceCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
+    async averageConferenceCompRaw(requestParameters: DefaultApiAverageConferenceCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
         if (requestParameters['conferenceId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceId',
@@ -830,7 +830,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a conference
      */
-    async averageConferenceComp(requestParameters: AverageConferenceCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
+    async averageConferenceComp(requestParameters: DefaultApiAverageConferenceCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
         const response = await this.averageConferenceCompRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -838,7 +838,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a division
      */
-    async averageDivisionCompRaw(requestParameters: AverageDivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
+    async averageDivisionCompRaw(requestParameters: DefaultApiAverageDivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
         if (requestParameters['divisionId'] == null) {
             throw new runtime.RequiredError(
                 'divisionId',
@@ -912,7 +912,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a division
      */
-    async averageDivisionComp(requestParameters: AverageDivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
+    async averageDivisionComp(requestParameters: DefaultApiAverageDivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
         const response = await this.averageDivisionCompRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -920,7 +920,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a school
      */
-    async averageSchoolCompRaw(requestParameters: AverageSchoolCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
+    async averageSchoolCompRaw(requestParameters: DefaultApiAverageSchoolCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
         if (requestParameters['schoolId'] == null) {
             throw new runtime.RequiredError(
                 'schoolId',
@@ -994,7 +994,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a school
      */
-    async averageSchoolComp(requestParameters: AverageSchoolCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
+    async averageSchoolComp(requestParameters: DefaultApiAverageSchoolCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
         const response = await this.averageSchoolCompRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1002,7 +1002,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a subdivision
      */
-    async averageSubdivisionCompRaw(requestParameters: AverageSubdivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
+    async averageSubdivisionCompRaw(requestParameters: DefaultApiAverageSubdivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AverageCompensation>> {
         if (requestParameters['subdivisionId'] == null) {
             throw new runtime.RequiredError(
                 'subdivisionId',
@@ -1076,7 +1076,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve average compensation for a subdivision
      */
-    async averageSubdivisionComp(requestParameters: AverageSubdivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
+    async averageSubdivisionComp(requestParameters: DefaultApiAverageSubdivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
         const response = await this.averageSubdivisionCompRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1084,7 +1084,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve the COLI-adjusted compensation
      */
-    async compareColiRaw(requestParameters: CompareColiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<COLIAdjusted>> {
+    async compareColiRaw(requestParameters: DefaultApiCompareColiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<COLIAdjusted>> {
         if (requestParameters['schoolId'] == null) {
             throw new runtime.RequiredError(
                 'schoolId',
@@ -1147,7 +1147,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve the COLI-adjusted compensation
      */
-    async compareColi(requestParameters: CompareColiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<COLIAdjusted> {
+    async compareColi(requestParameters: DefaultApiCompareColiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<COLIAdjusted> {
         const response = await this.compareColiRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1155,7 +1155,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Cashflow
      */
-    async createCashflowRaw(requestParameters: CreateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
+    async createCashflowRaw(requestParameters: DefaultApiCreateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1188,7 +1188,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Cashflow
      */
-    async createCashflow(requestParameters: CreateCashflowRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Cashflow> {
+    async createCashflow(requestParameters: DefaultApiCreateCashflowRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Cashflow> {
         const response = await this.createCashflowRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1196,7 +1196,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Conference
      */
-    async createConferenceRaw(requestParameters: CreateConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conference>> {
+    async createConferenceRaw(requestParameters: DefaultApiCreateConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conference>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1229,7 +1229,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Conference
      */
-    async createConference(requestParameters: CreateConferenceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
+    async createConference(requestParameters: DefaultApiCreateConferenceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
         const response = await this.createConferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1237,7 +1237,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Conferenceship
      */
-    async createConferenceshipRaw(requestParameters: CreateConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conferenceship>> {
+    async createConferenceshipRaw(requestParameters: DefaultApiCreateConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conferenceship>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1270,7 +1270,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Conferenceship
      */
-    async createConferenceship(requestParameters: CreateConferenceshipRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conferenceship> {
+    async createConferenceship(requestParameters: DefaultApiCreateConferenceshipRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conferenceship> {
         const response = await this.createConferenceshipRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1278,7 +1278,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new foia label
      */
-    async createFoiaLabelRaw(requestParameters: CreateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
+    async createFoiaLabelRaw(requestParameters: DefaultApiCreateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
         if (requestParameters['foiaLabel'] == null) {
             throw new runtime.RequiredError(
                 'foiaLabel',
@@ -1318,7 +1318,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new foia label
      */
-    async createFoiaLabel(requestParameters: CreateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabel> {
+    async createFoiaLabel(requestParameters: DefaultApiCreateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabel> {
         const response = await this.createFoiaLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1326,7 +1326,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new foia request
      */
-    async createFoiaRequestRaw(requestParameters: CreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequest>> {
+    async createFoiaRequestRaw(requestParameters: DefaultApiCreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequest>> {
         if (requestParameters['foiaRequest'] == null) {
             throw new runtime.RequiredError(
                 'foiaRequest',
@@ -1366,7 +1366,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new foia request
      */
-    async createFoiaRequest(requestParameters: CreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
+    async createFoiaRequest(requestParameters: DefaultApiCreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.createFoiaRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1375,7 +1375,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Create a job post
      * Create a job post
      */
-    async createJobPostRaw(requestParameters: CreateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPost>> {
+    async createJobPostRaw(requestParameters: DefaultApiCreateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPost>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1409,7 +1409,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Create a job post
      * Create a job post
      */
-    async createJobPost(requestParameters: CreateJobPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
+    async createJobPost(requestParameters: DefaultApiCreateJobPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
         const response = await this.createJobPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1417,7 +1417,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new requested item
      */
-    async createRequestedItemRaw(requestParameters: CreateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItem>> {
+    async createRequestedItemRaw(requestParameters: DefaultApiCreateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItem>> {
         if (requestParameters['requestedItem'] == null) {
             throw new runtime.RequiredError(
                 'requestedItem',
@@ -1457,7 +1457,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new requested item
      */
-    async createRequestedItem(requestParameters: CreateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
+    async createRequestedItem(requestParameters: DefaultApiCreateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
         const response = await this.createRequestedItemRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1465,7 +1465,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Season
      */
-    async createSeasonRaw(requestParameters: CreateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
+    async createSeasonRaw(requestParameters: DefaultApiCreateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1498,7 +1498,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a new Season
      */
-    async createSeason(requestParameters: CreateSeasonRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
+    async createSeason(requestParameters: DefaultApiCreateSeasonRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
         const response = await this.createSeasonRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1506,7 +1506,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single Cashflow
      */
-    async deleteCashflowRaw(requestParameters: DeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteCashflowRaw(requestParameters: DefaultApiDeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['cashflowId'] == null) {
             throw new runtime.RequiredError(
                 'cashflowId',
@@ -1544,14 +1544,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single Cashflow
      */
-    async deleteCashflow(requestParameters: DeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteCashflow(requestParameters: DefaultApiDeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteCashflowRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete a single Conference
      */
-    async deleteConferenceRaw(requestParameters: DeleteConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteConferenceRaw(requestParameters: DefaultApiDeleteConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['conferenceId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceId',
@@ -1589,14 +1589,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single Conference
      */
-    async deleteConference(requestParameters: DeleteConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteConference(requestParameters: DefaultApiDeleteConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteConferenceRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete a single Conferenceship
      */
-    async deleteConferenceshipRaw(requestParameters: DeleteConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteConferenceshipRaw(requestParameters: DefaultApiDeleteConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['conferenceshipId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceshipId',
@@ -1634,14 +1634,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single Conferenceship
      */
-    async deleteConferenceship(requestParameters: DeleteConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteConferenceship(requestParameters: DefaultApiDeleteConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteConferenceshipRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete a single foia label
      */
-    async deleteFoiaLabelRaw(requestParameters: DeleteFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteFoiaLabelRaw(requestParameters: DefaultApiDeleteFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['foiaLabelId'] == null) {
             throw new runtime.RequiredError(
                 'foiaLabelId',
@@ -1679,14 +1679,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single foia label
      */
-    async deleteFoiaLabel(requestParameters: DeleteFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteFoiaLabel(requestParameters: DefaultApiDeleteFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteFoiaLabelRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete a single foia request
      */
-    async deleteFoiaRequestRaw(requestParameters: DeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteFoiaRequestRaw(requestParameters: DefaultApiDeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['foiaRequestId'] == null) {
             throw new runtime.RequiredError(
                 'foiaRequestId',
@@ -1724,7 +1724,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single foia request
      */
-    async deleteFoiaRequest(requestParameters: DeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteFoiaRequest(requestParameters: DefaultApiDeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteFoiaRequestRaw(requestParameters, initOverrides);
     }
 
@@ -1732,7 +1732,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Delete a job post
      * Delete a job post
      */
-    async deleteJobPostRaw(requestParameters: DeleteJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteJobPostRaw(requestParameters: DefaultApiDeleteJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['jobPostId'] == null) {
             throw new runtime.RequiredError(
                 'jobPostId',
@@ -1771,14 +1771,14 @@ export class DefaultApi extends runtime.BaseAPI {
      * Delete a job post
      * Delete a job post
      */
-    async deleteJobPost(requestParameters: DeleteJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteJobPost(requestParameters: DefaultApiDeleteJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteJobPostRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete a single requested item
      */
-    async deleteRequestedItemRaw(requestParameters: DeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteRequestedItemRaw(requestParameters: DefaultApiDeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['requestedItemId'] == null) {
             throw new runtime.RequiredError(
                 'requestedItemId',
@@ -1816,14 +1816,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single requested item
      */
-    async deleteRequestedItem(requestParameters: DeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteRequestedItem(requestParameters: DefaultApiDeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRequestedItemRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete a single Season
      */
-    async deleteSeasonRaw(requestParameters: DeleteSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteSeasonRaw(requestParameters: DefaultApiDeleteSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['seasonId'] == null) {
             throw new runtime.RequiredError(
                 'seasonId',
@@ -1861,14 +1861,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a single Season
      */
-    async deleteSeason(requestParameters: DeleteSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteSeason(requestParameters: DefaultApiDeleteSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteSeasonRaw(requestParameters, initOverrides);
     }
 
     /**
      * Retrieve a single administrator
      */
-    async getAdministratorRaw(requestParameters: GetAdministratorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Administrator>> {
+    async getAdministratorRaw(requestParameters: DefaultApiGetAdministratorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Administrator>> {
         if (requestParameters['administratorId'] == null) {
             throw new runtime.RequiredError(
                 'administratorId',
@@ -1906,7 +1906,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single administrator
      */
-    async getAdministrator(requestParameters: GetAdministratorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Administrator> {
+    async getAdministrator(requestParameters: DefaultApiGetAdministratorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Administrator> {
         const response = await this.getAdministratorRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1914,7 +1914,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all administrators
      */
-    async getAdministratorsRaw(requestParameters: GetAdministratorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdministratorCollection>> {
+    async getAdministratorsRaw(requestParameters: DefaultApiGetAdministratorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdministratorCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -1956,7 +1956,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all administrators
      */
-    async getAdministrators(requestParameters: GetAdministratorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdministratorCollection> {
+    async getAdministrators(requestParameters: DefaultApiGetAdministratorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdministratorCollection> {
         const response = await this.getAdministratorsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1964,7 +1964,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single audited financial report status
      */
-    async getAuditedFinancialReportStatusRaw(requestParameters: GetAuditedFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditedFinancialReportStatus>> {
+    async getAuditedFinancialReportStatusRaw(requestParameters: DefaultApiGetAuditedFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditedFinancialReportStatus>> {
         if (requestParameters['auditedFinancialReportStatusId'] == null) {
             throw new runtime.RequiredError(
                 'auditedFinancialReportStatusId',
@@ -2002,7 +2002,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single audited financial report status
      */
-    async getAuditedFinancialReportStatus(requestParameters: GetAuditedFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditedFinancialReportStatus> {
+    async getAuditedFinancialReportStatus(requestParameters: DefaultApiGetAuditedFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditedFinancialReportStatus> {
         const response = await this.getAuditedFinancialReportStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2010,7 +2010,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all audited financial report statuses
      */
-    async getAuditedFinancialReportStatusesRaw(requestParameters: GetAuditedFinancialReportStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditedFinancialReportStatusCollection>> {
+    async getAuditedFinancialReportStatusesRaw(requestParameters: DefaultApiGetAuditedFinancialReportStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuditedFinancialReportStatusCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2052,7 +2052,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all audited financial report statuses
      */
-    async getAuditedFinancialReportStatuses(requestParameters: GetAuditedFinancialReportStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditedFinancialReportStatusCollection> {
+    async getAuditedFinancialReportStatuses(requestParameters: DefaultApiGetAuditedFinancialReportStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuditedFinancialReportStatusCollection> {
         const response = await this.getAuditedFinancialReportStatusesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2060,7 +2060,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Cashflow
      */
-    async getCashflowRaw(requestParameters: GetCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
+    async getCashflowRaw(requestParameters: DefaultApiGetCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
         if (requestParameters['cashflowId'] == null) {
             throw new runtime.RequiredError(
                 'cashflowId',
@@ -2098,7 +2098,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Cashflow
      */
-    async getCashflow(requestParameters: GetCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Cashflow> {
+    async getCashflow(requestParameters: DefaultApiGetCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Cashflow> {
         const response = await this.getCashflowRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2106,7 +2106,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all cashflows
      */
-    async getCashflowsRaw(requestParameters: GetCashflowsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashflowCollection>> {
+    async getCashflowsRaw(requestParameters: DefaultApiGetCashflowsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashflowCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2148,7 +2148,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all cashflows
      */
-    async getCashflows(requestParameters: GetCashflowsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashflowCollection> {
+    async getCashflows(requestParameters: DefaultApiGetCashflowsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashflowCollection> {
         const response = await this.getCashflowsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2157,7 +2157,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * List all categories
      * List all categories
      */
-    async getCategoriesRaw(requestParameters: GetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryCollection>> {
+    async getCategoriesRaw(requestParameters: DefaultApiGetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoryCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2200,7 +2200,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * List all categories
      * List all categories
      */
-    async getCategories(requestParameters: GetCategoriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryCollection> {
+    async getCategories(requestParameters: DefaultApiGetCategoriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryCollection> {
         const response = await this.getCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2208,7 +2208,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single coach
      */
-    async getCoachRaw(requestParameters: GetCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Coach>> {
+    async getCoachRaw(requestParameters: DefaultApiGetCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Coach>> {
         if (requestParameters['coachId'] == null) {
             throw new runtime.RequiredError(
                 'coachId',
@@ -2246,7 +2246,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single coach
      */
-    async getCoach(requestParameters: GetCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Coach> {
+    async getCoach(requestParameters: DefaultApiGetCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Coach> {
         const response = await this.getCoachRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2254,7 +2254,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve compensation estimate (base salary, year, and COL-adjusted salary) for a private school coach
      */
-    async getCoachCompensationRaw(requestParameters: GetCoachCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCompensation>> {
+    async getCoachCompensationRaw(requestParameters: DefaultApiGetCoachCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCompensation>> {
         if (requestParameters['coachesIds'] == null) {
             throw new runtime.RequiredError(
                 'coachesIds',
@@ -2306,7 +2306,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve compensation estimate (base salary, year, and COL-adjusted salary) for a private school coach
      */
-    async getCoachCompensation(requestParameters: GetCoachCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCompensation> {
+    async getCoachCompensation(requestParameters: DefaultApiGetCoachCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCompensation> {
         const response = await this.getCoachCompensationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2314,7 +2314,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all coaches
      */
-    async getCoachesRaw(requestParameters: GetCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
+    async getCoachesRaw(requestParameters: DefaultApiGetCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2356,7 +2356,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all coaches
      */
-    async getCoaches(requestParameters: GetCoachesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
+    async getCoaches(requestParameters: DefaultApiGetCoachesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
         const response = await this.getCoachesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2364,7 +2364,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single compensation
      */
-    async getCompensationRaw(requestParameters: GetCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Compensation>> {
+    async getCompensationRaw(requestParameters: DefaultApiGetCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Compensation>> {
         if (requestParameters['compensationId'] == null) {
             throw new runtime.RequiredError(
                 'compensationId',
@@ -2402,7 +2402,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single compensation
      */
-    async getCompensation(requestParameters: GetCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
+    async getCompensation(requestParameters: DefaultApiGetCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
         const response = await this.getCompensationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2410,7 +2410,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all compensations
      */
-    async getCompensationsRaw(requestParameters: GetCompensationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompensationCollection>> {
+    async getCompensationsRaw(requestParameters: DefaultApiGetCompensationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompensationCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2452,7 +2452,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all compensations
      */
-    async getCompensations(requestParameters: GetCompensationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompensationCollection> {
+    async getCompensations(requestParameters: DefaultApiGetCompensationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompensationCollection> {
         const response = await this.getCompensationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2460,7 +2460,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Conference
      */
-    async getConferenceRaw(requestParameters: GetConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conference>> {
+    async getConferenceRaw(requestParameters: DefaultApiGetConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conference>> {
         if (requestParameters['conferenceId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceId',
@@ -2498,7 +2498,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Conference
      */
-    async getConference(requestParameters: GetConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
+    async getConference(requestParameters: DefaultApiGetConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
         const response = await this.getConferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2506,7 +2506,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all conferences
      */
-    async getConferencesRaw(requestParameters: GetConferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceCollection>> {
+    async getConferencesRaw(requestParameters: DefaultApiGetConferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2548,7 +2548,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all conferences
      */
-    async getConferences(requestParameters: GetConferencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceCollection> {
+    async getConferences(requestParameters: DefaultApiGetConferencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceCollection> {
         const response = await this.getConferencesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2556,7 +2556,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Conferenceship
      */
-    async getConferenceshipRaw(requestParameters: GetConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conferenceship>> {
+    async getConferenceshipRaw(requestParameters: DefaultApiGetConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conferenceship>> {
         if (requestParameters['conferenceshipId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceshipId',
@@ -2594,7 +2594,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Conferenceship
      */
-    async getConferenceship(requestParameters: GetConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conferenceship> {
+    async getConferenceship(requestParameters: DefaultApiGetConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conferenceship> {
         const response = await this.getConferenceshipRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2602,7 +2602,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all conferenceships
      */
-    async getConferenceshipsRaw(requestParameters: GetConferenceshipsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceshipCollection>> {
+    async getConferenceshipsRaw(requestParameters: DefaultApiGetConferenceshipsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceshipCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2644,7 +2644,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all conferenceships
      */
-    async getConferenceships(requestParameters: GetConferenceshipsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceshipCollection> {
+    async getConferenceships(requestParameters: DefaultApiGetConferenceshipsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceshipCollection> {
         const response = await this.getConferenceshipsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2652,7 +2652,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single contact
      */
-    async getContactRaw(requestParameters: GetContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Contact>> {
+    async getContactRaw(requestParameters: DefaultApiGetContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Contact>> {
         if (requestParameters['contactId'] == null) {
             throw new runtime.RequiredError(
                 'contactId',
@@ -2690,7 +2690,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single contact
      */
-    async getContact(requestParameters: GetContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Contact> {
+    async getContact(requestParameters: DefaultApiGetContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Contact> {
         const response = await this.getContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2698,7 +2698,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all contacts
      */
-    async getContactsRaw(requestParameters: GetContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactCollection>> {
+    async getContactsRaw(requestParameters: DefaultApiGetContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2740,7 +2740,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all contacts
      */
-    async getContacts(requestParameters: GetContactsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactCollection> {
+    async getContacts(requestParameters: DefaultApiGetContactsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactCollection> {
         const response = await this.getContactsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2748,7 +2748,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single contract
      */
-    async getContractRaw(requestParameters: GetContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Contract>> {
+    async getContractRaw(requestParameters: DefaultApiGetContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Contract>> {
         if (requestParameters['contractId'] == null) {
             throw new runtime.RequiredError(
                 'contractId',
@@ -2786,7 +2786,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single contract
      */
-    async getContract(requestParameters: GetContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Contract> {
+    async getContract(requestParameters: DefaultApiGetContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Contract> {
         const response = await this.getContractRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2794,7 +2794,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all contracts
      */
-    async getContractsRaw(requestParameters: GetContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContractCollection>> {
+    async getContractsRaw(requestParameters: DefaultApiGetContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContractCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2836,7 +2836,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all contracts
      */
-    async getContracts(requestParameters: GetContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContractCollection> {
+    async getContracts(requestParameters: DefaultApiGetContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContractCollection> {
         const response = await this.getContractsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2844,7 +2844,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Deal
      */
-    async getDealRaw(requestParameters: GetDealRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Deal>> {
+    async getDealRaw(requestParameters: DefaultApiGetDealRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Deal>> {
         if (requestParameters['dealId'] == null) {
             throw new runtime.RequiredError(
                 'dealId',
@@ -2882,7 +2882,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Deal
      */
-    async getDeal(requestParameters: GetDealRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Deal> {
+    async getDeal(requestParameters: DefaultApiGetDealRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Deal> {
         const response = await this.getDealRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2890,7 +2890,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single deal status
      */
-    async getDealStatusRaw(requestParameters: GetDealStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealStatus>> {
+    async getDealStatusRaw(requestParameters: DefaultApiGetDealStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealStatus>> {
         if (requestParameters['dealStatusId'] == null) {
             throw new runtime.RequiredError(
                 'dealStatusId',
@@ -2928,7 +2928,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single deal status
      */
-    async getDealStatus(requestParameters: GetDealStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealStatus> {
+    async getDealStatus(requestParameters: DefaultApiGetDealStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealStatus> {
         const response = await this.getDealStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2936,7 +2936,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all deal statuses
      */
-    async getDealStatusesRaw(requestParameters: GetDealStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealStatusCollection>> {
+    async getDealStatusesRaw(requestParameters: DefaultApiGetDealStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealStatusCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2978,7 +2978,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all deal statuses
      */
-    async getDealStatuses(requestParameters: GetDealStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealStatusCollection> {
+    async getDealStatuses(requestParameters: DefaultApiGetDealStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealStatusCollection> {
         const response = await this.getDealStatusesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2986,7 +2986,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all deals
      */
-    async getDealsRaw(requestParameters: GetDealsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealCollection>> {
+    async getDealsRaw(requestParameters: DefaultApiGetDealsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3028,7 +3028,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all deals
      */
-    async getDeals(requestParameters: GetDealsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealCollection> {
+    async getDeals(requestParameters: DefaultApiGetDealsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealCollection> {
         const response = await this.getDealsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3036,7 +3036,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Division
      */
-    async getDivisionRaw(requestParameters: GetDivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Division>> {
+    async getDivisionRaw(requestParameters: DefaultApiGetDivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Division>> {
         if (requestParameters['divisionId'] == null) {
             throw new runtime.RequiredError(
                 'divisionId',
@@ -3074,7 +3074,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Division
      */
-    async getDivision(requestParameters: GetDivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Division> {
+    async getDivision(requestParameters: DefaultApiGetDivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Division> {
         const response = await this.getDivisionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3082,7 +3082,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all divisions
      */
-    async getDivisionsRaw(requestParameters: GetDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DivisionCollection>> {
+    async getDivisionsRaw(requestParameters: DefaultApiGetDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DivisionCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3124,7 +3124,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all divisions
      */
-    async getDivisions(requestParameters: GetDivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DivisionCollection> {
+    async getDivisions(requestParameters: DefaultApiGetDivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DivisionCollection> {
         const response = await this.getDivisionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3132,7 +3132,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single foia label
      */
-    async getFoiaLabelRaw(requestParameters: GetFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
+    async getFoiaLabelRaw(requestParameters: DefaultApiGetFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
         if (requestParameters['foiaLabelId'] == null) {
             throw new runtime.RequiredError(
                 'foiaLabelId',
@@ -3170,7 +3170,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single foia label
      */
-    async getFoiaLabel(requestParameters: GetFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabel> {
+    async getFoiaLabel(requestParameters: DefaultApiGetFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabel> {
         const response = await this.getFoiaLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3178,7 +3178,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all foia labels
      */
-    async getFoiaLabelsRaw(requestParameters: GetFoiaLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabelCollection>> {
+    async getFoiaLabelsRaw(requestParameters: DefaultApiGetFoiaLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabelCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3220,7 +3220,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all foia labels
      */
-    async getFoiaLabels(requestParameters: GetFoiaLabelsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabelCollection> {
+    async getFoiaLabels(requestParameters: DefaultApiGetFoiaLabelsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabelCollection> {
         const response = await this.getFoiaLabelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3228,7 +3228,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single foia request
      */
-    async getFoiaRequestRaw(requestParameters: GetFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequest>> {
+    async getFoiaRequestRaw(requestParameters: DefaultApiGetFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequest>> {
         if (requestParameters['foiaRequestId'] == null) {
             throw new runtime.RequiredError(
                 'foiaRequestId',
@@ -3266,7 +3266,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single foia request
      */
-    async getFoiaRequest(requestParameters: GetFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
+    async getFoiaRequest(requestParameters: DefaultApiGetFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.getFoiaRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3274,7 +3274,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all foia requests
      */
-    async getFoiaRequestsRaw(requestParameters: GetFoiaRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequestCollection>> {
+    async getFoiaRequestsRaw(requestParameters: DefaultApiGetFoiaRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequestCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3316,7 +3316,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all foia requests
      */
-    async getFoiaRequests(requestParameters: GetFoiaRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequestCollection> {
+    async getFoiaRequests(requestParameters: DefaultApiGetFoiaRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequestCollection> {
         const response = await this.getFoiaRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3324,7 +3324,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single game
      */
-    async getGameRaw(requestParameters: GetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Game>> {
+    async getGameRaw(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Game>> {
         if (requestParameters['gameId'] == null) {
             throw new runtime.RequiredError(
                 'gameId',
@@ -3362,7 +3362,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single game
      */
-    async getGame(requestParameters: GetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Game> {
+    async getGame(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Game> {
         const response = await this.getGameRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3370,7 +3370,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single GameContract
      */
-    async getGameContractRaw(requestParameters: GetGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameContract>> {
+    async getGameContractRaw(requestParameters: DefaultApiGetGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameContract>> {
         if (requestParameters['gameContractId'] == null) {
             throw new runtime.RequiredError(
                 'gameContractId',
@@ -3408,7 +3408,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single GameContract
      */
-    async getGameContract(requestParameters: GetGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameContract> {
+    async getGameContract(requestParameters: DefaultApiGetGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameContract> {
         const response = await this.getGameContractRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3416,7 +3416,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all game_contracts
      */
-    async getGameContractsRaw(requestParameters: GetGameContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameContractCollection>> {
+    async getGameContractsRaw(requestParameters: DefaultApiGetGameContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameContractCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3458,7 +3458,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all game_contracts
      */
-    async getGameContracts(requestParameters: GetGameContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameContractCollection> {
+    async getGameContracts(requestParameters: DefaultApiGetGameContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameContractCollection> {
         const response = await this.getGameContractsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3466,7 +3466,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all games
      */
-    async getGamesRaw(requestParameters: GetGamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameCollection>> {
+    async getGamesRaw(requestParameters: DefaultApiGetGamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3508,7 +3508,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all games
      */
-    async getGames(requestParameters: GetGamesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameCollection> {
+    async getGames(requestParameters: DefaultApiGetGamesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameCollection> {
         const response = await this.getGamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3516,7 +3516,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single income report
      */
-    async getIncomeReportRaw(requestParameters: GetIncomeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IncomeReport>> {
+    async getIncomeReportRaw(requestParameters: DefaultApiGetIncomeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IncomeReport>> {
         if (requestParameters['incomeReportId'] == null) {
             throw new runtime.RequiredError(
                 'incomeReportId',
@@ -3554,7 +3554,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single income report
      */
-    async getIncomeReport(requestParameters: GetIncomeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IncomeReport> {
+    async getIncomeReport(requestParameters: DefaultApiGetIncomeReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IncomeReport> {
         const response = await this.getIncomeReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3562,7 +3562,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all income reports
      */
-    async getIncomeReportsRaw(requestParameters: GetIncomeReportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IncomeReportCollection>> {
+    async getIncomeReportsRaw(requestParameters: DefaultApiGetIncomeReportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IncomeReportCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3604,7 +3604,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all income reports
      */
-    async getIncomeReports(requestParameters: GetIncomeReportsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IncomeReportCollection> {
+    async getIncomeReports(requestParameters: DefaultApiGetIncomeReportsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IncomeReportCollection> {
         const response = await this.getIncomeReportsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3613,7 +3613,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Get a job post
      * Get a job post
      */
-    async getJobPostRaw(requestParameters: GetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPost>> {
+    async getJobPostRaw(requestParameters: DefaultApiGetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPost>> {
         if (requestParameters['jobPostId'] == null) {
             throw new runtime.RequiredError(
                 'jobPostId',
@@ -3652,7 +3652,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Get a job post
      * Get a job post
      */
-    async getJobPost(requestParameters: GetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
+    async getJobPost(requestParameters: DefaultApiGetJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
         const response = await this.getJobPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3661,7 +3661,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * List all job posts
      * List all job posts
      */
-    async getJobPostsRaw(requestParameters: GetJobPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPostCollection>> {
+    async getJobPostsRaw(requestParameters: DefaultApiGetJobPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPostCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3704,7 +3704,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * List all job posts
      * List all job posts
      */
-    async getJobPosts(requestParameters: GetJobPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPostCollection> {
+    async getJobPosts(requestParameters: DefaultApiGetJobPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPostCollection> {
         const response = await this.getJobPostsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3712,7 +3712,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single ncaa financial report status
      */
-    async getNcaaFinancialReportStatusRaw(requestParameters: GetNcaaFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NcaaFinancialReportStatus>> {
+    async getNcaaFinancialReportStatusRaw(requestParameters: DefaultApiGetNcaaFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NcaaFinancialReportStatus>> {
         if (requestParameters['ncaaFinancialReportStatusId'] == null) {
             throw new runtime.RequiredError(
                 'ncaaFinancialReportStatusId',
@@ -3750,7 +3750,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single ncaa financial report status
      */
-    async getNcaaFinancialReportStatus(requestParameters: GetNcaaFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NcaaFinancialReportStatus> {
+    async getNcaaFinancialReportStatus(requestParameters: DefaultApiGetNcaaFinancialReportStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NcaaFinancialReportStatus> {
         const response = await this.getNcaaFinancialReportStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3758,7 +3758,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all ncaa financial report statuses
      */
-    async getNcaaFinancialReportStatusesRaw(requestParameters: GetNcaaFinancialReportStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NcaaFinancialReportStatusCollection>> {
+    async getNcaaFinancialReportStatusesRaw(requestParameters: DefaultApiGetNcaaFinancialReportStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NcaaFinancialReportStatusCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3800,7 +3800,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all ncaa financial report statuses
      */
-    async getNcaaFinancialReportStatuses(requestParameters: GetNcaaFinancialReportStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NcaaFinancialReportStatusCollection> {
+    async getNcaaFinancialReportStatuses(requestParameters: DefaultApiGetNcaaFinancialReportStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NcaaFinancialReportStatusCollection> {
         const response = await this.getNcaaFinancialReportStatusesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3809,7 +3809,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Get a news feed
      * Get a news feed
      */
-    async getNewsFeedRaw(requestParameters: GetNewsFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewsFeed>> {
+    async getNewsFeedRaw(requestParameters: DefaultApiGetNewsFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewsFeed>> {
         if (requestParameters['newsFeedId'] == null) {
             throw new runtime.RequiredError(
                 'newsFeedId',
@@ -3848,7 +3848,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Get a news feed
      * Get a news feed
      */
-    async getNewsFeed(requestParameters: GetNewsFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewsFeed> {
+    async getNewsFeed(requestParameters: DefaultApiGetNewsFeedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewsFeed> {
         const response = await this.getNewsFeedRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3856,7 +3856,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single position
      */
-    async getPositionRaw(requestParameters: GetPositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Position>> {
+    async getPositionRaw(requestParameters: DefaultApiGetPositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Position>> {
         if (requestParameters['positionId'] == null) {
             throw new runtime.RequiredError(
                 'positionId',
@@ -3894,7 +3894,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single position
      */
-    async getPosition(requestParameters: GetPositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Position> {
+    async getPosition(requestParameters: DefaultApiGetPositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Position> {
         const response = await this.getPositionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3902,7 +3902,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all positions
      */
-    async getPositionsRaw(requestParameters: GetPositionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PositionCollection>> {
+    async getPositionsRaw(requestParameters: DefaultApiGetPositionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PositionCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -3944,7 +3944,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all positions
      */
-    async getPositions(requestParameters: GetPositionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PositionCollection> {
+    async getPositions(requestParameters: DefaultApiGetPositionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PositionCollection> {
         const response = await this.getPositionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3952,7 +3952,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single RawContract
      */
-    async getRawContractRaw(requestParameters: GetRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RawContract>> {
+    async getRawContractRaw(requestParameters: DefaultApiGetRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RawContract>> {
         if (requestParameters['rawContractId'] == null) {
             throw new runtime.RequiredError(
                 'rawContractId',
@@ -3990,7 +3990,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single RawContract
      */
-    async getRawContract(requestParameters: GetRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RawContract> {
+    async getRawContract(requestParameters: DefaultApiGetRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RawContract> {
         const response = await this.getRawContractRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3998,7 +3998,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all raw_contracts
      */
-    async getRawContractsRaw(requestParameters: GetRawContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RawContractCollection>> {
+    async getRawContractsRaw(requestParameters: DefaultApiGetRawContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RawContractCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4040,7 +4040,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all raw_contracts
      */
-    async getRawContracts(requestParameters: GetRawContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RawContractCollection> {
+    async getRawContracts(requestParameters: DefaultApiGetRawContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RawContractCollection> {
         const response = await this.getRawContractsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4048,7 +4048,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single requested item
      */
-    async getRequestedItemRaw(requestParameters: GetRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItem>> {
+    async getRequestedItemRaw(requestParameters: DefaultApiGetRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItem>> {
         if (requestParameters['requestedItemId'] == null) {
             throw new runtime.RequiredError(
                 'requestedItemId',
@@ -4086,7 +4086,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single requested item
      */
-    async getRequestedItem(requestParameters: GetRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
+    async getRequestedItem(requestParameters: DefaultApiGetRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
         const response = await this.getRequestedItemRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4094,7 +4094,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all requested items
      */
-    async getRequestedItemsRaw(requestParameters: GetRequestedItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItemCollection>> {
+    async getRequestedItemsRaw(requestParameters: DefaultApiGetRequestedItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItemCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4136,7 +4136,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all requested items
      */
-    async getRequestedItems(requestParameters: GetRequestedItemsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItemCollection> {
+    async getRequestedItems(requestParameters: DefaultApiGetRequestedItemsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItemCollection> {
         const response = await this.getRequestedItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4144,7 +4144,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single school
      */
-    async getSchoolRaw(requestParameters: GetSchoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<School>> {
+    async getSchoolRaw(requestParameters: DefaultApiGetSchoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<School>> {
         if (requestParameters['schoolId'] == null) {
             throw new runtime.RequiredError(
                 'schoolId',
@@ -4182,7 +4182,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single school
      */
-    async getSchool(requestParameters: GetSchoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<School> {
+    async getSchool(requestParameters: DefaultApiGetSchoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<School> {
         const response = await this.getSchoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4190,7 +4190,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve alternate names for a specific school
      */
-    async getSchoolAlternateNamesRaw(requestParameters: GetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSchoolAlternateNames200Response>> {
+    async getSchoolAlternateNamesRaw(requestParameters: DefaultApiGetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSchoolAlternateNames200Response>> {
         if (requestParameters['schoolId'] == null) {
             throw new runtime.RequiredError(
                 'schoolId',
@@ -4228,7 +4228,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve alternate names for a specific school
      */
-    async getSchoolAlternateNames(requestParameters: GetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolAlternateNames200Response> {
+    async getSchoolAlternateNames(requestParameters: DefaultApiGetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolAlternateNames200Response> {
         const response = await this.getSchoolAlternateNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4236,7 +4236,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all schools
      */
-    async getSchoolsRaw(requestParameters: GetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
+    async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4278,7 +4278,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all schools
      */
-    async getSchools(requestParameters: GetSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolCollection> {
+    async getSchools(requestParameters: DefaultApiGetSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolCollection> {
         const response = await this.getSchoolsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4286,7 +4286,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Season
      */
-    async getSeasonRaw(requestParameters: GetSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
+    async getSeasonRaw(requestParameters: DefaultApiGetSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
         if (requestParameters['seasonId'] == null) {
             throw new runtime.RequiredError(
                 'seasonId',
@@ -4324,7 +4324,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Season
      */
-    async getSeason(requestParameters: GetSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
+    async getSeason(requestParameters: DefaultApiGetSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
         const response = await this.getSeasonRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4332,7 +4332,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all seasons
      */
-    async getSeasonsRaw(requestParameters: GetSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeasonCollection>> {
+    async getSeasonsRaw(requestParameters: DefaultApiGetSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeasonCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4374,7 +4374,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all seasons
      */
-    async getSeasons(requestParameters: GetSeasonsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeasonCollection> {
+    async getSeasons(requestParameters: DefaultApiGetSeasonsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeasonCollection> {
         const response = await this.getSeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4382,7 +4382,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve similar coaches based on coach ID
      */
-    async getSimilarCoachesRaw(requestParameters: GetSimilarCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
+    async getSimilarCoachesRaw(requestParameters: DefaultApiGetSimilarCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
         if (requestParameters['coachId'] == null) {
             throw new runtime.RequiredError(
                 'coachId',
@@ -4432,7 +4432,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve similar coaches based on coach ID
      */
-    async getSimilarCoaches(requestParameters: GetSimilarCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
+    async getSimilarCoaches(requestParameters: DefaultApiGetSimilarCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
         const response = await this.getSimilarCoachesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4440,7 +4440,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single sport
      */
-    async getSportRaw(requestParameters: GetSportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Sport>> {
+    async getSportRaw(requestParameters: DefaultApiGetSportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Sport>> {
         if (requestParameters['sportId'] == null) {
             throw new runtime.RequiredError(
                 'sportId',
@@ -4478,7 +4478,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single sport
      */
-    async getSport(requestParameters: GetSportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Sport> {
+    async getSport(requestParameters: DefaultApiGetSportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Sport> {
         const response = await this.getSportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4486,7 +4486,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all sports
      */
-    async getSportsRaw(requestParameters: GetSportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SportCollection>> {
+    async getSportsRaw(requestParameters: DefaultApiGetSportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SportCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4528,7 +4528,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all sports
      */
-    async getSports(requestParameters: GetSportsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SportCollection> {
+    async getSports(requestParameters: DefaultApiGetSportsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SportCollection> {
         const response = await this.getSportsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4536,7 +4536,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Subdivision
      */
-    async getSubdivisionRaw(requestParameters: GetSubdivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Subdivision>> {
+    async getSubdivisionRaw(requestParameters: DefaultApiGetSubdivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Subdivision>> {
         if (requestParameters['subdivisionId'] == null) {
             throw new runtime.RequiredError(
                 'subdivisionId',
@@ -4574,7 +4574,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Subdivision
      */
-    async getSubdivision(requestParameters: GetSubdivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Subdivision> {
+    async getSubdivision(requestParameters: DefaultApiGetSubdivisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Subdivision> {
         const response = await this.getSubdivisionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4582,7 +4582,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all subdivisions
      */
-    async getSubdivisionsRaw(requestParameters: GetSubdivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubdivisionCollection>> {
+    async getSubdivisionsRaw(requestParameters: DefaultApiGetSubdivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubdivisionCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4624,7 +4624,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all subdivisions
      */
-    async getSubdivisions(requestParameters: GetSubdivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubdivisionCollection> {
+    async getSubdivisions(requestParameters: DefaultApiGetSubdivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubdivisionCollection> {
         const response = await this.getSubdivisionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4632,7 +4632,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Subscription
      */
-    async getSubscriptionRaw(requestParameters: GetSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Subscription>> {
+    async getSubscriptionRaw(requestParameters: DefaultApiGetSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Subscription>> {
         if (requestParameters['subscriptionId'] == null) {
             throw new runtime.RequiredError(
                 'subscriptionId',
@@ -4670,7 +4670,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Subscription
      */
-    async getSubscription(requestParameters: GetSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Subscription> {
+    async getSubscription(requestParameters: DefaultApiGetSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Subscription> {
         const response = await this.getSubscriptionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4678,7 +4678,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve the all subscriptions
      */
-    async getSubscriptionsRaw(requestParameters: GetSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionCollection>> {
+    async getSubscriptionsRaw(requestParameters: DefaultApiGetSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4720,7 +4720,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve the all subscriptions
      */
-    async getSubscriptions(requestParameters: GetSubscriptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionCollection> {
+    async getSubscriptions(requestParameters: DefaultApiGetSubscriptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionCollection> {
         const response = await this.getSubscriptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4766,7 +4766,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single user
      */
-    async getUserRaw(requestParameters: GetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
+    async getUserRaw(requestParameters: DefaultApiGetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError(
                 'userId',
@@ -4804,7 +4804,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single user
      */
-    async getUser(requestParameters: GetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
+    async getUser(requestParameters: DefaultApiGetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
         const response = await this.getUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4812,7 +4812,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all user_activity_summaries
      */
-    async getUserActivitySummariesRaw(requestParameters: GetUserActivitySummariesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserActivitySummaryCollection>> {
+    async getUserActivitySummariesRaw(requestParameters: DefaultApiGetUserActivitySummariesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserActivitySummaryCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4854,7 +4854,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all user_activity_summaries
      */
-    async getUserActivitySummaries(requestParameters: GetUserActivitySummariesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserActivitySummaryCollection> {
+    async getUserActivitySummaries(requestParameters: DefaultApiGetUserActivitySummariesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserActivitySummaryCollection> {
         const response = await this.getUserActivitySummariesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4862,7 +4862,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single UserActivitySummary
      */
-    async getUserActivitySummaryRaw(requestParameters: GetUserActivitySummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserActivitySummary>> {
+    async getUserActivitySummaryRaw(requestParameters: DefaultApiGetUserActivitySummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserActivitySummary>> {
         if (requestParameters['userActivitySummaryId'] == null) {
             throw new runtime.RequiredError(
                 'userActivitySummaryId',
@@ -4900,7 +4900,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single UserActivitySummary
      */
-    async getUserActivitySummary(requestParameters: GetUserActivitySummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserActivitySummary> {
+    async getUserActivitySummary(requestParameters: DefaultApiGetUserActivitySummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserActivitySummary> {
         const response = await this.getUserActivitySummaryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4908,7 +4908,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single UserRequest
      */
-    async getUserRequestRaw(requestParameters: GetUserRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserRequest>> {
+    async getUserRequestRaw(requestParameters: DefaultApiGetUserRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserRequest>> {
         if (requestParameters['userRequestId'] == null) {
             throw new runtime.RequiredError(
                 'userRequestId',
@@ -4946,7 +4946,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single UserRequest
      */
-    async getUserRequest(requestParameters: GetUserRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserRequest> {
+    async getUserRequest(requestParameters: DefaultApiGetUserRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserRequest> {
         const response = await this.getUserRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4954,7 +4954,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all user_requests
      */
-    async getUserRequestsRaw(requestParameters: GetUserRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserRequestCollection>> {
+    async getUserRequestsRaw(requestParameters: DefaultApiGetUserRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserRequestCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -4996,7 +4996,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all user_requests
      */
-    async getUserRequests(requestParameters: GetUserRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserRequestCollection> {
+    async getUserRequests(requestParameters: DefaultApiGetUserRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserRequestCollection> {
         const response = await this.getUserRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5004,7 +5004,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all users
      */
-    async getUsersRaw(requestParameters: GetUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserCollection>> {
+    async getUsersRaw(requestParameters: DefaultApiGetUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -5046,7 +5046,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all users
      */
-    async getUsers(requestParameters: GetUsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserCollection> {
+    async getUsers(requestParameters: DefaultApiGetUsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserCollection> {
         const response = await this.getUsersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5054,7 +5054,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Vendor
      */
-    async getVendorRaw(requestParameters: GetVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Vendor>> {
+    async getVendorRaw(requestParameters: DefaultApiGetVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Vendor>> {
         if (requestParameters['vendorId'] == null) {
             throw new runtime.RequiredError(
                 'vendorId',
@@ -5092,7 +5092,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single Vendor
      */
-    async getVendor(requestParameters: GetVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Vendor> {
+    async getVendor(requestParameters: DefaultApiGetVendorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Vendor> {
         const response = await this.getVendorRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5100,7 +5100,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all vendors
      */
-    async getVendorsRaw(requestParameters: GetVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VendorCollection>> {
+    async getVendorsRaw(requestParameters: DefaultApiGetVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VendorCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -5142,7 +5142,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all vendors
      */
-    async getVendors(requestParameters: GetVendorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VendorCollection> {
+    async getVendors(requestParameters: DefaultApiGetVendorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VendorCollection> {
         const response = await this.getVendorsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5150,7 +5150,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns WireChange records. Supports Ransack-style filters (`q[...]`). Includes related position_types and sports arrays in each object. Each item also includes coach avatar (if present) and school logo images.
      */
-    async getWireChangesRaw(requestParameters: GetWireChangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetWireChanges200Response>> {
+    async getWireChangesRaw(requestParameters: DefaultApiGetWireChangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetWireChanges200Response>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -5204,7 +5204,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns WireChange records. Supports Ransack-style filters (`q[...]`). Includes related position_types and sports arrays in each object. Each item also includes coach avatar (if present) and school logo images.
      */
-    async getWireChanges(requestParameters: GetWireChangesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetWireChanges200Response> {
+    async getWireChanges(requestParameters: DefaultApiGetWireChangesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetWireChanges200Response> {
         const response = await this.getWireChangesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5212,7 +5212,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Search Coaches by priority_ids
      */
-    async searchCoachesRaw(requestParameters: SearchCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
+    async searchCoachesRaw(requestParameters: DefaultApiSearchCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5245,7 +5245,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Search Coaches by priority_ids
      */
-    async searchCoaches(requestParameters: SearchCoachesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
+    async searchCoaches(requestParameters: DefaultApiSearchCoachesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
         const response = await this.searchCoachesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5253,7 +5253,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Cashflow
      */
-    async updateCashflowRaw(requestParameters: UpdateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
+    async updateCashflowRaw(requestParameters: DefaultApiUpdateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
         if (requestParameters['cashflowId'] == null) {
             throw new runtime.RequiredError(
                 'cashflowId',
@@ -5301,7 +5301,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Cashflow
      */
-    async updateCashflow(requestParameters: UpdateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Cashflow> {
+    async updateCashflow(requestParameters: DefaultApiUpdateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Cashflow> {
         const response = await this.updateCashflowRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5309,7 +5309,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a coach
      */
-    async updateCoachRaw(requestParameters: UpdateCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Coach>> {
+    async updateCoachRaw(requestParameters: DefaultApiUpdateCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Coach>> {
         if (requestParameters['coachId'] == null) {
             throw new runtime.RequiredError(
                 'coachId',
@@ -5357,7 +5357,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a coach
      */
-    async updateCoach(requestParameters: UpdateCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Coach> {
+    async updateCoach(requestParameters: DefaultApiUpdateCoachRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Coach> {
         const response = await this.updateCoachRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5365,7 +5365,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a compensation
      */
-    async updateCompensationRaw(requestParameters: UpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Compensation>> {
+    async updateCompensationRaw(requestParameters: DefaultApiUpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Compensation>> {
         if (requestParameters['compensationId'] == null) {
             throw new runtime.RequiredError(
                 'compensationId',
@@ -5413,7 +5413,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a compensation
      */
-    async updateCompensation(requestParameters: UpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
+    async updateCompensation(requestParameters: DefaultApiUpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
         const response = await this.updateCompensationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5421,7 +5421,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Conference
      */
-    async updateConferenceRaw(requestParameters: UpdateConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conference>> {
+    async updateConferenceRaw(requestParameters: DefaultApiUpdateConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conference>> {
         if (requestParameters['conferenceId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceId',
@@ -5469,7 +5469,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Conference
      */
-    async updateConference(requestParameters: UpdateConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
+    async updateConference(requestParameters: DefaultApiUpdateConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
         const response = await this.updateConferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5477,7 +5477,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Conferenceship
      */
-    async updateConferenceshipRaw(requestParameters: UpdateConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conferenceship>> {
+    async updateConferenceshipRaw(requestParameters: DefaultApiUpdateConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Conferenceship>> {
         if (requestParameters['conferenceshipId'] == null) {
             throw new runtime.RequiredError(
                 'conferenceshipId',
@@ -5525,7 +5525,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Conferenceship
      */
-    async updateConferenceship(requestParameters: UpdateConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conferenceship> {
+    async updateConferenceship(requestParameters: DefaultApiUpdateConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conferenceship> {
         const response = await this.updateConferenceshipRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5533,7 +5533,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single foia label
      */
-    async updateFoiaLabelRaw(requestParameters: UpdateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
+    async updateFoiaLabelRaw(requestParameters: DefaultApiUpdateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
         if (requestParameters['foiaLabelId'] == null) {
             throw new runtime.RequiredError(
                 'foiaLabelId',
@@ -5581,7 +5581,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single foia label
      */
-    async updateFoiaLabel(requestParameters: UpdateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabel> {
+    async updateFoiaLabel(requestParameters: DefaultApiUpdateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaLabel> {
         const response = await this.updateFoiaLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5589,7 +5589,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single foia request
      */
-    async updateFoiaRequestRaw(requestParameters: UpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequest>> {
+    async updateFoiaRequestRaw(requestParameters: DefaultApiUpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaRequest>> {
         if (requestParameters['foiaRequestId'] == null) {
             throw new runtime.RequiredError(
                 'foiaRequestId',
@@ -5637,7 +5637,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single foia request
      */
-    async updateFoiaRequest(requestParameters: UpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
+    async updateFoiaRequest(requestParameters: DefaultApiUpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.updateFoiaRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5646,7 +5646,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Update a job post
      * Update a job post
      */
-    async updateJobPostRaw(requestParameters: UpdateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPost>> {
+    async updateJobPostRaw(requestParameters: DefaultApiUpdateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPost>> {
         if (requestParameters['jobPostId'] == null) {
             throw new runtime.RequiredError(
                 'jobPostId',
@@ -5688,7 +5688,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Update a job post
      * Update a job post
      */
-    async updateJobPost(requestParameters: UpdateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
+    async updateJobPost(requestParameters: DefaultApiUpdateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
         const response = await this.updateJobPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5696,7 +5696,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single requested item
      */
-    async updateRequestedItemRaw(requestParameters: UpdateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItem>> {
+    async updateRequestedItemRaw(requestParameters: DefaultApiUpdateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItem>> {
         if (requestParameters['requestedItemId'] == null) {
             throw new runtime.RequiredError(
                 'requestedItemId',
@@ -5744,7 +5744,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single requested item
      */
-    async updateRequestedItem(requestParameters: UpdateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
+    async updateRequestedItem(requestParameters: DefaultApiUpdateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
         const response = await this.updateRequestedItemRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5752,7 +5752,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Season
      */
-    async updateSeasonRaw(requestParameters: UpdateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
+    async updateSeasonRaw(requestParameters: DefaultApiUpdateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
         if (requestParameters['seasonId'] == null) {
             throw new runtime.RequiredError(
                 'seasonId',
@@ -5800,7 +5800,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a single Season
      */
-    async updateSeason(requestParameters: UpdateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
+    async updateSeason(requestParameters: DefaultApiUpdateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
         const response = await this.updateSeasonRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5846,7 +5846,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Verifies whether the user has intercollegiate access based on their email.
      */
-    async verifyUserIntercollegiateAccessRaw(requestParameters: VerifyUserIntercollegiateAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifyUserIntercollegiateAccess200Response>> {
+    async verifyUserIntercollegiateAccessRaw(requestParameters: DefaultApiVerifyUserIntercollegiateAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifyUserIntercollegiateAccess200Response>> {
         if (requestParameters['userEmail'] == null) {
             throw new runtime.RequiredError(
                 'userEmail',
@@ -5887,7 +5887,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Verifies whether the user has intercollegiate access based on their email.
      */
-    async verifyUserIntercollegiateAccess(requestParameters: VerifyUserIntercollegiateAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyUserIntercollegiateAccess200Response> {
+    async verifyUserIntercollegiateAccess(requestParameters: DefaultApiVerifyUserIntercollegiateAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyUserIntercollegiateAccess200Response> {
         const response = await this.verifyUserIntercollegiateAccessRaw(requestParameters, initOverrides);
         return await response.value();
     }

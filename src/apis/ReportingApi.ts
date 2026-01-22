@@ -22,47 +22,47 @@ import {
     FinancialQcToJSON,
 } from '../models/index';
 
-export interface GetCoachContractRequestsRequest {
+export interface ReportingApiGetCoachContractRequestsRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetCoachHistoryRequest {
+export interface ReportingApiGetCoachHistoryRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetConferenceshipsRequest {
+export interface ReportingApiGetConferenceshipsRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetFoiaDetailsRequest {
+export interface ReportingApiGetFoiaDetailsRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetGamesRequest {
+export interface ReportingApiGetGamesRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetInvoicesRequest {
+export interface ReportingApiGetInvoicesRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetSchoolContractRequestsRequest {
+export interface ReportingApiGetSchoolContractRequestsRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetSchoolsFinancialsQcRequest {
+export interface ReportingApiGetSchoolsFinancialsQcRequest {
     page?: number;
     q?: object;
 }
 
-export interface GetSubscriptionsRequest {
+export interface ReportingApiGetSubscriptionsRequest {
     page?: number;
     q?: object;
 }
@@ -75,7 +75,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all coach contract requests
      */
-    async getCoachContractRequestsRaw(requestParameters: GetCoachContractRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getCoachContractRequestsRaw(requestParameters: ReportingApiGetCoachContractRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -113,7 +113,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all coach contract requests
      */
-    async getCoachContractRequests(requestParameters: GetCoachContractRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getCoachContractRequests(requestParameters: ReportingApiGetCoachContractRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getCoachContractRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -121,7 +121,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all coach history
      */
-    async getCoachHistoryRaw(requestParameters: GetCoachHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getCoachHistoryRaw(requestParameters: ReportingApiGetCoachHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -159,7 +159,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all coach history
      */
-    async getCoachHistory(requestParameters: GetCoachHistoryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getCoachHistory(requestParameters: ReportingApiGetCoachHistoryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getCoachHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -167,7 +167,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all conferenceships
      */
-    async getConferenceshipsRaw(requestParameters: GetConferenceshipsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getConferenceshipsRaw(requestParameters: ReportingApiGetConferenceshipsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -205,7 +205,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all conferenceships
      */
-    async getConferenceships(requestParameters: GetConferenceshipsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getConferenceships(requestParameters: ReportingApiGetConferenceshipsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getConferenceshipsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -213,7 +213,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all foia details
      */
-    async getFoiaDetailsRaw(requestParameters: GetFoiaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getFoiaDetailsRaw(requestParameters: ReportingApiGetFoiaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -251,7 +251,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all foia details
      */
-    async getFoiaDetails(requestParameters: GetFoiaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getFoiaDetails(requestParameters: ReportingApiGetFoiaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getFoiaDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -259,7 +259,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all games
      */
-    async getGamesRaw(requestParameters: GetGamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getGamesRaw(requestParameters: ReportingApiGetGamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -297,7 +297,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all games
      */
-    async getGames(requestParameters: GetGamesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getGames(requestParameters: ReportingApiGetGamesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getGamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -305,7 +305,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all client invoices
      */
-    async getInvoicesRaw(requestParameters: GetInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getInvoicesRaw(requestParameters: ReportingApiGetInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -343,7 +343,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all client invoices
      */
-    async getInvoices(requestParameters: GetInvoicesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getInvoices(requestParameters: ReportingApiGetInvoicesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getInvoicesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -351,7 +351,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all school contract requests
      */
-    async getSchoolContractRequestsRaw(requestParameters: GetSchoolContractRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getSchoolContractRequestsRaw(requestParameters: ReportingApiGetSchoolContractRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -389,7 +389,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all school contract requests
      */
-    async getSchoolContractRequests(requestParameters: GetSchoolContractRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getSchoolContractRequests(requestParameters: ReportingApiGetSchoolContractRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getSchoolContractRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -397,7 +397,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve schools with thier financials qc
      */
-    async getSchoolsFinancialsQcRaw(requestParameters: GetSchoolsFinancialsQcRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialQc>> {
+    async getSchoolsFinancialsQcRaw(requestParameters: ReportingApiGetSchoolsFinancialsQcRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialQc>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -435,7 +435,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve schools with thier financials qc
      */
-    async getSchoolsFinancialsQc(requestParameters: GetSchoolsFinancialsQcRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialQc> {
+    async getSchoolsFinancialsQc(requestParameters: ReportingApiGetSchoolsFinancialsQcRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialQc> {
         const response = await this.getSchoolsFinancialsQcRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -443,7 +443,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve subscriptions
      */
-    async getSubscriptionsRaw(requestParameters: GetSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getSubscriptionsRaw(requestParameters: ReportingApiGetSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -481,7 +481,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve subscriptions
      */
-    async getSubscriptions(requestParameters: GetSubscriptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getSubscriptions(requestParameters: ReportingApiGetSubscriptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getSubscriptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
