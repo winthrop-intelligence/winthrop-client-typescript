@@ -1,64 +1,82 @@
-# .DossierApi
+# DossierApi
 
 All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**universityDossierReportDossierWinadIdGet**](DossierApi.md#universityDossierReportDossierWinadIdGet) | **GET** /dossier/{winad_id}/ | University Dossier Report
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**universityDossierReportDossierWinadIdGet**](DossierApi.md#universitydossierreportdossierwinadidget) | **GET** /dossier/{winad_id}/ | University Dossier Report |
 
 
-# **universityDossierReportDossierWinadIdGet**
-> DossierReportResponse universityDossierReportDossierWinadIdGet()
 
+## universityDossierReportDossierWinadIdGet
+
+> DossierReportResponse universityDossierReportDossierWinadIdGet(winadId)
+
+University Dossier Report
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  DossierApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UniversityDossierReportDossierWinadIdGetRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, DossierApi } from '';
-import type { DossierApiUniversityDossierReportDossierWinadIdGetRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DossierApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new DossierApi(configuration);
+  const body = {
+    // number
+    winadId: 56,
+  } satisfies UniversityDossierReportDossierWinadIdGetRequest;
 
-const request: DossierApiUniversityDossierReportDossierWinadIdGetRequest = {
-  
-  winadId: 1,
-};
+  try {
+    const data = await api.universityDossierReportDossierWinadIdGet(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.universityDossierReportDossierWinadIdGet(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **winadId** | [**number**] |  | defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **winadId** | `number` |  | [Defaults to `undefined`] |
 
 ### Return type
 
-**DossierReportResponse**
+[**DossierReportResponse**](DossierReportResponse.md)
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**404** | Not Found |  -  |
-**422** | Validation Error |  -  |
+| **200** | Successful Response |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation Error |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

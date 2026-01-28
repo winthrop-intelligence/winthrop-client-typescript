@@ -1,522 +1,701 @@
-# .ReportingApi
+# ReportingApi
 
 All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCoachContractRequests**](ReportingApi.md#getCoachContractRequests) | **GET** /api/v1/reports/coach_contract_requests | 
-[**getCoachHistory**](ReportingApi.md#getCoachHistory) | **GET** /api/v1/reports/coach_history | 
-[**getConferenceships**](ReportingApi.md#getConferenceships) | **GET** /api/v1/reports/conferenceships | 
-[**getFoiaDetails**](ReportingApi.md#getFoiaDetails) | **GET** /api/v1/reports/foia_details | 
-[**getGames**](ReportingApi.md#getGames) | **GET** /api/v1/reports/games | 
-[**getInvoices**](ReportingApi.md#getInvoices) | **GET** /api/v1/reports/invoices | 
-[**getSchoolContractRequests**](ReportingApi.md#getSchoolContractRequests) | **GET** /api/v1/reports/school_contract_requests | 
-[**getSchoolsFinancialsQc**](ReportingApi.md#getSchoolsFinancialsQc) | **GET** /api/v1/financials_qc | 
-[**getSubscriptions**](ReportingApi.md#getSubscriptions) | **GET** /api/v1/reports/subscriptions | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getCoachContractRequests**](ReportingApi.md#getcoachcontractrequests) | **GET** /api/v1/reports/coach_contract_requests |  |
+| [**getCoachHistory**](ReportingApi.md#getcoachhistory) | **GET** /api/v1/reports/coach_history |  |
+| [**getConferenceships**](ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships |  |
+| [**getFoiaDetails**](ReportingApi.md#getfoiadetails) | **GET** /api/v1/reports/foia_details |  |
+| [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
+| [**getInvoices**](ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices |  |
+| [**getSchoolContractRequests**](ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests |  |
+| [**getSchoolsFinancialsQc**](ReportingApi.md#getschoolsfinancialsqc) | **GET** /api/v1/financials_qc |  |
+| [**getSubscriptions**](ReportingApi.md#getsubscriptions) | **GET** /api/v1/reports/subscriptions |  |
 
 
-# **getCoachContractRequests**
-> any getCoachContractRequests()
+
+## getCoachContractRequests
+
+> object getCoachContractRequests(page, q)
+
+
 
 Retrieve some or all coach contract requests
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachContractRequestsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetCoachContractRequestsRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetCoachContractRequestsRequest;
 
-const request: ReportingApiGetCoachContractRequestsRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getCoachContractRequests(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getCoachContractRequests(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Coach contract requests were found |  -  |
+| **200** | Coach contract requests were found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getCoachHistory**
-> any getCoachHistory()
+
+## getCoachHistory
+
+> object getCoachHistory(page, q)
+
+
 
 Retrieve some or all coach history
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetCoachHistoryRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetCoachHistoryRequest;
 
-const request: ReportingApiGetCoachHistoryRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getCoachHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getCoachHistory(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Coach history was found |  -  |
+| **200** | Coach history was found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getConferenceships**
-> any getConferenceships()
+
+## getConferenceships
+
+> object getConferenceships(page, q)
+
+
 
 Retrieve some or all conferenceships
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetConferenceshipsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetConferenceshipsRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetConferenceshipsRequest;
 
-const request: ReportingApiGetConferenceshipsRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getConferenceships(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getConferenceships(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Conferenceships were found |  -  |
+| **200** | Conferenceships were found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getFoiaDetails**
-> any getFoiaDetails()
+
+## getFoiaDetails
+
+> object getFoiaDetails(page, q)
+
+
 
 Retrieve some or all foia details
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaDetailsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetFoiaDetailsRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetFoiaDetailsRequest;
 
-const request: ReportingApiGetFoiaDetailsRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getFoiaDetails(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getFoiaDetails(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Foia details were found |  -  |
+| **200** | Foia details were found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getGames**
-> any getGames()
+
+## getGames
+
+> object getGames(page, q)
+
+
 
 Retrieve some or all games
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetGamesRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetGamesRequest;
 
-const request: ReportingApiGetGamesRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getGames(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getGames(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Games were found |  -  |
+| **200** | Games were found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getInvoices**
-> any getInvoices()
+
+## getInvoices
+
+> object getInvoices(page, q)
+
+
 
 Retrieve some or all client invoices
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetInvoicesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetInvoicesRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetInvoicesRequest;
 
-const request: ReportingApiGetInvoicesRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getInvoices(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getInvoices(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Invoices were found |  -  |
+| **200** | Invoices were found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getSchoolContractRequests**
-> any getSchoolContractRequests()
+
+## getSchoolContractRequests
+
+> object getSchoolContractRequests(page, q)
+
+
 
 Retrieve some or all school contract requests
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolContractRequestsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetSchoolContractRequestsRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetSchoolContractRequestsRequest;
 
-const request: ReportingApiGetSchoolContractRequestsRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getSchoolContractRequests(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getSchoolContractRequests(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | School contract requests were found |  -  |
+| **200** | School contract requests were found |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getSchoolsFinancialsQc**
-> FinancialQc getSchoolsFinancialsQc()
+
+## getSchoolsFinancialsQc
+
+> FinancialQc getSchoolsFinancialsQc(page, q)
+
+
 
 Retrieve schools with thier financials qc
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolsFinancialsQcRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetSchoolsFinancialsQcRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetSchoolsFinancialsQcRequest;
 
-const request: ReportingApiGetSchoolsFinancialsQcRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getSchoolsFinancialsQc(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getSchoolsFinancialsQc(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**FinancialQc**
+[**FinancialQc**](FinancialQc.md)
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | some schools with thier financials qc report |  -  |
+| **200** | some schools with thier financials qc report |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
-# **getSubscriptions**
-> any getSubscriptions()
+
+## getSubscriptions
+
+> object getSubscriptions(page, q)
+
+
 
 Retrieve subscriptions
 
 ### Example
 
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSubscriptionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
-```typescript
-import { createConfiguration, ReportingApi } from '';
-import type { ReportingApiGetSubscriptionsRequest } from '';
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
 
-const configuration = createConfiguration();
-const apiInstance = new ReportingApi(configuration);
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetSubscriptionsRequest;
 
-const request: ReportingApiGetSubscriptionsRequest = {
-    // results page to retrieve. (optional)
-  page: 1,
-    // Ransack query (optional)
-  q: {},
-};
+  try {
+    const data = await api.getSubscriptions(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-const data = await apiInstance.getSubscriptions(request);
-console.log('API called successfully. Returned data:', data);
+// Run the test
+example().catch(console.error);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] | results page to retrieve. | (optional) defaults to 1
- **q** | **any** | Ransack query | (optional) defaults to undefined
 
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[ApiKey](README.md#ApiKey), [Oauth2](README.md#Oauth2)
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | some subscriptions |  -  |
+| **200** | some subscriptions |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
