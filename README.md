@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.43.2
+# @winthrop-intelligence/winthrop-client-typescript@1.44.0
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -95,6 +95,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getCategories**](docs/DefaultApi.md#getcategories) | **GET** /central_jobs/categories | List all categories
 *DefaultApi* | [**getCoach**](docs/DefaultApi.md#getcoach) | **GET** /api/v1/coaches/{coachId} | 
 *DefaultApi* | [**getCoachCompensation**](docs/DefaultApi.md#getcoachcompensation) | **GET** /api/v1/coach_compensations/get_coach_compensation | 
+*DefaultApi* | [**getCoachSearches**](docs/DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches | 
 *DefaultApi* | [**getCoaches**](docs/DefaultApi.md#getcoaches) | **GET** /api/v1/coaches | 
 *DefaultApi* | [**getCompensation**](docs/DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} | 
 *DefaultApi* | [**getCompensations**](docs/DefaultApi.md#getcompensations) | **GET** /api/v1/compensations | 
@@ -107,15 +108,19 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getContract**](docs/DefaultApi.md#getcontract) | **GET** /api/v1/contracts/{contractId} | 
 *DefaultApi* | [**getContracts**](docs/DefaultApi.md#getcontracts) | **GET** /api/v1/contracts | 
 *DefaultApi* | [**getDeal**](docs/DefaultApi.md#getdeal) | **GET** /api/v1/deals/{dealId} | 
+*DefaultApi* | [**getDealSearches**](docs/DefaultApi.md#getdealsearches) | **GET** /api/v1/deal_searches | 
 *DefaultApi* | [**getDealStatus**](docs/DefaultApi.md#getdealstatus) | **GET** /api/v1/deal_statuses/{dealStatusId} | 
 *DefaultApi* | [**getDealStatuses**](docs/DefaultApi.md#getdealstatuses) | **GET** /api/v1/deal_statuses | 
 *DefaultApi* | [**getDeals**](docs/DefaultApi.md#getdeals) | **GET** /api/v1/deals | 
+*DefaultApi* | [**getDepartmentSearches**](docs/DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches | 
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
+*DefaultApi* | [**getFinancialSearches**](docs/DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches | 
 *DefaultApi* | [**getFoiaLabel**](docs/DefaultApi.md#getfoialabel) | **GET** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**getFoiaLabels**](docs/DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels | 
 *DefaultApi* | [**getFoiaRequest**](docs/DefaultApi.md#getfoiarequest) | **GET** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**getFoiaRequests**](docs/DefaultApi.md#getfoiarequests) | **GET** /api/v1/foia_requests | 
+*DefaultApi* | [**getGadSearches**](docs/DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches | 
 *DefaultApi* | [**getGame**](docs/DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} | 
 *DefaultApi* | [**getGameContract**](docs/DefaultApi.md#getgamecontract) | **GET** /api/v1/game_contracts/{game_contractId} | 
 *DefaultApi* | [**getGameContracts**](docs/DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts | 
@@ -207,6 +212,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Coach](docs/Coach.md)
 - [CoachCollection](docs/CoachCollection.md)
 - [CoachCompensation](docs/CoachCompensation.md)
+- [CoachSearchResult](docs/CoachSearchResult.md)
+- [CoachSearchResultCollection](docs/CoachSearchResultCollection.md)
 - [CompareColi404Response](docs/CompareColi404Response.md)
 - [CompareColi422Response](docs/CompareColi422Response.md)
 - [Compensation](docs/Compensation.md)
@@ -221,17 +228,26 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ContractCollection](docs/ContractCollection.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
+- [DealSearchResult](docs/DealSearchResult.md)
+- [DealSearchResultCollection](docs/DealSearchResultCollection.md)
 - [DealStatus](docs/DealStatus.md)
 - [DealStatusCollection](docs/DealStatusCollection.md)
+- [DepartmentSearchResult](docs/DepartmentSearchResult.md)
+- [DepartmentSearchResultCollection](docs/DepartmentSearchResultCollection.md)
 - [Division](docs/Division.md)
 - [DivisionCollection](docs/DivisionCollection.md)
 - [DossierReportResponse](docs/DossierReportResponse.md)
 - [Filters](docs/Filters.md)
 - [FinancialQc](docs/FinancialQc.md)
+- [FinancialSearchResult](docs/FinancialSearchResult.md)
+- [FinancialSearchResultCollection](docs/FinancialSearchResultCollection.md)
 - [FoiaLabel](docs/FoiaLabel.md)
 - [FoiaLabelCollection](docs/FoiaLabelCollection.md)
 - [FoiaRequest](docs/FoiaRequest.md)
 - [FoiaRequestCollection](docs/FoiaRequestCollection.md)
+- [GadSearchResult](docs/GadSearchResult.md)
+- [GadSearchResultCollection](docs/GadSearchResultCollection.md)
+- [GadSearchStats](docs/GadSearchStats.md)
 - [Game](docs/Game.md)
 - [GameCollection](docs/GameCollection.md)
 - [GameContract](docs/GameContract.md)
@@ -332,8 +348,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.43.2`
-- Package version: `1.43.2`
+- API version: `1.44.0`
+- Package version: `1.44.0`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
