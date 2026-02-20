@@ -61,9 +61,13 @@ import type {
   GameContractCollection,
   GamePost,
   GamePostCollection,
+  GamePostSearchResultCollection,
+  GetFilterOptions200Response,
+  GetLadFilterOptions200Response,
   GetSchoolAlternateNames200Response,
   GetSchoolAlternateNames404Response,
   GetWireChanges200Response,
+  IdName,
   IncomeReport,
   IncomeReportCollection,
   JobPost,
@@ -192,12 +196,20 @@ import {
     GamePostToJSON,
     GamePostCollectionFromJSON,
     GamePostCollectionToJSON,
+    GamePostSearchResultCollectionFromJSON,
+    GamePostSearchResultCollectionToJSON,
+    GetFilterOptions200ResponseFromJSON,
+    GetFilterOptions200ResponseToJSON,
+    GetLadFilterOptions200ResponseFromJSON,
+    GetLadFilterOptions200ResponseToJSON,
     GetSchoolAlternateNames200ResponseFromJSON,
     GetSchoolAlternateNames200ResponseToJSON,
     GetSchoolAlternateNames404ResponseFromJSON,
     GetSchoolAlternateNames404ResponseToJSON,
     GetWireChanges200ResponseFromJSON,
     GetWireChanges200ResponseToJSON,
+    IdNameFromJSON,
+    IdNameToJSON,
     IncomeReportFromJSON,
     IncomeReportToJSON,
     IncomeReportCollectionFromJSON,
@@ -386,6 +398,7 @@ export interface DefaultApiGetAdministratorsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+    favoritesOnly?: string;
 }
 
 export interface DefaultApiGetAuditedFinancialReportStatusRequest {
@@ -529,6 +542,25 @@ export interface DefaultApiGetDivisionsRequest {
     q?: object;
 }
 
+export interface DefaultApiGetFilterOptionsRequest {
+    context?: GetFilterOptionsContextEnum;
+}
+
+export interface DefaultApiGetFilterOptionsConferencesRequest {
+    divisionId?: number;
+    sportId?: number;
+}
+
+export interface DefaultApiGetFilterOptionsSchoolsRequest {
+    conferenceId?: number;
+    divisionId?: number;
+    sportId?: number;
+}
+
+export interface DefaultApiGetFilterOptionsSubdivisionsRequest {
+    divisionId?: number;
+}
+
 export interface DefaultApiGetFinancialSearchesRequest {
     page?: number;
     perPage?: number;
@@ -577,6 +609,12 @@ export interface DefaultApiGetGameContractsRequest {
 
 export interface DefaultApiGetGamePostRequest {
     gamePostId: number;
+}
+
+export interface DefaultApiGetGamePostSearchesRequest {
+    page?: number;
+    perPage?: number;
+    q?: object;
 }
 
 export interface DefaultApiGetGamePostsRequest {
@@ -2150,6 +2188,10 @@ export class DefaultApi extends runtime.BaseAPI {
             queryParameters['q'] = requestParameters['q'];
         }
 
+        if (requestParameters['favoritesOnly'] != null) {
+            queryParameters['favorites_only'] = requestParameters['favoritesOnly'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3509,6 +3551,186 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve static filter options for coach/admin search (years, divisions, sports, position types, geo regions)
+     */
+    async getFilterOptionsRaw(requestParameters: DefaultApiGetFilterOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFilterOptions200Response>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['context'] != null) {
+            queryParameters['context'] = requestParameters['context'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetFilterOptions200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve static filter options for coach/admin search (years, divisions, sports, position types, geo regions)
+     */
+    async getFilterOptions(requestParameters: DefaultApiGetFilterOptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFilterOptions200Response> {
+        const response = await this.getFilterOptionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve conferences filtered by division and/or sport
+     */
+    async getFilterOptionsConferencesRaw(requestParameters: DefaultApiGetFilterOptionsConferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['divisionId'] != null) {
+            queryParameters['division_id'] = requestParameters['divisionId'];
+        }
+
+        if (requestParameters['sportId'] != null) {
+            queryParameters['sport_id'] = requestParameters['sportId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/conferences`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve conferences filtered by division and/or sport
+     */
+    async getFilterOptionsConferences(requestParameters: DefaultApiGetFilterOptionsConferencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsConferencesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve schools filtered by conference, division, and/or sport
+     */
+    async getFilterOptionsSchoolsRaw(requestParameters: DefaultApiGetFilterOptionsSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['conferenceId'] != null) {
+            queryParameters['conference_id'] = requestParameters['conferenceId'];
+        }
+
+        if (requestParameters['divisionId'] != null) {
+            queryParameters['division_id'] = requestParameters['divisionId'];
+        }
+
+        if (requestParameters['sportId'] != null) {
+            queryParameters['sport_id'] = requestParameters['sportId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/schools`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve schools filtered by conference, division, and/or sport
+     */
+    async getFilterOptionsSchools(requestParameters: DefaultApiGetFilterOptionsSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsSchoolsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve subdivisions filtered by division
+     */
+    async getFilterOptionsSubdivisionsRaw(requestParameters: DefaultApiGetFilterOptionsSubdivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['divisionId'] != null) {
+            queryParameters['division_id'] = requestParameters['divisionId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/subdivisions`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve subdivisions filtered by division
+     */
+    async getFilterOptionsSubdivisions(requestParameters: DefaultApiGetFilterOptionsSubdivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsSubdivisionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Search NCAA financial data with filtering and pagination
      */
     async getFinancialSearchesRaw(requestParameters: DefaultApiGetFinancialSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialSearchResultCollection>> {
@@ -3989,6 +4211,56 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Search game posts with enriched data including school info, location, RPI, etc.
+     */
+    async getGamePostSearchesRaw(requestParameters: DefaultApiGetGamePostSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePostSearchResultCollection>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['perPage'] != null) {
+            queryParameters['per_page'] = requestParameters['perPage'];
+        }
+
+        if (requestParameters['q'] != null) {
+            queryParameters['q'] = requestParameters['q'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_post_searches`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GamePostSearchResultCollectionFromJSON(jsonValue));
+    }
+
+    /**
+     * Search game posts with enriched data including school info, location, RPI, etc.
+     */
+    async getGamePostSearches(requestParameters: DefaultApiGetGamePostSearchesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GamePostSearchResultCollection> {
+        const response = await this.getGamePostSearchesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve some or all game_posts
      */
     async getGamePostsRaw(requestParameters: DefaultApiGetGamePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePostCollection>> {
@@ -4281,6 +4553,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getJobPosts(requestParameters: DefaultApiGetJobPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPostCollection> {
         const response = await this.getJobPostsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve filter options specific to the leader/administrator (LAD) search — position types, departments, and school groups
+     */
+    async getLadFilterOptionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLadFilterOptions200Response>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/lad_filter_options`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetLadFilterOptions200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve filter options specific to the leader/administrator (LAD) search — position types, departments, and school groups
+     */
+    async getLadFilterOptions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLadFilterOptions200Response> {
+        const response = await this.getLadFilterOptionsRaw(initOverrides);
         return await response.value();
     }
 
@@ -4855,6 +5165,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchools(requestParameters: DefaultApiGetSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolCollection> {
         const response = await this.getSchoolsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all schools as a flat list for alma mater filtering
+     */
+    async getSchoolsAlmaMaterRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/alma_mater`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve all schools as a flat list for alma mater filtering
+     */
+    async getSchoolsAlmaMater(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getSchoolsAlmaMaterRaw(initOverrides);
         return await response.value();
     }
 
@@ -6524,3 +6872,11 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const GetFilterOptionsContextEnum = {
+    Gad: 'gad'
+} as const;
+export type GetFilterOptionsContextEnum = typeof GetFilterOptionsContextEnum[keyof typeof GetFilterOptionsContextEnum];
