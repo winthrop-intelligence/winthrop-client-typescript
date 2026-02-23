@@ -561,6 +561,10 @@ export interface DefaultApiGetFilterOptionsSubdivisionsRequest {
     divisionId?: number;
 }
 
+export interface DefaultApiGetFilterOptionsVendorsRequest {
+    dealTypeId?: number;
+}
+
 export interface DefaultApiGetFinancialSearchesRequest {
     page?: number;
     perPage?: number;
@@ -3593,6 +3597,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all accessible schools for filter dropdowns
+     */
+    async getFilterOptionsAllSchoolsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/all_schools`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve all accessible schools for filter dropdowns
+     */
+    async getFilterOptionsAllSchools(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsAllSchoolsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve conferences filtered by division and/or sport
      */
     async getFilterOptionsConferencesRaw(requestParameters: DefaultApiGetFilterOptionsConferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
@@ -3635,6 +3677,82 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getFilterOptionsConferences(requestParameters: DefaultApiGetFilterOptionsConferencesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
         const response = await this.getFilterOptionsConferencesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all available deal types for vendor deal filtering
+     */
+    async getFilterOptionsDealTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/deal_types`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve all available deal types for vendor deal filtering
+     */
+    async getFilterOptionsDealTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsDealTypesRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve the current user\'s school groups for filtering
+     */
+    async getFilterOptionsSchoolGroupsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/school_groups`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve the current user\'s school groups for filtering
+     */
+    async getFilterOptionsSchoolGroups(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsSchoolGroupsRaw(initOverrides);
         return await response.value();
     }
 
@@ -3727,6 +3845,48 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getFilterOptionsSubdivisions(requestParameters: DefaultApiGetFilterOptionsSubdivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
         const response = await this.getFilterOptionsSubdivisionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve vendors for filter dropdown, optionally filtered by deal type
+     */
+    async getFilterOptionsVendorsRaw(requestParameters: DefaultApiGetFilterOptionsVendorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['dealTypeId'] != null) {
+            queryParameters['deal_type_id'] = requestParameters['dealTypeId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/vendors`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve vendors for filter dropdown, optionally filtered by deal type
+     */
+    async getFilterOptionsVendors(requestParameters: DefaultApiGetFilterOptionsVendorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsVendorsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

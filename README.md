@@ -116,9 +116,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
 *DefaultApi* | [**getFilterOptions**](docs/DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options | 
+*DefaultApi* | [**getFilterOptionsAllSchools**](docs/DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools | 
 *DefaultApi* | [**getFilterOptionsConferences**](docs/DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences | 
+*DefaultApi* | [**getFilterOptionsDealTypes**](docs/DefaultApi.md#getfilteroptionsdealtypes) | **GET** /api/v1/filter_options/deal_types | 
+*DefaultApi* | [**getFilterOptionsSchoolGroups**](docs/DefaultApi.md#getfilteroptionsschoolgroups) | **GET** /api/v1/filter_options/school_groups | 
 *DefaultApi* | [**getFilterOptionsSchools**](docs/DefaultApi.md#getfilteroptionsschools) | **GET** /api/v1/filter_options/schools | 
 *DefaultApi* | [**getFilterOptionsSubdivisions**](docs/DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions | 
+*DefaultApi* | [**getFilterOptionsVendors**](docs/DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors | 
 *DefaultApi* | [**getFinancialSearches**](docs/DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches | 
 *DefaultApi* | [**getFoiaLabel**](docs/DefaultApi.md#getfoialabel) | **GET** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**getFoiaLabels**](docs/DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels | 
