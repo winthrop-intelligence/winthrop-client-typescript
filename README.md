@@ -91,6 +91,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAuditedFinancialReportStatus**](docs/DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} | 
 *DefaultApi* | [**getAuditedFinancialReportStatuses**](docs/DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses | 
 *DefaultApi* | [**getCashflow**](docs/DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} | 
+*DefaultApi* | [**getCashflowGroups**](docs/DefaultApi.md#getcashflowgroups) | **GET** /api/v1/cashflow_groups | 
 *DefaultApi* | [**getCashflows**](docs/DefaultApi.md#getcashflows) | **GET** /api/v1/cashflows | 
 *DefaultApi* | [**getCategories**](docs/DefaultApi.md#getcategories) | **GET** /central_jobs/categories | List all categories
 *DefaultApi* | [**getCoach**](docs/DefaultApi.md#getcoach) | **GET** /api/v1/coaches/{coachId} | 
@@ -100,6 +101,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getCompensation**](docs/DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} | 
 *DefaultApi* | [**getCompensations**](docs/DefaultApi.md#getcompensations) | **GET** /api/v1/compensations | 
 *DefaultApi* | [**getConference**](docs/DefaultApi.md#getconference) | **GET** /api/v1/conferences/{conferenceId} | 
+*DefaultApi* | [**getConferenceCashflowStats**](docs/DefaultApi.md#getconferencecashflowstats) | **GET** /api/v1/conferences/{conferenceId}/cashflow_stats | 
+*DefaultApi* | [**getConferencePositionStats**](docs/DefaultApi.md#getconferencepositionstats) | **GET** /api/v1/conferences/{conferenceId}/position_stats | 
 *DefaultApi* | [**getConferences**](docs/DefaultApi.md#getconferences) | **GET** /api/v1/conferences | 
 *DefaultApi* | [**getConferenceship**](docs/DefaultApi.md#getconferenceship) | **GET** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**getConferenceships**](docs/DefaultApi.md#getconferenceships) | **GET** /api/v1/conferenceships | 
@@ -218,6 +221,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [COLIAdjusted](docs/COLIAdjusted.md)
 - [Cashflow](docs/Cashflow.md)
 - [CashflowCollection](docs/CashflowCollection.md)
+- [CashflowGroupItem](docs/CashflowGroupItem.md)
+- [CashflowGroupStats](docs/CashflowGroupStats.md)
+- [CashflowGroupsResponse](docs/CashflowGroupsResponse.md)
+- [CashflowSportStat](docs/CashflowSportStat.md)
 - [Category](docs/Category.md)
 - [CategoryCollection](docs/CategoryCollection.md)
 - [Coach](docs/Coach.md)
@@ -230,7 +237,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Compensation](docs/Compensation.md)
 - [CompensationCollection](docs/CompensationCollection.md)
 - [Conference](docs/Conference.md)
+- [ConferenceCashflowStatsResponse](docs/ConferenceCashflowStatsResponse.md)
 - [ConferenceCollection](docs/ConferenceCollection.md)
+- [ConferencePositionStatsResponse](docs/ConferencePositionStatsResponse.md)
 - [Conferenceship](docs/Conferenceship.md)
 - [ConferenceshipCollection](docs/ConferenceshipCollection.md)
 - [Contact](docs/Contact.md)
@@ -299,6 +308,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
+- [PositionSportStat](docs/PositionSportStat.md)
 - [PositionType](docs/PositionType.md)
 - [PositionTypeGroup](docs/PositionTypeGroup.md)
 - [PredictBody](docs/PredictBody.md)

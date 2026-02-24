@@ -10,6 +10,10 @@ docs/AverageCompensation.md
 docs/COLIAdjusted.md
 docs/Cashflow.md
 docs/CashflowCollection.md
+docs/CashflowGroupItem.md
+docs/CashflowGroupStats.md
+docs/CashflowGroupsResponse.md
+docs/CashflowSportStat.md
 docs/Category.md
 docs/CategoryCollection.md
 docs/Coach.md
@@ -22,7 +26,9 @@ docs/CompareColi422Response.md
 docs/Compensation.md
 docs/CompensationCollection.md
 docs/Conference.md
+docs/ConferenceCashflowStatsResponse.md
 docs/ConferenceCollection.md
+docs/ConferencePositionStatsResponse.md
 docs/Conferenceship.md
 docs/ConferenceshipCollection.md
 docs/Contact.md
@@ -95,6 +101,7 @@ docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Position.md
 docs/PositionCollection.md
+docs/PositionSportStat.md
 docs/PositionType.md
 docs/PositionTypeGroup.md
 docs/PredictBody.md
@@ -153,6 +160,10 @@ src/models/AverageCompensation.ts
 src/models/COLIAdjusted.ts
 src/models/Cashflow.ts
 src/models/CashflowCollection.ts
+src/models/CashflowGroupItem.ts
+src/models/CashflowGroupStats.ts
+src/models/CashflowGroupsResponse.ts
+src/models/CashflowSportStat.ts
 src/models/Category.ts
 src/models/CategoryCollection.ts
 src/models/Coach.ts
@@ -165,7 +176,9 @@ src/models/CompareColi422Response.ts
 src/models/Compensation.ts
 src/models/CompensationCollection.ts
 src/models/Conference.ts
+src/models/ConferenceCashflowStatsResponse.ts
 src/models/ConferenceCollection.ts
+src/models/ConferencePositionStatsResponse.ts
 src/models/Conferenceship.ts
 src/models/ConferenceshipCollection.ts
 src/models/Contact.ts
@@ -234,6 +247,7 @@ src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Position.ts
 src/models/PositionCollection.ts
+src/models/PositionSportStat.ts
 src/models/PositionType.ts
 src/models/PositionTypeGroup.ts
 src/models/PredictBody.ts

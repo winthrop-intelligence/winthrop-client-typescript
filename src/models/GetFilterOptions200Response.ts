@@ -20,6 +20,13 @@ import {
     IdNameToJSON,
     IdNameToJSONTyped,
 } from './IdName';
+import type { Sport } from './Sport';
+import {
+    SportFromJSON,
+    SportFromJSONTyped,
+    SportToJSON,
+    SportToJSONTyped,
+} from './Sport';
 
 /**
  * 
@@ -47,10 +54,10 @@ export interface GetFilterOptions200Response {
     divisions?: Array<IdName>;
     /**
      * 
-     * @type {Array<IdName>}
+     * @type {Array<Sport>}
      * @memberof GetFilterOptions200Response
      */
-    sports?: Array<IdName>;
+    sports?: Array<Sport>;
     /**
      * 
      * @type {Array<IdName>}
@@ -103,7 +110,7 @@ export function GetFilterOptions200ResponseFromJSONTyped(json: any, ignoreDiscri
         'years': json['years'] == null ? undefined : json['years'],
         'currentYear': json['current_year'] == null ? undefined : json['current_year'],
         'divisions': json['divisions'] == null ? undefined : ((json['divisions'] as Array<any>).map(IdNameFromJSON)),
-        'sports': json['sports'] == null ? undefined : ((json['sports'] as Array<any>).map(IdNameFromJSON)),
+        'sports': json['sports'] == null ? undefined : ((json['sports'] as Array<any>).map(SportFromJSON)),
         'positionTypes': json['position_types'] == null ? undefined : ((json['position_types'] as Array<any>).map(IdNameFromJSON)),
         'geoRegions': json['geo_regions'] == null ? undefined : ((json['geo_regions'] as Array<any>).map(IdNameFromJSON)),
         'genderOptions': json['gender_options'] == null ? undefined : json['gender_options'],
@@ -126,7 +133,7 @@ export function GetFilterOptions200ResponseToJSONTyped(value?: GetFilterOptions2
         'years': value['years'],
         'current_year': value['currentYear'],
         'divisions': value['divisions'] == null ? undefined : ((value['divisions'] as Array<any>).map(IdNameToJSON)),
-        'sports': value['sports'] == null ? undefined : ((value['sports'] as Array<any>).map(IdNameToJSON)),
+        'sports': value['sports'] == null ? undefined : ((value['sports'] as Array<any>).map(SportToJSON)),
         'position_types': value['positionTypes'] == null ? undefined : ((value['positionTypes'] as Array<any>).map(IdNameToJSON)),
         'geo_regions': value['geoRegions'] == null ? undefined : ((value['geoRegions'] as Array<any>).map(IdNameToJSON)),
         'gender_options': value['genderOptions'],

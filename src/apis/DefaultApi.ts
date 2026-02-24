@@ -23,6 +23,7 @@ import type {
   COLIAdjusted,
   Cashflow,
   CashflowCollection,
+  CashflowGroupsResponse,
   CategoryCollection,
   Coach,
   CoachCollection,
@@ -33,7 +34,9 @@ import type {
   Compensation,
   CompensationCollection,
   Conference,
+  ConferenceCashflowStatsResponse,
   ConferenceCollection,
+  ConferencePositionStatsResponse,
   Conferenceship,
   ConferenceshipCollection,
   Contact,
@@ -120,6 +123,8 @@ import {
     CashflowToJSON,
     CashflowCollectionFromJSON,
     CashflowCollectionToJSON,
+    CashflowGroupsResponseFromJSON,
+    CashflowGroupsResponseToJSON,
     CategoryCollectionFromJSON,
     CategoryCollectionToJSON,
     CoachFromJSON,
@@ -140,8 +145,12 @@ import {
     CompensationCollectionToJSON,
     ConferenceFromJSON,
     ConferenceToJSON,
+    ConferenceCashflowStatsResponseFromJSON,
+    ConferenceCashflowStatsResponseToJSON,
     ConferenceCollectionFromJSON,
     ConferenceCollectionToJSON,
+    ConferencePositionStatsResponseFromJSON,
+    ConferencePositionStatsResponseToJSON,
     ConferenceshipFromJSON,
     ConferenceshipToJSON,
     ConferenceshipCollectionFromJSON,
@@ -462,6 +471,17 @@ export interface DefaultApiGetCompensationsRequest {
 
 export interface DefaultApiGetConferenceRequest {
     conferenceId: number;
+}
+
+export interface DefaultApiGetConferenceCashflowStatsRequest {
+    conferenceId: number;
+    groupIds?: Array<number>;
+    year?: number;
+}
+
+export interface DefaultApiGetConferencePositionStatsRequest {
+    conferenceId: number;
+    year?: number;
 }
 
 export interface DefaultApiGetConferencesRequest {
@@ -2371,6 +2391,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all cashflow groups (revenues and expenses) for Select Tables UI
+     */
+    async getCashflowGroupsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashflowGroupsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/cashflow_groups`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CashflowGroupsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all cashflow groups (revenues and expenses) for Select Tables UI
+     */
+    async getCashflowGroups(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashflowGroupsResponse> {
+        const response = await this.getCashflowGroupsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve some or all cashflows
      */
     async getCashflowsRaw(requestParameters: DefaultApiGetCashflowsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashflowCollection>> {
@@ -2825,6 +2883,110 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getConference(requestParameters: DefaultApiGetConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Conference> {
         const response = await this.getConferenceRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve aggregated cashflow stats (High/Low/Median per sport) for selected cashflow groups
+     */
+    async getConferenceCashflowStatsRaw(requestParameters: DefaultApiGetConferenceCashflowStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceCashflowStatsResponse>> {
+        if (requestParameters['conferenceId'] == null) {
+            throw new runtime.RequiredError(
+                'conferenceId',
+                'Required parameter "conferenceId" was null or undefined when calling getConferenceCashflowStats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['groupIds'] != null) {
+            queryParameters['group_ids[]'] = requestParameters['groupIds']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        }
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/conferences/{conferenceId}/cashflow_stats`;
+        urlPath = urlPath.replace(`{${"conferenceId"}}`, encodeURIComponent(String(requestParameters['conferenceId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceCashflowStatsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve aggregated cashflow stats (High/Low/Median per sport) for selected cashflow groups
+     */
+    async getConferenceCashflowStats(requestParameters: DefaultApiGetConferenceCashflowStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceCashflowStatsResponse> {
+        const response = await this.getConferenceCashflowStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve aggregated assistant coach position stats (High/Low/Median per sport)
+     */
+    async getConferencePositionStatsRaw(requestParameters: DefaultApiGetConferencePositionStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferencePositionStatsResponse>> {
+        if (requestParameters['conferenceId'] == null) {
+            throw new runtime.RequiredError(
+                'conferenceId',
+                'Required parameter "conferenceId" was null or undefined when calling getConferencePositionStats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/conferences/{conferenceId}/position_stats`;
+        urlPath = urlPath.replace(`{${"conferenceId"}}`, encodeURIComponent(String(requestParameters['conferenceId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferencePositionStatsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve aggregated assistant coach position stats (High/Low/Median per sport)
+     */
+    async getConferencePositionStats(requestParameters: DefaultApiGetConferencePositionStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferencePositionStatsResponse> {
+        const response = await this.getConferencePositionStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

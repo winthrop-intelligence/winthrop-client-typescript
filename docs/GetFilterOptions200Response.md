@@ -9,7 +9,7 @@ Name | Type
 `years` | Array&lt;number&gt;
 `currentYear` | number
 `divisions` | [Array&lt;IdName&gt;](IdName.md)
-`sports` | [Array&lt;IdName&gt;](IdName.md)
+`sports` | [Array&lt;Sport&gt;](Sport.md)
 `positionTypes` | [Array&lt;IdName&gt;](IdName.md)
 `geoRegions` | [Array&lt;IdName&gt;](IdName.md)
 `genderOptions` | Array&lt;string&gt;

@@ -33,6 +33,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAuditedFinancialReportStatus**](DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} |  |
 | [**getAuditedFinancialReportStatuses**](DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses |  |
 | [**getCashflow**](DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} |  |
+| [**getCashflowGroups**](DefaultApi.md#getcashflowgroups) | **GET** /api/v1/cashflow_groups |  |
 | [**getCashflows**](DefaultApi.md#getcashflows) | **GET** /api/v1/cashflows |  |
 | [**getCategories**](DefaultApi.md#getcategories) | **GET** /central_jobs/categories | List all categories |
 | [**getCoach**](DefaultApi.md#getcoach) | **GET** /api/v1/coaches/{coachId} |  |
@@ -42,6 +43,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCompensation**](DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} |  |
 | [**getCompensations**](DefaultApi.md#getcompensations) | **GET** /api/v1/compensations |  |
 | [**getConference**](DefaultApi.md#getconference) | **GET** /api/v1/conferences/{conferenceId} |  |
+| [**getConferenceCashflowStats**](DefaultApi.md#getconferencecashflowstats) | **GET** /api/v1/conferences/{conferenceId}/cashflow_stats |  |
+| [**getConferencePositionStats**](DefaultApi.md#getconferencepositionstats) | **GET** /api/v1/conferences/{conferenceId}/position_stats |  |
 | [**getConferences**](DefaultApi.md#getconferences) | **GET** /api/v1/conferences |  |
 | [**getConferenceship**](DefaultApi.md#getconferenceship) | **GET** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**getConferenceships**](DefaultApi.md#getconferenceships) | **GET** /api/v1/conferenceships |  |
@@ -2361,6 +2364,72 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getCashflowGroups
+
+> CashflowGroupsResponse getCashflowGroups()
+
+
+
+Retrieve all cashflow groups (revenues and expenses) for Select Tables UI
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCashflowGroupsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getCashflowGroups();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CashflowGroupsResponse**](CashflowGroupsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Cashflow groups were found |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getCashflows
 
 > CashflowCollection getCashflows(page, perPage, q)
@@ -3066,6 +3135,165 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Conference was found |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getConferenceCashflowStats
+
+> ConferenceCashflowStatsResponse getConferenceCashflowStats(conferenceId, groupIds, year)
+
+
+
+Retrieve aggregated cashflow stats (High/Low/Median per sport) for selected cashflow groups
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetConferenceCashflowStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Conference
+    conferenceId: 56,
+    // Array<number> | Array of cashflow group IDs to include (optional)
+    groupIds: ...,
+    // number | Financial year (optional)
+    year: 56,
+  } satisfies GetConferenceCashflowStatsRequest;
+
+  try {
+    const data = await api.getConferenceCashflowStats(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **conferenceId** | `number` | ID of the Conference | [Defaults to `undefined`] |
+| **groupIds** | `Array<number>` | Array of cashflow group IDs to include | [Optional] |
+| **year** | `number` | Financial year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ConferenceCashflowStatsResponse**](ConferenceCashflowStatsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Conference cashflow stats were found |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getConferencePositionStats
+
+> ConferencePositionStatsResponse getConferencePositionStats(conferenceId, year)
+
+
+
+Retrieve aggregated assistant coach position stats (High/Low/Median per sport)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetConferencePositionStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Conference
+    conferenceId: 56,
+    // number | Financial year (optional)
+    year: 56,
+  } satisfies GetConferencePositionStatsRequest;
+
+  try {
+    const data = await api.getConferencePositionStats(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **conferenceId** | `number` | ID of the Conference | [Defaults to `undefined`] |
+| **year** | `number` | Financial year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ConferencePositionStatsResponse**](ConferencePositionStatsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Conference position stats were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
