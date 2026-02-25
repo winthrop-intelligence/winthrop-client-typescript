@@ -765,10 +765,25 @@ export interface DefaultApiGetSchoolGroupRequest {
     schoolGroupId: number;
 }
 
+export interface DefaultApiGetSchoolGroupAdminCompensationRequest {
+    schoolGroupId: number;
+    year?: number;
+}
+
 export interface DefaultApiGetSchoolGroupCashflowStatsRequest {
     schoolGroupId: number;
     groupIds?: Array<number>;
     year?: number;
+}
+
+export interface DefaultApiGetSchoolGroupDepartmentStaffRequest {
+    schoolGroupId: number;
+    year?: number;
+    departmentId?: number;
+}
+
+export interface DefaultApiGetSchoolGroupDirectorsCupRequest {
+    schoolGroupId: number;
 }
 
 export interface DefaultApiGetSchoolGroupPositionStatsRequest {
@@ -819,10 +834,25 @@ export interface DefaultApiGetSubdivisionRequest {
     subdivisionId: number;
 }
 
+export interface DefaultApiGetSubdivisionAdminCompensationRequest {
+    subdivisionId: number;
+    year?: number;
+}
+
 export interface DefaultApiGetSubdivisionCashflowStatsRequest {
     subdivisionId: number;
     groupIds?: Array<number>;
     year?: number;
+}
+
+export interface DefaultApiGetSubdivisionDepartmentStaffRequest {
+    subdivisionId: number;
+    year?: number;
+    departmentId?: number;
+}
+
+export interface DefaultApiGetSubdivisionDirectorsCupRequest {
+    subdivisionId: number;
 }
 
 export interface DefaultApiGetSubdivisionPositionStatsRequest {
@@ -5772,6 +5802,56 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve athletic director compensation for a custom school group
+     */
+    async getSchoolGroupAdminCompensationRaw(requestParameters: DefaultApiGetSchoolGroupAdminCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceAdminCompensationResponse>> {
+        if (requestParameters['schoolGroupId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolGroupId',
+                'Required parameter "schoolGroupId" was null or undefined when calling getSchoolGroupAdminCompensation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups/{schoolGroupId}/admin_compensation`;
+        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceAdminCompensationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve athletic director compensation for a custom school group
+     */
+    async getSchoolGroupAdminCompensation(requestParameters: DefaultApiGetSchoolGroupAdminCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceAdminCompensationResponse> {
+        const response = await this.getSchoolGroupAdminCompensationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve aggregated cashflow stats for a custom school group
      */
     async getSchoolGroupCashflowStatsRaw(requestParameters: DefaultApiGetSchoolGroupCashflowStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceCashflowStatsResponse>> {
@@ -5822,6 +5902,106 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolGroupCashflowStats(requestParameters: DefaultApiGetSchoolGroupCashflowStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceCashflowStatsResponse> {
         const response = await this.getSchoolGroupCashflowStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve department staff compensation for a custom school group
+     */
+    async getSchoolGroupDepartmentStaffRaw(requestParameters: DefaultApiGetSchoolGroupDepartmentStaffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceDepartmentStaffResponse>> {
+        if (requestParameters['schoolGroupId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolGroupId',
+                'Required parameter "schoolGroupId" was null or undefined when calling getSchoolGroupDepartmentStaff().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        if (requestParameters['departmentId'] != null) {
+            queryParameters['department_id'] = requestParameters['departmentId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups/{schoolGroupId}/department_staff`;
+        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceDepartmentStaffResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve department staff compensation for a custom school group
+     */
+    async getSchoolGroupDepartmentStaff(requestParameters: DefaultApiGetSchoolGroupDepartmentStaffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceDepartmentStaffResponse> {
+        const response = await this.getSchoolGroupDepartmentStaffRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve Director\'s Cup rankings for schools in a custom school group
+     */
+    async getSchoolGroupDirectorsCupRaw(requestParameters: DefaultApiGetSchoolGroupDirectorsCupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceDirectorsCupResponse>> {
+        if (requestParameters['schoolGroupId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolGroupId',
+                'Required parameter "schoolGroupId" was null or undefined when calling getSchoolGroupDirectorsCup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups/{schoolGroupId}/directors_cup`;
+        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceDirectorsCupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve Director\'s Cup rankings for schools in a custom school group
+     */
+    async getSchoolGroupDirectorsCup(requestParameters: DefaultApiGetSchoolGroupDirectorsCupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceDirectorsCupResponse> {
+        const response = await this.getSchoolGroupDirectorsCupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -6321,6 +6501,56 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve athletic director compensation for a subdivision
+     */
+    async getSubdivisionAdminCompensationRaw(requestParameters: DefaultApiGetSubdivisionAdminCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceAdminCompensationResponse>> {
+        if (requestParameters['subdivisionId'] == null) {
+            throw new runtime.RequiredError(
+                'subdivisionId',
+                'Required parameter "subdivisionId" was null or undefined when calling getSubdivisionAdminCompensation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/subdivisions/{subdivisionId}/admin_compensation`;
+        urlPath = urlPath.replace(`{${"subdivisionId"}}`, encodeURIComponent(String(requestParameters['subdivisionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceAdminCompensationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve athletic director compensation for a subdivision
+     */
+    async getSubdivisionAdminCompensation(requestParameters: DefaultApiGetSubdivisionAdminCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceAdminCompensationResponse> {
+        const response = await this.getSubdivisionAdminCompensationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve aggregated cashflow stats for a subdivision
      */
     async getSubdivisionCashflowStatsRaw(requestParameters: DefaultApiGetSubdivisionCashflowStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceCashflowStatsResponse>> {
@@ -6371,6 +6601,106 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSubdivisionCashflowStats(requestParameters: DefaultApiGetSubdivisionCashflowStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceCashflowStatsResponse> {
         const response = await this.getSubdivisionCashflowStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve department staff compensation for a subdivision
+     */
+    async getSubdivisionDepartmentStaffRaw(requestParameters: DefaultApiGetSubdivisionDepartmentStaffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceDepartmentStaffResponse>> {
+        if (requestParameters['subdivisionId'] == null) {
+            throw new runtime.RequiredError(
+                'subdivisionId',
+                'Required parameter "subdivisionId" was null or undefined when calling getSubdivisionDepartmentStaff().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        if (requestParameters['departmentId'] != null) {
+            queryParameters['department_id'] = requestParameters['departmentId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/subdivisions/{subdivisionId}/department_staff`;
+        urlPath = urlPath.replace(`{${"subdivisionId"}}`, encodeURIComponent(String(requestParameters['subdivisionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceDepartmentStaffResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve department staff compensation for a subdivision
+     */
+    async getSubdivisionDepartmentStaff(requestParameters: DefaultApiGetSubdivisionDepartmentStaffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceDepartmentStaffResponse> {
+        const response = await this.getSubdivisionDepartmentStaffRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve Director\'s Cup rankings for schools in a subdivision
+     */
+    async getSubdivisionDirectorsCupRaw(requestParameters: DefaultApiGetSubdivisionDirectorsCupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConferenceDirectorsCupResponse>> {
+        if (requestParameters['subdivisionId'] == null) {
+            throw new runtime.RequiredError(
+                'subdivisionId',
+                'Required parameter "subdivisionId" was null or undefined when calling getSubdivisionDirectorsCup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/subdivisions/{subdivisionId}/directors_cup`;
+        urlPath = urlPath.replace(`{${"subdivisionId"}}`, encodeURIComponent(String(requestParameters['subdivisionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConferenceDirectorsCupResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve Director\'s Cup rankings for schools in a subdivision
+     */
+    async getSubdivisionDirectorsCup(requestParameters: DefaultApiGetSubdivisionDirectorsCupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConferenceDirectorsCupResponse> {
+        const response = await this.getSubdivisionDirectorsCupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
