@@ -42,6 +42,8 @@ docs/Contact.md
 docs/ContactCollection.md
 docs/Contract.md
 docs/ContractCollection.md
+docs/CreateFavorite201Response.md
+docs/CreateFavoriteRequest.md
 docs/Deal.md
 docs/DealCollection.md
 docs/DealSearchResult.md
@@ -49,6 +51,7 @@ docs/DealSearchResultCollection.md
 docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DefaultApi.md
+docs/DeleteFavorite200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
 docs/DepartmentStaffMember.md
@@ -209,12 +212,15 @@ src/models/Contact.ts
 src/models/ContactCollection.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
+src/models/CreateFavorite201Response.ts
+src/models/CreateFavoriteRequest.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
 src/models/DealSearchResult.ts
 src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
+src/models/DeleteFavorite200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
 src/models/DepartmentStaffMember.ts

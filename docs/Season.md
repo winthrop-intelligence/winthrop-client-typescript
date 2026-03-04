@@ -37,6 +37,8 @@ Name | Type
 `homeLosses` | number
 `homeWinPercent` | number
 `asr` | number
+`headCoach` | [Coach](Coach.md)
+`assistantCoaches` | [Array&lt;Coach&gt;](Coach.md)
 
 ## Example
 
@@ -76,6 +78,8 @@ const example = {
   "homeLosses": null,
   "homeWinPercent": null,
   "asr": null,
+  "headCoach": null,
+  "assistantCoaches": null,
 } satisfies Season
 
 console.log(example)
