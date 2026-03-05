@@ -444,6 +444,7 @@ export interface DefaultApiGetAdministratorsRequest {
     perPage?: number;
     q?: object;
     favoritesOnly?: string;
+    contractExpiresOn?: string;
 }
 
 export interface DefaultApiGetAuditedFinancialReportStatusRequest {
@@ -2451,6 +2452,10 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['favoritesOnly'] != null) {
             queryParameters['favorites_only'] = requestParameters['favoritesOnly'];
+        }
+
+        if (requestParameters['contractExpiresOn'] != null) {
+            queryParameters['contract_expires_on'] = requestParameters['contractExpiresOn'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

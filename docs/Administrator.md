@@ -42,6 +42,7 @@ Name | Type
 `rawContractId` | number
 `contractStartsOn` | Date
 `contractExpiresOn` | Date
+`contractAtWill` | boolean
 `diversity` | boolean
 `gender` | string
 `almaMaterId` | number
@@ -94,6 +95,7 @@ const example = {
   "rawContractId": 1,
   "contractStartsOn": Tue Jan 01 00:00:00 UTC 2019,
   "contractExpiresOn": Tue Jan 01 00:00:00 UTC 2019,
+  "contractAtWill": false,
   "diversity": false,
   "gender": M,
   "almaMaterId": 2,

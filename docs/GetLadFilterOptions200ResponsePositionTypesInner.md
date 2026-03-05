@@ -1,24 +1,26 @@
 
-# AdministratorCollection
+# GetLadFilterOptions200ResponsePositionTypesInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;Administrator&gt;](Administrator.md)
-`meta` | [AdminMeta](AdminMeta.md)
+`id` | number
+`name` | string
+`category` | string
 
 ## Example
 
 ```typescript
-import type { AdministratorCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GetLadFilterOptions200ResponsePositionTypesInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-} satisfies AdministratorCollection
+  "id": 1,
+  "name": Athletic Director,
+  "category": Senior Leadership,
+} satisfies GetLadFilterOptions200ResponsePositionTypesInner
 
 console.log(example)
 
@@ -27,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdministratorCollection
+const exampleParsed = JSON.parse(exampleJSON) as GetLadFilterOptions200ResponsePositionTypesInner
 console.log(exampleParsed)
 ```
 

@@ -255,6 +255,12 @@ export interface Administrator {
      * @type {boolean}
      * @memberof Administrator
      */
+    contractAtWill?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Administrator
+     */
     diversity?: boolean;
     /**
      * 
@@ -375,6 +381,7 @@ export function AdministratorFromJSONTyped(json: any, ignoreDiscriminator: boole
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
         'contractStartsOn': json['contract_starts_on'] == null ? undefined : (new Date(json['contract_starts_on'])),
         'contractExpiresOn': json['contract_expires_on'] == null ? undefined : (new Date(json['contract_expires_on'])),
+        'contractAtWill': json['contract_at_will'] == null ? undefined : json['contract_at_will'],
         'diversity': json['diversity'] == null ? undefined : json['diversity'],
         'gender': json['gender'] == null ? undefined : json['gender'],
         'almaMaterId': json['alma_mater_id'] == null ? undefined : json['alma_mater_id'],
@@ -433,6 +440,7 @@ export function AdministratorToJSONTyped(value?: Administrator | null, ignoreDis
         'raw_contract_id': value['rawContractId'],
         'contract_starts_on': value['contractStartsOn'] == null ? value['contractStartsOn'] : value['contractStartsOn'].toISOString().substring(0,10),
         'contract_expires_on': value['contractExpiresOn'] == null ? value['contractExpiresOn'] : value['contractExpiresOn'].toISOString().substring(0,10),
+        'contract_at_will': value['contractAtWill'],
         'diversity': value['diversity'],
         'gender': value['gender'],
         'alma_mater_id': value['almaMaterId'],

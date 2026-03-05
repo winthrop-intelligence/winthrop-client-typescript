@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`positionTypes` | [Array&lt;IdName&gt;](IdName.md)
+`positionTypes` | [Array&lt;GetLadFilterOptions200ResponsePositionTypesInner&gt;](GetLadFilterOptions200ResponsePositionTypesInner.md)
 `departments` | [Array&lt;IdName&gt;](IdName.md)
 `schoolGroups` | [Array&lt;IdName&gt;](IdName.md)
 

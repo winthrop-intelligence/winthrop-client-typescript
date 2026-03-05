@@ -2225,7 +2225,7 @@ example().catch(console.error);
 
 ## getAdministrators
 
-> AdministratorCollection getAdministrators(page, perPage, q, favoritesOnly)
+> AdministratorCollection getAdministrators(page, perPage, q, favoritesOnly, contractExpiresOn)
 
 
 
@@ -2259,6 +2259,8 @@ async function example() {
     q: Object,
     // string | When \"1\" or \"true\", restrict results to the current user\'s favorited administrators (optional)
     favoritesOnly: favoritesOnly_example,
+    // string | Filter by contract expiration. Use \"expired\" or a date range like \"2025-01-01..2025-12-31\" (optional)
+    contractExpiresOn: contractExpiresOn_example,
   } satisfies GetAdministratorsRequest;
 
   try {
@@ -2282,6 +2284,7 @@ example().catch(console.error);
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 | **favoritesOnly** | `string` | When \&quot;1\&quot; or \&quot;true\&quot;, restrict results to the current user\&#39;s favorited administrators | [Optional] [Defaults to `undefined`] |
+| **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; or a date range like \&quot;2025-01-01..2025-12-31\&quot; | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

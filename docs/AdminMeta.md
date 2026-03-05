@@ -1,24 +1,32 @@
 
-# AdministratorCollection
+# AdminMeta
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;Administrator&gt;](Administrator.md)
-`meta` | [AdminMeta](AdminMeta.md)
+`currentPage` | number
+`totalPages` | number
+`totalEntries` | number
+`nextPage` | number
+`previousPage` | number
+`compStats` | [AdminMetaCompStats](AdminMetaCompStats.md)
 
 ## Example
 
 ```typescript
-import type { AdministratorCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AdminMeta } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-} satisfies AdministratorCollection
+  "currentPage": 2,
+  "totalPages": 7,
+  "totalEntries": 654,
+  "nextPage": 3,
+  "previousPage": 1,
+  "compStats": null,
+} satisfies AdminMeta
 
 console.log(example)
 
@@ -27,7 +35,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdministratorCollection
+const exampleParsed = JSON.parse(exampleJSON) as AdminMeta
 console.log(exampleParsed)
 ```
 

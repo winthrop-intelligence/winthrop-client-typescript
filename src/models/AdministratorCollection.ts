@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Meta } from './Meta';
-import {
-    MetaFromJSON,
-    MetaFromJSONTyped,
-    MetaToJSON,
-    MetaToJSONTyped,
-} from './Meta';
 import type { Administrator } from './Administrator';
 import {
     AdministratorFromJSON,
@@ -27,6 +20,13 @@ import {
     AdministratorToJSON,
     AdministratorToJSONTyped,
 } from './Administrator';
+import type { AdminMeta } from './AdminMeta';
+import {
+    AdminMetaFromJSON,
+    AdminMetaFromJSONTyped,
+    AdminMetaToJSON,
+    AdminMetaToJSONTyped,
+} from './AdminMeta';
 
 /**
  * 
@@ -42,10 +42,10 @@ export interface AdministratorCollection {
     data?: Array<Administrator>;
     /**
      * 
-     * @type {Meta}
+     * @type {AdminMeta}
      * @memberof AdministratorCollection
      */
-    meta?: Meta;
+    meta?: AdminMeta;
 }
 
 /**
@@ -66,7 +66,7 @@ export function AdministratorCollectionFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(AdministratorFromJSON)),
-        'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'meta': json['meta'] == null ? undefined : AdminMetaFromJSON(json['meta']),
     };
 }
 
@@ -82,7 +82,7 @@ export function AdministratorCollectionToJSONTyped(value?: AdministratorCollecti
     return {
         
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(AdministratorToJSON)),
-        'meta': MetaToJSON(value['meta']),
+        'meta': AdminMetaToJSON(value['meta']),
     };
 }
 

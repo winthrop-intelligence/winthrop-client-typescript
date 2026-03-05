@@ -234,6 +234,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 ### Models
 
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)
+- [AdminMeta](docs/AdminMeta.md)
+- [AdminMetaCompStats](docs/AdminMetaCompStats.md)
 - [Administrator](docs/Administrator.md)
 - [AdministratorCollection](docs/AdministratorCollection.md)
 - [AsstCoachEntry](docs/AsstCoachEntry.md)
@@ -313,6 +315,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameType](docs/GameType.md)
 - [GetFilterOptions200Response](docs/GetFilterOptions200Response.md)
 - [GetLadFilterOptions200Response](docs/GetLadFilterOptions200Response.md)
+- [GetLadFilterOptions200ResponsePositionTypesInner](docs/GetLadFilterOptions200ResponsePositionTypesInner.md)
 - [GetSchoolAlternateNames200Response](docs/GetSchoolAlternateNames200Response.md)
 - [GetSchoolAlternateNames404Response](docs/GetSchoolAlternateNames404Response.md)
 - [GetWireChanges200Response](docs/GetWireChanges200Response.md)

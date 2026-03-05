@@ -20,6 +20,13 @@ import {
     IdNameToJSON,
     IdNameToJSONTyped,
 } from './IdName';
+import type { GetLadFilterOptions200ResponsePositionTypesInner } from './GetLadFilterOptions200ResponsePositionTypesInner';
+import {
+    GetLadFilterOptions200ResponsePositionTypesInnerFromJSON,
+    GetLadFilterOptions200ResponsePositionTypesInnerFromJSONTyped,
+    GetLadFilterOptions200ResponsePositionTypesInnerToJSON,
+    GetLadFilterOptions200ResponsePositionTypesInnerToJSONTyped,
+} from './GetLadFilterOptions200ResponsePositionTypesInner';
 
 /**
  * 
@@ -29,10 +36,10 @@ import {
 export interface GetLadFilterOptions200Response {
     /**
      * 
-     * @type {Array<IdName>}
+     * @type {Array<GetLadFilterOptions200ResponsePositionTypesInner>}
      * @memberof GetLadFilterOptions200Response
      */
-    positionTypes?: Array<IdName>;
+    positionTypes?: Array<GetLadFilterOptions200ResponsePositionTypesInner>;
     /**
      * 
      * @type {Array<IdName>}
@@ -64,7 +71,7 @@ export function GetLadFilterOptions200ResponseFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'positionTypes': json['position_types'] == null ? undefined : ((json['position_types'] as Array<any>).map(IdNameFromJSON)),
+        'positionTypes': json['position_types'] == null ? undefined : ((json['position_types'] as Array<any>).map(GetLadFilterOptions200ResponsePositionTypesInnerFromJSON)),
         'departments': json['departments'] == null ? undefined : ((json['departments'] as Array<any>).map(IdNameFromJSON)),
         'schoolGroups': json['school_groups'] == null ? undefined : ((json['school_groups'] as Array<any>).map(IdNameFromJSON)),
     };
@@ -81,7 +88,7 @@ export function GetLadFilterOptions200ResponseToJSONTyped(value?: GetLadFilterOp
 
     return {
         
-        'position_types': value['positionTypes'] == null ? undefined : ((value['positionTypes'] as Array<any>).map(IdNameToJSON)),
+        'position_types': value['positionTypes'] == null ? undefined : ((value['positionTypes'] as Array<any>).map(GetLadFilterOptions200ResponsePositionTypesInnerToJSON)),
         'departments': value['departments'] == null ? undefined : ((value['departments'] as Array<any>).map(IdNameToJSON)),
         'school_groups': value['schoolGroups'] == null ? undefined : ((value['schoolGroups'] as Array<any>).map(IdNameToJSON)),
     };
