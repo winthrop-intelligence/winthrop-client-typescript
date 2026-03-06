@@ -1,24 +1,28 @@
 
-# AdministratorCollection
+# CompStats
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;Administrator&gt;](Administrator.md)
-`meta` | [Meta](Meta.md)
+`min` | number
+`max` | number
+`average` | number
+`median` | number
 
 ## Example
 
 ```typescript
-import type { AdministratorCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CompStats } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-} satisfies AdministratorCollection
+  "min": 500000,
+  "max": 324000000,
+  "average": 10413700,
+  "median": 7500000,
+} satisfies CompStats
 
 console.log(example)
 
@@ -27,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdministratorCollection
+const exampleParsed = JSON.parse(exampleJSON) as CompStats
 console.log(exampleParsed)
 ```
 

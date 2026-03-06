@@ -17,6 +17,7 @@ import * as runtime from '../runtime';
 import type {
   Administrator,
   AdministratorCollection,
+  AdministratorSearchResultCollection,
   AuditedFinancialReportStatus,
   AuditedFinancialReportStatusCollection,
   AverageCompensation,
@@ -120,6 +121,8 @@ import {
     AdministratorToJSON,
     AdministratorCollectionFromJSON,
     AdministratorCollectionToJSON,
+    AdministratorSearchResultCollectionFromJSON,
+    AdministratorSearchResultCollectionToJSON,
     AuditedFinancialReportStatusFromJSON,
     AuditedFinancialReportStatusToJSON,
     AuditedFinancialReportStatusCollectionFromJSON,
@@ -439,12 +442,18 @@ export interface DefaultApiGetAdministratorRequest {
     administratorId: number;
 }
 
-export interface DefaultApiGetAdministratorsRequest {
+export interface DefaultApiGetAdministratorSearchesRequest {
     page?: number;
     perPage?: number;
     q?: object;
     favoritesOnly?: string;
     contractExpiresOn?: string;
+}
+
+export interface DefaultApiGetAdministratorsRequest {
+    page?: number;
+    perPage?: number;
+    q?: object;
 }
 
 export interface DefaultApiGetAuditedFinancialReportStatusRequest {
@@ -2433,9 +2442,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve some or all administrators
+     * Search administrators with filtering, pagination, and comp stats (React UI endpoint)
      */
-    async getAdministratorsRaw(requestParameters: DefaultApiGetAdministratorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdministratorCollection>> {
+    async getAdministratorSearchesRaw(requestParameters: DefaultApiGetAdministratorSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdministratorSearchResultCollection>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -2456,6 +2465,56 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['contractExpiresOn'] != null) {
             queryParameters['contract_expires_on'] = requestParameters['contractExpiresOn'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/administrator_searches`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdministratorSearchResultCollectionFromJSON(jsonValue));
+    }
+
+    /**
+     * Search administrators with filtering, pagination, and comp stats (React UI endpoint)
+     */
+    async getAdministratorSearches(requestParameters: DefaultApiGetAdministratorSearchesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdministratorSearchResultCollection> {
+        const response = await this.getAdministratorSearchesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve some or all administrators
+     */
+    async getAdministratorsRaw(requestParameters: DefaultApiGetAdministratorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdministratorCollection>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['perPage'] != null) {
+            queryParameters['per_page'] = requestParameters['perPage'];
+        }
+
+        if (requestParameters['q'] != null) {
+            queryParameters['q'] = requestParameters['q'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -2,10 +2,9 @@
 .npmignore
 README.md
 docs/AdminCompensationSubdivision.md
-docs/AdminMeta.md
-docs/AdminMetaCompStats.md
 docs/Administrator.md
 docs/AdministratorCollection.md
+docs/AdministratorSearchResultCollection.md
 docs/AsstCoachEntry.md
 docs/AsstCoachSchool.md
 docs/AuditedFinancialReportStatus.md
@@ -26,6 +25,7 @@ docs/CoachCollection.md
 docs/CoachCompensation.md
 docs/CoachSearchResult.md
 docs/CoachSearchResultCollection.md
+docs/CompStats.md
 docs/CompareColi404Response.md
 docs/CompareColi422Response.md
 docs/Compensation.md
@@ -175,10 +175,9 @@ src/apis/ScraperApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/AdminCompensationSubdivision.ts
-src/models/AdminMeta.ts
-src/models/AdminMetaCompStats.ts
 src/models/Administrator.ts
 src/models/AdministratorCollection.ts
+src/models/AdministratorSearchResultCollection.ts
 src/models/AsstCoachEntry.ts
 src/models/AsstCoachSchool.ts
 src/models/AuditedFinancialReportStatus.ts
@@ -199,6 +198,7 @@ src/models/CoachCollection.ts
 src/models/CoachCompensation.ts
 src/models/CoachSearchResult.ts
 src/models/CoachSearchResultCollection.ts
+src/models/CompStats.ts
 src/models/CompareColi404Response.ts
 src/models/CompareColi422Response.ts
 src/models/Compensation.ts

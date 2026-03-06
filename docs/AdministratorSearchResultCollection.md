@@ -1,5 +1,5 @@
 
-# AdministratorCollection
+# AdministratorSearchResultCollection
 
 
 ## Properties
@@ -8,17 +8,19 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;Administrator&gt;](Administrator.md)
 `meta` | [Meta](Meta.md)
+`compStats` | [CompStats](CompStats.md)
 
 ## Example
 
 ```typescript
-import type { AdministratorCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AdministratorSearchResultCollection } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "data": null,
   "meta": null,
-} satisfies AdministratorCollection
+  "compStats": null,
+} satisfies AdministratorSearchResultCollection
 
 console.log(example)
 
@@ -27,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdministratorCollection
+const exampleParsed = JSON.parse(exampleJSON) as AdministratorSearchResultCollection
 console.log(exampleParsed)
 ```
 
