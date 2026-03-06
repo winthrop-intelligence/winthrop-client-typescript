@@ -81,7 +81,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteCashflow**](docs/DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
-*DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites | 
+*DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**deleteFoiaRequest**](docs/DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**deleteJobPost**](docs/DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post
@@ -314,6 +314,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GamePostSearchResult](docs/GamePostSearchResult.md)
 - [GamePostSearchResultCollection](docs/GamePostSearchResultCollection.md)
 - [GameType](docs/GameType.md)
+- [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)
 - [GetFilterOptions200Response](docs/GetFilterOptions200Response.md)
 - [GetLadFilterOptions200Response](docs/GetLadFilterOptions200Response.md)
 - [GetLadFilterOptions200ResponsePositionTypesInner](docs/GetLadFilterOptions200ResponsePositionTypesInner.md)

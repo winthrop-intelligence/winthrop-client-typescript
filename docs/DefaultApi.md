@@ -23,7 +23,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
-| [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites |  |
+| [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**deleteFoiaRequest**](DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} |  |
 | [**deleteJobPost**](DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post |
@@ -1625,11 +1625,11 @@ example().catch(console.error);
 
 ## deleteFavorite
 
-> DeleteFavorite200Response deleteFavorite(favoritableType, favoritableId)
+> DeleteFavorite200Response deleteFavorite(id)
 
 
 
-Remove a favorite for the current user
+Remove a favorite by its ID
 
 ### Example
 
@@ -1651,10 +1651,8 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // string | The model type (e.g. \"Coach\")
-    favoritableType: favoritableType_example,
-    // number | The ID of the record to unfavorite
-    favoritableId: 56,
+    // number | The favorite record ID
+    id: 56,
   } satisfies DeleteFavoriteRequest;
 
   try {
@@ -1674,8 +1672,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **favoritableType** | `string` | The model type (e.g. \&quot;Coach\&quot;) | [Defaults to `undefined`] |
-| **favoritableId** | `number` | The ID of the record to unfavorite | [Defaults to `undefined`] |
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5047,11 +5044,11 @@ example().catch(console.error);
 
 ## getFavorites
 
-> Array&lt;number&gt; getFavorites(favoritableType)
+> Array&lt;GetFavorites200ResponseInner&gt; getFavorites(favoritableType)
 
 
 
-Retrieve the current user\&#39;s favorited IDs for a given type
+Retrieve the current user\&#39;s favorites for a given type
 
 ### Example
 
@@ -5098,7 +5095,7 @@ example().catch(console.error);
 
 ### Return type
 
-**Array<number>**
+[**Array&lt;GetFavorites200ResponseInner&gt;**](GetFavorites200ResponseInner.md)
 
 ### Authorization
 
@@ -5113,7 +5110,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of favorited IDs |  -  |
+| **200** | List of favorite entries |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

@@ -80,6 +80,7 @@ export * from './GamePostCollection';
 export * from './GamePostSearchResult';
 export * from './GamePostSearchResultCollection';
 export * from './GameType';
+export * from './GetFavorites200ResponseInner';
 export * from './GetFilterOptions200Response';
 export * from './GetLadFilterOptions200Response';
 export * from './GetLadFilterOptions200ResponsePositionTypesInner';

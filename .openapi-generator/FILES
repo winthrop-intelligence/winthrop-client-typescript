@@ -83,6 +83,7 @@ docs/GamePostCollection.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GameType.md
+docs/GetFavorites200ResponseInner.md
 docs/GetFilterOptions200Response.md
 docs/GetLadFilterOptions200Response.md
 docs/GetLadFilterOptions200ResponsePositionTypesInner.md
@@ -254,6 +255,7 @@ src/models/GamePostCollection.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts
+src/models/GetFavorites200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts
 src/models/GetLadFilterOptions200Response.ts
 src/models/GetLadFilterOptions200ResponsePositionTypesInner.ts

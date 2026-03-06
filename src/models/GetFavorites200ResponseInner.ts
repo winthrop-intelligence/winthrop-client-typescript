@@ -16,35 +16,35 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface CreateFavorite201Response
+ * @interface GetFavorites200ResponseInner
  */
-export interface CreateFavorite201Response {
+export interface GetFavorites200ResponseInner {
     /**
-     * 
+     * The favorite record ID
      * @type {number}
-     * @memberof CreateFavorite201Response
+     * @memberof GetFavorites200ResponseInner
      */
     id?: number;
     /**
-     * 
+     * The favorited record's ID
      * @type {number}
-     * @memberof CreateFavorite201Response
+     * @memberof GetFavorites200ResponseInner
      */
     favoritableId?: number;
 }
 
 /**
- * Check if a given object implements the CreateFavorite201Response interface.
+ * Check if a given object implements the GetFavorites200ResponseInner interface.
  */
-export function instanceOfCreateFavorite201Response(value: object): value is CreateFavorite201Response {
+export function instanceOfGetFavorites200ResponseInner(value: object): value is GetFavorites200ResponseInner {
     return true;
 }
 
-export function CreateFavorite201ResponseFromJSON(json: any): CreateFavorite201Response {
-    return CreateFavorite201ResponseFromJSONTyped(json, false);
+export function GetFavorites200ResponseInnerFromJSON(json: any): GetFavorites200ResponseInner {
+    return GetFavorites200ResponseInnerFromJSONTyped(json, false);
 }
 
-export function CreateFavorite201ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateFavorite201Response {
+export function GetFavorites200ResponseInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetFavorites200ResponseInner {
     if (json == null) {
         return json;
     }
@@ -55,11 +55,11 @@ export function CreateFavorite201ResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function CreateFavorite201ResponseToJSON(json: any): CreateFavorite201Response {
-    return CreateFavorite201ResponseToJSONTyped(json, false);
+export function GetFavorites200ResponseInnerToJSON(json: any): GetFavorites200ResponseInner {
+    return GetFavorites200ResponseInnerToJSONTyped(json, false);
 }
 
-export function CreateFavorite201ResponseToJSONTyped(value?: CreateFavorite201Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetFavorites200ResponseInnerToJSONTyped(value?: GetFavorites200ResponseInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

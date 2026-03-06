@@ -73,6 +73,7 @@ import type {
   GamePostCollection,
   GamePostSearchResultCollection,
   GameType,
+  GetFavorites200ResponseInner,
   GetFilterOptions200Response,
   GetLadFilterOptions200Response,
   GetSchoolAlternateNames200Response,
@@ -233,6 +234,8 @@ import {
     GamePostSearchResultCollectionToJSON,
     GameTypeFromJSON,
     GameTypeToJSON,
+    GetFavorites200ResponseInnerFromJSON,
+    GetFavorites200ResponseInnerToJSON,
     GetFilterOptions200ResponseFromJSON,
     GetFilterOptions200ResponseToJSON,
     GetLadFilterOptions200ResponseFromJSON,
@@ -410,8 +413,7 @@ export interface DefaultApiDeleteConferenceshipRequest {
 }
 
 export interface DefaultApiDeleteFavoriteRequest {
-    favoritableType: string;
-    favoritableId: number;
+    id: number;
 }
 
 export interface DefaultApiDeleteFoiaLabelRequest {
@@ -2064,32 +2066,17 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Remove a favorite for the current user
+     * Remove a favorite by its ID
      */
     async deleteFavoriteRaw(requestParameters: DefaultApiDeleteFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteFavorite200Response>> {
-        if (requestParameters['favoritableType'] == null) {
+        if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
-                'favoritableType',
-                'Required parameter "favoritableType" was null or undefined when calling deleteFavorite().'
-            );
-        }
-
-        if (requestParameters['favoritableId'] == null) {
-            throw new runtime.RequiredError(
-                'favoritableId',
-                'Required parameter "favoritableId" was null or undefined when calling deleteFavorite().'
+                'id',
+                'Required parameter "id" was null or undefined when calling deleteFavorite().'
             );
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters['favoritableType'] != null) {
-            queryParameters['favoritable_type'] = requestParameters['favoritableType'];
-        }
-
-        if (requestParameters['favoritableId'] != null) {
-            queryParameters['favoritable_id'] = requestParameters['favoritableId'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -2103,7 +2090,8 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/api/v1/favorites`;
+        let urlPath = `/api/v1/favorites/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
             path: urlPath,
@@ -2116,7 +2104,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Remove a favorite for the current user
+     * Remove a favorite by its ID
      */
     async deleteFavorite(requestParameters: DefaultApiDeleteFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteFavorite200Response> {
         const response = await this.deleteFavoriteRaw(requestParameters, initOverrides);
@@ -4229,9 +4217,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve the current user\'s favorited IDs for a given type
+     * Retrieve the current user\'s favorites for a given type
      */
-    async getFavoritesRaw(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<number>>> {
+    async getFavoritesRaw(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetFavorites200ResponseInner>>> {
         if (requestParameters['favoritableType'] == null) {
             throw new runtime.RequiredError(
                 'favoritableType',
@@ -4266,13 +4254,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetFavorites200ResponseInnerFromJSON));
     }
 
     /**
-     * Retrieve the current user\'s favorited IDs for a given type
+     * Retrieve the current user\'s favorites for a given type
      */
-    async getFavorites(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<number>> {
+    async getFavorites(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetFavorites200ResponseInner>> {
         const response = await this.getFavoritesRaw(requestParameters, initOverrides);
         return await response.value();
     }
