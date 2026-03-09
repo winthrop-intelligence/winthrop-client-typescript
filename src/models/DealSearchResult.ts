@@ -13,6 +13,21 @@
  */
 
 import { mapValues } from '../runtime';
+import type { DealDetailVendor } from './DealDetailVendor';
+import {
+    DealDetailVendorFromJSON,
+    DealDetailVendorFromJSONTyped,
+    DealDetailVendorToJSON,
+    DealDetailVendorToJSONTyped,
+} from './DealDetailVendor';
+import type { DealDetail } from './DealDetail';
+import {
+    DealDetailFromJSON,
+    DealDetailFromJSONTyped,
+    DealDetailToJSON,
+    DealDetailToJSONTyped,
+} from './DealDetail';
+
 /**
  * 
  * @export
@@ -99,6 +114,12 @@ export interface DealSearchResult {
     startAt?: Date | null;
     /**
      * 
+     * @type {Date}
+     * @memberof DealSearchResult
+     */
+    createdAt?: Date | null;
+    /**
+     * 
      * @type {string}
      * @memberof DealSearchResult
      */
@@ -115,6 +136,18 @@ export interface DealSearchResult {
      * @memberof DealSearchResult
      */
     archived?: boolean | null;
+    /**
+     * 
+     * @type {Array<DealDetailVendor>}
+     * @memberof DealSearchResult
+     */
+    vendors?: Array<DealDetailVendor>;
+    /**
+     * 
+     * @type {DealDetail}
+     * @memberof DealSearchResult
+     */
+    dealDetail?: DealDetail;
 }
 
 /**
@@ -147,9 +180,12 @@ export function DealSearchResultFromJSONTyped(json: any, ignoreDiscriminator: bo
         'startYear': json['start_year'] == null ? undefined : json['start_year'],
         'endYear': json['end_year'] == null ? undefined : json['end_year'],
         'startAt': json['start_at'] == null ? undefined : (new Date(json['start_at'])),
+        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'summary': json['summary'] == null ? undefined : json['summary'],
         'autorenew': json['autorenew'] == null ? undefined : json['autorenew'],
         'archived': json['archived'] == null ? undefined : json['archived'],
+        'vendors': json['vendors'] == null ? undefined : ((json['vendors'] as Array<any>).map(DealDetailVendorFromJSON)),
+        'dealDetail': json['deal_detail'] == null ? undefined : DealDetailFromJSON(json['deal_detail']),
     };
 }
 
@@ -177,9 +213,12 @@ export function DealSearchResultToJSONTyped(value?: DealSearchResult | null, ign
         'start_year': value['startYear'],
         'end_year': value['endYear'],
         'start_at': value['startAt'] == null ? value['startAt'] : value['startAt'].toISOString(),
+        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
         'summary': value['summary'],
         'autorenew': value['autorenew'],
         'archived': value['archived'],
+        'vendors': value['vendors'] == null ? undefined : ((value['vendors'] as Array<any>).map(DealDetailVendorToJSON)),
+        'deal_detail': DealDetailToJSON(value['dealDetail']),
     };
 }
 

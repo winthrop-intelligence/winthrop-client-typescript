@@ -47,6 +47,8 @@ export * from './CreateFavorite201Response';
 export * from './CreateFavoriteRequest';
 export * from './Deal';
 export * from './DealCollection';
+export * from './DealDetail';
+export * from './DealDetailVendor';
 export * from './DealSearchResult';
 export * from './DealSearchResultCollection';
 export * from './DealStatus';

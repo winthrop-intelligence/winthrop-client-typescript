@@ -46,6 +46,12 @@ export interface DealSearchResultCollection {
      * @memberof DealSearchResultCollection
      */
     meta?: Meta;
+    /**
+     * 
+     * @type {{ [key: string]: number | null; }}
+     * @memberof DealSearchResultCollection
+     */
+    averages?: { [key: string]: number | null; } | null;
 }
 
 /**
@@ -67,6 +73,7 @@ export function DealSearchResultCollectionFromJSONTyped(json: any, ignoreDiscrim
         
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(DealSearchResultFromJSON)),
         'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'averages': json['averages'] == null ? undefined : json['averages'],
     };
 }
 
@@ -83,6 +90,7 @@ export function DealSearchResultCollectionToJSONTyped(value?: DealSearchResultCo
         
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(DealSearchResultToJSON)),
         'meta': MetaToJSON(value['meta']),
+        'averages': value['averages'],
     };
 }
 

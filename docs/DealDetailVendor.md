@@ -1,26 +1,24 @@
 
-# DealSearchResultCollection
+# DealDetailVendor
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;DealSearchResult&gt;](DealSearchResult.md)
-`meta` | [Meta](Meta.md)
-`averages` | { [key: string]: number | null; }
+`id` | number
+`name` | string
 
 ## Example
 
 ```typescript
-import type { DealSearchResultCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DealDetailVendor } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-  "averages": null,
-} satisfies DealSearchResultCollection
+  "id": null,
+  "name": null,
+} satisfies DealDetailVendor
 
 console.log(example)
 
@@ -29,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DealSearchResultCollection
+const exampleParsed = JSON.parse(exampleJSON) as DealDetailVendor
 console.log(exampleParsed)
 ```
 

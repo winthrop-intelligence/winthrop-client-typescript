@@ -281,6 +281,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
+- [DealDetail](docs/DealDetail.md)
+- [DealDetailVendor](docs/DealDetailVendor.md)
 - [DealSearchResult](docs/DealSearchResult.md)
 - [DealSearchResultCollection](docs/DealSearchResultCollection.md)
 - [DealStatus](docs/DealStatus.md)

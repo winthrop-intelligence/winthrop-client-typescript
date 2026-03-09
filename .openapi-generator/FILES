@@ -48,6 +48,8 @@ docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
 docs/Deal.md
 docs/DealCollection.md
+docs/DealDetail.md
+docs/DealDetailVendor.md
 docs/DealSearchResult.md
 docs/DealSearchResultCollection.md
 docs/DealStatus.md
@@ -222,6 +224,8 @@ src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
+src/models/DealDetail.ts
+src/models/DealDetailVendor.ts
 src/models/DealSearchResult.ts
 src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
