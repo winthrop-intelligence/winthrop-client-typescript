@@ -58,6 +58,9 @@ docs/DefaultApi.md
 docs/DeleteFavorite200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
+docs/DepartmentSearchResultDepartment.md
+docs/DepartmentSearchResultDepartmentDealsInner.md
+docs/DepartmentSearchResultSportsInner.md
 docs/DepartmentStaffMember.md
 docs/DepartmentStaffSchool.md
 docs/DirectorsCupSchool.md
@@ -233,6 +236,9 @@ src/models/DealStatusCollection.ts
 src/models/DeleteFavorite200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
+src/models/DepartmentSearchResultDepartment.ts
+src/models/DepartmentSearchResultDepartmentDealsInner.ts
+src/models/DepartmentSearchResultSportsInner.ts
 src/models/DepartmentStaffMember.ts
 src/models/DepartmentStaffSchool.ts
 src/models/DirectorsCupSchool.ts

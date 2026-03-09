@@ -46,6 +46,12 @@ export interface DepartmentSearchResultCollection {
      * @memberof DepartmentSearchResultCollection
      */
     meta?: Meta;
+    /**
+     * 
+     * @type {string}
+     * @memberof DepartmentSearchResultCollection
+     */
+    financialsYear?: string | null;
 }
 
 /**
@@ -67,6 +73,7 @@ export function DepartmentSearchResultCollectionFromJSONTyped(json: any, ignoreD
         
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(DepartmentSearchResultFromJSON)),
         'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'financialsYear': json['financials_year'] == null ? undefined : json['financials_year'],
     };
 }
 
@@ -83,6 +90,7 @@ export function DepartmentSearchResultCollectionToJSONTyped(value?: DepartmentSe
         
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(DepartmentSearchResultToJSON)),
         'meta': MetaToJSON(value['meta']),
+        'financials_year': value['financialsYear'],
     };
 }
 

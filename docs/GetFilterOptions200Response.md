@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `years` | Array&lt;number&gt;
 `currentYear` | number
+`currentFinancialsYear` | number
 `divisions` | [Array&lt;IdName&gt;](IdName.md)
 `sports` | [Array&lt;Sport&gt;](Sport.md)
 `positionTypes` | [Array&lt;IdName&gt;](IdName.md)
@@ -25,6 +26,7 @@ import type { GetFilterOptions200Response } from '@winthrop-intelligence/winthro
 const example = {
   "years": null,
   "currentYear": null,
+  "currentFinancialsYear": null,
   "divisions": null,
   "sports": null,
   "positionTypes": null,

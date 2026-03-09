@@ -48,6 +48,12 @@ export interface GetFilterOptions200Response {
     currentYear?: number;
     /**
      * 
+     * @type {number}
+     * @memberof GetFilterOptions200Response
+     */
+    currentFinancialsYear?: number;
+    /**
+     * 
      * @type {Array<IdName>}
      * @memberof GetFilterOptions200Response
      */
@@ -109,6 +115,7 @@ export function GetFilterOptions200ResponseFromJSONTyped(json: any, ignoreDiscri
         
         'years': json['years'] == null ? undefined : json['years'],
         'currentYear': json['current_year'] == null ? undefined : json['current_year'],
+        'currentFinancialsYear': json['current_financials_year'] == null ? undefined : json['current_financials_year'],
         'divisions': json['divisions'] == null ? undefined : ((json['divisions'] as Array<any>).map(IdNameFromJSON)),
         'sports': json['sports'] == null ? undefined : ((json['sports'] as Array<any>).map(SportFromJSON)),
         'positionTypes': json['position_types'] == null ? undefined : ((json['position_types'] as Array<any>).map(IdNameFromJSON)),
@@ -132,6 +139,7 @@ export function GetFilterOptions200ResponseToJSONTyped(value?: GetFilterOptions2
         
         'years': value['years'],
         'current_year': value['currentYear'],
+        'current_financials_year': value['currentFinancialsYear'],
         'divisions': value['divisions'] == null ? undefined : ((value['divisions'] as Array<any>).map(IdNameToJSON)),
         'sports': value['sports'] == null ? undefined : ((value['sports'] as Array<any>).map(SportToJSON)),
         'position_types': value['positionTypes'] == null ? undefined : ((value['positionTypes'] as Array<any>).map(IdNameToJSON)),

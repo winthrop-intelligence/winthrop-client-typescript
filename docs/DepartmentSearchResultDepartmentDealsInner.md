@@ -1,26 +1,24 @@
 
-# DepartmentSearchResultCollection
+# DepartmentSearchResultDepartmentDealsInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;DepartmentSearchResult&gt;](DepartmentSearchResult.md)
-`meta` | [Meta](Meta.md)
-`financialsYear` | string
+`id` | number
+`vendorNames` | string
 
 ## Example
 
 ```typescript
-import type { DepartmentSearchResultCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DepartmentSearchResultDepartmentDealsInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-  "financialsYear": null,
-} satisfies DepartmentSearchResultCollection
+  "id": null,
+  "vendorNames": null,
+} satisfies DepartmentSearchResultDepartmentDealsInner
 
 console.log(example)
 
@@ -29,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DepartmentSearchResultCollection
+const exampleParsed = JSON.parse(exampleJSON) as DepartmentSearchResultDepartmentDealsInner
 console.log(exampleParsed)
 ```
 
