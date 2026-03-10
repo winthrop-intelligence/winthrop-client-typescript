@@ -11,8 +11,8 @@ Name | Type
 `currentFinancialsYear` | number
 `divisions` | [Array&lt;IdName&gt;](IdName.md)
 `sports` | [Array&lt;Sport&gt;](Sport.md)
-`positionTypes` | [Array&lt;IdName&gt;](IdName.md)
-`geoRegions` | [Array&lt;IdName&gt;](IdName.md)
+`positionTypes` | [Array&lt;FilterPositionType&gt;](FilterPositionType.md)
+`geoRegions` | [Array&lt;GeoRegion&gt;](GeoRegion.md)
 `genderOptions` | Array&lt;string&gt;
 `diversityOptions` | Array&lt;string&gt;
 `compensationTypes` | Array&lt;string&gt;

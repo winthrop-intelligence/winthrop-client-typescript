@@ -27,6 +27,20 @@ import {
     SportToJSON,
     SportToJSONTyped,
 } from './Sport';
+import type { GeoRegion } from './GeoRegion';
+import {
+    GeoRegionFromJSON,
+    GeoRegionFromJSONTyped,
+    GeoRegionToJSON,
+    GeoRegionToJSONTyped,
+} from './GeoRegion';
+import type { FilterPositionType } from './FilterPositionType';
+import {
+    FilterPositionTypeFromJSON,
+    FilterPositionTypeFromJSONTyped,
+    FilterPositionTypeToJSON,
+    FilterPositionTypeToJSONTyped,
+} from './FilterPositionType';
 
 /**
  * 
@@ -66,16 +80,16 @@ export interface GetFilterOptions200Response {
     sports?: Array<Sport>;
     /**
      * 
-     * @type {Array<IdName>}
+     * @type {Array<FilterPositionType>}
      * @memberof GetFilterOptions200Response
      */
-    positionTypes?: Array<IdName>;
+    positionTypes?: Array<FilterPositionType>;
     /**
      * 
-     * @type {Array<IdName>}
+     * @type {Array<GeoRegion>}
      * @memberof GetFilterOptions200Response
      */
-    geoRegions?: Array<IdName>;
+    geoRegions?: Array<GeoRegion>;
     /**
      * 
      * @type {Array<string>}
@@ -118,8 +132,8 @@ export function GetFilterOptions200ResponseFromJSONTyped(json: any, ignoreDiscri
         'currentFinancialsYear': json['current_financials_year'] == null ? undefined : json['current_financials_year'],
         'divisions': json['divisions'] == null ? undefined : ((json['divisions'] as Array<any>).map(IdNameFromJSON)),
         'sports': json['sports'] == null ? undefined : ((json['sports'] as Array<any>).map(SportFromJSON)),
-        'positionTypes': json['position_types'] == null ? undefined : ((json['position_types'] as Array<any>).map(IdNameFromJSON)),
-        'geoRegions': json['geo_regions'] == null ? undefined : ((json['geo_regions'] as Array<any>).map(IdNameFromJSON)),
+        'positionTypes': json['position_types'] == null ? undefined : ((json['position_types'] as Array<any>).map(FilterPositionTypeFromJSON)),
+        'geoRegions': json['geo_regions'] == null ? undefined : ((json['geo_regions'] as Array<any>).map(GeoRegionFromJSON)),
         'genderOptions': json['gender_options'] == null ? undefined : json['gender_options'],
         'diversityOptions': json['diversity_options'] == null ? undefined : json['diversity_options'],
         'compensationTypes': json['compensation_types'] == null ? undefined : json['compensation_types'],
@@ -142,8 +156,8 @@ export function GetFilterOptions200ResponseToJSONTyped(value?: GetFilterOptions2
         'current_financials_year': value['currentFinancialsYear'],
         'divisions': value['divisions'] == null ? undefined : ((value['divisions'] as Array<any>).map(IdNameToJSON)),
         'sports': value['sports'] == null ? undefined : ((value['sports'] as Array<any>).map(SportToJSON)),
-        'position_types': value['positionTypes'] == null ? undefined : ((value['positionTypes'] as Array<any>).map(IdNameToJSON)),
-        'geo_regions': value['geoRegions'] == null ? undefined : ((value['geoRegions'] as Array<any>).map(IdNameToJSON)),
+        'position_types': value['positionTypes'] == null ? undefined : ((value['positionTypes'] as Array<any>).map(FilterPositionTypeToJSON)),
+        'geo_regions': value['geoRegions'] == null ? undefined : ((value['geoRegions'] as Array<any>).map(GeoRegionToJSON)),
         'gender_options': value['genderOptions'],
         'diversity_options': value['diversityOptions'],
         'compensation_types': value['compensationTypes'],

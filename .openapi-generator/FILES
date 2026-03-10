@@ -68,6 +68,7 @@ docs/Division.md
 docs/DivisionCollection.md
 docs/DossierApi.md
 docs/DossierReportResponse.md
+docs/FilterPositionType.md
 docs/Filters.md
 docs/FinancialQc.md
 docs/FinancialSearchResult.md
@@ -88,6 +89,7 @@ docs/GamePostCollection.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GameType.md
+docs/GeoRegion.md
 docs/GetFavorites200ResponseInner.md
 docs/GetFilterOptions200Response.md
 docs/GetLadFilterOptions200Response.md
@@ -245,6 +247,7 @@ src/models/DirectorsCupSchool.ts
 src/models/Division.ts
 src/models/DivisionCollection.ts
 src/models/DossierReportResponse.ts
+src/models/FilterPositionType.ts
 src/models/Filters.ts
 src/models/FinancialQc.ts
 src/models/FinancialSearchResult.ts
@@ -265,6 +268,7 @@ src/models/GamePostCollection.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts
+src/models/GeoRegion.ts
 src/models/GetFavorites200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts
 src/models/GetLadFilterOptions200Response.ts
