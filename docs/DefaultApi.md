@@ -4808,7 +4808,7 @@ example().catch(console.error);
 
 ## getDepartmentSearches
 
-> DepartmentSearchResultCollection getDepartmentSearches(page, perPage, q)
+> DepartmentSearchResultCollection getDepartmentSearches(page, q)
 
 
 
@@ -4836,8 +4836,6 @@ async function example() {
   const body = {
     // number | results page to retrieve. (optional)
     page: 56,
-    // number | number of results per page. (optional)
-    perPage: 56,
     // object | Ransack query (optional)
     q: Object,
   } satisfies GetDepartmentSearchesRequest;
@@ -4860,7 +4858,6 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type

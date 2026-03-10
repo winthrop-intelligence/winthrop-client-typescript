@@ -46,6 +46,12 @@ export interface FinancialSearchResultCollection {
      * @memberof FinancialSearchResultCollection
      */
     meta?: Meta;
+    /**
+     * 
+     * @type {{ [key: string]: number | null; }}
+     * @memberof FinancialSearchResultCollection
+     */
+    averages?: { [key: string]: number | null; } | null;
 }
 
 /**
@@ -67,6 +73,7 @@ export function FinancialSearchResultCollectionFromJSONTyped(json: any, ignoreDi
         
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(FinancialSearchResultFromJSON)),
         'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'averages': json['averages'] == null ? undefined : json['averages'],
     };
 }
 
@@ -83,6 +90,7 @@ export function FinancialSearchResultCollectionToJSONTyped(value?: FinancialSear
         
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(FinancialSearchResultToJSON)),
         'meta': MetaToJSON(value['meta']),
+        'averages': value['averages'],
     };
 }
 

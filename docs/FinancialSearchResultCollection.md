@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;FinancialSearchResult&gt;](FinancialSearchResult.md)
 `meta` | [Meta](Meta.md)
+`averages` | { [key: string]: number | null; }
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { FinancialSearchResultCollection } from '@winthrop-intelligence/win
 const example = {
   "data": null,
   "meta": null,
+  "averages": null,
 } satisfies FinancialSearchResultCollection
 
 console.log(example)

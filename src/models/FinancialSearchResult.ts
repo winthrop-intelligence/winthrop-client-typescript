@@ -96,12 +96,6 @@ export interface FinancialSearchResult {
      * @type {number}
      * @memberof FinancialSearchResult
      */
-    revContributionsAmt?: number | null;
-    /**
-     * Amount in whole US dollars
-     * @type {number}
-     * @memberof FinancialSearchResult
-     */
     revRightsAmt?: number | null;
     /**
      * Amount in whole US dollars
@@ -157,6 +151,324 @@ export interface FinancialSearchResult {
      * @memberof FinancialSearchResult
      */
     expGuaranteesAmt?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof FinancialSearchResult
+     */
+    hasAuditedReport?: boolean | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revContributionsNoIkAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revConfDistributionsNonAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revConfBowlAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revNcaaDistributionsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revNcaaDistributionsGrantsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revNcaaHostSettlementsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revNcaaPostseasonReimbAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revBrandingAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revEndowmentAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revParkingAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revAdminSupportAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revCompensationAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revGovtSupportAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revInKindAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revSportsCampsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revTransfersAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revOtherAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revIndirectAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revContributionsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revConfDistributionsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revBowlAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    revIndirectFacilitiesAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expTuitionAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expMarketingAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expGamesAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expSupportStaffSalariesAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expIndirectSupportAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expEquipmentAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expSportsCamps?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expDebtServiceAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expMedicalAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expDuesAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expSupportStaffOtherAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expSeveranceAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expSpiritGroupsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expHeadCoachesAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expFacilitiesMaintenanceAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expAsstCoachesAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expHeadCoachesThirdPartyAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expAsstCoachesThirdPartyAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expTotalCoachesThirdPartyAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expAdminSupportAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expMealsAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expBowlAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expBowlCompAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expPostseasonFbHostAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expPostseasonOtherAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expPostseasonOtherCoachingAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expPostseasonOtherHostAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expAlstonAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expOtherAmt?: number | null;
+    /**
+     * Amount in whole US dollars
+     * @type {number}
+     * @memberof FinancialSearchResult
+     */
+    expNilRevenueShareAmt?: number | null;
 }
 
 /**
@@ -188,7 +500,6 @@ export function FinancialSearchResultFromJSONTyped(json: any, ignoreDiscriminato
         'sportCount': json['sport_count'] == null ? undefined : json['sport_count'],
         'revTotalAmt': json['rev_total_amt'] == null ? undefined : json['rev_total_amt'],
         'revTicketSalesAmt': json['rev_ticket_sales_amt'] == null ? undefined : json['rev_ticket_sales_amt'],
-        'revContributionsAmt': json['rev_contributions_amt'] == null ? undefined : json['rev_contributions_amt'],
         'revRightsAmt': json['rev_rights_amt'] == null ? undefined : json['rev_rights_amt'],
         'revStudentFeesAmt': json['rev_student_fees_amt'] == null ? undefined : json['rev_student_fees_amt'],
         'revUniversityAmt': json['rev_university_amt'] == null ? undefined : json['rev_university_amt'],
@@ -199,6 +510,59 @@ export function FinancialSearchResultFromJSONTyped(json: any, ignoreDiscriminato
         'expTravelAmt': json['exp_travel_amt'] == null ? undefined : json['exp_travel_amt'],
         'expFacilitiesAmt': json['exp_facilities_amt'] == null ? undefined : json['exp_facilities_amt'],
         'expGuaranteesAmt': json['exp_guarantees_amt'] == null ? undefined : json['exp_guarantees_amt'],
+        'hasAuditedReport': json['has_audited_report'] == null ? undefined : json['has_audited_report'],
+        'revContributionsNoIkAmt': json['rev_contributions_no_ik_amt'] == null ? undefined : json['rev_contributions_no_ik_amt'],
+        'revConfDistributionsNonAmt': json['rev_conf_distributions_non_amt'] == null ? undefined : json['rev_conf_distributions_non_amt'],
+        'revConfBowlAmt': json['rev_conf_bowl_amt'] == null ? undefined : json['rev_conf_bowl_amt'],
+        'revNcaaDistributionsAmt': json['rev_ncaa_distributions_amt'] == null ? undefined : json['rev_ncaa_distributions_amt'],
+        'revNcaaDistributionsGrantsAmt': json['rev_ncaa_distributions_grants_amt'] == null ? undefined : json['rev_ncaa_distributions_grants_amt'],
+        'revNcaaHostSettlementsAmt': json['rev_ncaa_host_settlements_amt'] == null ? undefined : json['rev_ncaa_host_settlements_amt'],
+        'revNcaaPostseasonReimbAmt': json['rev_ncaa_postseason_reimb_amt'] == null ? undefined : json['rev_ncaa_postseason_reimb_amt'],
+        'revBrandingAmt': json['rev_branding_amt'] == null ? undefined : json['rev_branding_amt'],
+        'revEndowmentAmt': json['rev_endowment_amt'] == null ? undefined : json['rev_endowment_amt'],
+        'revParkingAmt': json['rev_parking_amt'] == null ? undefined : json['rev_parking_amt'],
+        'revAdminSupportAmt': json['rev_admin_support_amt'] == null ? undefined : json['rev_admin_support_amt'],
+        'revCompensationAmt': json['rev_compensation_amt'] == null ? undefined : json['rev_compensation_amt'],
+        'revGovtSupportAmt': json['rev_govt_support_amt'] == null ? undefined : json['rev_govt_support_amt'],
+        'revInKindAmt': json['rev_in_kind_amt'] == null ? undefined : json['rev_in_kind_amt'],
+        'revSportsCampsAmt': json['rev_sports_camps_amt'] == null ? undefined : json['rev_sports_camps_amt'],
+        'revTransfersAmt': json['rev_transfers_amt'] == null ? undefined : json['rev_transfers_amt'],
+        'revOtherAmt': json['rev_other_amt'] == null ? undefined : json['rev_other_amt'],
+        'revIndirectAmt': json['rev_indirect_amt'] == null ? undefined : json['rev_indirect_amt'],
+        'revContributionsAmt': json['rev_contributions_amt'] == null ? undefined : json['rev_contributions_amt'],
+        'revConfDistributionsAmt': json['rev_conf_distributions_amt'] == null ? undefined : json['rev_conf_distributions_amt'],
+        'revBowlAmt': json['rev_bowl_amt'] == null ? undefined : json['rev_bowl_amt'],
+        'revIndirectFacilitiesAmt': json['rev_indirect_facilities_amt'] == null ? undefined : json['rev_indirect_facilities_amt'],
+        'expTuitionAmt': json['exp_tuition_amt'] == null ? undefined : json['exp_tuition_amt'],
+        'expMarketingAmt': json['exp_marketing_amt'] == null ? undefined : json['exp_marketing_amt'],
+        'expGamesAmt': json['exp_games_amt'] == null ? undefined : json['exp_games_amt'],
+        'expSupportStaffSalariesAmt': json['exp_support_staff_salaries_amt'] == null ? undefined : json['exp_support_staff_salaries_amt'],
+        'expIndirectSupportAmt': json['exp_indirect_support_amt'] == null ? undefined : json['exp_indirect_support_amt'],
+        'expEquipmentAmt': json['exp_equipment_amt'] == null ? undefined : json['exp_equipment_amt'],
+        'expSportsCamps': json['exp_sports_camps'] == null ? undefined : json['exp_sports_camps'],
+        'expDebtServiceAmt': json['exp_debt_service_amt'] == null ? undefined : json['exp_debt_service_amt'],
+        'expMedicalAmt': json['exp_medical_amt'] == null ? undefined : json['exp_medical_amt'],
+        'expDuesAmt': json['exp_dues_amt'] == null ? undefined : json['exp_dues_amt'],
+        'expSupportStaffOtherAmt': json['exp_support_staff_other_amt'] == null ? undefined : json['exp_support_staff_other_amt'],
+        'expSeveranceAmt': json['exp_severance_amt'] == null ? undefined : json['exp_severance_amt'],
+        'expSpiritGroupsAmt': json['exp_spirit_groups_amt'] == null ? undefined : json['exp_spirit_groups_amt'],
+        'expHeadCoachesAmt': json['exp_head_coaches_amt'] == null ? undefined : json['exp_head_coaches_amt'],
+        'expFacilitiesMaintenanceAmt': json['exp_facilities_maintenance_amt'] == null ? undefined : json['exp_facilities_maintenance_amt'],
+        'expAsstCoachesAmt': json['exp_asst_coaches_amt'] == null ? undefined : json['exp_asst_coaches_amt'],
+        'expHeadCoachesThirdPartyAmt': json['exp_head_coaches_third_party_amt'] == null ? undefined : json['exp_head_coaches_third_party_amt'],
+        'expAsstCoachesThirdPartyAmt': json['exp_asst_coaches_third_party_amt'] == null ? undefined : json['exp_asst_coaches_third_party_amt'],
+        'expTotalCoachesThirdPartyAmt': json['exp_total_coaches_third_party_amt'] == null ? undefined : json['exp_total_coaches_third_party_amt'],
+        'expAdminSupportAmt': json['exp_admin_support_amt'] == null ? undefined : json['exp_admin_support_amt'],
+        'expMealsAmt': json['exp_meals_amt'] == null ? undefined : json['exp_meals_amt'],
+        'expBowlAmt': json['exp_bowl_amt'] == null ? undefined : json['exp_bowl_amt'],
+        'expBowlCompAmt': json['exp_bowl_comp_amt'] == null ? undefined : json['exp_bowl_comp_amt'],
+        'expPostseasonFbHostAmt': json['exp_postseason_fb_host_amt'] == null ? undefined : json['exp_postseason_fb_host_amt'],
+        'expPostseasonOtherAmt': json['exp_postseason_other_amt'] == null ? undefined : json['exp_postseason_other_amt'],
+        'expPostseasonOtherCoachingAmt': json['exp_postseason_other_coaching_amt'] == null ? undefined : json['exp_postseason_other_coaching_amt'],
+        'expPostseasonOtherHostAmt': json['exp_postseason_other_host_amt'] == null ? undefined : json['exp_postseason_other_host_amt'],
+        'expAlstonAmt': json['exp_alston_amt'] == null ? undefined : json['exp_alston_amt'],
+        'expOtherAmt': json['exp_other_amt'] == null ? undefined : json['exp_other_amt'],
+        'expNilRevenueShareAmt': json['exp_nil_revenue_share_amt'] == null ? undefined : json['exp_nil_revenue_share_amt'],
     };
 }
 
@@ -225,7 +589,6 @@ export function FinancialSearchResultToJSONTyped(value?: FinancialSearchResult |
         'sport_count': value['sportCount'],
         'rev_total_amt': value['revTotalAmt'],
         'rev_ticket_sales_amt': value['revTicketSalesAmt'],
-        'rev_contributions_amt': value['revContributionsAmt'],
         'rev_rights_amt': value['revRightsAmt'],
         'rev_student_fees_amt': value['revStudentFeesAmt'],
         'rev_university_amt': value['revUniversityAmt'],
@@ -236,6 +599,59 @@ export function FinancialSearchResultToJSONTyped(value?: FinancialSearchResult |
         'exp_travel_amt': value['expTravelAmt'],
         'exp_facilities_amt': value['expFacilitiesAmt'],
         'exp_guarantees_amt': value['expGuaranteesAmt'],
+        'has_audited_report': value['hasAuditedReport'],
+        'rev_contributions_no_ik_amt': value['revContributionsNoIkAmt'],
+        'rev_conf_distributions_non_amt': value['revConfDistributionsNonAmt'],
+        'rev_conf_bowl_amt': value['revConfBowlAmt'],
+        'rev_ncaa_distributions_amt': value['revNcaaDistributionsAmt'],
+        'rev_ncaa_distributions_grants_amt': value['revNcaaDistributionsGrantsAmt'],
+        'rev_ncaa_host_settlements_amt': value['revNcaaHostSettlementsAmt'],
+        'rev_ncaa_postseason_reimb_amt': value['revNcaaPostseasonReimbAmt'],
+        'rev_branding_amt': value['revBrandingAmt'],
+        'rev_endowment_amt': value['revEndowmentAmt'],
+        'rev_parking_amt': value['revParkingAmt'],
+        'rev_admin_support_amt': value['revAdminSupportAmt'],
+        'rev_compensation_amt': value['revCompensationAmt'],
+        'rev_govt_support_amt': value['revGovtSupportAmt'],
+        'rev_in_kind_amt': value['revInKindAmt'],
+        'rev_sports_camps_amt': value['revSportsCampsAmt'],
+        'rev_transfers_amt': value['revTransfersAmt'],
+        'rev_other_amt': value['revOtherAmt'],
+        'rev_indirect_amt': value['revIndirectAmt'],
+        'rev_contributions_amt': value['revContributionsAmt'],
+        'rev_conf_distributions_amt': value['revConfDistributionsAmt'],
+        'rev_bowl_amt': value['revBowlAmt'],
+        'rev_indirect_facilities_amt': value['revIndirectFacilitiesAmt'],
+        'exp_tuition_amt': value['expTuitionAmt'],
+        'exp_marketing_amt': value['expMarketingAmt'],
+        'exp_games_amt': value['expGamesAmt'],
+        'exp_support_staff_salaries_amt': value['expSupportStaffSalariesAmt'],
+        'exp_indirect_support_amt': value['expIndirectSupportAmt'],
+        'exp_equipment_amt': value['expEquipmentAmt'],
+        'exp_sports_camps': value['expSportsCamps'],
+        'exp_debt_service_amt': value['expDebtServiceAmt'],
+        'exp_medical_amt': value['expMedicalAmt'],
+        'exp_dues_amt': value['expDuesAmt'],
+        'exp_support_staff_other_amt': value['expSupportStaffOtherAmt'],
+        'exp_severance_amt': value['expSeveranceAmt'],
+        'exp_spirit_groups_amt': value['expSpiritGroupsAmt'],
+        'exp_head_coaches_amt': value['expHeadCoachesAmt'],
+        'exp_facilities_maintenance_amt': value['expFacilitiesMaintenanceAmt'],
+        'exp_asst_coaches_amt': value['expAsstCoachesAmt'],
+        'exp_head_coaches_third_party_amt': value['expHeadCoachesThirdPartyAmt'],
+        'exp_asst_coaches_third_party_amt': value['expAsstCoachesThirdPartyAmt'],
+        'exp_total_coaches_third_party_amt': value['expTotalCoachesThirdPartyAmt'],
+        'exp_admin_support_amt': value['expAdminSupportAmt'],
+        'exp_meals_amt': value['expMealsAmt'],
+        'exp_bowl_amt': value['expBowlAmt'],
+        'exp_bowl_comp_amt': value['expBowlCompAmt'],
+        'exp_postseason_fb_host_amt': value['expPostseasonFbHostAmt'],
+        'exp_postseason_other_amt': value['expPostseasonOtherAmt'],
+        'exp_postseason_other_coaching_amt': value['expPostseasonOtherCoachingAmt'],
+        'exp_postseason_other_host_amt': value['expPostseasonOtherHostAmt'],
+        'exp_alston_amt': value['expAlstonAmt'],
+        'exp_other_amt': value['expOtherAmt'],
+        'exp_nil_revenue_share_amt': value['expNilRevenueShareAmt'],
     };
 }
 

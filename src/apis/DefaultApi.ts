@@ -617,7 +617,6 @@ export interface DefaultApiGetDealsRequest {
 
 export interface DefaultApiGetDepartmentSearchesRequest {
     page?: number;
-    perPage?: number;
     q?: object;
 }
 
@@ -4078,10 +4077,6 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['page'] != null) {
             queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['perPage'] != null) {
-            queryParameters['per_page'] = requestParameters['perPage'];
         }
 
         if (requestParameters['q'] != null) {
