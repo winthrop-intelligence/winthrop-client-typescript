@@ -156,7 +156,7 @@ export interface FinancialSearchResult {
      * @type {boolean}
      * @memberof FinancialSearchResult
      */
-    hasAuditedReport?: boolean | null;
+    hasAuditedReport?: boolean;
     /**
      * Amount in whole US dollars
      * @type {number}

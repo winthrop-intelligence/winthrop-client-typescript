@@ -32,6 +32,9 @@ Name | Type
 `avgGuaranteePaid` | number
 `avgGuaranteeReceived` | number
 `gameTypesDisplay` | string
+`createdByName` | string
+`avgRpi` | number
+`schoolLogoUrl` | string
 `latitude` | number
 `longitude` | number
 
@@ -67,6 +70,9 @@ const example = {
   "avgGuaranteePaid": null,
   "avgGuaranteeReceived": null,
   "gameTypesDisplay": null,
+  "createdByName": null,
+  "avgRpi": null,
+  "schoolLogoUrl": null,
   "latitude": null,
   "longitude": null,
 } satisfies GamePostSearchResult

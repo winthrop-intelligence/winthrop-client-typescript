@@ -170,6 +170,24 @@ export interface GamePostSearchResult {
      */
     gameTypesDisplay?: string | null;
     /**
+     * Full name of the user who created the game post
+     * @type {string}
+     * @memberof GamePostSearchResult
+     */
+    createdByName?: string | null;
+    /**
+     * 5-year average RPI ranking
+     * @type {number}
+     * @memberof GamePostSearchResult
+     */
+    avgRpi?: number | null;
+    /**
+     * URL to school logo image (small variant)
+     * @type {string}
+     * @memberof GamePostSearchResult
+     */
+    schoolLogoUrl?: string | null;
+    /**
      * 
      * @type {number}
      * @memberof GamePostSearchResult
@@ -236,6 +254,9 @@ export function GamePostSearchResultFromJSONTyped(json: any, ignoreDiscriminator
         'avgGuaranteePaid': json['avg_guarantee_paid'] == null ? undefined : json['avg_guarantee_paid'],
         'avgGuaranteeReceived': json['avg_guarantee_received'] == null ? undefined : json['avg_guarantee_received'],
         'gameTypesDisplay': json['game_types_display'] == null ? undefined : json['game_types_display'],
+        'createdByName': json['created_by_name'] == null ? undefined : json['created_by_name'],
+        'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
+        'schoolLogoUrl': json['school_logo_url'] == null ? undefined : json['school_logo_url'],
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'longitude': json['longitude'] == null ? undefined : json['longitude'],
     };
@@ -277,6 +298,9 @@ export function GamePostSearchResultToJSONTyped(value?: GamePostSearchResult | n
         'avg_guarantee_paid': value['avgGuaranteePaid'],
         'avg_guarantee_received': value['avgGuaranteeReceived'],
         'game_types_display': value['gameTypesDisplay'],
+        'created_by_name': value['createdByName'],
+        'avg_rpi': value['avgRpi'],
+        'school_logo_url': value['schoolLogoUrl'],
         'latitude': value['latitude'],
         'longitude': value['longitude'],
     };
