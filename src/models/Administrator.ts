@@ -65,6 +65,12 @@ export interface Administrator {
      */
     coachName?: string;
     /**
+     * Combined display name (first + last)
+     * @type {string}
+     * @memberof Administrator
+     */
+    name?: string;
+    /**
      * 
      * @type {number}
      * @memberof Administrator
@@ -350,6 +356,7 @@ export function AdministratorFromJSONTyped(json: any, ignoreDiscriminator: boole
         'coachFirstName': json['coach_first_name'] == null ? undefined : json['coach_first_name'],
         'coachLastName': json['coach_last_name'] == null ? undefined : json['coach_last_name'],
         'coachName': json['coach_name'] == null ? undefined : json['coach_name'],
+        'name': json['name'] == null ? undefined : json['name'],
         'seasonId': json['season_id'] == null ? undefined : json['season_id'],
         'positionId': json['position_id'] == null ? undefined : json['position_id'],
         'schoolId': json['school_id'] == null ? undefined : json['school_id'],
@@ -409,6 +416,7 @@ export function AdministratorToJSONTyped(value?: Administrator | null, ignoreDis
         'coach_first_name': value['coachFirstName'],
         'coach_last_name': value['coachLastName'],
         'coach_name': value['coachName'],
+        'name': value['name'],
         'season_id': value['seasonId'],
         'position_id': value['positionId'],
         'school_id': value['schoolId'],

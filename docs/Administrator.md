@@ -11,6 +11,7 @@ Name | Type
 `coachFirstName` | string
 `coachLastName` | string
 `coachName` | string
+`name` | string
 `seasonId` | number
 `positionId` | number
 `schoolId` | number
@@ -64,6 +65,7 @@ const example = {
   "coachFirstName": John,
   "coachLastName": Doe,
   "coachName": John Doe,
+  "name": John Doe,
   "seasonId": 1,
   "positionId": 1,
   "schoolId": 1,

@@ -27,6 +27,13 @@ import {
     CoachSearchResultToJSON,
     CoachSearchResultToJSONTyped,
 } from './CoachSearchResult';
+import type { CompStats } from './CompStats';
+import {
+    CompStatsFromJSON,
+    CompStatsFromJSONTyped,
+    CompStatsToJSON,
+    CompStatsToJSONTyped,
+} from './CompStats';
 
 /**
  * 
@@ -46,6 +53,12 @@ export interface CoachSearchResultCollection {
      * @memberof CoachSearchResultCollection
      */
     meta?: Meta;
+    /**
+     * 
+     * @type {CompStats}
+     * @memberof CoachSearchResultCollection
+     */
+    compStats?: CompStats;
 }
 
 /**
@@ -67,6 +80,7 @@ export function CoachSearchResultCollectionFromJSONTyped(json: any, ignoreDiscri
         
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(CoachSearchResultFromJSON)),
         'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'compStats': json['comp_stats'] == null ? undefined : CompStatsFromJSON(json['comp_stats']),
     };
 }
 
@@ -83,6 +97,7 @@ export function CoachSearchResultCollectionToJSONTyped(value?: CoachSearchResult
         
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(CoachSearchResultToJSON)),
         'meta': MetaToJSON(value['meta']),
+        'comp_stats': CompStatsToJSON(value['compStats']),
     };
 }
 

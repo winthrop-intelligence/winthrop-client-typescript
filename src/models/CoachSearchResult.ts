@@ -45,6 +45,12 @@ export interface CoachSearchResult {
     schoolName?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    schoolShortName?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof CoachSearchResult
      */
@@ -81,10 +87,70 @@ export interface CoachSearchResult {
     year?: number;
     /**
      * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    coachFriendlyId?: string | null;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof CoachSearchResult
      */
     positionTypes?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    sportName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    sportFullName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    positionTitle?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    seasonWins?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    seasonLosses?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    seasonTies?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    seasonConferencePosition?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    seasonConferenceNumPositions?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    rpi?: number | null;
     /**
      * Total compensation in cents (included based on authorization)
      * @type {number}
@@ -104,11 +170,89 @@ export interface CoachSearchResult {
      */
     coli?: number | null;
     /**
+     * Compensation type (included based on authorization)
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    compensationType?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachSearchResult
+     */
+    compensationContingentBonus?: boolean | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    compensationDeferredCompCents?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    compensationOneTimeBonusCents?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    compensationBuyoutTerms?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachSearchResult
+     */
+    compensationIsCarProvided?: boolean | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    compensationOutsideIncomeCents?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    compensationTalentFee?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachSearchResult
+     */
+    compensationCountyClubMembershipPaid?: boolean | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    compensationMediaLink?: string | null;
+    /**
+     * 
+     * @type {Date}
+     * @memberof CoachSearchResult
+     */
+    contractStartsOn?: Date | null;
+    /**
      * 
      * @type {Date}
      * @memberof CoachSearchResult
      */
     contractExpiresOn?: Date | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachSearchResult
+     */
+    contractAtWill?: boolean | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    rawContractId?: number | null;
     /**
      * 
      * @type {string}
@@ -138,17 +282,41 @@ export function CoachSearchResultFromJSONTyped(json: any, ignoreDiscriminator: b
         'firstName': json['first_name'] == null ? undefined : json['first_name'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'schoolName': json['school_name'] == null ? undefined : json['school_name'],
+        'schoolShortName': json['school_short_name'] == null ? undefined : json['school_short_name'],
         'schoolId': json['school_id'] == null ? undefined : json['school_id'],
         'conferenceName': json['conference_name'] == null ? undefined : json['conference_name'],
         'conferenceId': json['conference_id'] == null ? undefined : json['conference_id'],
         'divisionName': json['division_name'] == null ? undefined : json['division_name'],
         'divisionId': json['division_id'] == null ? undefined : json['division_id'],
         'year': json['year'] == null ? undefined : json['year'],
+        'coachFriendlyId': json['coach_friendly_id'] == null ? undefined : json['coach_friendly_id'],
         'positionTypes': json['position_types'] == null ? undefined : json['position_types'],
+        'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
+        'sportFullName': json['sport_full_name'] == null ? undefined : json['sport_full_name'],
+        'positionTitle': json['position_title'] == null ? undefined : json['position_title'],
+        'seasonWins': json['season_wins'] == null ? undefined : json['season_wins'],
+        'seasonLosses': json['season_losses'] == null ? undefined : json['season_losses'],
+        'seasonTies': json['season_ties'] == null ? undefined : json['season_ties'],
+        'seasonConferencePosition': json['season_conference_position'] == null ? undefined : json['season_conference_position'],
+        'seasonConferenceNumPositions': json['season_conference_num_positions'] == null ? undefined : json['season_conference_num_positions'],
+        'rpi': json['rpi'] == null ? undefined : json['rpi'],
         'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
         'baseSalaryCents': json['base_salary_cents'] == null ? undefined : json['base_salary_cents'],
         'coli': json['coli'] == null ? undefined : json['coli'],
+        'compensationType': json['compensation_type'] == null ? undefined : json['compensation_type'],
+        'compensationContingentBonus': json['compensation_contingent_bonus'] == null ? undefined : json['compensation_contingent_bonus'],
+        'compensationDeferredCompCents': json['compensation_deferred_comp_cents'] == null ? undefined : json['compensation_deferred_comp_cents'],
+        'compensationOneTimeBonusCents': json['compensation_one_time_bonus_cents'] == null ? undefined : json['compensation_one_time_bonus_cents'],
+        'compensationBuyoutTerms': json['compensation_buyout_terms'] == null ? undefined : json['compensation_buyout_terms'],
+        'compensationIsCarProvided': json['compensation_is_car_provided'] == null ? undefined : json['compensation_is_car_provided'],
+        'compensationOutsideIncomeCents': json['compensation_outside_income_cents'] == null ? undefined : json['compensation_outside_income_cents'],
+        'compensationTalentFee': json['compensation_talent_fee'] == null ? undefined : json['compensation_talent_fee'],
+        'compensationCountyClubMembershipPaid': json['compensation_county_club_membership_paid'] == null ? undefined : json['compensation_county_club_membership_paid'],
+        'compensationMediaLink': json['compensation_media_link'] == null ? undefined : json['compensation_media_link'],
+        'contractStartsOn': json['contract_starts_on'] == null ? undefined : (new Date(json['contract_starts_on'])),
         'contractExpiresOn': json['contract_expires_on'] == null ? undefined : (new Date(json['contract_expires_on'])),
+        'contractAtWill': json['contract_at_will'] == null ? undefined : json['contract_at_will'],
+        'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
         'avatarUrl': json['avatar_url'] == null ? undefined : json['avatar_url'],
     };
 }
@@ -168,17 +336,41 @@ export function CoachSearchResultToJSONTyped(value?: CoachSearchResult | null, i
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'school_name': value['schoolName'],
+        'school_short_name': value['schoolShortName'],
         'school_id': value['schoolId'],
         'conference_name': value['conferenceName'],
         'conference_id': value['conferenceId'],
         'division_name': value['divisionName'],
         'division_id': value['divisionId'],
         'year': value['year'],
+        'coach_friendly_id': value['coachFriendlyId'],
         'position_types': value['positionTypes'],
+        'sport_name': value['sportName'],
+        'sport_full_name': value['sportFullName'],
+        'position_title': value['positionTitle'],
+        'season_wins': value['seasonWins'],
+        'season_losses': value['seasonLosses'],
+        'season_ties': value['seasonTies'],
+        'season_conference_position': value['seasonConferencePosition'],
+        'season_conference_num_positions': value['seasonConferenceNumPositions'],
+        'rpi': value['rpi'],
         'compensation_cents': value['compensationCents'],
         'base_salary_cents': value['baseSalaryCents'],
         'coli': value['coli'],
+        'compensation_type': value['compensationType'],
+        'compensation_contingent_bonus': value['compensationContingentBonus'],
+        'compensation_deferred_comp_cents': value['compensationDeferredCompCents'],
+        'compensation_one_time_bonus_cents': value['compensationOneTimeBonusCents'],
+        'compensation_buyout_terms': value['compensationBuyoutTerms'],
+        'compensation_is_car_provided': value['compensationIsCarProvided'],
+        'compensation_outside_income_cents': value['compensationOutsideIncomeCents'],
+        'compensation_talent_fee': value['compensationTalentFee'],
+        'compensation_county_club_membership_paid': value['compensationCountyClubMembershipPaid'],
+        'compensation_media_link': value['compensationMediaLink'],
+        'contract_starts_on': value['contractStartsOn'] == null ? value['contractStartsOn'] : value['contractStartsOn'].toISOString().substring(0,10),
         'contract_expires_on': value['contractExpiresOn'] == null ? value['contractExpiresOn'] : value['contractExpiresOn'].toISOString().substring(0,10),
+        'contract_at_will': value['contractAtWill'],
+        'raw_contract_id': value['rawContractId'],
         'avatar_url': value['avatarUrl'],
     };
 }
