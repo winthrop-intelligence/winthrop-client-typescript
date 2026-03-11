@@ -98,11 +98,11 @@ export interface CoachSearchResult {
      */
     baseSalaryCents?: number | null;
     /**
-     * Cost-of-living adjusted compensation in cents (included based on authorization)
+     * School's cost-of-living index (included based on authorization)
      * @type {number}
      * @memberof CoachSearchResult
      */
-    adjustedCompCents?: number | null;
+    coli?: number | null;
     /**
      * 
      * @type {Date}
@@ -147,7 +147,7 @@ export function CoachSearchResultFromJSONTyped(json: any, ignoreDiscriminator: b
         'positionTypes': json['position_types'] == null ? undefined : json['position_types'],
         'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
         'baseSalaryCents': json['base_salary_cents'] == null ? undefined : json['base_salary_cents'],
-        'adjustedCompCents': json['adjusted_comp_cents'] == null ? undefined : json['adjusted_comp_cents'],
+        'coli': json['coli'] == null ? undefined : json['coli'],
         'contractExpiresOn': json['contract_expires_on'] == null ? undefined : (new Date(json['contract_expires_on'])),
         'avatarUrl': json['avatar_url'] == null ? undefined : json['avatar_url'],
     };
@@ -177,7 +177,7 @@ export function CoachSearchResultToJSONTyped(value?: CoachSearchResult | null, i
         'position_types': value['positionTypes'],
         'compensation_cents': value['compensationCents'],
         'base_salary_cents': value['baseSalaryCents'],
-        'adjusted_comp_cents': value['adjustedCompCents'],
+        'coli': value['coli'],
         'contract_expires_on': value['contractExpiresOn'] == null ? value['contractExpiresOn'] : value['contractExpiresOn'].toISOString().substring(0,10),
         'avatar_url': value['avatarUrl'],
     };

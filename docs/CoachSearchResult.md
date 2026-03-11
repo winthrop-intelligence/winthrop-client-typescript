@@ -19,7 +19,7 @@ Name | Type
 `positionTypes` | Array&lt;string&gt;
 `compensationCents` | number
 `baseSalaryCents` | number
-`adjustedCompCents` | number
+`coli` | number
 `contractExpiresOn` | Date
 `avatarUrl` | string
 
@@ -43,7 +43,7 @@ const example = {
   "positionTypes": null,
   "compensationCents": null,
   "baseSalaryCents": null,
-  "adjustedCompCents": null,
+  "coli": null,
   "contractExpiresOn": null,
   "avatarUrl": null,
 } satisfies CoachSearchResult
