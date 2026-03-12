@@ -37,6 +37,7 @@ Name | Type
 `schoolLogoUrl` | string
 `latitude` | number
 `longitude` | number
+`canManage` | boolean
 
 ## Example
 
@@ -75,6 +76,7 @@ const example = {
   "schoolLogoUrl": null,
   "latitude": null,
   "longitude": null,
+  "canManage": null,
 } satisfies GamePostSearchResult
 
 console.log(example)

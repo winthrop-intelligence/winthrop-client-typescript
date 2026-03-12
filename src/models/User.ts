@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { UserScheduleSportsInner } from './UserScheduleSportsInner';
+import {
+    UserScheduleSportsInnerFromJSON,
+    UserScheduleSportsInnerFromJSONTyped,
+    UserScheduleSportsInnerToJSON,
+    UserScheduleSportsInnerToJSONTyped,
+} from './UserScheduleSportsInner';
 import type { Division } from './Division';
 import {
     DivisionFromJSON,
@@ -105,6 +112,78 @@ export interface User {
      * @memberof User
      */
     roles?: Array<string>;
+    /**
+     * Whether the user can view coach compensation data
+     * @type {boolean}
+     * @memberof User
+     */
+    canSeeCompensation?: boolean;
+    /**
+     * Whether the user can view scouting/team schedule links
+     * @type {boolean}
+     * @memberof User
+     */
+    canShowScouting?: boolean;
+    /**
+     * Whether the user can view game contract/guarantee data
+     * @type {boolean}
+     * @memberof User
+     */
+    canShowGameContract?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof User
+     */
+    isSportSpecific?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof User
+     */
+    isD2Only?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof User
+     */
+    isConferenceOnly?: boolean;
+    /**
+     * 
+     * @type {Array<number>}
+     * @memberof User
+     */
+    permissibleSportIds?: Array<number> | null;
+    /**
+     * Cost of living index for the user's school
+     * @type {number}
+     * @memberof User
+     */
+    coliIndex?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    subscriptionType?: string | null;
+    /**
+     * Sports the user can access for game scheduling
+     * @type {Array<UserScheduleSportsInner>}
+     * @memberof User
+     */
+    scheduleSports?: Array<UserScheduleSportsInner>;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    schoolCity?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    schoolState?: string | null;
 }
 
 
@@ -150,6 +229,18 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'divisions': json['divisions'] == null ? undefined : ((json['divisions'] as Array<any>).map(DivisionFromJSON)),
         'roles': json['roles'] == null ? undefined : json['roles'],
+        'canSeeCompensation': json['can_see_compensation'] == null ? undefined : json['can_see_compensation'],
+        'canShowScouting': json['can_show_scouting'] == null ? undefined : json['can_show_scouting'],
+        'canShowGameContract': json['can_show_game_contract'] == null ? undefined : json['can_show_game_contract'],
+        'isSportSpecific': json['is_sport_specific'] == null ? undefined : json['is_sport_specific'],
+        'isD2Only': json['is_d2_only'] == null ? undefined : json['is_d2_only'],
+        'isConferenceOnly': json['is_conference_only'] == null ? undefined : json['is_conference_only'],
+        'permissibleSportIds': json['permissible_sport_ids'] == null ? undefined : json['permissible_sport_ids'],
+        'coliIndex': json['coli_index'] == null ? undefined : json['coli_index'],
+        'subscriptionType': json['subscription_type'] == null ? undefined : json['subscription_type'],
+        'scheduleSports': json['schedule_sports'] == null ? undefined : ((json['schedule_sports'] as Array<any>).map(UserScheduleSportsInnerFromJSON)),
+        'schoolCity': json['school_city'] == null ? undefined : json['school_city'],
+        'schoolState': json['school_state'] == null ? undefined : json['school_state'],
     };
 }
 
@@ -177,6 +268,18 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'coach_id': value['coachId'],
         'divisions': value['divisions'] == null ? undefined : ((value['divisions'] as Array<any>).map(DivisionToJSON)),
         'roles': value['roles'],
+        'can_see_compensation': value['canSeeCompensation'],
+        'can_show_scouting': value['canShowScouting'],
+        'can_show_game_contract': value['canShowGameContract'],
+        'is_sport_specific': value['isSportSpecific'],
+        'is_d2_only': value['isD2Only'],
+        'is_conference_only': value['isConferenceOnly'],
+        'permissible_sport_ids': value['permissibleSportIds'],
+        'coli_index': value['coliIndex'],
+        'subscription_type': value['subscriptionType'],
+        'schedule_sports': value['scheduleSports'] == null ? undefined : ((value['scheduleSports'] as Array<any>).map(UserScheduleSportsInnerToJSON)),
+        'school_city': value['schoolCity'],
+        'school_state': value['schoolState'],
     };
 }
 

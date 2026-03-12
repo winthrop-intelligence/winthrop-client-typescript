@@ -166,6 +166,7 @@ docs/UserActivitySummaryCollection.md
 docs/UserCollection.md
 docs/UserRequest.md
 docs/UserRequestCollection.md
+docs/UserScheduleSportsInner.md
 docs/ValidationError.md
 docs/Vendor.md
 docs/VendorCollection.md
@@ -341,6 +342,7 @@ src/models/UserActivitySummaryCollection.ts
 src/models/UserCollection.ts
 src/models/UserRequest.ts
 src/models/UserRequestCollection.ts
+src/models/UserScheduleSportsInner.ts
 src/models/ValidationError.ts
 src/models/Vendor.ts
 src/models/VendorCollection.ts

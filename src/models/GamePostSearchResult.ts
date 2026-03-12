@@ -199,6 +199,12 @@ export interface GamePostSearchResult {
      * @memberof GamePostSearchResult
      */
     longitude?: number | null;
+    /**
+     * Whether the current user can manage this game post
+     * @type {boolean}
+     * @memberof GamePostSearchResult
+     */
+    canManage?: boolean;
 }
 
 
@@ -259,6 +265,7 @@ export function GamePostSearchResultFromJSONTyped(json: any, ignoreDiscriminator
         'schoolLogoUrl': json['school_logo_url'] == null ? undefined : json['school_logo_url'],
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'longitude': json['longitude'] == null ? undefined : json['longitude'],
+        'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
     };
 }
 
@@ -303,6 +310,7 @@ export function GamePostSearchResultToJSONTyped(value?: GamePostSearchResult | n
         'school_logo_url': value['schoolLogoUrl'],
         'latitude': value['latitude'],
         'longitude': value['longitude'],
+        'can_manage': value['canManage'],
     };
 }
 

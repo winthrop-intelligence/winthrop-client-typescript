@@ -159,6 +159,7 @@ export * from './UserActivitySummaryCollection';
 export * from './UserCollection';
 export * from './UserRequest';
 export * from './UserRequestCollection';
+export * from './UserScheduleSportsInner';
 export * from './ValidationError';
 export * from './Vendor';
 export * from './VendorCollection';
