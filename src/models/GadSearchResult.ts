@@ -163,6 +163,18 @@ export interface GadSearchResult {
      * @memberof GadSearchResult
      */
     canManage?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadSearchResult
+     */
+    canLinkHomeSchool?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadSearchResult
+     */
+    canLinkAwaySchool?: boolean;
 }
 
 /**
@@ -206,6 +218,8 @@ export function GadSearchResultFromJSONTyped(json: any, ignoreDiscriminator: boo
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
         'belongsToSeries': json['belongs_to_series'] == null ? undefined : json['belongs_to_series'],
         'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
+        'canLinkHomeSchool': json['can_link_home_school'] == null ? undefined : json['can_link_home_school'],
+        'canLinkAwaySchool': json['can_link_away_school'] == null ? undefined : json['can_link_away_school'],
     };
 }
 
@@ -244,6 +258,8 @@ export function GadSearchResultToJSONTyped(value?: GadSearchResult | null, ignor
         'raw_contract_id': value['rawContractId'],
         'belongs_to_series': value['belongsToSeries'],
         'can_manage': value['canManage'],
+        'can_link_home_school': value['canLinkHomeSchool'],
+        'can_link_away_school': value['canLinkAwaySchool'],
     };
 }
 

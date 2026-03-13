@@ -30,6 +30,8 @@ Name | Type
 `rawContractId` | number
 `belongsToSeries` | boolean
 `canManage` | boolean
+`canLinkHomeSchool` | boolean
+`canLinkAwaySchool` | boolean
 
 ## Example
 
@@ -62,6 +64,8 @@ const example = {
   "rawContractId": null,
   "belongsToSeries": null,
   "canManage": null,
+  "canLinkHomeSchool": null,
+  "canLinkAwaySchool": null,
 } satisfies GadSearchResult
 
 console.log(example)
