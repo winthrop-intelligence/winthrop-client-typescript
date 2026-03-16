@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `favoritableType` | string
 `favoritableId` | number
+`favoritesCategoryId` | number
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { CreateFavoriteRequest } from '@winthrop-intelligence/winthrop-clie
 const example = {
   "favoritableType": null,
   "favoritableId": null,
+  "favoritesCategoryId": null,
 } satisfies CreateFavoriteRequest
 
 console.log(example)

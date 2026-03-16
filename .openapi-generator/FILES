@@ -46,6 +46,7 @@ docs/Contract.md
 docs/ContractCollection.md
 docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
+docs/CreateFavoritesCategoryRequest.md
 docs/Deal.md
 docs/DealCollection.md
 docs/DealDetail.md
@@ -91,6 +92,7 @@ docs/GamePostSearchResultCollection.md
 docs/GameType.md
 docs/GeoRegion.md
 docs/GetFavorites200ResponseInner.md
+docs/GetFavoritesCategories200ResponseInner.md
 docs/GetFilterOptions200Response.md
 docs/GetLadFilterOptions200Response.md
 docs/GetLadFilterOptions200ResponsePositionTypesInner.md
@@ -160,6 +162,8 @@ docs/SystemSetting.md
 docs/Tag.md
 docs/UnauthorizedError.md
 docs/UnprocessableEntity.md
+docs/UpdateFavoriteRequest.md
+docs/UpdateFavoritesCategoryRequest.md
 docs/User.md
 docs/UserActivitySummary.md
 docs/UserActivitySummaryCollection.md
@@ -228,6 +232,7 @@ src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
+src/models/CreateFavoritesCategoryRequest.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
 src/models/DealDetail.ts
@@ -271,6 +276,7 @@ src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetFavorites200ResponseInner.ts
+src/models/GetFavoritesCategories200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts
 src/models/GetLadFilterOptions200Response.ts
 src/models/GetLadFilterOptions200ResponsePositionTypesInner.ts
@@ -336,6 +342,8 @@ src/models/SystemSetting.ts
 src/models/Tag.ts
 src/models/UnauthorizedError.ts
 src/models/UnprocessableEntity.ts
+src/models/UpdateFavoriteRequest.ts
+src/models/UpdateFavoritesCategoryRequest.ts
 src/models/User.ts
 src/models/UserActivitySummary.ts
 src/models/UserActivitySummaryCollection.ts

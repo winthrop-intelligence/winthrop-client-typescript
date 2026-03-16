@@ -72,6 +72,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
 *DefaultApi* | [**createConferenceship**](docs/DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships | 
 *DefaultApi* | [**createFavorite**](docs/DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites | 
+*DefaultApi* | [**createFavoritesCategory**](docs/DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories | 
 *DefaultApi* | [**createFoiaLabel**](docs/DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels | 
 *DefaultApi* | [**createFoiaRequest**](docs/DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
@@ -82,6 +83,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
+*DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**deleteFoiaRequest**](docs/DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**deleteJobPost**](docs/DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post
@@ -126,6 +128,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
 *DefaultApi* | [**getFavorites**](docs/DefaultApi.md#getfavorites) | **GET** /api/v1/favorites | 
+*DefaultApi* | [**getFavoritesCategories**](docs/DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories | 
 *DefaultApi* | [**getFilterOptions**](docs/DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options | 
 *DefaultApi* | [**getFilterOptionsAllSchools**](docs/DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools | 
 *DefaultApi* | [**getFilterOptionsConferences**](docs/DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences | 
@@ -204,6 +207,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateCompensation**](docs/DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
 *DefaultApi* | [**updateConference**](docs/DefaultApi.md#updateconference) | **PUT** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**updateConferenceship**](docs/DefaultApi.md#updateconferenceship) | **PUT** /api/v1/conferenceships/{conferenceshipId} | 
+*DefaultApi* | [**updateFavorite**](docs/DefaultApi.md#updatefavoriteoperation) | **PATCH** /api/v1/favorites/{id} | 
+*DefaultApi* | [**updateFavoritesCategory**](docs/DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**updateFoiaLabel**](docs/DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**updateFoiaRequest**](docs/DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**updateJobPost**](docs/DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post
@@ -279,6 +284,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ContractCollection](docs/ContractCollection.md)
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
+- [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
 - [DealDetail](docs/DealDetail.md)
@@ -322,6 +328,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
 - [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)
+- [GetFavoritesCategories200ResponseInner](docs/GetFavoritesCategories200ResponseInner.md)
 - [GetFilterOptions200Response](docs/GetFilterOptions200Response.md)
 - [GetLadFilterOptions200Response](docs/GetLadFilterOptions200Response.md)
 - [GetLadFilterOptions200ResponsePositionTypesInner](docs/GetLadFilterOptions200ResponsePositionTypesInner.md)
@@ -387,6 +394,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Tag](docs/Tag.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
+- [UpdateFavoriteRequest](docs/UpdateFavoriteRequest.md)
+- [UpdateFavoritesCategoryRequest](docs/UpdateFavoritesCategoryRequest.md)
 - [User](docs/User.md)
 - [UserActivitySummary](docs/UserActivitySummary.md)
 - [UserActivitySummaryCollection](docs/UserActivitySummaryCollection.md)

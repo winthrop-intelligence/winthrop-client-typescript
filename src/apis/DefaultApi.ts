@@ -49,6 +49,7 @@ import type {
   ContractCollection,
   CreateFavorite201Response,
   CreateFavoriteRequest,
+  CreateFavoritesCategoryRequest,
   Deal,
   DealCollection,
   DealSearchResultCollection,
@@ -74,6 +75,7 @@ import type {
   GamePostSearchResultCollection,
   GameType,
   GetFavorites200ResponseInner,
+  GetFavoritesCategories200ResponseInner,
   GetFilterOptions200Response,
   GetLadFilterOptions200Response,
   GetSchoolAlternateNames200Response,
@@ -107,6 +109,8 @@ import type {
   SubscriptionCollection,
   SystemSetting,
   UnprocessableEntity,
+  UpdateFavoriteRequest,
+  UpdateFavoritesCategoryRequest,
   User,
   UserActivitySummary,
   UserActivitySummaryCollection,
@@ -186,6 +190,8 @@ import {
     CreateFavorite201ResponseToJSON,
     CreateFavoriteRequestFromJSON,
     CreateFavoriteRequestToJSON,
+    CreateFavoritesCategoryRequestFromJSON,
+    CreateFavoritesCategoryRequestToJSON,
     DealFromJSON,
     DealToJSON,
     DealCollectionFromJSON,
@@ -236,6 +242,8 @@ import {
     GameTypeToJSON,
     GetFavorites200ResponseInnerFromJSON,
     GetFavorites200ResponseInnerToJSON,
+    GetFavoritesCategories200ResponseInnerFromJSON,
+    GetFavoritesCategories200ResponseInnerToJSON,
     GetFilterOptions200ResponseFromJSON,
     GetFilterOptions200ResponseToJSON,
     GetLadFilterOptions200ResponseFromJSON,
@@ -302,6 +310,10 @@ import {
     SystemSettingToJSON,
     UnprocessableEntityFromJSON,
     UnprocessableEntityToJSON,
+    UpdateFavoriteRequestFromJSON,
+    UpdateFavoriteRequestToJSON,
+    UpdateFavoritesCategoryRequestFromJSON,
+    UpdateFavoritesCategoryRequestToJSON,
     UserFromJSON,
     UserToJSON,
     UserActivitySummaryFromJSON,
@@ -376,6 +388,10 @@ export interface DefaultApiCreateFavoriteOperationRequest {
     createFavoriteRequest: CreateFavoriteRequest;
 }
 
+export interface DefaultApiCreateFavoritesCategoryOperationRequest {
+    createFavoritesCategoryRequest: CreateFavoritesCategoryRequest;
+}
+
 export interface DefaultApiCreateFoiaLabelRequest {
     foiaLabel: FoiaLabel;
 }
@@ -413,6 +429,10 @@ export interface DefaultApiDeleteConferenceshipRequest {
 }
 
 export interface DefaultApiDeleteFavoriteRequest {
+    id: number;
+}
+
+export interface DefaultApiDeleteFavoritesCategoryRequest {
     id: number;
 }
 
@@ -632,6 +652,7 @@ export interface DefaultApiGetDivisionsRequest {
 
 export interface DefaultApiGetFavoritesRequest {
     favoritableType: string;
+    detailed?: GetFavoritesDetailedEnum;
 }
 
 export interface DefaultApiGetFilterOptionsRequest {
@@ -994,6 +1015,16 @@ export interface DefaultApiUpdateConferenceRequest {
 export interface DefaultApiUpdateConferenceshipRequest {
     conferenceshipId: number;
     conferenceship: Conferenceship;
+}
+
+export interface DefaultApiUpdateFavoriteOperationRequest {
+    id: number;
+    updateFavoriteRequest: UpdateFavoriteRequest;
+}
+
+export interface DefaultApiUpdateFavoritesCategoryOperationRequest {
+    id: number;
+    updateFavoritesCategoryRequest: UpdateFavoritesCategoryRequest;
 }
 
 export interface DefaultApiUpdateFoiaLabelRequest {
@@ -1654,6 +1685,54 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new favorites category
+     */
+    async createFavoritesCategoryRaw(requestParameters: DefaultApiCreateFavoritesCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFavoritesCategories200ResponseInner>> {
+        if (requestParameters['createFavoritesCategoryRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createFavoritesCategoryRequest',
+                'Required parameter "createFavoritesCategoryRequest" was null or undefined when calling createFavoritesCategory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/favorites_categories`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateFavoritesCategoryRequestToJSON(requestParameters['createFavoritesCategoryRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetFavoritesCategories200ResponseInnerFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new favorites category
+     */
+    async createFavoritesCategory(requestParameters: DefaultApiCreateFavoritesCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFavoritesCategories200ResponseInner> {
+        const response = await this.createFavoritesCategoryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Create a new foia label
      */
     async createFoiaLabelRaw(requestParameters: DefaultApiCreateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
@@ -2107,6 +2186,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteFavorite(requestParameters: DefaultApiDeleteFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteFavorite200Response> {
         const response = await this.deleteFavoriteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a favorites category
+     */
+    async deleteFavoritesCategoryRaw(requestParameters: DefaultApiDeleteFavoritesCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteFavorite200Response>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling deleteFavoritesCategory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/favorites_categories/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteFavorite200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a favorites category
+     */
+    async deleteFavoritesCategory(requestParameters: DefaultApiDeleteFavoritesCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteFavorite200Response> {
+        const response = await this.deleteFavoritesCategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -4212,7 +4337,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve the current user\'s favorites for a given type
+     * Retrieve the current user\'s favorites for a given type. Pass detailed=1 for category info.
      */
     async getFavoritesRaw(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetFavorites200ResponseInner>>> {
         if (requestParameters['favoritableType'] == null) {
@@ -4226,6 +4351,10 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['favoritableType'] != null) {
             queryParameters['favoritable_type'] = requestParameters['favoritableType'];
+        }
+
+        if (requestParameters['detailed'] != null) {
+            queryParameters['detailed'] = requestParameters['detailed'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4253,10 +4382,48 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve the current user\'s favorites for a given type
+     * Retrieve the current user\'s favorites for a given type. Pass detailed=1 for category info.
      */
     async getFavorites(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetFavorites200ResponseInner>> {
         const response = await this.getFavoritesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List the current user\'s favorites categories
+     */
+    async getFavoritesCategoriesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetFavoritesCategories200ResponseInner>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/favorites_categories`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetFavoritesCategories200ResponseInnerFromJSON));
+    }
+
+    /**
+     * List the current user\'s favorites categories
+     */
+    async getFavoritesCategories(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetFavoritesCategories200ResponseInner>> {
+        const response = await this.getFavoritesCategoriesRaw(initOverrides);
         return await response.value();
     }
 
@@ -8034,6 +8201,118 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update a favorite (e.g. reassign to a different category)
+     */
+    async updateFavoriteRaw(requestParameters: DefaultApiUpdateFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFavorite201Response>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling updateFavorite().'
+            );
+        }
+
+        if (requestParameters['updateFavoriteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateFavoriteRequest',
+                'Required parameter "updateFavoriteRequest" was null or undefined when calling updateFavorite().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/favorites/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateFavoriteRequestToJSON(requestParameters['updateFavoriteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateFavorite201ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a favorite (e.g. reassign to a different category)
+     */
+    async updateFavorite(requestParameters: DefaultApiUpdateFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateFavorite201Response> {
+        const response = await this.updateFavoriteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a favorites category name
+     */
+    async updateFavoritesCategoryRaw(requestParameters: DefaultApiUpdateFavoritesCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFavoritesCategories200ResponseInner>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling updateFavoritesCategory().'
+            );
+        }
+
+        if (requestParameters['updateFavoritesCategoryRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateFavoritesCategoryRequest',
+                'Required parameter "updateFavoritesCategoryRequest" was null or undefined when calling updateFavoritesCategory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/favorites_categories/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateFavoritesCategoryRequestToJSON(requestParameters['updateFavoritesCategoryRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetFavoritesCategories200ResponseInnerFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a favorites category name
+     */
+    async updateFavoritesCategory(requestParameters: DefaultApiUpdateFavoritesCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFavoritesCategories200ResponseInner> {
+        const response = await this.updateFavoritesCategoryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Update a single foia label
      */
     async updateFoiaLabelRaw(requestParameters: DefaultApiUpdateFoiaLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FoiaLabel>> {
@@ -8453,6 +8732,13 @@ export class DefaultApi extends runtime.BaseAPI {
 
 }
 
+/**
+ * @export
+ */
+export const GetFavoritesDetailedEnum = {
+    _1: '1'
+} as const;
+export type GetFavoritesDetailedEnum = typeof GetFavoritesDetailedEnum[keyof typeof GetFavoritesDetailedEnum];
 /**
  * @export
  */

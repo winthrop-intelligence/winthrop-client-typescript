@@ -14,6 +14,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
 | [**createFavorite**](DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites |  |
+| [**createFavoritesCategory**](DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories |  |
 | [**createFoiaLabel**](DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels |  |
 | [**createFoiaRequest**](DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
@@ -24,6 +25,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
+| [**deleteFavoritesCategory**](DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**deleteFoiaRequest**](DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} |  |
 | [**deleteJobPost**](DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post |
@@ -68,6 +70,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
+| [**getFavoritesCategories**](DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories |  |
 | [**getFilterOptions**](DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options |  |
 | [**getFilterOptionsAllSchools**](DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools |  |
 | [**getFilterOptionsConferences**](DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences |  |
@@ -146,6 +149,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
 | [**updateConference**](DefaultApi.md#updateconference) | **PUT** /api/v1/conferences/{conferenceId} |  |
 | [**updateConferenceship**](DefaultApi.md#updateconferenceship) | **PUT** /api/v1/conferenceships/{conferenceshipId} |  |
+| [**updateFavorite**](DefaultApi.md#updatefavoriteoperation) | **PATCH** /api/v1/favorites/{id} |  |
+| [**updateFavoritesCategory**](DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} |  |
 | [**updateFoiaLabel**](DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**updateFoiaRequest**](DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
@@ -949,6 +954,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createFavoritesCategory
+
+> GetFavoritesCategories200ResponseInner createFavoritesCategory(createFavoritesCategoryRequest)
+
+
+
+Create a new favorites category
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateFavoritesCategoryOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateFavoritesCategoryRequest
+    createFavoritesCategoryRequest: ...,
+  } satisfies CreateFavoritesCategoryOperationRequest;
+
+  try {
+    const data = await api.createFavoritesCategory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createFavoritesCategoryRequest** | [CreateFavoritesCategoryRequest](CreateFavoritesCategoryRequest.md) |  | |
+
+### Return type
+
+[**GetFavoritesCategories200ResponseInner**](GetFavoritesCategories200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Category created |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createFoiaLabel
 
 > FoiaLabel createFoiaLabel(foiaLabel)
@@ -1692,6 +1772,80 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Favorite removed |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteFavoritesCategory
+
+> DeleteFavorite200Response deleteFavoritesCategory(id)
+
+
+
+Delete a favorites category
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteFavoritesCategoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The category ID
+    id: 56,
+  } satisfies DeleteFavoritesCategoryRequest;
+
+  try {
+    const data = await api.deleteFavoritesCategory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The category ID | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteFavorite200Response**](DeleteFavorite200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Category deleted |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -5041,11 +5195,11 @@ example().catch(console.error);
 
 ## getFavorites
 
-> Array&lt;GetFavorites200ResponseInner&gt; getFavorites(favoritableType)
+> Array&lt;GetFavorites200ResponseInner&gt; getFavorites(favoritableType, detailed)
 
 
 
-Retrieve the current user\&#39;s favorites for a given type
+Retrieve the current user\&#39;s favorites for a given type. Pass detailed&#x3D;1 for category info.
 
 ### Example
 
@@ -5069,6 +5223,8 @@ async function example() {
   const body = {
     // string | The model type (e.g. \"Coach\")
     favoritableType: favoritableType_example,
+    // '1' | Pass \"1\" to include category info and favoritable name (optional)
+    detailed: detailed_example,
   } satisfies GetFavoritesRequest;
 
   try {
@@ -5089,6 +5245,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **favoritableType** | `string` | The model type (e.g. \&quot;Coach\&quot;) | [Defaults to `undefined`] |
+| **detailed** | `1` | Pass \&quot;1\&quot; to include category info and favoritable name | [Optional] [Defaults to `undefined`] [Enum: 1] |
 
 ### Return type
 
@@ -5107,7 +5264,73 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of favorite entries |  -  |
+| **200** | List of favorite entries. Shape depends on detailed param. |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFavoritesCategories
+
+> Array&lt;GetFavoritesCategories200ResponseInner&gt; getFavoritesCategories()
+
+
+
+List the current user\&#39;s favorites categories
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFavoritesCategoriesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFavoritesCategories();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;GetFavoritesCategories200ResponseInner&gt;**](GetFavoritesCategories200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of categories |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -11108,6 +11331,160 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **422** | Unable to update the Conferenceship |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateFavorite
+
+> CreateFavorite201Response updateFavorite(id, updateFavoriteRequest)
+
+
+
+Update a favorite (e.g. reassign to a different category)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The favorite record ID
+    id: 56,
+    // UpdateFavoriteRequest
+    updateFavoriteRequest: ...,
+  } satisfies UpdateFavoriteOperationRequest;
+
+  try {
+    const data = await api.updateFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
+| **updateFavoriteRequest** | [UpdateFavoriteRequest](UpdateFavoriteRequest.md) |  | |
+
+### Return type
+
+[**CreateFavorite201Response**](CreateFavorite201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Favorite updated |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateFavoritesCategory
+
+> GetFavoritesCategories200ResponseInner updateFavoritesCategory(id, updateFavoritesCategoryRequest)
+
+
+
+Update a favorites category name
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateFavoritesCategoryOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The category ID
+    id: 56,
+    // UpdateFavoritesCategoryRequest
+    updateFavoritesCategoryRequest: ...,
+  } satisfies UpdateFavoritesCategoryOperationRequest;
+
+  try {
+    const data = await api.updateFavoritesCategory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The category ID | [Defaults to `undefined`] |
+| **updateFavoritesCategoryRequest** | [UpdateFavoritesCategoryRequest](UpdateFavoritesCategoryRequest.md) |  | |
+
+### Return type
+
+[**GetFavoritesCategories200ResponseInner**](GetFavoritesCategories200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Category updated |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
