@@ -1,24 +1,24 @@
 
-# GetFavorites200ResponseInner
+# TeamScheduleSchedule
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`favoritableId` | number
+`year` | number
+`games` | [Array&lt;TeamScheduleScheduleGamesInner&gt;](TeamScheduleScheduleGamesInner.md)
 
 ## Example
 
 ```typescript
-import type { GetFavorites200ResponseInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { TeamScheduleSchedule } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "favoritableId": null,
-} satisfies GetFavorites200ResponseInner
+  "year": null,
+  "games": null,
+} satisfies TeamScheduleSchedule
 
 console.log(example)
 
@@ -27,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GetFavorites200ResponseInner
+const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleSchedule
 console.log(exampleParsed)
 ```
 

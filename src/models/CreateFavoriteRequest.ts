@@ -31,12 +31,6 @@ export interface CreateFavoriteRequest {
      * @memberof CreateFavoriteRequest
      */
     favoritableId: number;
-    /**
-     * Optional category ID. A "Default" category is created if omitted.
-     * @type {number}
-     * @memberof CreateFavoriteRequest
-     */
-    favoritesCategoryId?: number | null;
 }
 
 /**
@@ -60,7 +54,6 @@ export function CreateFavoriteRequestFromJSONTyped(json: any, ignoreDiscriminato
         
         'favoritableType': json['favoritable_type'],
         'favoritableId': json['favoritable_id'],
-        'favoritesCategoryId': json['favorites_category_id'] == null ? undefined : json['favorites_category_id'],
     };
 }
 
@@ -77,7 +70,6 @@ export function CreateFavoriteRequestToJSONTyped(value?: CreateFavoriteRequest |
         
         'favoritable_type': value['favoritableType'],
         'favoritable_id': value['favoritableId'],
-        'favorites_category_id': value['favoritesCategoryId'],
     };
 }
 

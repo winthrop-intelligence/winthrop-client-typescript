@@ -20,18 +20,17 @@ import { mapValues } from '../runtime';
  */
 export interface UpdateFavoritesCategoryRequest {
     /**
-     * The new category name
+     * 
      * @type {string}
      * @memberof UpdateFavoritesCategoryRequest
      */
-    name: string;
+    name?: string;
 }
 
 /**
  * Check if a given object implements the UpdateFavoritesCategoryRequest interface.
  */
 export function instanceOfUpdateFavoritesCategoryRequest(value: object): value is UpdateFavoritesCategoryRequest {
-    if (!('name' in value) || value['name'] === undefined) return false;
     return true;
 }
 
@@ -45,7 +44,7 @@ export function UpdateFavoritesCategoryRequestFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'name': json['name'],
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 

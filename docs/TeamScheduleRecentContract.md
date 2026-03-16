@@ -1,24 +1,28 @@
 
-# GetFavorites200ResponseInner
+# TeamScheduleRecentContract
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`favoritableId` | number
+`schoolName` | string
+`gameContractId` | number
+`year` | string
+`compCents` | number
 
 ## Example
 
 ```typescript
-import type { GetFavorites200ResponseInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { TeamScheduleRecentContract } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "favoritableId": null,
-} satisfies GetFavorites200ResponseInner
+  "schoolName": null,
+  "gameContractId": null,
+  "year": null,
+  "compCents": null,
+} satisfies TeamScheduleRecentContract
 
 console.log(example)
 
@@ -27,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GetFavorites200ResponseInner
+const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleRecentContract
 console.log(exampleParsed)
 ```
 
