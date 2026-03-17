@@ -24,19 +24,21 @@ export interface CreateFavorite201Response {
      * @type {number}
      * @memberof CreateFavorite201Response
      */
-    id?: number;
+    id: number;
     /**
      * 
      * @type {number}
      * @memberof CreateFavorite201Response
      */
-    favoritableId?: number;
+    favoritableId: number;
 }
 
 /**
  * Check if a given object implements the CreateFavorite201Response interface.
  */
 export function instanceOfCreateFavorite201Response(value: object): value is CreateFavorite201Response {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('favoritableId' in value) || value['favoritableId'] === undefined) return false;
     return true;
 }
 
@@ -50,8 +52,8 @@ export function CreateFavorite201ResponseFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'favoritableId': json['favoritable_id'] == null ? undefined : json['favoritable_id'],
+        'id': json['id'],
+        'favoritableId': json['favoritable_id'],
     };
 }
 

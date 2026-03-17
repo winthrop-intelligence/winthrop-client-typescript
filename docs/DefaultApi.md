@@ -21,7 +21,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
-| [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
@@ -33,8 +32,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deletePosition**](DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} |  |
 | [**deleteRequestedItem**](DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} |  |
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
-| [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
-| [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
@@ -46,6 +43,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCategories**](DefaultApi.md#getcategories) | **GET** /central_jobs/categories | List all categories |
 | [**getCoach**](DefaultApi.md#getcoach) | **GET** /api/v1/coaches/{coachId} |  |
 | [**getCoachCompensation**](DefaultApi.md#getcoachcompensation) | **GET** /api/v1/coach_compensations/get_coach_compensation |  |
+| [**getCoachSearch**](DefaultApi.md#getcoachsearch) | **GET** /api/v1/coach_searches/{id} |  |
+| [**getCoachSearchColi**](DefaultApi.md#getcoachsearchcoli) | **GET** /api/v1/coach_searches/{id}/coli |  |
+| [**getCoachSearchCompensation**](DefaultApi.md#getcoachsearchcompensation) | **GET** /api/v1/coach_searches/{id}/compensation |  |
+| [**getCoachSearchCoworkerHistory**](DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history |  |
+| [**getCoachSearchOverview**](DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview |  |
+| [**getCoachSearchRecord**](DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record |  |
+| [**getCoachSearchVideos**](DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos |  |
 | [**getCoachSearches**](DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches |  |
 | [**getCoaches**](DefaultApi.md#getcoaches) | **GET** /api/v1/coaches |  |
 | [**getCompensation**](DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} |  |
@@ -137,13 +141,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSubscription**](DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} |  |
 | [**getSubscriptions**](DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions |  |
 | [**getSystemSettings**](DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting |  |
-| [**getTeamScheduleDetail**](DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} |  |
-| [**getTeamScheduleDetailCoaches**](DefaultApi.md#getteamscheduledetailcoaches) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/coaches |  |
-| [**getTeamScheduleDetailGamePosts**](DefaultApi.md#getteamscheduledetailgameposts) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/game_posts |  |
-| [**getTeamScheduleDetailSchedule**](DefaultApi.md#getteamscheduledetailschedule) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/schedule |  |
-| [**getTeamScheduleFavorites**](DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites |  |
-| [**getTeamScheduleNote**](DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} |  |
-| [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
 | [**getUser**](DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} |  |
 | [**getUserActivitySummaries**](DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries |  |
 | [**getUserActivitySummary**](DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} |  |
@@ -159,6 +156,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
 | [**updateConference**](DefaultApi.md#updateconference) | **PUT** /api/v1/conferences/{conferenceId} |  |
 | [**updateConferenceship**](DefaultApi.md#updateconferenceship) | **PUT** /api/v1/conferenceships/{conferenceshipId} |  |
+| [**updateFavorite**](DefaultApi.md#updatefavoriteoperation) | **PATCH** /api/v1/favorites/{id} |  |
 | [**updateFavoritesCategory**](DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} |  |
 | [**updateFoiaLabel**](DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**updateFoiaRequest**](DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} |  |
@@ -166,8 +164,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
-| [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
-| [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
 
@@ -1034,9 +1030,8 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Category created |  -  |
-| **400** | Bad request (missing name) |  -  |
 | **401** | Unauthorized |  -  |
-| **422** | Unprocessable entity (duplicate name) |  -  |
+| **422** | Validation error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1490,81 +1485,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## createTeamScheduleFavorite
-
-> CreateTeamScheduleFavorite201Response createTeamScheduleFavorite(createTeamScheduleFavoriteRequest)
-
-
-
-Add a FilTeam to favorites
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateTeamScheduleFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // CreateTeamScheduleFavoriteRequest
-    createTeamScheduleFavoriteRequest: ...,
-  } satisfies CreateTeamScheduleFavoriteOperationRequest;
-
-  try {
-    const data = await api.createTeamScheduleFavorite(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createTeamScheduleFavoriteRequest** | [CreateTeamScheduleFavoriteRequest](CreateTeamScheduleFavoriteRequest.md) |  | |
-
-### Return type
-
-[**CreateTeamScheduleFavorite201Response**](CreateTeamScheduleFavorite201Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Favorite created |  -  |
-| **400** | Bad request (missing favoritable_id) |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## deleteCashflow
 
 > deleteCashflow(cashflowId)
@@ -1870,7 +1790,7 @@ example().catch(console.error);
 
 
 
-Delete a favorites category and its associated favorites
+Delete a favorites category
 
 ### Example
 
@@ -1934,7 +1854,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Category deleted |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -2382,156 +2301,6 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Season was deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## deleteTeamScheduleFavorite
-
-> DeleteFavorite200Response deleteTeamScheduleFavorite(id)
-
-
-
-Remove a FilTeam favorite
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DeleteTeamScheduleFavoriteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | The favorite record ID
-    id: 56,
-  } satisfies DeleteTeamScheduleFavoriteRequest;
-
-  try {
-    const data = await api.deleteTeamScheduleFavorite(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
-
-### Return type
-
-[**DeleteFavorite200Response**](DeleteFavorite200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Favorite removed |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## deleteTeamScheduleNote
-
-> deleteTeamScheduleNote(filTeamId)
-
-
-
-Delete the current user\&#39;s note for a team.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DeleteTeamScheduleNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    filTeamId: filTeamId_example,
-  } satisfies DeleteTeamScheduleNoteRequest;
-
-  try {
-    const data = await api.deleteTeamScheduleNote(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **filTeamId** | `string` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
@@ -3386,6 +3155,534 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **404** | Coach or school not found |  -  |
 | **422** | Missing or invalid parameters |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearch
+
+> CoachProfile getCoachSearch(id)
+
+
+
+Get coach profile header data
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchRequest;
+
+  try {
+    const data = await api.getCoachSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachProfile**](CoachProfile.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach profile data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchColi
+
+> ColiData getCoachSearchColi(id, schoolId)
+
+
+
+Get cost-of-living adjusted salary for a coach relative to a given school
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchColiRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+    // number | School ID to compare cost of living against
+    schoolId: 56,
+  } satisfies GetCoachSearchColiRequest;
+
+  try {
+    const data = await api.getCoachSearchColi(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+| **schoolId** | `number` | School ID to compare cost of living against | [Defaults to `undefined`] |
+
+### Return type
+
+[**ColiData**](ColiData.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Cost of living adjusted salary data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchCompensation
+
+> CoachCompensationTab getCoachSearchCompensation(id)
+
+
+
+Get coach compensation tab data including charts, full history, comparisons, and sidebar
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchCompensationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchCompensationRequest;
+
+  try {
+    const data = await api.getCoachSearchCompensation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachCompensationTab**](CoachCompensationTab.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach compensation tab data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchCoworkerHistory
+
+> CoachCoworkerHistoryTab getCoachSearchCoworkerHistory(id)
+
+
+
+Get coach coworker history tab data showing coaches and administrators who worked at the same school
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchCoworkerHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchCoworkerHistoryRequest;
+
+  try {
+    const data = await api.getCoachSearchCoworkerHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachCoworkerHistoryTab**](CoachCoworkerHistoryTab.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach coworker history tab data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchOverview
+
+> CoachProfileOverview getCoachSearchOverview(id)
+
+
+
+Get coach profile overview tab data including compensations, positions, snapshot, and videos
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchOverviewRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchOverviewRequest;
+
+  try {
+    const data = await api.getCoachSearchOverview(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachProfileOverview**](CoachProfileOverview.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach profile overview data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchRecord
+
+> CoachRecordTab getCoachSearchRecord(id)
+
+
+
+Get coach record tab data with full position/season details and conference/postseason data
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchRecordRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchRecordRequest;
+
+  try {
+    const data = await api.getCoachSearchRecord(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachRecordTab**](CoachRecordTab.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach record tab data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchVideos
+
+> CoachVideosTab getCoachSearchVideos(id)
+
+
+
+Get coach videos tab data with all approved YouTube videos
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchVideosRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchVideosRequest;
+
+  try {
+    const data = await api.getCoachSearchVideos(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachVideosTab**](CoachVideosTab.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach videos tab data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -5433,11 +5730,11 @@ example().catch(console.error);
 
 ## getFavorites
 
-> Array&lt;GetFavorites200ResponseInner&gt; getFavorites(favoritableType)
+> Array&lt;GetFavorites200ResponseInner&gt; getFavorites(favoritableType, detailed)
 
 
 
-Retrieve the current user\&#39;s favorites for a given type
+Retrieve the current user\&#39;s favorites for a given type. Pass detailed&#x3D;1 for category info.
 
 ### Example
 
@@ -5461,6 +5758,8 @@ async function example() {
   const body = {
     // string | The model type (e.g. \"Coach\")
     favoritableType: favoritableType_example,
+    // '1' | Pass \"1\" to include category info and favoritable name (optional)
+    detailed: detailed_example,
   } satisfies GetFavoritesRequest;
 
   try {
@@ -5481,6 +5780,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **favoritableType** | `string` | The model type (e.g. \&quot;Coach\&quot;) | [Defaults to `undefined`] |
+| **detailed** | `1` | Pass \&quot;1\&quot; to include category info and favoritable name | [Optional] [Defaults to `undefined`] [Enum: 1] |
 
 ### Return type
 
@@ -5499,7 +5799,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of favorite entries |  -  |
+| **200** | List of favorite entries. Shape depends on detailed param. |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -5511,7 +5811,7 @@ example().catch(console.error);
 
 
 
-Retrieve the current user\&#39;s favorites categories
+List the current user\&#39;s favorites categories
 
 ### Example
 
@@ -10391,564 +10691,6 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getTeamScheduleDetail
-
-> TeamScheduleDetail getTeamScheduleDetail(sportName, schoolId, performanceYear)
-
-
-
-Get detailed team schedule info including school overview, season stats, contacts, and games for the scouting report tab.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleDetailRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string | Sport name (e.g. BASKETBALL_M)
-    sportName: sportName_example,
-    // number | School ID
-    schoolId: 56,
-    // number | Performance year to load games for (defaults to current season year) (optional)
-    performanceYear: 56,
-  } satisfies GetTeamScheduleDetailRequest;
-
-  try {
-    const data = await api.getTeamScheduleDetail(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sportName** | `string` | Sport name (e.g. BASKETBALL_M) | [Defaults to `undefined`] |
-| **schoolId** | `number` | School ID | [Defaults to `undefined`] |
-| **performanceYear** | `number` | Performance year to load games for (defaults to current season year) | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**TeamScheduleDetail**](TeamScheduleDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Team schedule detail |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getTeamScheduleDetailCoaches
-
-> TeamScheduleCoaches getTeamScheduleDetailCoaches(sportName, schoolId, performanceYear)
-
-
-
-Get coaches and performance data for a team across recent seasons.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleDetailCoachesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    sportName: sportName_example,
-    // number
-    schoolId: 56,
-    // number | Year to load coach roster for (optional)
-    performanceYear: 56,
-  } satisfies GetTeamScheduleDetailCoachesRequest;
-
-  try {
-    const data = await api.getTeamScheduleDetailCoaches(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sportName** | `string` |  | [Defaults to `undefined`] |
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **performanceYear** | `number` | Year to load coach roster for | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**TeamScheduleCoaches**](TeamScheduleCoaches.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Coaches and performance data |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getTeamScheduleDetailGamePosts
-
-> TeamScheduleGamePosts getTeamScheduleDetailGamePosts(sportName, schoolId)
-
-
-
-Get games wanted posts for a team.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleDetailGamePostsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    sportName: sportName_example,
-    // number
-    schoolId: 56,
-  } satisfies GetTeamScheduleDetailGamePostsRequest;
-
-  try {
-    const data = await api.getTeamScheduleDetailGamePosts(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sportName** | `string` |  | [Defaults to `undefined`] |
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**TeamScheduleGamePosts**](TeamScheduleGamePosts.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game posts list |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getTeamScheduleDetailSchedule
-
-> TeamScheduleSchedule getTeamScheduleDetailSchedule(sportName, schoolId, year)
-
-
-
-Get the full game schedule list for a team and season year.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleDetailScheduleRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    sportName: sportName_example,
-    // number
-    schoolId: 56,
-    // number | Season year (defaults to current schedule season year) (optional)
-    year: 56,
-  } satisfies GetTeamScheduleDetailScheduleRequest;
-
-  try {
-    const data = await api.getTeamScheduleDetailSchedule(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sportName** | `string` |  | [Defaults to `undefined`] |
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **year** | `number` | Season year (defaults to current schedule season year) | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**TeamScheduleSchedule**](TeamScheduleSchedule.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Schedule games list |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getTeamScheduleFavorites
-
-> Array&lt;GetTeamScheduleFavorites200ResponseInner&gt; getTeamScheduleFavorites(detailed)
-
-
-
-Retrieve the current user\&#39;s FilTeam favorites. Returns favoritable_id as a string to avoid JavaScript precision loss with large numeric IDs.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleFavoritesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // '1' | When set to \"1\", includes category and favoritable name (optional)
-    detailed: detailed_example,
-  } satisfies GetTeamScheduleFavoritesRequest;
-
-  try {
-    const data = await api.getTeamScheduleFavorites(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **detailed** | `1` | When set to \&quot;1\&quot;, includes category and favoritable name | [Optional] [Defaults to `undefined`] [Enum: 1] |
-
-### Return type
-
-[**Array&lt;GetTeamScheduleFavorites200ResponseInner&gt;**](GetTeamScheduleFavorites200ResponseInner.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of FilTeam favorites |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getTeamScheduleNote
-
-> TeamScheduleNote getTeamScheduleNote(filTeamId)
-
-
-
-Get the current user\&#39;s note for a team.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string | FilTeam ID
-    filTeamId: filTeamId_example,
-  } satisfies GetTeamScheduleNoteRequest;
-
-  try {
-    const data = await api.getTeamScheduleNote(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **filTeamId** | `string` | FilTeam ID | [Defaults to `undefined`] |
-
-### Return type
-
-[**TeamScheduleNote**](TeamScheduleNote.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Note (id/content may be null if no note exists) |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getTeamScheduleSearches
-
-> TeamScheduleSearchResultCollection getTeamScheduleSearches(page, perPage, q, sportName, excludeAlreadyScheduled, excludeConference)
-
-
-
-Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetTeamScheduleSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | results page to retrieve. (optional)
-    page: 56,
-    // number | number of results per page. (optional)
-    perPage: 56,
-    // object | Ransack query (optional)
-    q: Object,
-    // string | Sport name filter (e.g. BASKETBALL_M) (optional)
-    sportName: sportName_example,
-    // '1' | Exclude schools already on the user\'s schedule (optional)
-    excludeAlreadyScheduled: excludeAlreadyScheduled_example,
-    // '1' | Exclude schools in the user\'s conference (optional)
-    excludeConference: excludeConference_example,
-  } satisfies GetTeamScheduleSearchesRequest;
-
-  try {
-    const data = await api.getTeamScheduleSearches(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
-| **sportName** | `string` | Sport name filter (e.g. BASKETBALL_M) | [Optional] [Defaults to `undefined`] |
-| **excludeAlreadyScheduled** | `1` | Exclude schools already on the user\&#39;s schedule | [Optional] [Defaults to `undefined`] [Enum: 1] |
-| **excludeConference** | `1` | Exclude schools in the user\&#39;s conference | [Optional] [Defaults to `undefined`] [Enum: 1] |
-
-### Return type
-
-[**TeamScheduleSearchResultCollection**](TeamScheduleSearchResultCollection.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Team schedule search results |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## getUser
 
 > User getUser(userId)
@@ -12128,13 +11870,90 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateFavorite
+
+> CreateFavorite201Response updateFavorite(id, updateFavoriteRequest)
+
+
+
+Update a favorite (e.g. reassign to a different category)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The favorite record ID
+    id: 56,
+    // UpdateFavoriteRequest
+    updateFavoriteRequest: ...,
+  } satisfies UpdateFavoriteOperationRequest;
+
+  try {
+    const data = await api.updateFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
+| **updateFavoriteRequest** | [UpdateFavoriteRequest](UpdateFavoriteRequest.md) |  | |
+
+### Return type
+
+[**CreateFavorite201Response**](CreateFavorite201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Favorite updated |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateFavoritesCategory
 
 > GetFavoritesCategories200ResponseInner updateFavoritesCategory(id, updateFavoritesCategoryRequest)
 
 
 
-Rename a favorites category
+Update a favorites category name
 
 ### Example
 
@@ -12201,7 +12020,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Category updated |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12671,162 +12489,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **422** | Unable to update the Season |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateTeamScheduleFavorite
-
-> CreateTeamScheduleFavorite201Response updateTeamScheduleFavorite(id, updateTeamScheduleFavoriteRequest)
-
-
-
-Update a FilTeam favorite\&#39;s category
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateTeamScheduleFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | The favorite record ID
-    id: 56,
-    // UpdateTeamScheduleFavoriteRequest
-    updateTeamScheduleFavoriteRequest: ...,
-  } satisfies UpdateTeamScheduleFavoriteOperationRequest;
-
-  try {
-    const data = await api.updateTeamScheduleFavorite(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
-| **updateTeamScheduleFavoriteRequest** | [UpdateTeamScheduleFavoriteRequest](UpdateTeamScheduleFavoriteRequest.md) |  | |
-
-### Return type
-
-[**CreateTeamScheduleFavorite201Response**](CreateTeamScheduleFavorite201Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Favorite updated |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## upsertTeamScheduleNote
-
-> TeamScheduleNote upsertTeamScheduleNote(filTeamId, upsertTeamScheduleNoteRequest)
-
-
-
-Create or update the current user\&#39;s note for a team.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpsertTeamScheduleNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    filTeamId: filTeamId_example,
-    // UpsertTeamScheduleNoteRequest
-    upsertTeamScheduleNoteRequest: ...,
-  } satisfies UpsertTeamScheduleNoteOperationRequest;
-
-  try {
-    const data = await api.upsertTeamScheduleNote(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **filTeamId** | `string` |  | [Defaults to `undefined`] |
-| **upsertTeamScheduleNoteRequest** | [UpsertTeamScheduleNoteRequest](UpsertTeamScheduleNoteRequest.md) |  | |
-
-### Return type
-
-[**TeamScheduleNote**](TeamScheduleNote.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Note saved |  -  |
-| **401** | Unauthorized |  -  |
-| **422** | Validation error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

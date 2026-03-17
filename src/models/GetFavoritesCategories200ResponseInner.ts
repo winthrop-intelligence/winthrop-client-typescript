@@ -24,19 +24,21 @@ export interface GetFavoritesCategories200ResponseInner {
      * @type {number}
      * @memberof GetFavoritesCategories200ResponseInner
      */
-    id?: number;
+    id: number;
     /**
      * 
      * @type {string}
      * @memberof GetFavoritesCategories200ResponseInner
      */
-    name?: string;
+    name: string;
 }
 
 /**
  * Check if a given object implements the GetFavoritesCategories200ResponseInner interface.
  */
 export function instanceOfGetFavoritesCategories200ResponseInner(value: object): value is GetFavoritesCategories200ResponseInner {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('name' in value) || value['name'] === undefined) return false;
     return true;
 }
 
@@ -50,8 +52,8 @@ export function GetFavoritesCategories200ResponseInnerFromJSONTyped(json: any, i
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'name': json['name'] == null ? undefined : json['name'],
+        'id': json['id'],
+        'name': json['name'],
     };
 }
 

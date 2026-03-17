@@ -24,13 +24,14 @@ export interface DeleteFavorite200Response {
      * @type {boolean}
      * @memberof DeleteFavorite200Response
      */
-    success?: boolean;
+    success: boolean;
 }
 
 /**
  * Check if a given object implements the DeleteFavorite200Response interface.
  */
 export function instanceOfDeleteFavorite200Response(value: object): value is DeleteFavorite200Response {
+    if (!('success' in value) || value['success'] === undefined) return false;
     return true;
 }
 
@@ -44,7 +45,7 @@ export function DeleteFavorite200ResponseFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'success': json['success'] == null ? undefined : json['success'],
+        'success': json['success'],
     };
 }
 

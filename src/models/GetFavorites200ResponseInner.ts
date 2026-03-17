@@ -24,19 +24,39 @@ export interface GetFavorites200ResponseInner {
      * @type {number}
      * @memberof GetFavorites200ResponseInner
      */
-    id?: number;
+    id: number;
     /**
      * The favorited record's ID
      * @type {number}
      * @memberof GetFavorites200ResponseInner
      */
-    favoritableId?: number;
+    favoritableId: number;
+    /**
+     * Category ID (only when detailed=1)
+     * @type {number}
+     * @memberof GetFavorites200ResponseInner
+     */
+    favoritesCategoryId?: number | null;
+    /**
+     * Category name (only when detailed=1)
+     * @type {string}
+     * @memberof GetFavorites200ResponseInner
+     */
+    categoryName?: string | null;
+    /**
+     * Favoritable record name (only when detailed=1)
+     * @type {string}
+     * @memberof GetFavorites200ResponseInner
+     */
+    name?: string | null;
 }
 
 /**
  * Check if a given object implements the GetFavorites200ResponseInner interface.
  */
 export function instanceOfGetFavorites200ResponseInner(value: object): value is GetFavorites200ResponseInner {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('favoritableId' in value) || value['favoritableId'] === undefined) return false;
     return true;
 }
 
@@ -50,8 +70,11 @@ export function GetFavorites200ResponseInnerFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'favoritableId': json['favoritable_id'] == null ? undefined : json['favoritable_id'],
+        'id': json['id'],
+        'favoritableId': json['favoritable_id'],
+        'favoritesCategoryId': json['favorites_category_id'] == null ? undefined : json['favorites_category_id'],
+        'categoryName': json['category_name'] == null ? undefined : json['category_name'],
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 
@@ -68,6 +91,9 @@ export function GetFavorites200ResponseInnerToJSONTyped(value?: GetFavorites200R
         
         'id': value['id'],
         'favoritable_id': value['favoritableId'],
+        'favorites_category_id': value['favoritesCategoryId'],
+        'category_name': value['categoryName'],
+        'name': value['name'],
     };
 }
 

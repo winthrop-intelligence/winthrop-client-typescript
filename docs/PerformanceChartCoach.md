@@ -1,30 +1,28 @@
 
-# GetFavorites200ResponseInner
+# PerformanceChartCoach
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`favoritableId` | number
-`favoritesCategoryId` | number
-`categoryName` | string
 `name` | string
+`position` | string
+`avatarUrl` | string
+`coachFriendlyId` | string
 
 ## Example
 
 ```typescript
-import type { GetFavorites200ResponseInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { PerformanceChartCoach } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "favoritableId": null,
-  "favoritesCategoryId": null,
-  "categoryName": null,
   "name": null,
-} satisfies GetFavorites200ResponseInner
+  "position": null,
+  "avatarUrl": null,
+  "coachFriendlyId": null,
+} satisfies PerformanceChartCoach
 
 console.log(example)
 
@@ -33,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GetFavorites200ResponseInner
+const exampleParsed = JSON.parse(exampleJSON) as PerformanceChartCoach
 console.log(exampleParsed)
 ```
 
