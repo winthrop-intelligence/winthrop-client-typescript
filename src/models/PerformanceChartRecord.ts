@@ -31,6 +31,12 @@ export interface PerformanceChartRecord {
      * @memberof PerformanceChartRecord
      */
     losses?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof PerformanceChartRecord
+     */
+    ties?: number | null;
 }
 
 /**
@@ -52,6 +58,7 @@ export function PerformanceChartRecordFromJSONTyped(json: any, ignoreDiscriminat
         
         'wins': json['wins'] == null ? undefined : json['wins'],
         'losses': json['losses'] == null ? undefined : json['losses'],
+        'ties': json['ties'] == null ? undefined : json['ties'],
     };
 }
 
@@ -68,6 +75,7 @@ export function PerformanceChartRecordToJSONTyped(value?: PerformanceChartRecord
         
         'wins': value['wins'],
         'losses': value['losses'],
+        'ties': value['ties'],
     };
 }
 

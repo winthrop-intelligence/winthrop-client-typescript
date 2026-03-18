@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `wins` | number
 `losses` | number
+`ties` | number
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { PerformanceChartRecord } from '@winthrop-intelligence/winthrop-cli
 const example = {
   "wins": null,
   "losses": null,
+  "ties": null,
 } satisfies PerformanceChartRecord
 
 console.log(example)
