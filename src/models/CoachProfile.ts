@@ -60,12 +60,6 @@ export interface CoachProfile {
      * @type {string}
      * @memberof CoachProfile
      */
-    dob?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CoachProfile
-     */
     hometownCity?: string | null;
     /**
      * 
@@ -230,7 +224,6 @@ export function CoachProfileFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'leader': json['leader'],
-        'dob': json['dob'] == null ? undefined : json['dob'],
         'hometownCity': json['hometown_city'] == null ? undefined : json['hometown_city'],
         'hometownState': json['hometown_state'] == null ? undefined : json['hometown_state'],
         'almaMaterName': json['alma_mater_name'] == null ? undefined : json['alma_mater_name'],
@@ -273,7 +266,6 @@ export function CoachProfileToJSONTyped(value?: CoachProfile | null, ignoreDiscr
         'email': value['email'],
         'phone': value['phone'],
         'leader': value['leader'],
-        'dob': value['dob'],
         'hometown_city': value['hometownCity'],
         'hometown_state': value['hometownState'],
         'alma_mater_name': value['almaMaterName'],

@@ -55,16 +55,16 @@ export interface CoachRecordTab {
     showCoachApr: boolean;
     /**
      * 
-     * @type {{ [key: string]: Array<RecordPositionEntry>; }}
+     * @type {Array<RecordPositionEntry>}
      * @memberof CoachRecordTab
      */
-    positionsBySport: { [key: string]: Array<RecordPositionEntry>; };
+    positions: Array<RecordPositionEntry>;
     /**
      * 
-     * @type {{ [key: string]: Array<ConferencePositionEntry>; }}
+     * @type {Array<ConferencePositionEntry>}
      * @memberof CoachRecordTab
      */
-    conferencePositionsBySport: { [key: string]: Array<ConferencePositionEntry>; };
+    conferencePositions: Array<ConferencePositionEntry>;
     /**
      * 
      * @type {PerformanceChartData}
@@ -79,8 +79,8 @@ export interface CoachRecordTab {
 export function instanceOfCoachRecordTab(value: object): value is CoachRecordTab {
     if (!('leaderAd' in value) || value['leaderAd'] === undefined) return false;
     if (!('showCoachApr' in value) || value['showCoachApr'] === undefined) return false;
-    if (!('positionsBySport' in value) || value['positionsBySport'] === undefined) return false;
-    if (!('conferencePositionsBySport' in value) || value['conferencePositionsBySport'] === undefined) return false;
+    if (!('positions' in value) || value['positions'] === undefined) return false;
+    if (!('conferencePositions' in value) || value['conferencePositions'] === undefined) return false;
     return true;
 }
 
@@ -96,8 +96,8 @@ export function CoachRecordTabFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'leaderAd': json['leader_ad'],
         'showCoachApr': json['show_coach_apr'],
-        'positionsBySport': json['positions_by_sport'],
-        'conferencePositionsBySport': json['conference_positions_by_sport'],
+        'positions': ((json['positions'] as Array<any>).map(RecordPositionEntryFromJSON)),
+        'conferencePositions': ((json['conference_positions'] as Array<any>).map(ConferencePositionEntryFromJSON)),
         'performanceChart': json['performance_chart'] == null ? undefined : PerformanceChartDataFromJSON(json['performance_chart']),
     };
 }
@@ -115,8 +115,8 @@ export function CoachRecordTabToJSONTyped(value?: CoachRecordTab | null, ignoreD
         
         'leader_ad': value['leaderAd'],
         'show_coach_apr': value['showCoachApr'],
-        'positions_by_sport': value['positionsBySport'],
-        'conference_positions_by_sport': value['conferencePositionsBySport'],
+        'positions': ((value['positions'] as Array<any>).map(RecordPositionEntryToJSON)),
+        'conference_positions': ((value['conferencePositions'] as Array<any>).map(ConferencePositionEntryToJSON)),
         'performance_chart': PerformanceChartDataToJSON(value['performanceChart']),
     };
 }

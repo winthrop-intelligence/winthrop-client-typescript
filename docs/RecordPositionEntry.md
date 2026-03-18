@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`sport` | string
 `yearStr` | string
 `schoolName` | string
 `schoolId` | number
@@ -25,6 +26,7 @@ import type { RecordPositionEntry } from '@winthrop-intelligence/winthrop-client
 
 // TODO: Update the object below with actual values
 const example = {
+  "sport": null,
   "yearStr": null,
   "schoolName": null,
   "schoolId": null,

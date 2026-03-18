@@ -69,10 +69,10 @@ export interface CoachProfileOverview {
     totalCompensations: number;
     /**
      * 
-     * @type {{ [key: string]: Array<CoachPositionEntry>; }}
+     * @type {Array<CoachPositionEntry>}
      * @memberof CoachProfileOverview
      */
-    positionsBySport: { [key: string]: Array<CoachPositionEntry>; };
+    positions: Array<CoachPositionEntry>;
     /**
      * 
      * @type {number}
@@ -81,10 +81,10 @@ export interface CoachProfileOverview {
     totalPositions: number;
     /**
      * 
-     * @type {{ [key: string]: Array<ConferencePositionEntry>; }}
+     * @type {Array<ConferencePositionEntry>}
      * @memberof CoachProfileOverview
      */
-    conferencePositionsBySport: { [key: string]: Array<ConferencePositionEntry>; };
+    conferencePositions: Array<ConferencePositionEntry>;
     /**
      * 
      * @type {CoachSnapshot}
@@ -117,9 +117,9 @@ export interface CoachProfileOverview {
 export function instanceOfCoachProfileOverview(value: object): value is CoachProfileOverview {
     if (!('compensations' in value) || value['compensations'] === undefined) return false;
     if (!('totalCompensations' in value) || value['totalCompensations'] === undefined) return false;
-    if (!('positionsBySport' in value) || value['positionsBySport'] === undefined) return false;
+    if (!('positions' in value) || value['positions'] === undefined) return false;
     if (!('totalPositions' in value) || value['totalPositions'] === undefined) return false;
-    if (!('conferencePositionsBySport' in value) || value['conferencePositionsBySport'] === undefined) return false;
+    if (!('conferencePositions' in value) || value['conferencePositions'] === undefined) return false;
     if (!('videos' in value) || value['videos'] === undefined) return false;
     if (!('canSeeCompensation' in value) || value['canSeeCompensation'] === undefined) return false;
     if (!('canSeeVideos' in value) || value['canSeeVideos'] === undefined) return false;
@@ -138,9 +138,9 @@ export function CoachProfileOverviewFromJSONTyped(json: any, ignoreDiscriminator
         
         'compensations': ((json['compensations'] as Array<any>).map(CoachCompensationEntryFromJSON)),
         'totalCompensations': json['total_compensations'],
-        'positionsBySport': json['positions_by_sport'],
+        'positions': ((json['positions'] as Array<any>).map(CoachPositionEntryFromJSON)),
         'totalPositions': json['total_positions'],
-        'conferencePositionsBySport': json['conference_positions_by_sport'],
+        'conferencePositions': ((json['conference_positions'] as Array<any>).map(ConferencePositionEntryFromJSON)),
         'snapshot': json['snapshot'] == null ? undefined : CoachSnapshotFromJSON(json['snapshot']),
         'videos': ((json['videos'] as Array<any>).map(CoachVideoEntryFromJSON)),
         'canSeeCompensation': json['can_see_compensation'],
@@ -161,9 +161,9 @@ export function CoachProfileOverviewToJSONTyped(value?: CoachProfileOverview | n
         
         'compensations': ((value['compensations'] as Array<any>).map(CoachCompensationEntryToJSON)),
         'total_compensations': value['totalCompensations'],
-        'positions_by_sport': value['positionsBySport'],
+        'positions': ((value['positions'] as Array<any>).map(CoachPositionEntryToJSON)),
         'total_positions': value['totalPositions'],
-        'conference_positions_by_sport': value['conferencePositionsBySport'],
+        'conference_positions': ((value['conferencePositions'] as Array<any>).map(ConferencePositionEntryToJSON)),
         'snapshot': CoachSnapshotToJSON(value['snapshot']),
         'videos': ((value['videos'] as Array<any>).map(CoachVideoEntryToJSON)),
         'can_see_compensation': value['canSeeCompensation'],

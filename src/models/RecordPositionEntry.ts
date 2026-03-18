@@ -24,6 +24,12 @@ export interface RecordPositionEntry {
      * @type {string}
      * @memberof RecordPositionEntry
      */
+    sport: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RecordPositionEntry
+     */
     yearStr: string;
     /**
      * 
@@ -91,6 +97,7 @@ export interface RecordPositionEntry {
  * Check if a given object implements the RecordPositionEntry interface.
  */
 export function instanceOfRecordPositionEntry(value: object): value is RecordPositionEntry {
+    if (!('sport' in value) || value['sport'] === undefined) return false;
     if (!('yearStr' in value) || value['yearStr'] === undefined) return false;
     if (!('schoolName' in value) || value['schoolName'] === undefined) return false;
     if (!('schoolId' in value) || value['schoolId'] === undefined) return false;
@@ -108,6 +115,7 @@ export function RecordPositionEntryFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
+        'sport': json['sport'],
         'yearStr': json['year_str'],
         'schoolName': json['school_name'],
         'schoolId': json['school_id'],
@@ -133,6 +141,7 @@ export function RecordPositionEntryToJSONTyped(value?: RecordPositionEntry | nul
 
     return {
         
+        'sport': value['sport'],
         'year_str': value['yearStr'],
         'school_name': value['schoolName'],
         'school_id': value['schoolId'],

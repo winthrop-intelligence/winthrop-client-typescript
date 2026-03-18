@@ -8,8 +8,8 @@ Name | Type
 ------------ | -------------
 `leaderAd` | boolean
 `showCoachApr` | boolean
-`positionsBySport` | { [key: string]: Array&lt;RecordPositionEntry&gt;; }
-`conferencePositionsBySport` | { [key: string]: Array&lt;ConferencePositionEntry&gt;; }
+`positions` | [Array&lt;RecordPositionEntry&gt;](RecordPositionEntry.md)
+`conferencePositions` | [Array&lt;ConferencePositionEntry&gt;](ConferencePositionEntry.md)
 `performanceChart` | [PerformanceChartData](PerformanceChartData.md)
 
 ## Example
@@ -21,8 +21,8 @@ import type { CoachRecordTab } from '@winthrop-intelligence/winthrop-client-type
 const example = {
   "leaderAd": null,
   "showCoachApr": null,
-  "positionsBySport": null,
-  "conferencePositionsBySport": null,
+  "positions": null,
+  "conferencePositions": null,
   "performanceChart": null,
 } satisfies CoachRecordTab
 

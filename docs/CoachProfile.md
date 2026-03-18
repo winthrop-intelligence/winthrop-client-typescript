@@ -12,7 +12,6 @@ Name | Type
 `email` | string
 `phone` | string
 `leader` | boolean
-`dob` | string
 `hometownCity` | string
 `hometownState` | string
 `almaMaterName` | string
@@ -49,7 +48,6 @@ const example = {
   "email": null,
   "phone": null,
   "leader": null,
-  "dob": null,
   "hometownCity": null,
   "hometownState": null,
   "almaMaterName": null,

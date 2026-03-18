@@ -24,6 +24,12 @@ export interface CoachPositionEntry {
      * @type {string}
      * @memberof CoachPositionEntry
      */
+    sport: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachPositionEntry
+     */
     yearStr: string;
     /**
      * 
@@ -79,6 +85,7 @@ export interface CoachPositionEntry {
  * Check if a given object implements the CoachPositionEntry interface.
  */
 export function instanceOfCoachPositionEntry(value: object): value is CoachPositionEntry {
+    if (!('sport' in value) || value['sport'] === undefined) return false;
     if (!('yearStr' in value) || value['yearStr'] === undefined) return false;
     if (!('schoolName' in value) || value['schoolName'] === undefined) return false;
     if (!('schoolId' in value) || value['schoolId'] === undefined) return false;
@@ -96,6 +103,7 @@ export function CoachPositionEntryFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
+        'sport': json['sport'],
         'yearStr': json['year_str'],
         'schoolName': json['school_name'],
         'schoolId': json['school_id'],
@@ -119,6 +127,7 @@ export function CoachPositionEntryToJSONTyped(value?: CoachPositionEntry | null,
 
     return {
         
+        'sport': value['sport'],
         'year_str': value['yearStr'],
         'school_name': value['schoolName'],
         'school_id': value['schoolId'],

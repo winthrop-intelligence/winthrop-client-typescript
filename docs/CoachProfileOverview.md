@@ -8,9 +8,9 @@ Name | Type
 ------------ | -------------
 `compensations` | [Array&lt;CoachCompensationEntry&gt;](CoachCompensationEntry.md)
 `totalCompensations` | number
-`positionsBySport` | { [key: string]: Array&lt;CoachPositionEntry&gt;; }
+`positions` | [Array&lt;CoachPositionEntry&gt;](CoachPositionEntry.md)
 `totalPositions` | number
-`conferencePositionsBySport` | { [key: string]: Array&lt;ConferencePositionEntry&gt;; }
+`conferencePositions` | [Array&lt;ConferencePositionEntry&gt;](ConferencePositionEntry.md)
 `snapshot` | [CoachSnapshot](CoachSnapshot.md)
 `videos` | [Array&lt;CoachVideoEntry&gt;](CoachVideoEntry.md)
 `canSeeCompensation` | boolean
@@ -25,9 +25,9 @@ import type { CoachProfileOverview } from '@winthrop-intelligence/winthrop-clien
 const example = {
   "compensations": null,
   "totalCompensations": null,
-  "positionsBySport": null,
+  "positions": null,
   "totalPositions": null,
-  "conferencePositionsBySport": null,
+  "conferencePositions": null,
   "snapshot": null,
   "videos": null,
   "canSeeCompensation": null,
