@@ -157,8 +157,6 @@ export * from './PositionTypeGroup';
 export * from './PredictBody';
 export * from './PredictFailure';
 export * from './PredictSuccess';
-export * from './QuartileRow';
-export * from './QuartilesData';
 export * from './RawContract';
 export * from './RawContractCollection';
 export * from './RecordPositionEntry';

@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`conferenceName` | string
 `totalCompOverTime` | [Array&lt;CoachCompensationTabChartDataTotalCompOverTimeInner&gt;](CoachCompensationTabChartDataTotalCompOverTimeInner.md)
 `conferenceAvgOverTime` | [Array&lt;CoachCompensationTabChartDataConferenceAvgOverTimeInner&gt;](CoachCompensationTabChartDataConferenceAvgOverTimeInner.md)
 `currentBreakdown` | [CoachCompensationTabChartDataCurrentBreakdown](CoachCompensationTabChartDataCurrentBreakdown.md)
@@ -17,6 +18,7 @@ import type { CoachCompensationTabChartData } from '@winthrop-intelligence/winth
 
 // TODO: Update the object below with actual values
 const example = {
+  "conferenceName": null,
   "totalCompOverTime": null,
   "conferenceAvgOverTime": null,
   "currentBreakdown": null,

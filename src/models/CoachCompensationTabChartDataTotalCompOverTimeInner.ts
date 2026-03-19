@@ -37,6 +37,24 @@ export interface CoachCompensationTabChartDataTotalCompOverTimeInner {
      * @memberof CoachCompensationTabChartDataTotalCompOverTimeInner
      */
     position?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachCompensationTabChartDataTotalCompOverTimeInner
+     */
+    baseSalaryCents?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachCompensationTabChartDataTotalCompOverTimeInner
+     */
+    bonusCents?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachCompensationTabChartDataTotalCompOverTimeInner
+     */
+    deferredCompCents?: number;
 }
 
 /**
@@ -59,6 +77,9 @@ export function CoachCompensationTabChartDataTotalCompOverTimeInnerFromJSONTyped
         'year': json['year'] == null ? undefined : json['year'],
         'compCents': json['comp_cents'] == null ? undefined : json['comp_cents'],
         'position': json['position'] == null ? undefined : json['position'],
+        'baseSalaryCents': json['base_salary_cents'] == null ? undefined : json['base_salary_cents'],
+        'bonusCents': json['bonus_cents'] == null ? undefined : json['bonus_cents'],
+        'deferredCompCents': json['deferred_comp_cents'] == null ? undefined : json['deferred_comp_cents'],
     };
 }
 
@@ -76,6 +97,9 @@ export function CoachCompensationTabChartDataTotalCompOverTimeInnerToJSONTyped(v
         'year': value['year'],
         'comp_cents': value['compCents'],
         'position': value['position'],
+        'base_salary_cents': value['baseSalaryCents'],
+        'bonus_cents': value['bonusCents'],
+        'deferred_comp_cents': value['deferredCompCents'],
     };
 }
 

@@ -162,8 +162,6 @@ docs/PositionTypeGroup.md
 docs/PredictBody.md
 docs/PredictFailure.md
 docs/PredictSuccess.md
-docs/QuartileRow.md
-docs/QuartilesData.md
 docs/RawContract.md
 docs/RawContractCollection.md
 docs/RecordPositionEntry.md
@@ -378,8 +376,6 @@ src/models/PositionTypeGroup.ts
 src/models/PredictBody.ts
 src/models/PredictFailure.ts
 src/models/PredictSuccess.ts
-src/models/QuartileRow.ts
-src/models/QuartilesData.ts
 src/models/RawContract.ts
 src/models/RawContractCollection.ts
 src/models/RecordPositionEntry.ts

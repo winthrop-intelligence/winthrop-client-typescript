@@ -9,6 +9,9 @@ Name | Type
 `year` | number
 `compCents` | number
 `position` | string
+`baseSalaryCents` | number
+`bonusCents` | number
+`deferredCompCents` | number
 
 ## Example
 
@@ -20,6 +23,9 @@ const example = {
   "year": null,
   "compCents": null,
   "position": null,
+  "baseSalaryCents": null,
+  "bonusCents": null,
+  "deferredCompCents": null,
 } satisfies CoachCompensationTabChartDataTotalCompOverTimeInner
 
 console.log(example)

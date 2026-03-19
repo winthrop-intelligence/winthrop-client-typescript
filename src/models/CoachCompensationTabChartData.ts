@@ -43,6 +43,12 @@ import {
 export interface CoachCompensationTabChartData {
     /**
      * 
+     * @type {string}
+     * @memberof CoachCompensationTabChartData
+     */
+    conferenceName?: string | null;
+    /**
+     * 
      * @type {Array<CoachCompensationTabChartDataTotalCompOverTimeInner>}
      * @memberof CoachCompensationTabChartData
      */
@@ -78,6 +84,7 @@ export function CoachCompensationTabChartDataFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
+        'conferenceName': json['conference_name'] == null ? undefined : json['conference_name'],
         'totalCompOverTime': json['total_comp_over_time'] == null ? undefined : ((json['total_comp_over_time'] as Array<any>).map(CoachCompensationTabChartDataTotalCompOverTimeInnerFromJSON)),
         'conferenceAvgOverTime': json['conference_avg_over_time'] == null ? undefined : ((json['conference_avg_over_time'] as Array<any>).map(CoachCompensationTabChartDataConferenceAvgOverTimeInnerFromJSON)),
         'currentBreakdown': json['current_breakdown'] == null ? undefined : CoachCompensationTabChartDataCurrentBreakdownFromJSON(json['current_breakdown']),
@@ -95,6 +102,7 @@ export function CoachCompensationTabChartDataToJSONTyped(value?: CoachCompensati
 
     return {
         
+        'conference_name': value['conferenceName'],
         'total_comp_over_time': value['totalCompOverTime'] == null ? undefined : ((value['totalCompOverTime'] as Array<any>).map(CoachCompensationTabChartDataTotalCompOverTimeInnerToJSON)),
         'conference_avg_over_time': value['conferenceAvgOverTime'] == null ? undefined : ((value['conferenceAvgOverTime'] as Array<any>).map(CoachCompensationTabChartDataConferenceAvgOverTimeInnerToJSON)),
         'current_breakdown': CoachCompensationTabChartDataCurrentBreakdownToJSON(value['currentBreakdown']),

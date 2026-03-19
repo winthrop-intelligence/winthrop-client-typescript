@@ -403,8 +403,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PredictBody](docs/PredictBody.md)
 - [PredictFailure](docs/PredictFailure.md)
 - [PredictSuccess](docs/PredictSuccess.md)
-- [QuartileRow](docs/QuartileRow.md)
-- [QuartilesData](docs/QuartilesData.md)
 - [RawContract](docs/RawContract.md)
 - [RawContractCollection](docs/RawContractCollection.md)
 - [RecordPositionEntry](docs/RecordPositionEntry.md)
