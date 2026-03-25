@@ -37,6 +37,12 @@ export interface FilterPositionType {
      * @memberof FilterPositionType
      */
     groupStub?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof FilterPositionType
+     */
+    category?: string | null;
 }
 
 /**
@@ -61,6 +67,7 @@ export function FilterPositionTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'id': json['id'],
         'name': json['name'],
         'groupStub': json['group_stub'] == null ? undefined : json['group_stub'],
+        'category': json['category'] == null ? undefined : json['category'],
     };
 }
 
@@ -78,6 +85,7 @@ export function FilterPositionTypeToJSONTyped(value?: FilterPositionType | null,
         'id': value['id'],
         'name': value['name'],
         'group_stub': value['groupStub'],
+        'category': value['category'],
     };
 }
 
