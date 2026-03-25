@@ -159,6 +159,12 @@ export interface GadContractDetail {
     rawContractUrl?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    rawContractFilename?: string | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof GadContractDetail
      */
@@ -169,6 +175,54 @@ export interface GadContractDetail {
      * @memberof GadContractDetail
      */
     verified?: boolean | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    unstractTextState?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    unstractLayoutState?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadContractDetail
+     */
+    hasSimpleText?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadContractDetail
+     */
+    hasLayoutText?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    simpleText?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    layoutPreservedText?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    unstractTextError?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    unstractLayoutError?: string | null;
 }
 
 /**
@@ -211,8 +265,17 @@ export function GadContractDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
         'hasRawContract': json['has_raw_contract'] == null ? undefined : json['has_raw_contract'],
         'rawContractUrl': json['raw_contract_url'] == null ? undefined : json['raw_contract_url'],
+        'rawContractFilename': json['raw_contract_filename'] == null ? undefined : json['raw_contract_filename'],
         'belongsToSeries': json['belongs_to_series'] == null ? undefined : json['belongs_to_series'],
         'verified': json['verified'] == null ? undefined : json['verified'],
+        'unstractTextState': json['unstract_text_state'] == null ? undefined : json['unstract_text_state'],
+        'unstractLayoutState': json['unstract_layout_state'] == null ? undefined : json['unstract_layout_state'],
+        'hasSimpleText': json['has_simple_text'] == null ? undefined : json['has_simple_text'],
+        'hasLayoutText': json['has_layout_text'] == null ? undefined : json['has_layout_text'],
+        'simpleText': json['simple_text'] == null ? undefined : json['simple_text'],
+        'layoutPreservedText': json['layout_preserved_text'] == null ? undefined : json['layout_preserved_text'],
+        'unstractTextError': json['unstract_text_error'] == null ? undefined : json['unstract_text_error'],
+        'unstractLayoutError': json['unstract_layout_error'] == null ? undefined : json['unstract_layout_error'],
     };
 }
 
@@ -250,8 +313,17 @@ export function GadContractDetailToJSONTyped(value?: GadContractDetail | null, i
         'raw_contract_id': value['rawContractId'],
         'has_raw_contract': value['hasRawContract'],
         'raw_contract_url': value['rawContractUrl'],
+        'raw_contract_filename': value['rawContractFilename'],
         'belongs_to_series': value['belongsToSeries'],
         'verified': value['verified'],
+        'unstract_text_state': value['unstractTextState'],
+        'unstract_layout_state': value['unstractLayoutState'],
+        'has_simple_text': value['hasSimpleText'],
+        'has_layout_text': value['hasLayoutText'],
+        'simple_text': value['simpleText'],
+        'layout_preserved_text': value['layoutPreservedText'],
+        'unstract_text_error': value['unstractTextError'],
+        'unstract_layout_error': value['unstractLayoutError'],
     };
 }
 

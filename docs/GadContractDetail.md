@@ -29,8 +29,17 @@ Name | Type
 `rawContractId` | number
 `hasRawContract` | boolean
 `rawContractUrl` | string
+`rawContractFilename` | string
 `belongsToSeries` | boolean
 `verified` | boolean
+`unstractTextState` | string
+`unstractLayoutState` | string
+`hasSimpleText` | boolean
+`hasLayoutText` | boolean
+`simpleText` | string
+`layoutPreservedText` | string
+`unstractTextError` | string
+`unstractLayoutError` | string
 
 ## Example
 
@@ -62,8 +71,17 @@ const example = {
   "rawContractId": null,
   "hasRawContract": null,
   "rawContractUrl": null,
+  "rawContractFilename": null,
   "belongsToSeries": null,
   "verified": null,
+  "unstractTextState": null,
+  "unstractLayoutState": null,
+  "hasSimpleText": null,
+  "hasLayoutText": null,
+  "simpleText": null,
+  "layoutPreservedText": null,
+  "unstractTextError": null,
+  "unstractLayoutError": null,
 } satisfies GadContractDetail
 
 console.log(example)
