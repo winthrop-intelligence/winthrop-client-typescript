@@ -19,9 +19,12 @@ Name | Type
 `startYear` | number
 `endYear` | number
 `startAt` | Date
+`createdAt` | Date
 `summary` | string
 `autorenew` | boolean
 `archived` | boolean
+`vendors` | [Array&lt;DealDetailVendor&gt;](DealDetailVendor.md)
+`dealDetail` | [DealDetail](DealDetail.md)
 
 ## Example
 
@@ -43,9 +46,12 @@ const example = {
   "startYear": null,
   "endYear": null,
   "startAt": null,
+  "createdAt": null,
   "summary": null,
   "autorenew": null,
   "archived": null,
+  "vendors": null,
+  "dealDetail": null,
 } satisfies DealSearchResult
 
 console.log(example)

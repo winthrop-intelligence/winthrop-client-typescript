@@ -11,6 +11,7 @@ Name | Type
 `coachFirstName` | string
 `coachLastName` | string
 `coachName` | string
+`name` | string
 `seasonId` | number
 `positionId` | number
 `schoolId` | number
@@ -37,9 +38,12 @@ Name | Type
 `compensationIsCarProvided` | boolean
 `compensationCountryClubDuesCents` | number
 `compensationCountryClubMembershipPaid` | boolean
+`compensationTalentFee` | number
 `compensationMediaLink` | string
+`rawContractId` | number
 `contractStartsOn` | Date
 `contractExpiresOn` | Date
+`contractAtWill` | boolean
 `diversity` | boolean
 `gender` | string
 `almaMaterId` | number
@@ -61,6 +65,7 @@ const example = {
   "coachFirstName": John,
   "coachLastName": Doe,
   "coachName": John Doe,
+  "name": John Doe,
   "seasonId": 1,
   "positionId": 1,
   "schoolId": 1,
@@ -87,9 +92,12 @@ const example = {
   "compensationIsCarProvided": true,
   "compensationCountryClubDuesCents": 10000,
   "compensationCountryClubMembershipPaid": false,
+  "compensationTalentFee": 10000,
   "compensationMediaLink": This is a compensation media link,
+  "rawContractId": 1,
   "contractStartsOn": Tue Jan 01 00:00:00 UTC 2019,
   "contractExpiresOn": Tue Jan 01 00:00:00 UTC 2019,
+  "contractAtWill": false,
   "diversity": false,
   "gender": M,
   "almaMaterId": 2,

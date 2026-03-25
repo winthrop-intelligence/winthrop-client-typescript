@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;DealSearchResult&gt;](DealSearchResult.md)
 `meta` | [Meta](Meta.md)
+`averages` | { [key: string]: number | null; }
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { DealSearchResultCollection } from '@winthrop-intelligence/winthrop
 const example = {
   "data": null,
   "meta": null,
+  "averages": null,
 } satisfies DealSearchResultCollection
 
 console.log(example)

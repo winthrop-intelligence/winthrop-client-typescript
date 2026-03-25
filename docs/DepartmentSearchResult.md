@@ -19,6 +19,9 @@ Name | Type
 `directorsCupRanking` | number
 `isPrivate` | boolean
 `nickname` | string
+`logoUrl` | string
+`department` | [DepartmentSearchResultDepartment](DepartmentSearchResultDepartment.md)
+`sports` | [Array&lt;DepartmentSearchResultSportsInner&gt;](DepartmentSearchResultSportsInner.md)
 
 ## Example
 
@@ -40,6 +43,9 @@ const example = {
   "directorsCupRanking": null,
   "isPrivate": null,
   "nickname": null,
+  "logoUrl": null,
+  "department": null,
+  "sports": null,
 } satisfies DepartmentSearchResult
 
 console.log(example)

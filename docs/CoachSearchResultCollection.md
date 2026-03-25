@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;CoachSearchResult&gt;](CoachSearchResult.md)
 `meta` | [Meta](Meta.md)
+`compStats` | [CompStats](CompStats.md)
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { CoachSearchResultCollection } from '@winthrop-intelligence/winthro
 const example = {
   "data": null,
   "meta": null,
+  "compStats": null,
 } satisfies CoachSearchResultCollection
 
 console.log(example)

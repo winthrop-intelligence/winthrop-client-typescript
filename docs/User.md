@@ -19,6 +19,18 @@ Name | Type
 `coachId` | number
 `divisions` | [Array&lt;Division&gt;](Division.md)
 `roles` | Array&lt;string&gt;
+`canSeeCompensation` | boolean
+`canShowScouting` | boolean
+`canShowGameContract` | boolean
+`isSportSpecific` | boolean
+`isD2Only` | boolean
+`isConferenceOnly` | boolean
+`permissibleSportIds` | Array&lt;number&gt;
+`coliIndex` | number
+`subscriptionType` | string
+`scheduleSports` | [Array&lt;UserScheduleSportsInner&gt;](UserScheduleSportsInner.md)
+`schoolCity` | string
+`schoolState` | string
 
 ## Example
 
@@ -40,6 +52,18 @@ const example = {
   "coachId": 1,
   "divisions": null,
   "roles": null,
+  "canSeeCompensation": null,
+  "canShowScouting": null,
+  "canShowGameContract": null,
+  "isSportSpecific": null,
+  "isD2Only": null,
+  "isConferenceOnly": null,
+  "permissibleSportIds": null,
+  "coliIndex": null,
+  "subscriptionType": null,
+  "scheduleSports": null,
+  "schoolCity": null,
+  "schoolState": null,
 } satisfies User
 
 console.log(example)

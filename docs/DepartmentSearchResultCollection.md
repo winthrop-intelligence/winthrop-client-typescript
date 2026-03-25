@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;DepartmentSearchResult&gt;](DepartmentSearchResult.md)
 `meta` | [Meta](Meta.md)
+`financialsYear` | string
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { DepartmentSearchResultCollection } from '@winthrop-intelligence/wi
 const example = {
   "data": null,
   "meta": null,
+  "financialsYear": null,
 } satisfies DepartmentSearchResultCollection
 
 console.log(example)
