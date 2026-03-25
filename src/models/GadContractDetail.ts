@@ -14,200 +14,190 @@
 
 import { mapValues } from '../runtime';
 /**
- * A single guarantee/game contract search result
+ * 
  * @export
- * @interface GadSearchResult
+ * @interface GadContractDetail
  */
-export interface GadSearchResult {
+export interface GadContractDetail {
     /**
      * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
-    gameContractId?: number;
+    id?: number;
     /**
      * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     sportId?: number | null;
     /**
      * 
      * @type {string}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     sportName?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof GadSearchResult
-     */
-    sportGenderCodeClass?: string | null;
-    /**
-     * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     homeSchoolId?: number | null;
     /**
      * 
      * @type {string}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     homeSchoolName?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     homeSchoolShortName?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof GadSearchResult
-     */
-    homeSchoolLogoUrl?: string | null;
-    /**
-     * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     awaySchoolId?: number | null;
     /**
      * 
      * @type {string}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     awaySchoolName?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     awaySchoolShortName?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof GadSearchResult
-     */
-    awaySchoolLogoUrl?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     gameType?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof GadSearchResult
-     */
-    gameTypeShort?: string | null;
-    /**
-     * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     compCents?: number | null;
     /**
      * 
      * @type {boolean}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     compTbd?: boolean | null;
     /**
      * 
      * @type {boolean}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     variable?: boolean | null;
     /**
      * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     cancelFeeCents?: number | null;
     /**
      * 
      * @type {boolean}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     cancelled?: boolean | null;
     /**
      * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     seasonYear?: number | null;
     /**
      * 
      * @type {Date}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     gameDate?: Date | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof GadSearchResult
+     * @type {string}
+     * @memberof GadContractDetail
      */
-    gameDateTbd?: boolean | null;
+    gameDateTbd?: string | null;
+    /**
+     * 
+     * @type {Date}
+     * @memberof GadContractDetail
+     */
+    signedOn?: Date | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    offSiteLocation?: string | null;
     /**
      * 
      * @type {number}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
     rawContractId?: number | null;
     /**
      * 
      * @type {boolean}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
+     */
+    hasRawContract?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GadContractDetail
+     */
+    rawContractUrl?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadContractDetail
      */
     belongsToSeries?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof GadSearchResult
+     * @memberof GadContractDetail
      */
-    canLinkHomeSchool?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GadSearchResult
-     */
-    canLinkAwaySchool?: boolean;
+    verified?: boolean | null;
 }
 
 /**
- * Check if a given object implements the GadSearchResult interface.
+ * Check if a given object implements the GadContractDetail interface.
  */
-export function instanceOfGadSearchResult(value: object): value is GadSearchResult {
+export function instanceOfGadContractDetail(value: object): value is GadContractDetail {
     return true;
 }
 
-export function GadSearchResultFromJSON(json: any): GadSearchResult {
-    return GadSearchResultFromJSONTyped(json, false);
+export function GadContractDetailFromJSON(json: any): GadContractDetail {
+    return GadContractDetailFromJSONTyped(json, false);
 }
 
-export function GadSearchResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): GadSearchResult {
+export function GadContractDetailFromJSONTyped(json: any, ignoreDiscriminator: boolean): GadContractDetail {
     if (json == null) {
         return json;
     }
     return {
         
-        'gameContractId': json['game_contract_id'] == null ? undefined : json['game_contract_id'],
+        'id': json['id'] == null ? undefined : json['id'],
         'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
         'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
-        'sportGenderCodeClass': json['sport_gender_code_class'] == null ? undefined : json['sport_gender_code_class'],
         'homeSchoolId': json['home_school_id'] == null ? undefined : json['home_school_id'],
         'homeSchoolName': json['home_school_name'] == null ? undefined : json['home_school_name'],
         'homeSchoolShortName': json['home_school_short_name'] == null ? undefined : json['home_school_short_name'],
-        'homeSchoolLogoUrl': json['home_school_logo_url'] == null ? undefined : json['home_school_logo_url'],
         'awaySchoolId': json['away_school_id'] == null ? undefined : json['away_school_id'],
         'awaySchoolName': json['away_school_name'] == null ? undefined : json['away_school_name'],
         'awaySchoolShortName': json['away_school_short_name'] == null ? undefined : json['away_school_short_name'],
-        'awaySchoolLogoUrl': json['away_school_logo_url'] == null ? undefined : json['away_school_logo_url'],
         'gameType': json['game_type'] == null ? undefined : json['game_type'],
-        'gameTypeShort': json['game_type_short'] == null ? undefined : json['game_type_short'],
         'compCents': json['comp_cents'] == null ? undefined : json['comp_cents'],
         'compTbd': json['comp_tbd'] == null ? undefined : json['comp_tbd'],
         'variable': json['variable'] == null ? undefined : json['variable'],
@@ -216,38 +206,37 @@ export function GadSearchResultFromJSONTyped(json: any, ignoreDiscriminator: boo
         'seasonYear': json['season_year'] == null ? undefined : json['season_year'],
         'gameDate': json['game_date'] == null ? undefined : (new Date(json['game_date'])),
         'gameDateTbd': json['game_date_tbd'] == null ? undefined : json['game_date_tbd'],
+        'signedOn': json['signed_on'] == null ? undefined : (new Date(json['signed_on'])),
+        'offSiteLocation': json['off_site_location'] == null ? undefined : json['off_site_location'],
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
+        'hasRawContract': json['has_raw_contract'] == null ? undefined : json['has_raw_contract'],
+        'rawContractUrl': json['raw_contract_url'] == null ? undefined : json['raw_contract_url'],
         'belongsToSeries': json['belongs_to_series'] == null ? undefined : json['belongs_to_series'],
-        'canLinkHomeSchool': json['can_link_home_school'] == null ? undefined : json['can_link_home_school'],
-        'canLinkAwaySchool': json['can_link_away_school'] == null ? undefined : json['can_link_away_school'],
+        'verified': json['verified'] == null ? undefined : json['verified'],
     };
 }
 
-export function GadSearchResultToJSON(json: any): GadSearchResult {
-    return GadSearchResultToJSONTyped(json, false);
+export function GadContractDetailToJSON(json: any): GadContractDetail {
+    return GadContractDetailToJSONTyped(json, false);
 }
 
-export function GadSearchResultToJSONTyped(value?: GadSearchResult | null, ignoreDiscriminator: boolean = false): any {
+export function GadContractDetailToJSONTyped(value?: GadContractDetail | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'game_contract_id': value['gameContractId'],
+        'id': value['id'],
         'sport_id': value['sportId'],
         'sport_name': value['sportName'],
-        'sport_gender_code_class': value['sportGenderCodeClass'],
         'home_school_id': value['homeSchoolId'],
         'home_school_name': value['homeSchoolName'],
         'home_school_short_name': value['homeSchoolShortName'],
-        'home_school_logo_url': value['homeSchoolLogoUrl'],
         'away_school_id': value['awaySchoolId'],
         'away_school_name': value['awaySchoolName'],
         'away_school_short_name': value['awaySchoolShortName'],
-        'away_school_logo_url': value['awaySchoolLogoUrl'],
         'game_type': value['gameType'],
-        'game_type_short': value['gameTypeShort'],
         'comp_cents': value['compCents'],
         'comp_tbd': value['compTbd'],
         'variable': value['variable'],
@@ -256,10 +245,13 @@ export function GadSearchResultToJSONTyped(value?: GadSearchResult | null, ignor
         'season_year': value['seasonYear'],
         'game_date': value['gameDate'] == null ? value['gameDate'] : value['gameDate'].toISOString().substring(0,10),
         'game_date_tbd': value['gameDateTbd'],
+        'signed_on': value['signedOn'] == null ? value['signedOn'] : value['signedOn'].toISOString().substring(0,10),
+        'off_site_location': value['offSiteLocation'],
         'raw_contract_id': value['rawContractId'],
+        'has_raw_contract': value['hasRawContract'],
+        'raw_contract_url': value['rawContractUrl'],
         'belongs_to_series': value['belongsToSeries'],
-        'can_link_home_school': value['canLinkHomeSchool'],
-        'can_link_away_school': value['canLinkAwaySchool'],
+        'verified': value['verified'],
     };
 }
 

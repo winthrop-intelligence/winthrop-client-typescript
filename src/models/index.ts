@@ -101,6 +101,7 @@ export * from './FoiaLabel';
 export * from './FoiaLabelCollection';
 export * from './FoiaRequest';
 export * from './FoiaRequestCollection';
+export * from './GadContractDetail';
 export * from './GadSearchResult';
 export * from './GadSearchResultCollection';
 export * from './GadSearchStats';

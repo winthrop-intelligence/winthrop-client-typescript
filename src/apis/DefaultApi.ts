@@ -72,6 +72,7 @@ import type {
   FoiaLabelCollection,
   FoiaRequest,
   FoiaRequestCollection,
+  GadContractDetail,
   GadSearchResultCollection,
   Game,
   GameCollection,
@@ -243,6 +244,8 @@ import {
     FoiaRequestToJSON,
     FoiaRequestCollectionFromJSON,
     FoiaRequestCollectionToJSON,
+    GadContractDetailFromJSON,
+    GadContractDetailToJSON,
     GadSearchResultCollectionFromJSON,
     GadSearchResultCollectionToJSON,
     GameFromJSON,
@@ -752,6 +755,10 @@ export interface DefaultApiGetFoiaRequestsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+}
+
+export interface DefaultApiGetGadSearchDetailRequest {
+    id: number;
 }
 
 export interface DefaultApiGetGadSearchesRequest {
@@ -5423,6 +5430,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getFoiaRequests(requestParameters: DefaultApiGetFoiaRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequestCollection> {
         const response = await this.getFoiaRequestsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve detailed game contract data for the GAD detail page
+     */
+    async getGadSearchDetailRaw(requestParameters: DefaultApiGetGadSearchDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GadContractDetail>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getGadSearchDetail().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/gad_searches/{id}/detail`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GadContractDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve detailed game contract data for the GAD detail page
+     */
+    async getGadSearchDetail(requestParameters: DefaultApiGetGadSearchDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GadContractDetail> {
+        const response = await this.getGadSearchDetailRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

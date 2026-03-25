@@ -1,26 +1,21 @@
 
-# GadSearchResult
+# GadContractDetail
 
-A single guarantee/game contract search result
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`gameContractId` | number
+`id` | number
 `sportId` | number
 `sportName` | string
-`sportGenderCodeClass` | string
 `homeSchoolId` | number
 `homeSchoolName` | string
 `homeSchoolShortName` | string
-`homeSchoolLogoUrl` | string
 `awaySchoolId` | number
 `awaySchoolName` | string
 `awaySchoolShortName` | string
-`awaySchoolLogoUrl` | string
 `gameType` | string
-`gameTypeShort` | string
 `compCents` | number
 `compTbd` | boolean
 `variable` | boolean
@@ -28,33 +23,32 @@ Name | Type
 `cancelled` | boolean
 `seasonYear` | number
 `gameDate` | Date
-`gameDateTbd` | boolean
+`gameDateTbd` | string
+`signedOn` | Date
+`offSiteLocation` | string
 `rawContractId` | number
+`hasRawContract` | boolean
+`rawContractUrl` | string
 `belongsToSeries` | boolean
-`canLinkHomeSchool` | boolean
-`canLinkAwaySchool` | boolean
+`verified` | boolean
 
 ## Example
 
 ```typescript
-import type { GadSearchResult } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GadContractDetail } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "gameContractId": null,
+  "id": null,
   "sportId": null,
   "sportName": null,
-  "sportGenderCodeClass": null,
   "homeSchoolId": null,
   "homeSchoolName": null,
   "homeSchoolShortName": null,
-  "homeSchoolLogoUrl": null,
   "awaySchoolId": null,
   "awaySchoolName": null,
   "awaySchoolShortName": null,
-  "awaySchoolLogoUrl": null,
   "gameType": null,
-  "gameTypeShort": null,
   "compCents": null,
   "compTbd": null,
   "variable": null,
@@ -63,11 +57,14 @@ const example = {
   "seasonYear": null,
   "gameDate": null,
   "gameDateTbd": null,
+  "signedOn": null,
+  "offSiteLocation": null,
   "rawContractId": null,
+  "hasRawContract": null,
+  "rawContractUrl": null,
   "belongsToSeries": null,
-  "canLinkHomeSchool": null,
-  "canLinkAwaySchool": null,
-} satisfies GadSearchResult
+  "verified": null,
+} satisfies GadContractDetail
 
 console.log(example)
 
@@ -76,7 +73,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GadSearchResult
+const exampleParsed = JSON.parse(exampleJSON) as GadContractDetail
 console.log(exampleParsed)
 ```
 

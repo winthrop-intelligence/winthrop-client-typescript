@@ -104,6 +104,7 @@ docs/FoiaLabel.md
 docs/FoiaLabelCollection.md
 docs/FoiaRequest.md
 docs/FoiaRequestCollection.md
+docs/GadContractDetail.md
 docs/GadSearchResult.md
 docs/GadSearchResultCollection.md
 docs/GadSearchStats.md
@@ -320,6 +321,7 @@ src/models/FoiaLabel.ts
 src/models/FoiaLabelCollection.ts
 src/models/FoiaRequest.ts
 src/models/FoiaRequestCollection.ts
+src/models/GadContractDetail.ts
 src/models/GadSearchResult.ts
 src/models/GadSearchResultCollection.ts
 src/models/GadSearchStats.ts
