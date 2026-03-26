@@ -19,6 +19,7 @@ Name | Type
 `startYear` | number
 `endYear` | number
 `startAt` | Date
+`endAt` | Date
 `createdAt` | Date
 `summary` | string
 `autorenew` | boolean
@@ -46,6 +47,7 @@ const example = {
   "startYear": null,
   "endYear": null,
   "startAt": null,
+  "endAt": null,
   "createdAt": null,
   "summary": null,
   "autorenew": null,
