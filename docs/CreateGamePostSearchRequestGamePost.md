@@ -1,13 +1,11 @@
 
-# UpdateGamePostSearchRequestGamePost
+# CreateGamePostSearchRequestGamePost
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`status` | string
-`expiresOn` | Date
 `sportId` | number
 `startDate` | Date
 `endDate` | Date
@@ -17,18 +15,16 @@ Name | Type
 ## Example
 
 ```typescript
-import type { UpdateGamePostSearchRequestGamePost } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CreateGamePostSearchRequestGamePost } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "status": null,
-  "expiresOn": null,
   "sportId": null,
   "startDate": null,
   "endDate": null,
   "description": null,
   "gameTypeIds": null,
-} satisfies UpdateGamePostSearchRequestGamePost
+} satisfies CreateGamePostSearchRequestGamePost
 
 console.log(example)
 
@@ -37,7 +33,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as UpdateGamePostSearchRequestGamePost
+const exampleParsed = JSON.parse(exampleJSON) as CreateGamePostSearchRequestGamePost
 console.log(exampleParsed)
 ```
 

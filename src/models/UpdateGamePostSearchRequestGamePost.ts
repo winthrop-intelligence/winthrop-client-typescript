@@ -31,6 +31,36 @@ export interface UpdateGamePostSearchRequestGamePost {
      * @memberof UpdateGamePostSearchRequestGamePost
      */
     expiresOn?: Date;
+    /**
+     * 
+     * @type {number}
+     * @memberof UpdateGamePostSearchRequestGamePost
+     */
+    sportId?: number;
+    /**
+     * 
+     * @type {Date}
+     * @memberof UpdateGamePostSearchRequestGamePost
+     */
+    startDate?: Date;
+    /**
+     * 
+     * @type {Date}
+     * @memberof UpdateGamePostSearchRequestGamePost
+     */
+    endDate?: Date | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateGamePostSearchRequestGamePost
+     */
+    description?: string;
+    /**
+     * 
+     * @type {Array<number>}
+     * @memberof UpdateGamePostSearchRequestGamePost
+     */
+    gameTypeIds?: Array<number>;
 }
 
 
@@ -63,6 +93,11 @@ export function UpdateGamePostSearchRequestGamePostFromJSONTyped(json: any, igno
         
         'status': json['status'] == null ? undefined : json['status'],
         'expiresOn': json['expires_on'] == null ? undefined : (new Date(json['expires_on'])),
+        'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
+        'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
+        'endDate': json['end_date'] == null ? undefined : (new Date(json['end_date'])),
+        'description': json['description'] == null ? undefined : json['description'],
+        'gameTypeIds': json['game_type_ids'] == null ? undefined : json['game_type_ids'],
     };
 }
 
@@ -79,6 +114,11 @@ export function UpdateGamePostSearchRequestGamePostToJSONTyped(value?: UpdateGam
         
         'status': value['status'],
         'expires_on': value['expiresOn'] == null ? value['expiresOn'] : value['expiresOn'].toISOString().substring(0,10),
+        'sport_id': value['sportId'],
+        'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
+        'end_date': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
+        'description': value['description'],
+        'game_type_ids': value['gameTypeIds'],
     };
 }
 

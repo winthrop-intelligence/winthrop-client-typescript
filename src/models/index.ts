@@ -72,6 +72,8 @@ export * from './CoworkerTenure';
 export * from './CreateFavorite201Response';
 export * from './CreateFavoriteRequest';
 export * from './CreateFavoritesCategoryRequest';
+export * from './CreateGamePostSearchRequest';
+export * from './CreateGamePostSearchRequestGamePost';
 export * from './Deal';
 export * from './DealCollection';
 export * from './DealDetail';

@@ -57,6 +57,7 @@ import type {
   CreateFavorite201Response,
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
+  CreateGamePostSearchRequest,
   Deal,
   DealCollection,
   DealSearchResultCollection,
@@ -216,6 +217,8 @@ import {
     CreateFavoriteRequestToJSON,
     CreateFavoritesCategoryRequestFromJSON,
     CreateFavoritesCategoryRequestToJSON,
+    CreateGamePostSearchRequestFromJSON,
+    CreateGamePostSearchRequestToJSON,
     DealFromJSON,
     DealToJSON,
     DealCollectionFromJSON,
@@ -428,6 +431,10 @@ export interface DefaultApiCreateFoiaLabelRequest {
 
 export interface DefaultApiCreateFoiaRequestRequest {
     foiaRequest: FoiaRequest;
+}
+
+export interface DefaultApiCreateGamePostSearchOperationRequest {
+    createGamePostSearchRequest: CreateGamePostSearchRequest;
 }
 
 export interface DefaultApiCreateJobPostRequest {
@@ -1897,6 +1904,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async createFoiaRequest(requestParameters: DefaultApiCreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.createFoiaRequestRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new game post
+     */
+    async createGamePostSearchRaw(requestParameters: DefaultApiCreateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePostDetail>> {
+        if (requestParameters['createGamePostSearchRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createGamePostSearchRequest',
+                'Required parameter "createGamePostSearchRequest" was null or undefined when calling createGamePostSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_post_searches`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateGamePostSearchRequestToJSON(requestParameters['createGamePostSearchRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GamePostDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new game post
+     */
+    async createGamePostSearch(requestParameters: DefaultApiCreateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GamePostDetail> {
+        const response = await this.createGamePostSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -8922,9 +8977,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a game post (e.g. expire or renew)
+     * Update a game post. Accepts status/expires_on for expire/renew, or full form fields for editing.
      */
-    async updateGamePostSearchRaw(requestParameters: DefaultApiUpdateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteGamePostSearch200Response>> {
+    async updateGamePostSearchRaw(requestParameters: DefaultApiUpdateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePostDetail>> {
         if (requestParameters['gamePostSearchId'] == null) {
             throw new runtime.RequiredError(
                 'gamePostSearchId',
@@ -8959,13 +9014,13 @@ export class DefaultApi extends runtime.BaseAPI {
             body: UpdateGamePostSearchRequestToJSON(requestParameters['updateGamePostSearchRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteGamePostSearch200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GamePostDetailFromJSON(jsonValue));
     }
 
     /**
-     * Update a game post (e.g. expire or renew)
+     * Update a game post. Accepts status/expires_on for expire/renew, or full form fields for editing.
      */
-    async updateGamePostSearch(requestParameters: DefaultApiUpdateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteGamePostSearch200Response> {
+    async updateGamePostSearch(requestParameters: DefaultApiUpdateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GamePostDetail> {
         const response = await this.updateGamePostSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }

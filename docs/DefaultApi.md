@@ -17,6 +17,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createFavoritesCategory**](DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories |  |
 | [**createFoiaLabel**](DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels |  |
 | [**createFoiaRequest**](DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests |  |
+| [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
@@ -1189,6 +1190,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createGamePostSearch
+
+> GamePostDetail createGamePostSearch(createGamePostSearchRequest)
+
+
+
+Create a new game post
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateGamePostSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateGamePostSearchRequest
+    createGamePostSearchRequest: ...,
+  } satisfies CreateGamePostSearchOperationRequest;
+
+  try {
+    const data = await api.createGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createGamePostSearchRequest** | [CreateGamePostSearchRequest](CreateGamePostSearchRequest.md) |  | |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Game post created |  -  |
+| **422** | Validation error |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createJobPost
 
 > JobPost createJobPost(jobPost)
@@ -2081,6 +2157,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Game post deleted |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12334,11 +12411,11 @@ example().catch(console.error);
 
 ## updateGamePostSearch
 
-> DeleteGamePostSearch200Response updateGamePostSearch(gamePostSearchId, updateGamePostSearchRequest)
+> GamePostDetail updateGamePostSearch(gamePostSearchId, updateGamePostSearchRequest)
 
 
 
-Update a game post (e.g. expire or renew)
+Update a game post. Accepts status/expires_on for expire/renew, or full form fields for editing.
 
 ### Example
 
@@ -12388,7 +12465,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**DeleteGamePostSearch200Response**](DeleteGamePostSearch200Response.md)
+[**GamePostDetail**](GamePostDetail.md)
 
 ### Authorization
 
@@ -12406,6 +12483,7 @@ example().catch(console.error);
 | **200** | Game post updated |  -  |
 | **422** | Validation error |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

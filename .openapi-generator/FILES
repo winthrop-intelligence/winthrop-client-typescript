@@ -73,6 +73,8 @@ docs/CoworkerTenure.md
 docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
+docs/CreateGamePostSearchRequest.md
+docs/CreateGamePostSearchRequestGamePost.md
 docs/Deal.md
 docs/DealCollection.md
 docs/DealDetail.md
@@ -297,6 +299,8 @@ src/models/CoworkerTenure.ts
 src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
+src/models/CreateGamePostSearchRequest.ts
+src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
 src/models/DealDetail.ts
