@@ -83,6 +83,7 @@ docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DefaultApi.md
 docs/DeleteFavorite200Response.md
+docs/DeleteGamePostSearch200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
 docs/DepartmentSearchResultDepartment.md
@@ -113,6 +114,9 @@ docs/GameContract.md
 docs/GameContractCollection.md
 docs/GamePost.md
 docs/GamePostCollection.md
+docs/GamePostContact.md
+docs/GamePostDetail.md
+docs/GamePostDetailCreatedBy.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GameType.md
@@ -195,6 +199,8 @@ docs/UnauthorizedError.md
 docs/UnprocessableEntity.md
 docs/UpdateFavoriteRequest.md
 docs/UpdateFavoritesCategoryRequest.md
+docs/UpdateGamePostSearchRequest.md
+docs/UpdateGamePostSearchRequestGamePost.md
 docs/User.md
 docs/UserActivitySummary.md
 docs/UserActivitySummaryCollection.md
@@ -300,6 +306,7 @@ src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
 src/models/DeleteFavorite200Response.ts
+src/models/DeleteGamePostSearch200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
 src/models/DepartmentSearchResultDepartment.ts
@@ -329,6 +336,9 @@ src/models/GameContract.ts
 src/models/GameContractCollection.ts
 src/models/GamePost.ts
 src/models/GamePostCollection.ts
+src/models/GamePostContact.ts
+src/models/GamePostDetail.ts
+src/models/GamePostDetailCreatedBy.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts
@@ -407,6 +417,8 @@ src/models/UnauthorizedError.ts
 src/models/UnprocessableEntity.ts
 src/models/UpdateFavoriteRequest.ts
 src/models/UpdateFavoritesCategoryRequest.ts
+src/models/UpdateGamePostSearchRequest.ts
+src/models/UpdateGamePostSearchRequestGamePost.ts
 src/models/User.ts
 src/models/UserActivitySummary.ts
 src/models/UserActivitySummaryCollection.ts

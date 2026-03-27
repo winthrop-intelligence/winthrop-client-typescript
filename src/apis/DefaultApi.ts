@@ -63,6 +63,7 @@ import type {
   DealStatus,
   DealStatusCollection,
   DeleteFavorite200Response,
+  DeleteGamePostSearch200Response,
   DepartmentSearchResultCollection,
   Division,
   DivisionCollection,
@@ -79,6 +80,7 @@ import type {
   GameContractCollection,
   GamePost,
   GamePostCollection,
+  GamePostDetail,
   GamePostSearchResultCollection,
   GameType,
   GetFavorites200ResponseInner,
@@ -118,6 +120,7 @@ import type {
   UnprocessableEntity,
   UpdateFavoriteRequest,
   UpdateFavoritesCategoryRequest,
+  UpdateGamePostSearchRequest,
   User,
   UserActivitySummary,
   UserActivitySummaryCollection,
@@ -225,6 +228,8 @@ import {
     DealStatusCollectionToJSON,
     DeleteFavorite200ResponseFromJSON,
     DeleteFavorite200ResponseToJSON,
+    DeleteGamePostSearch200ResponseFromJSON,
+    DeleteGamePostSearch200ResponseToJSON,
     DepartmentSearchResultCollectionFromJSON,
     DepartmentSearchResultCollectionToJSON,
     DivisionFromJSON,
@@ -257,6 +262,8 @@ import {
     GamePostToJSON,
     GamePostCollectionFromJSON,
     GamePostCollectionToJSON,
+    GamePostDetailFromJSON,
+    GamePostDetailToJSON,
     GamePostSearchResultCollectionFromJSON,
     GamePostSearchResultCollectionToJSON,
     GameTypeFromJSON,
@@ -335,6 +342,8 @@ import {
     UpdateFavoriteRequestToJSON,
     UpdateFavoritesCategoryRequestFromJSON,
     UpdateFavoritesCategoryRequestToJSON,
+    UpdateGamePostSearchRequestFromJSON,
+    UpdateGamePostSearchRequestToJSON,
     UserFromJSON,
     UserToJSON,
     UserActivitySummaryFromJSON,
@@ -463,6 +472,10 @@ export interface DefaultApiDeleteFoiaLabelRequest {
 
 export interface DefaultApiDeleteFoiaRequestRequest {
     foiaRequestId: number;
+}
+
+export interface DefaultApiDeleteGamePostSearchRequest {
+    gamePostSearchId: number;
 }
 
 export interface DefaultApiDeleteJobPostRequest {
@@ -778,6 +791,10 @@ export interface DefaultApiGetGamePostRequest {
     gamePostId: number;
 }
 
+export interface DefaultApiGetGamePostSearchRequest {
+    gamePostSearchId: number;
+}
+
 export interface DefaultApiGetGamePostSearchesRequest {
     page?: number;
     perPage?: number;
@@ -1085,6 +1102,11 @@ export interface DefaultApiUpdateFoiaLabelRequest {
 export interface DefaultApiUpdateFoiaRequestRequest {
     foiaRequestId: number;
     foiaRequest: FoiaRequest;
+}
+
+export interface DefaultApiUpdateGamePostSearchOperationRequest {
+    gamePostSearchId: number;
+    updateGamePostSearchRequest?: UpdateGamePostSearchRequest;
 }
 
 export interface DefaultApiUpdateJobPostRequest {
@@ -2373,6 +2395,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteFoiaRequest(requestParameters: DefaultApiDeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteFoiaRequestRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Delete a game post
+     */
+    async deleteGamePostSearchRaw(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteGamePostSearch200Response>> {
+        if (requestParameters['gamePostSearchId'] == null) {
+            throw new runtime.RequiredError(
+                'gamePostSearchId',
+                'Required parameter "gamePostSearchId" was null or undefined when calling deleteGamePostSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_post_searches/{gamePostSearchId}`;
+        urlPath = urlPath.replace(`{${"gamePostSearchId"}}`, encodeURIComponent(String(requestParameters['gamePostSearchId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteGamePostSearch200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a game post
+     */
+    async deleteGamePostSearch(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteGamePostSearch200Response> {
+        const response = await this.deleteGamePostSearchRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -5665,6 +5733,52 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get a single game post with enriched details including contacts
+     */
+    async getGamePostSearchRaw(requestParameters: DefaultApiGetGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePostDetail>> {
+        if (requestParameters['gamePostSearchId'] == null) {
+            throw new runtime.RequiredError(
+                'gamePostSearchId',
+                'Required parameter "gamePostSearchId" was null or undefined when calling getGamePostSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_post_searches/{gamePostSearchId}`;
+        urlPath = urlPath.replace(`{${"gamePostSearchId"}}`, encodeURIComponent(String(requestParameters['gamePostSearchId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GamePostDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a single game post with enriched details including contacts
+     */
+    async getGamePostSearch(requestParameters: DefaultApiGetGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GamePostDetail> {
+        const response = await this.getGamePostSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Search game posts with enriched data including school info, location, RPI, etc.
      */
     async getGamePostSearchesRaw(requestParameters: DefaultApiGetGamePostSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePostSearchResultCollection>> {
@@ -8804,6 +8918,55 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateFoiaRequest(requestParameters: DefaultApiUpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.updateFoiaRequestRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a game post (e.g. expire or renew)
+     */
+    async updateGamePostSearchRaw(requestParameters: DefaultApiUpdateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteGamePostSearch200Response>> {
+        if (requestParameters['gamePostSearchId'] == null) {
+            throw new runtime.RequiredError(
+                'gamePostSearchId',
+                'Required parameter "gamePostSearchId" was null or undefined when calling updateGamePostSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_post_searches/{gamePostSearchId}`;
+        urlPath = urlPath.replace(`{${"gamePostSearchId"}}`, encodeURIComponent(String(requestParameters['gamePostSearchId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateGamePostSearchRequestToJSON(requestParameters['updateGamePostSearchRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteGamePostSearch200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a game post (e.g. expire or renew)
+     */
+    async updateGamePostSearch(requestParameters: DefaultApiUpdateGamePostSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteGamePostSearch200Response> {
+        const response = await this.updateGamePostSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
