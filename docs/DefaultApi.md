@@ -1260,6 +1260,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **201** | Game post created |  -  |
 | **422** | Validation error |  -  |
+| **403** | Forbidden — only school accounts can create game posts |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
