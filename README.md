@@ -77,6 +77,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createFoiaRequest**](docs/DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests | 
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
+*DefaultApi* | [**createNote**](docs/DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes | 
 *DefaultApi* | [**createPosition**](docs/DefaultApi.md#createposition) | **POST** /api/v1/positions | 
 *DefaultApi* | [**createRequestedItem**](docs/DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
@@ -89,6 +90,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteFoiaRequest**](docs/DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**deleteGamePostSearch**](docs/DefaultApi.md#deletegamepostsearch) | **DELETE** /api/v1/game_post_searches/{gamePostSearchId} | 
 *DefaultApi* | [**deleteJobPost**](docs/DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post
+*DefaultApi* | [**deleteNote**](docs/DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} | 
 *DefaultApi* | [**deletePosition**](docs/DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**deleteRequestedItem**](docs/DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
@@ -169,6 +171,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getNcaaFinancialReportStatus**](docs/DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} | 
 *DefaultApi* | [**getNcaaFinancialReportStatuses**](docs/DefaultApi.md#getncaafinancialreportstatuses) | **GET** /api/v1/ncaa_financial_report_statuses | 
 *DefaultApi* | [**getNewsFeed**](docs/DefaultApi.md#getnewsfeed) | **GET** /wi_jobs/news_feeds/{newsFeedId} | Get a news feed
+*DefaultApi* | [**getNote**](docs/DefaultApi.md#getnote) | **GET** /api/v1/notes | 
 *DefaultApi* | [**getPosition**](docs/DefaultApi.md#getposition) | **GET** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**getPositions**](docs/DefaultApi.md#getpositions) | **GET** /api/v1/positions | 
 *DefaultApi* | [**getRawContract**](docs/DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} | 
@@ -223,6 +226,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateFoiaRequest**](docs/DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**updateGamePostSearch**](docs/DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} | 
 *DefaultApi* | [**updateJobPost**](docs/DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post
+*DefaultApi* | [**updateNote**](docs/DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} | 
 *DefaultApi* | [**updatePosition**](docs/DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**updateRequestedItem**](docs/DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
@@ -324,6 +328,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
 - [CreateGamePostSearchRequest](docs/CreateGamePostSearchRequest.md)
 - [CreateGamePostSearchRequestGamePost](docs/CreateGamePostSearchRequestGamePost.md)
+- [CreateNoteRequest](docs/CreateNoteRequest.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
 - [DealDetail](docs/DealDetail.md)
@@ -334,6 +339,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DealStatusCollection](docs/DealStatusCollection.md)
 - [DeleteFavorite200Response](docs/DeleteFavorite200Response.md)
 - [DeleteGamePostSearch200Response](docs/DeleteGamePostSearch200Response.md)
+- [DeleteNote200Response](docs/DeleteNote200Response.md)
 - [DepartmentSearchResult](docs/DepartmentSearchResult.md)
 - [DepartmentSearchResultCollection](docs/DepartmentSearchResultCollection.md)
 - [DepartmentSearchResultDepartment](docs/DepartmentSearchResultDepartment.md)
@@ -402,6 +408,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NcaaFinancialReportStatusCollection](docs/NcaaFinancialReportStatusCollection.md)
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
+- [Note](docs/Note.md)
 - [PerformanceChartCoach](docs/PerformanceChartCoach.md)
 - [PerformanceChartData](docs/PerformanceChartData.md)
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)
@@ -446,6 +453,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateFavoritesCategoryRequest](docs/UpdateFavoritesCategoryRequest.md)
 - [UpdateGamePostSearchRequest](docs/UpdateGamePostSearchRequest.md)
 - [UpdateGamePostSearchRequestGamePost](docs/UpdateGamePostSearchRequestGamePost.md)
+- [UpdateNoteRequest](docs/UpdateNoteRequest.md)
 - [User](docs/User.md)
 - [UserActivitySummary](docs/UserActivitySummary.md)
 - [UserActivitySummaryCollection](docs/UserActivitySummaryCollection.md)

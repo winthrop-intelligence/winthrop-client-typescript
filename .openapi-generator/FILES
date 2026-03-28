@@ -75,6 +75,7 @@ docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
 docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
+docs/CreateNoteRequest.md
 docs/Deal.md
 docs/DealCollection.md
 docs/DealDetail.md
@@ -86,6 +87,7 @@ docs/DealStatusCollection.md
 docs/DefaultApi.md
 docs/DeleteFavorite200Response.md
 docs/DeleteGamePostSearch200Response.md
+docs/DeleteNote200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
 docs/DepartmentSearchResultDepartment.md
@@ -157,6 +159,7 @@ docs/NcaaFinancialReportStatus.md
 docs/NcaaFinancialReportStatusCollection.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
+docs/Note.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
 docs/PerformanceChartRecord.md
@@ -203,6 +206,7 @@ docs/UpdateFavoriteRequest.md
 docs/UpdateFavoritesCategoryRequest.md
 docs/UpdateGamePostSearchRequest.md
 docs/UpdateGamePostSearchRequestGamePost.md
+docs/UpdateNoteRequest.md
 docs/User.md
 docs/UserActivitySummary.md
 docs/UserActivitySummaryCollection.md
@@ -301,6 +305,7 @@ src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
 src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
+src/models/CreateNoteRequest.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
 src/models/DealDetail.ts
@@ -311,6 +316,7 @@ src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
 src/models/DeleteFavorite200Response.ts
 src/models/DeleteGamePostSearch200Response.ts
+src/models/DeleteNote200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
 src/models/DepartmentSearchResultDepartment.ts
@@ -379,6 +385,7 @@ src/models/NcaaFinancialReportStatus.ts
 src/models/NcaaFinancialReportStatusCollection.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
+src/models/Note.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
 src/models/PerformanceChartRecord.ts
@@ -423,6 +430,7 @@ src/models/UpdateFavoriteRequest.ts
 src/models/UpdateFavoritesCategoryRequest.ts
 src/models/UpdateGamePostSearchRequest.ts
 src/models/UpdateGamePostSearchRequestGamePost.ts
+src/models/UpdateNoteRequest.ts
 src/models/User.ts
 src/models/UserActivitySummary.ts
 src/models/UserActivitySummaryCollection.ts

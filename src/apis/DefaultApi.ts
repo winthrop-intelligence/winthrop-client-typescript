@@ -58,6 +58,7 @@ import type {
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
   CreateGamePostSearchRequest,
+  CreateNoteRequest,
   Deal,
   DealCollection,
   DealSearchResultCollection,
@@ -65,6 +66,7 @@ import type {
   DealStatusCollection,
   DeleteFavorite200Response,
   DeleteGamePostSearch200Response,
+  DeleteNote200Response,
   DepartmentSearchResultCollection,
   Division,
   DivisionCollection,
@@ -99,6 +101,7 @@ import type {
   NcaaFinancialReportStatus,
   NcaaFinancialReportStatusCollection,
   NewsFeed,
+  Note,
   Position,
   PositionCollection,
   RawContract,
@@ -122,6 +125,7 @@ import type {
   UpdateFavoriteRequest,
   UpdateFavoritesCategoryRequest,
   UpdateGamePostSearchRequest,
+  UpdateNoteRequest,
   User,
   UserActivitySummary,
   UserActivitySummaryCollection,
@@ -219,6 +223,8 @@ import {
     CreateFavoritesCategoryRequestToJSON,
     CreateGamePostSearchRequestFromJSON,
     CreateGamePostSearchRequestToJSON,
+    CreateNoteRequestFromJSON,
+    CreateNoteRequestToJSON,
     DealFromJSON,
     DealToJSON,
     DealCollectionFromJSON,
@@ -233,6 +239,8 @@ import {
     DeleteFavorite200ResponseToJSON,
     DeleteGamePostSearch200ResponseFromJSON,
     DeleteGamePostSearch200ResponseToJSON,
+    DeleteNote200ResponseFromJSON,
+    DeleteNote200ResponseToJSON,
     DepartmentSearchResultCollectionFromJSON,
     DepartmentSearchResultCollectionToJSON,
     DivisionFromJSON,
@@ -301,6 +309,8 @@ import {
     NcaaFinancialReportStatusCollectionToJSON,
     NewsFeedFromJSON,
     NewsFeedToJSON,
+    NoteFromJSON,
+    NoteToJSON,
     PositionFromJSON,
     PositionToJSON,
     PositionCollectionFromJSON,
@@ -347,6 +357,8 @@ import {
     UpdateFavoritesCategoryRequestToJSON,
     UpdateGamePostSearchRequestFromJSON,
     UpdateGamePostSearchRequestToJSON,
+    UpdateNoteRequestFromJSON,
+    UpdateNoteRequestToJSON,
     UserFromJSON,
     UserToJSON,
     UserActivitySummaryFromJSON,
@@ -441,6 +453,10 @@ export interface DefaultApiCreateJobPostRequest {
     jobPost?: JobPost;
 }
 
+export interface DefaultApiCreateNoteOperationRequest {
+    createNoteRequest: CreateNoteRequest;
+}
+
 export interface DefaultApiCreatePositionRequest {
     position: Position;
 }
@@ -487,6 +503,10 @@ export interface DefaultApiDeleteGamePostSearchRequest {
 
 export interface DefaultApiDeleteJobPostRequest {
     jobPostId: number;
+}
+
+export interface DefaultApiDeleteNoteRequest {
+    id: number;
 }
 
 export interface DefaultApiDeletePositionRequest {
@@ -854,6 +874,11 @@ export interface DefaultApiGetNewsFeedRequest {
     newsFeedId: number;
 }
 
+export interface DefaultApiGetNoteRequest {
+    notableType: string;
+    notableId: number;
+}
+
 export interface DefaultApiGetPositionRequest {
     positionId: number;
 }
@@ -1119,6 +1144,11 @@ export interface DefaultApiUpdateGamePostSearchOperationRequest {
 export interface DefaultApiUpdateJobPostRequest {
     jobPostId: number;
     jobPost?: JobPost;
+}
+
+export interface DefaultApiUpdateNoteOperationRequest {
+    id: number;
+    updateNoteRequest: UpdateNoteRequest;
 }
 
 export interface DefaultApiUpdatePositionRequest {
@@ -1999,6 +2029,54 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a note for the current user on a notable object
+     */
+    async createNoteRaw(requestParameters: DefaultApiCreateNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Note>> {
+        if (requestParameters['createNoteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createNoteRequest',
+                'Required parameter "createNoteRequest" was null or undefined when calling createNote().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/notes`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateNoteRequestToJSON(requestParameters['createNoteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NoteFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a note for the current user on a notable object
+     */
+    async createNote(requestParameters: DefaultApiCreateNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Note> {
+        const response = await this.createNoteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Create a position. If season_id is omitted, a season will be created (or reused) when school_id, sport_id, and year are provided.
      */
     async createPositionRaw(requestParameters: DefaultApiCreatePositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Position>> {
@@ -2543,6 +2621,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteJobPost(requestParameters: DefaultApiDeleteJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteJobPostRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Delete a note
+     */
+    async deleteNoteRaw(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling deleteNote().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/notes/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a note
+     */
+    async deleteNote(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+        const response = await this.deleteNoteRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -6362,6 +6486,66 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve the current user\'s note for a given notable object. Returns null if no note exists.
+     */
+    async getNoteRaw(requestParameters: DefaultApiGetNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Note>> {
+        if (requestParameters['notableType'] == null) {
+            throw new runtime.RequiredError(
+                'notableType',
+                'Required parameter "notableType" was null or undefined when calling getNote().'
+            );
+        }
+
+        if (requestParameters['notableId'] == null) {
+            throw new runtime.RequiredError(
+                'notableId',
+                'Required parameter "notableId" was null or undefined when calling getNote().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['notableType'] != null) {
+            queryParameters['notable_type'] = requestParameters['notableType'];
+        }
+
+        if (requestParameters['notableId'] != null) {
+            queryParameters['notable_id'] = requestParameters['notableId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/notes`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NoteFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve the current user\'s note for a given notable object. Returns null if no note exists.
+     */
+    async getNote(requestParameters: DefaultApiGetNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Note> {
+        const response = await this.getNoteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve a single position
      */
     async getPositionRaw(requestParameters: DefaultApiGetPositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Position>> {
@@ -9073,6 +9257,62 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateJobPost(requestParameters: DefaultApiUpdateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
         const response = await this.updateJobPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a note\'s content
+     */
+    async updateNoteRaw(requestParameters: DefaultApiUpdateNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Note>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling updateNote().'
+            );
+        }
+
+        if (requestParameters['updateNoteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateNoteRequest',
+                'Required parameter "updateNoteRequest" was null or undefined when calling updateNote().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/notes/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateNoteRequestToJSON(requestParameters['updateNoteRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NoteFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a note\'s content
+     */
+    async updateNote(requestParameters: DefaultApiUpdateNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Note> {
+        const response = await this.updateNoteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
