@@ -55,6 +55,13 @@ import {
     AthleticProfileShowDealsInnerToJSON,
     AthleticProfileShowDealsInnerToJSONTyped,
 } from './AthleticProfileShowDealsInner';
+import type { AthleticProfileShowGamesInner } from './AthleticProfileShowGamesInner';
+import {
+    AthleticProfileShowGamesInnerFromJSON,
+    AthleticProfileShowGamesInnerFromJSONTyped,
+    AthleticProfileShowGamesInnerToJSON,
+    AthleticProfileShowGamesInnerToJSONTyped,
+} from './AthleticProfileShowGamesInner';
 import type { AthleticProfileShowPersonnelInner } from './AthleticProfileShowPersonnelInner';
 import {
     AthleticProfileShowPersonnelInnerFromJSON,
@@ -179,6 +186,12 @@ export interface AthleticProfileShow {
      * @memberof AthleticProfileShow
      */
     guaranteesTotalCount?: number;
+    /**
+     * 
+     * @type {Array<AthleticProfileShowGamesInner>}
+     * @memberof AthleticProfileShow
+     */
+    games?: Array<AthleticProfileShowGamesInner>;
 }
 
 /**
@@ -214,6 +227,7 @@ export function AthleticProfileShowFromJSONTyped(json: any, ignoreDiscriminator:
         'deals': json['deals'] == null ? undefined : ((json['deals'] as Array<any>).map(AthleticProfileShowDealsInnerFromJSON)),
         'guarantees': json['guarantees'] == null ? undefined : ((json['guarantees'] as Array<any>).map(AthleticProfileShowGuaranteesInnerFromJSON)),
         'guaranteesTotalCount': json['guarantees_total_count'] == null ? undefined : json['guarantees_total_count'],
+        'games': json['games'] == null ? undefined : ((json['games'] as Array<any>).map(AthleticProfileShowGamesInnerFromJSON)),
     };
 }
 
@@ -244,6 +258,7 @@ export function AthleticProfileShowToJSONTyped(value?: AthleticProfileShow | nul
         'deals': value['deals'] == null ? undefined : ((value['deals'] as Array<any>).map(AthleticProfileShowDealsInnerToJSON)),
         'guarantees': value['guarantees'] == null ? undefined : ((value['guarantees'] as Array<any>).map(AthleticProfileShowGuaranteesInnerToJSON)),
         'guarantees_total_count': value['guaranteesTotalCount'],
+        'games': value['games'] == null ? undefined : ((value['games'] as Array<any>).map(AthleticProfileShowGamesInnerToJSON)),
     };
 }
 

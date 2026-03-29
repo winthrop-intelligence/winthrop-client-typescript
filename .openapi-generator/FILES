@@ -12,6 +12,7 @@ docs/AthleticProfileShowDealsInner.md
 docs/AthleticProfileShowFinancialInfo.md
 docs/AthleticProfileShowFinancials.md
 docs/AthleticProfileShowFinancialsRevenuesInner.md
+docs/AthleticProfileShowGamesInner.md
 docs/AthleticProfileShowGuaranteesInner.md
 docs/AthleticProfileShowPermissions.md
 docs/AthleticProfileShowPersonnelInner.md
@@ -260,6 +261,7 @@ src/models/AthleticProfileShowDealsInner.ts
 src/models/AthleticProfileShowFinancialInfo.ts
 src/models/AthleticProfileShowFinancials.ts
 src/models/AthleticProfileShowFinancialsRevenuesInner.ts
+src/models/AthleticProfileShowGamesInner.ts
 src/models/AthleticProfileShowGuaranteesInner.ts
 src/models/AthleticProfileShowPermissions.ts
 src/models/AthleticProfileShowPersonnelInner.ts

@@ -268,6 +268,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AthleticProfileShowFinancialInfo](docs/AthleticProfileShowFinancialInfo.md)
 - [AthleticProfileShowFinancials](docs/AthleticProfileShowFinancials.md)
 - [AthleticProfileShowFinancialsRevenuesInner](docs/AthleticProfileShowFinancialsRevenuesInner.md)
+- [AthleticProfileShowGamesInner](docs/AthleticProfileShowGamesInner.md)
 - [AthleticProfileShowGuaranteesInner](docs/AthleticProfileShowGuaranteesInner.md)
 - [AthleticProfileShowPermissions](docs/AthleticProfileShowPermissions.md)
 - [AthleticProfileShowPersonnelInner](docs/AthleticProfileShowPersonnelInner.md)

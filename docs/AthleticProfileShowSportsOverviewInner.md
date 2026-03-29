@@ -12,6 +12,8 @@ Name | Type
 `headCoachName` | string
 `headCoachId` | number
 `record` | string
+`apr` | number
+`rpi` | number
 `headCoachCompCents` | number
 `asstPoolCents` | number
 
@@ -28,6 +30,8 @@ const example = {
   "headCoachName": null,
   "headCoachId": null,
   "record": null,
+  "apr": null,
+  "rpi": null,
   "headCoachCompCents": null,
   "asstPoolCents": null,
 } satisfies AthleticProfileShowSportsOverviewInner

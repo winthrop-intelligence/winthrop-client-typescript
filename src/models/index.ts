@@ -11,6 +11,7 @@ export * from './AthleticProfileShowDealsInner';
 export * from './AthleticProfileShowFinancialInfo';
 export * from './AthleticProfileShowFinancials';
 export * from './AthleticProfileShowFinancialsRevenuesInner';
+export * from './AthleticProfileShowGamesInner';
 export * from './AthleticProfileShowGuaranteesInner';
 export * from './AthleticProfileShowPermissions';
 export * from './AthleticProfileShowPersonnelInner';

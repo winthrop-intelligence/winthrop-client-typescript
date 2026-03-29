@@ -60,6 +60,18 @@ export interface AthleticProfileShowSportsOverviewInner {
      * @type {number}
      * @memberof AthleticProfileShowSportsOverviewInner
      */
+    apr?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof AthleticProfileShowSportsOverviewInner
+     */
+    rpi?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof AthleticProfileShowSportsOverviewInner
+     */
     headCoachCompCents?: number | null;
     /**
      * 
@@ -92,6 +104,8 @@ export function AthleticProfileShowSportsOverviewInnerFromJSONTyped(json: any, i
         'headCoachName': json['head_coach_name'] == null ? undefined : json['head_coach_name'],
         'headCoachId': json['head_coach_id'] == null ? undefined : json['head_coach_id'],
         'record': json['record'] == null ? undefined : json['record'],
+        'apr': json['apr'] == null ? undefined : json['apr'],
+        'rpi': json['rpi'] == null ? undefined : json['rpi'],
         'headCoachCompCents': json['head_coach_comp_cents'] == null ? undefined : json['head_coach_comp_cents'],
         'asstPoolCents': json['asst_pool_cents'] == null ? undefined : json['asst_pool_cents'],
     };
@@ -114,6 +128,8 @@ export function AthleticProfileShowSportsOverviewInnerToJSONTyped(value?: Athlet
         'head_coach_name': value['headCoachName'],
         'head_coach_id': value['headCoachId'],
         'record': value['record'],
+        'apr': value['apr'],
+        'rpi': value['rpi'],
         'head_coach_comp_cents': value['headCoachCompCents'],
         'asst_pool_cents': value['asstPoolCents'],
     };

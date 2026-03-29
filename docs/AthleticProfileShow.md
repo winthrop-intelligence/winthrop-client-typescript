@@ -22,6 +22,7 @@ Name | Type
 `deals` | [Array&lt;AthleticProfileShowDealsInner&gt;](AthleticProfileShowDealsInner.md)
 `guarantees` | [Array&lt;AthleticProfileShowGuaranteesInner&gt;](AthleticProfileShowGuaranteesInner.md)
 `guaranteesTotalCount` | number
+`games` | [Array&lt;AthleticProfileShowGamesInner&gt;](AthleticProfileShowGamesInner.md)
 
 ## Example
 
@@ -46,6 +47,7 @@ const example = {
   "deals": null,
   "guarantees": null,
   "guaranteesTotalCount": null,
+  "games": null,
 } satisfies AthleticProfileShow
 
 console.log(example)
