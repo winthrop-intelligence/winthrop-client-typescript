@@ -264,6 +264,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AsstCoachEntry](docs/AsstCoachEntry.md)
 - [AsstCoachSchool](docs/AsstCoachSchool.md)
 - [AthleticProfileShow](docs/AthleticProfileShow.md)
+- [AthleticProfileShowContactsInner](docs/AthleticProfileShowContactsInner.md)
 - [AthleticProfileShowDealsInner](docs/AthleticProfileShowDealsInner.md)
 - [AthleticProfileShowFinancialInfo](docs/AthleticProfileShowFinancialInfo.md)
 - [AthleticProfileShowFinancials](docs/AthleticProfileShowFinancials.md)

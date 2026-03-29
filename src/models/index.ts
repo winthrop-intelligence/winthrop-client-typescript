@@ -7,6 +7,7 @@ export * from './AdministratorSearchResultCollection';
 export * from './AsstCoachEntry';
 export * from './AsstCoachSchool';
 export * from './AthleticProfileShow';
+export * from './AthleticProfileShowContactsInner';
 export * from './AthleticProfileShowDealsInner';
 export * from './AthleticProfileShowFinancialInfo';
 export * from './AthleticProfileShowFinancials';

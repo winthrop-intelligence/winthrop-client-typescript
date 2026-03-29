@@ -8,6 +8,7 @@ docs/AdministratorSearchResultCollection.md
 docs/AsstCoachEntry.md
 docs/AsstCoachSchool.md
 docs/AthleticProfileShow.md
+docs/AthleticProfileShowContactsInner.md
 docs/AthleticProfileShowDealsInner.md
 docs/AthleticProfileShowFinancialInfo.md
 docs/AthleticProfileShowFinancials.md
@@ -257,6 +258,7 @@ src/models/AdministratorSearchResultCollection.ts
 src/models/AsstCoachEntry.ts
 src/models/AsstCoachSchool.ts
 src/models/AthleticProfileShow.ts
+src/models/AthleticProfileShowContactsInner.ts
 src/models/AthleticProfileShowDealsInner.ts
 src/models/AthleticProfileShowFinancialInfo.ts
 src/models/AthleticProfileShowFinancials.ts
