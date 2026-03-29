@@ -11,6 +11,7 @@ Name | Type
 `sportKey` | string
 `sportName` | string
 `year` | number
+`currentSeasonYear` | number
 `tabSports` | [Array&lt;AthleticProfileShowTabSportsInner&gt;](AthleticProfileShowTabSportsInner.md)
 `nonRevenueSports` | [Array&lt;AthleticProfileShowTabSportsInner&gt;](AthleticProfileShowTabSportsInner.md)
 `permissions` | [AthleticProfileShowPermissions](AthleticProfileShowPermissions.md)
@@ -37,6 +38,7 @@ const example = {
   "sportKey": null,
   "sportName": null,
   "year": null,
+  "currentSeasonYear": null,
   "tabSports": null,
   "nonRevenueSports": null,
   "permissions": null,

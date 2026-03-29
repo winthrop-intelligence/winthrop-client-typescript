@@ -129,6 +129,12 @@ export interface AthleticProfileShow {
     year?: number;
     /**
      * 
+     * @type {number}
+     * @memberof AthleticProfileShow
+     */
+    currentSeasonYear?: number;
+    /**
+     * 
      * @type {Array<AthleticProfileShowTabSportsInner>}
      * @memberof AthleticProfileShow
      */
@@ -229,6 +235,7 @@ export function AthleticProfileShowFromJSONTyped(json: any, ignoreDiscriminator:
         'sportKey': json['sport_key'] == null ? undefined : json['sport_key'],
         'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
         'year': json['year'] == null ? undefined : json['year'],
+        'currentSeasonYear': json['current_season_year'] == null ? undefined : json['current_season_year'],
         'tabSports': json['tab_sports'] == null ? undefined : ((json['tab_sports'] as Array<any>).map(AthleticProfileShowTabSportsInnerFromJSON)),
         'nonRevenueSports': json['non_revenue_sports'] == null ? undefined : ((json['non_revenue_sports'] as Array<any>).map(AthleticProfileShowTabSportsInnerFromJSON)),
         'permissions': json['permissions'] == null ? undefined : AthleticProfileShowPermissionsFromJSON(json['permissions']),
@@ -261,6 +268,7 @@ export function AthleticProfileShowToJSONTyped(value?: AthleticProfileShow | nul
         'sport_key': value['sportKey'],
         'sport_name': value['sportName'],
         'year': value['year'],
+        'current_season_year': value['currentSeasonYear'],
         'tab_sports': value['tabSports'] == null ? undefined : ((value['tabSports'] as Array<any>).map(AthleticProfileShowTabSportsInnerToJSON)),
         'non_revenue_sports': value['nonRevenueSports'] == null ? undefined : ((value['nonRevenueSports'] as Array<any>).map(AthleticProfileShowTabSportsInnerToJSON)),
         'permissions': AthleticProfileShowPermissionsToJSON(value['permissions']),
