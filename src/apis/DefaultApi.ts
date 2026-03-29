@@ -18,6 +18,7 @@ import type {
   Administrator,
   AdministratorCollection,
   AdministratorSearchResultCollection,
+  AthleticProfileShow,
   AuditedFinancialReportStatus,
   AuditedFinancialReportStatusCollection,
   AverageCompensation,
@@ -145,6 +146,8 @@ import {
     AdministratorCollectionToJSON,
     AdministratorSearchResultCollectionFromJSON,
     AdministratorSearchResultCollectionToJSON,
+    AthleticProfileShowFromJSON,
+    AthleticProfileShowToJSON,
     AuditedFinancialReportStatusFromJSON,
     AuditedFinancialReportStatusToJSON,
     AuditedFinancialReportStatusCollectionFromJSON,
@@ -543,6 +546,12 @@ export interface DefaultApiGetAdministratorsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+}
+
+export interface DefaultApiGetAthleticProfileSearchRequest {
+    athleticProfileSearchId: number;
+    sport?: string;
+    year?: number;
 }
 
 export interface DefaultApiGetAuditedFinancialReportStatusRequest {
@@ -2972,6 +2981,60 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getAdministrators(requestParameters: DefaultApiGetAdministratorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdministratorCollection> {
         const response = await this.getAdministratorsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get school athletic profile with overview data
+     */
+    async getAthleticProfileSearchRaw(requestParameters: DefaultApiGetAthleticProfileSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AthleticProfileShow>> {
+        if (requestParameters['athleticProfileSearchId'] == null) {
+            throw new runtime.RequiredError(
+                'athleticProfileSearchId',
+                'Required parameter "athleticProfileSearchId" was null or undefined when calling getAthleticProfileSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['sport'] != null) {
+            queryParameters['sport'] = requestParameters['sport'];
+        }
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/athletic_profile_searches/{athleticProfileSearchId}`;
+        urlPath = urlPath.replace(`{${"athleticProfileSearchId"}}`, encodeURIComponent(String(requestParameters['athleticProfileSearchId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AthleticProfileShowFromJSON(jsonValue));
+    }
+
+    /**
+     * Get school athletic profile with overview data
+     */
+    async getAthleticProfileSearch(requestParameters: DefaultApiGetAthleticProfileSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AthleticProfileShow> {
+        const response = await this.getAthleticProfileSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

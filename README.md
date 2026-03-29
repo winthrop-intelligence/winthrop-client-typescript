@@ -97,6 +97,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
 *DefaultApi* | [**getAdministratorSearches**](docs/DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches | 
 *DefaultApi* | [**getAdministrators**](docs/DefaultApi.md#getadministrators) | **GET** /api/v1/administrators | 
+*DefaultApi* | [**getAthleticProfileSearch**](docs/DefaultApi.md#getathleticprofilesearch) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId} | 
 *DefaultApi* | [**getAuditedFinancialReportStatus**](docs/DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} | 
 *DefaultApi* | [**getAuditedFinancialReportStatuses**](docs/DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses | 
 *DefaultApi* | [**getCashflow**](docs/DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} | 
@@ -262,6 +263,17 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdministratorSearchResultCollection](docs/AdministratorSearchResultCollection.md)
 - [AsstCoachEntry](docs/AsstCoachEntry.md)
 - [AsstCoachSchool](docs/AsstCoachSchool.md)
+- [AthleticProfileShow](docs/AthleticProfileShow.md)
+- [AthleticProfileShowDealsInner](docs/AthleticProfileShowDealsInner.md)
+- [AthleticProfileShowFinancialInfo](docs/AthleticProfileShowFinancialInfo.md)
+- [AthleticProfileShowFinancials](docs/AthleticProfileShowFinancials.md)
+- [AthleticProfileShowFinancialsRevenuesInner](docs/AthleticProfileShowFinancialsRevenuesInner.md)
+- [AthleticProfileShowGuaranteesInner](docs/AthleticProfileShowGuaranteesInner.md)
+- [AthleticProfileShowPermissions](docs/AthleticProfileShowPermissions.md)
+- [AthleticProfileShowPersonnelInner](docs/AthleticProfileShowPersonnelInner.md)
+- [AthleticProfileShowSchool](docs/AthleticProfileShowSchool.md)
+- [AthleticProfileShowSportsOverviewInner](docs/AthleticProfileShowSportsOverviewInner.md)
+- [AthleticProfileShowTabSportsInner](docs/AthleticProfileShowTabSportsInner.md)
 - [AuditedFinancialReportStatus](docs/AuditedFinancialReportStatus.md)
 - [AuditedFinancialReportStatusCollection](docs/AuditedFinancialReportStatusCollection.md)
 - [Avatar](docs/Avatar.md)
