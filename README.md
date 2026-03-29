@@ -178,6 +178,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getRawContracts**](docs/DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts | 
 *DefaultApi* | [**getRequestedItem**](docs/DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**getRequestedItems**](docs/DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items | 
+*DefaultApi* | [**getRevenueSearch**](docs/DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} | 
+*DefaultApi* | [**getRevenueSearches**](docs/DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches | 
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
 *DefaultApi* | [**getSchoolGroup**](docs/DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} | 
@@ -427,7 +429,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
+- [SchoolFinancialDetail](docs/SchoolFinancialDetail.md)
+- [SchoolFinancialDetailGroup](docs/SchoolFinancialDetailGroup.md)
+- [SchoolFinancialDetailSibling](docs/SchoolFinancialDetailSibling.md)
+- [SchoolFinancialDetailSport](docs/SchoolFinancialDetailSport.md)
+- [SchoolFinancialGroup](docs/SchoolFinancialGroup.md)
+- [SchoolFinancialSummary](docs/SchoolFinancialSummary.md)
 - [SchoolGroupShow](docs/SchoolGroupShow.md)
+- [SchoolInfo](docs/SchoolInfo.md)
 - [SchoolNoComp](docs/SchoolNoComp.md)
 - [SchoolNoSeason](docs/SchoolNoSeason.md)
 - [Scraper](docs/Scraper.md)

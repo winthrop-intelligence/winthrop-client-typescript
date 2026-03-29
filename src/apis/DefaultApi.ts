@@ -110,6 +110,8 @@ import type {
   RequestedItemCollection,
   School,
   SchoolCollection,
+  SchoolFinancialDetail,
+  SchoolFinancialSummary,
   SchoolGroupShow,
   Season,
   SeasonCollection,
@@ -327,6 +329,10 @@ import {
     SchoolToJSON,
     SchoolCollectionFromJSON,
     SchoolCollectionToJSON,
+    SchoolFinancialDetailFromJSON,
+    SchoolFinancialDetailToJSON,
+    SchoolFinancialSummaryFromJSON,
+    SchoolFinancialSummaryToJSON,
     SchoolGroupShowFromJSON,
     SchoolGroupShowToJSON,
     SeasonFromJSON,
@@ -907,6 +913,17 @@ export interface DefaultApiGetRequestedItemsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+}
+
+export interface DefaultApiGetRevenueSearchRequest {
+    revenueSearchId: number;
+    schoolId: number;
+    year?: number;
+}
+
+export interface DefaultApiGetRevenueSearchesRequest {
+    schoolId: number;
+    year?: number;
 }
 
 export interface DefaultApiGetSchoolRequest {
@@ -6830,6 +6847,120 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getRequestedItems(requestParameters: DefaultApiGetRequestedItemsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItemCollection> {
         const response = await this.getRequestedItemsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get revenue/expense line item detail with sport breakdown
+     */
+    async getRevenueSearchRaw(requestParameters: DefaultApiGetRevenueSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolFinancialDetail>> {
+        if (requestParameters['revenueSearchId'] == null) {
+            throw new runtime.RequiredError(
+                'revenueSearchId',
+                'Required parameter "revenueSearchId" was null or undefined when calling getRevenueSearch().'
+            );
+        }
+
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getRevenueSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['schoolId'] != null) {
+            queryParameters['school_id'] = requestParameters['schoolId'];
+        }
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/revenue_searches/{revenueSearchId}`;
+        urlPath = urlPath.replace(`{${"revenueSearchId"}}`, encodeURIComponent(String(requestParameters['revenueSearchId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolFinancialDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Get revenue/expense line item detail with sport breakdown
+     */
+    async getRevenueSearch(requestParameters: DefaultApiGetRevenueSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolFinancialDetail> {
+        const response = await this.getRevenueSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get school financial summary with revenue/expense breakdown by sport
+     */
+    async getRevenueSearchesRaw(requestParameters: DefaultApiGetRevenueSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolFinancialSummary>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getRevenueSearches().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['schoolId'] != null) {
+            queryParameters['school_id'] = requestParameters['schoolId'];
+        }
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/revenue_searches`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolFinancialSummaryFromJSON(jsonValue));
+    }
+
+    /**
+     * Get school financial summary with revenue/expense breakdown by sport
+     */
+    async getRevenueSearches(requestParameters: DefaultApiGetRevenueSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolFinancialSummary> {
+        const response = await this.getRevenueSearchesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

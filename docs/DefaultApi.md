@@ -120,6 +120,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
+| [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
+| [**getRevenueSearches**](DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
@@ -9056,6 +9058,165 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Requested items were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRevenueSearch
+
+> SchoolFinancialDetail getRevenueSearch(revenueSearchId, schoolId, year)
+
+
+
+Get revenue/expense line item detail with sport breakdown
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRevenueSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    revenueSearchId: 56,
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies GetRevenueSearchRequest;
+
+  try {
+    const data = await api.getRevenueSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **revenueSearchId** | `number` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolFinancialDetail**](SchoolFinancialDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Financial line item detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRevenueSearches
+
+> SchoolFinancialSummary getRevenueSearches(schoolId, year)
+
+
+
+Get school financial summary with revenue/expense breakdown by sport
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRevenueSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies GetRevenueSearchesRequest;
+
+  try {
+    const data = await api.getRevenueSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolFinancialSummary**](SchoolFinancialSummary.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School financial summary |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
