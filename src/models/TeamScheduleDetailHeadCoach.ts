@@ -31,6 +31,12 @@ export interface TeamScheduleDetailHeadCoach {
      * @memberof TeamScheduleDetailHeadCoach
      */
     name?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamScheduleDetailHeadCoach
+     */
+    photoUrl?: string | null;
 }
 
 /**
@@ -52,6 +58,7 @@ export function TeamScheduleDetailHeadCoachFromJSONTyped(json: any, ignoreDiscri
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
+        'photoUrl': json['photo_url'] == null ? undefined : json['photo_url'],
     };
 }
 
@@ -68,6 +75,7 @@ export function TeamScheduleDetailHeadCoachToJSONTyped(value?: TeamScheduleDetai
         
         'id': value['id'],
         'name': value['name'],
+        'photo_url': value['photoUrl'],
     };
 }
 

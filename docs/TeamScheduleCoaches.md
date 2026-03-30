@@ -9,7 +9,7 @@ Name | Type
 `performanceYear` | number
 `performanceYears` | Array&lt;number&gt;
 `coaches` | [Array&lt;TeamScheduleCoachesCoachesInner&gt;](TeamScheduleCoachesCoachesInner.md)
-`headCoaches` | Array&lt;Array&lt;GetFavoritesCategories200ResponseInner&gt;&gt;
+`headCoaches` | Array&lt;Array&lt;TeamScheduleCoachesHeadCoachesInnerInner&gt;&gt;
 `seasons` | [Array&lt;TeamScheduleCoachesSeasonsInner&gt;](TeamScheduleCoachesSeasonsInner.md)
 
 ## Example

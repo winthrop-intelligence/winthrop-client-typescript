@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { GetFavoritesCategories200ResponseInner } from './GetFavoritesCategories200ResponseInner';
-import {
-    GetFavoritesCategories200ResponseInnerFromJSON,
-    GetFavoritesCategories200ResponseInnerFromJSONTyped,
-    GetFavoritesCategories200ResponseInnerToJSON,
-    GetFavoritesCategories200ResponseInnerToJSONTyped,
-} from './GetFavoritesCategories200ResponseInner';
 import type { TeamScheduleCoachesSeasonsInner } from './TeamScheduleCoachesSeasonsInner';
 import {
     TeamScheduleCoachesSeasonsInnerFromJSON,
@@ -27,6 +20,13 @@ import {
     TeamScheduleCoachesSeasonsInnerToJSON,
     TeamScheduleCoachesSeasonsInnerToJSONTyped,
 } from './TeamScheduleCoachesSeasonsInner';
+import type { TeamScheduleCoachesHeadCoachesInnerInner } from './TeamScheduleCoachesHeadCoachesInnerInner';
+import {
+    TeamScheduleCoachesHeadCoachesInnerInnerFromJSON,
+    TeamScheduleCoachesHeadCoachesInnerInnerFromJSONTyped,
+    TeamScheduleCoachesHeadCoachesInnerInnerToJSON,
+    TeamScheduleCoachesHeadCoachesInnerInnerToJSONTyped,
+} from './TeamScheduleCoachesHeadCoachesInnerInner';
 import type { TeamScheduleCoachesCoachesInner } from './TeamScheduleCoachesCoachesInner';
 import {
     TeamScheduleCoachesCoachesInnerFromJSON,
@@ -61,10 +61,10 @@ export interface TeamScheduleCoaches {
     coaches?: Array<TeamScheduleCoachesCoachesInner>;
     /**
      * 
-     * @type {Array<Array<GetFavoritesCategories200ResponseInner>>}
+     * @type {Array<Array<TeamScheduleCoachesHeadCoachesInnerInner>>}
      * @memberof TeamScheduleCoaches
      */
-    headCoaches?: Array<Array<GetFavoritesCategories200ResponseInner>>;
+    headCoaches?: Array<Array<TeamScheduleCoachesHeadCoachesInnerInner>>;
     /**
      * 
      * @type {Array<TeamScheduleCoachesSeasonsInner>}

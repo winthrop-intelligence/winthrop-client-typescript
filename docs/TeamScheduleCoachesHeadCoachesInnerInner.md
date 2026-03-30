@@ -1,5 +1,5 @@
 
-# TeamScheduleDetailHeadCoach
+# TeamScheduleCoachesHeadCoachesInnerInner
 
 
 ## Properties
@@ -8,19 +8,17 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`photoUrl` | string
 
 ## Example
 
 ```typescript
-import type { TeamScheduleDetailHeadCoach } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { TeamScheduleCoachesHeadCoachesInnerInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
   "name": null,
-  "photoUrl": null,
-} satisfies TeamScheduleDetailHeadCoach
+} satisfies TeamScheduleCoachesHeadCoachesInnerInner
 
 console.log(example)
 
@@ -29,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleDetailHeadCoach
+const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleCoachesHeadCoachesInnerInner
 console.log(exampleParsed)
 ```
 
