@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
+`photoUrl` | string
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { TeamScheduleCoachesHeadCoachesInnerInner } from '@winthrop-intelli
 const example = {
   "id": null,
   "name": null,
+  "photoUrl": null,
 } satisfies TeamScheduleCoachesHeadCoachesInnerInner
 
 console.log(example)

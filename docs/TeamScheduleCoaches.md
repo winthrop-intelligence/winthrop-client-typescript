@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `performanceYear` | number
 `performanceYears` | Array&lt;number&gt;
+`sportName` | string
 `coaches` | [Array&lt;TeamScheduleCoachesCoachesInner&gt;](TeamScheduleCoachesCoachesInner.md)
 `headCoaches` | Array&lt;Array&lt;TeamScheduleCoachesHeadCoachesInnerInner&gt;&gt;
 `seasons` | [Array&lt;TeamScheduleCoachesSeasonsInner&gt;](TeamScheduleCoachesSeasonsInner.md)
@@ -21,6 +22,7 @@ import type { TeamScheduleCoaches } from '@winthrop-intelligence/winthrop-client
 const example = {
   "performanceYear": null,
   "performanceYears": null,
+  "sportName": null,
   "coaches": null,
   "headCoaches": null,
   "seasons": null,

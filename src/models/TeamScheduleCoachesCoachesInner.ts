@@ -55,6 +55,18 @@ export interface TeamScheduleCoachesCoachesInner {
      * @memberof TeamScheduleCoachesCoachesInner
      */
     photoUrl?: string | null;
+    /**
+     * Compensation label (e.g. 'Hourly')
+     * @type {string}
+     * @memberof TeamScheduleCoachesCoachesInner
+     */
+    compensation?: string | null;
+    /**
+     * Total compensation in cents
+     * @type {number}
+     * @memberof TeamScheduleCoachesCoachesInner
+     */
+    compensationCents?: number | null;
 }
 
 /**
@@ -80,6 +92,8 @@ export function TeamScheduleCoachesCoachesInnerFromJSONTyped(json: any, ignoreDi
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'photoUrl': json['photo_url'] == null ? undefined : json['photo_url'],
+        'compensation': json['compensation'] == null ? undefined : json['compensation'],
+        'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
     };
 }
 
@@ -100,6 +114,8 @@ export function TeamScheduleCoachesCoachesInnerToJSONTyped(value?: TeamScheduleC
         'email': value['email'],
         'phone': value['phone'],
         'photo_url': value['photoUrl'],
+        'compensation': value['compensation'],
+        'compensation_cents': value['compensationCents'],
     };
 }
 

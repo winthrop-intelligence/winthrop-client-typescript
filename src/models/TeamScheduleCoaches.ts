@@ -55,6 +55,12 @@ export interface TeamScheduleCoaches {
     performanceYears?: Array<number>;
     /**
      * 
+     * @type {string}
+     * @memberof TeamScheduleCoaches
+     */
+    sportName?: string | null;
+    /**
+     * 
      * @type {Array<TeamScheduleCoachesCoachesInner>}
      * @memberof TeamScheduleCoaches
      */
@@ -92,6 +98,7 @@ export function TeamScheduleCoachesFromJSONTyped(json: any, ignoreDiscriminator:
         
         'performanceYear': json['performance_year'] == null ? undefined : json['performance_year'],
         'performanceYears': json['performance_years'] == null ? undefined : json['performance_years'],
+        'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
         'coaches': json['coaches'] == null ? undefined : ((json['coaches'] as Array<any>).map(TeamScheduleCoachesCoachesInnerFromJSON)),
         'headCoaches': json['head_coaches'] == null ? undefined : json['head_coaches'],
         'seasons': json['seasons'] == null ? undefined : ((json['seasons'] as Array<any>).map(TeamScheduleCoachesSeasonsInnerFromJSON)),
@@ -111,6 +118,7 @@ export function TeamScheduleCoachesToJSONTyped(value?: TeamScheduleCoaches | nul
         
         'performance_year': value['performanceYear'],
         'performance_years': value['performanceYears'],
+        'sport_name': value['sportName'],
         'coaches': value['coaches'] == null ? undefined : ((value['coaches'] as Array<any>).map(TeamScheduleCoachesCoachesInnerToJSON)),
         'head_coaches': value['headCoaches'],
         'seasons': value['seasons'] == null ? undefined : ((value['seasons'] as Array<any>).map(TeamScheduleCoachesSeasonsInnerToJSON)),

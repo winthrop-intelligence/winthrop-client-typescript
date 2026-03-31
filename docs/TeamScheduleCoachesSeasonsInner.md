@@ -14,6 +14,11 @@ Name | Type
 `recordStr` | string
 `conferenceRecord` | string
 `postseason` | string
+`homeRecord` | string
+`homeWinPercent` | number
+`sosRanking` | number
+`offensiveEfficiency` | number
+`defensiveEfficiency` | number
 
 ## Example
 
@@ -30,6 +35,11 @@ const example = {
   "recordStr": null,
   "conferenceRecord": null,
   "postseason": null,
+  "homeRecord": null,
+  "homeWinPercent": null,
+  "sosRanking": null,
+  "offensiveEfficiency": null,
+  "defensiveEfficiency": null,
 } satisfies TeamScheduleCoachesSeasonsInner
 
 console.log(example)

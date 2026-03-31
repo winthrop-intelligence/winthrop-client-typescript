@@ -20,6 +20,12 @@ import { mapValues } from '../runtime';
  */
 export interface TeamScheduleContact {
     /**
+     * Coach ID for linking to coach profile
+     * @type {number}
+     * @memberof TeamScheduleContact
+     */
+    coachId?: number | null;
+    /**
      * Full name of the contact
      * @type {string}
      * @memberof TeamScheduleContact
@@ -43,6 +49,12 @@ export interface TeamScheduleContact {
      * @memberof TeamScheduleContact
      */
     phone?: string | null;
+    /**
+     * URL to coach avatar image (small cropped variant)
+     * @type {string}
+     * @memberof TeamScheduleContact
+     */
+    avatarUrl?: string | null;
 }
 
 /**
@@ -62,10 +74,12 @@ export function TeamScheduleContactFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
+        'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'title': json['title'] == null ? undefined : json['title'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'avatarUrl': json['avatar_url'] == null ? undefined : json['avatar_url'],
     };
 }
 
@@ -80,10 +94,12 @@ export function TeamScheduleContactToJSONTyped(value?: TeamScheduleContact | nul
 
     return {
         
+        'coach_id': value['coachId'],
         'name': value['name'],
         'title': value['title'],
         'email': value['email'],
         'phone': value['phone'],
+        'avatar_url': value['avatarUrl'],
     };
 }
 

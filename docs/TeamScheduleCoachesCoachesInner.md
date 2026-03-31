@@ -12,6 +12,8 @@ Name | Type
 `email` | string
 `phone` | string
 `photoUrl` | string
+`compensation` | string
+`compensationCents` | number
 
 ## Example
 
@@ -26,6 +28,8 @@ const example = {
   "email": null,
   "phone": null,
   "photoUrl": null,
+  "compensation": null,
+  "compensationCents": null,
 } satisfies TeamScheduleCoachesCoachesInner
 
 console.log(example)

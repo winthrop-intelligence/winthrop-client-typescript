@@ -7,10 +7,12 @@ Scheduling contact for a school/sport
 
 Name | Type
 ------------ | -------------
+`coachId` | number
 `name` | string
 `title` | string
 `email` | string
 `phone` | string
+`avatarUrl` | string
 
 ## Example
 
@@ -19,10 +21,12 @@ import type { TeamScheduleContact } from '@winthrop-intelligence/winthrop-client
 
 // TODO: Update the object below with actual values
 const example = {
+  "coachId": null,
   "name": null,
   "title": null,
   "email": null,
   "phone": null,
+  "avatarUrl": null,
 } satisfies TeamScheduleContact
 
 console.log(example)

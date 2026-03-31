@@ -18,6 +18,8 @@ Name | Type
 `opponentAvgRpi` | number
 `inConference` | boolean
 `hasContract` | boolean
+`compensationCents` | number
+`gameContractId` | number
 `result` | string
 `score` | string
 `overtime` | number
@@ -41,6 +43,8 @@ const example = {
   "opponentAvgRpi": null,
   "inConference": null,
   "hasContract": null,
+  "compensationCents": null,
+  "gameContractId": null,
   "result": null,
   "score": null,
   "overtime": null,

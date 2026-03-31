@@ -67,6 +67,36 @@ export interface TeamScheduleCoachesSeasonsInner {
      * @memberof TeamScheduleCoachesSeasonsInner
      */
     postseason?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamScheduleCoachesSeasonsInner
+     */
+    homeRecord?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleCoachesSeasonsInner
+     */
+    homeWinPercent?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleCoachesSeasonsInner
+     */
+    sosRanking?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleCoachesSeasonsInner
+     */
+    offensiveEfficiency?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleCoachesSeasonsInner
+     */
+    defensiveEfficiency?: number | null;
 }
 
 /**
@@ -94,6 +124,11 @@ export function TeamScheduleCoachesSeasonsInnerFromJSONTyped(json: any, ignoreDi
         'recordStr': json['record_str'] == null ? undefined : json['record_str'],
         'conferenceRecord': json['conference_record'] == null ? undefined : json['conference_record'],
         'postseason': json['postseason'] == null ? undefined : json['postseason'],
+        'homeRecord': json['home_record'] == null ? undefined : json['home_record'],
+        'homeWinPercent': json['home_win_percent'] == null ? undefined : json['home_win_percent'],
+        'sosRanking': json['sos_ranking'] == null ? undefined : json['sos_ranking'],
+        'offensiveEfficiency': json['offensive_efficiency'] == null ? undefined : json['offensive_efficiency'],
+        'defensiveEfficiency': json['defensive_efficiency'] == null ? undefined : json['defensive_efficiency'],
     };
 }
 
@@ -116,6 +151,11 @@ export function TeamScheduleCoachesSeasonsInnerToJSONTyped(value?: TeamScheduleC
         'record_str': value['recordStr'],
         'conference_record': value['conferenceRecord'],
         'postseason': value['postseason'],
+        'home_record': value['homeRecord'],
+        'home_win_percent': value['homeWinPercent'],
+        'sos_ranking': value['sosRanking'],
+        'offensive_efficiency': value['offensiveEfficiency'],
+        'defensive_efficiency': value['defensiveEfficiency'],
     };
 }
 

@@ -93,6 +93,18 @@ export interface TeamScheduleScheduleGamesInner {
     hasContract?: boolean;
     /**
      * 
+     * @type {number}
+     * @memberof TeamScheduleScheduleGamesInner
+     */
+    compensationCents?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleScheduleGamesInner
+     */
+    gameContractId?: number | null;
+    /**
+     * 
      * @type {string}
      * @memberof TeamScheduleScheduleGamesInner
      */
@@ -161,6 +173,8 @@ export function TeamScheduleScheduleGamesInnerFromJSONTyped(json: any, ignoreDis
         'opponentAvgRpi': json['opponent_avg_rpi'] == null ? undefined : json['opponent_avg_rpi'],
         'inConference': json['in_conference'] == null ? undefined : json['in_conference'],
         'hasContract': json['has_contract'] == null ? undefined : json['has_contract'],
+        'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
+        'gameContractId': json['game_contract_id'] == null ? undefined : json['game_contract_id'],
         'result': json['result'] == null ? undefined : json['result'],
         'score': json['score'] == null ? undefined : json['score'],
         'overtime': json['overtime'] == null ? undefined : json['overtime'],
@@ -190,6 +204,8 @@ export function TeamScheduleScheduleGamesInnerToJSONTyped(value?: TeamScheduleSc
         'opponent_avg_rpi': value['opponentAvgRpi'],
         'in_conference': value['inConference'],
         'has_contract': value['hasContract'],
+        'compensation_cents': value['compensationCents'],
+        'game_contract_id': value['gameContractId'],
         'result': value['result'],
         'score': value['score'],
         'overtime': value['overtime'],

@@ -31,6 +31,12 @@ export interface TeamScheduleCoachesHeadCoachesInnerInner {
      * @memberof TeamScheduleCoachesHeadCoachesInnerInner
      */
     name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamScheduleCoachesHeadCoachesInnerInner
+     */
+    photoUrl?: string | null;
 }
 
 /**
@@ -52,6 +58,7 @@ export function TeamScheduleCoachesHeadCoachesInnerInnerFromJSONTyped(json: any,
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
+        'photoUrl': json['photo_url'] == null ? undefined : json['photo_url'],
     };
 }
 
@@ -68,6 +75,7 @@ export function TeamScheduleCoachesHeadCoachesInnerInnerToJSONTyped(value?: Team
         
         'id': value['id'],
         'name': value['name'],
+        'photo_url': value['photoUrl'],
     };
 }
 

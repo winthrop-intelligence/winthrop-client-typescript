@@ -1,7 +1,6 @@
 
 # GadSearchResult
 
-A single guarantee/game contract search result
 
 ## Properties
 
@@ -20,7 +19,6 @@ Name | Type
 `awaySchoolShortName` | string
 `awaySchoolLogoUrl` | string
 `gameType` | string
-`gameTypeShort` | string
 `compCents` | number
 `compTbd` | boolean
 `variable` | boolean
@@ -54,7 +52,6 @@ const example = {
   "awaySchoolShortName": null,
   "awaySchoolLogoUrl": null,
   "gameType": null,
-  "gameTypeShort": null,
   "compCents": null,
   "compTbd": null,
   "variable": null,
