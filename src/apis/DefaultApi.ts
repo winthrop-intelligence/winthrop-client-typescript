@@ -79,11 +79,13 @@ import type {
   FoiaLabelCollection,
   FoiaRequest,
   FoiaRequestCollection,
+  GadContractDetail,
   GadSearchResultCollection,
   Game,
   GameCollection,
   GameContract,
   GameContractCollection,
+  GameContractSeriesResponse,
   GamePost,
   GamePostCollection,
   GamePostDetail,
@@ -110,12 +112,14 @@ import type {
   PositionCollection,
   RawContract,
   RawContractCollection,
+  RegenerateRawContractPdf200Response,
   RequestedItem,
   RequestedItemCollection,
   School,
   SchoolCollection,
   SchoolFinancialDetail,
   SchoolFinancialSummary,
+  SchoolGameContractsResponse,
   SchoolGroupShow,
   Season,
   SeasonCollection,
@@ -136,6 +140,7 @@ import type {
   TeamScheduleSchedule,
   TeamScheduleSearchResultCollection,
   UnprocessableEntity,
+  UnstractRawContractPdfTextRequest,
   UpdateFavoriteRequest,
   UpdateFavoritesCategoryRequest,
   UpdateGamePostSearchRequest,
@@ -281,6 +286,8 @@ import {
     FoiaRequestToJSON,
     FoiaRequestCollectionFromJSON,
     FoiaRequestCollectionToJSON,
+    GadContractDetailFromJSON,
+    GadContractDetailToJSON,
     GadSearchResultCollectionFromJSON,
     GadSearchResultCollectionToJSON,
     GameFromJSON,
@@ -291,6 +298,8 @@ import {
     GameContractToJSON,
     GameContractCollectionFromJSON,
     GameContractCollectionToJSON,
+    GameContractSeriesResponseFromJSON,
+    GameContractSeriesResponseToJSON,
     GamePostFromJSON,
     GamePostToJSON,
     GamePostCollectionFromJSON,
@@ -343,6 +352,8 @@ import {
     RawContractToJSON,
     RawContractCollectionFromJSON,
     RawContractCollectionToJSON,
+    RegenerateRawContractPdf200ResponseFromJSON,
+    RegenerateRawContractPdf200ResponseToJSON,
     RequestedItemFromJSON,
     RequestedItemToJSON,
     RequestedItemCollectionFromJSON,
@@ -355,6 +366,8 @@ import {
     SchoolFinancialDetailToJSON,
     SchoolFinancialSummaryFromJSON,
     SchoolFinancialSummaryToJSON,
+    SchoolGameContractsResponseFromJSON,
+    SchoolGameContractsResponseToJSON,
     SchoolGroupShowFromJSON,
     SchoolGroupShowToJSON,
     SeasonFromJSON,
@@ -395,6 +408,8 @@ import {
     TeamScheduleSearchResultCollectionToJSON,
     UnprocessableEntityFromJSON,
     UnprocessableEntityToJSON,
+    UnstractRawContractPdfTextRequestFromJSON,
+    UnstractRawContractPdfTextRequestToJSON,
     UpdateFavoriteRequestFromJSON,
     UpdateFavoriteRequestToJSON,
     UpdateFavoritesCategoryRequestFromJSON,
@@ -547,6 +562,10 @@ export interface DefaultApiDeleteFoiaLabelRequest {
 
 export interface DefaultApiDeleteFoiaRequestRequest {
     foiaRequestId: number;
+}
+
+export interface DefaultApiDeleteGameContractRawContractRequest {
+    gameContractId: number;
 }
 
 export interface DefaultApiDeleteGamePostSearchRequest {
@@ -860,6 +879,10 @@ export interface DefaultApiGetFoiaRequestsRequest {
     q?: object;
 }
 
+export interface DefaultApiGetGadSearchDetailRequest {
+    id: number;
+}
+
 export interface DefaultApiGetGadSearchesRequest {
     page?: number;
     perPage?: number;
@@ -871,6 +894,10 @@ export interface DefaultApiGetGameRequest {
 }
 
 export interface DefaultApiGetGameContractRequest {
+    gameContractId: number;
+}
+
+export interface DefaultApiGetGameContractSeriesRequest {
     gameContractId: number;
 }
 
@@ -991,6 +1018,10 @@ export interface DefaultApiGetSchoolRequest {
 }
 
 export interface DefaultApiGetSchoolAlternateNamesRequest {
+    schoolId: number;
+}
+
+export interface DefaultApiGetSchoolGameContractsRequest {
     schoolId: number;
 }
 
@@ -1214,8 +1245,17 @@ export interface DefaultApiGetWireChangesRequest {
     qSportIdEq?: number;
 }
 
+export interface DefaultApiRegenerateRawContractPdfRequest {
+    rawContractId: number;
+}
+
 export interface DefaultApiSearchCoachesRequest {
     filters?: Filters;
+}
+
+export interface DefaultApiUnstractRawContractPdfTextOperationRequest {
+    rawContractId: number;
+    unstractRawContractPdfTextRequest?: UnstractRawContractPdfTextRequest;
 }
 
 export interface DefaultApiUpdateCashflowRequest {
@@ -1261,6 +1301,25 @@ export interface DefaultApiUpdateFoiaLabelRequest {
 export interface DefaultApiUpdateFoiaRequestRequest {
     foiaRequestId: number;
     foiaRequest: FoiaRequest;
+}
+
+export interface DefaultApiUpdateGameContractRequest {
+    gameContractId: number;
+    gameContractHomeSchoolId?: number | null;
+    gameContractAwaySchoolId?: number | null;
+    gameContractSportId?: number | null;
+    gameContractGameType?: string | null;
+    gameContractGameDate?: string | null;
+    gameContractGameDateTbd?: string | null;
+    gameContractOffSiteLocation?: string | null;
+    gameContractCompDollars?: string | null;
+    gameContractCompTbd?: string | null;
+    gameContractVariable?: string | null;
+    gameContractCancelFeeDollars?: string | null;
+    gameContractCancelled?: string | null;
+    gameContractVerified?: string | null;
+    gameContractSignedOn?: string | null;
+    rawContractFile?: Blob;
 }
 
 export interface DefaultApiUpdateGamePostSearchOperationRequest {
@@ -2713,6 +2772,51 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteFoiaRequest(requestParameters: DefaultApiDeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteFoiaRequestRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Delete the raw contract attached to a game contract
+     */
+    async deleteGameContractRawContractRaw(requestParameters: DefaultApiDeleteGameContractRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['gameContractId'] == null) {
+            throw new runtime.RequiredError(
+                'gameContractId',
+                'Required parameter "gameContractId" was null or undefined when calling deleteGameContractRawContract().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_contracts/{game_contractId}/delete_raw_contract`;
+        urlPath = urlPath.replace(`{${"game_contractId"}}`, encodeURIComponent(String(requestParameters['gameContractId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete the raw contract attached to a game contract
+     */
+    async deleteGameContractRawContract(requestParameters: DefaultApiDeleteGameContractRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteGameContractRawContractRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -6004,6 +6108,52 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve detailed game contract data for the GAD detail page
+     */
+    async getGadSearchDetailRaw(requestParameters: DefaultApiGetGadSearchDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GadContractDetail>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getGadSearchDetail().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/gad_searches/{id}/detail`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GadContractDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve detailed game contract data for the GAD detail page
+     */
+    async getGadSearchDetail(requestParameters: DefaultApiGetGadSearchDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GadContractDetail> {
+        const response = await this.getGadSearchDetailRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Search game contracts (GAD) with filtering and pagination
      */
     async getGadSearchesRaw(requestParameters: DefaultApiGetGadSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GadSearchResultCollection>> {
@@ -6142,6 +6292,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getGameContract(requestParameters: DefaultApiGetGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameContract> {
         const response = await this.getGameContractRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve the series of game contracts related to this contract
+     */
+    async getGameContractSeriesRaw(requestParameters: DefaultApiGetGameContractSeriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameContractSeriesResponse>> {
+        if (requestParameters['gameContractId'] == null) {
+            throw new runtime.RequiredError(
+                'gameContractId',
+                'Required parameter "gameContractId" was null or undefined when calling getGameContractSeries().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/game_contracts/{game_contractId}/series`;
+        urlPath = urlPath.replace(`{${"game_contractId"}}`, encodeURIComponent(String(requestParameters['gameContractId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameContractSeriesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve the series of game contracts related to this contract
+     */
+    async getGameContractSeries(requestParameters: DefaultApiGetGameContractSeriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameContractSeriesResponse> {
+        const response = await this.getGameContractSeriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -7366,6 +7562,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolAlternateNames(requestParameters: DefaultApiGetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolAlternateNames200Response> {
         const response = await this.getSchoolAlternateNamesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve game contracts for a school grouped by sport
+     */
+    async getSchoolGameContractsRaw(requestParameters: DefaultApiGetSchoolGameContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolGameContractsResponse>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getSchoolGameContracts().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/{schoolId}/game_contracts`;
+        urlPath = urlPath.replace(`{${"schoolId"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolGameContractsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve game contracts for a school grouped by sport
+     */
+    async getSchoolGameContracts(requestParameters: DefaultApiGetSchoolGameContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolGameContractsResponse> {
+        const response = await this.getSchoolGameContractsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -9546,6 +9788,52 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Regenerate the PDF for a raw contract
+     */
+    async regenerateRawContractPdfRaw(requestParameters: DefaultApiRegenerateRawContractPdfRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegenerateRawContractPdf200Response>> {
+        if (requestParameters['rawContractId'] == null) {
+            throw new runtime.RequiredError(
+                'rawContractId',
+                'Required parameter "rawContractId" was null or undefined when calling regenerateRawContractPdf().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/raw_contracts/{raw_contractId}/regenerate_pdf`;
+        urlPath = urlPath.replace(`{${"raw_contractId"}}`, encodeURIComponent(String(requestParameters['rawContractId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RegenerateRawContractPdf200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Regenerate the PDF for a raw contract
+     */
+    async regenerateRawContractPdf(requestParameters: DefaultApiRegenerateRawContractPdfRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RegenerateRawContractPdf200Response> {
+        const response = await this.regenerateRawContractPdfRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Search Coaches by priority_ids
      */
     async searchCoachesRaw(requestParameters: DefaultApiSearchCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
@@ -9583,6 +9871,55 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async searchCoaches(requestParameters: DefaultApiSearchCoachesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
         const response = await this.searchCoachesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Extract text from a raw contract PDF
+     */
+    async unstractRawContractPdfTextRaw(requestParameters: DefaultApiUnstractRawContractPdfTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegenerateRawContractPdf200Response>> {
+        if (requestParameters['rawContractId'] == null) {
+            throw new runtime.RequiredError(
+                'rawContractId',
+                'Required parameter "rawContractId" was null or undefined when calling unstractRawContractPdfText().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text`;
+        urlPath = urlPath.replace(`{${"raw_contractId"}}`, encodeURIComponent(String(requestParameters['rawContractId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UnstractRawContractPdfTextRequestToJSON(requestParameters['unstractRawContractPdfTextRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RegenerateRawContractPdf200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Extract text from a raw contract PDF
+     */
+    async unstractRawContractPdfText(requestParameters: DefaultApiUnstractRawContractPdfTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RegenerateRawContractPdf200Response> {
+        const response = await this.unstractRawContractPdfTextRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -10087,6 +10424,129 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateFoiaRequest(requestParameters: DefaultApiUpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.updateFoiaRequestRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a GameContract
+     */
+    async updateGameContractRaw(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+        if (requestParameters['gameContractId'] == null) {
+            throw new runtime.RequiredError(
+                'gameContractId',
+                'Required parameter "gameContractId" was null or undefined when calling updateGameContract().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['gameContractHomeSchoolId'] != null) {
+            formParams.append('game_contract[home_school_id]', requestParameters['gameContractHomeSchoolId'] as any);
+        }
+
+        if (requestParameters['gameContractAwaySchoolId'] != null) {
+            formParams.append('game_contract[away_school_id]', requestParameters['gameContractAwaySchoolId'] as any);
+        }
+
+        if (requestParameters['gameContractSportId'] != null) {
+            formParams.append('game_contract[sport_id]', requestParameters['gameContractSportId'] as any);
+        }
+
+        if (requestParameters['gameContractGameType'] != null) {
+            formParams.append('game_contract[game_type]', requestParameters['gameContractGameType'] as any);
+        }
+
+        if (requestParameters['gameContractGameDate'] != null) {
+            formParams.append('game_contract[game_date]', requestParameters['gameContractGameDate'] as any);
+        }
+
+        if (requestParameters['gameContractGameDateTbd'] != null) {
+            formParams.append('game_contract[game_date_tbd]', requestParameters['gameContractGameDateTbd'] as any);
+        }
+
+        if (requestParameters['gameContractOffSiteLocation'] != null) {
+            formParams.append('game_contract[off_site_location]', requestParameters['gameContractOffSiteLocation'] as any);
+        }
+
+        if (requestParameters['gameContractCompDollars'] != null) {
+            formParams.append('game_contract[comp_dollars]', requestParameters['gameContractCompDollars'] as any);
+        }
+
+        if (requestParameters['gameContractCompTbd'] != null) {
+            formParams.append('game_contract[comp_tbd]', requestParameters['gameContractCompTbd'] as any);
+        }
+
+        if (requestParameters['gameContractVariable'] != null) {
+            formParams.append('game_contract[variable]', requestParameters['gameContractVariable'] as any);
+        }
+
+        if (requestParameters['gameContractCancelFeeDollars'] != null) {
+            formParams.append('game_contract[cancel_fee_dollars]', requestParameters['gameContractCancelFeeDollars'] as any);
+        }
+
+        if (requestParameters['gameContractCancelled'] != null) {
+            formParams.append('game_contract[cancelled]', requestParameters['gameContractCancelled'] as any);
+        }
+
+        if (requestParameters['gameContractVerified'] != null) {
+            formParams.append('game_contract[verified]', requestParameters['gameContractVerified'] as any);
+        }
+
+        if (requestParameters['gameContractSignedOn'] != null) {
+            formParams.append('game_contract[signed_on]', requestParameters['gameContractSignedOn'] as any);
+        }
+
+        if (requestParameters['rawContractFile'] != null) {
+            formParams.append('raw_contract_file', requestParameters['rawContractFile'] as any);
+        }
+
+
+        let urlPath = `/api/v1/game_contracts/{game_contractId}`;
+        urlPath = urlPath.replace(`{${"game_contractId"}}`, encodeURIComponent(String(requestParameters['gameContractId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a GameContract
+     */
+    async updateGameContract(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+        const response = await this.updateGameContractRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
