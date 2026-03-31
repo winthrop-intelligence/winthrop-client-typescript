@@ -239,6 +239,13 @@ docs/TeamScheduleFavoriteEntry.md
 docs/TeamScheduleGamePosts.md
 docs/TeamScheduleGamePostsGamePostsInner.md
 docs/TeamScheduleNote.md
+docs/TeamScheduleOverlap.md
+docs/TeamScheduleOverlapTeamGamesInner.md
+docs/TeamSchedulePlayerData.md
+docs/TeamSchedulePlayerDataRecruitsInner.md
+docs/TeamSchedulePlayerDataReturningPct.md
+docs/TeamSchedulePlayerDataReturningPlayersInner.md
+docs/TeamSchedulePlayerDataTransfersInner.md
 docs/TeamScheduleRecentContract.md
 docs/TeamScheduleSchedule.md
 docs/TeamScheduleScheduleGamesInner.md
@@ -511,6 +518,13 @@ src/models/TeamScheduleFavoriteEntry.ts
 src/models/TeamScheduleGamePosts.ts
 src/models/TeamScheduleGamePostsGamePostsInner.ts
 src/models/TeamScheduleNote.ts
+src/models/TeamScheduleOverlap.ts
+src/models/TeamScheduleOverlapTeamGamesInner.ts
+src/models/TeamSchedulePlayerData.ts
+src/models/TeamSchedulePlayerDataRecruitsInner.ts
+src/models/TeamSchedulePlayerDataReturningPct.ts
+src/models/TeamSchedulePlayerDataReturningPlayersInner.ts
+src/models/TeamSchedulePlayerDataTransfersInner.ts
 src/models/TeamScheduleRecentContract.ts
 src/models/TeamScheduleSchedule.ts
 src/models/TeamScheduleScheduleGamesInner.ts

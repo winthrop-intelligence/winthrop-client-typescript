@@ -131,6 +131,8 @@ import type {
   TeamScheduleDetail,
   TeamScheduleGamePosts,
   TeamScheduleNote,
+  TeamScheduleOverlap,
+  TeamSchedulePlayerData,
   TeamScheduleSchedule,
   TeamScheduleSearchResultCollection,
   UnprocessableEntity,
@@ -383,6 +385,10 @@ import {
     TeamScheduleGamePostsToJSON,
     TeamScheduleNoteFromJSON,
     TeamScheduleNoteToJSON,
+    TeamScheduleOverlapFromJSON,
+    TeamScheduleOverlapToJSON,
+    TeamSchedulePlayerDataFromJSON,
+    TeamSchedulePlayerDataToJSON,
     TeamScheduleScheduleFromJSON,
     TeamScheduleScheduleToJSON,
     TeamScheduleSearchResultCollectionFromJSON,
@@ -1126,10 +1132,20 @@ export interface DefaultApiGetTeamScheduleDetailGamePostsRequest {
     schoolId: number;
 }
 
+export interface DefaultApiGetTeamScheduleDetailPlayerDataRequest {
+    sportName: string;
+    schoolId: number;
+}
+
 export interface DefaultApiGetTeamScheduleDetailScheduleRequest {
     sportName: string;
     schoolId: number;
     year?: number;
+}
+
+export interface DefaultApiGetTeamScheduleDetailScheduleOverlapRequest {
+    sportName: string;
+    schoolId: number;
 }
 
 export interface DefaultApiGetTeamScheduleFavoritesRequest {
@@ -8768,6 +8784,60 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get player data for a team (Men\'s Basketball only).
+     */
+    async getTeamScheduleDetailPlayerDataRaw(requestParameters: DefaultApiGetTeamScheduleDetailPlayerDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamSchedulePlayerData>> {
+        if (requestParameters['sportName'] == null) {
+            throw new runtime.RequiredError(
+                'sportName',
+                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailPlayerData().'
+            );
+        }
+
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailPlayerData().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/player_data`;
+        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
+        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TeamSchedulePlayerDataFromJSON(jsonValue));
+    }
+
+    /**
+     * Get player data for a team (Men\'s Basketball only).
+     */
+    async getTeamScheduleDetailPlayerData(requestParameters: DefaultApiGetTeamScheduleDetailPlayerDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamSchedulePlayerData> {
+        const response = await this.getTeamScheduleDetailPlayerDataRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get the full game schedule list for a team and season year.
      */
     async getTeamScheduleDetailScheduleRaw(requestParameters: DefaultApiGetTeamScheduleDetailScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleSchedule>> {
@@ -8822,6 +8892,60 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getTeamScheduleDetailSchedule(requestParameters: DefaultApiGetTeamScheduleDetailScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleSchedule> {
         const response = await this.getTeamScheduleDetailScheduleRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Check schedule overlap between a team and the current user\'s team.
+     */
+    async getTeamScheduleDetailScheduleOverlapRaw(requestParameters: DefaultApiGetTeamScheduleDetailScheduleOverlapRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleOverlap>> {
+        if (requestParameters['sportName'] == null) {
+            throw new runtime.RequiredError(
+                'sportName',
+                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailScheduleOverlap().'
+            );
+        }
+
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailScheduleOverlap().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/schedule_overlap`;
+        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
+        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleOverlapFromJSON(jsonValue));
+    }
+
+    /**
+     * Check schedule overlap between a team and the current user\'s team.
+     */
+    async getTeamScheduleDetailScheduleOverlap(requestParameters: DefaultApiGetTeamScheduleDetailScheduleOverlapRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleOverlap> {
+        const response = await this.getTeamScheduleDetailScheduleOverlapRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
