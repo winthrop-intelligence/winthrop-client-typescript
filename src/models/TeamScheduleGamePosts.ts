@@ -29,6 +29,12 @@ import {
 export interface TeamScheduleGamePosts {
     /**
      * 
+     * @type {boolean}
+     * @memberof TeamScheduleGamePosts
+     */
+    isOwnSchool?: boolean;
+    /**
+     * 
      * @type {Array<TeamScheduleGamePostsGamePostsInner>}
      * @memberof TeamScheduleGamePosts
      */
@@ -52,6 +58,7 @@ export function TeamScheduleGamePostsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
+        'isOwnSchool': json['is_own_school'] == null ? undefined : json['is_own_school'],
         'gamePosts': json['game_posts'] == null ? undefined : ((json['game_posts'] as Array<any>).map(TeamScheduleGamePostsGamePostsInnerFromJSON)),
     };
 }
@@ -67,6 +74,7 @@ export function TeamScheduleGamePostsToJSONTyped(value?: TeamScheduleGamePosts |
 
     return {
         
+        'is_own_school': value['isOwnSchool'],
         'game_posts': value['gamePosts'] == null ? undefined : ((value['gamePosts'] as Array<any>).map(TeamScheduleGamePostsGamePostsInnerToJSON)),
     };
 }

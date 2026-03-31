@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`gamePostId` | number
 `displayDate` | string
 `gameTypes` | string
 `description` | string
@@ -16,6 +17,8 @@ Name | Type
 `stateName` | string
 `createdAt` | string
 `active` | boolean
+`distance` | number
+`canManage` | boolean
 
 ## Example
 
@@ -25,6 +28,7 @@ import type { TeamScheduleGamePostsGamePostsInner } from '@winthrop-intelligence
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
+  "gamePostId": null,
   "displayDate": null,
   "gameTypes": null,
   "description": null,
@@ -34,6 +38,8 @@ const example = {
   "stateName": null,
   "createdAt": null,
   "active": null,
+  "distance": null,
+  "canManage": null,
 } satisfies TeamScheduleGamePostsGamePostsInner
 
 console.log(example)

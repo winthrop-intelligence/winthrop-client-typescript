@@ -27,6 +27,12 @@ export interface TeamScheduleGamePostsGamePostsInner {
     id?: number;
     /**
      * 
+     * @type {number}
+     * @memberof TeamScheduleGamePostsGamePostsInner
+     */
+    gamePostId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof TeamScheduleGamePostsGamePostsInner
      */
@@ -79,6 +85,18 @@ export interface TeamScheduleGamePostsGamePostsInner {
      * @memberof TeamScheduleGamePostsGamePostsInner
      */
     active?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleGamePostsGamePostsInner
+     */
+    distance?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TeamScheduleGamePostsGamePostsInner
+     */
+    canManage?: boolean;
 }
 
 /**
@@ -99,6 +117,7 @@ export function TeamScheduleGamePostsGamePostsInnerFromJSONTyped(json: any, igno
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
+        'gamePostId': json['game_post_id'] == null ? undefined : json['game_post_id'],
         'displayDate': json['display_date'] == null ? undefined : json['display_date'],
         'gameTypes': json['game_types'] == null ? undefined : json['game_types'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -108,6 +127,8 @@ export function TeamScheduleGamePostsGamePostsInnerFromJSONTyped(json: any, igno
         'stateName': json['state_name'] == null ? undefined : json['state_name'],
         'createdAt': json['created_at'] == null ? undefined : json['created_at'],
         'active': json['active'] == null ? undefined : json['active'],
+        'distance': json['distance'] == null ? undefined : json['distance'],
+        'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
     };
 }
 
@@ -123,6 +144,7 @@ export function TeamScheduleGamePostsGamePostsInnerToJSONTyped(value?: TeamSched
     return {
         
         'id': value['id'],
+        'game_post_id': value['gamePostId'],
         'display_date': value['displayDate'],
         'game_types': value['gameTypes'],
         'description': value['description'],
@@ -132,6 +154,8 @@ export function TeamScheduleGamePostsGamePostsInnerToJSONTyped(value?: TeamSched
         'state_name': value['stateName'],
         'created_at': value['createdAt'],
         'active': value['active'],
+        'distance': value['distance'],
+        'can_manage': value['canManage'],
     };
 }
 

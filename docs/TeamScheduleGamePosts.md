@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`isOwnSchool` | boolean
 `gamePosts` | [Array&lt;TeamScheduleGamePostsGamePostsInner&gt;](TeamScheduleGamePostsGamePostsInner.md)
 
 ## Example
@@ -15,6 +16,7 @@ import type { TeamScheduleGamePosts } from '@winthrop-intelligence/winthrop-clie
 
 // TODO: Update the object below with actual values
 const example = {
+  "isOwnSchool": null,
   "gamePosts": null,
 } satisfies TeamScheduleGamePosts
 
