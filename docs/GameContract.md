@@ -27,14 +27,6 @@ Name | Type
 `gameType` | string
 `offSiteLocation` | string
 `verified` | boolean
-`homeSchoolName` | string
-`awaySchoolName` | string
-`sportName` | string
-`belongsToSeries` | boolean
-`attendance` | number
-`signedOnFormatted` | string
-`fileUrl` | string
-`hasFile` | boolean
 
 ## Example
 
@@ -64,14 +56,6 @@ const example = {
   "gameType": null,
   "offSiteLocation": null,
   "verified": null,
-  "homeSchoolName": null,
-  "awaySchoolName": null,
-  "sportName": null,
-  "belongsToSeries": null,
-  "attendance": null,
-  "signedOnFormatted": null,
-  "fileUrl": null,
-  "hasFile": null,
 } satisfies GameContract
 
 console.log(example)
