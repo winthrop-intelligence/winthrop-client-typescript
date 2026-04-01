@@ -78,6 +78,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
 *DefaultApi* | [**createNote**](docs/DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes | 
+*DefaultApi* | [**createPasswordReset**](docs/DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset | 
 *DefaultApi* | [**createPosition**](docs/DefaultApi.md#createposition) | **POST** /api/v1/positions | 
 *DefaultApi* | [**createRequestedItem**](docs/DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
@@ -113,7 +114,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getCoachSearchCoworkerHistory**](docs/DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history | 
 *DefaultApi* | [**getCoachSearchOverview**](docs/DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview | 
 *DefaultApi* | [**getCoachSearchRecord**](docs/DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record | 
-*DefaultApi* | [**getCoachSearchRecruiting**](docs/DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting | 
 *DefaultApi* | [**getCoachSearchVideos**](docs/DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos | 
 *DefaultApi* | [**getCoachSearches**](docs/DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches | 
 *DefaultApi* | [**getCoaches**](docs/DefaultApi.md#getcoaches) | **GET** /api/v1/coaches | 
@@ -224,6 +224,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
+*DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
 *DefaultApi* | [**updateCashflow**](docs/DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**updateCoach**](docs/DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} | 
@@ -238,10 +239,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateGamePostSearch**](docs/DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} | 
 *DefaultApi* | [**updateJobPost**](docs/DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post
 *DefaultApi* | [**updateNote**](docs/DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} | 
+*DefaultApi* | [**updatePasswordReset**](docs/DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset | 
 *DefaultApi* | [**updatePosition**](docs/DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**updateRequestedItem**](docs/DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
+*DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
 *DefaultApi* | [**verifyUserIntercollegiateAccess**](docs/DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access | 
 *DossierApi* | [**universityDossierReportDossierWinadIdGet**](docs/DossierApi.md#universitydossierreportdossierwinadidget) | **GET** /dossier/{winad_id}/ | University Dossier Report
 *IntercollegiateApi* | [**createNewsFeeds**](docs/IntercollegiateApi.md#createnewsfeeds) | **POST** /wi_jobs/news_feeds | 
@@ -317,10 +320,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachProfile](docs/CoachProfile.md)
 - [CoachProfileOverview](docs/CoachProfileOverview.md)
 - [CoachRecordTab](docs/CoachRecordTab.md)
-- [CoachRecruitingTab](docs/CoachRecruitingTab.md)
-- [CoachRecruitingTabConferenceComparison](docs/CoachRecruitingTabConferenceComparison.md)
-- [CoachRecruitingTabMetadata](docs/CoachRecruitingTabMetadata.md)
-- [CoachRecruitingTabRecruitingBudgets](docs/CoachRecruitingTabRecruitingBudgets.md)
 - [CoachSearchResult](docs/CoachSearchResult.md)
 - [CoachSearchResultCollection](docs/CoachSearchResultCollection.md)
 - [CoachSnapshot](docs/CoachSnapshot.md)
@@ -357,6 +356,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateGamePostSearchRequest](docs/CreateGamePostSearchRequest.md)
 - [CreateGamePostSearchRequestGamePost](docs/CreateGamePostSearchRequestGamePost.md)
 - [CreateNoteRequest](docs/CreateNoteRequest.md)
+- [CreatePasswordReset200Response](docs/CreatePasswordReset200Response.md)
+- [CreatePasswordResetRequest](docs/CreatePasswordResetRequest.md)
+- [CreatePasswordResetRequestUser](docs/CreatePasswordResetRequestUser.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
 - [DealDetail](docs/DealDetail.md)
@@ -454,10 +456,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RawContract](docs/RawContract.md)
 - [RawContractCollection](docs/RawContractCollection.md)
 - [RecordPositionEntry](docs/RecordPositionEntry.md)
-- [RecruitingBudgetEntry](docs/RecruitingBudgetEntry.md)
-- [RecruitingChartData](docs/RecruitingChartData.md)
-- [RecruitingConferenceEntry](docs/RecruitingConferenceEntry.md)
-- [RecruitingPositionEntry](docs/RecruitingPositionEntry.md)
 - [RegenerateRawContractPdf200Response](docs/RegenerateRawContractPdf200Response.md)
 - [RequestedItem](docs/RequestedItem.md)
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
@@ -483,6 +481,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScraperArgDef](docs/ScraperArgDef.md)
 - [Season](docs/Season.md)
 - [SeasonCollection](docs/SeasonCollection.md)
+- [SendOtpCode422Response](docs/SendOtpCode422Response.md)
 - [SnapshotIncomeReport](docs/SnapshotIncomeReport.md)
 - [Sport](docs/Sport.md)
 - [SportCollection](docs/SportCollection.md)
@@ -504,6 +503,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateGamePostSearchRequest](docs/UpdateGamePostSearchRequest.md)
 - [UpdateGamePostSearchRequestGamePost](docs/UpdateGamePostSearchRequestGamePost.md)
 - [UpdateNoteRequest](docs/UpdateNoteRequest.md)
+- [UpdatePasswordReset200Response](docs/UpdatePasswordReset200Response.md)
+- [UpdatePasswordReset422Response](docs/UpdatePasswordReset422Response.md)
+- [UpdatePasswordResetRequest](docs/UpdatePasswordResetRequest.md)
+- [UpdatePasswordResetRequestUser](docs/UpdatePasswordResetRequestUser.md)
 - [User](docs/User.md)
 - [UserActivitySummary](docs/UserActivitySummary.md)
 - [UserActivitySummaryCollection](docs/UserActivitySummaryCollection.md)
@@ -514,6 +517,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ValidationError](docs/ValidationError.md)
 - [Vendor](docs/Vendor.md)
 - [VendorCollection](docs/VendorCollection.md)
+- [VerifyOtpCode200Response](docs/VerifyOtpCode200Response.md)
+- [VerifyOtpCodeRequest](docs/VerifyOtpCodeRequest.md)
 - [VerifyUserIntercollegiateAccess200Response](docs/VerifyUserIntercollegiateAccess200Response.md)
 - [VideoEntry](docs/VideoEntry.md)
 - [WireChange](docs/WireChange.md)

@@ -31,6 +31,7 @@ Name | Type
 `scheduleSports` | [Array&lt;UserScheduleSportsInner&gt;](UserScheduleSportsInner.md)
 `schoolCity` | string
 `schoolState` | string
+`otpRequired` | boolean
 
 ## Example
 
@@ -64,6 +65,7 @@ const example = {
   "scheduleSports": null,
   "schoolCity": null,
   "schoolState": null,
+  "otpRequired": null,
 } satisfies User
 
 console.log(example)

@@ -20,6 +20,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
 | [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
+| [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
@@ -55,7 +56,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachSearchCoworkerHistory**](DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history |  |
 | [**getCoachSearchOverview**](DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview |  |
 | [**getCoachSearchRecord**](DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record |  |
-| [**getCoachSearchRecruiting**](DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting |  |
 | [**getCoachSearchVideos**](DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos |  |
 | [**getCoachSearches**](DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches |  |
 | [**getCoaches**](DefaultApi.md#getcoaches) | **GET** /api/v1/coaches |  |
@@ -166,6 +166,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
+| [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
 | [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
 | [**updateCoach**](DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} |  |
@@ -180,10 +181,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateGamePostSearch**](DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
 | [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
+| [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
+| [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
 
 
@@ -1425,6 +1428,74 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **201** | Note created |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createPasswordReset
+
+> CreatePasswordReset200Response createPasswordReset(createPasswordResetRequest)
+
+
+
+Send password reset instructions to the given email address
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreatePasswordResetOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // CreatePasswordResetRequest
+    createPasswordResetRequest: ...,
+  } satisfies CreatePasswordResetOperationRequest;
+
+  try {
+    const data = await api.createPasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createPasswordResetRequest** | [CreatePasswordResetRequest](CreatePasswordResetRequest.md) |  | |
+
+### Return type
+
+[**CreatePasswordReset200Response**](CreatePasswordReset200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Reset instructions sent successfully |  -  |
+| **422** | Email not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -4080,81 +4151,6 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Coach record tab data |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getCoachSearchRecruiting
-
-> CoachRecruitingTab getCoachSearchRecruiting(id)
-
-
-
-Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetCoachSearchRecruitingRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string | Coach ID or friendly slug
-    id: id_example,
-  } satisfies GetCoachSearchRecruitingRequest;
-
-  try {
-    const data = await api.getCoachSearchRecruiting(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
-
-### Return type
-
-[**CoachRecruitingTab**](CoachRecruitingTab.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Coach recruiting tab data |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
@@ -12637,6 +12633,73 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## sendOtpCode
+
+> CreatePasswordReset200Response sendOtpCode()
+
+
+
+Send an OTP verification code to the authenticated user\&#39;s email
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { SendOtpCodeRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.sendOtpCode();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CreatePasswordReset200Response**](CreatePasswordReset200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OTP code sent successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | OTP not required for this user |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## unstractRawContractPdfText
 
 > RegenerateRawContractPdf200Response unstractRawContractPdfText(rawContractId, unstractRawContractPdfTextRequest)
@@ -13772,6 +13835,74 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updatePasswordReset
+
+> UpdatePasswordReset200Response updatePasswordReset(updatePasswordResetRequest)
+
+
+
+Reset password using the token from the reset email
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdatePasswordResetOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // UpdatePasswordResetRequest
+    updatePasswordResetRequest: ...,
+  } satisfies UpdatePasswordResetOperationRequest;
+
+  try {
+    const data = await api.updatePasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updatePasswordResetRequest** | [UpdatePasswordResetRequest](UpdatePasswordResetRequest.md) |  | |
+
+### Return type
+
+[**UpdatePasswordReset200Response**](UpdatePasswordReset200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Password reset successfully |  -  |
+| **422** | Validation errors (invalid token, password mismatch, etc.) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updatePosition
 
 > Position updatePosition(positionId, position)
@@ -14071,6 +14202,81 @@ This endpoint does not need any parameter.
 | **200** | User was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## verifyOtpCode
+
+> VerifyOtpCode200Response verifyOtpCode(verifyOtpCodeRequest)
+
+
+
+Verify an OTP code for the authenticated user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { VerifyOtpCodeOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // VerifyOtpCodeRequest
+    verifyOtpCodeRequest: ...,
+  } satisfies VerifyOtpCodeOperationRequest;
+
+  try {
+    const data = await api.verifyOtpCode(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **verifyOtpCodeRequest** | [VerifyOtpCodeRequest](VerifyOtpCodeRequest.md) |  | |
+
+### Return type
+
+[**VerifyOtpCode200Response**](VerifyOtpCode200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OTP verified successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Invalid or expired OTP code |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

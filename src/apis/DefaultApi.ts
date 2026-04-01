@@ -35,7 +35,6 @@ import type {
   CoachProfile,
   CoachProfileOverview,
   CoachRecordTab,
-  CoachRecruitingTab,
   CoachSearchResultCollection,
   CoachVideosTab,
   ColiData,
@@ -61,6 +60,8 @@ import type {
   CreateFavoritesCategoryRequest,
   CreateGamePostSearchRequest,
   CreateNoteRequest,
+  CreatePasswordReset200Response,
+  CreatePasswordResetRequest,
   Deal,
   DealCollection,
   DealSearchResultCollection,
@@ -121,6 +122,7 @@ import type {
   SchoolGroupShow,
   Season,
   SeasonCollection,
+  SendOtpCode422Response,
   Sport,
   SportCollection,
   SportCompensationResponse,
@@ -135,6 +137,9 @@ import type {
   UpdateFavoritesCategoryRequest,
   UpdateGamePostSearchRequest,
   UpdateNoteRequest,
+  UpdatePasswordReset200Response,
+  UpdatePasswordReset422Response,
+  UpdatePasswordResetRequest,
   User,
   UserActivitySummary,
   UserActivitySummaryCollection,
@@ -143,6 +148,8 @@ import type {
   UserRequestCollection,
   Vendor,
   VendorCollection,
+  VerifyOtpCode200Response,
+  VerifyOtpCodeRequest,
   VerifyUserIntercollegiateAccess200Response,
 } from '../models/index';
 import {
@@ -186,8 +193,6 @@ import {
     CoachProfileOverviewToJSON,
     CoachRecordTabFromJSON,
     CoachRecordTabToJSON,
-    CoachRecruitingTabFromJSON,
-    CoachRecruitingTabToJSON,
     CoachSearchResultCollectionFromJSON,
     CoachSearchResultCollectionToJSON,
     CoachVideosTabFromJSON,
@@ -238,6 +243,10 @@ import {
     CreateGamePostSearchRequestToJSON,
     CreateNoteRequestFromJSON,
     CreateNoteRequestToJSON,
+    CreatePasswordReset200ResponseFromJSON,
+    CreatePasswordReset200ResponseToJSON,
+    CreatePasswordResetRequestFromJSON,
+    CreatePasswordResetRequestToJSON,
     DealFromJSON,
     DealToJSON,
     DealCollectionFromJSON,
@@ -358,6 +367,8 @@ import {
     SeasonToJSON,
     SeasonCollectionFromJSON,
     SeasonCollectionToJSON,
+    SendOtpCode422ResponseFromJSON,
+    SendOtpCode422ResponseToJSON,
     SportFromJSON,
     SportToJSON,
     SportCollectionFromJSON,
@@ -386,6 +397,12 @@ import {
     UpdateGamePostSearchRequestToJSON,
     UpdateNoteRequestFromJSON,
     UpdateNoteRequestToJSON,
+    UpdatePasswordReset200ResponseFromJSON,
+    UpdatePasswordReset200ResponseToJSON,
+    UpdatePasswordReset422ResponseFromJSON,
+    UpdatePasswordReset422ResponseToJSON,
+    UpdatePasswordResetRequestFromJSON,
+    UpdatePasswordResetRequestToJSON,
     UserFromJSON,
     UserToJSON,
     UserActivitySummaryFromJSON,
@@ -402,6 +419,10 @@ import {
     VendorToJSON,
     VendorCollectionFromJSON,
     VendorCollectionToJSON,
+    VerifyOtpCode200ResponseFromJSON,
+    VerifyOtpCode200ResponseToJSON,
+    VerifyOtpCodeRequestFromJSON,
+    VerifyOtpCodeRequestToJSON,
     VerifyUserIntercollegiateAccess200ResponseFromJSON,
     VerifyUserIntercollegiateAccess200ResponseToJSON,
 } from '../models/index';
@@ -482,6 +503,10 @@ export interface DefaultApiCreateJobPostRequest {
 
 export interface DefaultApiCreateNoteOperationRequest {
     createNoteRequest: CreateNoteRequest;
+}
+
+export interface DefaultApiCreatePasswordResetOperationRequest {
+    createPasswordResetRequest: CreatePasswordResetRequest;
 }
 
 export interface DefaultApiCreatePositionRequest {
@@ -633,10 +658,6 @@ export interface DefaultApiGetCoachSearchOverviewRequest {
 }
 
 export interface DefaultApiGetCoachSearchRecordRequest {
-    id: string;
-}
-
-export interface DefaultApiGetCoachSearchRecruitingRequest {
     id: string;
 }
 
@@ -1243,6 +1264,10 @@ export interface DefaultApiUpdateNoteOperationRequest {
     updateNoteRequest: UpdateNoteRequest;
 }
 
+export interface DefaultApiUpdatePasswordResetOperationRequest {
+    updatePasswordResetRequest: UpdatePasswordResetRequest;
+}
+
 export interface DefaultApiUpdatePositionRequest {
     positionId: number;
     position: Position;
@@ -1256,6 +1281,10 @@ export interface DefaultApiUpdateRequestedItemRequest {
 export interface DefaultApiUpdateSeasonRequest {
     seasonId: number;
     season: Season;
+}
+
+export interface DefaultApiVerifyOtpCodeOperationRequest {
+    verifyOtpCodeRequest: VerifyOtpCodeRequest;
 }
 
 export interface DefaultApiVerifyUserIntercollegiateAccessRequest {
@@ -2165,6 +2194,45 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async createNote(requestParameters: DefaultApiCreateNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Note> {
         const response = await this.createNoteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Send password reset instructions to the given email address
+     */
+    async createPasswordResetRaw(requestParameters: DefaultApiCreatePasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePasswordReset200Response>> {
+        if (requestParameters['createPasswordResetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createPasswordResetRequest',
+                'Required parameter "createPasswordResetRequest" was null or undefined when calling createPasswordReset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/v1/password_reset`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreatePasswordResetRequestToJSON(requestParameters['createPasswordResetRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreatePasswordReset200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Send password reset instructions to the given email address
+     */
+    async createPasswordReset(requestParameters: DefaultApiCreatePasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePasswordReset200Response> {
+        const response = await this.createPasswordResetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -3821,52 +3889,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getCoachSearchRecord(requestParameters: DefaultApiGetCoachSearchRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachRecordTab> {
         const response = await this.getCoachSearchRecordRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-     */
-    async getCoachSearchRecruitingRaw(requestParameters: DefaultApiGetCoachSearchRecruitingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachRecruitingTab>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling getCoachSearchRecruiting().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/coach_searches/{id}/recruiting`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoachRecruitingTabFromJSON(jsonValue));
-    }
-
-    /**
-     * Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-     */
-    async getCoachSearchRecruiting(requestParameters: DefaultApiGetCoachSearchRecruitingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachRecruitingTab> {
-        const response = await this.getCoachSearchRecruitingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -9192,6 +9214,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Send an OTP verification code to the authenticated user\'s email
+     */
+    async sendOtpCodeRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatePasswordReset200Response>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/otp/send_code`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreatePasswordReset200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Send an OTP verification code to the authenticated user\'s email
+     */
+    async sendOtpCode(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePasswordReset200Response> {
+        const response = await this.sendOtpCodeRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Extract text from a raw contract PDF
      */
     async unstractRawContractPdfTextRaw(requestParameters: DefaultApiUnstractRawContractPdfTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegenerateRawContractPdf200Response>> {
@@ -10024,6 +10084,45 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Reset password using the token from the reset email
+     */
+    async updatePasswordResetRaw(requestParameters: DefaultApiUpdatePasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdatePasswordReset200Response>> {
+        if (requestParameters['updatePasswordResetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updatePasswordResetRequest',
+                'Required parameter "updatePasswordResetRequest" was null or undefined when calling updatePasswordReset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/v1/password_reset`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdatePasswordResetRequestToJSON(requestParameters['updatePasswordResetRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdatePasswordReset200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Reset password using the token from the reset email
+     */
+    async updatePasswordReset(requestParameters: DefaultApiUpdatePasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdatePasswordReset200Response> {
+        const response = await this.updatePasswordResetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Update a position
      */
     async updatePositionRaw(requestParameters: DefaultApiUpdatePositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Position>> {
@@ -10226,6 +10325,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async userMe(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
         const response = await this.userMeRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Verify an OTP code for the authenticated user
+     */
+    async verifyOtpCodeRaw(requestParameters: DefaultApiVerifyOtpCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifyOtpCode200Response>> {
+        if (requestParameters['verifyOtpCodeRequest'] == null) {
+            throw new runtime.RequiredError(
+                'verifyOtpCodeRequest',
+                'Required parameter "verifyOtpCodeRequest" was null or undefined when calling verifyOtpCode().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/otp/verify`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VerifyOtpCodeRequestToJSON(requestParameters['verifyOtpCodeRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VerifyOtpCode200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Verify an OTP code for the authenticated user
+     */
+    async verifyOtpCode(requestParameters: DefaultApiVerifyOtpCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyOtpCode200Response> {
+        const response = await this.verifyOtpCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -184,6 +184,12 @@ export interface User {
      * @memberof User
      */
     schoolState?: string | null;
+    /**
+     * Whether the user must verify OTP to access the application
+     * @type {boolean}
+     * @memberof User
+     */
+    otpRequired?: boolean;
 }
 
 
@@ -241,6 +247,7 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'scheduleSports': json['schedule_sports'] == null ? undefined : ((json['schedule_sports'] as Array<any>).map(UserScheduleSportsInnerFromJSON)),
         'schoolCity': json['school_city'] == null ? undefined : json['school_city'],
         'schoolState': json['school_state'] == null ? undefined : json['school_state'],
+        'otpRequired': json['otp_required'] == null ? undefined : json['otp_required'],
     };
 }
 
@@ -280,6 +287,7 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'schedule_sports': value['scheduleSports'] == null ? undefined : ((value['scheduleSports'] as Array<any>).map(UserScheduleSportsInnerToJSON)),
         'school_city': value['schoolCity'],
         'school_state': value['schoolState'],
+        'otp_required': value['otpRequired'],
     };
 }
 

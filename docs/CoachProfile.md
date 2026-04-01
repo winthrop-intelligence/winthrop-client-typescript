@@ -33,7 +33,6 @@ Name | Type
 `canSeeCompensation` | boolean
 `canSeeVideos` | boolean
 `canSeeCoworkerHistory` | boolean
-`canSeeRecruiting` | boolean
 `isSportSpecific` | boolean
 
 ## Example
@@ -70,7 +69,6 @@ const example = {
   "canSeeCompensation": null,
   "canSeeVideos": null,
   "canSeeCoworkerHistory": null,
-  "canSeeRecruiting": null,
   "isSportSpecific": null,
 } satisfies CoachProfile
 
