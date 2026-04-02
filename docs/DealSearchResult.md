@@ -26,6 +26,7 @@ Name | Type
 `archived` | boolean
 `vendors` | [Array&lt;DealDetailVendor&gt;](DealDetailVendor.md)
 `dealDetail` | [DealDetail](DealDetail.md)
+`rawContractId` | number
 
 ## Example
 
@@ -54,6 +55,7 @@ const example = {
   "archived": null,
   "vendors": null,
   "dealDetail": null,
+  "rawContractId": null,
 } satisfies DealSearchResult
 
 console.log(example)

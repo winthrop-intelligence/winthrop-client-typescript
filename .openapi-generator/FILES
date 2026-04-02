@@ -194,7 +194,10 @@ docs/PredictBody.md
 docs/PredictFailure.md
 docs/PredictSuccess.md
 docs/RawContract.md
+docs/RawContractBackTo.md
 docs/RawContractCollection.md
+docs/RawContractDealInfo.md
+docs/RawContractDealInfoVendorsInner.md
 docs/RecordPositionEntry.md
 docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
@@ -496,7 +499,10 @@ src/models/PredictBody.ts
 src/models/PredictFailure.ts
 src/models/PredictSuccess.ts
 src/models/RawContract.ts
+src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts
+src/models/RawContractDealInfo.ts
+src/models/RawContractDealInfoVendorsInner.ts
 src/models/RecordPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
