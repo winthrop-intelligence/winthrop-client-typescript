@@ -154,12 +154,6 @@ export interface DealSearchResult {
      * @memberof DealSearchResult
      */
     dealDetail?: DealDetail;
-    /**
-     * 
-     * @type {number}
-     * @memberof DealSearchResult
-     */
-    rawContractId?: number | null;
 }
 
 /**
@@ -199,7 +193,6 @@ export function DealSearchResultFromJSONTyped(json: any, ignoreDiscriminator: bo
         'archived': json['archived'] == null ? undefined : json['archived'],
         'vendors': json['vendors'] == null ? undefined : ((json['vendors'] as Array<any>).map(DealDetailVendorFromJSON)),
         'dealDetail': json['deal_detail'] == null ? undefined : DealDetailFromJSON(json['deal_detail']),
-        'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
     };
 }
 
@@ -234,7 +227,6 @@ export function DealSearchResultToJSONTyped(value?: DealSearchResult | null, ign
         'archived': value['archived'],
         'vendors': value['vendors'] == null ? undefined : ((value['vendors'] as Array<any>).map(DealDetailVendorToJSON)),
         'deal_detail': DealDetailToJSON(value['dealDetail']),
-        'raw_contract_id': value['rawContractId'],
     };
 }
 

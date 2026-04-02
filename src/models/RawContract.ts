@@ -13,21 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { RawContractBackTo } from './RawContractBackTo';
-import {
-    RawContractBackToFromJSON,
-    RawContractBackToFromJSONTyped,
-    RawContractBackToToJSON,
-    RawContractBackToToJSONTyped,
-} from './RawContractBackTo';
-import type { RawContractDealInfo } from './RawContractDealInfo';
-import {
-    RawContractDealInfoFromJSON,
-    RawContractDealInfoFromJSONTyped,
-    RawContractDealInfoToJSON,
-    RawContractDealInfoToJSONTyped,
-} from './RawContractDealInfo';
-
 /**
  * 
  * @export
@@ -160,36 +145,6 @@ export interface RawContract {
      * @memberof RawContract
      */
     layoutPreservedPdfText?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawContract
-     */
-    fileUrl?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof RawContract
-     */
-    hasFile?: boolean;
-    /**
-     * 
-     * @type {RawContractBackTo}
-     * @memberof RawContract
-     */
-    backTo?: RawContractBackTo | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof RawContract
-     */
-    contractLabel?: string | null;
-    /**
-     * 
-     * @type {RawContractDealInfo}
-     * @memberof RawContract
-     */
-    dealInfo?: RawContractDealInfo | null;
 }
 
 /**
@@ -230,11 +185,6 @@ export function RawContractFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'unstractPdfText': json['unstract_pdf_text'] == null ? undefined : json['unstract_pdf_text'],
         'unstractResponsesDetails': json['unstract_responses_details'] == null ? undefined : json['unstract_responses_details'],
         'layoutPreservedPdfText': json['layout_preserved_pdf_text'] == null ? undefined : json['layout_preserved_pdf_text'],
-        'fileUrl': json['file_url'] == null ? undefined : json['file_url'],
-        'hasFile': json['has_file'] == null ? undefined : json['has_file'],
-        'backTo': json['back_to'] == null ? undefined : RawContractBackToFromJSON(json['back_to']),
-        'contractLabel': json['contract_label'] == null ? undefined : json['contract_label'],
-        'dealInfo': json['deal_info'] == null ? undefined : RawContractDealInfoFromJSON(json['deal_info']),
     };
 }
 
@@ -270,11 +220,6 @@ export function RawContractToJSONTyped(value?: RawContract | null, ignoreDiscrim
         'unstract_pdf_text': value['unstractPdfText'],
         'unstract_responses_details': value['unstractResponsesDetails'],
         'layout_preserved_pdf_text': value['layoutPreservedPdfText'],
-        'file_url': value['fileUrl'],
-        'has_file': value['hasFile'],
-        'back_to': RawContractBackToToJSON(value['backTo']),
-        'contract_label': value['contractLabel'],
-        'deal_info': RawContractDealInfoToJSON(value['dealInfo']),
     };
 }
 

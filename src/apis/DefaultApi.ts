@@ -62,8 +62,6 @@ import type {
   CreateNoteRequest,
   CreatePasswordReset200Response,
   CreatePasswordResetRequest,
-  CreateTeamScheduleFavorite201Response,
-  CreateTeamScheduleFavoriteRequest,
   Deal,
   DealCollection,
   DealSearchResultCollection,
@@ -99,7 +97,6 @@ import type {
   GetLadFilterOptions200Response,
   GetSchoolAlternateNames200Response,
   GetSchoolAlternateNames404Response,
-  GetTeamScheduleFavorites200ResponseInner,
   GetWireChanges200Response,
   IdName,
   IncomeReport,
@@ -134,14 +131,6 @@ import type {
   Subscription,
   SubscriptionCollection,
   SystemSetting,
-  TeamScheduleCoaches,
-  TeamScheduleDetail,
-  TeamScheduleGamePosts,
-  TeamScheduleNote,
-  TeamScheduleOverlap,
-  TeamSchedulePlayerData,
-  TeamScheduleSchedule,
-  TeamScheduleSearchResultCollection,
   UnprocessableEntity,
   UnstractRawContractPdfTextRequest,
   UpdateFavoriteRequest,
@@ -149,10 +138,8 @@ import type {
   UpdateGamePostSearchRequest,
   UpdateNoteRequest,
   UpdatePasswordReset200Response,
-  UpdatePasswordReset422Response,
+  UpdatePasswordReset400Response,
   UpdatePasswordResetRequest,
-  UpdateTeamScheduleFavoriteRequest,
-  UpsertTeamScheduleNoteRequest,
   User,
   UserActivitySummary,
   UserActivitySummaryCollection,
@@ -260,10 +247,6 @@ import {
     CreatePasswordReset200ResponseToJSON,
     CreatePasswordResetRequestFromJSON,
     CreatePasswordResetRequestToJSON,
-    CreateTeamScheduleFavorite201ResponseFromJSON,
-    CreateTeamScheduleFavorite201ResponseToJSON,
-    CreateTeamScheduleFavoriteRequestFromJSON,
-    CreateTeamScheduleFavoriteRequestToJSON,
     DealFromJSON,
     DealToJSON,
     DealCollectionFromJSON,
@@ -334,8 +317,6 @@ import {
     GetSchoolAlternateNames200ResponseToJSON,
     GetSchoolAlternateNames404ResponseFromJSON,
     GetSchoolAlternateNames404ResponseToJSON,
-    GetTeamScheduleFavorites200ResponseInnerFromJSON,
-    GetTeamScheduleFavorites200ResponseInnerToJSON,
     GetWireChanges200ResponseFromJSON,
     GetWireChanges200ResponseToJSON,
     IdNameFromJSON,
@@ -404,22 +385,6 @@ import {
     SubscriptionCollectionToJSON,
     SystemSettingFromJSON,
     SystemSettingToJSON,
-    TeamScheduleCoachesFromJSON,
-    TeamScheduleCoachesToJSON,
-    TeamScheduleDetailFromJSON,
-    TeamScheduleDetailToJSON,
-    TeamScheduleGamePostsFromJSON,
-    TeamScheduleGamePostsToJSON,
-    TeamScheduleNoteFromJSON,
-    TeamScheduleNoteToJSON,
-    TeamScheduleOverlapFromJSON,
-    TeamScheduleOverlapToJSON,
-    TeamSchedulePlayerDataFromJSON,
-    TeamSchedulePlayerDataToJSON,
-    TeamScheduleScheduleFromJSON,
-    TeamScheduleScheduleToJSON,
-    TeamScheduleSearchResultCollectionFromJSON,
-    TeamScheduleSearchResultCollectionToJSON,
     UnprocessableEntityFromJSON,
     UnprocessableEntityToJSON,
     UnstractRawContractPdfTextRequestFromJSON,
@@ -434,14 +399,10 @@ import {
     UpdateNoteRequestToJSON,
     UpdatePasswordReset200ResponseFromJSON,
     UpdatePasswordReset200ResponseToJSON,
-    UpdatePasswordReset422ResponseFromJSON,
-    UpdatePasswordReset422ResponseToJSON,
+    UpdatePasswordReset400ResponseFromJSON,
+    UpdatePasswordReset400ResponseToJSON,
     UpdatePasswordResetRequestFromJSON,
     UpdatePasswordResetRequestToJSON,
-    UpdateTeamScheduleFavoriteRequestFromJSON,
-    UpdateTeamScheduleFavoriteRequestToJSON,
-    UpsertTeamScheduleNoteRequestFromJSON,
-    UpsertTeamScheduleNoteRequestToJSON,
     UserFromJSON,
     UserToJSON,
     UserActivitySummaryFromJSON,
@@ -560,10 +521,6 @@ export interface DefaultApiCreateSeasonRequest {
     season?: Season;
 }
 
-export interface DefaultApiCreateTeamScheduleFavoriteOperationRequest {
-    createTeamScheduleFavoriteRequest: CreateTeamScheduleFavoriteRequest;
-}
-
 export interface DefaultApiDeleteCashflowRequest {
     cashflowId: number;
 }
@@ -618,14 +575,6 @@ export interface DefaultApiDeleteRequestedItemRequest {
 
 export interface DefaultApiDeleteSeasonRequest {
     seasonId: number;
-}
-
-export interface DefaultApiDeleteTeamScheduleFavoriteRequest {
-    id: number;
-}
-
-export interface DefaultApiDeleteTeamScheduleNoteRequest {
-    filTeamId: string;
 }
 
 export interface DefaultApiGetAdministratorRequest {
@@ -1174,56 +1123,6 @@ export interface DefaultApiGetSubscriptionsRequest {
     q?: object;
 }
 
-export interface DefaultApiGetTeamScheduleDetailRequest {
-    sportName: string;
-    schoolId: number;
-    performanceYear?: number;
-}
-
-export interface DefaultApiGetTeamScheduleDetailCoachesRequest {
-    sportName: string;
-    schoolId: number;
-    performanceYear?: number;
-}
-
-export interface DefaultApiGetTeamScheduleDetailGamePostsRequest {
-    sportName: string;
-    schoolId: number;
-}
-
-export interface DefaultApiGetTeamScheduleDetailPlayerDataRequest {
-    sportName: string;
-    schoolId: number;
-}
-
-export interface DefaultApiGetTeamScheduleDetailScheduleRequest {
-    sportName: string;
-    schoolId: number;
-    year?: number;
-}
-
-export interface DefaultApiGetTeamScheduleDetailScheduleOverlapRequest {
-    sportName: string;
-    schoolId: number;
-}
-
-export interface DefaultApiGetTeamScheduleFavoritesRequest {
-    detailed?: GetTeamScheduleFavoritesDetailedEnum;
-}
-
-export interface DefaultApiGetTeamScheduleNoteRequest {
-    filTeamId: string;
-}
-
-export interface DefaultApiGetTeamScheduleSearchesRequest {
-    page?: number;
-    perPage?: number;
-    q?: object;
-    sportName?: string;
-    excludeAlreadyScheduled?: GetTeamScheduleSearchesExcludeAlreadyScheduledEnum;
-    excludeConference?: GetTeamScheduleSearchesExcludeConferenceEnum;
-}
-
 export interface DefaultApiGetUserRequest {
     userId: number;
 }
@@ -1382,16 +1281,6 @@ export interface DefaultApiUpdateRequestedItemRequest {
 export interface DefaultApiUpdateSeasonRequest {
     seasonId: number;
     season: Season;
-}
-
-export interface DefaultApiUpdateTeamScheduleFavoriteOperationRequest {
-    id: number;
-    updateTeamScheduleFavoriteRequest: UpdateTeamScheduleFavoriteRequest;
-}
-
-export interface DefaultApiUpsertTeamScheduleNoteOperationRequest {
-    filTeamId: string;
-    upsertTeamScheduleNoteRequest: UpsertTeamScheduleNoteRequest;
 }
 
 export interface DefaultApiVerifyOtpCodeOperationRequest {
@@ -2485,54 +2374,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Add a FilTeam to favorites
-     */
-    async createTeamScheduleFavoriteRaw(requestParameters: DefaultApiCreateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTeamScheduleFavorite201Response>> {
-        if (requestParameters['createTeamScheduleFavoriteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createTeamScheduleFavoriteRequest',
-                'Required parameter "createTeamScheduleFavoriteRequest" was null or undefined when calling createTeamScheduleFavorite().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_favorites`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateTeamScheduleFavoriteRequestToJSON(requestParameters['createTeamScheduleFavoriteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateTeamScheduleFavorite201ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Add a FilTeam to favorites
-     */
-    async createTeamScheduleFavorite(requestParameters: DefaultApiCreateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTeamScheduleFavorite201Response> {
-        const response = await this.createTeamScheduleFavoriteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Delete a single Cashflow
      */
     async deleteCashflowRaw(requestParameters: DefaultApiDeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -3166,97 +3007,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteSeason(requestParameters: DefaultApiDeleteSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteSeasonRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Remove a FilTeam favorite
-     */
-    async deleteTeamScheduleFavoriteRaw(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling deleteTeamScheduleFavorite().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_favorites/{id}`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Remove a FilTeam favorite
-     */
-    async deleteTeamScheduleFavorite(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
-        const response = await this.deleteTeamScheduleFavoriteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete the current user\'s note for a team.
-     */
-    async deleteTeamScheduleNoteRaw(requestParameters: DefaultApiDeleteTeamScheduleNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['filTeamId'] == null) {
-            throw new runtime.RequiredError(
-                'filTeamId',
-                'Required parameter "filTeamId" was null or undefined when calling deleteTeamScheduleNote().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_notes/{fil_team_id}`;
-        urlPath = urlPath.replace(`{${"fil_team_id"}}`, encodeURIComponent(String(requestParameters['filTeamId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Delete the current user\'s note for a team.
-     */
-    async deleteTeamScheduleNote(requestParameters: DefaultApiDeleteTeamScheduleNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteTeamScheduleNoteRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -8931,492 +8681,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get detailed team schedule info including school overview, season stats, contacts, and games for the scouting report tab.
-     */
-    async getTeamScheduleDetailRaw(requestParameters: DefaultApiGetTeamScheduleDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleDetail>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetail().'
-            );
-        }
-
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetail().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['performanceYear'] != null) {
-            queryParameters['performance_year'] = requestParameters['performanceYear'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleDetailFromJSON(jsonValue));
-    }
-
-    /**
-     * Get detailed team schedule info including school overview, season stats, contacts, and games for the scouting report tab.
-     */
-    async getTeamScheduleDetail(requestParameters: DefaultApiGetTeamScheduleDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleDetail> {
-        const response = await this.getTeamScheduleDetailRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get coaches and performance data for a team across recent seasons.
-     */
-    async getTeamScheduleDetailCoachesRaw(requestParameters: DefaultApiGetTeamScheduleDetailCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleCoaches>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailCoaches().'
-            );
-        }
-
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailCoaches().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['performanceYear'] != null) {
-            queryParameters['performance_year'] = requestParameters['performanceYear'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/coaches`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleCoachesFromJSON(jsonValue));
-    }
-
-    /**
-     * Get coaches and performance data for a team across recent seasons.
-     */
-    async getTeamScheduleDetailCoaches(requestParameters: DefaultApiGetTeamScheduleDetailCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleCoaches> {
-        const response = await this.getTeamScheduleDetailCoachesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get games wanted posts for a team.
-     */
-    async getTeamScheduleDetailGamePostsRaw(requestParameters: DefaultApiGetTeamScheduleDetailGamePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleGamePosts>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailGamePosts().'
-            );
-        }
-
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailGamePosts().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/game_posts`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleGamePostsFromJSON(jsonValue));
-    }
-
-    /**
-     * Get games wanted posts for a team.
-     */
-    async getTeamScheduleDetailGamePosts(requestParameters: DefaultApiGetTeamScheduleDetailGamePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleGamePosts> {
-        const response = await this.getTeamScheduleDetailGamePostsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get player data for a team (Men\'s Basketball only).
-     */
-    async getTeamScheduleDetailPlayerDataRaw(requestParameters: DefaultApiGetTeamScheduleDetailPlayerDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamSchedulePlayerData>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailPlayerData().'
-            );
-        }
-
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailPlayerData().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/player_data`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamSchedulePlayerDataFromJSON(jsonValue));
-    }
-
-    /**
-     * Get player data for a team (Men\'s Basketball only).
-     */
-    async getTeamScheduleDetailPlayerData(requestParameters: DefaultApiGetTeamScheduleDetailPlayerDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamSchedulePlayerData> {
-        const response = await this.getTeamScheduleDetailPlayerDataRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get the full game schedule list for a team and season year.
-     */
-    async getTeamScheduleDetailScheduleRaw(requestParameters: DefaultApiGetTeamScheduleDetailScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleSchedule>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailSchedule().'
-            );
-        }
-
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailSchedule().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['year'] != null) {
-            queryParameters['year'] = requestParameters['year'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/schedule`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleScheduleFromJSON(jsonValue));
-    }
-
-    /**
-     * Get the full game schedule list for a team and season year.
-     */
-    async getTeamScheduleDetailSchedule(requestParameters: DefaultApiGetTeamScheduleDetailScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleSchedule> {
-        const response = await this.getTeamScheduleDetailScheduleRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Check schedule overlap between a team and the current user\'s team.
-     */
-    async getTeamScheduleDetailScheduleOverlapRaw(requestParameters: DefaultApiGetTeamScheduleDetailScheduleOverlapRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleOverlap>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getTeamScheduleDetailScheduleOverlap().'
-            );
-        }
-
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling getTeamScheduleDetailScheduleOverlap().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_details/{sport_name}/{school_id}/schedule_overlap`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-        urlPath = urlPath.replace(`{${"school_id"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleOverlapFromJSON(jsonValue));
-    }
-
-    /**
-     * Check schedule overlap between a team and the current user\'s team.
-     */
-    async getTeamScheduleDetailScheduleOverlap(requestParameters: DefaultApiGetTeamScheduleDetailScheduleOverlapRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleOverlap> {
-        const response = await this.getTeamScheduleDetailScheduleOverlapRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve the current user\'s FilTeam favorites. Returns favoritable_id as a string to avoid JavaScript precision loss with large numeric IDs.
-     */
-    async getTeamScheduleFavoritesRaw(requestParameters: DefaultApiGetTeamScheduleFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetTeamScheduleFavorites200ResponseInner>>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['detailed'] != null) {
-            queryParameters['detailed'] = requestParameters['detailed'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_favorites`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetTeamScheduleFavorites200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Retrieve the current user\'s FilTeam favorites. Returns favoritable_id as a string to avoid JavaScript precision loss with large numeric IDs.
-     */
-    async getTeamScheduleFavorites(requestParameters: DefaultApiGetTeamScheduleFavoritesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetTeamScheduleFavorites200ResponseInner>> {
-        const response = await this.getTeamScheduleFavoritesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get the current user\'s note for a team.
-     */
-    async getTeamScheduleNoteRaw(requestParameters: DefaultApiGetTeamScheduleNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleNote>> {
-        if (requestParameters['filTeamId'] == null) {
-            throw new runtime.RequiredError(
-                'filTeamId',
-                'Required parameter "filTeamId" was null or undefined when calling getTeamScheduleNote().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_notes/{fil_team_id}`;
-        urlPath = urlPath.replace(`{${"fil_team_id"}}`, encodeURIComponent(String(requestParameters['filTeamId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleNoteFromJSON(jsonValue));
-    }
-
-    /**
-     * Get the current user\'s note for a team.
-     */
-    async getTeamScheduleNote(requestParameters: DefaultApiGetTeamScheduleNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleNote> {
-        const response = await this.getTeamScheduleNoteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info.
-     */
-    async getTeamScheduleSearchesRaw(requestParameters: DefaultApiGetTeamScheduleSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleSearchResultCollection>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['perPage'] != null) {
-            queryParameters['per_page'] = requestParameters['perPage'];
-        }
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        if (requestParameters['sportName'] != null) {
-            queryParameters['sport_name'] = requestParameters['sportName'];
-        }
-
-        if (requestParameters['excludeAlreadyScheduled'] != null) {
-            queryParameters['exclude_already_scheduled'] = requestParameters['excludeAlreadyScheduled'];
-        }
-
-        if (requestParameters['excludeConference'] != null) {
-            queryParameters['exclude_conference'] = requestParameters['excludeConference'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_searches`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleSearchResultCollectionFromJSON(jsonValue));
-    }
-
-    /**
-     * Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info.
-     */
-    async getTeamScheduleSearches(requestParameters: DefaultApiGetTeamScheduleSearchesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleSearchResultCollection> {
-        const response = await this.getTeamScheduleSearchesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve a single user
      */
     async getUserRaw(requestParameters: DefaultApiGetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
@@ -11027,118 +10291,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a FilTeam favorite\'s category
-     */
-    async updateTeamScheduleFavoriteRaw(requestParameters: DefaultApiUpdateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTeamScheduleFavorite201Response>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling updateTeamScheduleFavorite().'
-            );
-        }
-
-        if (requestParameters['updateTeamScheduleFavoriteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateTeamScheduleFavoriteRequest',
-                'Required parameter "updateTeamScheduleFavoriteRequest" was null or undefined when calling updateTeamScheduleFavorite().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_favorites/{id}`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateTeamScheduleFavoriteRequestToJSON(requestParameters['updateTeamScheduleFavoriteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateTeamScheduleFavorite201ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Update a FilTeam favorite\'s category
-     */
-    async updateTeamScheduleFavorite(requestParameters: DefaultApiUpdateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTeamScheduleFavorite201Response> {
-        const response = await this.updateTeamScheduleFavoriteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create or update the current user\'s note for a team.
-     */
-    async upsertTeamScheduleNoteRaw(requestParameters: DefaultApiUpsertTeamScheduleNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TeamScheduleNote>> {
-        if (requestParameters['filTeamId'] == null) {
-            throw new runtime.RequiredError(
-                'filTeamId',
-                'Required parameter "filTeamId" was null or undefined when calling upsertTeamScheduleNote().'
-            );
-        }
-
-        if (requestParameters['upsertTeamScheduleNoteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'upsertTeamScheduleNoteRequest',
-                'Required parameter "upsertTeamScheduleNoteRequest" was null or undefined when calling upsertTeamScheduleNote().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/team_schedule_notes/{fil_team_id}`;
-        urlPath = urlPath.replace(`{${"fil_team_id"}}`, encodeURIComponent(String(requestParameters['filTeamId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpsertTeamScheduleNoteRequestToJSON(requestParameters['upsertTeamScheduleNoteRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TeamScheduleNoteFromJSON(jsonValue));
-    }
-
-    /**
-     * Create or update the current user\'s note for a team.
-     */
-    async upsertTeamScheduleNote(requestParameters: DefaultApiUpsertTeamScheduleNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TeamScheduleNote> {
-        const response = await this.upsertTeamScheduleNoteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve a single user
      */
     async userMeRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
@@ -11289,24 +10441,3 @@ export const GetFilterOptionsContextEnum = {
     Gad: 'gad'
 } as const;
 export type GetFilterOptionsContextEnum = typeof GetFilterOptionsContextEnum[keyof typeof GetFilterOptionsContextEnum];
-/**
- * @export
- */
-export const GetTeamScheduleFavoritesDetailedEnum = {
-    _1: '1'
-} as const;
-export type GetTeamScheduleFavoritesDetailedEnum = typeof GetTeamScheduleFavoritesDetailedEnum[keyof typeof GetTeamScheduleFavoritesDetailedEnum];
-/**
- * @export
- */
-export const GetTeamScheduleSearchesExcludeAlreadyScheduledEnum = {
-    _1: '1'
-} as const;
-export type GetTeamScheduleSearchesExcludeAlreadyScheduledEnum = typeof GetTeamScheduleSearchesExcludeAlreadyScheduledEnum[keyof typeof GetTeamScheduleSearchesExcludeAlreadyScheduledEnum];
-/**
- * @export
- */
-export const GetTeamScheduleSearchesExcludeConferenceEnum = {
-    _1: '1'
-} as const;
-export type GetTeamScheduleSearchesExcludeConferenceEnum = typeof GetTeamScheduleSearchesExcludeConferenceEnum[keyof typeof GetTeamScheduleSearchesExcludeConferenceEnum];
