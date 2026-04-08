@@ -20,13 +20,6 @@ import {
     CoachCompensationTabComparisonsToJSON,
     CoachCompensationTabComparisonsToJSONTyped,
 } from './CoachCompensationTabComparisons';
-import type { CoachCompensationTabCompensationsInner } from './CoachCompensationTabCompensationsInner';
-import {
-    CoachCompensationTabCompensationsInnerFromJSON,
-    CoachCompensationTabCompensationsInnerFromJSONTyped,
-    CoachCompensationTabCompensationsInnerToJSON,
-    CoachCompensationTabCompensationsInnerToJSONTyped,
-} from './CoachCompensationTabCompensationsInner';
 import type { CoachCompensationTabChartData } from './CoachCompensationTabChartData';
 import {
     CoachCompensationTabChartDataFromJSON,
@@ -41,6 +34,13 @@ import {
     CoachCompensationTabSidebarToJSON,
     CoachCompensationTabSidebarToJSONTyped,
 } from './CoachCompensationTabSidebar';
+import type { CoachCompensationEntry } from './CoachCompensationEntry';
+import {
+    CoachCompensationEntryFromJSON,
+    CoachCompensationEntryFromJSONTyped,
+    CoachCompensationEntryToJSON,
+    CoachCompensationEntryToJSONTyped,
+} from './CoachCompensationEntry';
 
 /**
  * 
@@ -62,10 +62,10 @@ export interface CoachCompensationTab {
     chartData?: CoachCompensationTabChartData;
     /**
      * 
-     * @type {Array<CoachCompensationTabCompensationsInner>}
+     * @type {Array<CoachCompensationEntry>}
      * @memberof CoachCompensationTab
      */
-    compensations: Array<CoachCompensationTabCompensationsInner>;
+    compensations: Array<CoachCompensationEntry>;
     /**
      * 
      * @type {number}
@@ -108,7 +108,7 @@ export function CoachCompensationTabFromJSONTyped(json: any, ignoreDiscriminator
         
         'canSeeCompensation': json['can_see_compensation'],
         'chartData': json['chart_data'] == null ? undefined : CoachCompensationTabChartDataFromJSON(json['chart_data']),
-        'compensations': ((json['compensations'] as Array<any>).map(CoachCompensationTabCompensationsInnerFromJSON)),
+        'compensations': ((json['compensations'] as Array<any>).map(CoachCompensationEntryFromJSON)),
         'totalCompensations': json['total_compensations'],
         'comparisons': json['comparisons'] == null ? undefined : CoachCompensationTabComparisonsFromJSON(json['comparisons']),
         'sidebar': json['sidebar'] == null ? undefined : CoachCompensationTabSidebarFromJSON(json['sidebar']),
@@ -128,7 +128,7 @@ export function CoachCompensationTabToJSONTyped(value?: CoachCompensationTab | n
         
         'can_see_compensation': value['canSeeCompensation'],
         'chart_data': CoachCompensationTabChartDataToJSON(value['chartData']),
-        'compensations': ((value['compensations'] as Array<any>).map(CoachCompensationTabCompensationsInnerToJSON)),
+        'compensations': ((value['compensations'] as Array<any>).map(CoachCompensationEntryToJSON)),
         'total_compensations': value['totalCompensations'],
         'comparisons': CoachCompensationTabComparisonsToJSON(value['comparisons']),
         'sidebar': CoachCompensationTabSidebarToJSON(value['sidebar']),

@@ -85,6 +85,48 @@ export interface CoachCompensationEntry {
      * @memberof CoachCompensationEntry
      */
     rawContractId?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachCompensationEntry
+     */
+    oneTimeBonusCents?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CoachCompensationEntry
+     */
+    outsideIncomeCents?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachCompensationEntry
+     */
+    contingentBonus?: boolean | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachCompensationEntry
+     */
+    buyoutTerms?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachCompensationEntry
+     */
+    isCarProvided?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachCompensationEntry
+     */
+    countryClubMembership?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachCompensationEntry
+     */
+    notes?: string | null;
 }
 
 /**
@@ -120,6 +162,13 @@ export function CoachCompensationEntryFromJSONTyped(json: any, ignoreDiscriminat
         'compensationType': json['compensation_type'],
         'mediaLink': json['media_link'] == null ? undefined : json['media_link'],
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
+        'oneTimeBonusCents': json['one_time_bonus_cents'] == null ? undefined : json['one_time_bonus_cents'],
+        'outsideIncomeCents': json['outside_income_cents'] == null ? undefined : json['outside_income_cents'],
+        'contingentBonus': json['contingent_bonus'] == null ? undefined : json['contingent_bonus'],
+        'buyoutTerms': json['buyout_terms'] == null ? undefined : json['buyout_terms'],
+        'isCarProvided': json['is_car_provided'] == null ? undefined : json['is_car_provided'],
+        'countryClubMembership': json['country_club_membership'] == null ? undefined : json['country_club_membership'],
+        'notes': json['notes'] == null ? undefined : json['notes'],
     };
 }
 
@@ -145,6 +194,13 @@ export function CoachCompensationEntryToJSONTyped(value?: CoachCompensationEntry
         'compensation_type': value['compensationType'],
         'media_link': value['mediaLink'],
         'raw_contract_id': value['rawContractId'],
+        'one_time_bonus_cents': value['oneTimeBonusCents'],
+        'outside_income_cents': value['outsideIncomeCents'],
+        'contingent_bonus': value['contingentBonus'],
+        'buyout_terms': value['buyoutTerms'],
+        'is_car_provided': value['isCarProvided'],
+        'country_club_membership': value['countryClubMembership'],
+        'notes': value['notes'],
     };
 }
 
