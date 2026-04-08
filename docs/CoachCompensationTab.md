@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `canSeeCompensation` | boolean
 `chartData` | [CoachCompensationTabChartData](CoachCompensationTabChartData.md)
-`compensations` | [Array&lt;CoachCompensationEntry&gt;](CoachCompensationEntry.md)
+`compensations` | [Array&lt;CoachCompensationTabCompensationsInner&gt;](CoachCompensationTabCompensationsInner.md)
 `totalCompensations` | number
 `comparisons` | [CoachCompensationTabComparisons](CoachCompensationTabComparisons.md)
 `sidebar` | [CoachCompensationTabSidebar](CoachCompensationTabSidebar.md)

@@ -35,7 +35,6 @@ import type {
   CoachProfile,
   CoachProfileOverview,
   CoachRecordTab,
-  CoachRecruitingTab,
   CoachSearchResultCollection,
   CoachVideosTab,
   ColiData,
@@ -207,8 +206,6 @@ import {
     CoachProfileOverviewToJSON,
     CoachRecordTabFromJSON,
     CoachRecordTabToJSON,
-    CoachRecruitingTabFromJSON,
-    CoachRecruitingTabToJSON,
     CoachSearchResultCollectionFromJSON,
     CoachSearchResultCollectionToJSON,
     CoachVideosTabFromJSON,
@@ -712,10 +709,6 @@ export interface DefaultApiGetCoachSearchOverviewRequest {
 }
 
 export interface DefaultApiGetCoachSearchRecordRequest {
-    id: string;
-}
-
-export interface DefaultApiGetCoachSearchRecruitingRequest {
     id: string;
 }
 
@@ -4146,52 +4139,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getCoachSearchRecord(requestParameters: DefaultApiGetCoachSearchRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachRecordTab> {
         const response = await this.getCoachSearchRecordRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-     */
-    async getCoachSearchRecruitingRaw(requestParameters: DefaultApiGetCoachSearchRecruitingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachRecruitingTab>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling getCoachSearchRecruiting().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/coach_searches/{id}/recruiting`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoachRecruitingTabFromJSON(jsonValue));
-    }
-
-    /**
-     * Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-     */
-    async getCoachSearchRecruiting(requestParameters: DefaultApiGetCoachSearchRecruitingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachRecruitingTab> {
-        const response = await this.getCoachSearchRecruitingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

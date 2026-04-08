@@ -59,7 +59,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachSearchCoworkerHistory**](DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history |  |
 | [**getCoachSearchOverview**](DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview |  |
 | [**getCoachSearchRecord**](DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record |  |
-| [**getCoachSearchRecruiting**](DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting |  |
 | [**getCoachSearchVideos**](DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos |  |
 | [**getCoachSearches**](DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches |  |
 | [**getCoaches**](DefaultApi.md#getcoaches) | **GET** /api/v1/coaches |  |
@@ -4392,81 +4391,6 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Coach record tab data |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getCoachSearchRecruiting
-
-> CoachRecruitingTab getCoachSearchRecruiting(id)
-
-
-
-Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetCoachSearchRecruitingRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string | Coach ID or friendly slug
-    id: id_example,
-  } satisfies GetCoachSearchRecruitingRequest;
-
-  try {
-    const data = await api.getCoachSearchRecruiting(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
-
-### Return type
-
-[**CoachRecruitingTab**](CoachRecruitingTab.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Coach recruiting tab data |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
