@@ -21,6 +21,12 @@ import { mapValues } from '../runtime';
 export interface UserScheduleSportsInner {
     /**
      * 
+     * @type {number}
+     * @memberof UserScheduleSportsInner
+     */
+    id?: number;
+    /**
+     * 
      * @type {string}
      * @memberof UserScheduleSportsInner
      */
@@ -50,6 +56,7 @@ export function UserScheduleSportsInnerFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
+        'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
         'label': json['label'] == null ? undefined : json['label'],
     };
@@ -66,6 +73,7 @@ export function UserScheduleSportsInnerToJSONTyped(value?: UserScheduleSportsInn
 
     return {
         
+        'id': value['id'],
         'name': value['name'],
         'label': value['label'],
     };

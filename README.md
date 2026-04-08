@@ -117,6 +117,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getCoachSearchCoworkerHistory**](docs/DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history | 
 *DefaultApi* | [**getCoachSearchOverview**](docs/DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview | 
 *DefaultApi* | [**getCoachSearchRecord**](docs/DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record | 
+*DefaultApi* | [**getCoachSearchRecruiting**](docs/DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting | 
 *DefaultApi* | [**getCoachSearchVideos**](docs/DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos | 
 *DefaultApi* | [**getCoachSearches**](docs/DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches | 
 *DefaultApi* | [**getCoaches**](docs/DefaultApi.md#getcoaches) | **GET** /api/v1/coaches | 
@@ -324,7 +325,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachCompensationTabChartDataCurrentBreakdown](docs/CoachCompensationTabChartDataCurrentBreakdown.md)
 - [CoachCompensationTabChartDataTotalCompOverTimeInner](docs/CoachCompensationTabChartDataTotalCompOverTimeInner.md)
 - [CoachCompensationTabComparisons](docs/CoachCompensationTabComparisons.md)
-- [CoachCompensationTabCompensationsInner](docs/CoachCompensationTabCompensationsInner.md)
 - [CoachCompensationTabSidebar](docs/CoachCompensationTabSidebar.md)
 - [CoachCompensationTabSidebarCoachingStaffInner](docs/CoachCompensationTabSidebarCoachingStaffInner.md)
 - [CoachCompensationTabSidebarContractsInner](docs/CoachCompensationTabSidebarContractsInner.md)
@@ -334,6 +334,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachProfile](docs/CoachProfile.md)
 - [CoachProfileOverview](docs/CoachProfileOverview.md)
 - [CoachRecordTab](docs/CoachRecordTab.md)
+- [CoachRecruitingTab](docs/CoachRecruitingTab.md)
+- [CoachRecruitingTabConferenceComparison](docs/CoachRecruitingTabConferenceComparison.md)
+- [CoachRecruitingTabMetadata](docs/CoachRecruitingTabMetadata.md)
+- [CoachRecruitingTabRecruitingBudgets](docs/CoachRecruitingTabRecruitingBudgets.md)
 - [CoachSearchResult](docs/CoachSearchResult.md)
 - [CoachSearchResultCollection](docs/CoachSearchResultCollection.md)
 - [CoachSnapshot](docs/CoachSnapshot.md)
@@ -476,6 +480,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RawContractDealInfo](docs/RawContractDealInfo.md)
 - [RawContractDealInfoVendorsInner](docs/RawContractDealInfoVendorsInner.md)
 - [RecordPositionEntry](docs/RecordPositionEntry.md)
+- [RecruitingBudgetEntry](docs/RecruitingBudgetEntry.md)
+- [RecruitingChartData](docs/RecruitingChartData.md)
+- [RecruitingConferenceEntry](docs/RecruitingConferenceEntry.md)
+- [RecruitingPositionEntry](docs/RecruitingPositionEntry.md)
 - [RegenerateRawContractPdf200Response](docs/RegenerateRawContractPdf200Response.md)
 - [RequestedItem](docs/RequestedItem.md)
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
