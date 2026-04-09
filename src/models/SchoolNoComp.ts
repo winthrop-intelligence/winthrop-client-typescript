@@ -33,6 +33,12 @@ export interface SchoolNoComp {
     schoolName?: string;
     /**
      * 
+     * @type {number}
+     * @memberof SchoolNoComp
+     */
+    coachId?: number | null;
+    /**
+     * 
      * @type {string}
      * @memberof SchoolNoComp
      */
@@ -58,6 +64,7 @@ export function SchoolNoCompFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'schoolId': json['school_id'] == null ? undefined : json['school_id'],
         'schoolName': json['school_name'] == null ? undefined : json['school_name'],
+        'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'coachName': json['coach_name'] == null ? undefined : json['coach_name'],
     };
 }
@@ -75,6 +82,7 @@ export function SchoolNoCompToJSONTyped(value?: SchoolNoComp | null, ignoreDiscr
         
         'school_id': value['schoolId'],
         'school_name': value['schoolName'],
+        'coach_id': value['coachId'],
         'coach_name': value['coachName'],
     };
 }
