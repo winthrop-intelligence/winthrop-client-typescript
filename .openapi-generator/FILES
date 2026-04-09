@@ -10,6 +10,7 @@ docs/AsstCoachSchool.md
 docs/AthleticProfileShow.md
 docs/AthleticProfileShowContactsInner.md
 docs/AthleticProfileShowDealsInner.md
+docs/AthleticProfileShowDealsInnerVendorsInner.md
 docs/AthleticProfileShowFinancialInfo.md
 docs/AthleticProfileShowFinancials.md
 docs/AthleticProfileShowFinancialsRevenuesInner.md
@@ -196,7 +197,6 @@ docs/RawContract.md
 docs/RawContractBackTo.md
 docs/RawContractCollection.md
 docs/RawContractDealInfo.md
-docs/RawContractDealInfoVendorsInner.md
 docs/RecordPositionEntry.md
 docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
@@ -318,6 +318,7 @@ src/models/AsstCoachSchool.ts
 src/models/AthleticProfileShow.ts
 src/models/AthleticProfileShowContactsInner.ts
 src/models/AthleticProfileShowDealsInner.ts
+src/models/AthleticProfileShowDealsInnerVendorsInner.ts
 src/models/AthleticProfileShowFinancialInfo.ts
 src/models/AthleticProfileShowFinancials.ts
 src/models/AthleticProfileShowFinancialsRevenuesInner.ts
@@ -500,7 +501,6 @@ src/models/RawContract.ts
 src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts
 src/models/RawContractDealInfo.ts
-src/models/RawContractDealInfoVendorsInner.ts
 src/models/RecordPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts

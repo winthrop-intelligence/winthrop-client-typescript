@@ -19,7 +19,6 @@ Name | Type
 `coachId` | number
 `divisions` | [Array&lt;Division&gt;](Division.md)
 `roles` | Array&lt;string&gt;
-`isAdmin` | boolean
 `canSeeCompensation` | boolean
 `canShowScouting` | boolean
 `canShowGameContract` | boolean
@@ -54,7 +53,6 @@ const example = {
   "coachId": 1,
   "divisions": null,
   "roles": null,
-  "isAdmin": null,
   "canSeeCompensation": null,
   "canShowScouting": null,
   "canShowGameContract": null,
