@@ -113,12 +113,6 @@ export interface User {
      */
     roles?: Array<string>;
     /**
-     * Whether the user is a data admin or super admin
-     * @type {boolean}
-     * @memberof User
-     */
-    isAdmin?: boolean;
-    /**
      * Whether the user can view coach compensation data
      * @type {boolean}
      * @memberof User
@@ -241,7 +235,6 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'divisions': json['divisions'] == null ? undefined : ((json['divisions'] as Array<any>).map(DivisionFromJSON)),
         'roles': json['roles'] == null ? undefined : json['roles'],
-        'isAdmin': json['is_admin'] == null ? undefined : json['is_admin'],
         'canSeeCompensation': json['can_see_compensation'] == null ? undefined : json['can_see_compensation'],
         'canShowScouting': json['can_show_scouting'] == null ? undefined : json['can_show_scouting'],
         'canShowGameContract': json['can_show_game_contract'] == null ? undefined : json['can_show_game_contract'],
@@ -282,7 +275,6 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'coach_id': value['coachId'],
         'divisions': value['divisions'] == null ? undefined : ((value['divisions'] as Array<any>).map(DivisionToJSON)),
         'roles': value['roles'],
-        'is_admin': value['isAdmin'],
         'can_see_compensation': value['canSeeCompensation'],
         'can_show_scouting': value['canShowScouting'],
         'can_show_game_contract': value['canShowGameContract'],
