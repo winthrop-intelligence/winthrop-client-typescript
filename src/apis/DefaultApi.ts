@@ -8199,6 +8199,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve D1 and D2 schools available for custom school group selection
+     */
+    async getSchoolGroupsAvailableSchoolsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups/available_schools`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve D1 and D2 schools available for custom school group selection
+     */
+    async getSchoolGroupsAvailableSchools(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getSchoolGroupsAvailableSchoolsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve some or all schools
      */
     async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
