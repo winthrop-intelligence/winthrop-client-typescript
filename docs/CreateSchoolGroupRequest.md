@@ -1,26 +1,22 @@
 
-# SchoolGroupShow
+# CreateSchoolGroupRequest
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`name` | string
-`schools` | [Array&lt;IdName&gt;](IdName.md)
+`schoolGroup` | [CreateSchoolGroupRequestSchoolGroup](CreateSchoolGroupRequestSchoolGroup.md)
 
 ## Example
 
 ```typescript
-import type { SchoolGroupShow } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CreateSchoolGroupRequest } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-  "schools": null,
-} satisfies SchoolGroupShow
+  "schoolGroup": null,
+} satisfies CreateSchoolGroupRequest
 
 console.log(example)
 
@@ -29,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as SchoolGroupShow
+const exampleParsed = JSON.parse(exampleJSON) as CreateSchoolGroupRequest
 console.log(exampleParsed)
 ```
 

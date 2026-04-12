@@ -35,7 +35,6 @@ import type {
   CoachProfile,
   CoachProfileOverview,
   CoachRecordTab,
-  CoachRecruitingTab,
   CoachSearchResultCollection,
   CoachVideosTab,
   ColiData,
@@ -63,6 +62,7 @@ import type {
   CreateNoteRequest,
   CreatePasswordReset200Response,
   CreatePasswordResetRequest,
+  CreateSchoolGroupRequest,
   CreateTeamScheduleFavorite201Response,
   CreateTeamScheduleFavoriteRequest,
   Deal,
@@ -152,6 +152,7 @@ import type {
   UpdatePasswordReset200Response,
   UpdatePasswordReset400Response,
   UpdatePasswordResetRequest,
+  UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
   UpsertTeamScheduleNoteRequest,
   User,
@@ -207,8 +208,6 @@ import {
     CoachProfileOverviewToJSON,
     CoachRecordTabFromJSON,
     CoachRecordTabToJSON,
-    CoachRecruitingTabFromJSON,
-    CoachRecruitingTabToJSON,
     CoachSearchResultCollectionFromJSON,
     CoachSearchResultCollectionToJSON,
     CoachVideosTabFromJSON,
@@ -263,6 +262,8 @@ import {
     CreatePasswordReset200ResponseToJSON,
     CreatePasswordResetRequestFromJSON,
     CreatePasswordResetRequestToJSON,
+    CreateSchoolGroupRequestFromJSON,
+    CreateSchoolGroupRequestToJSON,
     CreateTeamScheduleFavorite201ResponseFromJSON,
     CreateTeamScheduleFavorite201ResponseToJSON,
     CreateTeamScheduleFavoriteRequestFromJSON,
@@ -441,6 +442,8 @@ import {
     UpdatePasswordReset400ResponseToJSON,
     UpdatePasswordResetRequestFromJSON,
     UpdatePasswordResetRequestToJSON,
+    UpdateSchoolGroupRequestFromJSON,
+    UpdateSchoolGroupRequestToJSON,
     UpdateTeamScheduleFavoriteRequestFromJSON,
     UpdateTeamScheduleFavoriteRequestToJSON,
     UpsertTeamScheduleNoteRequestFromJSON,
@@ -559,6 +562,10 @@ export interface DefaultApiCreateRequestedItemRequest {
     requestedItem: RequestedItem;
 }
 
+export interface DefaultApiCreateSchoolGroupOperationRequest {
+    createSchoolGroupRequest: CreateSchoolGroupRequest;
+}
+
 export interface DefaultApiCreateSeasonRequest {
     season?: Season;
 }
@@ -617,6 +624,10 @@ export interface DefaultApiDeletePositionRequest {
 
 export interface DefaultApiDeleteRequestedItemRequest {
     requestedItemId: number;
+}
+
+export interface DefaultApiDeleteSchoolGroupRequest {
+    schoolGroupId: number;
 }
 
 export interface DefaultApiDeleteSeasonRequest {
@@ -712,10 +723,6 @@ export interface DefaultApiGetCoachSearchOverviewRequest {
 }
 
 export interface DefaultApiGetCoachSearchRecordRequest {
-    id: string;
-}
-
-export interface DefaultApiGetCoachSearchRecruitingRequest {
     id: string;
 }
 
@@ -1384,6 +1391,11 @@ export interface DefaultApiUpdatePositionRequest {
 export interface DefaultApiUpdateRequestedItemRequest {
     requestedItemId: number;
     requestedItem: RequestedItem;
+}
+
+export interface DefaultApiUpdateSchoolGroupOperationRequest {
+    schoolGroupId: number;
+    updateSchoolGroupRequest: UpdateSchoolGroupRequest;
 }
 
 export interface DefaultApiUpdateSeasonRequest {
@@ -2451,6 +2463,54 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new custom school group
+     */
+    async createSchoolGroupRaw(requestParameters: DefaultApiCreateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolGroupShow>> {
+        if (requestParameters['createSchoolGroupRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createSchoolGroupRequest',
+                'Required parameter "createSchoolGroupRequest" was null or undefined when calling createSchoolGroup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateSchoolGroupRequestToJSON(requestParameters['createSchoolGroupRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolGroupShowFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new custom school group
+     */
+    async createSchoolGroup(requestParameters: DefaultApiCreateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolGroupShow> {
+        const response = await this.createSchoolGroupRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Create a new Season
      */
     async createSeasonRaw(requestParameters: DefaultApiCreateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
@@ -3128,6 +3188,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteRequestedItem(requestParameters: DefaultApiDeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRequestedItemRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Delete a custom school group
+     */
+    async deleteSchoolGroupRaw(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+        if (requestParameters['schoolGroupId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolGroupId',
+                'Required parameter "schoolGroupId" was null or undefined when calling deleteSchoolGroup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups/{schoolGroupId}`;
+        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a custom school group
+     */
+    async deleteSchoolGroup(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+        const response = await this.deleteSchoolGroupRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -4146,52 +4252,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getCoachSearchRecord(requestParameters: DefaultApiGetCoachSearchRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachRecordTab> {
         const response = await this.getCoachSearchRecordRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-     */
-    async getCoachSearchRecruitingRaw(requestParameters: DefaultApiGetCoachSearchRecruitingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachRecruitingTab>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling getCoachSearchRecruiting().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/coach_searches/{id}/recruiting`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CoachRecruitingTabFromJSON(jsonValue));
-    }
-
-    /**
-     * Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
-     */
-    async getCoachSearchRecruiting(requestParameters: DefaultApiGetCoachSearchRecruitingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachRecruitingTab> {
-        const response = await this.getCoachSearchRecruitingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -8101,6 +8161,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve the current user\'s custom school groups with their schools
+     */
+    async getSchoolGroupsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SchoolGroupShow>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SchoolGroupShowFromJSON));
+    }
+
+    /**
+     * Retrieve the current user\'s custom school groups with their schools
+     */
+    async getSchoolGroups(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SchoolGroupShow>> {
+        const response = await this.getSchoolGroupsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve some or all schools
      */
     async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
@@ -11020,6 +11118,62 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateRequestedItem(requestParameters: DefaultApiUpdateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
         const response = await this.updateRequestedItemRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing custom school group
+     */
+    async updateSchoolGroupRaw(requestParameters: DefaultApiUpdateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolGroupShow>> {
+        if (requestParameters['schoolGroupId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolGroupId',
+                'Required parameter "schoolGroupId" was null or undefined when calling updateSchoolGroup().'
+            );
+        }
+
+        if (requestParameters['updateSchoolGroupRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateSchoolGroupRequest',
+                'Required parameter "updateSchoolGroupRequest" was null or undefined when calling updateSchoolGroup().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/school_groups/{schoolGroupId}`;
+        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateSchoolGroupRequestToJSON(requestParameters['updateSchoolGroupRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolGroupShowFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing custom school group
+     */
+    async updateSchoolGroup(requestParameters: DefaultApiUpdateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolGroupShow> {
+        const response = await this.updateSchoolGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -1,26 +1,24 @@
 
-# SchoolGroupShow
+# UpdateSchoolGroupRequestSchoolGroup
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
 `name` | string
-`schools` | [Array&lt;IdName&gt;](IdName.md)
+`schoolIds` | Array&lt;number&gt;
 
 ## Example
 
 ```typescript
-import type { SchoolGroupShow } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { UpdateSchoolGroupRequestSchoolGroup } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
   "name": null,
-  "schools": null,
-} satisfies SchoolGroupShow
+  "schoolIds": null,
+} satisfies UpdateSchoolGroupRequestSchoolGroup
 
 console.log(example)
 
@@ -29,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as SchoolGroupShow
+const exampleParsed = JSON.parse(exampleJSON) as UpdateSchoolGroupRequestSchoolGroup
 console.log(exampleParsed)
 ```
 
