@@ -10,7 +10,7 @@ Name | Type
 `schoolName` | string
 `schoolId` | number
 `vendorName` | string
-`vendors` | [Array&lt;AthleticProfileShowDealsInnerVendorsInner&gt;](AthleticProfileShowDealsInnerVendorsInner.md)
+`vendors` | [Array&lt;RawContractDealInfoVendorsInner&gt;](RawContractDealInfoVendorsInner.md)
 `dealTypeName` | string
 `startYear` | number
 `endYear` | number
