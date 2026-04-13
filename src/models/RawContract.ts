@@ -161,6 +161,12 @@ export interface RawContract {
      */
     layoutPreservedPdfText?: string;
     /**
+     * Whether the current user can see the admin view for this contract
+     * @type {boolean}
+     * @memberof RawContract
+     */
+    canSeeAdminView?: boolean;
+    /**
      * 
      * @type {string}
      * @memberof RawContract
@@ -230,6 +236,7 @@ export function RawContractFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'unstractPdfText': json['unstract_pdf_text'] == null ? undefined : json['unstract_pdf_text'],
         'unstractResponsesDetails': json['unstract_responses_details'] == null ? undefined : json['unstract_responses_details'],
         'layoutPreservedPdfText': json['layout_preserved_pdf_text'] == null ? undefined : json['layout_preserved_pdf_text'],
+        'canSeeAdminView': json['can_see_admin_view'] == null ? undefined : json['can_see_admin_view'],
         'fileUrl': json['file_url'] == null ? undefined : json['file_url'],
         'hasFile': json['has_file'] == null ? undefined : json['has_file'],
         'backTo': json['back_to'] == null ? undefined : RawContractBackToFromJSON(json['back_to']),
@@ -270,6 +277,7 @@ export function RawContractToJSONTyped(value?: RawContract | null, ignoreDiscrim
         'unstract_pdf_text': value['unstractPdfText'],
         'unstract_responses_details': value['unstractResponsesDetails'],
         'layout_preserved_pdf_text': value['layoutPreservedPdfText'],
+        'can_see_admin_view': value['canSeeAdminView'],
         'file_url': value['fileUrl'],
         'has_file': value['hasFile'],
         'back_to': RawContractBackToToJSON(value['backTo']),

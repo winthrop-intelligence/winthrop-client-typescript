@@ -27,6 +27,7 @@ Name | Type
 `unstractPdfText` | string
 `unstractResponsesDetails` | string
 `layoutPreservedPdfText` | string
+`canSeeAdminView` | boolean
 `fileUrl` | string
 `hasFile` | boolean
 `backTo` | [RawContractBackTo](RawContractBackTo.md)
@@ -61,6 +62,7 @@ const example = {
   "unstractPdfText": null,
   "unstractResponsesDetails": null,
   "layoutPreservedPdfText": null,
+  "canSeeAdminView": null,
   "fileUrl": null,
   "hasFile": null,
   "backTo": null,
