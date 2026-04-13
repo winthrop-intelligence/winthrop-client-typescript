@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
+`schools` | [Array&lt;IdName&gt;](IdName.md)
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { SchoolGroupShow } from '@winthrop-intelligence/winthrop-client-typ
 const example = {
   "id": null,
   "name": null,
+  "schools": null,
 } satisfies SchoolGroupShow
 
 console.log(example)

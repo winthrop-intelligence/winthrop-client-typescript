@@ -190,6 +190,42 @@ export interface User {
      * @memberof User
      */
     otpRequired?: boolean;
+    /**
+     * User's time zone setting
+     * @type {string}
+     * @memberof User
+     */
+    timeZone?: string | null;
+    /**
+     * Whether user receives scheduling notifications
+     * @type {boolean}
+     * @memberof User
+     */
+    schedulingNotifications?: boolean;
+    /**
+     * Whether user receives games wanted notifications
+     * @type {boolean}
+     * @memberof User
+     */
+    gamePostNotifications?: boolean;
+    /**
+     * Whether user receives scheduling digest emails
+     * @type {boolean}
+     * @memberof User
+     */
+    gamesDigest?: boolean;
+    /**
+     * Email domain required by the user's account
+     * @type {string}
+     * @memberof User
+     */
+    emailDomain?: string | null;
+    /**
+     * Whether user can view game posts
+     * @type {boolean}
+     * @memberof User
+     */
+    canShowGamePost?: boolean;
 }
 
 
@@ -248,6 +284,12 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'schoolCity': json['school_city'] == null ? undefined : json['school_city'],
         'schoolState': json['school_state'] == null ? undefined : json['school_state'],
         'otpRequired': json['otp_required'] == null ? undefined : json['otp_required'],
+        'timeZone': json['time_zone'] == null ? undefined : json['time_zone'],
+        'schedulingNotifications': json['scheduling_notifications'] == null ? undefined : json['scheduling_notifications'],
+        'gamePostNotifications': json['game_post_notifications'] == null ? undefined : json['game_post_notifications'],
+        'gamesDigest': json['games_digest'] == null ? undefined : json['games_digest'],
+        'emailDomain': json['email_domain'] == null ? undefined : json['email_domain'],
+        'canShowGamePost': json['can_show_game_post'] == null ? undefined : json['can_show_game_post'],
     };
 }
 
@@ -288,6 +330,12 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'school_city': value['schoolCity'],
         'school_state': value['schoolState'],
         'otp_required': value['otpRequired'],
+        'time_zone': value['timeZone'],
+        'scheduling_notifications': value['schedulingNotifications'],
+        'game_post_notifications': value['gamePostNotifications'],
+        'games_digest': value['gamesDigest'],
+        'email_domain': value['emailDomain'],
+        'can_show_game_post': value['canShowGamePost'],
     };
 }
 
