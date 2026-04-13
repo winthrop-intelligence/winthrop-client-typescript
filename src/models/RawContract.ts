@@ -161,11 +161,23 @@ export interface RawContract {
      */
     layoutPreservedPdfText?: string;
     /**
-     * 
+     * Whether the current user can see the admin view for this contract
+     * @type {boolean}
+     * @memberof RawContract
+     */
+    canSeeAdminView?: boolean;
+    /**
+     * Proxied URL for inline PDF viewing (no direct file access)
      * @type {string}
      * @memberof RawContract
      */
-    fileUrl?: string | null;
+    pdfPreviewUrl?: string | null;
+    /**
+     * Direct download URL (admin only)
+     * @type {string}
+     * @memberof RawContract
+     */
+    pdfDownloadUrl?: string | null;
     /**
      * 
      * @type {boolean}
@@ -230,7 +242,9 @@ export function RawContractFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'unstractPdfText': json['unstract_pdf_text'] == null ? undefined : json['unstract_pdf_text'],
         'unstractResponsesDetails': json['unstract_responses_details'] == null ? undefined : json['unstract_responses_details'],
         'layoutPreservedPdfText': json['layout_preserved_pdf_text'] == null ? undefined : json['layout_preserved_pdf_text'],
-        'fileUrl': json['file_url'] == null ? undefined : json['file_url'],
+        'canSeeAdminView': json['can_see_admin_view'] == null ? undefined : json['can_see_admin_view'],
+        'pdfPreviewUrl': json['pdf_preview_url'] == null ? undefined : json['pdf_preview_url'],
+        'pdfDownloadUrl': json['pdf_download_url'] == null ? undefined : json['pdf_download_url'],
         'hasFile': json['has_file'] == null ? undefined : json['has_file'],
         'backTo': json['back_to'] == null ? undefined : RawContractBackToFromJSON(json['back_to']),
         'contractLabel': json['contract_label'] == null ? undefined : json['contract_label'],
@@ -270,7 +284,9 @@ export function RawContractToJSONTyped(value?: RawContract | null, ignoreDiscrim
         'unstract_pdf_text': value['unstractPdfText'],
         'unstract_responses_details': value['unstractResponsesDetails'],
         'layout_preserved_pdf_text': value['layoutPreservedPdfText'],
-        'file_url': value['fileUrl'],
+        'can_see_admin_view': value['canSeeAdminView'],
+        'pdf_preview_url': value['pdfPreviewUrl'],
+        'pdf_download_url': value['pdfDownloadUrl'],
         'has_file': value['hasFile'],
         'back_to': RawContractBackToToJSON(value['backTo']),
         'contract_label': value['contractLabel'],

@@ -55,12 +55,6 @@ export interface CoachCompensationTabSidebarCoachingStaffInner {
      * @memberof CoachCompensationTabSidebarCoachingStaffInner
      */
     salaryCents?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CoachCompensationTabSidebarCoachingStaffInner
-     */
-    avatarUrl?: string | null;
 }
 
 /**
@@ -86,7 +80,6 @@ export function CoachCompensationTabSidebarCoachingStaffInnerFromJSONTyped(json:
         'initials': json['initials'] == null ? undefined : json['initials'],
         'positionTypes': json['position_types'] == null ? undefined : json['position_types'],
         'salaryCents': json['salary_cents'] == null ? undefined : json['salary_cents'],
-        'avatarUrl': json['avatar_url'] == null ? undefined : json['avatar_url'],
     };
 }
 
@@ -107,7 +100,6 @@ export function CoachCompensationTabSidebarCoachingStaffInnerToJSONTyped(value?:
         'initials': value['initials'],
         'position_types': value['positionTypes'],
         'salary_cents': value['salaryCents'],
-        'avatar_url': value['avatarUrl'],
     };
 }
 
