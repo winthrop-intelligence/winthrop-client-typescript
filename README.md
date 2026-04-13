@@ -117,6 +117,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getCoachSearchCoworkerHistory**](docs/DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history | 
 *DefaultApi* | [**getCoachSearchOverview**](docs/DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview | 
 *DefaultApi* | [**getCoachSearchRecord**](docs/DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record | 
+*DefaultApi* | [**getCoachSearchRecruiting**](docs/DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting | 
 *DefaultApi* | [**getCoachSearchVideos**](docs/DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos | 
 *DefaultApi* | [**getCoachSearches**](docs/DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches | 
 *DefaultApi* | [**getCoaches**](docs/DefaultApi.md#getcoaches) | **GET** /api/v1/coaches | 
@@ -225,7 +226,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleFavorites**](docs/DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
-*DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} | 
 *DefaultApi* | [**getUserActivitySummaries**](docs/DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries | 
 *DefaultApi* | [**getUserActivitySummary**](docs/DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} | 
@@ -257,7 +257,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateRequestedItem**](docs/DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
-*DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
@@ -335,6 +334,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachProfile](docs/CoachProfile.md)
 - [CoachProfileOverview](docs/CoachProfileOverview.md)
 - [CoachRecordTab](docs/CoachRecordTab.md)
+- [CoachRecruitingTab](docs/CoachRecruitingTab.md)
+- [CoachRecruitingTabConferenceComparison](docs/CoachRecruitingTabConferenceComparison.md)
+- [CoachRecruitingTabMetadata](docs/CoachRecruitingTabMetadata.md)
+- [CoachRecruitingTabRecruitingBudgets](docs/CoachRecruitingTabRecruitingBudgets.md)
 - [CoachSearchResult](docs/CoachSearchResult.md)
 - [CoachSearchResultCollection](docs/CoachSearchResultCollection.md)
 - [CoachSnapshot](docs/CoachSnapshot.md)
@@ -434,7 +437,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetSchoolAlternateNames200Response](docs/GetSchoolAlternateNames200Response.md)
 - [GetSchoolAlternateNames404Response](docs/GetSchoolAlternateNames404Response.md)
 - [GetTeamScheduleFavorites200ResponseInner](docs/GetTeamScheduleFavorites200ResponseInner.md)
-- [GetTimeZones200Response](docs/GetTimeZones200Response.md)
 - [GetWireChanges200Response](docs/GetWireChanges200Response.md)
 - [HTTPValidationError](docs/HTTPValidationError.md)
 - [HealthCheckFailure](docs/HealthCheckFailure.md)
@@ -478,6 +480,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RawContractDealInfo](docs/RawContractDealInfo.md)
 - [RawContractDealInfoVendorsInner](docs/RawContractDealInfoVendorsInner.md)
 - [RecordPositionEntry](docs/RecordPositionEntry.md)
+- [RecruitingBudgetEntry](docs/RecruitingBudgetEntry.md)
+- [RecruitingChartData](docs/RecruitingChartData.md)
+- [RecruitingConferenceEntry](docs/RecruitingConferenceEntry.md)
+- [RecruitingPositionEntry](docs/RecruitingPositionEntry.md)
 - [RegenerateRawContractPdf200Response](docs/RegenerateRawContractPdf200Response.md)
 - [RequestedItem](docs/RequestedItem.md)
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
@@ -547,7 +553,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleSearchResultAwayContracts](docs/TeamScheduleSearchResultAwayContracts.md)
 - [TeamScheduleSearchResultCollection](docs/TeamScheduleSearchResultCollection.md)
 - [TeamScheduleSearchResultHomeContracts](docs/TeamScheduleSearchResultHomeContracts.md)
-- [TimeZoneOption](docs/TimeZoneOption.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
 - [UnstractRawContractPdfTextRequest](docs/UnstractRawContractPdfTextRequest.md)
@@ -561,8 +566,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdatePasswordResetRequest](docs/UpdatePasswordResetRequest.md)
 - [UpdatePasswordResetRequestUser](docs/UpdatePasswordResetRequestUser.md)
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
-- [UpdateUserRequest](docs/UpdateUserRequest.md)
-- [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
 - [UpsertTeamScheduleNoteRequest](docs/UpsertTeamScheduleNoteRequest.md)
 - [User](docs/User.md)
 - [UserActivitySummary](docs/UserActivitySummary.md)
