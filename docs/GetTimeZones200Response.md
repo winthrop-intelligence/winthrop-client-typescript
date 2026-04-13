@@ -1,24 +1,24 @@
 
-# SchoolGroupShow
+# GetTimeZones200Response
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`name` | string
+`usZones` | [Array&lt;TimeZoneOption&gt;](TimeZoneOption.md)
+`otherZones` | [Array&lt;TimeZoneOption&gt;](TimeZoneOption.md)
 
 ## Example
 
 ```typescript
-import type { SchoolGroupShow } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GetTimeZones200Response } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-} satisfies SchoolGroupShow
+  "usZones": null,
+  "otherZones": null,
+} satisfies GetTimeZones200Response
 
 console.log(example)
 
@@ -27,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as SchoolGroupShow
+const exampleParsed = JSON.parse(exampleJSON) as GetTimeZones200Response
 console.log(exampleParsed)
 ```
 

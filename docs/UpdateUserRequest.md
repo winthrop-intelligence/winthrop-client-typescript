@@ -1,24 +1,22 @@
 
-# SchoolGroupShow
+# UpdateUserRequest
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`name` | string
+`user` | [UpdateUserRequestUser](UpdateUserRequestUser.md)
 
 ## Example
 
 ```typescript
-import type { SchoolGroupShow } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { UpdateUserRequest } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-} satisfies SchoolGroupShow
+  "user": null,
+} satisfies UpdateUserRequest
 
 console.log(example)
 
@@ -27,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as SchoolGroupShow
+const exampleParsed = JSON.parse(exampleJSON) as UpdateUserRequest
 console.log(exampleParsed)
 ```
 

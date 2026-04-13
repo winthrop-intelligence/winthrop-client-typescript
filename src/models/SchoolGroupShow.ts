@@ -13,14 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { IdName } from './IdName';
-import {
-    IdNameFromJSON,
-    IdNameFromJSONTyped,
-    IdNameToJSON,
-    IdNameToJSONTyped,
-} from './IdName';
-
 /**
  * 
  * @export
@@ -39,12 +31,6 @@ export interface SchoolGroupShow {
      * @memberof SchoolGroupShow
      */
     name?: string;
-    /**
-     * 
-     * @type {Array<IdName>}
-     * @memberof SchoolGroupShow
-     */
-    schools?: Array<IdName>;
 }
 
 /**
@@ -66,7 +52,6 @@ export function SchoolGroupShowFromJSONTyped(json: any, ignoreDiscriminator: boo
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
-        'schools': json['schools'] == null ? undefined : ((json['schools'] as Array<any>).map(IdNameFromJSON)),
     };
 }
 
@@ -83,7 +68,6 @@ export function SchoolGroupShowToJSONTyped(value?: SchoolGroupShow | null, ignor
         
         'id': value['id'],
         'name': value['name'],
-        'schools': value['schools'] == null ? undefined : ((value['schools'] as Array<any>).map(IdNameToJSON)),
     };
 }
 
