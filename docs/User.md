@@ -22,6 +22,14 @@ Name | Type
 `canSeeCompensation` | boolean
 `canShowScouting` | boolean
 `canShowGameContract` | boolean
+`canSeeCoaches` | boolean
+`canSeeAdministrators` | boolean
+`canShowFinancials` | boolean
+`canShowDeals` | boolean
+`canShowBenchmark` | boolean
+`canShowAthleticProfile` | boolean
+`canReadConference` | boolean
+`canShowGamePost` | boolean
 `isSportSpecific` | boolean
 `isD2Only` | boolean
 `isConferenceOnly` | boolean
@@ -56,6 +64,14 @@ const example = {
   "canSeeCompensation": null,
   "canShowScouting": null,
   "canShowGameContract": null,
+  "canSeeCoaches": null,
+  "canSeeAdministrators": null,
+  "canShowFinancials": null,
+  "canShowDeals": null,
+  "canShowBenchmark": null,
+  "canShowAthleticProfile": null,
+  "canReadConference": null,
+  "canShowGamePost": null,
   "isSportSpecific": null,
   "isD2Only": null,
   "isConferenceOnly": null,
