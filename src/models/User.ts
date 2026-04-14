@@ -131,60 +131,6 @@ export interface User {
      */
     canShowGameContract?: boolean;
     /**
-     * Whether the user can access the Coaches section
-     * @type {boolean}
-     * @memberof User
-     */
-    canSeeCoaches?: boolean;
-    /**
-     * Whether the user can access the Administrators section
-     * @type {boolean}
-     * @memberof User
-     */
-    canSeeAdministrators?: boolean;
-    /**
-     * Whether the user can access the Financials section
-     * @type {boolean}
-     * @memberof User
-     */
-    canShowFinancials?: boolean;
-    /**
-     * Whether the user can access the Vendors section
-     * @type {boolean}
-     * @memberof User
-     */
-    canShowDeals?: boolean;
-    /**
-     * Whether the user can access the Benchmark section
-     * @type {boolean}
-     * @memberof User
-     */
-    canShowBenchmark?: boolean;
-    /**
-     * Whether the user can access the Departments section
-     * @type {boolean}
-     * @memberof User
-     */
-    canShowAthleticProfile?: boolean;
-    /**
-     * Whether the user can access the Conferences section
-     * @type {boolean}
-     * @memberof User
-     */
-    canReadConference?: boolean;
-    /**
-     * Whether the user can access the Games Wanted section
-     * @type {boolean}
-     * @memberof User
-     */
-    canShowGamePost?: boolean;
-    /**
-     * Whether the user can access Custom School Groups
-     * @type {boolean}
-     * @memberof User
-     */
-    canSeeSchoolGroups?: boolean;
-    /**
      * 
      * @type {boolean}
      * @memberof User
@@ -244,36 +190,6 @@ export interface User {
      * @memberof User
      */
     otpRequired?: boolean;
-    /**
-     * User's time zone setting
-     * @type {string}
-     * @memberof User
-     */
-    timeZone?: string | null;
-    /**
-     * Whether user receives scheduling notifications
-     * @type {boolean}
-     * @memberof User
-     */
-    schedulingNotifications?: boolean;
-    /**
-     * Whether user receives games wanted notifications
-     * @type {boolean}
-     * @memberof User
-     */
-    gamePostNotifications?: boolean;
-    /**
-     * Whether user receives scheduling digest emails
-     * @type {boolean}
-     * @memberof User
-     */
-    gamesDigest?: boolean;
-    /**
-     * Email domain required by the user's account
-     * @type {string}
-     * @memberof User
-     */
-    emailDomain?: string | null;
 }
 
 
@@ -322,15 +238,6 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'canSeeCompensation': json['can_see_compensation'] == null ? undefined : json['can_see_compensation'],
         'canShowScouting': json['can_show_scouting'] == null ? undefined : json['can_show_scouting'],
         'canShowGameContract': json['can_show_game_contract'] == null ? undefined : json['can_show_game_contract'],
-        'canSeeCoaches': json['can_see_coaches'] == null ? undefined : json['can_see_coaches'],
-        'canSeeAdministrators': json['can_see_administrators'] == null ? undefined : json['can_see_administrators'],
-        'canShowFinancials': json['can_show_financials'] == null ? undefined : json['can_show_financials'],
-        'canShowDeals': json['can_show_deals'] == null ? undefined : json['can_show_deals'],
-        'canShowBenchmark': json['can_show_benchmark'] == null ? undefined : json['can_show_benchmark'],
-        'canShowAthleticProfile': json['can_show_athletic_profile'] == null ? undefined : json['can_show_athletic_profile'],
-        'canReadConference': json['can_read_conference'] == null ? undefined : json['can_read_conference'],
-        'canShowGamePost': json['can_show_game_post'] == null ? undefined : json['can_show_game_post'],
-        'canSeeSchoolGroups': json['can_see_school_groups'] == null ? undefined : json['can_see_school_groups'],
         'isSportSpecific': json['is_sport_specific'] == null ? undefined : json['is_sport_specific'],
         'isD2Only': json['is_d2_only'] == null ? undefined : json['is_d2_only'],
         'isConferenceOnly': json['is_conference_only'] == null ? undefined : json['is_conference_only'],
@@ -341,11 +248,6 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'schoolCity': json['school_city'] == null ? undefined : json['school_city'],
         'schoolState': json['school_state'] == null ? undefined : json['school_state'],
         'otpRequired': json['otp_required'] == null ? undefined : json['otp_required'],
-        'timeZone': json['time_zone'] == null ? undefined : json['time_zone'],
-        'schedulingNotifications': json['scheduling_notifications'] == null ? undefined : json['scheduling_notifications'],
-        'gamePostNotifications': json['game_post_notifications'] == null ? undefined : json['game_post_notifications'],
-        'gamesDigest': json['games_digest'] == null ? undefined : json['games_digest'],
-        'emailDomain': json['email_domain'] == null ? undefined : json['email_domain'],
     };
 }
 
@@ -376,15 +278,6 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'can_see_compensation': value['canSeeCompensation'],
         'can_show_scouting': value['canShowScouting'],
         'can_show_game_contract': value['canShowGameContract'],
-        'can_see_coaches': value['canSeeCoaches'],
-        'can_see_administrators': value['canSeeAdministrators'],
-        'can_show_financials': value['canShowFinancials'],
-        'can_show_deals': value['canShowDeals'],
-        'can_show_benchmark': value['canShowBenchmark'],
-        'can_show_athletic_profile': value['canShowAthleticProfile'],
-        'can_read_conference': value['canReadConference'],
-        'can_show_game_post': value['canShowGamePost'],
-        'can_see_school_groups': value['canSeeSchoolGroups'],
         'is_sport_specific': value['isSportSpecific'],
         'is_d2_only': value['isD2Only'],
         'is_conference_only': value['isConferenceOnly'],
@@ -395,11 +288,6 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'school_city': value['schoolCity'],
         'school_state': value['schoolState'],
         'otp_required': value['otpRequired'],
-        'time_zone': value['timeZone'],
-        'scheduling_notifications': value['schedulingNotifications'],
-        'game_post_notifications': value['gamePostNotifications'],
-        'games_digest': value['gamesDigest'],
-        'email_domain': value['emailDomain'],
     };
 }
 

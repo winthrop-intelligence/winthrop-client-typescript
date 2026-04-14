@@ -12,7 +12,6 @@ Name | Type
 `initials` | string
 `positionTypes` | Array&lt;string&gt;
 `salaryCents` | number
-`avatarUrl` | string
 
 ## Example
 
@@ -27,7 +26,6 @@ const example = {
   "initials": null,
   "positionTypes": null,
   "salaryCents": null,
-  "avatarUrl": null,
 } satisfies CoachCompensationTabSidebarCoachingStaffInner
 
 console.log(example)

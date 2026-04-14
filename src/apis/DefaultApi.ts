@@ -62,7 +62,6 @@ import type {
   CreateNoteRequest,
   CreatePasswordReset200Response,
   CreatePasswordResetRequest,
-  CreateSchoolGroupRequest,
   CreateTeamScheduleFavorite201Response,
   CreateTeamScheduleFavoriteRequest,
   Deal,
@@ -101,13 +100,13 @@ import type {
   GetSchoolAlternateNames200Response,
   GetSchoolAlternateNames404Response,
   GetTeamScheduleFavorites200ResponseInner,
-  GetTimeZones200Response,
   GetWireChanges200Response,
   IdName,
   IncomeReport,
   IncomeReportCollection,
   JobPost,
   JobPostCollection,
+  ListNotes200ResponseInner,
   NcaaFinancialReportStatus,
   NcaaFinancialReportStatusCollection,
   NewsFeed,
@@ -153,9 +152,7 @@ import type {
   UpdatePasswordReset200Response,
   UpdatePasswordReset400Response,
   UpdatePasswordResetRequest,
-  UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
-  UpdateUserRequest,
   UpsertTeamScheduleNoteRequest,
   User,
   UserActivitySummary,
@@ -264,8 +261,6 @@ import {
     CreatePasswordReset200ResponseToJSON,
     CreatePasswordResetRequestFromJSON,
     CreatePasswordResetRequestToJSON,
-    CreateSchoolGroupRequestFromJSON,
-    CreateSchoolGroupRequestToJSON,
     CreateTeamScheduleFavorite201ResponseFromJSON,
     CreateTeamScheduleFavorite201ResponseToJSON,
     CreateTeamScheduleFavoriteRequestFromJSON,
@@ -342,8 +337,6 @@ import {
     GetSchoolAlternateNames404ResponseToJSON,
     GetTeamScheduleFavorites200ResponseInnerFromJSON,
     GetTeamScheduleFavorites200ResponseInnerToJSON,
-    GetTimeZones200ResponseFromJSON,
-    GetTimeZones200ResponseToJSON,
     GetWireChanges200ResponseFromJSON,
     GetWireChanges200ResponseToJSON,
     IdNameFromJSON,
@@ -356,6 +349,8 @@ import {
     JobPostToJSON,
     JobPostCollectionFromJSON,
     JobPostCollectionToJSON,
+    ListNotes200ResponseInnerFromJSON,
+    ListNotes200ResponseInnerToJSON,
     NcaaFinancialReportStatusFromJSON,
     NcaaFinancialReportStatusToJSON,
     NcaaFinancialReportStatusCollectionFromJSON,
@@ -446,12 +441,8 @@ import {
     UpdatePasswordReset400ResponseToJSON,
     UpdatePasswordResetRequestFromJSON,
     UpdatePasswordResetRequestToJSON,
-    UpdateSchoolGroupRequestFromJSON,
-    UpdateSchoolGroupRequestToJSON,
     UpdateTeamScheduleFavoriteRequestFromJSON,
     UpdateTeamScheduleFavoriteRequestToJSON,
-    UpdateUserRequestFromJSON,
-    UpdateUserRequestToJSON,
     UpsertTeamScheduleNoteRequestFromJSON,
     UpsertTeamScheduleNoteRequestToJSON,
     UserFromJSON,
@@ -568,10 +559,6 @@ export interface DefaultApiCreateRequestedItemRequest {
     requestedItem: RequestedItem;
 }
 
-export interface DefaultApiCreateSchoolGroupOperationRequest {
-    createSchoolGroupRequest: CreateSchoolGroupRequest;
-}
-
 export interface DefaultApiCreateSeasonRequest {
     season?: Season;
 }
@@ -630,10 +617,6 @@ export interface DefaultApiDeletePositionRequest {
 
 export interface DefaultApiDeleteRequestedItemRequest {
     requestedItemId: number;
-}
-
-export interface DefaultApiDeleteSchoolGroupRequest {
-    schoolGroupId: number;
 }
 
 export interface DefaultApiDeleteSeasonRequest {
@@ -1399,11 +1382,6 @@ export interface DefaultApiUpdateRequestedItemRequest {
     requestedItem: RequestedItem;
 }
 
-export interface DefaultApiUpdateSchoolGroupOperationRequest {
-    schoolGroupId: number;
-    updateSchoolGroupRequest: UpdateSchoolGroupRequest;
-}
-
 export interface DefaultApiUpdateSeasonRequest {
     seasonId: number;
     season: Season;
@@ -1412,11 +1390,6 @@ export interface DefaultApiUpdateSeasonRequest {
 export interface DefaultApiUpdateTeamScheduleFavoriteOperationRequest {
     id: number;
     updateTeamScheduleFavoriteRequest: UpdateTeamScheduleFavoriteRequest;
-}
-
-export interface DefaultApiUpdateUserOperationRequest {
-    userId: number;
-    updateUserRequest: UpdateUserRequest;
 }
 
 export interface DefaultApiUpsertTeamScheduleNoteOperationRequest {
@@ -1430,10 +1403,6 @@ export interface DefaultApiVerifyOtpCodeOperationRequest {
 
 export interface DefaultApiVerifyUserIntercollegiateAccessRequest {
     userEmail: string;
-}
-
-export interface DefaultApiViewRawContractFileRequest {
-    rawContractId: number;
 }
 
 /**
@@ -2478,54 +2447,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a new custom school group
-     */
-    async createSchoolGroupRaw(requestParameters: DefaultApiCreateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolGroupShow>> {
-        if (requestParameters['createSchoolGroupRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createSchoolGroupRequest',
-                'Required parameter "createSchoolGroupRequest" was null or undefined when calling createSchoolGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/school_groups`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateSchoolGroupRequestToJSON(requestParameters['createSchoolGroupRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolGroupShowFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a new custom school group
-     */
-    async createSchoolGroup(requestParameters: DefaultApiCreateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolGroupShow> {
-        const response = await this.createSchoolGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Create a new Season
      */
     async createSeasonRaw(requestParameters: DefaultApiCreateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
@@ -3203,52 +3124,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteRequestedItem(requestParameters: DefaultApiDeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRequestedItemRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Delete a custom school group
-     */
-    async deleteSchoolGroupRaw(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
-        if (requestParameters['schoolGroupId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolGroupId',
-                'Required parameter "schoolGroupId" was null or undefined when calling deleteSchoolGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/school_groups/{schoolGroupId}`;
-        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a custom school group
-     */
-    async deleteSchoolGroup(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
-        const response = await this.deleteSchoolGroupRaw(requestParameters, initOverrides);
-        return await response.value();
     }
 
     /**
@@ -8176,82 +8051,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve the current user\'s custom school groups with their schools
-     */
-    async getSchoolGroupsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SchoolGroupShow>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/school_groups`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SchoolGroupShowFromJSON));
-    }
-
-    /**
-     * Retrieve the current user\'s custom school groups with their schools
-     */
-    async getSchoolGroups(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SchoolGroupShow>> {
-        const response = await this.getSchoolGroupsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve D1 and D2 schools available for custom school group selection
-     */
-    async getSchoolGroupsAvailableSchoolsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/school_groups/available_schools`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
-    }
-
-    /**
-     * Retrieve D1 and D2 schools available for custom school group selection
-     */
-    async getSchoolGroupsAvailableSchools(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
-        const response = await this.getSchoolGroupsAvailableSchoolsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve some or all schools
      */
     async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
@@ -9621,44 +9420,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve all available time zones grouped by US priority zones and other zones
-     */
-    async getTimeZonesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTimeZones200Response>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/time_zones`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetTimeZones200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve all available time zones grouped by US priority zones and other zones
-     */
-    async getTimeZones(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTimeZones200Response> {
-        const response = await this.getTimeZonesRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve a single user
      */
     async getUserRaw(requestParameters: DefaultApiGetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
@@ -10101,6 +9862,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getWireChanges(requestParameters: DefaultApiGetWireChangesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetWireChanges200Response> {
         const response = await this.getWireChangesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all of the current user\'s notes, ordered by most recent first. Includes the notable record\'s name.
+     */
+    async listNotesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ListNotes200ResponseInner>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/notes/list`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ListNotes200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Retrieve all of the current user\'s notes, ordered by most recent first. Includes the notable record\'s name.
+     */
+    async listNotes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ListNotes200ResponseInner>> {
+        const response = await this.listNotesRaw(initOverrides);
         return await response.value();
     }
 
@@ -11213,62 +11012,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update an existing custom school group
-     */
-    async updateSchoolGroupRaw(requestParameters: DefaultApiUpdateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolGroupShow>> {
-        if (requestParameters['schoolGroupId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolGroupId',
-                'Required parameter "schoolGroupId" was null or undefined when calling updateSchoolGroup().'
-            );
-        }
-
-        if (requestParameters['updateSchoolGroupRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateSchoolGroupRequest',
-                'Required parameter "updateSchoolGroupRequest" was null or undefined when calling updateSchoolGroup().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/school_groups/{schoolGroupId}`;
-        urlPath = urlPath.replace(`{${"schoolGroupId"}}`, encodeURIComponent(String(requestParameters['schoolGroupId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateSchoolGroupRequestToJSON(requestParameters['updateSchoolGroupRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolGroupShowFromJSON(jsonValue));
-    }
-
-    /**
-     * Update an existing custom school group
-     */
-    async updateSchoolGroup(requestParameters: DefaultApiUpdateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolGroupShow> {
-        const response = await this.updateSchoolGroupRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Update a single Season
      */
     async updateSeasonRaw(requestParameters: DefaultApiUpdateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
@@ -11377,62 +11120,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateTeamScheduleFavorite(requestParameters: DefaultApiUpdateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTeamScheduleFavorite201Response> {
         const response = await this.updateTeamScheduleFavoriteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Update the current user\'s profile
-     */
-    async updateUserRaw(requestParameters: DefaultApiUpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
-        if (requestParameters['userId'] == null) {
-            throw new runtime.RequiredError(
-                'userId',
-                'Required parameter "userId" was null or undefined when calling updateUser().'
-            );
-        }
-
-        if (requestParameters['updateUserRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateUserRequest',
-                'Required parameter "updateUserRequest" was null or undefined when calling updateUser().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/users/{userId}`;
-        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateUserRequestToJSON(requestParameters['updateUserRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserFromJSON(jsonValue));
-    }
-
-    /**
-     * Update the current user\'s profile
-     */
-    async updateUser(requestParameters: DefaultApiUpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
-        const response = await this.updateUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -11624,52 +11311,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async verifyUserIntercollegiateAccess(requestParameters: DefaultApiVerifyUserIntercollegiateAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyUserIntercollegiateAccess200Response> {
         const response = await this.verifyUserIntercollegiateAccessRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Stream the raw contract PDF for inline viewing
-     */
-    async viewRawContractFileRaw(requestParameters: DefaultApiViewRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
-        if (requestParameters['rawContractId'] == null) {
-            throw new runtime.RequiredError(
-                'rawContractId',
-                'Required parameter "rawContractId" was null or undefined when calling viewRawContractFile().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/raw_contracts/{raw_contractId}/view_file`;
-        urlPath = urlPath.replace(`{${"raw_contractId"}}`, encodeURIComponent(String(requestParameters['rawContractId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.BlobApiResponse(response);
-    }
-
-    /**
-     * Stream the raw contract PDF for inline viewing
-     */
-    async viewRawContractFile(requestParameters: DefaultApiViewRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
-        const response = await this.viewRawContractFileRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

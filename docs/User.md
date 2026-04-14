@@ -22,15 +22,6 @@ Name | Type
 `canSeeCompensation` | boolean
 `canShowScouting` | boolean
 `canShowGameContract` | boolean
-`canSeeCoaches` | boolean
-`canSeeAdministrators` | boolean
-`canShowFinancials` | boolean
-`canShowDeals` | boolean
-`canShowBenchmark` | boolean
-`canShowAthleticProfile` | boolean
-`canReadConference` | boolean
-`canShowGamePost` | boolean
-`canSeeSchoolGroups` | boolean
 `isSportSpecific` | boolean
 `isD2Only` | boolean
 `isConferenceOnly` | boolean
@@ -41,11 +32,6 @@ Name | Type
 `schoolCity` | string
 `schoolState` | string
 `otpRequired` | boolean
-`timeZone` | string
-`schedulingNotifications` | boolean
-`gamePostNotifications` | boolean
-`gamesDigest` | boolean
-`emailDomain` | string
 
 ## Example
 
@@ -70,15 +56,6 @@ const example = {
   "canSeeCompensation": null,
   "canShowScouting": null,
   "canShowGameContract": null,
-  "canSeeCoaches": null,
-  "canSeeAdministrators": null,
-  "canShowFinancials": null,
-  "canShowDeals": null,
-  "canShowBenchmark": null,
-  "canShowAthleticProfile": null,
-  "canReadConference": null,
-  "canShowGamePost": null,
-  "canSeeSchoolGroups": null,
   "isSportSpecific": null,
   "isD2Only": null,
   "isConferenceOnly": null,
@@ -89,11 +66,6 @@ const example = {
   "schoolCity": null,
   "schoolState": null,
   "otpRequired": null,
-  "timeZone": null,
-  "schedulingNotifications": null,
-  "gamePostNotifications": null,
-  "gamesDigest": null,
-  "emailDomain": null,
 } satisfies User
 
 console.log(example)
