@@ -26,11 +26,11 @@ export interface ListNotes200ResponseInner {
      */
     id: number;
     /**
-     * The notable record's ID
-     * @type {number}
+     * The notable record's ID (string to avoid JS precision loss)
+     * @type {string}
      * @memberof ListNotes200ResponseInner
      */
-    notableId: number;
+    notableId: string;
     /**
      * The model type (e.g. "Coach")
      * @type {string}

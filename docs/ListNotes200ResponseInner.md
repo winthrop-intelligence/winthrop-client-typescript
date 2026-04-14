@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
-`notableId` | number
+`notableId` | string
 `notableType` | string
 `content` | string
 `name` | string
