@@ -13,6 +13,8 @@ Name | Type
 `name` | string
 `createdAt` | Date
 `updatedAt` | Date
+`schoolId` | number
+`sportName` | string
 
 ## Example
 
@@ -28,6 +30,8 @@ const example = {
   "name": null,
   "createdAt": null,
   "updatedAt": null,
+  "schoolId": null,
+  "sportName": null,
 } satisfies ListNotes200ResponseInner
 
 console.log(example)

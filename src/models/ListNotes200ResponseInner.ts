@@ -61,6 +61,18 @@ export interface ListNotes200ResponseInner {
      * @memberof ListNotes200ResponseInner
      */
     updatedAt?: Date;
+    /**
+     * School ID for FilTeam notes
+     * @type {number}
+     * @memberof ListNotes200ResponseInner
+     */
+    schoolId?: number | null;
+    /**
+     * Sport name for FilTeam notes
+     * @type {string}
+     * @memberof ListNotes200ResponseInner
+     */
+    sportName?: string | null;
 }
 
 /**
@@ -92,6 +104,8 @@ export function ListNotes200ResponseInnerFromJSONTyped(json: any, ignoreDiscrimi
         'name': json['name'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
+        'schoolId': json['school_id'] == null ? undefined : json['school_id'],
+        'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
     };
 }
 
@@ -113,6 +127,8 @@ export function ListNotes200ResponseInnerToJSONTyped(value?: ListNotes200Respons
         'name': value['name'],
         'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
         'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'school_id': value['schoolId'],
+        'sport_name': value['sportName'],
     };
 }
 
