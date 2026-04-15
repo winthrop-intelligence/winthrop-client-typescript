@@ -102,6 +102,7 @@ import type {
   GetSchoolAlternateNames200Response,
   GetSchoolAlternateNames404Response,
   GetTeamScheduleFavorites200ResponseInner,
+  GetTimeZones200Response,
   GetWireChanges200Response,
   IdName,
   IncomeReport,
@@ -156,6 +157,7 @@ import type {
   UpdatePasswordResetRequest,
   UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
+  UpdateUserRequest,
   UpsertTeamScheduleNoteRequest,
   User,
   UserActivitySummary,
@@ -344,6 +346,8 @@ import {
     GetSchoolAlternateNames404ResponseToJSON,
     GetTeamScheduleFavorites200ResponseInnerFromJSON,
     GetTeamScheduleFavorites200ResponseInnerToJSON,
+    GetTimeZones200ResponseFromJSON,
+    GetTimeZones200ResponseToJSON,
     GetWireChanges200ResponseFromJSON,
     GetWireChanges200ResponseToJSON,
     IdNameFromJSON,
@@ -452,6 +456,8 @@ import {
     UpdateSchoolGroupRequestToJSON,
     UpdateTeamScheduleFavoriteRequestFromJSON,
     UpdateTeamScheduleFavoriteRequestToJSON,
+    UpdateUserRequestFromJSON,
+    UpdateUserRequestToJSON,
     UpsertTeamScheduleNoteRequestFromJSON,
     UpsertTeamScheduleNoteRequestToJSON,
     UserFromJSON,
@@ -1416,6 +1422,11 @@ export interface DefaultApiUpdateSeasonRequest {
 export interface DefaultApiUpdateTeamScheduleFavoriteOperationRequest {
     id: number;
     updateTeamScheduleFavoriteRequest: UpdateTeamScheduleFavoriteRequest;
+}
+
+export interface DefaultApiUpdateUserOperationRequest {
+    userId: number;
+    updateUserRequest: UpdateUserRequest;
 }
 
 export interface DefaultApiUpsertTeamScheduleNoteOperationRequest {
@@ -9666,6 +9677,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all available time zones grouped by US priority zones and other zones
+     */
+    async getTimeZonesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTimeZones200Response>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/time_zones`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetTimeZones200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all available time zones grouped by US priority zones and other zones
+     */
+    async getTimeZones(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTimeZones200Response> {
+        const response = await this.getTimeZonesRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve a single user
      */
     async getUserRaw(requestParameters: DefaultApiGetUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
@@ -11422,6 +11471,62 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateTeamScheduleFavorite(requestParameters: DefaultApiUpdateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTeamScheduleFavorite201Response> {
         const response = await this.updateTeamScheduleFavoriteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update the current user\'s profile
+     */
+    async updateUserRaw(requestParameters: DefaultApiUpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling updateUser().'
+            );
+        }
+
+        if (requestParameters['updateUserRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateUserRequest',
+                'Required parameter "updateUserRequest" was null or undefined when calling updateUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/users/{userId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateUserRequestToJSON(requestParameters['updateUserRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserFromJSON(jsonValue));
+    }
+
+    /**
+     * Update the current user\'s profile
+     */
+    async updateUser(requestParameters: DefaultApiUpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
+        const response = await this.updateUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

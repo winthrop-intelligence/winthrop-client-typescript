@@ -230,6 +230,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleFavorites**](docs/DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
+*DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} | 
 *DefaultApi* | [**getUserActivitySummaries**](docs/DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries | 
 *DefaultApi* | [**getUserActivitySummary**](docs/DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} | 
@@ -263,6 +264,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateSchoolGroup**](docs/DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
+*DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
@@ -447,6 +449,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetSchoolAlternateNames200Response](docs/GetSchoolAlternateNames200Response.md)
 - [GetSchoolAlternateNames404Response](docs/GetSchoolAlternateNames404Response.md)
 - [GetTeamScheduleFavorites200ResponseInner](docs/GetTeamScheduleFavorites200ResponseInner.md)
+- [GetTimeZones200Response](docs/GetTimeZones200Response.md)
 - [GetWireChanges200Response](docs/GetWireChanges200Response.md)
 - [HTTPValidationError](docs/HTTPValidationError.md)
 - [HealthCheckFailure](docs/HealthCheckFailure.md)
@@ -563,6 +566,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleSearchResultAwayContracts](docs/TeamScheduleSearchResultAwayContracts.md)
 - [TeamScheduleSearchResultCollection](docs/TeamScheduleSearchResultCollection.md)
 - [TeamScheduleSearchResultHomeContracts](docs/TeamScheduleSearchResultHomeContracts.md)
+- [TimeZoneOption](docs/TimeZoneOption.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
 - [UnstractRawContractPdfTextRequest](docs/UnstractRawContractPdfTextRequest.md)
@@ -578,6 +582,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateSchoolGroupRequest](docs/UpdateSchoolGroupRequest.md)
 - [UpdateSchoolGroupRequestSchoolGroup](docs/UpdateSchoolGroupRequestSchoolGroup.md)
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
+- [UpdateUserRequest](docs/UpdateUserRequest.md)
+- [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
 - [UpsertTeamScheduleNoteRequest](docs/UpsertTeamScheduleNoteRequest.md)
 - [User](docs/User.md)
 - [UserActivitySummary](docs/UserActivitySummary.md)

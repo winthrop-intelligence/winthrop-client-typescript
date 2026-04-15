@@ -160,6 +160,7 @@ docs/GetLadFilterOptions200ResponsePositionTypesInner.md
 docs/GetSchoolAlternateNames200Response.md
 docs/GetSchoolAlternateNames404Response.md
 docs/GetTeamScheduleFavorites200ResponseInner.md
+docs/GetTimeZones200Response.md
 docs/GetWireChanges200Response.md
 docs/HTTPValidationError.md
 docs/HealthCheckFailure.md
@@ -280,6 +281,7 @@ docs/TeamScheduleSearchResult.md
 docs/TeamScheduleSearchResultAwayContracts.md
 docs/TeamScheduleSearchResultCollection.md
 docs/TeamScheduleSearchResultHomeContracts.md
+docs/TimeZoneOption.md
 docs/UnauthorizedError.md
 docs/UnprocessableEntity.md
 docs/UnstractRawContractPdfTextRequest.md
@@ -295,6 +297,8 @@ docs/UpdatePasswordResetRequestUser.md
 docs/UpdateSchoolGroupRequest.md
 docs/UpdateSchoolGroupRequestSchoolGroup.md
 docs/UpdateTeamScheduleFavoriteRequest.md
+docs/UpdateUserRequest.md
+docs/UpdateUserRequestUser.md
 docs/UpsertTeamScheduleNoteRequest.md
 docs/User.md
 docs/UserActivitySummary.md
@@ -479,6 +483,7 @@ src/models/GetLadFilterOptions200ResponsePositionTypesInner.ts
 src/models/GetSchoolAlternateNames200Response.ts
 src/models/GetSchoolAlternateNames404Response.ts
 src/models/GetTeamScheduleFavorites200ResponseInner.ts
+src/models/GetTimeZones200Response.ts
 src/models/GetWireChanges200Response.ts
 src/models/HTTPValidationError.ts
 src/models/HealthCheckFailure.ts
@@ -595,6 +600,7 @@ src/models/TeamScheduleSearchResult.ts
 src/models/TeamScheduleSearchResultAwayContracts.ts
 src/models/TeamScheduleSearchResultCollection.ts
 src/models/TeamScheduleSearchResultHomeContracts.ts
+src/models/TimeZoneOption.ts
 src/models/UnauthorizedError.ts
 src/models/UnprocessableEntity.ts
 src/models/UnstractRawContractPdfTextRequest.ts
@@ -610,6 +616,8 @@ src/models/UpdatePasswordResetRequestUser.ts
 src/models/UpdateSchoolGroupRequest.ts
 src/models/UpdateSchoolGroupRequestSchoolGroup.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
+src/models/UpdateUserRequest.ts
+src/models/UpdateUserRequestUser.ts
 src/models/UpsertTeamScheduleNoteRequest.ts
 src/models/User.ts
 src/models/UserActivitySummary.ts
