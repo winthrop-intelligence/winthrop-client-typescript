@@ -10,6 +10,7 @@ Name | Type
 `dealType` | string
 `term` | string
 `vendorNames` | string
+`vendors` | [Array&lt;AthleticProfileShowDealsInnerVendorsInner&gt;](AthleticProfileShowDealsInnerVendorsInner.md)
 `summary` | string
 `hasContract` | boolean
 `rawContractId` | number
@@ -25,6 +26,7 @@ const example = {
   "dealType": null,
   "term": null,
   "vendorNames": null,
+  "vendors": null,
   "summary": null,
   "hasContract": null,
   "rawContractId": null,

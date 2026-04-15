@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `schoolId` | number
 `schoolName` | string
+`coachId` | number
 `coachName` | string
 
 ## Example
@@ -19,6 +20,7 @@ import type { SchoolNoComp } from '@winthrop-intelligence/winthrop-client-typesc
 const example = {
   "schoolId": null,
   "schoolName": null,
+  "coachId": null,
   "coachName": null,
 } satisfies SchoolNoComp
 

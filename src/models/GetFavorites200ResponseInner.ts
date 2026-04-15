@@ -49,18 +49,6 @@ export interface GetFavorites200ResponseInner {
      * @memberof GetFavorites200ResponseInner
      */
     name?: string | null;
-    /**
-     * School ID for FilTeam/Deal favorites (only when detailed=1)
-     * @type {number}
-     * @memberof GetFavorites200ResponseInner
-     */
-    schoolId?: number | null;
-    /**
-     * Sport name for FilTeam favorites (only when detailed=1)
-     * @type {string}
-     * @memberof GetFavorites200ResponseInner
-     */
-    sportName?: string | null;
 }
 
 /**
@@ -87,8 +75,6 @@ export function GetFavorites200ResponseInnerFromJSONTyped(json: any, ignoreDiscr
         'favoritesCategoryId': json['favorites_category_id'] == null ? undefined : json['favorites_category_id'],
         'categoryName': json['category_name'] == null ? undefined : json['category_name'],
         'name': json['name'] == null ? undefined : json['name'],
-        'schoolId': json['school_id'] == null ? undefined : json['school_id'],
-        'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
     };
 }
 
@@ -108,8 +94,6 @@ export function GetFavorites200ResponseInnerToJSONTyped(value?: GetFavorites200R
         'favorites_category_id': value['favoritesCategoryId'],
         'category_name': value['categoryName'],
         'name': value['name'],
-        'school_id': value['schoolId'],
-        'sport_name': value['sportName'],
     };
 }
 

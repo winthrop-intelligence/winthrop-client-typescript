@@ -41,11 +41,6 @@ Name | Type
 `schoolCity` | string
 `schoolState` | string
 `otpRequired` | boolean
-`timeZone` | string
-`schedulingNotifications` | boolean
-`gamePostNotifications` | boolean
-`gamesDigest` | boolean
-`emailDomain` | string
 
 ## Example
 
@@ -89,11 +84,6 @@ const example = {
   "schoolCity": null,
   "schoolState": null,
   "otpRequired": null,
-  "timeZone": null,
-  "schedulingNotifications": null,
-  "gamePostNotifications": null,
-  "gamesDigest": null,
-  "emailDomain": null,
 } satisfies User
 
 console.log(example)

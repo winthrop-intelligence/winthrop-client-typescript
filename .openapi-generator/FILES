@@ -10,6 +10,7 @@ docs/AsstCoachSchool.md
 docs/AthleticProfileShow.md
 docs/AthleticProfileShowContactsInner.md
 docs/AthleticProfileShowDealsInner.md
+docs/AthleticProfileShowDealsInnerVendorsInner.md
 docs/AthleticProfileShowFinancialInfo.md
 docs/AthleticProfileShowFinancials.md
 docs/AthleticProfileShowFinancialsRevenuesInner.md
@@ -52,6 +53,10 @@ docs/CoachPositionEntry.md
 docs/CoachProfile.md
 docs/CoachProfileOverview.md
 docs/CoachRecordTab.md
+docs/CoachRecruitingTab.md
+docs/CoachRecruitingTabConferenceComparison.md
+docs/CoachRecruitingTabMetadata.md
+docs/CoachRecruitingTabRecruitingBudgets.md
 docs/CoachSearchResult.md
 docs/CoachSearchResultCollection.md
 docs/CoachSnapshot.md
@@ -91,8 +96,6 @@ docs/CreateNoteRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
-docs/CreateSchoolGroupRequest.md
-docs/CreateSchoolGroupRequestSchoolGroup.md
 docs/CreateTeamScheduleFavorite201Response.md
 docs/CreateTeamScheduleFavoriteRequest.md
 docs/Deal.md
@@ -155,7 +158,6 @@ docs/GetLadFilterOptions200ResponsePositionTypesInner.md
 docs/GetSchoolAlternateNames200Response.md
 docs/GetSchoolAlternateNames404Response.md
 docs/GetTeamScheduleFavorites200ResponseInner.md
-docs/GetTimeZones200Response.md
 docs/GetWireChanges200Response.md
 docs/HTTPValidationError.md
 docs/HealthCheckFailure.md
@@ -175,7 +177,6 @@ docs/JobSport.md
 docs/Link.md
 docs/LinkCollection.md
 docs/LinkCollection1.md
-docs/ListNotes200ResponseInner.md
 docs/LocationInner.md
 docs/Logo.md
 docs/Meta.md
@@ -200,8 +201,11 @@ docs/RawContract.md
 docs/RawContractBackTo.md
 docs/RawContractCollection.md
 docs/RawContractDealInfo.md
-docs/RawContractDealInfoVendorsInner.md
 docs/RecordPositionEntry.md
+docs/RecruitingBudgetEntry.md
+docs/RecruitingChartData.md
+docs/RecruitingConferenceEntry.md
+docs/RecruitingPositionEntry.md
 docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
 docs/RequestedItem.md
@@ -273,7 +277,6 @@ docs/TeamScheduleSearchResult.md
 docs/TeamScheduleSearchResultAwayContracts.md
 docs/TeamScheduleSearchResultCollection.md
 docs/TeamScheduleSearchResultHomeContracts.md
-docs/TimeZoneOption.md
 docs/UnauthorizedError.md
 docs/UnprocessableEntity.md
 docs/UnstractRawContractPdfTextRequest.md
@@ -286,11 +289,7 @@ docs/UpdatePasswordReset200Response.md
 docs/UpdatePasswordReset400Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
-docs/UpdateSchoolGroupRequest.md
-docs/UpdateSchoolGroupRequestSchoolGroup.md
 docs/UpdateTeamScheduleFavoriteRequest.md
-docs/UpdateUserRequest.md
-docs/UpdateUserRequestUser.md
 docs/UpsertTeamScheduleNoteRequest.md
 docs/User.md
 docs/UserActivitySummary.md
@@ -327,6 +326,7 @@ src/models/AsstCoachSchool.ts
 src/models/AthleticProfileShow.ts
 src/models/AthleticProfileShowContactsInner.ts
 src/models/AthleticProfileShowDealsInner.ts
+src/models/AthleticProfileShowDealsInnerVendorsInner.ts
 src/models/AthleticProfileShowFinancialInfo.ts
 src/models/AthleticProfileShowFinancials.ts
 src/models/AthleticProfileShowFinancialsRevenuesInner.ts
@@ -369,6 +369,10 @@ src/models/CoachPositionEntry.ts
 src/models/CoachProfile.ts
 src/models/CoachProfileOverview.ts
 src/models/CoachRecordTab.ts
+src/models/CoachRecruitingTab.ts
+src/models/CoachRecruitingTabConferenceComparison.ts
+src/models/CoachRecruitingTabMetadata.ts
+src/models/CoachRecruitingTabRecruitingBudgets.ts
 src/models/CoachSearchResult.ts
 src/models/CoachSearchResultCollection.ts
 src/models/CoachSnapshot.ts
@@ -408,8 +412,6 @@ src/models/CreateNoteRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
-src/models/CreateSchoolGroupRequest.ts
-src/models/CreateSchoolGroupRequestSchoolGroup.ts
 src/models/CreateTeamScheduleFavorite201Response.ts
 src/models/CreateTeamScheduleFavoriteRequest.ts
 src/models/Deal.ts
@@ -470,7 +472,6 @@ src/models/GetLadFilterOptions200ResponsePositionTypesInner.ts
 src/models/GetSchoolAlternateNames200Response.ts
 src/models/GetSchoolAlternateNames404Response.ts
 src/models/GetTeamScheduleFavorites200ResponseInner.ts
-src/models/GetTimeZones200Response.ts
 src/models/GetWireChanges200Response.ts
 src/models/HTTPValidationError.ts
 src/models/HealthCheckFailure.ts
@@ -489,7 +490,6 @@ src/models/JobSport.ts
 src/models/Link.ts
 src/models/LinkCollection.ts
 src/models/LinkCollection1.ts
-src/models/ListNotes200ResponseInner.ts
 src/models/LocationInner.ts
 src/models/Logo.ts
 src/models/Meta.ts
@@ -513,8 +513,11 @@ src/models/RawContract.ts
 src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts
 src/models/RawContractDealInfo.ts
-src/models/RawContractDealInfoVendorsInner.ts
 src/models/RecordPositionEntry.ts
+src/models/RecruitingBudgetEntry.ts
+src/models/RecruitingChartData.ts
+src/models/RecruitingConferenceEntry.ts
+src/models/RecruitingPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
@@ -584,7 +587,6 @@ src/models/TeamScheduleSearchResult.ts
 src/models/TeamScheduleSearchResultAwayContracts.ts
 src/models/TeamScheduleSearchResultCollection.ts
 src/models/TeamScheduleSearchResultHomeContracts.ts
-src/models/TimeZoneOption.ts
 src/models/UnauthorizedError.ts
 src/models/UnprocessableEntity.ts
 src/models/UnstractRawContractPdfTextRequest.ts
@@ -597,11 +599,7 @@ src/models/UpdatePasswordReset200Response.ts
 src/models/UpdatePasswordReset400Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
-src/models/UpdateSchoolGroupRequest.ts
-src/models/UpdateSchoolGroupRequestSchoolGroup.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
-src/models/UpdateUserRequest.ts
-src/models/UpdateUserRequestUser.ts
 src/models/UpsertTeamScheduleNoteRequest.ts
 src/models/User.ts
 src/models/UserActivitySummary.ts

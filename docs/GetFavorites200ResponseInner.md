@@ -11,8 +11,6 @@ Name | Type
 `favoritesCategoryId` | number
 `categoryName` | string
 `name` | string
-`schoolId` | number
-`sportName` | string
 
 ## Example
 
@@ -26,8 +24,6 @@ const example = {
   "favoritesCategoryId": null,
   "categoryName": null,
   "name": null,
-  "schoolId": null,
-  "sportName": null,
 } satisfies GetFavorites200ResponseInner
 
 console.log(example)
