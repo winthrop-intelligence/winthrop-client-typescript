@@ -96,6 +96,8 @@ docs/CreateNoteRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
+docs/CreateSchoolGroupRequest.md
+docs/CreateSchoolGroupRequestSchoolGroup.md
 docs/CreateTeamScheduleFavorite201Response.md
 docs/CreateTeamScheduleFavoriteRequest.md
 docs/Deal.md
@@ -290,6 +292,8 @@ docs/UpdatePasswordReset200Response.md
 docs/UpdatePasswordReset400Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
+docs/UpdateSchoolGroupRequest.md
+docs/UpdateSchoolGroupRequestSchoolGroup.md
 docs/UpdateTeamScheduleFavoriteRequest.md
 docs/UpsertTeamScheduleNoteRequest.md
 docs/User.md
@@ -413,6 +417,8 @@ src/models/CreateNoteRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
+src/models/CreateSchoolGroupRequest.ts
+src/models/CreateSchoolGroupRequestSchoolGroup.ts
 src/models/CreateTeamScheduleFavorite201Response.ts
 src/models/CreateTeamScheduleFavoriteRequest.ts
 src/models/Deal.ts
@@ -601,6 +607,8 @@ src/models/UpdatePasswordReset200Response.ts
 src/models/UpdatePasswordReset400Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
+src/models/UpdateSchoolGroupRequest.ts
+src/models/UpdateSchoolGroupRequestSchoolGroup.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
 src/models/UpsertTeamScheduleNoteRequest.ts
 src/models/User.ts
