@@ -235,6 +235,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getVendor**](docs/DefaultApi.md#getvendor) | **GET** /api/v1/vendors/{vendorId} | 
 *DefaultApi* | [**getVendors**](docs/DefaultApi.md#getvendors) | **GET** /api/v1/vendors | 
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
+*DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
 *DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
@@ -456,6 +457,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Link](docs/Link.md)
 - [LinkCollection](docs/LinkCollection.md)
 - [LinkCollection1](docs/LinkCollection1.md)
+- [ListNotes200ResponseInner](docs/ListNotes200ResponseInner.md)
 - [LocationInner](docs/LocationInner.md)
 - [Logo](docs/Logo.md)
 - [Meta](docs/Meta.md)

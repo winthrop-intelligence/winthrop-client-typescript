@@ -177,6 +177,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendor**](DefaultApi.md#getvendor) | **GET** /api/v1/vendors/{vendorId} |  |
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
+| [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
 | [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
@@ -13508,6 +13509,72 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Wire changes found |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listNotes
+
+> Array&lt;ListNotes200ResponseInner&gt; listNotes()
+
+
+
+Retrieve all of the current user\&#39;s notes, ordered by most recent first. Includes the notable record\&#39;s name.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListNotesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listNotes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;ListNotes200ResponseInner&gt;**](ListNotes200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of all user notes |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

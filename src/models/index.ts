@@ -173,6 +173,7 @@ export * from './JobSport';
 export * from './Link';
 export * from './LinkCollection';
 export * from './LinkCollection1';
+export * from './ListNotes200ResponseInner';
 export * from './LocationInner';
 export * from './Logo';
 export * from './Meta';

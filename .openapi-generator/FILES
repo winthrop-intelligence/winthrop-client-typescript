@@ -177,6 +177,7 @@ docs/JobSport.md
 docs/Link.md
 docs/LinkCollection.md
 docs/LinkCollection1.md
+docs/ListNotes200ResponseInner.md
 docs/LocationInner.md
 docs/Logo.md
 docs/Meta.md
@@ -490,6 +491,7 @@ src/models/JobSport.ts
 src/models/Link.ts
 src/models/LinkCollection.ts
 src/models/LinkCollection1.ts
+src/models/ListNotes200ResponseInner.ts
 src/models/LocationInner.ts
 src/models/Logo.ts
 src/models/Meta.ts

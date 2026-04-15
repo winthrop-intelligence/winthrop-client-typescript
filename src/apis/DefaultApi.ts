@@ -107,6 +107,7 @@ import type {
   IncomeReportCollection,
   JobPost,
   JobPostCollection,
+  ListNotes200ResponseInner,
   NcaaFinancialReportStatus,
   NcaaFinancialReportStatusCollection,
   NewsFeed,
@@ -351,6 +352,8 @@ import {
     JobPostToJSON,
     JobPostCollectionFromJSON,
     JobPostCollectionToJSON,
+    ListNotes200ResponseInnerFromJSON,
+    ListNotes200ResponseInnerToJSON,
     NcaaFinancialReportStatusFromJSON,
     NcaaFinancialReportStatusToJSON,
     NcaaFinancialReportStatusCollectionFromJSON,
@@ -9912,6 +9915,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getWireChanges(requestParameters: DefaultApiGetWireChangesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetWireChanges200Response> {
         const response = await this.getWireChangesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all of the current user\'s notes, ordered by most recent first. Includes the notable record\'s name.
+     */
+    async listNotesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ListNotes200ResponseInner>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/notes/list`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ListNotes200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Retrieve all of the current user\'s notes, ordered by most recent first. Includes the notable record\'s name.
+     */
+    async listNotes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ListNotes200ResponseInner>> {
+        const response = await this.listNotesRaw(initOverrides);
         return await response.value();
     }
 
