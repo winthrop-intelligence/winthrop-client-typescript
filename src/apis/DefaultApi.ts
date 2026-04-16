@@ -689,10 +689,6 @@ export interface DefaultApiDeleteTeamScheduleNoteRequest {
     filTeamId: string;
 }
 
-export interface DefaultApiGetAccountUserRequest {
-    accountUserId: number;
-}
-
 export interface DefaultApiGetAccountUserActivationRequest {
     confirmationToken: string;
 }
@@ -924,6 +920,10 @@ export interface DefaultApiGetDivisionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+}
+
+export interface DefaultApiGetEditAccountUserRequest {
+    accountUserId: number;
 }
 
 export interface DefaultApiGetFavoritesRequest {
@@ -3544,52 +3544,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve a single account user with their current roles, sports, and form metadata for editing
-     */
-    async getAccountUserRaw(requestParameters: DefaultApiGetAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EditAccountUserResponse>> {
-        if (requestParameters['accountUserId'] == null) {
-            throw new runtime.RequiredError(
-                'accountUserId',
-                'Required parameter "accountUserId" was null or undefined when calling getAccountUser().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/account_users/{accountUserId}`;
-        urlPath = urlPath.replace(`{${"accountUserId"}}`, encodeURIComponent(String(requestParameters['accountUserId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => EditAccountUserResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve a single account user with their current roles, sports, and form metadata for editing
-     */
-    async getAccountUser(requestParameters: DefaultApiGetAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EditAccountUserResponse> {
-        const response = await this.getAccountUserRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Validate a confirmation token and return the user\'s name and email for the account activation form
      */
     async getAccountUserActivationRaw(requestParameters: DefaultApiGetAccountUserActivationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAccountUserActivation200Response>> {
@@ -5926,6 +5880,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getDivisions(requestParameters: DefaultApiGetDivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DivisionCollection> {
         const response = await this.getDivisionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a single account user with their current roles, sports, and form metadata for editing
+     */
+    async getEditAccountUserRaw(requestParameters: DefaultApiGetEditAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EditAccountUserResponse>> {
+        if (requestParameters['accountUserId'] == null) {
+            throw new runtime.RequiredError(
+                'accountUserId',
+                'Required parameter "accountUserId" was null or undefined when calling getEditAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/{accountUserId}/edit`;
+        urlPath = urlPath.replace(`{${"accountUserId"}}`, encodeURIComponent(String(requestParameters['accountUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EditAccountUserResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a single account user with their current roles, sports, and form metadata for editing
+     */
+    async getEditAccountUser(requestParameters: DefaultApiGetEditAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EditAccountUserResponse> {
+        const response = await this.getEditAccountUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

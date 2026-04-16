@@ -45,7 +45,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
-| [**getAccountUser**](DefaultApi.md#getaccountuser) | **GET** /api/v1/account_users/{accountUserId} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
@@ -94,6 +93,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDepartmentSearches**](DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
+| [**getEditAccountUser**](DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
 | [**getFavoritesCategories**](DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories |  |
 | [**getFilterOptions**](DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options |  |
@@ -3326,82 +3326,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **204** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAccountUser
-
-> EditAccountUserResponse getAccountUser(accountUserId)
-
-
-
-Retrieve a single account user with their current roles, sports, and form metadata for editing
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | ID of the user to retrieve
-    accountUserId: 56,
-  } satisfies GetAccountUserRequest;
-
-  try {
-    const data = await api.getAccountUser(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **accountUserId** | `number` | ID of the user to retrieve | [Defaults to `undefined`] |
-
-### Return type
-
-[**EditAccountUserResponse**](EditAccountUserResponse.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Account user edit data retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - requires account admin role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -7115,6 +7039,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Divisions were found |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEditAccountUser
+
+> EditAccountUserResponse getEditAccountUser(accountUserId)
+
+
+
+Retrieve a single account user with their current roles, sports, and form metadata for editing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEditAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to edit
+    accountUserId: 56,
+  } satisfies GetEditAccountUserRequest;
+
+  try {
+    const data = await api.getEditAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to edit | [Defaults to `undefined`] |
+
+### Return type
+
+[**EditAccountUserResponse**](EditAccountUserResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account user edit data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

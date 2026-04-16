@@ -103,7 +103,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
-*DefaultApi* | [**getAccountUser**](docs/DefaultApi.md#getaccountuser) | **GET** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
@@ -152,6 +151,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDepartmentSearches**](docs/DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches | 
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
+*DefaultApi* | [**getEditAccountUser**](docs/DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit | 
 *DefaultApi* | [**getFavorites**](docs/DefaultApi.md#getfavorites) | **GET** /api/v1/favorites | 
 *DefaultApi* | [**getFavoritesCategories**](docs/DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories | 
 *DefaultApi* | [**getFilterOptions**](docs/DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options | 
