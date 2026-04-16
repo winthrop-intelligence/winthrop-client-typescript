@@ -90,6 +90,9 @@ docs/Contract.md
 docs/ContractCollection.md
 docs/CoworkerEntry.md
 docs/CoworkerTenure.md
+docs/CreateAccountUser422Response.md
+docs/CreateAccountUserRequest.md
+docs/CreateAccountUserRequestUser.md
 docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
@@ -190,6 +193,7 @@ docs/Meta.md
 docs/MlAthleticApi.md
 docs/NcaaFinancialReportStatus.md
 docs/NcaaFinancialReportStatusCollection.md
+docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
@@ -217,6 +221,7 @@ docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
+docs/RoleOption.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -248,6 +253,7 @@ docs/SportCompensationRankings.md
 docs/SportCompensationRankingsSchoolsInner.md
 docs/SportCompensationResponse.md
 docs/SportCompensationSubdivision.md
+docs/SportOption.md
 docs/Subdivision.md
 docs/SubdivisionCollection.md
 docs/Subscription.md
@@ -294,7 +300,6 @@ docs/UpdateGamePostSearchRequest.md
 docs/UpdateGamePostSearchRequestGamePost.md
 docs/UpdateNoteRequest.md
 docs/UpdatePasswordReset200Response.md
-docs/UpdatePasswordReset400Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
 docs/UpdateSchoolGroupRequest.md
@@ -418,6 +423,9 @@ src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/CoworkerEntry.ts
 src/models/CoworkerTenure.ts
+src/models/CreateAccountUser422Response.ts
+src/models/CreateAccountUserRequest.ts
+src/models/CreateAccountUserRequestUser.ts
 src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
@@ -514,6 +522,7 @@ src/models/Logo.ts
 src/models/Meta.ts
 src/models/NcaaFinancialReportStatus.ts
 src/models/NcaaFinancialReportStatusCollection.ts
+src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
@@ -540,6 +549,7 @@ src/models/RecruitingPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
+src/models/RoleOption.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts
@@ -570,6 +580,7 @@ src/models/SportCompensationRankings.ts
 src/models/SportCompensationRankingsSchoolsInner.ts
 src/models/SportCompensationResponse.ts
 src/models/SportCompensationSubdivision.ts
+src/models/SportOption.ts
 src/models/Subdivision.ts
 src/models/SubdivisionCollection.ts
 src/models/Subscription.ts
@@ -616,7 +627,6 @@ src/models/UpdateGamePostSearchRequest.ts
 src/models/UpdateGamePostSearchRequestGamePost.ts
 src/models/UpdateNoteRequest.ts
 src/models/UpdatePasswordReset200Response.ts
-src/models/UpdatePasswordReset400Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
 src/models/UpdateSchoolGroupRequest.ts

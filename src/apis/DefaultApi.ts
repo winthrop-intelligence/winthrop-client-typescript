@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AccountUser,
   AccountUsersResponse,
   Administrator,
   AdministratorCollection,
@@ -57,6 +58,8 @@ import type {
   ContactCollection,
   Contract,
   ContractCollection,
+  CreateAccountUser422Response,
+  CreateAccountUserRequest,
   CreateFavorite201Response,
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
@@ -113,6 +116,7 @@ import type {
   ListNotes200ResponseInner,
   NcaaFinancialReportStatus,
   NcaaFinancialReportStatusCollection,
+  NewAccountUserResponse,
   NewsFeed,
   Note,
   Position,
@@ -154,7 +158,6 @@ import type {
   UpdateGamePostSearchRequest,
   UpdateNoteRequest,
   UpdatePasswordReset200Response,
-  UpdatePasswordReset400Response,
   UpdatePasswordResetRequest,
   UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
@@ -173,6 +176,8 @@ import type {
   VerifyUserIntercollegiateAccess200Response,
 } from '../models/index';
 import {
+    AccountUserFromJSON,
+    AccountUserToJSON,
     AccountUsersResponseFromJSON,
     AccountUsersResponseToJSON,
     AdministratorFromJSON,
@@ -257,6 +262,10 @@ import {
     ContractToJSON,
     ContractCollectionFromJSON,
     ContractCollectionToJSON,
+    CreateAccountUser422ResponseFromJSON,
+    CreateAccountUser422ResponseToJSON,
+    CreateAccountUserRequestFromJSON,
+    CreateAccountUserRequestToJSON,
     CreateFavorite201ResponseFromJSON,
     CreateFavorite201ResponseToJSON,
     CreateFavoriteRequestFromJSON,
@@ -369,6 +378,8 @@ import {
     NcaaFinancialReportStatusToJSON,
     NcaaFinancialReportStatusCollectionFromJSON,
     NcaaFinancialReportStatusCollectionToJSON,
+    NewAccountUserResponseFromJSON,
+    NewAccountUserResponseToJSON,
     NewsFeedFromJSON,
     NewsFeedToJSON,
     NoteFromJSON,
@@ -451,8 +462,6 @@ import {
     UpdateNoteRequestToJSON,
     UpdatePasswordReset200ResponseFromJSON,
     UpdatePasswordReset200ResponseToJSON,
-    UpdatePasswordReset400ResponseFromJSON,
-    UpdatePasswordReset400ResponseToJSON,
     UpdatePasswordResetRequestFromJSON,
     UpdatePasswordResetRequestToJSON,
     UpdateSchoolGroupRequestFromJSON,
@@ -519,6 +528,10 @@ export interface DefaultApiCompareColiRequest {
     schoolId: number;
     otherPersonSchoolId: number;
     otherPersonTotalCompensation: number;
+}
+
+export interface DefaultApiCreateAccountUserOperationRequest {
+    createAccountUserRequest: CreateAccountUserRequest;
 }
 
 export interface DefaultApiCreateCashflowRequest {
@@ -1854,6 +1867,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async compareColi(requestParameters: DefaultApiCompareColiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<COLIAdjusted> {
         const response = await this.compareColiRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new user for the current account. The email prefix is combined with the account email domain. The new user receives an invitation email.
+     */
+    async createAccountUserRaw(requestParameters: DefaultApiCreateAccountUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountUser>> {
+        if (requestParameters['createAccountUserRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createAccountUserRequest',
+                'Required parameter "createAccountUserRequest" was null or undefined when calling createAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateAccountUserRequestToJSON(requestParameters['createAccountUserRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountUserFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new user for the current account. The email prefix is combined with the account email domain. The new user receives an invitation email.
+     */
+    async createAccountUser(requestParameters: DefaultApiCreateAccountUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountUser> {
+        const response = await this.createAccountUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -7310,6 +7371,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getNcaaFinancialReportStatuses(requestParameters: DefaultApiGetNcaaFinancialReportStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NcaaFinancialReportStatusCollection> {
         const response = await this.getNcaaFinancialReportStatusesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve form metadata for creating a new account user including available role options based on subscription, schedulable sports, and email domain
+     */
+    async getNewAccountUserRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewAccountUserResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/new`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewAccountUserResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve form metadata for creating a new account user including available role options based on subscription, schedulable sports, and email domain
+     */
+    async getNewAccountUser(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewAccountUserResponse> {
+        const response = await this.getNewAccountUserRaw(initOverrides);
         return await response.value();
     }
 

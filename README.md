@@ -67,6 +67,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**averageSchoolComp**](docs/DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp | 
 *DefaultApi* | [**averageSubdivisionComp**](docs/DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp | 
 *DefaultApi* | [**compareColi**](docs/DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli | 
+*DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
 *DefaultApi* | [**createCashflow**](docs/DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows | 
 *DefaultApi* | [**createCoach**](docs/DefaultApi.md#createcoach) | **POST** /api/v1/coaches | 
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
@@ -183,6 +184,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getLadFilterOptions**](docs/DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options | 
 *DefaultApi* | [**getNcaaFinancialReportStatus**](docs/DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} | 
 *DefaultApi* | [**getNcaaFinancialReportStatuses**](docs/DefaultApi.md#getncaafinancialreportstatuses) | **GET** /api/v1/ncaa_financial_report_statuses | 
+*DefaultApi* | [**getNewAccountUser**](docs/DefaultApi.md#getnewaccountuser) | **GET** /api/v1/account_users/new | 
 *DefaultApi* | [**getNewsFeed**](docs/DefaultApi.md#getnewsfeed) | **GET** /wi_jobs/news_feeds/{newsFeedId} | Get a news feed
 *DefaultApi* | [**getNote**](docs/DefaultApi.md#getnote) | **GET** /api/v1/notes | 
 *DefaultApi* | [**getPosition**](docs/DefaultApi.md#getposition) | **GET** /api/v1/positions/{positionId} | 
@@ -383,6 +385,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ContractCollection](docs/ContractCollection.md)
 - [CoworkerEntry](docs/CoworkerEntry.md)
 - [CoworkerTenure](docs/CoworkerTenure.md)
+- [CreateAccountUser422Response](docs/CreateAccountUser422Response.md)
+- [CreateAccountUserRequest](docs/CreateAccountUserRequest.md)
+- [CreateAccountUserRequestUser](docs/CreateAccountUserRequestUser.md)
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
@@ -479,6 +484,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Meta](docs/Meta.md)
 - [NcaaFinancialReportStatus](docs/NcaaFinancialReportStatus.md)
 - [NcaaFinancialReportStatusCollection](docs/NcaaFinancialReportStatusCollection.md)
+- [NewAccountUserResponse](docs/NewAccountUserResponse.md)
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Note](docs/Note.md)
@@ -505,6 +511,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RegenerateRawContractPdf200Response](docs/RegenerateRawContractPdf200Response.md)
 - [RequestedItem](docs/RequestedItem.md)
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
+- [RoleOption](docs/RoleOption.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
@@ -535,6 +542,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SportCompensationRankingsSchoolsInner](docs/SportCompensationRankingsSchoolsInner.md)
 - [SportCompensationResponse](docs/SportCompensationResponse.md)
 - [SportCompensationSubdivision](docs/SportCompensationSubdivision.md)
+- [SportOption](docs/SportOption.md)
 - [Subdivision](docs/Subdivision.md)
 - [SubdivisionCollection](docs/SubdivisionCollection.md)
 - [Subscription](docs/Subscription.md)
@@ -581,7 +589,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateGamePostSearchRequestGamePost](docs/UpdateGamePostSearchRequestGamePost.md)
 - [UpdateNoteRequest](docs/UpdateNoteRequest.md)
 - [UpdatePasswordReset200Response](docs/UpdatePasswordReset200Response.md)
-- [UpdatePasswordReset400Response](docs/UpdatePasswordReset400Response.md)
 - [UpdatePasswordResetRequest](docs/UpdatePasswordResetRequest.md)
 - [UpdatePasswordResetRequestUser](docs/UpdatePasswordResetRequestUser.md)
 - [UpdateSchoolGroupRequest](docs/UpdateSchoolGroupRequest.md)
