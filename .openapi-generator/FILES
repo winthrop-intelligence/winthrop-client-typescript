@@ -1,9 +1,10 @@
 .gitignore
 .npmignore
 README.md
-docs/AccountInfo.md
-docs/AccountUser.md
-docs/AccountUsersResponse.md
+docs/AccountBillingAddress.md
+docs/AccountDetail.md
+docs/AccountInvoice.md
+docs/AccountSubscription.md
 docs/AdminCompensationSubdivision.md
 docs/Administrator.md
 docs/AdministratorCollection.md
@@ -90,9 +91,6 @@ docs/Contract.md
 docs/ContractCollection.md
 docs/CoworkerEntry.md
 docs/CoworkerTenure.md
-docs/CreateAccountUser422Response.md
-docs/CreateAccountUserRequest.md
-docs/CreateAccountUserRequestUser.md
 docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
@@ -115,9 +113,9 @@ docs/DealSearchResultCollection.md
 docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DefaultApi.md
-docs/DeleteAccountUser200Response.md
 docs/DeleteFavorite200Response.md
 docs/DeleteGamePostSearch200Response.md
+docs/DeleteNote200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
 docs/DepartmentSearchResultDepartment.md
@@ -193,7 +191,6 @@ docs/Meta.md
 docs/MlAthleticApi.md
 docs/NcaaFinancialReportStatus.md
 docs/NcaaFinancialReportStatusCollection.md
-docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
@@ -221,7 +218,6 @@ docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
-docs/RoleOption.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -253,7 +249,6 @@ docs/SportCompensationRankings.md
 docs/SportCompensationRankingsSchoolsInner.md
 docs/SportCompensationResponse.md
 docs/SportCompensationSubdivision.md
-docs/SportOption.md
 docs/Subdivision.md
 docs/SubdivisionCollection.md
 docs/Subscription.md
@@ -300,6 +295,7 @@ docs/UpdateGamePostSearchRequest.md
 docs/UpdateGamePostSearchRequestGamePost.md
 docs/UpdateNoteRequest.md
 docs/UpdatePasswordReset200Response.md
+docs/UpdatePasswordReset400Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
 docs/UpdateSchoolGroupRequest.md
@@ -334,9 +330,10 @@ src/apis/ReportingApi.ts
 src/apis/ScraperApi.ts
 src/apis/index.ts
 src/index.ts
-src/models/AccountInfo.ts
-src/models/AccountUser.ts
-src/models/AccountUsersResponse.ts
+src/models/AccountBillingAddress.ts
+src/models/AccountDetail.ts
+src/models/AccountInvoice.ts
+src/models/AccountSubscription.ts
 src/models/AdminCompensationSubdivision.ts
 src/models/Administrator.ts
 src/models/AdministratorCollection.ts
@@ -423,9 +420,6 @@ src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/CoworkerEntry.ts
 src/models/CoworkerTenure.ts
-src/models/CreateAccountUser422Response.ts
-src/models/CreateAccountUserRequest.ts
-src/models/CreateAccountUserRequestUser.ts
 src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
@@ -447,9 +441,9 @@ src/models/DealSearchResult.ts
 src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
-src/models/DeleteAccountUser200Response.ts
 src/models/DeleteFavorite200Response.ts
 src/models/DeleteGamePostSearch200Response.ts
+src/models/DeleteNote200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
 src/models/DepartmentSearchResultDepartment.ts
@@ -522,7 +516,6 @@ src/models/Logo.ts
 src/models/Meta.ts
 src/models/NcaaFinancialReportStatus.ts
 src/models/NcaaFinancialReportStatusCollection.ts
-src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
@@ -549,7 +542,6 @@ src/models/RecruitingPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
-src/models/RoleOption.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts
@@ -580,7 +572,6 @@ src/models/SportCompensationRankings.ts
 src/models/SportCompensationRankingsSchoolsInner.ts
 src/models/SportCompensationResponse.ts
 src/models/SportCompensationSubdivision.ts
-src/models/SportOption.ts
 src/models/Subdivision.ts
 src/models/SubdivisionCollection.ts
 src/models/Subscription.ts
@@ -627,6 +618,7 @@ src/models/UpdateGamePostSearchRequest.ts
 src/models/UpdateGamePostSearchRequestGamePost.ts
 src/models/UpdateNoteRequest.ts
 src/models/UpdatePasswordReset200Response.ts
+src/models/UpdatePasswordReset400Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
 src/models/UpdateSchoolGroupRequest.ts
