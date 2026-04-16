@@ -1,6 +1,9 @@
 .gitignore
 .npmignore
 README.md
+docs/AccountInfo.md
+docs/AccountUser.md
+docs/AccountUsersResponse.md
 docs/AdminCompensationSubdivision.md
 docs/Administrator.md
 docs/AdministratorCollection.md
@@ -109,9 +112,9 @@ docs/DealSearchResultCollection.md
 docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DefaultApi.md
+docs/DeleteAccountUser200Response.md
 docs/DeleteFavorite200Response.md
 docs/DeleteGamePostSearch200Response.md
-docs/DeleteNote200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
 docs/DepartmentSearchResultDepartment.md
@@ -326,6 +329,9 @@ src/apis/ReportingApi.ts
 src/apis/ScraperApi.ts
 src/apis/index.ts
 src/index.ts
+src/models/AccountInfo.ts
+src/models/AccountUser.ts
+src/models/AccountUsersResponse.ts
 src/models/AdminCompensationSubdivision.ts
 src/models/Administrator.ts
 src/models/AdministratorCollection.ts
@@ -433,9 +439,9 @@ src/models/DealSearchResult.ts
 src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
+src/models/DeleteAccountUser200Response.ts
 src/models/DeleteFavorite200Response.ts
 src/models/DeleteGamePostSearch200Response.ts
-src/models/DeleteNote200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
 src/models/DepartmentSearchResultDepartment.ts

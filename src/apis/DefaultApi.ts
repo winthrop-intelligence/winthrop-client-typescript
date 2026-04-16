@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AccountUsersResponse,
   Administrator,
   AdministratorCollection,
   AdministratorSearchResultCollection,
@@ -71,9 +72,9 @@ import type {
   DealSearchResultCollection,
   DealStatus,
   DealStatusCollection,
+  DeleteAccountUser200Response,
   DeleteFavorite200Response,
   DeleteGamePostSearch200Response,
-  DeleteNote200Response,
   DepartmentSearchResultCollection,
   Division,
   DivisionCollection,
@@ -172,6 +173,8 @@ import type {
   VerifyUserIntercollegiateAccess200Response,
 } from '../models/index';
 import {
+    AccountUsersResponseFromJSON,
+    AccountUsersResponseToJSON,
     AdministratorFromJSON,
     AdministratorToJSON,
     AdministratorCollectionFromJSON,
@@ -284,12 +287,12 @@ import {
     DealStatusToJSON,
     DealStatusCollectionFromJSON,
     DealStatusCollectionToJSON,
+    DeleteAccountUser200ResponseFromJSON,
+    DeleteAccountUser200ResponseToJSON,
     DeleteFavorite200ResponseFromJSON,
     DeleteFavorite200ResponseToJSON,
     DeleteGamePostSearch200ResponseFromJSON,
     DeleteGamePostSearch200ResponseToJSON,
-    DeleteNote200ResponseFromJSON,
-    DeleteNote200ResponseToJSON,
     DepartmentSearchResultCollectionFromJSON,
     DepartmentSearchResultCollectionToJSON,
     DivisionFromJSON,
@@ -584,6 +587,10 @@ export interface DefaultApiCreateSeasonRequest {
 
 export interface DefaultApiCreateTeamScheduleFavoriteOperationRequest {
     createTeamScheduleFavoriteRequest: CreateTeamScheduleFavoriteRequest;
+}
+
+export interface DefaultApiDeleteAccountUserRequest {
+    accountUserId: number;
 }
 
 export interface DefaultApiDeleteCashflowRequest {
@@ -2625,6 +2632,52 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a user from the current account
+     */
+    async deleteAccountUserRaw(requestParameters: DefaultApiDeleteAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
+        if (requestParameters['accountUserId'] == null) {
+            throw new runtime.RequiredError(
+                'accountUserId',
+                'Required parameter "accountUserId" was null or undefined when calling deleteAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/{accountUserId}`;
+        urlPath = urlPath.replace(`{${"accountUserId"}}`, encodeURIComponent(String(requestParameters['accountUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a user from the current account
+     */
+    async deleteAccountUser(requestParameters: DefaultApiDeleteAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
+        const response = await this.deleteAccountUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Delete a single Cashflow
      */
     async deleteCashflowRaw(requestParameters: DefaultApiDeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -3082,7 +3135,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a note
      */
-    async deleteNoteRaw(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async deleteNoteRaw(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -3114,13 +3167,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete a note
      */
-    async deleteNote(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async deleteNote(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteNoteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3218,7 +3271,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a custom school group
      */
-    async deleteSchoolGroupRaw(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async deleteSchoolGroupRaw(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['schoolGroupId'] == null) {
             throw new runtime.RequiredError(
                 'schoolGroupId',
@@ -3250,13 +3303,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete a custom school group
      */
-    async deleteSchoolGroup(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async deleteSchoolGroup(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteSchoolGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3309,7 +3362,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Remove a FilTeam favorite
      */
-    async deleteTeamScheduleFavoriteRaw(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async deleteTeamScheduleFavoriteRaw(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -3341,13 +3394,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Remove a FilTeam favorite
      */
-    async deleteTeamScheduleFavorite(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async deleteTeamScheduleFavorite(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteTeamScheduleFavoriteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3395,6 +3448,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteTeamScheduleNote(requestParameters: DefaultApiDeleteTeamScheduleNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteTeamScheduleNoteRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all users for the current user\'s account with their computed access permissions
+     */
+    async getAccountUsersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountUsersResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountUsersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all users for the current user\'s account with their computed access permissions
+     */
+    async getAccountUsers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountUsersResponse> {
+        const response = await this.getAccountUsersRaw(initOverrides);
+        return await response.value();
     }
 
     /**
@@ -10879,7 +10970,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a GameContract
      */
-    async updateGameContractRaw(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async updateGameContractRaw(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['gameContractId'] == null) {
             throw new runtime.RequiredError(
                 'gameContractId',
@@ -10988,13 +11079,13 @@ export class DefaultApi extends runtime.BaseAPI {
             body: formParams,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Update a GameContract
      */
-    async updateGameContract(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async updateGameContract(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.updateGameContractRaw(requestParameters, initOverrides);
         return await response.value();
     }

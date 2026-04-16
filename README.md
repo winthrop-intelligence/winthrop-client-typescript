@@ -84,6 +84,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
+*DefaultApi* | [**deleteAccountUser**](docs/DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**deleteCashflow**](docs/DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
@@ -101,6 +102,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
 *DefaultApi* | [**getAdministratorSearches**](docs/DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches | 
 *DefaultApi* | [**getAdministrators**](docs/DefaultApi.md#getadministrators) | **GET** /api/v1/administrators | 
@@ -292,6 +294,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 ### Models
 
+- [AccountInfo](docs/AccountInfo.md)
+- [AccountUser](docs/AccountUser.md)
+- [AccountUsersResponse](docs/AccountUsersResponse.md)
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)
 - [Administrator](docs/Administrator.md)
 - [AdministratorCollection](docs/AdministratorCollection.md)
@@ -399,9 +404,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DealSearchResultCollection](docs/DealSearchResultCollection.md)
 - [DealStatus](docs/DealStatus.md)
 - [DealStatusCollection](docs/DealStatusCollection.md)
+- [DeleteAccountUser200Response](docs/DeleteAccountUser200Response.md)
 - [DeleteFavorite200Response](docs/DeleteFavorite200Response.md)
 - [DeleteGamePostSearch200Response](docs/DeleteGamePostSearch200Response.md)
-- [DeleteNote200Response](docs/DeleteNote200Response.md)
 - [DepartmentSearchResult](docs/DepartmentSearchResult.md)
 - [DepartmentSearchResultCollection](docs/DepartmentSearchResultCollection.md)
 - [DepartmentSearchResultDepartment](docs/DepartmentSearchResultDepartment.md)

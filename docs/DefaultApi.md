@@ -26,6 +26,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
 | [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
+| [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
@@ -43,6 +44,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
@@ -1900,6 +1902,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteAccountUser
+
+> DeleteAccountUser200Response deleteAccountUser(accountUserId)
+
+
+
+Delete a user from the current account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to delete
+    accountUserId: 56,
+  } satisfies DeleteAccountUserRequest;
+
+  try {
+    const data = await api.deleteAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteCashflow
 
 > deleteCashflow(cashflowId)
@@ -2649,7 +2727,7 @@ example().catch(console.error);
 
 ## deleteNote
 
-> DeleteNote200Response deleteNote(id)
+> DeleteAccountUser200Response deleteNote(id)
 
 
 
@@ -2700,7 +2778,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**DeleteNote200Response**](DeleteNote200Response.md)
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
 
 ### Authorization
 
@@ -2873,7 +2951,7 @@ example().catch(console.error);
 
 ## deleteSchoolGroup
 
-> DeleteNote200Response deleteSchoolGroup(schoolGroupId)
+> DeleteAccountUser200Response deleteSchoolGroup(schoolGroupId)
 
 
 
@@ -2924,7 +3002,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**DeleteNote200Response**](DeleteNote200Response.md)
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
 
 ### Authorization
 
@@ -3023,7 +3101,7 @@ example().catch(console.error);
 
 ## deleteTeamScheduleFavorite
 
-> DeleteNote200Response deleteTeamScheduleFavorite(id)
+> DeleteAccountUser200Response deleteTeamScheduleFavorite(id)
 
 
 
@@ -3074,7 +3152,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**DeleteNote200Response**](DeleteNote200Response.md)
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
 
 ### Authorization
 
@@ -3167,6 +3245,73 @@ example().catch(console.error);
 | **204** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccountUsers
+
+> AccountUsersResponse getAccountUsers()
+
+
+
+Retrieve all users for the current user\&#39;s account with their computed access permissions
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountUsersRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getAccountUsers();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AccountUsersResponse**](AccountUsersResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account users retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -14934,7 +15079,7 @@ example().catch(console.error);
 
 ## updateGameContract
 
-> DeleteNote200Response updateGameContract(gameContractId, gameContractHomeSchoolId, gameContractAwaySchoolId, gameContractSportId, gameContractGameType, gameContractGameDate, gameContractGameDateTbd, gameContractOffSiteLocation, gameContractCompDollars, gameContractCompTbd, gameContractVariable, gameContractCancelFeeDollars, gameContractCancelled, gameContractVerified, gameContractSignedOn, rawContractFile)
+> DeleteAccountUser200Response updateGameContract(gameContractId, gameContractHomeSchoolId, gameContractAwaySchoolId, gameContractSportId, gameContractGameType, gameContractGameDate, gameContractGameDateTbd, gameContractOffSiteLocation, gameContractCompDollars, gameContractCompTbd, gameContractVariable, gameContractCancelFeeDollars, gameContractCancelled, gameContractVerified, gameContractSignedOn, rawContractFile)
 
 
 
@@ -15030,7 +15175,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**DeleteNote200Response**](DeleteNote200Response.md)
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
 
 ### Authorization
 
