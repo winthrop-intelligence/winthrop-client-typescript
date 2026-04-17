@@ -91,6 +91,12 @@ export interface AccountInvoice {
      * @memberof AccountInvoice
      */
     createdByName?: string | null;
+    /**
+     * Whether the current user can view this invoice's PDF
+     * @type {boolean}
+     * @memberof AccountInvoice
+     */
+    canRead?: boolean;
 }
 
 
@@ -133,6 +139,7 @@ export function AccountInvoiceFromJSONTyped(json: any, ignoreDiscriminator: bool
         'reminders': json['reminders'] == null ? undefined : json['reminders'],
         'subscriptionId': json['subscription_id'] == null ? undefined : json['subscription_id'],
         'createdByName': json['created_by_name'] == null ? undefined : json['created_by_name'],
+        'canRead': json['can_read'] == null ? undefined : json['can_read'],
     };
 }
 
@@ -159,6 +166,7 @@ export function AccountInvoiceToJSONTyped(value?: AccountInvoice | null, ignoreD
         'reminders': value['reminders'],
         'subscription_id': value['subscriptionId'],
         'created_by_name': value['createdByName'],
+        'can_read': value['canRead'],
     };
 }
 

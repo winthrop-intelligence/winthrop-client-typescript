@@ -18,6 +18,7 @@ Name | Type
 `reminders` | boolean
 `subscriptionId` | number
 `createdByName` | string
+`canRead` | boolean
 
 ## Example
 
@@ -38,6 +39,7 @@ const example = {
   "reminders": null,
   "subscriptionId": null,
   "createdByName": null,
+  "canRead": null,
 } satisfies AccountInvoice
 
 console.log(example)
