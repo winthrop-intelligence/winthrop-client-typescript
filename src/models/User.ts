@@ -83,6 +83,12 @@ export interface User {
      */
     title?: string;
     /**
+     * The user's account ID
+     * @type {number}
+     * @memberof User
+     */
+    accountId?: number | null;
+    /**
      * 
      * @type {number}
      * @memberof User
@@ -184,6 +190,12 @@ export interface User {
      * @memberof User
      */
     canSeeSchoolGroups?: boolean;
+    /**
+     * Whether the user can view account management
+     * @type {boolean}
+     * @memberof User
+     */
+    canReadAccount?: boolean;
     /**
      * 
      * @type {boolean}
@@ -314,6 +326,7 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'state': json['state'] == null ? undefined : json['state'],
         'title': json['title'] == null ? undefined : json['title'],
+        'accountId': json['account_id'] == null ? undefined : json['account_id'],
         'accountableId': json['accountable_id'] == null ? undefined : json['accountable_id'],
         'accountableType': json['accountable_type'] == null ? undefined : json['accountable_type'],
         'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
@@ -331,6 +344,7 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'canReadConference': json['can_read_conference'] == null ? undefined : json['can_read_conference'],
         'canShowGamePost': json['can_show_game_post'] == null ? undefined : json['can_show_game_post'],
         'canSeeSchoolGroups': json['can_see_school_groups'] == null ? undefined : json['can_see_school_groups'],
+        'canReadAccount': json['can_read_account'] == null ? undefined : json['can_read_account'],
         'isSportSpecific': json['is_sport_specific'] == null ? undefined : json['is_sport_specific'],
         'isD2Only': json['is_d2_only'] == null ? undefined : json['is_d2_only'],
         'isConferenceOnly': json['is_conference_only'] == null ? undefined : json['is_conference_only'],
@@ -368,6 +382,7 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
         'state': value['state'],
         'title': value['title'],
+        'account_id': value['accountId'],
         'accountable_id': value['accountableId'],
         'accountable_type': value['accountableType'],
         'coach_id': value['coachId'],
@@ -385,6 +400,7 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'can_read_conference': value['canReadConference'],
         'can_show_game_post': value['canShowGamePost'],
         'can_see_school_groups': value['canSeeSchoolGroups'],
+        'can_read_account': value['canReadAccount'],
         'is_sport_specific': value['isSportSpecific'],
         'is_d2_only': value['isD2Only'],
         'is_conference_only': value['isConferenceOnly'],

@@ -105,6 +105,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
@@ -304,7 +305,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 ### Models
 
+- [AccountBillingAddress](docs/AccountBillingAddress.md)
+- [AccountDetail](docs/AccountDetail.md)
 - [AccountInfo](docs/AccountInfo.md)
+- [AccountInvoice](docs/AccountInvoice.md)
+- [AccountSubscription](docs/AccountSubscription.md)
 - [AccountUser](docs/AccountUser.md)
 - [AccountUsersResponse](docs/AccountUsersResponse.md)
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)

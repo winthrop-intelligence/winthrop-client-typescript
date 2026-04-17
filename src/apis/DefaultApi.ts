@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AccountDetail,
   AccountUser,
   AccountUsersResponse,
   Administrator,
@@ -185,6 +186,8 @@ import type {
   VerifyUserIntercollegiateAccess200Response,
 } from '../models/index';
 import {
+    AccountDetailFromJSON,
+    AccountDetailToJSON,
     AccountUserFromJSON,
     AccountUserToJSON,
     AccountUsersResponseFromJSON,
@@ -707,6 +710,10 @@ export interface DefaultApiDeleteTeamScheduleFavoriteRequest {
 
 export interface DefaultApiDeleteTeamScheduleNoteRequest {
     filTeamId: string;
+}
+
+export interface DefaultApiGetAccountRequest {
+    id: number;
 }
 
 export interface DefaultApiGetAccountUserActivationRequest {
@@ -3654,6 +3661,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteTeamScheduleNote(requestParameters: DefaultApiDeleteTeamScheduleNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteTeamScheduleNoteRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve an account with subscriptions, invoices, and billing addresses
+     */
+    async getAccountRaw(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountDetail>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getAccount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/accounts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve an account with subscriptions, invoices, and billing addresses
+     */
+    async getAccount(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountDetail> {
+        const response = await this.getAccountRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
