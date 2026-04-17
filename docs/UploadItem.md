@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `filename` | string
 `uploadedBy` | string
-`createdAt` | Date
+`createdAt` | string
 
 ## Example
 

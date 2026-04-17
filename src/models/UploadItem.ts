@@ -38,11 +38,11 @@ export interface UploadItem {
      */
     uploadedBy?: string;
     /**
-     * 
-     * @type {Date}
+     * Pre-formatted date string in the user's timezone
+     * @type {string}
      * @memberof UploadItem
      */
-    createdAt?: Date;
+    createdAt?: string;
 }
 
 /**
@@ -65,7 +65,7 @@ export function UploadItemFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'id': json['id'] == null ? undefined : json['id'],
         'filename': json['filename'] == null ? undefined : json['filename'],
         'uploadedBy': json['uploaded_by'] == null ? undefined : json['uploaded_by'],
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
+        'createdAt': json['created_at'] == null ? undefined : json['created_at'],
     };
 }
 
@@ -83,7 +83,7 @@ export function UploadItemToJSONTyped(value?: UploadItem | null, ignoreDiscrimin
         'id': value['id'],
         'filename': value['filename'],
         'uploaded_by': value['uploadedBy'],
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'created_at': value['createdAt'],
     };
 }
 
