@@ -14,6 +14,7 @@ Name | Type
 `updatedAt` | Date
 `state` | string
 `title` | string
+`accountId` | number
 `accountableId` | number
 `accountableType` | string
 `coachId` | number
@@ -31,6 +32,7 @@ Name | Type
 `canReadConference` | boolean
 `canShowGamePost` | boolean
 `canSeeSchoolGroups` | boolean
+`canReadAccount` | boolean
 `isSportSpecific` | boolean
 `isD2Only` | boolean
 `isConferenceOnly` | boolean
@@ -62,6 +64,7 @@ const example = {
   "updatedAt": 2019-01-01T00:00Z,
   "state": null,
   "title": Director of Athletics,
+  "accountId": null,
   "accountableId": 1,
   "accountableType": School,
   "coachId": 1,
@@ -79,6 +82,7 @@ const example = {
   "canReadConference": null,
   "canShowGamePost": null,
   "canSeeSchoolGroups": null,
+  "canReadAccount": null,
   "isSportSpecific": null,
   "isD2Only": null,
   "isConferenceOnly": null,
