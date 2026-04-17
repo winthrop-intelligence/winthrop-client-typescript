@@ -2788,7 +2788,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['files'] != null) {
             requestParameters['files'].forEach((element) => {
-                formParams.append('files', element as any);
+                formParams.append('files[]', element as any);
             })
         }
 
