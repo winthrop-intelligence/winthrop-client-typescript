@@ -167,12 +167,6 @@ export interface RawContract {
      */
     canSeeAdminView?: boolean;
     /**
-     * Whether the current user can download this contract's PDF
-     * @type {boolean}
-     * @memberof RawContract
-     */
-    canDownload?: boolean;
-    /**
      * Proxied URL for inline PDF viewing (no direct file access)
      * @type {string}
      * @memberof RawContract
@@ -249,7 +243,6 @@ export function RawContractFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'unstractResponsesDetails': json['unstract_responses_details'] == null ? undefined : json['unstract_responses_details'],
         'layoutPreservedPdfText': json['layout_preserved_pdf_text'] == null ? undefined : json['layout_preserved_pdf_text'],
         'canSeeAdminView': json['can_see_admin_view'] == null ? undefined : json['can_see_admin_view'],
-        'canDownload': json['can_download'] == null ? undefined : json['can_download'],
         'pdfPreviewUrl': json['pdf_preview_url'] == null ? undefined : json['pdf_preview_url'],
         'pdfDownloadUrl': json['pdf_download_url'] == null ? undefined : json['pdf_download_url'],
         'hasFile': json['has_file'] == null ? undefined : json['has_file'],
@@ -292,7 +285,6 @@ export function RawContractToJSONTyped(value?: RawContract | null, ignoreDiscrim
         'unstract_responses_details': value['unstractResponsesDetails'],
         'layout_preserved_pdf_text': value['layoutPreservedPdfText'],
         'can_see_admin_view': value['canSeeAdminView'],
-        'can_download': value['canDownload'],
         'pdf_preview_url': value['pdfPreviewUrl'],
         'pdf_download_url': value['pdfDownloadUrl'],
         'has_file': value['hasFile'],
