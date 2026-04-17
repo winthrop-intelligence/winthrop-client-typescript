@@ -72,7 +72,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createCoach**](docs/DefaultApi.md#createcoach) | **POST** /api/v1/coaches | 
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
 *DefaultApi* | [**createConferenceship**](docs/DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships | 
-*DefaultApi* | [**createContactSearch**](docs/DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches | 
 *DefaultApi* | [**createFavorite**](docs/DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites | 
 *DefaultApi* | [**createFavoritesCategory**](docs/DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories | 
 *DefaultApi* | [**createFoiaLabel**](docs/DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels | 
@@ -86,11 +85,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
+*DefaultApi* | [**createUpload**](docs/DefaultApi.md#createupload) | **POST** /api/v1/uploads | 
 *DefaultApi* | [**deleteAccountUser**](docs/DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**deleteCashflow**](docs/DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
-*DefaultApi* | [**deleteContactSearch**](docs/DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} | 
 *DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
 *DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
@@ -105,7 +104,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
-*DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
+*DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
@@ -143,8 +142,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getConferenceship**](docs/DefaultApi.md#getconferenceship) | **GET** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**getConferenceships**](docs/DefaultApi.md#getconferenceships) | **GET** /api/v1/conferenceships | 
 *DefaultApi* | [**getContact**](docs/DefaultApi.md#getcontact) | **GET** /api/v1/contacts/{contactId} | 
-*DefaultApi* | [**getContactSearchCoachOptions**](docs/DefaultApi.md#getcontactsearchcoachoptions) | **GET** /api/v1/contact_searches/coach_options | 
-*DefaultApi* | [**getContactSearches**](docs/DefaultApi.md#getcontactsearches) | **GET** /api/v1/contact_searches | 
 *DefaultApi* | [**getContacts**](docs/DefaultApi.md#getcontacts) | **GET** /api/v1/contacts | 
 *DefaultApi* | [**getContract**](docs/DefaultApi.md#getcontract) | **GET** /api/v1/contracts/{contractId} | 
 *DefaultApi* | [**getContracts**](docs/DefaultApi.md#getcontracts) | **GET** /api/v1/contracts | 
@@ -242,6 +239,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
 *DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
+*DefaultApi* | [**getUploads**](docs/DefaultApi.md#getuploads) | **GET** /api/v1/uploads | 
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} | 
 *DefaultApi* | [**getUserActivitySummaries**](docs/DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries | 
 *DefaultApi* | [**getUserActivitySummary**](docs/DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} | 
@@ -305,11 +303,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 ### Models
 
-- [AccountBillingAddress](docs/AccountBillingAddress.md)
-- [AccountDetail](docs/AccountDetail.md)
 - [AccountInfo](docs/AccountInfo.md)
-- [AccountInvoice](docs/AccountInvoice.md)
-- [AccountSubscription](docs/AccountSubscription.md)
 - [AccountUser](docs/AccountUser.md)
 - [AccountUsersResponse](docs/AccountUsersResponse.md)
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)
@@ -321,6 +315,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AthleticProfileShow](docs/AthleticProfileShow.md)
 - [AthleticProfileShowContactsInner](docs/AthleticProfileShowContactsInner.md)
 - [AthleticProfileShowDealsInner](docs/AthleticProfileShowDealsInner.md)
+- [AthleticProfileShowDealsInnerVendorsInner](docs/AthleticProfileShowDealsInnerVendorsInner.md)
 - [AthleticProfileShowFinancialInfo](docs/AthleticProfileShowFinancialInfo.md)
 - [AthleticProfileShowFinancials](docs/AthleticProfileShowFinancials.md)
 - [AthleticProfileShowFinancialsRevenuesInner](docs/AthleticProfileShowFinancialsRevenuesInner.md)
@@ -393,11 +388,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ConferenceshipCollection](docs/ConferenceshipCollection.md)
 - [Contact](docs/Contact.md)
 - [ContactCollection](docs/ContactCollection.md)
-- [ContactSearchCoachOptions](docs/ContactSearchCoachOptions.md)
-- [ContactSearchCoachOptionsCoachesInner](docs/ContactSearchCoachOptionsCoachesInner.md)
-- [ContactSearchCoachOptionsSportsInner](docs/ContactSearchCoachOptionsSportsInner.md)
-- [ContactSearchCollection](docs/ContactSearchCollection.md)
-- [ContactSearchEntry](docs/ContactSearchEntry.md)
 - [Contract](docs/Contract.md)
 - [ContractCollection](docs/ContractCollection.md)
 - [CoworkerEntry](docs/CoworkerEntry.md)
@@ -405,8 +395,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateAccountUser422Response](docs/CreateAccountUser422Response.md)
 - [CreateAccountUserRequest](docs/CreateAccountUserRequest.md)
 - [CreateAccountUserRequestUser](docs/CreateAccountUserRequestUser.md)
-- [CreateContactSearchRequest](docs/CreateContactSearchRequest.md)
-- [CreateContactSearchRequestContact](docs/CreateContactSearchRequestContact.md)
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
@@ -420,6 +408,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateSchoolGroupRequestSchoolGroup](docs/CreateSchoolGroupRequestSchoolGroup.md)
 - [CreateTeamScheduleFavorite201Response](docs/CreateTeamScheduleFavorite201Response.md)
 - [CreateTeamScheduleFavoriteRequest](docs/CreateTeamScheduleFavoriteRequest.md)
+- [CreateUpload201Response](docs/CreateUpload201Response.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
 - [DealDetail](docs/DealDetail.md)
@@ -429,8 +418,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DealStatus](docs/DealStatus.md)
 - [DealStatusCollection](docs/DealStatusCollection.md)
 - [DeleteAccountUser200Response](docs/DeleteAccountUser200Response.md)
-- [DeleteContactSearch200Response](docs/DeleteContactSearch200Response.md)
 - [DeleteFavorite200Response](docs/DeleteFavorite200Response.md)
+- [DeleteGamePostSearch200Response](docs/DeleteGamePostSearch200Response.md)
 - [DepartmentSearchResult](docs/DepartmentSearchResult.md)
 - [DepartmentSearchResultCollection](docs/DepartmentSearchResultCollection.md)
 - [DepartmentSearchResultDepartment](docs/DepartmentSearchResultDepartment.md)
@@ -581,6 +570,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleDetailHeadCoach](docs/TeamScheduleDetailHeadCoach.md)
 - [TeamScheduleDetailSchool](docs/TeamScheduleDetailSchool.md)
 - [TeamScheduleDetailSeason](docs/TeamScheduleDetailSeason.md)
+- [TeamScheduleDetailSport](docs/TeamScheduleDetailSport.md)
 - [TeamScheduleFavoriteDetail](docs/TeamScheduleFavoriteDetail.md)
 - [TeamScheduleFavoriteEntry](docs/TeamScheduleFavoriteEntry.md)
 - [TeamScheduleGamePosts](docs/TeamScheduleGamePosts.md)
@@ -622,6 +612,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
 - [UpdateUserRequest](docs/UpdateUserRequest.md)
 - [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
+- [UploadItem](docs/UploadItem.md)
+- [UploadsResponse](docs/UploadsResponse.md)
 - [UpsertTeamScheduleNoteRequest](docs/UpsertTeamScheduleNoteRequest.md)
 - [User](docs/User.md)
 - [UserActivitySummary](docs/UserActivitySummary.md)

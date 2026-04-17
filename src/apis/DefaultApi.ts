@@ -15,7 +15,6 @@
 
 import * as runtime from '../runtime';
 import type {
-  AccountDetail,
   AccountUser,
   AccountUsersResponse,
   Administrator,
@@ -57,14 +56,10 @@ import type {
   ConferenceshipCollection,
   Contact,
   ContactCollection,
-  ContactSearchCoachOptions,
-  ContactSearchCollection,
-  ContactSearchEntry,
   Contract,
   ContractCollection,
   CreateAccountUser422Response,
   CreateAccountUserRequest,
-  CreateContactSearchRequest,
   CreateFavorite201Response,
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
@@ -75,14 +70,15 @@ import type {
   CreateSchoolGroupRequest,
   CreateTeamScheduleFavorite201Response,
   CreateTeamScheduleFavoriteRequest,
+  CreateUpload201Response,
   Deal,
   DealCollection,
   DealSearchResultCollection,
   DealStatus,
   DealStatusCollection,
   DeleteAccountUser200Response,
-  DeleteContactSearch200Response,
   DeleteFavorite200Response,
+  DeleteGamePostSearch200Response,
   DepartmentSearchResultCollection,
   Division,
   DivisionCollection,
@@ -172,6 +168,7 @@ import type {
   UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
   UpdateUserRequest,
+  UploadsResponse,
   UpsertTeamScheduleNoteRequest,
   User,
   UserActivitySummary,
@@ -186,8 +183,6 @@ import type {
   VerifyUserIntercollegiateAccess200Response,
 } from '../models/index';
 import {
-    AccountDetailFromJSON,
-    AccountDetailToJSON,
     AccountUserFromJSON,
     AccountUserToJSON,
     AccountUsersResponseFromJSON,
@@ -270,12 +265,6 @@ import {
     ContactToJSON,
     ContactCollectionFromJSON,
     ContactCollectionToJSON,
-    ContactSearchCoachOptionsFromJSON,
-    ContactSearchCoachOptionsToJSON,
-    ContactSearchCollectionFromJSON,
-    ContactSearchCollectionToJSON,
-    ContactSearchEntryFromJSON,
-    ContactSearchEntryToJSON,
     ContractFromJSON,
     ContractToJSON,
     ContractCollectionFromJSON,
@@ -284,8 +273,6 @@ import {
     CreateAccountUser422ResponseToJSON,
     CreateAccountUserRequestFromJSON,
     CreateAccountUserRequestToJSON,
-    CreateContactSearchRequestFromJSON,
-    CreateContactSearchRequestToJSON,
     CreateFavorite201ResponseFromJSON,
     CreateFavorite201ResponseToJSON,
     CreateFavoriteRequestFromJSON,
@@ -306,6 +293,8 @@ import {
     CreateTeamScheduleFavorite201ResponseToJSON,
     CreateTeamScheduleFavoriteRequestFromJSON,
     CreateTeamScheduleFavoriteRequestToJSON,
+    CreateUpload201ResponseFromJSON,
+    CreateUpload201ResponseToJSON,
     DealFromJSON,
     DealToJSON,
     DealCollectionFromJSON,
@@ -318,10 +307,10 @@ import {
     DealStatusCollectionToJSON,
     DeleteAccountUser200ResponseFromJSON,
     DeleteAccountUser200ResponseToJSON,
-    DeleteContactSearch200ResponseFromJSON,
-    DeleteContactSearch200ResponseToJSON,
     DeleteFavorite200ResponseFromJSON,
     DeleteFavorite200ResponseToJSON,
+    DeleteGamePostSearch200ResponseFromJSON,
+    DeleteGamePostSearch200ResponseToJSON,
     DepartmentSearchResultCollectionFromJSON,
     DepartmentSearchResultCollectionToJSON,
     DivisionFromJSON,
@@ -500,6 +489,8 @@ import {
     UpdateTeamScheduleFavoriteRequestToJSON,
     UpdateUserRequestFromJSON,
     UpdateUserRequestToJSON,
+    UploadsResponseFromJSON,
+    UploadsResponseToJSON,
     UpsertTeamScheduleNoteRequestFromJSON,
     UpsertTeamScheduleNoteRequestToJSON,
     UserFromJSON,
@@ -580,10 +571,6 @@ export interface DefaultApiCreateConferenceshipRequest {
     conferenceship?: Conferenceship;
 }
 
-export interface DefaultApiCreateContactSearchOperationRequest {
-    createContactSearchRequest?: CreateContactSearchRequest;
-}
-
 export interface DefaultApiCreateFavoriteOperationRequest {
     createFavoriteRequest: CreateFavoriteRequest;
 }
@@ -636,6 +623,10 @@ export interface DefaultApiCreateTeamScheduleFavoriteOperationRequest {
     createTeamScheduleFavoriteRequest: CreateTeamScheduleFavoriteRequest;
 }
 
+export interface DefaultApiCreateUploadRequest {
+    files?: Array<Blob>;
+}
+
 export interface DefaultApiDeleteAccountUserRequest {
     accountUserId: number;
 }
@@ -650,10 +641,6 @@ export interface DefaultApiDeleteConferenceRequest {
 
 export interface DefaultApiDeleteConferenceshipRequest {
     conferenceshipId: number;
-}
-
-export interface DefaultApiDeleteContactSearchRequest {
-    id: number;
 }
 
 export interface DefaultApiDeleteFavoriteRequest {
@@ -712,8 +699,8 @@ export interface DefaultApiDeleteTeamScheduleNoteRequest {
     filTeamId: string;
 }
 
-export interface DefaultApiGetAccountRequest {
-    id: number;
+export interface DefaultApiDeleteUploadRequest {
+    uploadId: number;
 }
 
 export interface DefaultApiGetAccountUserActivationRequest {
@@ -890,12 +877,6 @@ export interface DefaultApiGetConferenceshipsRequest {
 
 export interface DefaultApiGetContactRequest {
     contactId: number;
-}
-
-export interface DefaultApiGetContactSearchesRequest {
-    page?: number;
-    perPage?: number;
-    q?: object;
 }
 
 export interface DefaultApiGetContactsRequest {
@@ -1328,6 +1309,10 @@ export interface DefaultApiGetTeamScheduleSearchesRequest {
     sportName?: string;
     excludeAlreadyScheduled?: GetTeamScheduleSearchesExcludeAlreadyScheduledEnum;
     excludeConference?: GetTeamScheduleSearchesExcludeConferenceEnum;
+}
+
+export interface DefaultApiGetUploadsRequest {
+    page?: number;
 }
 
 export interface DefaultApiGetUserRequest {
@@ -2155,47 +2140,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a new scheduling contact
-     */
-    async createContactSearchRaw(requestParameters: DefaultApiCreateContactSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactSearchEntry>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateContactSearchRequestToJSON(requestParameters['createContactSearchRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContactSearchEntryFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a new scheduling contact
-     */
-    async createContactSearch(requestParameters: DefaultApiCreateContactSearchOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactSearchEntry> {
-        const response = await this.createContactSearchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Add a favorite for the current user
      */
     async createFavoriteRaw(requestParameters: DefaultApiCreateFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFavorite201Response>> {
@@ -2799,6 +2743,67 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Upload one or more PDF contract files
+     */
+    async createUploadRaw(requestParameters: DefaultApiCreateUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateUpload201Response>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['files'] != null) {
+            requestParameters['files'].forEach((element) => {
+                formParams.append('files', element as any);
+            })
+        }
+
+
+        let urlPath = `/api/v1/uploads`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateUpload201ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Upload one or more PDF contract files
+     */
+    async createUpload(requestParameters: DefaultApiCreateUploadRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateUpload201Response> {
+        const response = await this.createUploadRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Delete a user from the current account
      */
     async deleteAccountUserRaw(requestParameters: DefaultApiDeleteAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
@@ -2977,52 +2982,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteConferenceship(requestParameters: DefaultApiDeleteConferenceshipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteConferenceshipRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Delete a scheduling contact
-     */
-    async deleteContactSearchRaw(requestParameters: DefaultApiDeleteContactSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteContactSearch200Response>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling deleteContactSearch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches/{id}`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteContactSearch200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a scheduling contact
-     */
-    async deleteContactSearch(requestParameters: DefaultApiDeleteContactSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteContactSearch200Response> {
-        const response = await this.deleteContactSearchRaw(requestParameters, initOverrides);
-        return await response.value();
     }
 
     /**
@@ -3255,7 +3214,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a game post
      */
-    async deleteGamePostSearchRaw(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteContactSearch200Response>> {
+    async deleteGamePostSearchRaw(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteGamePostSearch200Response>> {
         if (requestParameters['gamePostSearchId'] == null) {
             throw new runtime.RequiredError(
                 'gamePostSearchId',
@@ -3287,13 +3246,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteContactSearch200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteGamePostSearch200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete a game post
      */
-    async deleteGamePostSearch(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteContactSearch200Response> {
+    async deleteGamePostSearch(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteGamePostSearch200Response> {
         const response = await this.deleteGamePostSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3664,13 +3623,13 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve an account with subscriptions, invoices, and billing addresses
+     * Delete an uploaded contract
      */
-    async getAccountRaw(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountDetail>> {
-        if (requestParameters['id'] == null) {
+    async deleteUploadRaw(requestParameters: DefaultApiDeleteUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
+        if (requestParameters['uploadId'] == null) {
             throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling getAccount().'
+                'uploadId',
+                'Required parameter "uploadId" was null or undefined when calling deleteUpload().'
             );
         }
 
@@ -3688,24 +3647,24 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/api/v1/accounts/{id}`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        let urlPath = `/api/v1/uploads/{uploadId}`;
+        urlPath = urlPath.replace(`{${"uploadId"}}`, encodeURIComponent(String(requestParameters['uploadId'])));
 
         const response = await this.request({
             path: urlPath,
-            method: 'GET',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDetailFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Retrieve an account with subscriptions, invoices, and billing addresses
+     * Delete an uploaded contract
      */
-    async getAccount(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountDetail> {
-        const response = await this.getAccountRaw(requestParameters, initOverrides);
+    async deleteUpload(requestParameters: DefaultApiDeleteUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
+        const response = await this.deleteUploadRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -5516,94 +5475,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getContact(requestParameters: DefaultApiGetContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Contact> {
         const response = await this.getContactRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve coach options for the scheduling contacts form
-     */
-    async getContactSearchCoachOptionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactSearchCoachOptions>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches/coach_options`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContactSearchCoachOptionsFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve coach options for the scheduling contacts form
-     */
-    async getContactSearchCoachOptions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactSearchCoachOptions> {
-        const response = await this.getContactSearchCoachOptionsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve scheduling contacts for the current account\'s school
-     */
-    async getContactSearchesRaw(requestParameters: DefaultApiGetContactSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactSearchCollection>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['perPage'] != null) {
-            queryParameters['per_page'] = requestParameters['perPage'];
-        }
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContactSearchCollectionFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve scheduling contacts for the current account\'s school
-     */
-    async getContactSearches(requestParameters: DefaultApiGetContactSearchesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactSearchCollection> {
-        const response = await this.getContactSearchesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -10273,6 +10144,48 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getTimeZones(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTimeZones200Response> {
         const response = await this.getTimeZonesRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve paginated list of uploaded contracts for the current account
+     */
+    async getUploadsRaw(requestParameters: DefaultApiGetUploadsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadsResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/uploads`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UploadsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve paginated list of uploaded contracts for the current account
+     */
+    async getUploads(requestParameters: DefaultApiGetUploadsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UploadsResponse> {
+        const response = await this.getUploadsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

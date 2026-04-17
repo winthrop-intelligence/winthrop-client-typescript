@@ -14,7 +14,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createCoach**](DefaultApi.md#createcoach) | **POST** /api/v1/coaches |  |
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
-| [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
 | [**createFavorite**](DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites |  |
 | [**createFavoritesCategory**](DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories |  |
 | [**createFoiaLabel**](DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels |  |
@@ -28,11 +27,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
 | [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
+| [**createUpload**](DefaultApi.md#createupload) | **POST** /api/v1/uploads |  |
 | [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
-| [**deleteContactSearch**](DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} |  |
 | [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
 | [**deleteFavoritesCategory**](DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
@@ -47,7 +46,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
-| [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
+| [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
@@ -85,8 +84,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getConferenceship**](DefaultApi.md#getconferenceship) | **GET** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**getConferenceships**](DefaultApi.md#getconferenceships) | **GET** /api/v1/conferenceships |  |
 | [**getContact**](DefaultApi.md#getcontact) | **GET** /api/v1/contacts/{contactId} |  |
-| [**getContactSearchCoachOptions**](DefaultApi.md#getcontactsearchcoachoptions) | **GET** /api/v1/contact_searches/coach_options |  |
-| [**getContactSearches**](DefaultApi.md#getcontactsearches) | **GET** /api/v1/contact_searches |  |
 | [**getContacts**](DefaultApi.md#getcontacts) | **GET** /api/v1/contacts |  |
 | [**getContract**](DefaultApi.md#getcontract) | **GET** /api/v1/contracts/{contractId} |  |
 | [**getContracts**](DefaultApi.md#getcontracts) | **GET** /api/v1/contracts |  |
@@ -184,6 +181,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getTeamScheduleNote**](DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
 | [**getTimeZones**](DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones |  |
+| [**getUploads**](DefaultApi.md#getuploads) | **GET** /api/v1/uploads |  |
 | [**getUser**](DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} |  |
 | [**getUserActivitySummaries**](DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries |  |
 | [**getUserActivitySummary**](DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} |  |
@@ -1018,82 +1016,6 @@ example().catch(console.error);
 | **201** | Conferenceship was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create the Conferenceship |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createContactSearch
-
-> ContactSearchEntry createContactSearch(createContactSearchRequest)
-
-
-
-Create a new scheduling contact
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateContactSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // CreateContactSearchRequest (optional)
-    createContactSearchRequest: ...,
-  } satisfies CreateContactSearchOperationRequest;
-
-  try {
-    const data = await api.createContactSearch(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createContactSearchRequest** | [CreateContactSearchRequest](CreateContactSearchRequest.md) |  | [Optional] |
-
-### Return type
-
-[**ContactSearchEntry**](ContactSearchEntry.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Contact was created |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - requires account admin role |  -  |
-| **422** | Unable to create the Contact |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -2065,6 +1987,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createUpload
+
+> CreateUpload201Response createUpload(files)
+
+
+
+Upload one or more PDF contract files
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<Blob> | PDF files to upload (optional)
+    files: /path/to/file.txt,
+  } satisfies CreateUploadRequest;
+
+  try {
+    const data = await api.createUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **files** | `Array<Blob>` | PDF files to upload | [Optional] |
+
+### Return type
+
+[**CreateUpload201Response**](CreateUpload201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Files uploaded |  -  |
+| **400** | No files provided |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteAccountUser
 
 > DeleteAccountUser200Response deleteAccountUser(accountUserId)
@@ -2361,82 +2358,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **204** | Conferenceship was deleted |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## deleteContactSearch
-
-> DeleteContactSearch200Response deleteContactSearch(id)
-
-
-
-Delete a scheduling contact
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DeleteContactSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | ID of contact to delete
-    id: 56,
-  } satisfies DeleteContactSearchRequest;
-
-  try {
-    const data = await api.deleteContactSearch(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` | ID of contact to delete | [Defaults to `undefined`] |
-
-### Return type
-
-[**DeleteContactSearch200Response**](DeleteContactSearch200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Contact was deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -2817,7 +2738,7 @@ example().catch(console.error);
 
 ## deleteGamePostSearch
 
-> DeleteContactSearch200Response deleteGamePostSearch(gamePostSearchId)
+> DeleteGamePostSearch200Response deleteGamePostSearch(gamePostSearchId)
 
 
 
@@ -2868,7 +2789,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**DeleteContactSearch200Response**](DeleteContactSearch200Response.md)
+[**DeleteGamePostSearch200Response**](DeleteGamePostSearch200Response.md)
 
 ### Authorization
 
@@ -3488,13 +3409,13 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getAccount
+## deleteUpload
 
-> AccountDetail getAccount(id)
+> DeleteAccountUser200Response deleteUpload(uploadId)
 
 
 
-Retrieve an account with subscriptions, invoices, and billing addresses
+Delete an uploaded contract
 
 ### Example
 
@@ -3503,7 +3424,7 @@ import {
   Configuration,
   DefaultApi,
 } from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAccountRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
 async function example() {
   console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
@@ -3516,12 +3437,12 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | The account ID
-    id: 56,
-  } satisfies GetAccountRequest;
+    // number | ID of the upload to delete
+    uploadId: 56,
+  } satisfies DeleteUploadRequest;
 
   try {
-    const data = await api.getAccount(body);
+    const data = await api.deleteUpload(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -3537,11 +3458,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `number` | The account ID | [Defaults to `undefined`] |
+| **uploadId** | `number` | ID of the upload to delete | [Defaults to `undefined`] |
 
 ### Return type
 
-[**AccountDetail**](AccountDetail.md)
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
 
 ### Authorization
 
@@ -3556,9 +3477,10 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Account found |  -  |
+| **200** | Upload deleted |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not an account admin |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -6413,154 +6335,6 @@ example().catch(console.error);
 | **200** | Contact was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getContactSearchCoachOptions
-
-> ContactSearchCoachOptions getContactSearchCoachOptions()
-
-
-
-Retrieve coach options for the scheduling contacts form
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetContactSearchCoachOptionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getContactSearchCoachOptions();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ContactSearchCoachOptions**](ContactSearchCoachOptions.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Coach options retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getContactSearches
-
-> ContactSearchCollection getContactSearches(page, perPage, q)
-
-
-
-Retrieve scheduling contacts for the current account\&#39;s school
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetContactSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | results page to retrieve. (optional)
-    page: 56,
-    // number | number of results per page. (optional)
-    perPage: 56,
-    // object | Ransack query (optional)
-    q: Object,
-  } satisfies GetContactSearchesRequest;
-
-  try {
-    const data = await api.getContactSearches(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**ContactSearchCollection**](ContactSearchCollection.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Contacts were found |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - requires account admin role |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -13972,6 +13746,81 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Time zones retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUploads
+
+> UploadsResponse getUploads(page)
+
+
+
+Retrieve paginated list of uploaded contracts for the current account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+  } satisfies GetUploadsRequest;
+
+  try {
+    const data = await api.getUploads(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**UploadsResponse**](UploadsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Uploads retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
