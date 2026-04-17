@@ -16,6 +16,8 @@
 import * as runtime from '../runtime';
 import type {
   AccountDetail,
+  AccountUser,
+  AccountUsersResponse,
   Administrator,
   AdministratorCollection,
   AdministratorSearchResultCollection,
@@ -57,6 +59,8 @@ import type {
   ContactCollection,
   Contract,
   ContractCollection,
+  CreateAccountUser422Response,
+  CreateAccountUserRequest,
   CreateFavorite201Response,
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
@@ -72,12 +76,13 @@ import type {
   DealSearchResultCollection,
   DealStatus,
   DealStatusCollection,
+  DeleteAccountUser200Response,
   DeleteFavorite200Response,
   DeleteGamePostSearch200Response,
-  DeleteNote200Response,
   DepartmentSearchResultCollection,
   Division,
   DivisionCollection,
+  EditAccountUserResponse,
   Filters,
   FinancialSearchResultCollection,
   FoiaLabel,
@@ -96,6 +101,7 @@ import type {
   GamePostDetail,
   GamePostSearchResultCollection,
   GameType,
+  GetAccountUserActivation200Response,
   GetFavorites200ResponseInner,
   GetFavoritesCategories200ResponseInner,
   GetFilterOptions200Response,
@@ -113,6 +119,7 @@ import type {
   ListNotes200ResponseInner,
   NcaaFinancialReportStatus,
   NcaaFinancialReportStatusCollection,
+  NewAccountUserResponse,
   NewsFeed,
   Note,
   Position,
@@ -149,12 +156,14 @@ import type {
   TeamScheduleSearchResultCollection,
   UnprocessableEntity,
   UnstractRawContractPdfTextRequest,
+  UpdateAccountUserActivation200Response,
+  UpdateAccountUserActivationRequest,
+  UpdateAccountUserRequest,
   UpdateFavoriteRequest,
   UpdateFavoritesCategoryRequest,
   UpdateGamePostSearchRequest,
   UpdateNoteRequest,
   UpdatePasswordReset200Response,
-  UpdatePasswordReset400Response,
   UpdatePasswordResetRequest,
   UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
@@ -175,6 +184,10 @@ import type {
 import {
     AccountDetailFromJSON,
     AccountDetailToJSON,
+    AccountUserFromJSON,
+    AccountUserToJSON,
+    AccountUsersResponseFromJSON,
+    AccountUsersResponseToJSON,
     AdministratorFromJSON,
     AdministratorToJSON,
     AdministratorCollectionFromJSON,
@@ -257,6 +270,10 @@ import {
     ContractToJSON,
     ContractCollectionFromJSON,
     ContractCollectionToJSON,
+    CreateAccountUser422ResponseFromJSON,
+    CreateAccountUser422ResponseToJSON,
+    CreateAccountUserRequestFromJSON,
+    CreateAccountUserRequestToJSON,
     CreateFavorite201ResponseFromJSON,
     CreateFavorite201ResponseToJSON,
     CreateFavoriteRequestFromJSON,
@@ -287,18 +304,20 @@ import {
     DealStatusToJSON,
     DealStatusCollectionFromJSON,
     DealStatusCollectionToJSON,
+    DeleteAccountUser200ResponseFromJSON,
+    DeleteAccountUser200ResponseToJSON,
     DeleteFavorite200ResponseFromJSON,
     DeleteFavorite200ResponseToJSON,
     DeleteGamePostSearch200ResponseFromJSON,
     DeleteGamePostSearch200ResponseToJSON,
-    DeleteNote200ResponseFromJSON,
-    DeleteNote200ResponseToJSON,
     DepartmentSearchResultCollectionFromJSON,
     DepartmentSearchResultCollectionToJSON,
     DivisionFromJSON,
     DivisionToJSON,
     DivisionCollectionFromJSON,
     DivisionCollectionToJSON,
+    EditAccountUserResponseFromJSON,
+    EditAccountUserResponseToJSON,
     FiltersFromJSON,
     FiltersToJSON,
     FinancialSearchResultCollectionFromJSON,
@@ -335,6 +354,8 @@ import {
     GamePostSearchResultCollectionToJSON,
     GameTypeFromJSON,
     GameTypeToJSON,
+    GetAccountUserActivation200ResponseFromJSON,
+    GetAccountUserActivation200ResponseToJSON,
     GetFavorites200ResponseInnerFromJSON,
     GetFavorites200ResponseInnerToJSON,
     GetFavoritesCategories200ResponseInnerFromJSON,
@@ -369,6 +390,8 @@ import {
     NcaaFinancialReportStatusToJSON,
     NcaaFinancialReportStatusCollectionFromJSON,
     NcaaFinancialReportStatusCollectionToJSON,
+    NewAccountUserResponseFromJSON,
+    NewAccountUserResponseToJSON,
     NewsFeedFromJSON,
     NewsFeedToJSON,
     NoteFromJSON,
@@ -441,6 +464,12 @@ import {
     UnprocessableEntityToJSON,
     UnstractRawContractPdfTextRequestFromJSON,
     UnstractRawContractPdfTextRequestToJSON,
+    UpdateAccountUserActivation200ResponseFromJSON,
+    UpdateAccountUserActivation200ResponseToJSON,
+    UpdateAccountUserActivationRequestFromJSON,
+    UpdateAccountUserActivationRequestToJSON,
+    UpdateAccountUserRequestFromJSON,
+    UpdateAccountUserRequestToJSON,
     UpdateFavoriteRequestFromJSON,
     UpdateFavoriteRequestToJSON,
     UpdateFavoritesCategoryRequestFromJSON,
@@ -451,8 +480,6 @@ import {
     UpdateNoteRequestToJSON,
     UpdatePasswordReset200ResponseFromJSON,
     UpdatePasswordReset200ResponseToJSON,
-    UpdatePasswordReset400ResponseFromJSON,
-    UpdatePasswordReset400ResponseToJSON,
     UpdatePasswordResetRequestFromJSON,
     UpdatePasswordResetRequestToJSON,
     UpdateSchoolGroupRequestFromJSON,
@@ -521,6 +548,10 @@ export interface DefaultApiCompareColiRequest {
     otherPersonTotalCompensation: number;
 }
 
+export interface DefaultApiCreateAccountUserOperationRequest {
+    createAccountUserRequest: CreateAccountUserRequest;
+}
+
 export interface DefaultApiCreateCashflowRequest {
     cashflow?: Cashflow;
 }
@@ -587,6 +618,10 @@ export interface DefaultApiCreateSeasonRequest {
 
 export interface DefaultApiCreateTeamScheduleFavoriteOperationRequest {
     createTeamScheduleFavoriteRequest: CreateTeamScheduleFavoriteRequest;
+}
+
+export interface DefaultApiDeleteAccountUserRequest {
+    accountUserId: number;
 }
 
 export interface DefaultApiDeleteCashflowRequest {
@@ -659,6 +694,10 @@ export interface DefaultApiDeleteTeamScheduleNoteRequest {
 
 export interface DefaultApiGetAccountRequest {
     id: number;
+}
+
+export interface DefaultApiGetAccountUserActivationRequest {
+    confirmationToken: string;
 }
 
 export interface DefaultApiGetAdministratorRequest {
@@ -888,6 +927,10 @@ export interface DefaultApiGetDivisionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+}
+
+export interface DefaultApiGetEditAccountUserRequest {
+    accountUserId: number;
 }
 
 export interface DefaultApiGetFavoritesRequest {
@@ -1321,6 +1364,15 @@ export interface DefaultApiSearchCoachesRequest {
 export interface DefaultApiUnstractRawContractPdfTextOperationRequest {
     rawContractId: number;
     unstractRawContractPdfTextRequest?: UnstractRawContractPdfTextRequest;
+}
+
+export interface DefaultApiUpdateAccountUserOperationRequest {
+    accountUserId: number;
+    updateAccountUserRequest: UpdateAccountUserRequest;
+}
+
+export interface DefaultApiUpdateAccountUserActivationOperationRequest {
+    updateAccountUserActivationRequest: UpdateAccountUserActivationRequest;
 }
 
 export interface DefaultApiUpdateCashflowRequest {
@@ -1854,6 +1906,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async compareColi(requestParameters: DefaultApiCompareColiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<COLIAdjusted> {
         const response = await this.compareColiRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new user for the current account. The email prefix is combined with the account email domain. The new user receives an invitation email.
+     */
+    async createAccountUserRaw(requestParameters: DefaultApiCreateAccountUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountUser>> {
+        if (requestParameters['createAccountUserRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createAccountUserRequest',
+                'Required parameter "createAccountUserRequest" was null or undefined when calling createAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateAccountUserRequestToJSON(requestParameters['createAccountUserRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountUserFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new user for the current account. The email prefix is combined with the account email domain. The new user receives an invitation email.
+     */
+    async createAccountUser(requestParameters: DefaultApiCreateAccountUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountUser> {
+        const response = await this.createAccountUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2632,6 +2732,52 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a user from the current account
+     */
+    async deleteAccountUserRaw(requestParameters: DefaultApiDeleteAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
+        if (requestParameters['accountUserId'] == null) {
+            throw new runtime.RequiredError(
+                'accountUserId',
+                'Required parameter "accountUserId" was null or undefined when calling deleteAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/{accountUserId}`;
+        urlPath = urlPath.replace(`{${"accountUserId"}}`, encodeURIComponent(String(requestParameters['accountUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a user from the current account
+     */
+    async deleteAccountUser(requestParameters: DefaultApiDeleteAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
+        const response = await this.deleteAccountUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Delete a single Cashflow
      */
     async deleteCashflowRaw(requestParameters: DefaultApiDeleteCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -3089,7 +3235,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a note
      */
-    async deleteNoteRaw(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async deleteNoteRaw(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -3121,13 +3267,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete a note
      */
-    async deleteNote(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async deleteNote(requestParameters: DefaultApiDeleteNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteNoteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3225,7 +3371,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a custom school group
      */
-    async deleteSchoolGroupRaw(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async deleteSchoolGroupRaw(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['schoolGroupId'] == null) {
             throw new runtime.RequiredError(
                 'schoolGroupId',
@@ -3257,13 +3403,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete a custom school group
      */
-    async deleteSchoolGroup(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async deleteSchoolGroup(requestParameters: DefaultApiDeleteSchoolGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteSchoolGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3316,7 +3462,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Remove a FilTeam favorite
      */
-    async deleteTeamScheduleFavoriteRaw(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async deleteTeamScheduleFavoriteRaw(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -3348,13 +3494,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Remove a FilTeam favorite
      */
-    async deleteTeamScheduleFavorite(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async deleteTeamScheduleFavorite(requestParameters: DefaultApiDeleteTeamScheduleFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteTeamScheduleFavoriteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3447,6 +3593,84 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getAccount(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountDetail> {
         const response = await this.getAccountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Validate a confirmation token and return the user\'s name and email for the account activation form
+     */
+    async getAccountUserActivationRaw(requestParameters: DefaultApiGetAccountUserActivationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAccountUserActivation200Response>> {
+        if (requestParameters['confirmationToken'] == null) {
+            throw new runtime.RequiredError(
+                'confirmationToken',
+                'Required parameter "confirmationToken" was null or undefined when calling getAccountUserActivation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['confirmationToken'] != null) {
+            queryParameters['confirmation_token'] = requestParameters['confirmationToken'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/v1/account_user_activation`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetAccountUserActivation200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Validate a confirmation token and return the user\'s name and email for the account activation form
+     */
+    async getAccountUserActivation(requestParameters: DefaultApiGetAccountUserActivationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAccountUserActivation200Response> {
+        const response = await this.getAccountUserActivationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all users for the current user\'s account with their computed access permissions
+     */
+    async getAccountUsersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountUsersResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountUsersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all users for the current user\'s account with their computed access permissions
+     */
+    async getAccountUsers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountUsersResponse> {
+        const response = await this.getAccountUsersRaw(initOverrides);
         return await response.value();
     }
 
@@ -5713,6 +5937,52 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a single account user with their current roles, sports, and form metadata for editing
+     */
+    async getEditAccountUserRaw(requestParameters: DefaultApiGetEditAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EditAccountUserResponse>> {
+        if (requestParameters['accountUserId'] == null) {
+            throw new runtime.RequiredError(
+                'accountUserId',
+                'Required parameter "accountUserId" was null or undefined when calling getEditAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/{accountUserId}/edit`;
+        urlPath = urlPath.replace(`{${"accountUserId"}}`, encodeURIComponent(String(requestParameters['accountUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EditAccountUserResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a single account user with their current roles, sports, and form metadata for editing
+     */
+    async getEditAccountUser(requestParameters: DefaultApiGetEditAccountUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EditAccountUserResponse> {
+        const response = await this.getEditAccountUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve the current user\'s favorites for a given type. Pass detailed=1 for category info.
      */
     async getFavoritesRaw(requestParameters: DefaultApiGetFavoritesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetFavorites200ResponseInner>>> {
@@ -7272,6 +7542,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getNcaaFinancialReportStatuses(requestParameters: DefaultApiGetNcaaFinancialReportStatusesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NcaaFinancialReportStatusCollection> {
         const response = await this.getNcaaFinancialReportStatusesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve form metadata for creating a new account user including available role options based on subscription, schedulable sports, and email domain
+     */
+    async getNewAccountUserRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewAccountUserResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/new`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NewAccountUserResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve form metadata for creating a new account user including available role options based on subscription, schedulable sports, and email domain
+     */
+    async getNewAccountUser(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NewAccountUserResponse> {
+        const response = await this.getNewAccountUserRaw(initOverrides);
         return await response.value();
     }
 
@@ -10426,6 +10734,101 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an account user\'s roles and sport access
+     */
+    async updateAccountUserRaw(requestParameters: DefaultApiUpdateAccountUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
+        if (requestParameters['accountUserId'] == null) {
+            throw new runtime.RequiredError(
+                'accountUserId',
+                'Required parameter "accountUserId" was null or undefined when calling updateAccountUser().'
+            );
+        }
+
+        if (requestParameters['updateAccountUserRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateAccountUserRequest',
+                'Required parameter "updateAccountUserRequest" was null or undefined when calling updateAccountUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/account_users/{accountUserId}`;
+        urlPath = urlPath.replace(`{${"accountUserId"}}`, encodeURIComponent(String(requestParameters['accountUserId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateAccountUserRequestToJSON(requestParameters['updateAccountUserRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an account user\'s roles and sport access
+     */
+    async updateAccountUser(requestParameters: DefaultApiUpdateAccountUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
+        const response = await this.updateAccountUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Set password and activate the account for an invited user
+     */
+    async updateAccountUserActivationRaw(requestParameters: DefaultApiUpdateAccountUserActivationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateAccountUserActivation200Response>> {
+        if (requestParameters['updateAccountUserActivationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateAccountUserActivationRequest',
+                'Required parameter "updateAccountUserActivationRequest" was null or undefined when calling updateAccountUserActivation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/v1/account_user_activation`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateAccountUserActivationRequestToJSON(requestParameters['updateAccountUserActivationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateAccountUserActivation200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Set password and activate the account for an invited user
+     */
+    async updateAccountUserActivation(requestParameters: DefaultApiUpdateAccountUserActivationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateAccountUserActivation200Response> {
+        const response = await this.updateAccountUserActivationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Update a single Cashflow
      */
     async updateCashflowRaw(requestParameters: DefaultApiUpdateCashflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cashflow>> {
@@ -10932,7 +11335,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a GameContract
      */
-    async updateGameContractRaw(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteNote200Response>> {
+    async updateGameContractRaw(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
         if (requestParameters['gameContractId'] == null) {
             throw new runtime.RequiredError(
                 'gameContractId',
@@ -11041,13 +11444,13 @@ export class DefaultApi extends runtime.BaseAPI {
             body: formParams,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteNote200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteAccountUser200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Update a GameContract
      */
-    async updateGameContract(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteNote200Response> {
+    async updateGameContract(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.updateGameContractRaw(requestParameters, initOverrides);
         return await response.value();
     }
