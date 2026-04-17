@@ -309,6 +309,7 @@ export * from './UpdateSchoolGroupRequestSchoolGroup';
 export * from './UpdateTeamScheduleFavoriteRequest';
 export * from './UpdateUserRequest';
 export * from './UpdateUserRequestUser';
+export * from './UploadDetail';
 export * from './UploadItem';
 export * from './UploadsResponse';
 export * from './UpsertTeamScheduleNoteRequest';

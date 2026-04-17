@@ -168,6 +168,7 @@ import type {
   UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
   UpdateUserRequest,
+  UploadDetail,
   UploadsResponse,
   UpsertTeamScheduleNoteRequest,
   User,
@@ -489,6 +490,8 @@ import {
     UpdateTeamScheduleFavoriteRequestToJSON,
     UpdateUserRequestFromJSON,
     UpdateUserRequestToJSON,
+    UploadDetailFromJSON,
+    UploadDetailToJSON,
     UploadsResponseFromJSON,
     UploadsResponseToJSON,
     UpsertTeamScheduleNoteRequestFromJSON,
@@ -1309,6 +1312,14 @@ export interface DefaultApiGetTeamScheduleSearchesRequest {
     sportName?: string;
     excludeAlreadyScheduled?: GetTeamScheduleSearchesExcludeAlreadyScheduledEnum;
     excludeConference?: GetTeamScheduleSearchesExcludeConferenceEnum;
+}
+
+export interface DefaultApiGetUploadRequest {
+    uploadId: number;
+}
+
+export interface DefaultApiGetUploadFileRequest {
+    uploadId: number;
 }
 
 export interface DefaultApiGetUploadsRequest {
@@ -10145,6 +10156,97 @@ export class DefaultApi extends runtime.BaseAPI {
     async getTimeZones(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTimeZones200Response> {
         const response = await this.getTimeZonesRaw(initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Retrieve a single upload with its metadata
+     */
+    async getUploadRaw(requestParameters: DefaultApiGetUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadDetail>> {
+        if (requestParameters['uploadId'] == null) {
+            throw new runtime.RequiredError(
+                'uploadId',
+                'Required parameter "uploadId" was null or undefined when calling getUpload().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/uploads/{uploadId}`;
+        urlPath = urlPath.replace(`{${"uploadId"}}`, encodeURIComponent(String(requestParameters['uploadId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UploadDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a single upload with its metadata
+     */
+    async getUpload(requestParameters: DefaultApiGetUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UploadDetail> {
+        const response = await this.getUploadRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Redirect to the uploaded file for viewing/downloading
+     */
+    async getUploadFileRaw(requestParameters: DefaultApiGetUploadFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['uploadId'] == null) {
+            throw new runtime.RequiredError(
+                'uploadId',
+                'Required parameter "uploadId" was null or undefined when calling getUploadFile().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/uploads/{uploadId}/file`;
+        urlPath = urlPath.replace(`{${"uploadId"}}`, encodeURIComponent(String(requestParameters['uploadId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Redirect to the uploaded file for viewing/downloading
+     */
+    async getUploadFile(requestParameters: DefaultApiGetUploadFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getUploadFileRaw(requestParameters, initOverrides);
     }
 
     /**

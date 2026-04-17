@@ -316,6 +316,7 @@ docs/UpdateSchoolGroupRequestSchoolGroup.md
 docs/UpdateTeamScheduleFavoriteRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateUserRequestUser.md
+docs/UploadDetail.md
 docs/UploadItem.md
 docs/UploadsResponse.md
 docs/UpsertTeamScheduleNoteRequest.md
@@ -654,6 +655,7 @@ src/models/UpdateSchoolGroupRequestSchoolGroup.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
 src/models/UpdateUserRequest.ts
 src/models/UpdateUserRequestUser.ts
+src/models/UploadDetail.ts
 src/models/UploadItem.ts
 src/models/UploadsResponse.ts
 src/models/UpsertTeamScheduleNoteRequest.ts

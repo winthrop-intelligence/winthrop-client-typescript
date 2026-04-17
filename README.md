@@ -239,6 +239,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
 *DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
+*DefaultApi* | [**getUpload**](docs/DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} | 
+*DefaultApi* | [**getUploadFile**](docs/DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file | 
 *DefaultApi* | [**getUploads**](docs/DefaultApi.md#getuploads) | **GET** /api/v1/uploads | 
 *DefaultApi* | [**getUser**](docs/DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} | 
 *DefaultApi* | [**getUserActivitySummaries**](docs/DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries | 
@@ -612,6 +614,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
 - [UpdateUserRequest](docs/UpdateUserRequest.md)
 - [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
+- [UploadDetail](docs/UploadDetail.md)
 - [UploadItem](docs/UploadItem.md)
 - [UploadsResponse](docs/UploadsResponse.md)
 - [UpsertTeamScheduleNoteRequest](docs/UpsertTeamScheduleNoteRequest.md)
