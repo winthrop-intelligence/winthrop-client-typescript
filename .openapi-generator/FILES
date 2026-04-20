@@ -1,7 +1,11 @@
 .gitignore
 .npmignore
 README.md
+docs/AccountBillingAddress.md
+docs/AccountDetail.md
 docs/AccountInfo.md
+docs/AccountInvoice.md
+docs/AccountSubscription.md
 docs/AccountUser.md
 docs/AccountUsersResponse.md
 docs/AdminCompensationSubdivision.md
@@ -13,6 +17,7 @@ docs/AsstCoachSchool.md
 docs/AthleticProfileShow.md
 docs/AthleticProfileShowContactsInner.md
 docs/AthleticProfileShowDealsInner.md
+docs/AthleticProfileShowDealsInnerVendorsInner.md
 docs/AthleticProfileShowFinancialInfo.md
 docs/AthleticProfileShowFinancials.md
 docs/AthleticProfileShowFinancialsRevenuesInner.md
@@ -85,11 +90,6 @@ docs/Conferenceship.md
 docs/ConferenceshipCollection.md
 docs/Contact.md
 docs/ContactCollection.md
-docs/ContactSearchCoachOptions.md
-docs/ContactSearchCoachOptionsCoachesInner.md
-docs/ContactSearchCoachOptionsSportsInner.md
-docs/ContactSearchCollection.md
-docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
 docs/CoworkerEntry.md
@@ -97,8 +97,6 @@ docs/CoworkerTenure.md
 docs/CreateAccountUser422Response.md
 docs/CreateAccountUserRequest.md
 docs/CreateAccountUserRequestUser.md
-docs/CreateContactSearchRequest.md
-docs/CreateContactSearchRequestContact.md
 docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
@@ -123,8 +121,8 @@ docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DefaultApi.md
 docs/DeleteAccountUser200Response.md
-docs/DeleteContactSearch200Response.md
 docs/DeleteFavorite200Response.md
+docs/DeleteGamePostSearch200Response.md
 docs/DepartmentSearchResult.md
 docs/DepartmentSearchResultCollection.md
 docs/DepartmentSearchResultDepartment.md
@@ -280,6 +278,7 @@ docs/TeamScheduleDetailGame.md
 docs/TeamScheduleDetailHeadCoach.md
 docs/TeamScheduleDetailSchool.md
 docs/TeamScheduleDetailSeason.md
+docs/TeamScheduleDetailSport.md
 docs/TeamScheduleFavoriteDetail.md
 docs/TeamScheduleFavoriteEntry.md
 docs/TeamScheduleGamePosts.md
@@ -351,7 +350,11 @@ src/apis/ReportingApi.ts
 src/apis/ScraperApi.ts
 src/apis/index.ts
 src/index.ts
+src/models/AccountBillingAddress.ts
+src/models/AccountDetail.ts
 src/models/AccountInfo.ts
+src/models/AccountInvoice.ts
+src/models/AccountSubscription.ts
 src/models/AccountUser.ts
 src/models/AccountUsersResponse.ts
 src/models/AdminCompensationSubdivision.ts
@@ -363,6 +366,7 @@ src/models/AsstCoachSchool.ts
 src/models/AthleticProfileShow.ts
 src/models/AthleticProfileShowContactsInner.ts
 src/models/AthleticProfileShowDealsInner.ts
+src/models/AthleticProfileShowDealsInnerVendorsInner.ts
 src/models/AthleticProfileShowFinancialInfo.ts
 src/models/AthleticProfileShowFinancials.ts
 src/models/AthleticProfileShowFinancialsRevenuesInner.ts
@@ -435,11 +439,6 @@ src/models/Conferenceship.ts
 src/models/ConferenceshipCollection.ts
 src/models/Contact.ts
 src/models/ContactCollection.ts
-src/models/ContactSearchCoachOptions.ts
-src/models/ContactSearchCoachOptionsCoachesInner.ts
-src/models/ContactSearchCoachOptionsSportsInner.ts
-src/models/ContactSearchCollection.ts
-src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/CoworkerEntry.ts
@@ -447,8 +446,6 @@ src/models/CoworkerTenure.ts
 src/models/CreateAccountUser422Response.ts
 src/models/CreateAccountUserRequest.ts
 src/models/CreateAccountUserRequestUser.ts
-src/models/CreateContactSearchRequest.ts
-src/models/CreateContactSearchRequestContact.ts
 src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
@@ -472,8 +469,8 @@ src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
 src/models/DeleteAccountUser200Response.ts
-src/models/DeleteContactSearch200Response.ts
 src/models/DeleteFavorite200Response.ts
+src/models/DeleteGamePostSearch200Response.ts
 src/models/DepartmentSearchResult.ts
 src/models/DepartmentSearchResultCollection.ts
 src/models/DepartmentSearchResultDepartment.ts
@@ -624,6 +621,7 @@ src/models/TeamScheduleDetailGame.ts
 src/models/TeamScheduleDetailHeadCoach.ts
 src/models/TeamScheduleDetailSchool.ts
 src/models/TeamScheduleDetailSeason.ts
+src/models/TeamScheduleDetailSport.ts
 src/models/TeamScheduleFavoriteDetail.ts
 src/models/TeamScheduleFavoriteEntry.ts
 src/models/TeamScheduleGamePosts.ts

@@ -28,6 +28,7 @@ Name | Type
 `unstractResponsesDetails` | string
 `layoutPreservedPdfText` | string
 `canSeeAdminView` | boolean
+`canDownload` | boolean
 `pdfPreviewUrl` | string
 `pdfDownloadUrl` | string
 `hasFile` | boolean
@@ -64,6 +65,7 @@ const example = {
   "unstractResponsesDetails": null,
   "layoutPreservedPdfText": null,
   "canSeeAdminView": null,
+  "canDownload": null,
   "pdfPreviewUrl": null,
   "pdfDownloadUrl": null,
   "hasFile": null,

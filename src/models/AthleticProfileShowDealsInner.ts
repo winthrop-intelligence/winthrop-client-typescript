@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ContactSearchCoachOptionsCoachesInner } from './ContactSearchCoachOptionsCoachesInner';
+import type { AthleticProfileShowDealsInnerVendorsInner } from './AthleticProfileShowDealsInnerVendorsInner';
 import {
-    ContactSearchCoachOptionsCoachesInnerFromJSON,
-    ContactSearchCoachOptionsCoachesInnerFromJSONTyped,
-    ContactSearchCoachOptionsCoachesInnerToJSON,
-    ContactSearchCoachOptionsCoachesInnerToJSONTyped,
-} from './ContactSearchCoachOptionsCoachesInner';
+    AthleticProfileShowDealsInnerVendorsInnerFromJSON,
+    AthleticProfileShowDealsInnerVendorsInnerFromJSONTyped,
+    AthleticProfileShowDealsInnerVendorsInnerToJSON,
+    AthleticProfileShowDealsInnerVendorsInnerToJSONTyped,
+} from './AthleticProfileShowDealsInnerVendorsInner';
 
 /**
  * 
@@ -53,10 +53,10 @@ export interface AthleticProfileShowDealsInner {
     vendorNames?: string;
     /**
      * 
-     * @type {Array<ContactSearchCoachOptionsCoachesInner>}
+     * @type {Array<AthleticProfileShowDealsInnerVendorsInner>}
      * @memberof AthleticProfileShowDealsInner
      */
-    vendors?: Array<ContactSearchCoachOptionsCoachesInner>;
+    vendors?: Array<AthleticProfileShowDealsInnerVendorsInner>;
     /**
      * 
      * @type {string}
@@ -98,7 +98,7 @@ export function AthleticProfileShowDealsInnerFromJSONTyped(json: any, ignoreDisc
         'dealType': json['deal_type'] == null ? undefined : json['deal_type'],
         'term': json['term'] == null ? undefined : json['term'],
         'vendorNames': json['vendor_names'] == null ? undefined : json['vendor_names'],
-        'vendors': json['vendors'] == null ? undefined : ((json['vendors'] as Array<any>).map(ContactSearchCoachOptionsCoachesInnerFromJSON)),
+        'vendors': json['vendors'] == null ? undefined : ((json['vendors'] as Array<any>).map(AthleticProfileShowDealsInnerVendorsInnerFromJSON)),
         'summary': json['summary'] == null ? undefined : json['summary'],
         'hasContract': json['has_contract'] == null ? undefined : json['has_contract'],
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
@@ -120,7 +120,7 @@ export function AthleticProfileShowDealsInnerToJSONTyped(value?: AthleticProfile
         'deal_type': value['dealType'],
         'term': value['term'],
         'vendor_names': value['vendorNames'],
-        'vendors': value['vendors'] == null ? undefined : ((value['vendors'] as Array<any>).map(ContactSearchCoachOptionsCoachesInnerToJSON)),
+        'vendors': value['vendors'] == null ? undefined : ((value['vendors'] as Array<any>).map(AthleticProfileShowDealsInnerVendorsInnerToJSON)),
         'summary': value['summary'],
         'has_contract': value['hasContract'],
         'raw_contract_id': value['rawContractId'],

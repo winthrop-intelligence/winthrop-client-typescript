@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AccountDetail,
   AccountUser,
   AccountUsersResponse,
   Administrator,
@@ -56,14 +57,10 @@ import type {
   ConferenceshipCollection,
   Contact,
   ContactCollection,
-  ContactSearchCoachOptions,
-  ContactSearchCollection,
-  ContactSearchEntry,
   Contract,
   ContractCollection,
   CreateAccountUser422Response,
   CreateAccountUserRequest,
-  CreateContactSearchRequest,
   CreateFavorite201Response,
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
@@ -81,8 +78,8 @@ import type {
   DealStatus,
   DealStatusCollection,
   DeleteAccountUser200Response,
-  DeleteContactSearch200Response,
   DeleteFavorite200Response,
+  DeleteGamePostSearch200Response,
   DepartmentSearchResultCollection,
   Division,
   DivisionCollection,
@@ -188,6 +185,8 @@ import type {
   VerifyUserIntercollegiateAccess200Response,
 } from '../models/index';
 import {
+    AccountDetailFromJSON,
+    AccountDetailToJSON,
     AccountUserFromJSON,
     AccountUserToJSON,
     AccountUsersResponseFromJSON,
@@ -270,12 +269,6 @@ import {
     ContactToJSON,
     ContactCollectionFromJSON,
     ContactCollectionToJSON,
-    ContactSearchCoachOptionsFromJSON,
-    ContactSearchCoachOptionsToJSON,
-    ContactSearchCollectionFromJSON,
-    ContactSearchCollectionToJSON,
-    ContactSearchEntryFromJSON,
-    ContactSearchEntryToJSON,
     ContractFromJSON,
     ContractToJSON,
     ContractCollectionFromJSON,
@@ -284,8 +277,6 @@ import {
     CreateAccountUser422ResponseToJSON,
     CreateAccountUserRequestFromJSON,
     CreateAccountUserRequestToJSON,
-    CreateContactSearchRequestFromJSON,
-    CreateContactSearchRequestToJSON,
     CreateFavorite201ResponseFromJSON,
     CreateFavorite201ResponseToJSON,
     CreateFavoriteRequestFromJSON,
@@ -320,10 +311,10 @@ import {
     DealStatusCollectionToJSON,
     DeleteAccountUser200ResponseFromJSON,
     DeleteAccountUser200ResponseToJSON,
-    DeleteContactSearch200ResponseFromJSON,
-    DeleteContactSearch200ResponseToJSON,
     DeleteFavorite200ResponseFromJSON,
     DeleteFavorite200ResponseToJSON,
+    DeleteGamePostSearch200ResponseFromJSON,
+    DeleteGamePostSearch200ResponseToJSON,
     DepartmentSearchResultCollectionFromJSON,
     DepartmentSearchResultCollectionToJSON,
     DivisionFromJSON,
@@ -586,10 +577,6 @@ export interface DefaultApiCreateConferenceshipRequest {
     conferenceship?: Conferenceship;
 }
 
-export interface DefaultApiCreateContactSearchOperationRequest {
-    createContactSearchRequest?: CreateContactSearchRequest;
-}
-
 export interface DefaultApiCreateFavoriteOperationRequest {
     createFavoriteRequest: CreateFavoriteRequest;
 }
@@ -662,10 +649,6 @@ export interface DefaultApiDeleteConferenceshipRequest {
     conferenceshipId: number;
 }
 
-export interface DefaultApiDeleteContactSearchRequest {
-    id: number;
-}
-
 export interface DefaultApiDeleteFavoriteRequest {
     id: number;
 }
@@ -724,6 +707,10 @@ export interface DefaultApiDeleteTeamScheduleNoteRequest {
 
 export interface DefaultApiDeleteUploadRequest {
     uploadId: number;
+}
+
+export interface DefaultApiGetAccountRequest {
+    id: number;
 }
 
 export interface DefaultApiGetAccountUserActivationRequest {
@@ -900,12 +887,6 @@ export interface DefaultApiGetConferenceshipsRequest {
 
 export interface DefaultApiGetContactRequest {
     contactId: number;
-}
-
-export interface DefaultApiGetContactSearchesRequest {
-    page?: number;
-    perPage?: number;
-    q?: object;
 }
 
 export interface DefaultApiGetContactsRequest {
@@ -2177,47 +2158,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a new scheduling contact
-     */
-    async createContactSearchRaw(requestParameters: DefaultApiCreateContactSearchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactSearchEntry>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateContactSearchRequestToJSON(requestParameters['createContactSearchRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContactSearchEntryFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a new scheduling contact
-     */
-    async createContactSearch(requestParameters: DefaultApiCreateContactSearchOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactSearchEntry> {
-        const response = await this.createContactSearchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Add a favorite for the current user
      */
     async createFavoriteRaw(requestParameters: DefaultApiCreateFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFavorite201Response>> {
@@ -3063,52 +3003,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete a scheduling contact
-     */
-    async deleteContactSearchRaw(requestParameters: DefaultApiDeleteContactSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteContactSearch200Response>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling deleteContactSearch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches/{id}`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteContactSearch200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a scheduling contact
-     */
-    async deleteContactSearch(requestParameters: DefaultApiDeleteContactSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteContactSearch200Response> {
-        const response = await this.deleteContactSearchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Remove a favorite by its ID
      */
     async deleteFavoriteRaw(requestParameters: DefaultApiDeleteFavoriteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteFavorite200Response>> {
@@ -3338,7 +3232,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a game post
      */
-    async deleteGamePostSearchRaw(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteContactSearch200Response>> {
+    async deleteGamePostSearchRaw(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteGamePostSearch200Response>> {
         if (requestParameters['gamePostSearchId'] == null) {
             throw new runtime.RequiredError(
                 'gamePostSearchId',
@@ -3370,13 +3264,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteContactSearch200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteGamePostSearch200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete a game post
      */
-    async deleteGamePostSearch(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteContactSearch200Response> {
+    async deleteGamePostSearch(requestParameters: DefaultApiDeleteGamePostSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteGamePostSearch200Response> {
         const response = await this.deleteGamePostSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3789,6 +3683,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteUpload(requestParameters: DefaultApiDeleteUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteUploadRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve an account with subscriptions, invoices, and billing addresses
+     */
+    async getAccountRaw(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountDetail>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getAccount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/accounts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve an account with subscriptions, invoices, and billing addresses
+     */
+    async getAccount(requestParameters: DefaultApiGetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountDetail> {
+        const response = await this.getAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -5599,94 +5539,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getContact(requestParameters: DefaultApiGetContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Contact> {
         const response = await this.getContactRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve coach options for the scheduling contacts form
-     */
-    async getContactSearchCoachOptionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactSearchCoachOptions>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches/coach_options`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContactSearchCoachOptionsFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve coach options for the scheduling contacts form
-     */
-    async getContactSearchCoachOptions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactSearchCoachOptions> {
-        const response = await this.getContactSearchCoachOptionsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve scheduling contacts for the current account\'s school
-     */
-    async getContactSearchesRaw(requestParameters: DefaultApiGetContactSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactSearchCollection>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['perPage'] != null) {
-            queryParameters['per_page'] = requestParameters['perPage'];
-        }
-
-        if (requestParameters['q'] != null) {
-            queryParameters['q'] = requestParameters['q'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/contact_searches`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContactSearchCollectionFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve scheduling contacts for the current account\'s school
-     */
-    async getContactSearches(requestParameters: DefaultApiGetContactSearchesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactSearchCollection> {
-        const response = await this.getContactSearchesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
