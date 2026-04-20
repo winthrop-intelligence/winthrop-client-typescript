@@ -10,7 +10,7 @@ Name | Type
 `dealType` | string
 `term` | string
 `vendorNames` | string
-`vendors` | [Array&lt;AthleticProfileShowDealsInnerVendorsInner&gt;](AthleticProfileShowDealsInnerVendorsInner.md)
+`vendors` | [Array&lt;ContactSearchCoachOptionsCoachesInner&gt;](ContactSearchCoachOptionsCoachesInner.md)
 `summary` | string
 `hasContract` | boolean
 `rawContractId` | number
