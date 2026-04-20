@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Meta } from './Meta';
+import {
+    MetaFromJSON,
+    MetaFromJSONTyped,
+    MetaToJSON,
+    MetaToJSONTyped,
+} from './Meta';
 import type { AccountUser } from './AccountUser';
 import {
     AccountUserFromJSON,
@@ -34,6 +41,12 @@ import {
  * @interface AccountUsersResponse
  */
 export interface AccountUsersResponse {
+    /**
+     * 
+     * @type {Meta}
+     * @memberof AccountUsersResponse
+     */
+    meta?: Meta;
     /**
      * 
      * @type {AccountInfo}
@@ -65,6 +78,7 @@ export function AccountUsersResponseFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
+        'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
         'account': json['account'] == null ? undefined : AccountInfoFromJSON(json['account']),
         'users': json['users'] == null ? undefined : ((json['users'] as Array<any>).map(AccountUserFromJSON)),
     };
@@ -81,6 +95,7 @@ export function AccountUsersResponseToJSONTyped(value?: AccountUsersResponse | n
 
     return {
         
+        'meta': MetaToJSON(value['meta']),
         'account': AccountInfoToJSON(value['account']),
         'users': value['users'] == null ? undefined : ((value['users'] as Array<any>).map(AccountUserToJSON)),
     };

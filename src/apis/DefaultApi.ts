@@ -717,6 +717,10 @@ export interface DefaultApiGetAccountUserActivationRequest {
     confirmationToken: string;
 }
 
+export interface DefaultApiGetAccountUsersRequest {
+    page?: number;
+}
+
 export interface DefaultApiGetAdministratorRequest {
     administratorId: number;
 }
@@ -3773,10 +3777,14 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve all users for the current user\'s account with their computed access permissions
+     * Retrieve paginated list of users for the current user\'s account with their computed access permissions
      */
-    async getAccountUsersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountUsersResponse>> {
+    async getAccountUsersRaw(requestParameters: DefaultApiGetAccountUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountUsersResponse>> {
         const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -3803,10 +3811,10 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve all users for the current user\'s account with their computed access permissions
+     * Retrieve paginated list of users for the current user\'s account with their computed access permissions
      */
-    async getAccountUsers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountUsersResponse> {
-        const response = await this.getAccountUsersRaw(initOverrides);
+    async getAccountUsers(requestParameters: DefaultApiGetAccountUsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountUsersResponse> {
+        const response = await this.getAccountUsersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

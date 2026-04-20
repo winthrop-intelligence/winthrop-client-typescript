@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`meta` | [Meta](Meta.md)
 `account` | [AccountInfo](AccountInfo.md)
 `users` | [Array&lt;AccountUser&gt;](AccountUser.md)
 
@@ -16,6 +17,7 @@ import type { AccountUsersResponse } from '@winthrop-intelligence/winthrop-clien
 
 // TODO: Update the object below with actual values
 const example = {
+  "meta": null,
   "account": null,
   "users": null,
 } satisfies AccountUsersResponse

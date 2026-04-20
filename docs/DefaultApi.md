@@ -3634,11 +3634,11 @@ No authorization required
 
 ## getAccountUsers
 
-> AccountUsersResponse getAccountUsers()
+> AccountUsersResponse getAccountUsers(page)
 
 
 
-Retrieve all users for the current user\&#39;s account with their computed access permissions
+Retrieve paginated list of users for the current user\&#39;s account with their computed access permissions
 
 ### Example
 
@@ -3659,8 +3659,13 @@ async function example() {
   });
   const api = new DefaultApi(config);
 
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+  } satisfies GetAccountUsersRequest;
+
   try {
-    const data = await api.getAccountUsers();
+    const data = await api.getAccountUsers(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -3673,7 +3678,10 @@ example().catch(console.error);
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 
 ### Return type
 
