@@ -164,6 +164,8 @@ docs/GameContract.md
 docs/GameContractCollection.md
 docs/GameContractSeriesEntry.md
 docs/GameContractSeriesResponse.md
+docs/GameDetail.md
+docs/GameDetailAllOfGameContract.md
 docs/GamePost.md
 docs/GamePostCollection.md
 docs/GamePostContact.md
@@ -525,6 +527,8 @@ src/models/GameContract.ts
 src/models/GameContractCollection.ts
 src/models/GameContractSeriesEntry.ts
 src/models/GameContractSeriesResponse.ts
+src/models/GameDetail.ts
+src/models/GameDetailAllOfGameContract.ts
 src/models/GamePost.ts
 src/models/GamePostCollection.ts
 src/models/GamePostContact.ts

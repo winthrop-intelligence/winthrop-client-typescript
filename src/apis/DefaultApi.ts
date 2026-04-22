@@ -97,11 +97,11 @@ import type {
   FoiaRequestCollection,
   GadContractDetail,
   GadSearchResultCollection,
-  Game,
   GameCollection,
   GameContract,
   GameContractCollection,
   GameContractSeriesResponse,
+  GameDetail,
   GamePost,
   GamePostCollection,
   GamePostDetail,
@@ -356,8 +356,6 @@ import {
     GadContractDetailToJSON,
     GadSearchResultCollectionFromJSON,
     GadSearchResultCollectionToJSON,
-    GameFromJSON,
-    GameToJSON,
     GameCollectionFromJSON,
     GameCollectionToJSON,
     GameContractFromJSON,
@@ -366,6 +364,8 @@ import {
     GameContractCollectionToJSON,
     GameContractSeriesResponseFromJSON,
     GameContractSeriesResponseToJSON,
+    GameDetailFromJSON,
+    GameDetailToJSON,
     GamePostFromJSON,
     GamePostToJSON,
     GamePostCollectionFromJSON,
@@ -700,6 +700,10 @@ export interface DefaultApiDeleteFoiaLabelRequest {
 
 export interface DefaultApiDeleteFoiaRequestRequest {
     foiaRequestId: number;
+}
+
+export interface DefaultApiDeleteGameRequest {
+    gameId: number;
 }
 
 export interface DefaultApiDeleteGameContractRawContractRequest {
@@ -1516,6 +1520,11 @@ export interface DefaultApiUpdateFoiaLabelRequest {
 export interface DefaultApiUpdateFoiaRequestRequest {
     foiaRequestId: number;
     foiaRequest: FoiaRequest;
+}
+
+export interface DefaultApiUpdateGameRequest {
+    gameId: number;
+    createGameRequest: CreateGameRequest;
 }
 
 export interface DefaultApiUpdateGameContractRequest {
@@ -2462,7 +2471,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a game
      */
-    async createGameRaw(requestParameters: DefaultApiCreateGameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Game>> {
+    async createGameRaw(requestParameters: DefaultApiCreateGameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameDetail>> {
         if (requestParameters['createGameRequest'] == null) {
             throw new runtime.RequiredError(
                 'createGameRequest',
@@ -2496,13 +2505,13 @@ export class DefaultApi extends runtime.BaseAPI {
             body: CreateGameRequestToJSON(requestParameters['createGameRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GameFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameDetailFromJSON(jsonValue));
     }
 
     /**
      * Create a game
      */
-    async createGame(requestParameters: DefaultApiCreateGameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Game> {
+    async createGame(requestParameters: DefaultApiCreateGameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameDetail> {
         const response = await this.createGameRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3434,6 +3443,51 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteFoiaRequest(requestParameters: DefaultApiDeleteFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteFoiaRequestRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Delete a game
+     */
+    async deleteGameRaw(requestParameters: DefaultApiDeleteGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['gameId'] == null) {
+            throw new runtime.RequiredError(
+                'gameId',
+                'Required parameter "gameId" was null or undefined when calling deleteGame().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/games/{gameId}`;
+        urlPath = urlPath.replace(`{${"gameId"}}`, encodeURIComponent(String(requestParameters['gameId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a game
+     */
+    async deleteGame(requestParameters: DefaultApiDeleteGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteGameRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -7313,7 +7367,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single game
      */
-    async getGameRaw(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Game>> {
+    async getGameRaw(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameDetail>> {
         if (requestParameters['gameId'] == null) {
             throw new runtime.RequiredError(
                 'gameId',
@@ -7345,13 +7399,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GameFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameDetailFromJSON(jsonValue));
     }
 
     /**
      * Retrieve a single game
      */
-    async getGame(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Game> {
+    async getGame(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameDetail> {
         const response = await this.getGameRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12126,6 +12180,62 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateFoiaRequest(requestParameters: DefaultApiUpdateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.updateFoiaRequestRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a game
+     */
+    async updateGameRaw(requestParameters: DefaultApiUpdateGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameDetail>> {
+        if (requestParameters['gameId'] == null) {
+            throw new runtime.RequiredError(
+                'gameId',
+                'Required parameter "gameId" was null or undefined when calling updateGame().'
+            );
+        }
+
+        if (requestParameters['createGameRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createGameRequest',
+                'Required parameter "createGameRequest" was null or undefined when calling updateGame().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/games/{gameId}`;
+        urlPath = urlPath.replace(`{${"gameId"}}`, encodeURIComponent(String(requestParameters['gameId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateGameRequestToJSON(requestParameters['createGameRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a game
+     */
+    async updateGame(requestParameters: DefaultApiUpdateGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameDetail> {
+        const response = await this.updateGameRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

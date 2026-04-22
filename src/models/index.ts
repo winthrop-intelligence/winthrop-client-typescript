@@ -161,6 +161,8 @@ export * from './GameContract';
 export * from './GameContractCollection';
 export * from './GameContractSeriesEntry';
 export * from './GameContractSeriesResponse';
+export * from './GameDetail';
+export * from './GameDetailAllOfGameContract';
 export * from './GamePost';
 export * from './GamePostCollection';
 export * from './GamePostContact';
