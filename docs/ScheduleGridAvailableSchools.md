@@ -1,30 +1,25 @@
 
-# CoachCompensationTabSidebarContractsInner
+# ScheduleGridAvailableSchools
 
+Response for GET /schedule_grid/{sport_name}/available_schools
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`rawContractId` | number
-`startOn` | string
-`endOn` | string
-`atWill` | boolean
+`availableCount` | number
+`schools` | [Array&lt;ScheduleGridAvailableSchoolRow&gt;](ScheduleGridAvailableSchoolRow.md)
 
 ## Example
 
 ```typescript
-import type { CoachCompensationTabSidebarContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ScheduleGridAvailableSchools } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "rawContractId": null,
-  "startOn": null,
-  "endOn": null,
-  "atWill": null,
-} satisfies CoachCompensationTabSidebarContractsInner
+  "availableCount": null,
+  "schools": null,
+} satisfies ScheduleGridAvailableSchools
 
 console.log(example)
 
@@ -33,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CoachCompensationTabSidebarContractsInner
+const exampleParsed = JSON.parse(exampleJSON) as ScheduleGridAvailableSchools
 console.log(exampleParsed)
 ```
 

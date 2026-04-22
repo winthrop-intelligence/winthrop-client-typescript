@@ -1,30 +1,29 @@
 
-# CoachCompensationTabSidebarContractsInner
+# ScheduleGridGamePost
 
+Active game post for a grid school, trimmed for the grid view
 
 ## Properties
 
 Name | Type
 ------------ | -------------
 `id` | number
-`rawContractId` | number
-`startOn` | string
-`endOn` | string
-`atWill` | boolean
+`startDate` | Date
+`endDate` | Date
+`gameTypes` | Array&lt;string&gt;
 
 ## Example
 
 ```typescript
-import type { CoachCompensationTabSidebarContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ScheduleGridGamePost } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
-  "rawContractId": null,
-  "startOn": null,
-  "endOn": null,
-  "atWill": null,
-} satisfies CoachCompensationTabSidebarContractsInner
+  "startDate": null,
+  "endDate": null,
+  "gameTypes": null,
+} satisfies ScheduleGridGamePost
 
 console.log(example)
 
@@ -33,7 +32,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CoachCompensationTabSidebarContractsInner
+const exampleParsed = JSON.parse(exampleJSON) as ScheduleGridGamePost
 console.log(exampleParsed)
 ```
 

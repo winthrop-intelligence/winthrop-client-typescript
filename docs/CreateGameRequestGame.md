@@ -1,30 +1,30 @@
 
-# CoachCompensationTabSidebarContractsInner
+# CreateGameRequestGame
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`rawContractId` | number
-`startOn` | string
-`endOn` | string
-`atWill` | boolean
+`homeSchoolId` | number
+`awaySchoolId` | number
+`sportId` | number
+`gameDate` | Date
+`neutral` | boolean
 
 ## Example
 
 ```typescript
-import type { CoachCompensationTabSidebarContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CreateGameRequestGame } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "rawContractId": null,
-  "startOn": null,
-  "endOn": null,
-  "atWill": null,
-} satisfies CoachCompensationTabSidebarContractsInner
+  "homeSchoolId": null,
+  "awaySchoolId": null,
+  "sportId": null,
+  "gameDate": null,
+  "neutral": null,
+} satisfies CreateGameRequestGame
 
 console.log(example)
 
@@ -33,7 +33,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CoachCompensationTabSidebarContractsInner
+const exampleParsed = JSON.parse(exampleJSON) as CreateGameRequestGame
 console.log(exampleParsed)
 ```
 

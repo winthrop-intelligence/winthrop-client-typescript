@@ -108,6 +108,8 @@ docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
 docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
+docs/CreateGameRequest.md
+docs/CreateGameRequestGame.md
 docs/CreateNoteRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
@@ -236,6 +238,13 @@ docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
 docs/RoleOption.md
+docs/ScheduleGridAvailableSchoolPost.md
+docs/ScheduleGridAvailableSchoolRow.md
+docs/ScheduleGridAvailableSchools.md
+docs/ScheduleGridGame.md
+docs/ScheduleGridGamePost.md
+docs/ScheduleGridSchool.md
+docs/ScheduleGridView.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -462,6 +471,8 @@ src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
 src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
+src/models/CreateGameRequest.ts
+src/models/CreateGameRequestGame.ts
 src/models/CreateNoteRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
@@ -585,6 +596,13 @@ src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
 src/models/RoleOption.ts
+src/models/ScheduleGridAvailableSchoolPost.ts
+src/models/ScheduleGridAvailableSchoolRow.ts
+src/models/ScheduleGridAvailableSchools.ts
+src/models/ScheduleGridGame.ts
+src/models/ScheduleGridGamePost.ts
+src/models/ScheduleGridSchool.ts
+src/models/ScheduleGridView.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts

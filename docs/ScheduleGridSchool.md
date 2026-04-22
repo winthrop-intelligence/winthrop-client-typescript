@@ -1,30 +1,33 @@
 
-# CoachCompensationTabSidebarContractsInner
+# ScheduleGridSchool
 
+One of the up-to-eight schools rendered as a column on the schedule grid
 
 ## Properties
 
 Name | Type
 ------------ | -------------
 `id` | number
-`rawContractId` | number
-`startOn` | string
-`endOn` | string
-`atWill` | boolean
+`name` | string
+`shortName` | string
+`logoUrl` | string
+`primaryContactName` | string
+`primaryContactPhone` | string
 
 ## Example
 
 ```typescript
-import type { CoachCompensationTabSidebarContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ScheduleGridSchool } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
-  "rawContractId": null,
-  "startOn": null,
-  "endOn": null,
-  "atWill": null,
-} satisfies CoachCompensationTabSidebarContractsInner
+  "name": null,
+  "shortName": null,
+  "logoUrl": null,
+  "primaryContactName": null,
+  "primaryContactPhone": null,
+} satisfies ScheduleGridSchool
 
 console.log(example)
 
@@ -33,7 +36,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CoachCompensationTabSidebarContractsInner
+const exampleParsed = JSON.parse(exampleJSON) as ScheduleGridSchool
 console.log(exampleParsed)
 ```
 
