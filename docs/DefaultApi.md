@@ -9,32 +9,53 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageSchoolComp**](DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp |  |
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
+| [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
 | [**createCoach**](DefaultApi.md#createcoach) | **POST** /api/v1/coaches |  |
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
+| [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
 | [**createFavorite**](DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites |  |
 | [**createFavoritesCategory**](DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories |  |
 | [**createFoiaLabel**](DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels |  |
 | [**createFoiaRequest**](DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests |  |
+| [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
+| [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
+| [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
+| [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
+| [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
+| [**createUpload**](DefaultApi.md#createupload) | **POST** /api/v1/uploads |  |
+| [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
+| [**deleteContactSearch**](DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} |  |
 | [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
 | [**deleteFavoritesCategory**](DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**deleteFoiaRequest**](DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} |  |
+| [**deleteGameContractRawContract**](DefaultApi.md#deletegamecontractrawcontract) | **DELETE** /api/v1/game_contracts/{game_contractId}/delete_raw_contract |  |
+| [**deleteGamePostSearch**](DefaultApi.md#deletegamepostsearch) | **DELETE** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**deleteJobPost**](DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post |
+| [**deleteNote**](DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} |  |
 | [**deletePosition**](DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} |  |
 | [**deleteRequestedItem**](DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} |  |
+| [**deleteSchoolGroup**](DefaultApi.md#deleteschoolgroup) | **DELETE** /api/v1/school_groups/{schoolGroupId} |  |
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
+| [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
+| [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
+| [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
+| [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
+| [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
+| [**getAthleticProfileSearch**](DefaultApi.md#getathleticprofilesearch) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId} |  |
 | [**getAuditedFinancialReportStatus**](DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} |  |
 | [**getAuditedFinancialReportStatuses**](DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses |  |
 | [**getCashflow**](DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} |  |
@@ -49,6 +70,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachSearchCoworkerHistory**](DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history |  |
 | [**getCoachSearchOverview**](DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview |  |
 | [**getCoachSearchRecord**](DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record |  |
+| [**getCoachSearchRecruiting**](DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting |  |
 | [**getCoachSearchVideos**](DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos |  |
 | [**getCoachSearches**](DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches |  |
 | [**getCoaches**](DefaultApi.md#getcoaches) | **GET** /api/v1/coaches |  |
@@ -65,6 +87,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getConferenceship**](DefaultApi.md#getconferenceship) | **GET** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**getConferenceships**](DefaultApi.md#getconferenceships) | **GET** /api/v1/conferenceships |  |
 | [**getContact**](DefaultApi.md#getcontact) | **GET** /api/v1/contacts/{contactId} |  |
+| [**getContactSearchCoachOptions**](DefaultApi.md#getcontactsearchcoachoptions) | **GET** /api/v1/contact_searches/coach_options |  |
+| [**getContactSearches**](DefaultApi.md#getcontactsearches) | **GET** /api/v1/contact_searches |  |
 | [**getContacts**](DefaultApi.md#getcontacts) | **GET** /api/v1/contacts |  |
 | [**getContract**](DefaultApi.md#getcontract) | **GET** /api/v1/contracts/{contractId} |  |
 | [**getContracts**](DefaultApi.md#getcontracts) | **GET** /api/v1/contracts |  |
@@ -76,6 +100,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDepartmentSearches**](DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
+| [**getEditAccountUser**](DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
 | [**getFavoritesCategories**](DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories |  |
 | [**getFilterOptions**](DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options |  |
@@ -92,11 +117,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFoiaLabels**](DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels |  |
 | [**getFoiaRequest**](DefaultApi.md#getfoiarequest) | **GET** /api/v1/foia_requests/{foiaRequestId} |  |
 | [**getFoiaRequests**](DefaultApi.md#getfoiarequests) | **GET** /api/v1/foia_requests |  |
+| [**getGadSearchDetail**](DefaultApi.md#getgadsearchdetail) | **GET** /api/v1/gad_searches/{id}/detail |  |
 | [**getGadSearches**](DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches |  |
 | [**getGame**](DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} |  |
 | [**getGameContract**](DefaultApi.md#getgamecontract) | **GET** /api/v1/game_contracts/{game_contractId} |  |
+| [**getGameContractSeries**](DefaultApi.md#getgamecontractseries) | **GET** /api/v1/game_contracts/{game_contractId}/series |  |
 | [**getGameContracts**](DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts |  |
 | [**getGamePost**](DefaultApi.md#getgamepost) | **GET** /api/v1/game_posts/{gamePostId} |  |
+| [**getGamePostSearch**](DefaultApi.md#getgamepostsearch) | **GET** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**getGamePostSearches**](DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches |  |
 | [**getGamePosts**](DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts |  |
 | [**getGames**](DefaultApi.md#getgames) | **GET** /api/v1/games |  |
@@ -107,15 +135,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getLadFilterOptions**](DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options |  |
 | [**getNcaaFinancialReportStatus**](DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} |  |
 | [**getNcaaFinancialReportStatuses**](DefaultApi.md#getncaafinancialreportstatuses) | **GET** /api/v1/ncaa_financial_report_statuses |  |
+| [**getNewAccountUser**](DefaultApi.md#getnewaccountuser) | **GET** /api/v1/account_users/new |  |
 | [**getNewsFeed**](DefaultApi.md#getnewsfeed) | **GET** /wi_jobs/news_feeds/{newsFeedId} | Get a news feed |
+| [**getNote**](DefaultApi.md#getnote) | **GET** /api/v1/notes |  |
 | [**getPosition**](DefaultApi.md#getposition) | **GET** /api/v1/positions/{positionId} |  |
 | [**getPositions**](DefaultApi.md#getpositions) | **GET** /api/v1/positions |  |
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
+| [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
+| [**getRevenueSearches**](DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
+| [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
 | [**getSchoolGroupCashflowStats**](DefaultApi.md#getschoolgroupcashflowstats) | **GET** /api/v1/school_groups/{schoolGroupId}/cashflow_stats |  |
@@ -123,6 +156,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchoolGroupDirectorsCup**](DefaultApi.md#getschoolgroupdirectorscup) | **GET** /api/v1/school_groups/{schoolGroupId}/directors_cup |  |
 | [**getSchoolGroupPositionStats**](DefaultApi.md#getschoolgrouppositionstats) | **GET** /api/v1/school_groups/{schoolGroupId}/position_stats |  |
 | [**getSchoolGroupSportCompensation**](DefaultApi.md#getschoolgroupsportcompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/sport_compensation |  |
+| [**getSchoolGroups**](DefaultApi.md#getschoolgroups) | **GET** /api/v1/school_groups |  |
+| [**getSchoolGroupsAvailableSchools**](DefaultApi.md#getschoolgroupsavailableschools) | **GET** /api/v1/school_groups/available_schools |  |
 | [**getSchools**](DefaultApi.md#getschools) | **GET** /api/v1/schools |  |
 | [**getSchoolsAlmaMater**](DefaultApi.md#getschoolsalmamater) | **GET** /api/v1/schools/alma_mater |  |
 | [**getSeason**](DefaultApi.md#getseason) | **GET** /api/v1/seasons/{seasonId} |  |
@@ -141,6 +176,19 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSubscription**](DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} |  |
 | [**getSubscriptions**](DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions |  |
 | [**getSystemSettings**](DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting |  |
+| [**getTeamScheduleDetail**](DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} |  |
+| [**getTeamScheduleDetailCoaches**](DefaultApi.md#getteamscheduledetailcoaches) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/coaches |  |
+| [**getTeamScheduleDetailGamePosts**](DefaultApi.md#getteamscheduledetailgameposts) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/game_posts |  |
+| [**getTeamScheduleDetailPlayerData**](DefaultApi.md#getteamscheduledetailplayerdata) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/player_data |  |
+| [**getTeamScheduleDetailSchedule**](DefaultApi.md#getteamscheduledetailschedule) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/schedule |  |
+| [**getTeamScheduleDetailScheduleOverlap**](DefaultApi.md#getteamscheduledetailscheduleoverlap) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/schedule_overlap |  |
+| [**getTeamScheduleFavorites**](DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites |  |
+| [**getTeamScheduleNote**](DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
+| [**getTimeZones**](DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones |  |
+| [**getUpload**](DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} |  |
+| [**getUploadFile**](DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file |  |
+| [**getUploads**](DefaultApi.md#getuploads) | **GET** /api/v1/uploads |  |
 | [**getUser**](DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} |  |
 | [**getUserActivitySummaries**](DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries |  |
 | [**getUserActivitySummary**](DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} |  |
@@ -150,7 +198,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendor**](DefaultApi.md#getvendor) | **GET** /api/v1/vendors/{vendorId} |  |
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
+| [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
+| [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
+| [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
+| [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
+| [**updateAccountUser**](DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} |  |
+| [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
 | [**updateCoach**](DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} |  |
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
@@ -160,12 +214,22 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateFavoritesCategory**](DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} |  |
 | [**updateFoiaLabel**](DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**updateFoiaRequest**](DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} |  |
+| [**updateGameContract**](DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} |  |
+| [**updateGamePostSearch**](DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
+| [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
+| [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
+| [**updateSchoolGroup**](DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
+| [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
+| [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
+| [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
+| [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
+| [**viewRawContractFile**](DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file |  |
 
 
 
@@ -587,6 +651,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createAccountUser
+
+> AccountUser createAccountUser(createAccountUserRequest)
+
+
+
+Create a new user for the current account. The email prefix is combined with the account email domain. The new user receives an invitation email.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAccountUserOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAccountUserRequest
+    createAccountUserRequest: ...,
+  } satisfies CreateAccountUserOperationRequest;
+
+  try {
+    const data = await api.createAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAccountUserRequest** | [CreateAccountUserRequest](CreateAccountUserRequest.md) |  | |
+
+### Return type
+
+[**AccountUser**](AccountUser.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | User created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createCashflow
 
 > Cashflow createCashflow(cashflow)
@@ -883,6 +1023,82 @@ example().catch(console.error);
 | **201** | Conferenceship was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create the Conferenceship |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createContactSearch
+
+> ContactSearchEntry createContactSearch(createContactSearchRequest)
+
+
+
+Create a new scheduling contact
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateContactSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateContactSearchRequest (optional)
+    createContactSearchRequest: ...,
+  } satisfies CreateContactSearchOperationRequest;
+
+  try {
+    const data = await api.createContactSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createContactSearchRequest** | [CreateContactSearchRequest](CreateContactSearchRequest.md) |  | [Optional] |
+
+### Return type
+
+[**ContactSearchEntry**](ContactSearchEntry.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Contact was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **422** | Unable to create the Contact |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1186,6 +1402,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createGamePostSearch
+
+> GamePostDetail createGamePostSearch(createGamePostSearchRequest)
+
+
+
+Create a new game post
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateGamePostSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateGamePostSearchRequest
+    createGamePostSearchRequest: ...,
+  } satisfies CreateGamePostSearchOperationRequest;
+
+  try {
+    const data = await api.createGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createGamePostSearchRequest** | [CreateGamePostSearchRequest](CreateGamePostSearchRequest.md) |  | |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Game post created |  -  |
+| **422** | Validation error |  -  |
+| **403** | Forbidden — only school accounts can create game posts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createJobPost
 
 > JobPost createJobPost(jobPost)
@@ -1256,6 +1548,149 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **201** | Job post was created |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createNote
+
+> Note createNote(createNoteRequest)
+
+
+
+Create a note for the current user on a notable object
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateNoteRequest
+    createNoteRequest: ...,
+  } satisfies CreateNoteOperationRequest;
+
+  try {
+    const data = await api.createNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createNoteRequest** | [CreateNoteRequest](CreateNoteRequest.md) |  | |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Note created |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createPasswordReset
+
+> CreatePasswordReset200Response createPasswordReset(createPasswordResetRequest)
+
+
+
+Send password reset instructions to the given email address
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreatePasswordResetOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // CreatePasswordResetRequest
+    createPasswordResetRequest: ...,
+  } satisfies CreatePasswordResetOperationRequest;
+
+  try {
+    const data = await api.createPasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createPasswordResetRequest** | [CreatePasswordResetRequest](CreatePasswordResetRequest.md) |  | |
+
+### Return type
+
+[**CreatePasswordReset200Response**](CreatePasswordReset200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Reset instructions sent successfully |  -  |
+| **400** | Missing or blank email parameter |  -  |
+| **422** | Email not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1410,6 +1845,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createSchoolGroup
+
+> SchoolGroupShow createSchoolGroup(createSchoolGroupRequest)
+
+
+
+Create a new custom school group
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateSchoolGroupOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateSchoolGroupRequest
+    createSchoolGroupRequest: ...,
+  } satisfies CreateSchoolGroupOperationRequest;
+
+  try {
+    const data = await api.createSchoolGroup(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createSchoolGroupRequest** | [CreateSchoolGroupRequest](CreateSchoolGroupRequest.md) |  | |
+
+### Return type
+
+[**SchoolGroupShow**](SchoolGroupShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | School group created |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createSeason
 
 > Season createSeason(season)
@@ -1481,6 +1991,232 @@ example().catch(console.error);
 | **201** | Season was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create the Season |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createTeamScheduleFavorite
+
+> CreateTeamScheduleFavorite201Response createTeamScheduleFavorite(createTeamScheduleFavoriteRequest)
+
+
+
+Add a FilTeam to favorites
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateTeamScheduleFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateTeamScheduleFavoriteRequest
+    createTeamScheduleFavoriteRequest: ...,
+  } satisfies CreateTeamScheduleFavoriteOperationRequest;
+
+  try {
+    const data = await api.createTeamScheduleFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createTeamScheduleFavoriteRequest** | [CreateTeamScheduleFavoriteRequest](CreateTeamScheduleFavoriteRequest.md) |  | |
+
+### Return type
+
+[**CreateTeamScheduleFavorite201Response**](CreateTeamScheduleFavorite201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Favorite created |  -  |
+| **400** | Bad request (missing favoritable_id) |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createUpload
+
+> CreateUpload201Response createUpload(files)
+
+
+
+Upload one or more PDF contract files
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<Blob> | PDF files to upload (optional)
+    files: /path/to/file.txt,
+  } satisfies CreateUploadRequest;
+
+  try {
+    const data = await api.createUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **files** | `Array<Blob>` | PDF files to upload | [Optional] |
+
+### Return type
+
+[**CreateUpload201Response**](CreateUpload201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Files uploaded |  -  |
+| **400** | No files provided |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteAccountUser
+
+> DeleteAccountUser200Response deleteAccountUser(accountUserId)
+
+
+
+Delete a user from the current account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to delete
+    accountUserId: 56,
+  } satisfies DeleteAccountUserRequest;
+
+  try {
+    const data = await api.deleteAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1705,6 +2441,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **204** | Conferenceship was deleted |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteContactSearch
+
+> DeleteContactSearch200Response deleteContactSearch(id)
+
+
+
+Delete a scheduling contact
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteContactSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of contact to delete
+    id: 56,
+  } satisfies DeleteContactSearchRequest;
+
+  try {
+    const data = await api.deleteContactSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | ID of contact to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteContactSearch200Response**](DeleteContactSearch200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contact was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -2008,6 +2820,156 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteGameContractRawContract
+
+> deleteGameContractRawContract(gameContractId)
+
+
+
+Delete the raw contract attached to a game contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteGameContractRawContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GameContract
+    gameContractId: 56,
+  } satisfies DeleteGameContractRawContractRequest;
+
+  try {
+    const data = await api.deleteGameContractRawContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameContractId** | `number` | ID of the GameContract | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Raw contract was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteGamePostSearch
+
+> DeleteContactSearch200Response deleteGamePostSearch(gamePostSearchId)
+
+
+
+Delete a game post
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteGamePostSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    gamePostSearchId: 56,
+  } satisfies DeleteGamePostSearchRequest;
+
+  try {
+    const data = await api.deleteGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostSearchId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteContactSearch200Response**](DeleteContactSearch200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game post deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteJobPost
 
 > deleteJobPost(jobPostId)
@@ -2077,6 +3039,80 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Job post was deleted |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteNote
+
+> DeleteAccountUser200Response deleteNote(id)
+
+
+
+Delete a note
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies DeleteNoteRequest;
+
+  try {
+    const data = await api.deleteNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -2232,6 +3268,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteSchoolGroup
+
+> DeleteAccountUser200Response deleteSchoolGroup(schoolGroupId)
+
+
+
+Delete a custom school group
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteSchoolGroupRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School Group
+    schoolGroupId: 56,
+  } satisfies DeleteSchoolGroupRequest;
+
+  try {
+    const data = await api.deleteSchoolGroup(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolGroupId** | `number` | ID of the School Group | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School group deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteSeason
 
 > deleteSeason(seasonId)
@@ -2303,6 +3414,451 @@ example().catch(console.error);
 | **204** | Season was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteTeamScheduleFavorite
+
+> DeleteAccountUser200Response deleteTeamScheduleFavorite(id)
+
+
+
+Remove a FilTeam favorite
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteTeamScheduleFavoriteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The favorite record ID
+    id: 56,
+  } satisfies DeleteTeamScheduleFavoriteRequest;
+
+  try {
+    const data = await api.deleteTeamScheduleFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Favorite removed |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteTeamScheduleNote
+
+> deleteTeamScheduleNote(filTeamId)
+
+
+
+Delete the current user\&#39;s note for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteTeamScheduleNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    filTeamId: filTeamId_example,
+  } satisfies DeleteTeamScheduleNoteRequest;
+
+  try {
+    const data = await api.deleteTeamScheduleNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filTeamId** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Note deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteUpload
+
+> DeleteAccountUser200Response deleteUpload(uploadId)
+
+
+
+Delete an uploaded contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the upload to delete
+    uploadId: 56,
+  } satisfies DeleteUploadRequest;
+
+  try {
+    const data = await api.deleteUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uploadId** | `number` | ID of the upload to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Upload deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccount
+
+> AccountDetail getAccount(id)
+
+
+
+Retrieve an account with subscriptions, invoices, and billing addresses
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies GetAccountRequest;
+
+  try {
+    const data = await api.getAccount(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AccountDetail**](AccountDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not an account admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccountUserActivation
+
+> GetAccountUserActivation200Response getAccountUserActivation(confirmationToken)
+
+
+
+Validate a confirmation token and return the user\&#39;s name and email for the account activation form
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountUserActivationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // string | The confirmation token from the invitation email
+    confirmationToken: confirmationToken_example,
+  } satisfies GetAccountUserActivationRequest;
+
+  try {
+    const data = await api.getAccountUserActivation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **confirmationToken** | `string` | The confirmation token from the invitation email | [Defaults to `undefined`] |
+
+### Return type
+
+[**GetAccountUserActivation200Response**](GetAccountUserActivation200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Token is valid |  -  |
+| **400** | Missing token |  -  |
+| **422** | Invalid or expired token |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccountUsers
+
+> AccountUsersResponse getAccountUsers(page)
+
+
+
+Retrieve paginated list of users for the current user\&#39;s account with their computed access permissions
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountUsersRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+  } satisfies GetAccountUsersRequest;
+
+  try {
+    const data = await api.getAccountUsers(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**AccountUsersResponse**](AccountUsersResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account users retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -2544,6 +4100,87 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Administrators were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAthleticProfileSearch
+
+> AthleticProfileShow getAthleticProfileSearch(athleticProfileSearchId, sport, year)
+
+
+
+Get school athletic profile with overview data
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAthleticProfileSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | School ID
+    athleticProfileSearchId: 56,
+    // string | Sport key (defaults to ADMIN for department overview) (optional)
+    sport: sport_example,
+    // number | Performance year (optional)
+    year: 56,
+  } satisfies GetAthleticProfileSearchRequest;
+
+  try {
+    const data = await api.getAthleticProfileSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **athleticProfileSearchId** | `number` | School ID | [Defaults to `undefined`] |
+| **sport** | `string` | Sport key (defaults to ADMIN for department overview) | [Optional] [Defaults to `&#39;ADMIN&#39;`] |
+| **year** | `number` | Performance year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AthleticProfileShow**](AthleticProfileShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Athletic profile data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -3606,6 +5243,81 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Coach record tab data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCoachSearchRecruiting
+
+> CoachRecruitingTab getCoachSearchRecruiting(id)
+
+
+
+Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchRecruitingRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchRecruitingRequest;
+
+  try {
+    const data = await api.getCoachSearchRecruiting(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachRecruitingTab**](CoachRecruitingTab.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach recruiting tab data |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
@@ -4869,6 +6581,154 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getContactSearchCoachOptions
+
+> ContactSearchCoachOptions getContactSearchCoachOptions()
+
+
+
+Retrieve coach options for the scheduling contacts form
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetContactSearchCoachOptionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getContactSearchCoachOptions();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ContactSearchCoachOptions**](ContactSearchCoachOptions.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach options retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getContactSearches
+
+> ContactSearchCollection getContactSearches(page, perPage, q)
+
+
+
+Retrieve scheduling contacts for the current account\&#39;s school
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetContactSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetContactSearchesRequest;
+
+  try {
+    const data = await api.getContactSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ContactSearchCollection**](ContactSearchCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contacts were found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getContacts
 
 > ContactCollection getContacts(page, perPage, q)
@@ -5723,6 +7583,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Divisions were found |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEditAccountUser
+
+> EditAccountUserResponse getEditAccountUser(accountUserId)
+
+
+
+Retrieve a single account user with their current roles, sports, and form metadata for editing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEditAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to edit
+    accountUserId: 56,
+  } satisfies GetEditAccountUserRequest;
+
+  try {
+    const data = await api.getEditAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to edit | [Defaults to `undefined`] |
+
+### Return type
+
+[**EditAccountUserResponse**](EditAccountUserResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account user edit data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -6904,6 +8840,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getGadSearchDetail
+
+> GadContractDetail getGadSearchDetail(id)
+
+
+
+Retrieve detailed game contract data for the GAD detail page
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGadSearchDetailRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies GetGadSearchDetailRequest;
+
+  try {
+    const data = await api.getGadSearchDetail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**GadContractDetail**](GadContractDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game contract detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGadSearches
 
 > GadSearchResultCollection getGadSearches(page, perPage, q)
@@ -7134,6 +9145,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getGameContractSeries
+
+> GameContractSeriesResponse getGameContractSeries(gameContractId)
+
+
+
+Retrieve the series of game contracts related to this contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGameContractSeriesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GameContract
+    gameContractId: 56,
+  } satisfies GetGameContractSeriesRequest;
+
+  try {
+    const data = await api.getGameContractSeries(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameContractId** | `number` | ID of the GameContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**GameContractSeriesResponse**](GameContractSeriesResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game contract series |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGameContracts
 
 > GameContractCollection getGameContracts(page, perPage, q)
@@ -7286,6 +9372,81 @@ example().catch(console.error);
 | **200** | Game Post was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGamePostSearch
+
+> GamePostDetail getGamePostSearch(gamePostSearchId)
+
+
+
+Get a single game post with enriched details including contacts
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamePostSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    gamePostSearchId: 56,
+  } satisfies GetGamePostSearchRequest;
+
+  try {
+    const data = await api.getGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostSearchId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game post detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -8061,6 +10222,73 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getNewAccountUser
+
+> NewAccountUserResponse getNewAccountUser()
+
+
+
+Retrieve form metadata for creating a new account user including available role options based on subscription, schedulable sports, and email domain
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetNewAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getNewAccountUser();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**NewAccountUserResponse**](NewAccountUserResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New account user form data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getNewsFeed
 
 > NewsFeed getNewsFeed(newsFeedId)
@@ -8130,6 +10358,83 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | News Feed was found |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getNote
+
+> Note getNote(notableType, notableId)
+
+
+
+Retrieve the current user\&#39;s note for a given notable object. Returns null if no note exists.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | The model type (e.g. \"Coach\")
+    notableType: notableType_example,
+    // number | The ID of the notable record
+    notableId: 56,
+  } satisfies GetNoteRequest;
+
+  try {
+    const data = await api.getNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **notableType** | `string` | The model type (e.g. \&quot;Coach\&quot;) | [Defaults to `undefined`] |
+| **notableId** | `number` | The ID of the notable record | [Defaults to `undefined`] |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The user\&#39;s note or null |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -8601,6 +10906,165 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getRevenueSearch
+
+> SchoolFinancialDetail getRevenueSearch(revenueSearchId, schoolId, year)
+
+
+
+Get revenue/expense line item detail with sport breakdown
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRevenueSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    revenueSearchId: 56,
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies GetRevenueSearchRequest;
+
+  try {
+    const data = await api.getRevenueSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **revenueSearchId** | `number` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolFinancialDetail**](SchoolFinancialDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Financial line item detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRevenueSearches
+
+> SchoolFinancialSummary getRevenueSearches(schoolId, year)
+
+
+
+Get school financial summary with revenue/expense breakdown by sport
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRevenueSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies GetRevenueSearchesRequest;
+
+  try {
+    const data = await api.getRevenueSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolFinancialSummary**](SchoolFinancialSummary.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School financial summary |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSchool
 
 > School getSchool(schoolId)
@@ -8747,6 +11211,81 @@ example().catch(console.error);
 | **200** | Alternate names were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | School not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolGameContracts
+
+> SchoolGameContractsResponse getSchoolGameContracts(schoolId)
+
+
+
+Retrieve game contracts for a school grouped by sport
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolGameContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+  } satisfies GetSchoolGameContractsRequest;
+
+  try {
+    const data = await api.getSchoolGameContracts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolGameContractsResponse**](SchoolGameContractsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School game contracts |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -9296,6 +11835,138 @@ example().catch(console.error);
 | **200** | Sport compensation data was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolGroups
+
+> Array&lt;SchoolGroupShow&gt; getSchoolGroups()
+
+
+
+Retrieve the current user\&#39;s custom school groups with their schools
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolGroupsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSchoolGroups();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;SchoolGroupShow&gt;**](SchoolGroupShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School groups retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolGroupsAvailableSchools
+
+> Array&lt;IdName&gt; getSchoolGroupsAvailableSchools()
+
+
+
+Retrieve D1 and D2 schools available for custom school group selection
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolGroupsAvailableSchoolsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSchoolGroupsAvailableSchools();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;IdName&gt;**](IdName.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Available schools retrieved |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10691,6 +13362,1009 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getTeamScheduleDetail
+
+> TeamScheduleDetail getTeamScheduleDetail(sportName, schoolId, performanceYear)
+
+
+
+Get detailed team schedule info including school overview, season stats, contacts, and games for the scouting report tab.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. BASKETBALL_M)
+    sportName: sportName_example,
+    // number | School ID
+    schoolId: 56,
+    // number | Performance year to load games for (defaults to current season year) (optional)
+    performanceYear: 56,
+  } satisfies GetTeamScheduleDetailRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. BASKETBALL_M) | [Defaults to `undefined`] |
+| **schoolId** | `number` | School ID | [Defaults to `undefined`] |
+| **performanceYear** | `number` | Performance year to load games for (defaults to current season year) | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleDetail**](TeamScheduleDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team schedule detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailCoaches
+
+> TeamScheduleCoaches getTeamScheduleDetailCoaches(sportName, schoolId, performanceYear)
+
+
+
+Get coaches and performance data for a team across recent seasons.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailCoachesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+    // number | Year to load coach roster for (optional)
+    performanceYear: 56,
+  } satisfies GetTeamScheduleDetailCoachesRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailCoaches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **performanceYear** | `number` | Year to load coach roster for | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleCoaches**](TeamScheduleCoaches.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coaches and performance data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailGamePosts
+
+> TeamScheduleGamePosts getTeamScheduleDetailGamePosts(sportName, schoolId)
+
+
+
+Get games wanted posts for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailGamePostsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+  } satisfies GetTeamScheduleDetailGamePostsRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailGamePosts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleGamePosts**](TeamScheduleGamePosts.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game posts list |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailPlayerData
+
+> TeamSchedulePlayerData getTeamScheduleDetailPlayerData(sportName, schoolId)
+
+
+
+Get player data for a team (Men\&#39;s Basketball only).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailPlayerDataRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+  } satisfies GetTeamScheduleDetailPlayerDataRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailPlayerData(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamSchedulePlayerData**](TeamSchedulePlayerData.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Player data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailSchedule
+
+> TeamScheduleSchedule getTeamScheduleDetailSchedule(sportName, schoolId, year)
+
+
+
+Get the full game schedule list for a team and season year.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailScheduleRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+    // number | Season year (defaults to current schedule season year) (optional)
+    year: 56,
+  } satisfies GetTeamScheduleDetailScheduleRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailSchedule(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` | Season year (defaults to current schedule season year) | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleSchedule**](TeamScheduleSchedule.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Schedule games list |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailScheduleOverlap
+
+> TeamScheduleOverlap getTeamScheduleDetailScheduleOverlap(sportName, schoolId)
+
+
+
+Check schedule overlap between a team and the current user\&#39;s team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailScheduleOverlapRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+  } satisfies GetTeamScheduleDetailScheduleOverlapRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailScheduleOverlap(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleOverlap**](TeamScheduleOverlap.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Schedule overlap data |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleFavorites
+
+> Array&lt;GetTeamScheduleFavorites200ResponseInner&gt; getTeamScheduleFavorites(detailed)
+
+
+
+Retrieve the current user\&#39;s FilTeam favorites. Returns favoritable_id as a string to avoid JavaScript precision loss with large numeric IDs.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleFavoritesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // '1' | When set to \"1\", includes category and favoritable name (optional)
+    detailed: detailed_example,
+  } satisfies GetTeamScheduleFavoritesRequest;
+
+  try {
+    const data = await api.getTeamScheduleFavorites(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **detailed** | `1` | When set to \&quot;1\&quot;, includes category and favoritable name | [Optional] [Defaults to `undefined`] [Enum: 1] |
+
+### Return type
+
+[**Array&lt;GetTeamScheduleFavorites200ResponseInner&gt;**](GetTeamScheduleFavorites200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of FilTeam favorites |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleNote
+
+> TeamScheduleNote getTeamScheduleNote(filTeamId)
+
+
+
+Get the current user\&#39;s note for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | FilTeam ID
+    filTeamId: filTeamId_example,
+  } satisfies GetTeamScheduleNoteRequest;
+
+  try {
+    const data = await api.getTeamScheduleNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filTeamId** | `string` | FilTeam ID | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleNote**](TeamScheduleNote.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note (id/content may be null if no note exists) |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleSearches
+
+> TeamScheduleSearchResultCollection getTeamScheduleSearches(page, perPage, q, sportName, excludeAlreadyScheduled, excludeConference)
+
+
+
+Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query (optional)
+    q: Object,
+    // string | Sport name filter (e.g. BASKETBALL_M) (optional)
+    sportName: sportName_example,
+    // '1' | Exclude schools already on the user\'s schedule (optional)
+    excludeAlreadyScheduled: excludeAlreadyScheduled_example,
+    // '1' | Exclude schools in the user\'s conference (optional)
+    excludeConference: excludeConference_example,
+  } satisfies GetTeamScheduleSearchesRequest;
+
+  try {
+    const data = await api.getTeamScheduleSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **sportName** | `string` | Sport name filter (e.g. BASKETBALL_M) | [Optional] [Defaults to `undefined`] |
+| **excludeAlreadyScheduled** | `1` | Exclude schools already on the user\&#39;s schedule | [Optional] [Defaults to `undefined`] [Enum: 1] |
+| **excludeConference** | `1` | Exclude schools in the user\&#39;s conference | [Optional] [Defaults to `undefined`] [Enum: 1] |
+
+### Return type
+
+[**TeamScheduleSearchResultCollection**](TeamScheduleSearchResultCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team schedule search results |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTimeZones
+
+> GetTimeZones200Response getTimeZones()
+
+
+
+Retrieve all available time zones grouped by US priority zones and other zones
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTimeZonesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getTimeZones();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetTimeZones200Response**](GetTimeZones200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Time zones retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUpload
+
+> UploadDetail getUpload(uploadId)
+
+
+
+Retrieve a single upload with its metadata
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the upload
+    uploadId: 56,
+  } satisfies GetUploadRequest;
+
+  try {
+    const data = await api.getUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uploadId** | `number` | ID of the upload | [Defaults to `undefined`] |
+
+### Return type
+
+[**UploadDetail**](UploadDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Upload found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUploadFile
+
+> getUploadFile(uploadId)
+
+
+
+Redirect to the uploaded file for viewing/downloading
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the upload
+    uploadId: 56,
+  } satisfies GetUploadFileRequest;
+
+  try {
+    const data = await api.getUploadFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uploadId** | `number` | ID of the upload | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **302** | Redirect to file URL |  -  |
+| **404** | File not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUploads
+
+> UploadsResponse getUploads(page)
+
+
+
+Retrieve paginated list of uploaded contracts for the current account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+  } satisfies GetUploadsRequest;
+
+  try {
+    const data = await api.getUploads(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**UploadsResponse**](UploadsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Uploads retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getUser
 
 > User getUser(userId)
@@ -11403,6 +15077,147 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listNotes
+
+> Array&lt;ListNotes200ResponseInner&gt; listNotes()
+
+
+
+Retrieve all of the current user\&#39;s notes, ordered by most recent first. Includes the notable record\&#39;s name.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListNotesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listNotes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;ListNotes200ResponseInner&gt;**](ListNotes200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of all user notes |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## regenerateRawContractPdf
+
+> RegenerateRawContractPdf200Response regenerateRawContractPdf(rawContractId)
+
+
+
+Regenerate the PDF for a raw contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RegenerateRawContractPdfRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies RegenerateRawContractPdfRequest;
+
+  try {
+    const data = await api.regenerateRawContractPdf(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF regeneration started |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## searchCoaches
 
 > CoachCollection searchCoaches(filters)
@@ -11473,6 +15288,299 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Coaches were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## sendOtpCode
+
+> CreatePasswordReset200Response sendOtpCode()
+
+
+
+Send an OTP verification code to the authenticated user\&#39;s email
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { SendOtpCodeRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.sendOtpCode();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CreatePasswordReset200Response**](CreatePasswordReset200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OTP code sent successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | OTP not required for this user |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## unstractRawContractPdfText
+
+> RegenerateRawContractPdf200Response unstractRawContractPdfText(rawContractId, unstractRawContractPdfTextRequest)
+
+
+
+Extract text from a raw contract PDF
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UnstractRawContractPdfTextOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+    // UnstractRawContractPdfTextRequest (optional)
+    unstractRawContractPdfTextRequest: ...,
+  } satisfies UnstractRawContractPdfTextOperationRequest;
+
+  try {
+    const data = await api.unstractRawContractPdfText(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+| **unstractRawContractPdfTextRequest** | [UnstractRawContractPdfTextRequest](UnstractRawContractPdfTextRequest.md) |  | [Optional] |
+
+### Return type
+
+[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Text extraction started |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAccountUser
+
+> DeleteAccountUser200Response updateAccountUser(accountUserId, updateAccountUserRequest)
+
+
+
+Update an account user\&#39;s roles and sport access
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAccountUserOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to update
+    accountUserId: 56,
+    // UpdateAccountUserRequest
+    updateAccountUserRequest: ...,
+  } satisfies UpdateAccountUserOperationRequest;
+
+  try {
+    const data = await api.updateAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to update | [Defaults to `undefined`] |
+| **updateAccountUserRequest** | [UpdateAccountUserRequest](UpdateAccountUserRequest.md) |  | |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAccountUserActivation
+
+> UpdateAccountUserActivation200Response updateAccountUserActivation(updateAccountUserActivationRequest)
+
+
+
+Set password and activate the account for an invited user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAccountUserActivationOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // UpdateAccountUserActivationRequest
+    updateAccountUserActivationRequest: ...,
+  } satisfies UpdateAccountUserActivationOperationRequest;
+
+  try {
+    const data = await api.updateAccountUserActivation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateAccountUserActivationRequest** | [UpdateAccountUserActivationRequest](UpdateAccountUserActivationRequest.md) |  | |
+
+### Return type
+
+[**UpdateAccountUserActivation200Response**](UpdateAccountUserActivation200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account activated |  -  |
+| **400** | Missing required parameters |  -  |
+| **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12180,6 +16288,206 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateGameContract
+
+> DeleteAccountUser200Response updateGameContract(gameContractId, gameContractHomeSchoolId, gameContractAwaySchoolId, gameContractSportId, gameContractGameType, gameContractGameDate, gameContractGameDateTbd, gameContractOffSiteLocation, gameContractCompDollars, gameContractCompTbd, gameContractVariable, gameContractCancelFeeDollars, gameContractCancelled, gameContractVerified, gameContractSignedOn, rawContractFile)
+
+
+
+Update a GameContract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateGameContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GameContract
+    gameContractId: 56,
+    // number (optional)
+    gameContractHomeSchoolId: 56,
+    // number (optional)
+    gameContractAwaySchoolId: 56,
+    // number (optional)
+    gameContractSportId: 56,
+    // string (optional)
+    gameContractGameType: gameContractGameType_example,
+    // string (optional)
+    gameContractGameDate: gameContractGameDate_example,
+    // string (optional)
+    gameContractGameDateTbd: gameContractGameDateTbd_example,
+    // string (optional)
+    gameContractOffSiteLocation: gameContractOffSiteLocation_example,
+    // string (optional)
+    gameContractCompDollars: gameContractCompDollars_example,
+    // string (optional)
+    gameContractCompTbd: gameContractCompTbd_example,
+    // string (optional)
+    gameContractVariable: gameContractVariable_example,
+    // string (optional)
+    gameContractCancelFeeDollars: gameContractCancelFeeDollars_example,
+    // string (optional)
+    gameContractCancelled: gameContractCancelled_example,
+    // string (optional)
+    gameContractVerified: gameContractVerified_example,
+    // string (optional)
+    gameContractSignedOn: gameContractSignedOn_example,
+    // Blob (optional)
+    rawContractFile: BINARY_DATA_HERE,
+  } satisfies UpdateGameContractRequest;
+
+  try {
+    const data = await api.updateGameContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameContractId** | `number` | ID of the GameContract | [Defaults to `undefined`] |
+| **gameContractHomeSchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractAwaySchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractSportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractGameType** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractGameDate** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractGameDateTbd** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractOffSiteLocation** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCompDollars** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCompTbd** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractVariable** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCancelFeeDollars** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCancelled** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractVerified** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractSignedOn** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **rawContractFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game Contract was updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateGamePostSearch
+
+> GamePostDetail updateGamePostSearch(gamePostSearchId, updateGamePostSearchRequest)
+
+
+
+Update a game post. Accepts status/expires_on for expire/renew, or full form fields for editing.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateGamePostSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    gamePostSearchId: 56,
+    // UpdateGamePostSearchRequest (optional)
+    updateGamePostSearchRequest: ...,
+  } satisfies UpdateGamePostSearchOperationRequest;
+
+  try {
+    const data = await api.updateGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostSearchId** | `number` |  | [Defaults to `undefined`] |
+| **updateGamePostSearchRequest** | [UpdateGamePostSearchRequest](UpdateGamePostSearchRequest.md) |  | [Optional] |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game post updated |  -  |
+| **422** | Validation error |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateJobPost
 
 > JobPost updateJobPost(jobPostId, jobPost)
@@ -12253,6 +16561,152 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Job post was updated |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateNote
+
+> Note updateNote(id, updateNoteRequest)
+
+
+
+Update a note\&#39;s content
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+    // UpdateNoteRequest
+    updateNoteRequest: ...,
+  } satisfies UpdateNoteOperationRequest;
+
+  try {
+    const data = await api.updateNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+| **updateNoteRequest** | [UpdateNoteRequest](UpdateNoteRequest.md) |  | |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note updated |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updatePasswordReset
+
+> UpdatePasswordReset200Response updatePasswordReset(updatePasswordResetRequest)
+
+
+
+Reset password using the token from the reset email
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdatePasswordResetOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // UpdatePasswordResetRequest
+    updatePasswordResetRequest: ...,
+  } satisfies UpdatePasswordResetOperationRequest;
+
+  try {
+    const data = await api.updatePasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updatePasswordResetRequest** | [UpdatePasswordResetRequest](UpdatePasswordResetRequest.md) |  | |
+
+### Return type
+
+[**UpdatePasswordReset200Response**](UpdatePasswordReset200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Password reset successfully |  -  |
+| **400** | Missing required parameters |  -  |
+| **422** | Validation errors (invalid token, password mismatch, etc.) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12414,6 +16868,85 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateSchoolGroup
+
+> SchoolGroupShow updateSchoolGroup(schoolGroupId, updateSchoolGroupRequest)
+
+
+
+Update an existing custom school group
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateSchoolGroupOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School Group
+    schoolGroupId: 56,
+    // UpdateSchoolGroupRequest
+    updateSchoolGroupRequest: ...,
+  } satisfies UpdateSchoolGroupOperationRequest;
+
+  try {
+    const data = await api.updateSchoolGroup(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolGroupId** | `number` | ID of the School Group | [Defaults to `undefined`] |
+| **updateSchoolGroupRequest** | [UpdateSchoolGroupRequest](UpdateSchoolGroupRequest.md) |  | |
+
+### Return type
+
+[**SchoolGroupShow**](SchoolGroupShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School group updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateSeason
 
 > Season updateSeason(seasonId, season)
@@ -12493,6 +17026,241 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateTeamScheduleFavorite
+
+> CreateTeamScheduleFavorite201Response updateTeamScheduleFavorite(id, updateTeamScheduleFavoriteRequest)
+
+
+
+Update a FilTeam favorite\&#39;s category
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateTeamScheduleFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The favorite record ID
+    id: 56,
+    // UpdateTeamScheduleFavoriteRequest
+    updateTeamScheduleFavoriteRequest: ...,
+  } satisfies UpdateTeamScheduleFavoriteOperationRequest;
+
+  try {
+    const data = await api.updateTeamScheduleFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
+| **updateTeamScheduleFavoriteRequest** | [UpdateTeamScheduleFavoriteRequest](UpdateTeamScheduleFavoriteRequest.md) |  | |
+
+### Return type
+
+[**CreateTeamScheduleFavorite201Response**](CreateTeamScheduleFavorite201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Favorite updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateUser
+
+> User updateUser(userId, updateUserRequest)
+
+
+
+Update the current user\&#39;s profile
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateUserOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of user to update
+    userId: 56,
+    // UpdateUserRequest
+    updateUserRequest: ...,
+  } satisfies UpdateUserOperationRequest;
+
+  try {
+    const data = await api.updateUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | `number` | ID of user to update | [Defaults to `undefined`] |
+| **updateUserRequest** | [UpdateUserRequest](UpdateUserRequest.md) |  | |
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User was updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - can only update own profile |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## upsertTeamScheduleNote
+
+> TeamScheduleNote upsertTeamScheduleNote(filTeamId, upsertTeamScheduleNoteRequest)
+
+
+
+Create or update the current user\&#39;s note for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpsertTeamScheduleNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    filTeamId: filTeamId_example,
+    // UpsertTeamScheduleNoteRequest
+    upsertTeamScheduleNoteRequest: ...,
+  } satisfies UpsertTeamScheduleNoteOperationRequest;
+
+  try {
+    const data = await api.upsertTeamScheduleNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filTeamId** | `string` |  | [Defaults to `undefined`] |
+| **upsertTeamScheduleNoteRequest** | [UpsertTeamScheduleNoteRequest](UpsertTeamScheduleNoteRequest.md) |  | |
+
+### Return type
+
+[**TeamScheduleNote**](TeamScheduleNote.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note saved |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## userMe
 
 > User userMe()
@@ -12556,6 +17324,81 @@ This endpoint does not need any parameter.
 | **200** | User was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## verifyOtpCode
+
+> VerifyOtpCode200Response verifyOtpCode(verifyOtpCodeRequest)
+
+
+
+Verify an OTP code for the authenticated user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { VerifyOtpCodeOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // VerifyOtpCodeRequest
+    verifyOtpCodeRequest: ...,
+  } satisfies VerifyOtpCodeOperationRequest;
+
+  try {
+    const data = await api.verifyOtpCode(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **verifyOtpCodeRequest** | [VerifyOtpCodeRequest](VerifyOtpCodeRequest.md) |  | |
+
+### Return type
+
+[**VerifyOtpCode200Response**](VerifyOtpCode200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OTP verified successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Invalid or expired OTP code |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12631,6 +17474,81 @@ example().catch(console.error);
 | **200** | Successful response with the access granted status |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | User Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## viewRawContractFile
+
+> Blob viewRawContractFile(rawContractId)
+
+
+
+Stream the raw contract PDF for inline viewing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ViewRawContractFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies ViewRawContractFileRequest;
+
+  try {
+    const data = await api.viewRawContractFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF file stream |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
