@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`id` | number
 `name` | string
 `label` | string
 
@@ -16,6 +17,7 @@ import type { UserScheduleSportsInner } from '@winthrop-intelligence/winthrop-cl
 
 // TODO: Update the object below with actual values
 const example = {
+  "id": null,
   "name": null,
   "label": null,
 } satisfies UserScheduleSportsInner

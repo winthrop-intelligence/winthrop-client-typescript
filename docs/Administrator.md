@@ -1,6 +1,7 @@
 
 # Administrator
 
+Administrator search result. In /administrator_searches responses, compensation fields are only included when the user has administrator_compensation permission, and contract fields are only included when the user can view the related contract or raw contract.
 
 ## Properties
 

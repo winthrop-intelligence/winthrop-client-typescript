@@ -2,3 +2,6 @@ wwwroot/*.js
 node_modules
 typings
 dist
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

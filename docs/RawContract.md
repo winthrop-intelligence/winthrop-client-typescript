@@ -27,6 +27,14 @@ Name | Type
 `unstractPdfText` | string
 `unstractResponsesDetails` | string
 `layoutPreservedPdfText` | string
+`canSeeAdminView` | boolean
+`canDownload` | boolean
+`pdfPreviewUrl` | string
+`pdfDownloadUrl` | string
+`hasFile` | boolean
+`backTo` | [RawContractBackTo](RawContractBackTo.md)
+`contractLabel` | string
+`dealInfo` | [RawContractDealInfo](RawContractDealInfo.md)
 
 ## Example
 
@@ -56,6 +64,14 @@ const example = {
   "unstractPdfText": null,
   "unstractResponsesDetails": null,
   "layoutPreservedPdfText": null,
+  "canSeeAdminView": null,
+  "canDownload": null,
+  "pdfPreviewUrl": null,
+  "pdfDownloadUrl": null,
+  "hasFile": null,
+  "backTo": null,
+  "contractLabel": null,
+  "dealInfo": null,
 } satisfies RawContract
 
 console.log(example)
