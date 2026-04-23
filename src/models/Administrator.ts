@@ -29,7 +29,7 @@ import {
 } from './Coach';
 
 /**
- * Administrator search result. In /administrator_searches responses, compensation fields are only included when the user has administrator_compensation permission, and contract fields are only included when the user can view the related contract or raw contract.
+ * 
  * @export
  * @interface Administrator
  */
@@ -107,13 +107,13 @@ export interface Administrator {
      */
     geoDivisionId?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationId?: number;
     /**
-     * Only included in /administrator_searches responses when the user can view this administrator's contract.
+     * 
      * @type {number}
      * @memberof Administrator
      */
@@ -161,103 +161,103 @@ export interface Administrator {
      */
     directorsCupRanking?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationCents?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationBaseSalaryCents?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {string}
      * @memberof Administrator
      */
     compensationType?: AdministratorCompensationTypeEnum;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationOutsideIncomeCents?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationDeferredCompCents?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationOneTimeBonusCents?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {boolean}
      * @memberof Administrator
      */
     compensationContingentBonus?: boolean;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {string}
      * @memberof Administrator
      */
     compensationBuyoutTerms?: string;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {boolean}
      * @memberof Administrator
      */
     compensationIsCarProvided?: boolean;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationCountryClubDuesCents?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {boolean}
      * @memberof Administrator
      */
     compensationCountryClubMembershipPaid?: boolean;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     compensationTalentFee?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {string}
      * @memberof Administrator
      */
     compensationMediaLink?: string;
     /**
-     * Only included in /administrator_searches responses when the user can view this administrator's raw contract.
+     * 
      * @type {number}
      * @memberof Administrator
      */
     rawContractId?: number;
     /**
-     * Only included in /administrator_searches responses when the user can view this administrator's contract.
+     * 
      * @type {Date}
      * @memberof Administrator
      */
     contractStartsOn?: Date;
     /**
-     * Only included in /administrator_searches responses when the user can view this administrator's contract.
+     * 
      * @type {Date}
      * @memberof Administrator
      */
     contractExpiresOn?: Date;
     /**
-     * Only included in /administrator_searches responses when the user can view this administrator's contract.
+     * 
      * @type {boolean}
      * @memberof Administrator
      */
@@ -293,7 +293,7 @@ export interface Administrator {
      */
     sportId?: number;
     /**
-     * Only included in /administrator_searches responses when the user has administrator_compensation permission.
+     * 
      * @type {number}
      * @memberof Administrator
      */

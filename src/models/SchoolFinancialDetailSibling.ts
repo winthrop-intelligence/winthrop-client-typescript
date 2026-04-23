@@ -42,7 +42,7 @@ export interface SchoolFinancialDetailSibling {
      * @type {string}
      * @memberof SchoolFinancialDetailSibling
      */
-    reportLabel?: string;
+    reportLabel?: string | null;
     /**
      * 
      * @type {number}

@@ -49,6 +49,24 @@ export interface CoachCompensationTabSidebarContractsInner {
      * @memberof CoachCompensationTabSidebarContractsInner
      */
     atWill?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    hasFile?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    canDownload?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    assetFileName?: string | null;
 }
 
 /**
@@ -73,6 +91,9 @@ export function CoachCompensationTabSidebarContractsInnerFromJSONTyped(json: any
         'startOn': json['start_on'] == null ? undefined : json['start_on'],
         'endOn': json['end_on'] == null ? undefined : json['end_on'],
         'atWill': json['at_will'] == null ? undefined : json['at_will'],
+        'hasFile': json['has_file'] == null ? undefined : json['has_file'],
+        'canDownload': json['can_download'] == null ? undefined : json['can_download'],
+        'assetFileName': json['asset_file_name'] == null ? undefined : json['asset_file_name'],
     };
 }
 
@@ -92,6 +113,9 @@ export function CoachCompensationTabSidebarContractsInnerToJSONTyped(value?: Coa
         'start_on': value['startOn'],
         'end_on': value['endOn'],
         'at_will': value['atWill'],
+        'has_file': value['hasFile'],
+        'can_download': value['canDownload'],
+        'asset_file_name': value['assetFileName'],
     };
 }
 

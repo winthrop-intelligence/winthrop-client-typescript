@@ -48,7 +48,7 @@ export interface SchoolFinancialDetailGroup {
      * @type {string}
      * @memberof SchoolFinancialDetailGroup
      */
-    reportLabel?: string;
+    reportLabel?: string | null;
 }
 
 /**
