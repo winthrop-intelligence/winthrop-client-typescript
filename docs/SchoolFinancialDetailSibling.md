@@ -9,6 +9,7 @@ Name | Type
 `groupId` | number
 `name` | string
 `nameId` | string
+`reportLabel` | string
 `total` | number
 
 ## Example
@@ -21,6 +22,7 @@ const example = {
   "groupId": null,
   "name": null,
   "nameId": null,
+  "reportLabel": null,
   "total": null,
 } satisfies SchoolFinancialDetailSibling
 

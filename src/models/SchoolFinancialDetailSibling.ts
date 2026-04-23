@@ -39,6 +39,12 @@ export interface SchoolFinancialDetailSibling {
     nameId?: string;
     /**
      * 
+     * @type {string}
+     * @memberof SchoolFinancialDetailSibling
+     */
+    reportLabel?: string;
+    /**
+     * 
      * @type {number}
      * @memberof SchoolFinancialDetailSibling
      */
@@ -65,6 +71,7 @@ export function SchoolFinancialDetailSiblingFromJSONTyped(json: any, ignoreDiscr
         'groupId': json['group_id'] == null ? undefined : json['group_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'nameId': json['name_id'] == null ? undefined : json['name_id'],
+        'reportLabel': json['report_label'] == null ? undefined : json['report_label'],
         'total': json['total'] == null ? undefined : json['total'],
     };
 }
@@ -83,6 +90,7 @@ export function SchoolFinancialDetailSiblingToJSONTyped(value?: SchoolFinancialD
         'group_id': value['groupId'],
         'name': value['name'],
         'name_id': value['nameId'],
+        'report_label': value['reportLabel'],
         'total': value['total'],
     };
 }
