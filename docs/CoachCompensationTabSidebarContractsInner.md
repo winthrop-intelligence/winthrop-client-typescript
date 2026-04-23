@@ -11,9 +11,6 @@ Name | Type
 `startOn` | string
 `endOn` | string
 `atWill` | boolean
-`hasFile` | boolean
-`canDownload` | boolean
-`assetFileName` | string
 
 ## Example
 
@@ -27,9 +24,6 @@ const example = {
   "startOn": null,
   "endOn": null,
   "atWill": null,
-  "hasFile": null,
-  "canDownload": null,
-  "assetFileName": null,
 } satisfies CoachCompensationTabSidebarContractsInner
 
 console.log(example)
