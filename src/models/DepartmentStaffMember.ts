@@ -27,6 +27,12 @@ export interface DepartmentStaffMember {
     id?: number;
     /**
      * 
+     * @type {number}
+     * @memberof DepartmentStaffMember
+     */
+    coachId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof DepartmentStaffMember
      */
@@ -37,6 +43,18 @@ export interface DepartmentStaffMember {
      * @memberof DepartmentStaffMember
      */
     totalComp?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DepartmentStaffMember
+     */
+    positionTitle?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DepartmentStaffMember
+     */
+    photoUrl?: string | null;
 }
 
 /**
@@ -57,8 +75,11 @@ export function DepartmentStaffMemberFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
+        'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'coachName': json['coach_name'] == null ? undefined : json['coach_name'],
         'totalComp': json['total_comp'] == null ? undefined : json['total_comp'],
+        'positionTitle': json['position_title'] == null ? undefined : json['position_title'],
+        'photoUrl': json['photo_url'] == null ? undefined : json['photo_url'],
     };
 }
 
@@ -74,8 +95,11 @@ export function DepartmentStaffMemberToJSONTyped(value?: DepartmentStaffMember |
     return {
         
         'id': value['id'],
+        'coach_id': value['coachId'],
         'coach_name': value['coachName'],
         'total_comp': value['totalComp'],
+        'position_title': value['positionTitle'],
+        'photo_url': value['photoUrl'],
     };
 }
 

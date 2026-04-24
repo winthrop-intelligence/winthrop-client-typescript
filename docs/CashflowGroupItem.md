@@ -10,8 +10,6 @@ Name | Type
 `name` | string
 `nameId` | string
 `shortName` | string
-`reportId` | string
-`reportLabel` | string
 
 ## Example
 
@@ -24,8 +22,6 @@ const example = {
   "name": null,
   "nameId": null,
   "shortName": null,
-  "reportId": null,
-  "reportLabel": null,
 } satisfies CashflowGroupItem
 
 console.log(example)
