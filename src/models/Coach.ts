@@ -160,13 +160,13 @@ export interface Coach {
      */
     avatarScrapingDisabled?: boolean;
     /**
-     * 
+     * Only included when the user has coach_compensation permission for this coach. For leader/administrator coaches, this requires administrator_compensation access.
      * @type {number}
      * @memberof Coach
      */
     latestSalary?: number;
     /**
-     * 
+     * Only included when the user has coach_compensation permission for this coach. For leader/administrator coaches, this requires administrator_compensation access.
      * @type {number}
      * @memberof Coach
      */
