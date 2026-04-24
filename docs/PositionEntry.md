@@ -1,30 +1,25 @@
 
-# CoachCompensationTabSidebarContractsInner
+# PositionEntry
 
+Per-school position record backing an aggregate stat
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`rawContractId` | number
-`startOn` | string
-`endOn` | string
-`atWill` | boolean
+`school` | string
+`value` | number
 
 ## Example
 
 ```typescript
-import type { CoachCompensationTabSidebarContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { PositionEntry } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "rawContractId": null,
-  "startOn": null,
-  "endOn": null,
-  "atWill": null,
-} satisfies CoachCompensationTabSidebarContractsInner
+  "school": null,
+  "value": null,
+} satisfies PositionEntry
 
 console.log(example)
 
@@ -33,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CoachCompensationTabSidebarContractsInner
+const exampleParsed = JSON.parse(exampleJSON) as PositionEntry
 console.log(exampleParsed)
 ```
 

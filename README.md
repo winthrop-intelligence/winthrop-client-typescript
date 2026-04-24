@@ -107,8 +107,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
-*DefaultApi* | [**downloadRawContractFile**](docs/DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download | 
-*DefaultApi* | [**exportRevenueSearches**](docs/DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export | 
 *DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
@@ -345,6 +343,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [COLIAdjusted](docs/COLIAdjusted.md)
 - [Cashflow](docs/Cashflow.md)
 - [CashflowCollection](docs/CashflowCollection.md)
+- [CashflowEntry](docs/CashflowEntry.md)
 - [CashflowGroupItem](docs/CashflowGroupItem.md)
 - [CashflowGroupStats](docs/CashflowGroupStats.md)
 - [CashflowGroupsResponse](docs/CashflowGroupsResponse.md)
@@ -523,6 +522,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
+- [PositionEntry](docs/PositionEntry.md)
 - [PositionSportStat](docs/PositionSportStat.md)
 - [PositionType](docs/PositionType.md)
 - [PositionTypeGroup](docs/PositionTypeGroup.md)

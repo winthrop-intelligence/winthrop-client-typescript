@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PositionEntry } from './PositionEntry';
+import {
+    PositionEntryFromJSON,
+    PositionEntryFromJSONTyped,
+    PositionEntryToJSON,
+    PositionEntryToJSONTyped,
+} from './PositionEntry';
+
 /**
  * 
  * @export
@@ -61,6 +69,12 @@ export interface PositionSportStat {
      * @memberof PositionSportStat
      */
     count?: number;
+    /**
+     * 
+     * @type {Array<PositionEntry>}
+     * @memberof PositionSportStat
+     */
+    entries?: Array<PositionEntry>;
 }
 
 
@@ -98,6 +112,7 @@ export function PositionSportStatFromJSONTyped(json: any, ignoreDiscriminator: b
         'lowPositionNum': json['low_position_num'] == null ? undefined : json['low_position_num'],
         'medianPositionNum': json['median_position_num'] == null ? undefined : json['median_position_num'],
         'count': json['count'] == null ? undefined : json['count'],
+        'entries': json['entries'] == null ? undefined : ((json['entries'] as Array<any>).map(PositionEntryFromJSON)),
     };
 }
 
@@ -119,6 +134,7 @@ export function PositionSportStatToJSONTyped(value?: PositionSportStat | null, i
         'low_position_num': value['lowPositionNum'],
         'median_position_num': value['medianPositionNum'],
         'count': value['count'],
+        'entries': value['entries'] == null ? undefined : ((value['entries'] as Array<any>).map(PositionEntryToJSON)),
     };
 }
 

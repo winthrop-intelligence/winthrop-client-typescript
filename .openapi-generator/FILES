@@ -34,6 +34,7 @@ docs/AverageCompensation.md
 docs/COLIAdjusted.md
 docs/Cashflow.md
 docs/CashflowCollection.md
+docs/CashflowEntry.md
 docs/CashflowGroupItem.md
 docs/CashflowGroupStats.md
 docs/CashflowGroupsResponse.md
@@ -216,6 +217,7 @@ docs/PerformanceChartData.md
 docs/PerformanceChartRecord.md
 docs/Position.md
 docs/PositionCollection.md
+docs/PositionEntry.md
 docs/PositionSportStat.md
 docs/PositionType.md
 docs/PositionTypeGroup.md
@@ -388,6 +390,7 @@ src/models/AverageCompensation.ts
 src/models/COLIAdjusted.ts
 src/models/Cashflow.ts
 src/models/CashflowCollection.ts
+src/models/CashflowEntry.ts
 src/models/CashflowGroupItem.ts
 src/models/CashflowGroupStats.ts
 src/models/CashflowGroupsResponse.ts
@@ -566,6 +569,7 @@ src/models/PerformanceChartData.ts
 src/models/PerformanceChartRecord.ts
 src/models/Position.ts
 src/models/PositionCollection.ts
+src/models/PositionEntry.ts
 src/models/PositionSportStat.ts
 src/models/PositionType.ts
 src/models/PositionTypeGroup.ts

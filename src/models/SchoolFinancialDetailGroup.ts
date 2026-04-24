@@ -43,12 +43,6 @@ export interface SchoolFinancialDetailGroup {
      * @memberof SchoolFinancialDetailGroup
      */
     cashflowType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SchoolFinancialDetailGroup
-     */
-    reportLabel?: string | null;
 }
 
 /**
@@ -72,7 +66,6 @@ export function SchoolFinancialDetailGroupFromJSONTyped(json: any, ignoreDiscrim
         'name': json['name'] == null ? undefined : json['name'],
         'nameId': json['name_id'] == null ? undefined : json['name_id'],
         'cashflowType': json['cashflow_type'] == null ? undefined : json['cashflow_type'],
-        'reportLabel': json['report_label'] == null ? undefined : json['report_label'],
     };
 }
 
@@ -91,7 +84,6 @@ export function SchoolFinancialDetailGroupToJSONTyped(value?: SchoolFinancialDet
         'name': value['name'],
         'name_id': value['nameId'],
         'cashflow_type': value['cashflowType'],
-        'report_label': value['reportLabel'],
     };
 }
 

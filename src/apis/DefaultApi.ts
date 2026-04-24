@@ -729,15 +729,6 @@ export interface DefaultApiDeleteUploadRequest {
     uploadId: number;
 }
 
-export interface DefaultApiDownloadRawContractFileRequest {
-    rawContractId: number;
-}
-
-export interface DefaultApiExportRevenueSearchesRequest {
-    schoolId: number;
-    year?: number;
-}
-
 export interface DefaultApiGetAccountRequest {
     id: number;
 }
@@ -3809,105 +3800,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteUpload(requestParameters: DefaultApiDeleteUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteAccountUser200Response> {
         const response = await this.deleteUploadRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Download the raw contract PDF with a provenance watermark (attachment disposition)
-     */
-    async downloadRawContractFileRaw(requestParameters: DefaultApiDownloadRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
-        if (requestParameters['rawContractId'] == null) {
-            throw new runtime.RequiredError(
-                'rawContractId',
-                'Required parameter "rawContractId" was null or undefined when calling downloadRawContractFile().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/raw_contracts/{raw_contractId}/download`;
-        urlPath = urlPath.replace(`{${"raw_contractId"}}`, encodeURIComponent(String(requestParameters['rawContractId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.BlobApiResponse(response);
-    }
-
-    /**
-     * Download the raw contract PDF with a provenance watermark (attachment disposition)
-     */
-    async downloadRawContractFile(requestParameters: DefaultApiDownloadRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
-        const response = await this.downloadRawContractFileRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Download full NCAA financial report as CSV (51 columns, all sports)
-     */
-    async exportRevenueSearchesRaw(requestParameters: DefaultApiExportRevenueSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
-        if (requestParameters['schoolId'] == null) {
-            throw new runtime.RequiredError(
-                'schoolId',
-                'Required parameter "schoolId" was null or undefined when calling exportRevenueSearches().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['schoolId'] != null) {
-            queryParameters['school_id'] = requestParameters['schoolId'];
-        }
-
-        if (requestParameters['year'] != null) {
-            queryParameters['year'] = requestParameters['year'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/revenue_searches/export`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.BlobApiResponse(response);
-    }
-
-    /**
-     * Download full NCAA financial report as CSV (51 columns, all sports)
-     */
-    async exportRevenueSearches(requestParameters: DefaultApiExportRevenueSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
-        const response = await this.exportRevenueSearchesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -12764,7 +12656,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Stream the raw contract PDF for inline viewing (no watermark)
+     * Stream the raw contract PDF for inline viewing
      */
     async viewRawContractFileRaw(requestParameters: DefaultApiViewRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
         if (requestParameters['rawContractId'] == null) {
@@ -12802,7 +12694,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Stream the raw contract PDF for inline viewing (no watermark)
+     * Stream the raw contract PDF for inline viewing
      */
     async viewRawContractFile(requestParameters: DefaultApiViewRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
         const response = await this.viewRawContractFileRaw(requestParameters, initOverrides);

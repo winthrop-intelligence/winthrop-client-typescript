@@ -10,7 +10,6 @@ Name | Type
 `name` | string
 `nameId` | string
 `cashflowType` | string
-`reportLabel` | string
 
 ## Example
 
@@ -23,7 +22,6 @@ const example = {
   "name": null,
   "nameId": null,
   "cashflowType": null,
-  "reportLabel": null,
 } satisfies SchoolFinancialDetailGroup
 
 console.log(example)

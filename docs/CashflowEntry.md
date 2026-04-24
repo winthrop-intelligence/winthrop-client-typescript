@@ -1,30 +1,25 @@
 
-# CoachCompensationTabSidebarContractsInner
+# CashflowEntry
 
+Per-school cashflow record backing an aggregate stat
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`rawContractId` | number
-`startOn` | string
-`endOn` | string
-`atWill` | boolean
+`school` | string
+`amount` | number
 
 ## Example
 
 ```typescript
-import type { CoachCompensationTabSidebarContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CashflowEntry } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "rawContractId": null,
-  "startOn": null,
-  "endOn": null,
-  "atWill": null,
-} satisfies CoachCompensationTabSidebarContractsInner
+  "school": null,
+  "amount": null,
+} satisfies CashflowEntry
 
 console.log(example)
 
@@ -33,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CoachCompensationTabSidebarContractsInner
+const exampleParsed = JSON.parse(exampleJSON) as CashflowEntry
 console.log(exampleParsed)
 ```
 
