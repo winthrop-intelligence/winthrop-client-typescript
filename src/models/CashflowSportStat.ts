@@ -13,14 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CashflowEntry } from './CashflowEntry';
-import {
-    CashflowEntryFromJSON,
-    CashflowEntryFromJSONTyped,
-    CashflowEntryToJSON,
-    CashflowEntryToJSONTyped,
-} from './CashflowEntry';
-
 /**
  * 
  * @export
@@ -69,12 +61,6 @@ export interface CashflowSportStat {
      * @memberof CashflowSportStat
      */
     count?: number;
-    /**
-     * 
-     * @type {Array<CashflowEntry>}
-     * @memberof CashflowSportStat
-     */
-    entries?: Array<CashflowEntry>;
 }
 
 
@@ -112,7 +98,6 @@ export function CashflowSportStatFromJSONTyped(json: any, ignoreDiscriminator: b
         'low': json['low'] == null ? undefined : json['low'],
         'median': json['median'] == null ? undefined : json['median'],
         'count': json['count'] == null ? undefined : json['count'],
-        'entries': json['entries'] == null ? undefined : ((json['entries'] as Array<any>).map(CashflowEntryFromJSON)),
     };
 }
 
@@ -134,7 +119,6 @@ export function CashflowSportStatToJSONTyped(value?: CashflowSportStat | null, i
         'low': value['low'],
         'median': value['median'],
         'count': value['count'],
-        'entries': value['entries'] == null ? undefined : ((value['entries'] as Array<any>).map(CashflowEntryToJSON)),
     };
 }
 

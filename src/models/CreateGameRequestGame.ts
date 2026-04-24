@@ -42,13 +42,43 @@ export interface CreateGameRequestGame {
      * @type {Date}
      * @memberof CreateGameRequestGame
      */
-    gameDate?: Date;
+    gameDate?: Date | null;
+    /**
+     * 4-digit season year; mutually exclusive with game_date.
+     * @type {number}
+     * @memberof CreateGameRequestGame
+     */
+    seasonYearTbd?: number | null;
     /**
      * 
      * @type {boolean}
      * @memberof CreateGameRequestGame
      */
     neutral?: boolean;
+    /**
+     * Only meaningful when neutral is true.
+     * @type {string}
+     * @memberof CreateGameRequestGame
+     */
+    city?: string | null;
+    /**
+     * Only meaningful when neutral is true.
+     * @type {number}
+     * @memberof CreateGameRequestGame
+     */
+    stateId?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateGameRequestGame
+     */
+    description?: string | null;
+    /**
+     * Link/unlink an existing GameContract.
+     * @type {number}
+     * @memberof CreateGameRequestGame
+     */
+    gameContractId?: number | null;
 }
 
 /**
@@ -72,7 +102,12 @@ export function CreateGameRequestGameFromJSONTyped(json: any, ignoreDiscriminato
         'awaySchoolId': json['away_school_id'] == null ? undefined : json['away_school_id'],
         'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
         'gameDate': json['game_date'] == null ? undefined : (new Date(json['game_date'])),
+        'seasonYearTbd': json['season_year_tbd'] == null ? undefined : json['season_year_tbd'],
         'neutral': json['neutral'] == null ? undefined : json['neutral'],
+        'city': json['city'] == null ? undefined : json['city'],
+        'stateId': json['state_id'] == null ? undefined : json['state_id'],
+        'description': json['description'] == null ? undefined : json['description'],
+        'gameContractId': json['game_contract_id'] == null ? undefined : json['game_contract_id'],
     };
 }
 
@@ -91,7 +126,12 @@ export function CreateGameRequestGameToJSONTyped(value?: CreateGameRequestGame |
         'away_school_id': value['awaySchoolId'],
         'sport_id': value['sportId'],
         'game_date': value['gameDate'] == null ? value['gameDate'] : value['gameDate'].toISOString().substring(0,10),
+        'season_year_tbd': value['seasonYearTbd'],
         'neutral': value['neutral'],
+        'city': value['city'],
+        'state_id': value['stateId'],
+        'description': value['description'],
+        'game_contract_id': value['gameContractId'],
     };
 }
 

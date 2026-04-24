@@ -10,7 +10,12 @@ Name | Type
 `awaySchoolId` | number
 `sportId` | number
 `gameDate` | Date
+`seasonYearTbd` | number
 `neutral` | boolean
+`city` | string
+`stateId` | number
+`description` | string
+`gameContractId` | number
 
 ## Example
 
@@ -23,7 +28,12 @@ const example = {
   "awaySchoolId": null,
   "sportId": null,
   "gameDate": null,
+  "seasonYearTbd": null,
   "neutral": null,
+  "city": null,
+  "stateId": null,
+  "description": null,
+  "gameContractId": null,
 } satisfies CreateGameRequestGame
 
 console.log(example)
