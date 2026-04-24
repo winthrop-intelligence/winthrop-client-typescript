@@ -53,12 +53,6 @@ export interface CashflowGroupStats {
     shortName?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof CashflowGroupStats
-     */
-    reportLabel?: string | null;
-    /**
-     * 
      * @type {Array<CashflowSportStat>}
      * @memberof CashflowGroupStats
      */
@@ -86,7 +80,6 @@ export function CashflowGroupStatsFromJSONTyped(json: any, ignoreDiscriminator: 
         'nameId': json['name_id'] == null ? undefined : json['name_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'shortName': json['short_name'] == null ? undefined : json['short_name'],
-        'reportLabel': json['report_label'] == null ? undefined : json['report_label'],
         'sports': json['sports'] == null ? undefined : ((json['sports'] as Array<any>).map(CashflowSportStatFromJSON)),
     };
 }
@@ -106,7 +99,6 @@ export function CashflowGroupStatsToJSONTyped(value?: CashflowGroupStats | null,
         'name_id': value['nameId'],
         'name': value['name'],
         'short_name': value['shortName'],
-        'report_label': value['reportLabel'],
         'sports': value['sports'] == null ? undefined : ((value['sports'] as Array<any>).map(CashflowSportStatToJSON)),
     };
 }
