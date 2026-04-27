@@ -79,6 +79,36 @@ export interface ScheduleGridGame {
      * @memberof ScheduleGridGame
      */
     inConference?: boolean | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ScheduleGridGame
+     */
+    homeSchoolId?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ScheduleGridGame
+     */
+    awaySchoolId?: number | null;
+    /**
+     * Final home-school score for completed games; null for games that have not been played
+     * @type {number}
+     * @memberof ScheduleGridGame
+     */
+    homeSchoolScore?: number | null;
+    /**
+     * Final away-school score for completed games; null for games that have not been played
+     * @type {number}
+     * @memberof ScheduleGridGame
+     */
+    awaySchoolScore?: number | null;
+    /**
+     * True when the game went to overtime
+     * @type {boolean}
+     * @memberof ScheduleGridGame
+     */
+    overtime?: boolean | null;
 }
 
 /**
@@ -108,6 +138,11 @@ export function ScheduleGridGameFromJSONTyped(json: any, ignoreDiscriminator: bo
         'neutral': json['neutral'] == null ? undefined : json['neutral'],
         'guaranteeCents': json['guarantee_cents'] == null ? undefined : json['guarantee_cents'],
         'inConference': json['in_conference'] == null ? undefined : json['in_conference'],
+        'homeSchoolId': json['home_school_id'] == null ? undefined : json['home_school_id'],
+        'awaySchoolId': json['away_school_id'] == null ? undefined : json['away_school_id'],
+        'homeSchoolScore': json['home_school_score'] == null ? undefined : json['home_school_score'],
+        'awaySchoolScore': json['away_school_score'] == null ? undefined : json['away_school_score'],
+        'overtime': json['overtime'] == null ? undefined : json['overtime'],
     };
 }
 
@@ -132,6 +167,11 @@ export function ScheduleGridGameToJSONTyped(value?: ScheduleGridGame | null, ign
         'neutral': value['neutral'],
         'guarantee_cents': value['guaranteeCents'],
         'in_conference': value['inConference'],
+        'home_school_id': value['homeSchoolId'],
+        'away_school_id': value['awaySchoolId'],
+        'home_school_score': value['homeSchoolScore'],
+        'away_school_score': value['awaySchoolScore'],
+        'overtime': value['overtime'],
     };
 }
 

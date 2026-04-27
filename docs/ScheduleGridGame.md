@@ -17,6 +17,11 @@ Name | Type
 `neutral` | boolean
 `guaranteeCents` | number
 `inConference` | boolean
+`homeSchoolId` | number
+`awaySchoolId` | number
+`homeSchoolScore` | number
+`awaySchoolScore` | number
+`overtime` | boolean
 
 ## Example
 
@@ -35,6 +40,11 @@ const example = {
   "neutral": null,
   "guaranteeCents": null,
   "inConference": null,
+  "homeSchoolId": null,
+  "awaySchoolId": null,
+  "homeSchoolScore": null,
+  "awaySchoolScore": null,
+  "overtime": null,
 } satisfies ScheduleGridGame
 
 console.log(example)
