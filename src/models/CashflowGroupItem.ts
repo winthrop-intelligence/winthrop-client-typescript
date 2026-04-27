@@ -43,18 +43,6 @@ export interface CashflowGroupItem {
      * @memberof CashflowGroupItem
      */
     shortName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CashflowGroupItem
-     */
-    reportId?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof CashflowGroupItem
-     */
-    reportLabel?: string;
 }
 
 /**
@@ -78,8 +66,6 @@ export function CashflowGroupItemFromJSONTyped(json: any, ignoreDiscriminator: b
         'name': json['name'] == null ? undefined : json['name'],
         'nameId': json['name_id'] == null ? undefined : json['name_id'],
         'shortName': json['short_name'] == null ? undefined : json['short_name'],
-        'reportId': json['report_id'] == null ? undefined : json['report_id'],
-        'reportLabel': json['report_label'] == null ? undefined : json['report_label'],
     };
 }
 
@@ -98,8 +84,6 @@ export function CashflowGroupItemToJSONTyped(value?: CashflowGroupItem | null, i
         'name': value['name'],
         'name_id': value['nameId'],
         'short_name': value['shortName'],
-        'report_id': value['reportId'],
-        'report_label': value['reportLabel'],
     };
 }
 

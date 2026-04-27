@@ -39,12 +39,6 @@ export interface SchoolFinancialGroup {
     nameId?: string;
     /**
      * 
-     * @type {string}
-     * @memberof SchoolFinancialGroup
-     */
-    reportLabel?: string | null;
-    /**
-     * 
      * @type {number}
      * @memberof SchoolFinancialGroup
      */
@@ -95,7 +89,6 @@ export function SchoolFinancialGroupFromJSONTyped(json: any, ignoreDiscriminator
         'groupId': json['group_id'] == null ? undefined : json['group_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'nameId': json['name_id'] == null ? undefined : json['name_id'],
-        'reportLabel': json['report_label'] == null ? undefined : json['report_label'],
         'football': json['football'] == null ? undefined : json['football'],
         'basketballM': json['basketball_m'] == null ? undefined : json['basketball_m'],
         'basketballW': json['basketball_w'] == null ? undefined : json['basketball_w'],
@@ -118,7 +111,6 @@ export function SchoolFinancialGroupToJSONTyped(value?: SchoolFinancialGroup | n
         'group_id': value['groupId'],
         'name': value['name'],
         'name_id': value['nameId'],
-        'report_label': value['reportLabel'],
         'football': value['football'],
         'basketball_m': value['basketballM'],
         'basketball_w': value['basketballW'],

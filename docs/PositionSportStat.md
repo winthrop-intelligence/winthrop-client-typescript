@@ -13,6 +13,7 @@ Name | Type
 `lowPositionNum` | number
 `medianPositionNum` | number
 `count` | number
+`entries` | [Array&lt;PositionEntry&gt;](PositionEntry.md)
 
 ## Example
 
@@ -28,6 +29,7 @@ const example = {
   "lowPositionNum": null,
   "medianPositionNum": null,
   "count": null,
+  "entries": null,
 } satisfies PositionSportStat
 
 console.log(example)
