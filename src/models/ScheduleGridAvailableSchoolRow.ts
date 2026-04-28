@@ -82,11 +82,11 @@ export interface ScheduleGridAvailableSchoolRow {
      */
     distanceMiles?: number | null;
     /**
-     * 
+     * Nearest active GamePost to target_date in the window. Null when the school has no openness recorded for the window (assumed-eligible).
      * @type {ScheduleGridAvailableSchoolPost}
      * @memberof ScheduleGridAvailableSchoolRow
      */
-    nearestPost?: ScheduleGridAvailableSchoolPost;
+    nearestPost?: ScheduleGridAvailableSchoolPost | null;
 }
 
 /**
