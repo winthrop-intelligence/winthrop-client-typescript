@@ -29,7 +29,6 @@ docs/AthleticProfileShowSportsOverviewInner.md
 docs/AthleticProfileShowTabSportsInner.md
 docs/AuditedFinancialReportStatus.md
 docs/AuditedFinancialReportStatusCollection.md
-docs/AvailableGameContract.md
 docs/Avatar.md
 docs/AverageCompensation.md
 docs/COLIAdjusted.md
@@ -110,8 +109,6 @@ docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
 docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
-docs/CreateGameRequest.md
-docs/CreateGameRequestGame.md
 docs/CreateNoteRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
@@ -166,8 +163,6 @@ docs/GameContract.md
 docs/GameContractCollection.md
 docs/GameContractSeriesEntry.md
 docs/GameContractSeriesResponse.md
-docs/GameDetail.md
-docs/GameDetailAllOfGameContract.md
 docs/GamePost.md
 docs/GamePostCollection.md
 docs/GamePostContact.md
@@ -243,13 +238,6 @@ docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
 docs/RoleOption.md
-docs/ScheduleGridAvailableSchoolPost.md
-docs/ScheduleGridAvailableSchoolRow.md
-docs/ScheduleGridAvailableSchools.md
-docs/ScheduleGridGame.md
-docs/ScheduleGridGamePost.md
-docs/ScheduleGridSchool.md
-docs/ScheduleGridView.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -282,7 +270,6 @@ docs/SportCompensationRankingsSchoolsInner.md
 docs/SportCompensationResponse.md
 docs/SportCompensationSubdivision.md
 docs/SportOption.md
-docs/State.md
 docs/Subdivision.md
 docs/SubdivisionCollection.md
 docs/Subscription.md
@@ -398,7 +385,6 @@ src/models/AthleticProfileShowSportsOverviewInner.ts
 src/models/AthleticProfileShowTabSportsInner.ts
 src/models/AuditedFinancialReportStatus.ts
 src/models/AuditedFinancialReportStatusCollection.ts
-src/models/AvailableGameContract.ts
 src/models/Avatar.ts
 src/models/AverageCompensation.ts
 src/models/COLIAdjusted.ts
@@ -479,8 +465,6 @@ src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
 src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
-src/models/CreateGameRequest.ts
-src/models/CreateGameRequestGame.ts
 src/models/CreateNoteRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
@@ -533,8 +517,6 @@ src/models/GameContract.ts
 src/models/GameContractCollection.ts
 src/models/GameContractSeriesEntry.ts
 src/models/GameContractSeriesResponse.ts
-src/models/GameDetail.ts
-src/models/GameDetailAllOfGameContract.ts
 src/models/GamePost.ts
 src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
@@ -607,13 +589,6 @@ src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
 src/models/RoleOption.ts
-src/models/ScheduleGridAvailableSchoolPost.ts
-src/models/ScheduleGridAvailableSchoolRow.ts
-src/models/ScheduleGridAvailableSchools.ts
-src/models/ScheduleGridGame.ts
-src/models/ScheduleGridGamePost.ts
-src/models/ScheduleGridSchool.ts
-src/models/ScheduleGridView.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts
@@ -645,7 +620,6 @@ src/models/SportCompensationRankingsSchoolsInner.ts
 src/models/SportCompensationResponse.ts
 src/models/SportCompensationSubdivision.ts
 src/models/SportOption.ts
-src/models/State.ts
 src/models/Subdivision.ts
 src/models/SubdivisionCollection.ts
 src/models/Subscription.ts
