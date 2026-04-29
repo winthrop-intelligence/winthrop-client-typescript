@@ -182,6 +182,7 @@ export * from './GetLadFilterOptions200Response';
 export * from './GetLadFilterOptions200ResponsePositionTypesInner';
 export * from './GetSchoolAlternateNames200Response';
 export * from './GetSchoolAlternateNames404Response';
+export * from './GetSchoolsCount200Response';
 export * from './GetTeamScheduleFavorites200ResponseInner';
 export * from './GetTimeZones200Response';
 export * from './GetWireChanges200Response';

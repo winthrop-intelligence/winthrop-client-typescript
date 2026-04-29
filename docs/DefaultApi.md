@@ -171,6 +171,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchoolGroupsAvailableSchools**](DefaultApi.md#getschoolgroupsavailableschools) | **GET** /api/v1/school_groups/available_schools |  |
 | [**getSchools**](DefaultApi.md#getschools) | **GET** /api/v1/schools |  |
 | [**getSchoolsAlmaMater**](DefaultApi.md#getschoolsalmamater) | **GET** /api/v1/schools/alma_mater |  |
+| [**getSchoolsCount**](DefaultApi.md#getschoolscount) | **GET** /api/v1/schools/count |  |
 | [**getSeason**](DefaultApi.md#getseason) | **GET** /api/v1/seasons/{seasonId} |  |
 | [**getSeasons**](DefaultApi.md#getseasons) | **GET** /api/v1/seasons |  |
 | [**getSimilarCoaches**](DefaultApi.md#getsimilarcoaches) | **GET** /api/v1/coaches/{coachId}/similar_coaches |  |
@@ -8304,7 +8305,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // 'gad' | 'financial' | Filter context: \'gad\' returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball); \'financial\' returns only NCAA financial report sports with finance-specific display labels (optional)
+    // 'gad' | Filter context: \'gad\' returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball) (optional)
     context: context_example,
   } satisfies GetFilterOptionsRequest;
 
@@ -8325,7 +8326,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **context** | `gad`, `financial` | Filter context: \&#39;gad\&#39; returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball); \&#39;financial\&#39; returns only NCAA financial report sports with finance-specific display labels | [Optional] [Defaults to `undefined`] [Enum: gad, financial] |
+| **context** | `gad` | Filter context: \&#39;gad\&#39; returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball) | [Optional] [Defaults to `undefined`] [Enum: gad] |
 
 ### Return type
 
@@ -12857,7 +12858,7 @@ This endpoint does not need any parameter.
 
 
 
-Retrieve some or all schools
+Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default &#x60;per_page&#x3D;100&#x60;) and Ransack filtering via &#x60;q&#x60;. 
 
 ### Example
 
@@ -12992,6 +12993,72 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Schools retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolsCount
+
+> GetSchoolsCount200Response getSchoolsCount()
+
+
+
+Return the total number of Division I schools. Like &#x60;/schools&#x60;, this is hardcoded to D1 only and is intended for the scheduling search surface. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolsCountRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSchoolsCount();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetSchoolsCount200Response**](GetSchoolsCount200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Count returned |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

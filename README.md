@@ -229,6 +229,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchoolGroupsAvailableSchools**](docs/DefaultApi.md#getschoolgroupsavailableschools) | **GET** /api/v1/school_groups/available_schools | 
 *DefaultApi* | [**getSchools**](docs/DefaultApi.md#getschools) | **GET** /api/v1/schools | 
 *DefaultApi* | [**getSchoolsAlmaMater**](docs/DefaultApi.md#getschoolsalmamater) | **GET** /api/v1/schools/alma_mater | 
+*DefaultApi* | [**getSchoolsCount**](docs/DefaultApi.md#getschoolscount) | **GET** /api/v1/schools/count | 
 *DefaultApi* | [**getSeason**](docs/DefaultApi.md#getseason) | **GET** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**getSeasons**](docs/DefaultApi.md#getseasons) | **GET** /api/v1/seasons | 
 *DefaultApi* | [**getSimilarCoaches**](docs/DefaultApi.md#getsimilarcoaches) | **GET** /api/v1/coaches/{coachId}/similar_coaches | 
@@ -504,6 +505,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetLadFilterOptions200ResponsePositionTypesInner](docs/GetLadFilterOptions200ResponsePositionTypesInner.md)
 - [GetSchoolAlternateNames200Response](docs/GetSchoolAlternateNames200Response.md)
 - [GetSchoolAlternateNames404Response](docs/GetSchoolAlternateNames404Response.md)
+- [GetSchoolsCount200Response](docs/GetSchoolsCount200Response.md)
 - [GetTeamScheduleFavorites200ResponseInner](docs/GetTeamScheduleFavorites200ResponseInner.md)
 - [GetTimeZones200Response](docs/GetTimeZones200Response.md)
 - [GetWireChanges200Response](docs/GetWireChanges200Response.md)

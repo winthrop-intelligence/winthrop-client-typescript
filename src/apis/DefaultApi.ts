@@ -115,6 +115,7 @@ import type {
   GetLadFilterOptions200Response,
   GetSchoolAlternateNames200Response,
   GetSchoolAlternateNames404Response,
+  GetSchoolsCount200Response,
   GetTeamScheduleFavorites200ResponseInner,
   GetTimeZones200Response,
   GetWireChanges200Response,
@@ -394,6 +395,8 @@ import {
     GetSchoolAlternateNames200ResponseToJSON,
     GetSchoolAlternateNames404ResponseFromJSON,
     GetSchoolAlternateNames404ResponseToJSON,
+    GetSchoolsCount200ResponseFromJSON,
+    GetSchoolsCount200ResponseToJSON,
     GetTeamScheduleFavorites200ResponseInnerFromJSON,
     GetTeamScheduleFavorites200ResponseInnerToJSON,
     GetTimeZones200ResponseFromJSON,
@@ -9655,7 +9658,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve some or all schools
+     * Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default `per_page=100`) and Ransack filtering via `q`. 
      */
     async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
         const queryParameters: any = {};
@@ -9697,7 +9700,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve some or all schools
+     * Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default `per_page=100`) and Ransack filtering via `q`. 
      */
     async getSchools(requestParameters: DefaultApiGetSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolCollection> {
         const response = await this.getSchoolsRaw(requestParameters, initOverrides);
@@ -9739,6 +9742,44 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolsAlmaMater(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
         const response = await this.getSchoolsAlmaMaterRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Return the total number of Division I schools. Like `/schools`, this is hardcoded to D1 only and is intended for the scheduling search surface. 
+     */
+    async getSchoolsCountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSchoolsCount200Response>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/count`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetSchoolsCount200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Return the total number of Division I schools. Like `/schools`, this is hardcoded to D1 only and is intended for the scheduling search surface. 
+     */
+    async getSchoolsCount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolsCount200Response> {
+        const response = await this.getSchoolsCountRaw(initOverrides);
         return await response.value();
     }
 
@@ -13411,8 +13452,7 @@ export type GetFavoritesDetailedEnum = typeof GetFavoritesDetailedEnum[keyof typ
  * @export
  */
 export const GetFilterOptionsContextEnum = {
-    Gad: 'gad',
-    Financial: 'financial'
+    Gad: 'gad'
 } as const;
 export type GetFilterOptionsContextEnum = typeof GetFilterOptionsContextEnum[keyof typeof GetFilterOptionsContextEnum];
 /**
