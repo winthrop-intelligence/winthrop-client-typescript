@@ -12,6 +12,7 @@ Name | Type
 `shortName` | string
 `logoUrl` | string
 `primaryContactName` | string
+`primaryContactEmail` | string
 `primaryContactPhone` | string
 `subdivisionName` | string
 `rank` | number
@@ -30,6 +31,7 @@ const example = {
   "shortName": null,
   "logoUrl": null,
   "primaryContactName": null,
+  "primaryContactEmail": null,
   "primaryContactPhone": null,
   "subdivisionName": null,
   "rank": null,

@@ -62,6 +62,12 @@ export interface ScheduleGridAvailableSchoolRow {
      * @type {string}
      * @memberof ScheduleGridAvailableSchoolRow
      */
+    primaryContactEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ScheduleGridAvailableSchoolRow
+     */
     primaryContactPhone?: string | null;
     /**
      * 
@@ -111,6 +117,7 @@ export function ScheduleGridAvailableSchoolRowFromJSONTyped(json: any, ignoreDis
         'shortName': json['short_name'] == null ? undefined : json['short_name'],
         'logoUrl': json['logo_url'] == null ? undefined : json['logo_url'],
         'primaryContactName': json['primary_contact_name'] == null ? undefined : json['primary_contact_name'],
+        'primaryContactEmail': json['primary_contact_email'] == null ? undefined : json['primary_contact_email'],
         'primaryContactPhone': json['primary_contact_phone'] == null ? undefined : json['primary_contact_phone'],
         'subdivisionName': json['subdivision_name'] == null ? undefined : json['subdivision_name'],
         'rank': json['rank'] == null ? undefined : json['rank'],
@@ -135,6 +142,7 @@ export function ScheduleGridAvailableSchoolRowToJSONTyped(value?: ScheduleGridAv
         'short_name': value['shortName'],
         'logo_url': value['logoUrl'],
         'primary_contact_name': value['primaryContactName'],
+        'primary_contact_email': value['primaryContactEmail'],
         'primary_contact_phone': value['primaryContactPhone'],
         'subdivision_name': value['subdivisionName'],
         'rank': value['rank'],

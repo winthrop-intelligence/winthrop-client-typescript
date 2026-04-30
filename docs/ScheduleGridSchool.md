@@ -12,6 +12,7 @@ Name | Type
 `shortName` | string
 `logoUrl` | string
 `primaryContactName` | string
+`primaryContactEmail` | string
 `primaryContactPhone` | string
 
 ## Example
@@ -26,6 +27,7 @@ const example = {
   "shortName": null,
   "logoUrl": null,
   "primaryContactName": null,
+  "primaryContactEmail": null,
   "primaryContactPhone": null,
 } satisfies ScheduleGridSchool
 

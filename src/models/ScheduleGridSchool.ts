@@ -54,6 +54,12 @@ export interface ScheduleGridSchool {
      * @type {string}
      * @memberof ScheduleGridSchool
      */
+    primaryContactEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ScheduleGridSchool
+     */
     primaryContactPhone?: string | null;
 }
 
@@ -79,6 +85,7 @@ export function ScheduleGridSchoolFromJSONTyped(json: any, ignoreDiscriminator: 
         'shortName': json['short_name'] == null ? undefined : json['short_name'],
         'logoUrl': json['logo_url'] == null ? undefined : json['logo_url'],
         'primaryContactName': json['primary_contact_name'] == null ? undefined : json['primary_contact_name'],
+        'primaryContactEmail': json['primary_contact_email'] == null ? undefined : json['primary_contact_email'],
         'primaryContactPhone': json['primary_contact_phone'] == null ? undefined : json['primary_contact_phone'],
     };
 }
@@ -99,6 +106,7 @@ export function ScheduleGridSchoolToJSONTyped(value?: ScheduleGridSchool | null,
         'short_name': value['shortName'],
         'logo_url': value['logoUrl'],
         'primary_contact_name': value['primaryContactName'],
+        'primary_contact_email': value['primaryContactEmail'],
         'primary_contact_phone': value['primaryContactPhone'],
     };
 }
