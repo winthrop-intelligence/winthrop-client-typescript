@@ -13452,7 +13452,8 @@ export type GetFavoritesDetailedEnum = typeof GetFavoritesDetailedEnum[keyof typ
  * @export
  */
 export const GetFilterOptionsContextEnum = {
-    Gad: 'gad'
+    Gad: 'gad',
+    Financial: 'financial'
 } as const;
 export type GetFilterOptionsContextEnum = typeof GetFilterOptionsContextEnum[keyof typeof GetFilterOptionsContextEnum];
 /**

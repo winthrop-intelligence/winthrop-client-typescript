@@ -8305,7 +8305,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // 'gad' | Filter context: \'gad\' returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball) (optional)
+    // 'gad' | 'financial' | Filter context: \'gad\' returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball); \'financial\' returns only NCAA financial report sports with finance-specific display labels (optional)
     context: context_example,
   } satisfies GetFilterOptionsRequest;
 
@@ -8326,7 +8326,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **context** | `gad` | Filter context: \&#39;gad\&#39; returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball) | [Optional] [Defaults to `undefined`] [Enum: gad] |
+| **context** | `gad`, `financial` | Filter context: \&#39;gad\&#39; returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball); \&#39;financial\&#39; returns only NCAA financial report sports with finance-specific display labels | [Optional] [Defaults to `undefined`] [Enum: gad, financial] |
 
 ### Return type
 
