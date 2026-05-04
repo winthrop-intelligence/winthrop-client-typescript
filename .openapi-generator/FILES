@@ -300,6 +300,7 @@ docs/TeamScheduleDetailGame.md
 docs/TeamScheduleDetailHeadCoach.md
 docs/TeamScheduleDetailSchool.md
 docs/TeamScheduleDetailSeason.md
+docs/TeamScheduleDetailSport.md
 docs/TeamScheduleFavoriteDetail.md
 docs/TeamScheduleFavoriteEntry.md
 docs/TeamScheduleGamePosts.md
@@ -664,6 +665,7 @@ src/models/TeamScheduleDetailGame.ts
 src/models/TeamScheduleDetailHeadCoach.ts
 src/models/TeamScheduleDetailSchool.ts
 src/models/TeamScheduleDetailSeason.ts
+src/models/TeamScheduleDetailSport.ts
 src/models/TeamScheduleFavoriteDetail.ts
 src/models/TeamScheduleFavoriteEntry.ts
 src/models/TeamScheduleGamePosts.ts

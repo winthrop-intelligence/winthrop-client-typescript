@@ -37,6 +37,12 @@ export interface TeamScheduleDetailSport {
      * @memberof TeamScheduleDetailSport
      */
     nameDisplay?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamScheduleDetailSport
+     */
+    abbreviation?: string | null;
 }
 
 /**
@@ -59,6 +65,7 @@ export function TeamScheduleDetailSportFromJSONTyped(json: any, ignoreDiscrimina
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
         'nameDisplay': json['name_display'] == null ? undefined : json['name_display'],
+        'abbreviation': json['abbreviation'] == null ? undefined : json['abbreviation'],
     };
 }
 
@@ -76,6 +83,7 @@ export function TeamScheduleDetailSportToJSONTyped(value?: TeamScheduleDetailSpo
         'id': value['id'],
         'name': value['name'],
         'name_display': value['nameDisplay'],
+        'abbreviation': value['abbreviation'],
     };
 }
 

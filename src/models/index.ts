@@ -293,6 +293,7 @@ export * from './TeamScheduleDetailGame';
 export * from './TeamScheduleDetailHeadCoach';
 export * from './TeamScheduleDetailSchool';
 export * from './TeamScheduleDetailSeason';
+export * from './TeamScheduleDetailSport';
 export * from './TeamScheduleFavoriteDetail';
 export * from './TeamScheduleFavoriteEntry';
 export * from './TeamScheduleGamePosts';

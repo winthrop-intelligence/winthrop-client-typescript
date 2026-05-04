@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `nameDisplay` | string
+`abbreviation` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "id": null,
   "name": null,
   "nameDisplay": null,
+  "abbreviation": null,
 } satisfies TeamScheduleDetailSport
 
 console.log(example)
