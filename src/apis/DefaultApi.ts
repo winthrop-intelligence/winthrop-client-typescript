@@ -24,11 +24,7 @@ import type {
   AthleticProfileShow,
   AuditedFinancialReportStatus,
   AuditedFinancialReportStatusCollection,
-  AvailableGameContract,
   AverageCompensation,
-  BulkCreateGames201Response,
-  BulkCreateGames422Response,
-  BulkCreateGamesRequest,
   COLIAdjusted,
   Cashflow,
   CashflowCollection,
@@ -73,7 +69,6 @@ import type {
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
   CreateGamePostSearchRequest,
-  CreateGameRequest,
   CreateNoteRequest,
   CreatePasswordReset200Response,
   CreatePasswordResetRequest,
@@ -101,11 +96,11 @@ import type {
   FoiaRequestCollection,
   GadContractDetail,
   GadSearchResultCollection,
+  Game,
   GameCollection,
   GameContract,
   GameContractCollection,
   GameContractSeriesResponse,
-  GameDetail,
   GamePost,
   GamePostCollection,
   GamePostDetail,
@@ -118,7 +113,6 @@ import type {
   GetLadFilterOptions200Response,
   GetSchoolAlternateNames200Response,
   GetSchoolAlternateNames404Response,
-  GetSchoolsCount200Response,
   GetTeamScheduleFavorites200ResponseInner,
   GetTimeZones200Response,
   GetWireChanges200Response,
@@ -140,8 +134,6 @@ import type {
   RegenerateRawContractPdf200Response,
   RequestedItem,
   RequestedItemCollection,
-  ScheduleGridAvailableSchools,
-  ScheduleGridView,
   School,
   SchoolCollection,
   SchoolFinancialDetail,
@@ -154,10 +146,11 @@ import type {
   Sport,
   SportCollection,
   SportCompensationResponse,
-  State,
   Subdivision,
   SubdivisionCollection,
   Subscription,
+  SubscriptionAcceptance,
+  SubscriptionAcceptanceErrors,
   SubscriptionCollection,
   SystemSetting,
   TeamScheduleCoaches,
@@ -180,6 +173,7 @@ import type {
   UpdatePasswordReset200Response,
   UpdatePasswordResetRequest,
   UpdateSchoolGroupRequest,
+  UpdateSubscriptionAcceptanceRequest,
   UpdateTeamScheduleFavoriteRequest,
   UpdateUserRequest,
   UploadDetail,
@@ -216,16 +210,8 @@ import {
     AuditedFinancialReportStatusToJSON,
     AuditedFinancialReportStatusCollectionFromJSON,
     AuditedFinancialReportStatusCollectionToJSON,
-    AvailableGameContractFromJSON,
-    AvailableGameContractToJSON,
     AverageCompensationFromJSON,
     AverageCompensationToJSON,
-    BulkCreateGames201ResponseFromJSON,
-    BulkCreateGames201ResponseToJSON,
-    BulkCreateGames422ResponseFromJSON,
-    BulkCreateGames422ResponseToJSON,
-    BulkCreateGamesRequestFromJSON,
-    BulkCreateGamesRequestToJSON,
     COLIAdjustedFromJSON,
     COLIAdjustedToJSON,
     CashflowFromJSON,
@@ -314,8 +300,6 @@ import {
     CreateFavoritesCategoryRequestToJSON,
     CreateGamePostSearchRequestFromJSON,
     CreateGamePostSearchRequestToJSON,
-    CreateGameRequestFromJSON,
-    CreateGameRequestToJSON,
     CreateNoteRequestFromJSON,
     CreateNoteRequestToJSON,
     CreatePasswordReset200ResponseFromJSON,
@@ -370,6 +354,8 @@ import {
     GadContractDetailToJSON,
     GadSearchResultCollectionFromJSON,
     GadSearchResultCollectionToJSON,
+    GameFromJSON,
+    GameToJSON,
     GameCollectionFromJSON,
     GameCollectionToJSON,
     GameContractFromJSON,
@@ -378,8 +364,6 @@ import {
     GameContractCollectionToJSON,
     GameContractSeriesResponseFromJSON,
     GameContractSeriesResponseToJSON,
-    GameDetailFromJSON,
-    GameDetailToJSON,
     GamePostFromJSON,
     GamePostToJSON,
     GamePostCollectionFromJSON,
@@ -404,8 +388,6 @@ import {
     GetSchoolAlternateNames200ResponseToJSON,
     GetSchoolAlternateNames404ResponseFromJSON,
     GetSchoolAlternateNames404ResponseToJSON,
-    GetSchoolsCount200ResponseFromJSON,
-    GetSchoolsCount200ResponseToJSON,
     GetTeamScheduleFavorites200ResponseInnerFromJSON,
     GetTeamScheduleFavorites200ResponseInnerToJSON,
     GetTimeZones200ResponseFromJSON,
@@ -448,10 +430,6 @@ import {
     RequestedItemToJSON,
     RequestedItemCollectionFromJSON,
     RequestedItemCollectionToJSON,
-    ScheduleGridAvailableSchoolsFromJSON,
-    ScheduleGridAvailableSchoolsToJSON,
-    ScheduleGridViewFromJSON,
-    ScheduleGridViewToJSON,
     SchoolFromJSON,
     SchoolToJSON,
     SchoolCollectionFromJSON,
@@ -476,14 +454,16 @@ import {
     SportCollectionToJSON,
     SportCompensationResponseFromJSON,
     SportCompensationResponseToJSON,
-    StateFromJSON,
-    StateToJSON,
     SubdivisionFromJSON,
     SubdivisionToJSON,
     SubdivisionCollectionFromJSON,
     SubdivisionCollectionToJSON,
     SubscriptionFromJSON,
     SubscriptionToJSON,
+    SubscriptionAcceptanceFromJSON,
+    SubscriptionAcceptanceToJSON,
+    SubscriptionAcceptanceErrorsFromJSON,
+    SubscriptionAcceptanceErrorsToJSON,
     SubscriptionCollectionFromJSON,
     SubscriptionCollectionToJSON,
     SystemSettingFromJSON,
@@ -528,6 +508,8 @@ import {
     UpdatePasswordResetRequestToJSON,
     UpdateSchoolGroupRequestFromJSON,
     UpdateSchoolGroupRequestToJSON,
+    UpdateSubscriptionAcceptanceRequestFromJSON,
+    UpdateSubscriptionAcceptanceRequestToJSON,
     UpdateTeamScheduleFavoriteRequestFromJSON,
     UpdateTeamScheduleFavoriteRequestToJSON,
     UpdateUserRequestFromJSON,
@@ -590,10 +572,6 @@ export interface DefaultApiAverageSubdivisionCompRequest {
     positionTypeIds: Array<number>;
 }
 
-export interface DefaultApiBulkCreateGamesOperationRequest {
-    bulkCreateGamesRequest: BulkCreateGamesRequest;
-}
-
 export interface DefaultApiCompareColiRequest {
     schoolId: number;
     otherPersonSchoolId: number;
@@ -638,14 +616,6 @@ export interface DefaultApiCreateFoiaLabelRequest {
 
 export interface DefaultApiCreateFoiaRequestRequest {
     foiaRequest: FoiaRequest;
-}
-
-export interface DefaultApiCreateGameOperationRequest {
-    createGameRequest: CreateGameRequest;
-}
-
-export interface DefaultApiCreateGamePostRequest {
-    createGamePostSearchRequest: CreateGamePostSearchRequest;
 }
 
 export interface DefaultApiCreateGamePostSearchOperationRequest {
@@ -724,16 +694,8 @@ export interface DefaultApiDeleteFoiaRequestRequest {
     foiaRequestId: number;
 }
 
-export interface DefaultApiDeleteGameRequest {
-    gameId: number;
-}
-
 export interface DefaultApiDeleteGameContractRawContractRequest {
     gameContractId: number;
-}
-
-export interface DefaultApiDeleteGamePostRequest {
-    gamePostId: number;
 }
 
 export interface DefaultApiDeleteGamePostSearchRequest {
@@ -1144,12 +1106,6 @@ export interface DefaultApiGetGamesRequest {
     q?: object;
 }
 
-export interface DefaultApiGetGamesAvailableContractsRequest {
-    sportId?: number;
-    homeSchoolId?: number;
-    awaySchoolId?: number;
-}
-
 export interface DefaultApiGetIncomeReportRequest {
     incomeReportId: number;
 }
@@ -1227,30 +1183,6 @@ export interface DefaultApiGetRevenueSearchRequest {
 
 export interface DefaultApiGetRevenueSearchesRequest {
     schoolId: number;
-    year?: number;
-}
-
-export interface DefaultApiGetScheduleGridRequest {
-    sportName: string;
-    schoolIds?: Array<number>;
-    year?: number;
-}
-
-export interface DefaultApiGetScheduleGridAvailableSchoolsRequest {
-    sportName: string;
-    targetDate: Date;
-    windowDays?: number;
-    dealTypes?: Array<string>;
-    qualityTier?: GetScheduleGridAvailableSchoolsQualityTierEnum;
-    maxDistanceMiles?: number;
-    userSchoolId?: number;
-    excludeSchoolIds?: Array<number>;
-    limit?: number;
-}
-
-export interface DefaultApiGetScheduleGridCompletedRequest {
-    sportName: string;
-    schoolIds?: Array<number>;
     year?: number;
 }
 
@@ -1379,6 +1311,11 @@ export interface DefaultApiGetSubdivisionsRequest {
 
 export interface DefaultApiGetSubscriptionRequest {
     subscriptionId: number;
+}
+
+export interface DefaultApiGetSubscriptionAcceptanceRequest {
+    subscriptionAcceptanceId: string;
+    acceptanceToken: string;
 }
 
 export interface DefaultApiGetSubscriptionsRequest {
@@ -1565,11 +1502,6 @@ export interface DefaultApiUpdateFoiaRequestRequest {
     foiaRequest: FoiaRequest;
 }
 
-export interface DefaultApiUpdateGameRequest {
-    gameId: number;
-    createGameRequest: CreateGameRequest;
-}
-
 export interface DefaultApiUpdateGameContractRequest {
     gameContractId: number;
     gameContractHomeSchoolId?: number | null;
@@ -1628,6 +1560,12 @@ export interface DefaultApiUpdateSeasonRequest {
     season: Season;
 }
 
+export interface DefaultApiUpdateSubscriptionAcceptanceOperationRequest {
+    subscriptionAcceptanceId: string;
+    acceptanceToken: string;
+    updateSubscriptionAcceptanceRequest: UpdateSubscriptionAcceptanceRequest;
+}
+
 export interface DefaultApiUpdateTeamScheduleFavoriteOperationRequest {
     id: number;
     updateTeamScheduleFavoriteRequest: UpdateTeamScheduleFavoriteRequest;
@@ -1653,6 +1591,11 @@ export interface DefaultApiVerifyUserIntercollegiateAccessRequest {
 
 export interface DefaultApiViewRawContractFileRequest {
     rawContractId: number;
+}
+
+export interface DefaultApiViewSubscriptionAcceptanceContractRequest {
+    subscriptionAcceptanceId: string;
+    acceptanceToken: string;
 }
 
 /**
@@ -1985,54 +1928,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async averageSubdivisionComp(requestParameters: DefaultApiAverageSubdivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
         const response = await this.averageSubdivisionCompRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create multiple games in a single transactional request. Used by the bulk-entry workflow on the schedule grid. All rows are inserted in one transaction — if any row fails validation the whole batch is rolled back and the response identifies the failing row by its index. 
-     */
-    async bulkCreateGamesRaw(requestParameters: DefaultApiBulkCreateGamesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateGames201Response>> {
-        if (requestParameters['bulkCreateGamesRequest'] == null) {
-            throw new runtime.RequiredError(
-                'bulkCreateGamesRequest',
-                'Required parameter "bulkCreateGamesRequest" was null or undefined when calling bulkCreateGames().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/games/bulk`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: BulkCreateGamesRequestToJSON(requestParameters['bulkCreateGamesRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => BulkCreateGames201ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Create multiple games in a single transactional request. Used by the bulk-entry workflow on the schedule grid. All rows are inserted in one transaction — if any row fails validation the whole batch is rolled back and the response identifies the failing row by its index. 
-     */
-    async bulkCreateGames(requestParameters: DefaultApiBulkCreateGamesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkCreateGames201Response> {
-        const response = await this.bulkCreateGamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2556,102 +2451,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async createFoiaRequest(requestParameters: DefaultApiCreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.createFoiaRequestRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create a game
-     */
-    async createGameRaw(requestParameters: DefaultApiCreateGameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameDetail>> {
-        if (requestParameters['createGameRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createGameRequest',
-                'Required parameter "createGameRequest" was null or undefined when calling createGame().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/games`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateGameRequestToJSON(requestParameters['createGameRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GameDetailFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a game
-     */
-    async createGame(requestParameters: DefaultApiCreateGameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameDetail> {
-        const response = await this.createGameRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create a game post for the current user\'s school
-     */
-    async createGamePostRaw(requestParameters: DefaultApiCreateGamePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamePost>> {
-        if (requestParameters['createGamePostSearchRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createGamePostSearchRequest',
-                'Required parameter "createGamePostSearchRequest" was null or undefined when calling createGamePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/game_posts`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateGamePostSearchRequestToJSON(requestParameters['createGamePostSearchRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GamePostFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a game post for the current user\'s school
-     */
-    async createGamePost(requestParameters: DefaultApiCreateGamePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GamePost> {
-        const response = await this.createGamePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -3537,51 +3336,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete a game
-     */
-    async deleteGameRaw(requestParameters: DefaultApiDeleteGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['gameId'] == null) {
-            throw new runtime.RequiredError(
-                'gameId',
-                'Required parameter "gameId" was null or undefined when calling deleteGame().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/games/{gameId}`;
-        urlPath = urlPath.replace(`{${"gameId"}}`, encodeURIComponent(String(requestParameters['gameId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Delete a game
-     */
-    async deleteGame(requestParameters: DefaultApiDeleteGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteGameRaw(requestParameters, initOverrides);
-    }
-
-    /**
      * Delete the raw contract attached to a game contract
      */
     async deleteGameContractRawContractRaw(requestParameters: DefaultApiDeleteGameContractRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -3624,51 +3378,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteGameContractRawContract(requestParameters: DefaultApiDeleteGameContractRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteGameContractRawContractRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Delete a game post
-     */
-    async deleteGamePostRaw(requestParameters: DefaultApiDeleteGamePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['gamePostId'] == null) {
-            throw new runtime.RequiredError(
-                'gamePostId',
-                'Required parameter "gamePostId" was null or undefined when calling deleteGamePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/game_posts/{gamePostId}`;
-        urlPath = urlPath.replace(`{${"gamePostId"}}`, encodeURIComponent(String(requestParameters['gamePostId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Delete a game post
-     */
-    async deleteGamePost(requestParameters: DefaultApiDeleteGamePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteGamePostRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -7133,44 +6842,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve all US states, ordered by name. Used by the Edit Game sheet\'s neutral-venue picker.
-     */
-    async getFilterOptionsStatesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<State>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/filter_options/states`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(StateFromJSON));
-    }
-
-    /**
-     * Retrieve all US states, ordered by name. Used by the Edit Game sheet\'s neutral-venue picker.
-     */
-    async getFilterOptionsStates(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<State>> {
-        const response = await this.getFilterOptionsStatesRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve subdivisions filtered by division
      */
     async getFilterOptionsSubdivisionsRaw(requestParameters: DefaultApiGetFilterOptionsSubdivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
@@ -7595,7 +7266,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Retrieve a single game
      */
-    async getGameRaw(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameDetail>> {
+    async getGameRaw(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Game>> {
         if (requestParameters['gameId'] == null) {
             throw new runtime.RequiredError(
                 'gameId',
@@ -7627,13 +7298,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GameDetailFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameFromJSON(jsonValue));
     }
 
     /**
      * Retrieve a single game
      */
-    async getGame(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameDetail> {
+    async getGame(requestParameters: DefaultApiGetGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Game> {
         const response = await this.getGameRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8019,56 +7690,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getGames(requestParameters: DefaultApiGetGamesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameCollection> {
         const response = await this.getGamesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * List GameContracts compatible with the given sport + school pair, for the Edit Game sheet\'s Contract picker. Matches either direction (home=A,away=B or home=B,away=A). Uses `GameContract.filtered_for_game`. Capped at 50 rows, ordered by game date descending. 
-     */
-    async getGamesAvailableContractsRaw(requestParameters: DefaultApiGetGamesAvailableContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AvailableGameContract>>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['sportId'] != null) {
-            queryParameters['sport_id'] = requestParameters['sportId'];
-        }
-
-        if (requestParameters['homeSchoolId'] != null) {
-            queryParameters['home_school_id'] = requestParameters['homeSchoolId'];
-        }
-
-        if (requestParameters['awaySchoolId'] != null) {
-            queryParameters['away_school_id'] = requestParameters['awaySchoolId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/games/available_contracts`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AvailableGameContractFromJSON));
-    }
-
-    /**
-     * List GameContracts compatible with the given sport + school pair, for the Edit Game sheet\'s Contract picker. Matches either direction (home=A,away=B or home=B,away=A). Uses `GameContract.filtered_for_game`. Capped at 50 rows, ordered by game date descending. 
-     */
-    async getGamesAvailableContracts(requestParameters: DefaultApiGetGamesAvailableContractsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AvailableGameContract>> {
-        const response = await this.getGamesAvailableContractsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -8951,199 +8572,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve the schedule grid for a sport — season window, schools, games, and active game posts for up to eight selected schools.
-     */
-    async getScheduleGridRaw(requestParameters: DefaultApiGetScheduleGridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleGridView>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getScheduleGrid().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['schoolIds'] != null) {
-            queryParameters['school_ids'] = requestParameters['schoolIds'];
-        }
-
-        if (requestParameters['year'] != null) {
-            queryParameters['year'] = requestParameters['year'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/schedule_grid/{sport_name}`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ScheduleGridViewFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve the schedule grid for a sport — season window, schools, games, and active game posts for up to eight selected schools.
-     */
-    async getScheduleGrid(requestParameters: DefaultApiGetScheduleGridRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleGridView> {
-        const response = await this.getScheduleGridRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, and distance.
-     */
-    async getScheduleGridAvailableSchoolsRaw(requestParameters: DefaultApiGetScheduleGridAvailableSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleGridAvailableSchools>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getScheduleGridAvailableSchools().'
-            );
-        }
-
-        if (requestParameters['targetDate'] == null) {
-            throw new runtime.RequiredError(
-                'targetDate',
-                'Required parameter "targetDate" was null or undefined when calling getScheduleGridAvailableSchools().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['targetDate'] != null) {
-            queryParameters['target_date'] = (requestParameters['targetDate'] as any).toISOString().substring(0,10);
-        }
-
-        if (requestParameters['windowDays'] != null) {
-            queryParameters['window_days'] = requestParameters['windowDays'];
-        }
-
-        if (requestParameters['dealTypes'] != null) {
-            queryParameters['deal_types'] = requestParameters['dealTypes'];
-        }
-
-        if (requestParameters['qualityTier'] != null) {
-            queryParameters['quality_tier'] = requestParameters['qualityTier'];
-        }
-
-        if (requestParameters['maxDistanceMiles'] != null) {
-            queryParameters['max_distance_miles'] = requestParameters['maxDistanceMiles'];
-        }
-
-        if (requestParameters['userSchoolId'] != null) {
-            queryParameters['user_school_id'] = requestParameters['userSchoolId'];
-        }
-
-        if (requestParameters['excludeSchoolIds'] != null) {
-            queryParameters['exclude_school_ids'] = requestParameters['excludeSchoolIds'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/schedule_grid/{sport_name}/available_schools`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ScheduleGridAvailableSchoolsFromJSON(jsonValue));
-    }
-
-    /**
-     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, and distance.
-     */
-    async getScheduleGridAvailableSchools(requestParameters: DefaultApiGetScheduleGridAvailableSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleGridAvailableSchools> {
-        const response = await this.getScheduleGridAvailableSchoolsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve the completed-games schedule grid for a past season — season window, schools, and final results for up to eight selected schools. Game posts are not returned for completed seasons.
-     */
-    async getScheduleGridCompletedRaw(requestParameters: DefaultApiGetScheduleGridCompletedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleGridView>> {
-        if (requestParameters['sportName'] == null) {
-            throw new runtime.RequiredError(
-                'sportName',
-                'Required parameter "sportName" was null or undefined when calling getScheduleGridCompleted().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['schoolIds'] != null) {
-            queryParameters['school_ids'] = requestParameters['schoolIds'];
-        }
-
-        if (requestParameters['year'] != null) {
-            queryParameters['year'] = requestParameters['year'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/schedule_grid/{sport_name}/completed`;
-        urlPath = urlPath.replace(`{${"sport_name"}}`, encodeURIComponent(String(requestParameters['sportName'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ScheduleGridViewFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve the completed-games schedule grid for a past season — season window, schools, and final results for up to eight selected schools. Game posts are not returned for completed seasons.
-     */
-    async getScheduleGridCompleted(requestParameters: DefaultApiGetScheduleGridCompletedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleGridView> {
-        const response = await this.getScheduleGridCompletedRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve a single school
      */
     async getSchoolRaw(requestParameters: DefaultApiGetSchoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<School>> {
@@ -9719,7 +9147,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default `per_page=100`) and Ransack filtering via `q`. 
+     * Retrieve some or all schools
      */
     async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
         const queryParameters: any = {};
@@ -9761,7 +9189,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default `per_page=100`) and Ransack filtering via `q`. 
+     * Retrieve some or all schools
      */
     async getSchools(requestParameters: DefaultApiGetSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolCollection> {
         const response = await this.getSchoolsRaw(requestParameters, initOverrides);
@@ -9803,44 +9231,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolsAlmaMater(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
         const response = await this.getSchoolsAlmaMaterRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Return the total number of Division I schools. Like `/schools`, this is hardcoded to D1 only and is intended for the scheduling search surface. 
-     */
-    async getSchoolsCountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSchoolsCount200Response>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/schools/count`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetSchoolsCount200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Return the total number of Division I schools. Like `/schools`, this is hardcoded to D1 only and is intended for the scheduling search surface. 
-     */
-    async getSchoolsCount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolsCount200Response> {
-        const response = await this.getSchoolsCountRaw(initOverrides);
         return await response.value();
     }
 
@@ -10548,6 +9938,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSubscription(requestParameters: DefaultApiGetSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Subscription> {
         const response = await this.getSubscriptionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve token-scoped subscription order details
+     */
+    async getSubscriptionAcceptanceRaw(requestParameters: DefaultApiGetSubscriptionAcceptanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionAcceptance>> {
+        if (requestParameters['subscriptionAcceptanceId'] == null) {
+            throw new runtime.RequiredError(
+                'subscriptionAcceptanceId',
+                'Required parameter "subscriptionAcceptanceId" was null or undefined when calling getSubscriptionAcceptance().'
+            );
+        }
+
+        if (requestParameters['acceptanceToken'] == null) {
+            throw new runtime.RequiredError(
+                'acceptanceToken',
+                'Required parameter "acceptanceToken" was null or undefined when calling getSubscriptionAcceptance().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['acceptanceToken'] != null) {
+            queryParameters['acceptance_token'] = requestParameters['acceptanceToken'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/v1/subscription_acceptances/{subscriptionAcceptanceId}`;
+        urlPath = urlPath.replace(`{${"subscriptionAcceptanceId"}}`, encodeURIComponent(String(requestParameters['subscriptionAcceptanceId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionAcceptanceFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve token-scoped subscription order details
+     */
+    async getSubscriptionAcceptance(requestParameters: DefaultApiGetSubscriptionAcceptanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionAcceptance> {
+        const response = await this.getSubscriptionAcceptanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -12554,62 +11992,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a game
-     */
-    async updateGameRaw(requestParameters: DefaultApiUpdateGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameDetail>> {
-        if (requestParameters['gameId'] == null) {
-            throw new runtime.RequiredError(
-                'gameId',
-                'Required parameter "gameId" was null or undefined when calling updateGame().'
-            );
-        }
-
-        if (requestParameters['createGameRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createGameRequest',
-                'Required parameter "createGameRequest" was null or undefined when calling updateGame().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.accessToken) {
-            // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
-        }
-
-
-        let urlPath = `/api/v1/games/{gameId}`;
-        urlPath = urlPath.replace(`{${"gameId"}}`, encodeURIComponent(String(requestParameters['gameId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateGameRequestToJSON(requestParameters['createGameRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GameDetailFromJSON(jsonValue));
-    }
-
-    /**
-     * Update a game
-     */
-    async updateGame(requestParameters: DefaultApiUpdateGameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameDetail> {
-        const response = await this.updateGameRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Update a GameContract
      */
     async updateGameContractRaw(requestParameters: DefaultApiUpdateGameContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteAccountUser200Response>> {
@@ -13152,6 +12534,64 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Accept a token-scoped subscription order
+     */
+    async updateSubscriptionAcceptanceRaw(requestParameters: DefaultApiUpdateSubscriptionAcceptanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionAcceptance>> {
+        if (requestParameters['subscriptionAcceptanceId'] == null) {
+            throw new runtime.RequiredError(
+                'subscriptionAcceptanceId',
+                'Required parameter "subscriptionAcceptanceId" was null or undefined when calling updateSubscriptionAcceptance().'
+            );
+        }
+
+        if (requestParameters['acceptanceToken'] == null) {
+            throw new runtime.RequiredError(
+                'acceptanceToken',
+                'Required parameter "acceptanceToken" was null or undefined when calling updateSubscriptionAcceptance().'
+            );
+        }
+
+        if (requestParameters['updateSubscriptionAcceptanceRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateSubscriptionAcceptanceRequest',
+                'Required parameter "updateSubscriptionAcceptanceRequest" was null or undefined when calling updateSubscriptionAcceptance().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['acceptanceToken'] != null) {
+            queryParameters['acceptance_token'] = requestParameters['acceptanceToken'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/v1/subscription_acceptances/{subscriptionAcceptanceId}`;
+        urlPath = urlPath.replace(`{${"subscriptionAcceptanceId"}}`, encodeURIComponent(String(requestParameters['subscriptionAcceptanceId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateSubscriptionAcceptanceRequestToJSON(requestParameters['updateSubscriptionAcceptanceRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionAcceptanceFromJSON(jsonValue));
+    }
+
+    /**
+     * Accept a token-scoped subscription order
+     */
+    async updateSubscriptionAcceptance(requestParameters: DefaultApiUpdateSubscriptionAcceptanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionAcceptance> {
+        const response = await this.updateSubscriptionAcceptanceRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Update a FilTeam favorite\'s category
      */
     async updateTeamScheduleFavoriteRaw(requestParameters: DefaultApiUpdateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTeamScheduleFavorite201Response>> {
@@ -13500,6 +12940,54 @@ export class DefaultApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Retrieve the token-scoped subscription contract PDF for inline viewing
+     */
+    async viewSubscriptionAcceptanceContractRaw(requestParameters: DefaultApiViewSubscriptionAcceptanceContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+        if (requestParameters['subscriptionAcceptanceId'] == null) {
+            throw new runtime.RequiredError(
+                'subscriptionAcceptanceId',
+                'Required parameter "subscriptionAcceptanceId" was null or undefined when calling viewSubscriptionAcceptanceContract().'
+            );
+        }
+
+        if (requestParameters['acceptanceToken'] == null) {
+            throw new runtime.RequiredError(
+                'acceptanceToken',
+                'Required parameter "acceptanceToken" was null or undefined when calling viewSubscriptionAcceptanceContract().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['acceptanceToken'] != null) {
+            queryParameters['acceptance_token'] = requestParameters['acceptanceToken'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract`;
+        urlPath = urlPath.replace(`{${"subscriptionAcceptanceId"}}`, encodeURIComponent(String(requestParameters['subscriptionAcceptanceId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.BlobApiResponse(response);
+    }
+
+    /**
+     * Retrieve the token-scoped subscription contract PDF for inline viewing
+     */
+    async viewSubscriptionAcceptanceContract(requestParameters: DefaultApiViewSubscriptionAcceptanceContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
+        const response = await this.viewSubscriptionAcceptanceContractRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
 /**
@@ -13517,15 +13005,6 @@ export const GetFilterOptionsContextEnum = {
     Financial: 'financial'
 } as const;
 export type GetFilterOptionsContextEnum = typeof GetFilterOptionsContextEnum[keyof typeof GetFilterOptionsContextEnum];
-/**
- * @export
- */
-export const GetScheduleGridAvailableSchoolsQualityTierEnum = {
-    Power4: 'power_4',
-    MidMajor: 'mid_major',
-    Smaller: 'smaller'
-} as const;
-export type GetScheduleGridAvailableSchoolsQualityTierEnum = typeof GetScheduleGridAvailableSchoolsQualityTierEnum[keyof typeof GetScheduleGridAvailableSchoolsQualityTierEnum];
 /**
  * @export
  */

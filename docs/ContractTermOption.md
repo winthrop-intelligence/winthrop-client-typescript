@@ -1,32 +1,24 @@
 
-# TeamScheduleDetailSchool
+# ContractTermOption
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`name` | string
-`logoUrl` | string
-`city` | string
-`stateName` | string
-`conferenceName` | string
+`label` | string
+`value` | number
 
 ## Example
 
 ```typescript
-import type { TeamScheduleDetailSchool } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ContractTermOption } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-  "logoUrl": null,
-  "city": null,
-  "stateName": null,
-  "conferenceName": null,
-} satisfies TeamScheduleDetailSchool
+  "label": 3 years,
+  "value": 36,
+} satisfies ContractTermOption
 
 console.log(example)
 
@@ -35,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleDetailSchool
+const exampleParsed = JSON.parse(exampleJSON) as ContractTermOption
 console.log(exampleParsed)
 ```
 

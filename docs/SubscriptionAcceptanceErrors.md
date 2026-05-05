@@ -1,32 +1,24 @@
 
-# TeamScheduleDetailSchool
+# SubscriptionAcceptanceErrors
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`name` | string
-`logoUrl` | string
-`city` | string
-`stateName` | string
-`conferenceName` | string
+`errors` | Array&lt;string&gt;
+`accepted` | boolean
 
 ## Example
 
 ```typescript
-import type { TeamScheduleDetailSchool } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { SubscriptionAcceptanceErrors } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-  "logoUrl": null,
-  "city": null,
-  "stateName": null,
-  "conferenceName": null,
-} satisfies TeamScheduleDetailSchool
+  "errors": ["This order form link is invalid."],
+  "accepted": true,
+} satisfies SubscriptionAcceptanceErrors
 
 console.log(example)
 
@@ -35,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleDetailSchool
+const exampleParsed = JSON.parse(exampleJSON) as SubscriptionAcceptanceErrors
 console.log(exampleParsed)
 ```
 

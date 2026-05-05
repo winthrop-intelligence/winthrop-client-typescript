@@ -10,11 +10,9 @@ Name | Type
 `id` | number
 `schoolId` | number
 `schoolName` | string
-`schoolShortName` | string
 `sportId` | number
 `sportName` | string
 `sportSlug` | string
-`sportAbbreviation` | string
 `startDate` | Date
 `endDate` | Date
 `description` | string
@@ -38,11 +36,9 @@ const example = {
   "id": null,
   "schoolId": null,
   "schoolName": null,
-  "schoolShortName": null,
   "sportId": null,
   "sportName": null,
   "sportSlug": null,
-  "sportAbbreviation": null,
   "startDate": null,
   "endDate": null,
   "description": null,
