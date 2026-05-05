@@ -26,6 +26,9 @@ import type {
   AuditedFinancialReportStatusCollection,
   AvailableGameContract,
   AverageCompensation,
+  BulkCreateGames201Response,
+  BulkCreateGames422Response,
+  BulkCreateGamesRequest,
   COLIAdjusted,
   Cashflow,
   CashflowCollection,
@@ -217,6 +220,12 @@ import {
     AvailableGameContractToJSON,
     AverageCompensationFromJSON,
     AverageCompensationToJSON,
+    BulkCreateGames201ResponseFromJSON,
+    BulkCreateGames201ResponseToJSON,
+    BulkCreateGames422ResponseFromJSON,
+    BulkCreateGames422ResponseToJSON,
+    BulkCreateGamesRequestFromJSON,
+    BulkCreateGamesRequestToJSON,
     COLIAdjustedFromJSON,
     COLIAdjustedToJSON,
     CashflowFromJSON,
@@ -579,6 +588,10 @@ export interface DefaultApiAverageSubdivisionCompRequest {
     seasonYears: Array<number>;
     sportIds: Array<number>;
     positionTypeIds: Array<number>;
+}
+
+export interface DefaultApiBulkCreateGamesOperationRequest {
+    bulkCreateGamesRequest: BulkCreateGamesRequest;
 }
 
 export interface DefaultApiCompareColiRequest {
@@ -1972,6 +1985,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async averageSubdivisionComp(requestParameters: DefaultApiAverageSubdivisionCompRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AverageCompensation> {
         const response = await this.averageSubdivisionCompRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create multiple games in a single transactional request. Used by the bulk-entry workflow on the schedule grid. All rows are inserted in one transaction — if any row fails validation the whole batch is rolled back and the response identifies the failing row by its index. 
+     */
+    async bulkCreateGamesRaw(requestParameters: DefaultApiBulkCreateGamesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateGames201Response>> {
+        if (requestParameters['bulkCreateGamesRequest'] == null) {
+            throw new runtime.RequiredError(
+                'bulkCreateGamesRequest',
+                'Required parameter "bulkCreateGamesRequest" was null or undefined when calling bulkCreateGames().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/games/bulk`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BulkCreateGamesRequestToJSON(requestParameters['bulkCreateGamesRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BulkCreateGames201ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Create multiple games in a single transactional request. Used by the bulk-entry workflow on the schedule grid. All rows are inserted in one transaction — if any row fails validation the whole batch is rolled back and the response identifies the failing row by its index. 
+     */
+    async bulkCreateGames(requestParameters: DefaultApiBulkCreateGamesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkCreateGames201Response> {
+        const response = await this.bulkCreateGamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

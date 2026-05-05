@@ -66,6 +66,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
 *DefaultApi* | [**averageSchoolComp**](docs/DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp | 
 *DefaultApi* | [**averageSubdivisionComp**](docs/DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp | 
+*DefaultApi* | [**bulkCreateGames**](docs/DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk | 
 *DefaultApi* | [**compareColi**](docs/DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli | 
 *DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
 *DefaultApi* | [**createCashflow**](docs/DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows | 
@@ -354,6 +355,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AvailableGameContract](docs/AvailableGameContract.md)
 - [Avatar](docs/Avatar.md)
 - [AverageCompensation](docs/AverageCompensation.md)
+- [BulkCreateGames201Response](docs/BulkCreateGames201Response.md)
+- [BulkCreateGames422Response](docs/BulkCreateGames422Response.md)
+- [BulkCreateGames422ResponseErrorsValue](docs/BulkCreateGames422ResponseErrorsValue.md)
+- [BulkCreateGamesRequest](docs/BulkCreateGamesRequest.md)
+- [BulkCreateGamesRequestGamesInner](docs/BulkCreateGamesRequestGamesInner.md)
 - [COLIAdjusted](docs/COLIAdjusted.md)
 - [Cashflow](docs/Cashflow.md)
 - [CashflowCollection](docs/CashflowCollection.md)
