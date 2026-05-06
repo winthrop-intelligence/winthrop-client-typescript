@@ -245,6 +245,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSubdivisionSportCompensation**](docs/DefaultApi.md#getsubdivisionsportcompensation) | **GET** /api/v1/subdivisions/{subdivisionId}/sport_compensation | 
 *DefaultApi* | [**getSubdivisions**](docs/DefaultApi.md#getsubdivisions) | **GET** /api/v1/subdivisions | 
 *DefaultApi* | [**getSubscription**](docs/DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} | 
+*DefaultApi* | [**getSubscriptionAcceptance**](docs/DefaultApi.md#getsubscriptionacceptance) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
 *DefaultApi* | [**getSubscriptions**](docs/DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions | 
 *DefaultApi* | [**getSystemSettings**](docs/DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting | 
 *DefaultApi* | [**getTeamScheduleDetail**](docs/DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} | 
@@ -295,6 +296,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateRequestedItem**](docs/DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**updateSchoolGroup**](docs/DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
+*DefaultApi* | [**updateSubscriptionAcceptance**](docs/DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
@@ -302,6 +304,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
 *DefaultApi* | [**verifyUserIntercollegiateAccess**](docs/DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access | 
 *DefaultApi* | [**viewRawContractFile**](docs/DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file | 
+*DefaultApi* | [**viewSubscriptionAcceptanceContract**](docs/DefaultApi.md#viewsubscriptionacceptancecontract) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract | 
 *DossierApi* | [**universityDossierReportDossierWinadIdGet**](docs/DossierApi.md#universitydossierreportdossierwinadidget) | **GET** /dossier/{winad_id}/ | University Dossier Report
 *IntercollegiateApi* | [**createNewsFeeds**](docs/IntercollegiateApi.md#createnewsfeeds) | **POST** /wi_jobs/news_feeds | 
 *IntercollegiateApi* | [**getJobPost**](docs/IntercollegiateApi.md#getjobpost) | **GET** /wi_jobs/job_posts/{jobPostId} | 
@@ -426,6 +429,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ContactSearchEntry](docs/ContactSearchEntry.md)
 - [Contract](docs/Contract.md)
 - [ContractCollection](docs/ContractCollection.md)
+- [ContractTermOption](docs/ContractTermOption.md)
 - [CoworkerEntry](docs/CoworkerEntry.md)
 - [CoworkerTenure](docs/CoworkerTenure.md)
 - [CreateAccountUser422Response](docs/CreateAccountUser422Response.md)
@@ -609,6 +613,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Subdivision](docs/Subdivision.md)
 - [SubdivisionCollection](docs/SubdivisionCollection.md)
 - [Subscription](docs/Subscription.md)
+- [SubscriptionAcceptance](docs/SubscriptionAcceptance.md)
+- [SubscriptionAcceptanceErrors](docs/SubscriptionAcceptanceErrors.md)
 - [SubscriptionCollection](docs/SubscriptionCollection.md)
 - [SystemSetting](docs/SystemSetting.md)
 - [Tag](docs/Tag.md)
@@ -661,6 +667,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdatePasswordResetRequestUser](docs/UpdatePasswordResetRequestUser.md)
 - [UpdateSchoolGroupRequest](docs/UpdateSchoolGroupRequest.md)
 - [UpdateSchoolGroupRequestSchoolGroup](docs/UpdateSchoolGroupRequestSchoolGroup.md)
+- [UpdateSubscriptionAcceptanceRequest](docs/UpdateSubscriptionAcceptanceRequest.md)
+- [UpdateSubscriptionAcceptanceRequestSubscription](docs/UpdateSubscriptionAcceptanceRequestSubscription.md)
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
 - [UpdateUserRequest](docs/UpdateUserRequest.md)
 - [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
