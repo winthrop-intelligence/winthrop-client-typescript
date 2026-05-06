@@ -61,12 +61,6 @@ export interface GamePostDetail {
     schoolName?: string;
     /**
      * 
-     * @type {string}
-     * @memberof GamePostDetail
-     */
-    schoolShortName?: string | null;
-    /**
-     * 
      * @type {number}
      * @memberof GamePostDetail
      */
@@ -83,12 +77,6 @@ export interface GamePostDetail {
      * @memberof GamePostDetail
      */
     sportSlug?: string;
-    /**
-     * Short sport label (e.g. MBB, FB)
-     * @type {string}
-     * @memberof GamePostDetail
-     */
-    sportAbbreviation?: string | null;
     /**
      * 
      * @type {Date}
@@ -194,11 +182,9 @@ export function GamePostDetailFromJSONTyped(json: any, ignoreDiscriminator: bool
         'id': json['id'] == null ? undefined : json['id'],
         'schoolId': json['school_id'] == null ? undefined : json['school_id'],
         'schoolName': json['school_name'] == null ? undefined : json['school_name'],
-        'schoolShortName': json['school_short_name'] == null ? undefined : json['school_short_name'],
         'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
         'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
         'sportSlug': json['sport_slug'] == null ? undefined : json['sport_slug'],
-        'sportAbbreviation': json['sport_abbreviation'] == null ? undefined : json['sport_abbreviation'],
         'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
         'endDate': json['end_date'] == null ? undefined : (new Date(json['end_date'])),
         'description': json['description'] == null ? undefined : json['description'],
@@ -228,11 +214,9 @@ export function GamePostDetailToJSONTyped(value?: GamePostDetail | null, ignoreD
         'id': value['id'],
         'school_id': value['schoolId'],
         'school_name': value['schoolName'],
-        'school_short_name': value['schoolShortName'],
         'sport_id': value['sportId'],
         'sport_name': value['sportName'],
         'sport_slug': value['sportSlug'],
-        'sport_abbreviation': value['sportAbbreviation'],
         'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
         'end_date': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
         'description': value['description'],

@@ -1,5 +1,5 @@
 
-# AccountInvoice
+# InvoiceReportRow
 
 
 ## Properties
@@ -8,41 +8,29 @@ Name | Type
 ------------ | -------------
 `id` | number
 `invoiceDate` | Date
-`description` | string
-`amountCents` | number
-`purchaseOrderNumber` | string
 `dueDate` | Date
-`dueDateNotes` | string
-`notes` | string
 `paymentReceived` | Date
 `status` | string
-`reminders` | boolean
-`subscriptionId` | number
-`createdByName` | string
-`canRead` | boolean
+`amountDollars` | object
+`notes` | string
+`account` | [InvoiceReportAccount](InvoiceReportAccount.md)
 
 ## Example
 
 ```typescript
-import type { AccountInvoice } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { InvoiceReportRow } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
   "invoiceDate": null,
-  "description": null,
-  "amountCents": null,
-  "purchaseOrderNumber": null,
   "dueDate": null,
-  "dueDateNotes": null,
-  "notes": null,
   "paymentReceived": null,
   "status": null,
-  "reminders": null,
-  "subscriptionId": null,
-  "createdByName": null,
-  "canRead": null,
-} satisfies AccountInvoice
+  "amountDollars": null,
+  "notes": null,
+  "account": null,
+} satisfies InvoiceReportRow
 
 console.log(example)
 
@@ -51,7 +39,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AccountInvoice
+const exampleParsed = JSON.parse(exampleJSON) as InvoiceReportRow
 console.log(exampleParsed)
 ```
 
