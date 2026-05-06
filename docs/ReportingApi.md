@@ -398,7 +398,7 @@ example().catch(console.error);
 
 ## getInvoices
 
-> InvoiceReportResult getInvoices(page, q)
+> object getInvoices(page, q)
 
 
 
@@ -452,7 +452,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**InvoiceReportResult**](InvoiceReportResult.md)
+**object**
 
 ### Authorization
 

@@ -66,6 +66,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
 *DefaultApi* | [**averageSchoolComp**](docs/DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp | 
 *DefaultApi* | [**averageSubdivisionComp**](docs/DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp | 
+*DefaultApi* | [**bulkCreateGames**](docs/DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk | 
 *DefaultApi* | [**compareColi**](docs/DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli | 
 *DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
 *DefaultApi* | [**createCashflow**](docs/DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows | 
@@ -77,6 +78,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createFavoritesCategory**](docs/DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories | 
 *DefaultApi* | [**createFoiaLabel**](docs/DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels | 
 *DefaultApi* | [**createFoiaRequest**](docs/DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests | 
+*DefaultApi* | [**createGame**](docs/DefaultApi.md#creategameoperation) | **POST** /api/v1/games | 
+*DefaultApi* | [**createGamePost**](docs/DefaultApi.md#creategamepost) | **POST** /api/v1/game_posts | 
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
 *DefaultApi* | [**createNote**](docs/DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes | 
@@ -96,7 +99,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**deleteFoiaRequest**](docs/DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} | 
+*DefaultApi* | [**deleteGame**](docs/DefaultApi.md#deletegame) | **DELETE** /api/v1/games/{gameId} | 
 *DefaultApi* | [**deleteGameContractRawContract**](docs/DefaultApi.md#deletegamecontractrawcontract) | **DELETE** /api/v1/game_contracts/{game_contractId}/delete_raw_contract | 
+*DefaultApi* | [**deleteGamePost**](docs/DefaultApi.md#deletegamepost) | **DELETE** /api/v1/game_posts/{gamePostId} | 
 *DefaultApi* | [**deleteGamePostSearch**](docs/DefaultApi.md#deletegamepostsearch) | **DELETE** /api/v1/game_post_searches/{gamePostSearchId} | 
 *DefaultApi* | [**deleteJobPost**](docs/DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post
 *DefaultApi* | [**deleteNote**](docs/DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} | 
@@ -170,6 +175,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getFilterOptionsGameTypes**](docs/DefaultApi.md#getfilteroptionsgametypes) | **GET** /api/v1/filter_options/game_types | 
 *DefaultApi* | [**getFilterOptionsSchoolGroups**](docs/DefaultApi.md#getfilteroptionsschoolgroups) | **GET** /api/v1/filter_options/school_groups | 
 *DefaultApi* | [**getFilterOptionsSchools**](docs/DefaultApi.md#getfilteroptionsschools) | **GET** /api/v1/filter_options/schools | 
+*DefaultApi* | [**getFilterOptionsStates**](docs/DefaultApi.md#getfilteroptionsstates) | **GET** /api/v1/filter_options/states | 
 *DefaultApi* | [**getFilterOptionsSubdivisions**](docs/DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions | 
 *DefaultApi* | [**getFilterOptionsVendors**](docs/DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors | 
 *DefaultApi* | [**getFinancialSearches**](docs/DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches | 
@@ -188,6 +194,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getGamePostSearches**](docs/DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches | 
 *DefaultApi* | [**getGamePosts**](docs/DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts | 
 *DefaultApi* | [**getGames**](docs/DefaultApi.md#getgames) | **GET** /api/v1/games | 
+*DefaultApi* | [**getGamesAvailableContracts**](docs/DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts | 
 *DefaultApi* | [**getIncomeReport**](docs/DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} | 
 *DefaultApi* | [**getIncomeReports**](docs/DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports | 
 *DefaultApi* | [**getJobPost**](docs/DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post
@@ -206,6 +213,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getRequestedItems**](docs/DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items | 
 *DefaultApi* | [**getRevenueSearch**](docs/DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} | 
 *DefaultApi* | [**getRevenueSearches**](docs/DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches | 
+*DefaultApi* | [**getScheduleGrid**](docs/DefaultApi.md#getschedulegrid) | **GET** /api/v1/schedule_grid/{sport_name} | 
+*DefaultApi* | [**getScheduleGridAvailableSchools**](docs/DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools | 
+*DefaultApi* | [**getScheduleGridCompleted**](docs/DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed | 
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
@@ -220,6 +230,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchoolGroupsAvailableSchools**](docs/DefaultApi.md#getschoolgroupsavailableschools) | **GET** /api/v1/school_groups/available_schools | 
 *DefaultApi* | [**getSchools**](docs/DefaultApi.md#getschools) | **GET** /api/v1/schools | 
 *DefaultApi* | [**getSchoolsAlmaMater**](docs/DefaultApi.md#getschoolsalmamater) | **GET** /api/v1/schools/alma_mater | 
+*DefaultApi* | [**getSchoolsCount**](docs/DefaultApi.md#getschoolscount) | **GET** /api/v1/schools/count | 
 *DefaultApi* | [**getSeason**](docs/DefaultApi.md#getseason) | **GET** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**getSeasons**](docs/DefaultApi.md#getseasons) | **GET** /api/v1/seasons | 
 *DefaultApi* | [**getSimilarCoaches**](docs/DefaultApi.md#getsimilarcoaches) | **GET** /api/v1/coaches/{coachId}/similar_coaches | 
@@ -274,6 +285,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateFavoritesCategory**](docs/DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**updateFoiaLabel**](docs/DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**updateFoiaRequest**](docs/DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} | 
+*DefaultApi* | [**updateGame**](docs/DefaultApi.md#updategame) | **PATCH** /api/v1/games/{gameId} | 
 *DefaultApi* | [**updateGameContract**](docs/DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} | 
 *DefaultApi* | [**updateGamePostSearch**](docs/DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} | 
 *DefaultApi* | [**updateJobPost**](docs/DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post
@@ -340,8 +352,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AthleticProfileShowTabSportsInner](docs/AthleticProfileShowTabSportsInner.md)
 - [AuditedFinancialReportStatus](docs/AuditedFinancialReportStatus.md)
 - [AuditedFinancialReportStatusCollection](docs/AuditedFinancialReportStatusCollection.md)
+- [AvailableGameContract](docs/AvailableGameContract.md)
 - [Avatar](docs/Avatar.md)
 - [AverageCompensation](docs/AverageCompensation.md)
+- [BulkCreateGames201Response](docs/BulkCreateGames201Response.md)
+- [BulkCreateGames422Response](docs/BulkCreateGames422Response.md)
+- [BulkCreateGames422ResponseErrorsValue](docs/BulkCreateGames422ResponseErrorsValue.md)
+- [BulkCreateGamesRequest](docs/BulkCreateGamesRequest.md)
+- [BulkCreateGamesRequestGamesInner](docs/BulkCreateGamesRequestGamesInner.md)
 - [COLIAdjusted](docs/COLIAdjusted.md)
 - [Cashflow](docs/Cashflow.md)
 - [CashflowCollection](docs/CashflowCollection.md)
@@ -420,6 +438,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
 - [CreateGamePostSearchRequest](docs/CreateGamePostSearchRequest.md)
 - [CreateGamePostSearchRequestGamePost](docs/CreateGamePostSearchRequestGamePost.md)
+- [CreateGameRequest](docs/CreateGameRequest.md)
+- [CreateGameRequestGame](docs/CreateGameRequestGame.md)
 - [CreateNoteRequest](docs/CreateNoteRequest.md)
 - [CreatePasswordReset200Response](docs/CreatePasswordReset200Response.md)
 - [CreatePasswordResetRequest](docs/CreatePasswordResetRequest.md)
@@ -472,6 +492,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameContractCollection](docs/GameContractCollection.md)
 - [GameContractSeriesEntry](docs/GameContractSeriesEntry.md)
 - [GameContractSeriesResponse](docs/GameContractSeriesResponse.md)
+- [GameDetail](docs/GameDetail.md)
+- [GameDetailAllOfGameContract](docs/GameDetailAllOfGameContract.md)
 - [GamePost](docs/GamePost.md)
 - [GamePostCollection](docs/GamePostCollection.md)
 - [GamePostContact](docs/GamePostContact.md)
@@ -489,6 +511,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetLadFilterOptions200ResponsePositionTypesInner](docs/GetLadFilterOptions200ResponsePositionTypesInner.md)
 - [GetSchoolAlternateNames200Response](docs/GetSchoolAlternateNames200Response.md)
 - [GetSchoolAlternateNames404Response](docs/GetSchoolAlternateNames404Response.md)
+- [GetSchoolsCount200Response](docs/GetSchoolsCount200Response.md)
 - [GetTeamScheduleFavorites200ResponseInner](docs/GetTeamScheduleFavorites200ResponseInner.md)
 - [GetTimeZones200Response](docs/GetTimeZones200Response.md)
 - [GetWireChanges200Response](docs/GetWireChanges200Response.md)
@@ -498,9 +521,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [IdName](docs/IdName.md)
 - [IncomeReport](docs/IncomeReport.md)
 - [IncomeReportCollection](docs/IncomeReportCollection.md)
-- [InvoiceReportAccount](docs/InvoiceReportAccount.md)
-- [InvoiceReportResult](docs/InvoiceReportResult.md)
-- [InvoiceReportRow](docs/InvoiceReportRow.md)
 - [Job](docs/Job.md)
 - [JobCandidate](docs/JobCandidate.md)
 - [JobCollection](docs/JobCollection.md)
@@ -547,6 +567,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RequestedItem](docs/RequestedItem.md)
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
 - [RoleOption](docs/RoleOption.md)
+- [ScheduleGridAvailableSchoolPost](docs/ScheduleGridAvailableSchoolPost.md)
+- [ScheduleGridAvailableSchoolRow](docs/ScheduleGridAvailableSchoolRow.md)
+- [ScheduleGridAvailableSchools](docs/ScheduleGridAvailableSchools.md)
+- [ScheduleGridGame](docs/ScheduleGridGame.md)
+- [ScheduleGridGamePost](docs/ScheduleGridGamePost.md)
+- [ScheduleGridSchool](docs/ScheduleGridSchool.md)
+- [ScheduleGridView](docs/ScheduleGridView.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
@@ -578,6 +605,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SportCompensationResponse](docs/SportCompensationResponse.md)
 - [SportCompensationSubdivision](docs/SportCompensationSubdivision.md)
 - [SportOption](docs/SportOption.md)
+- [State](docs/State.md)
 - [Subdivision](docs/Subdivision.md)
 - [SubdivisionCollection](docs/SubdivisionCollection.md)
 - [Subscription](docs/Subscription.md)
@@ -594,6 +622,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleDetailHeadCoach](docs/TeamScheduleDetailHeadCoach.md)
 - [TeamScheduleDetailSchool](docs/TeamScheduleDetailSchool.md)
 - [TeamScheduleDetailSeason](docs/TeamScheduleDetailSeason.md)
+- [TeamScheduleDetailSport](docs/TeamScheduleDetailSport.md)
 - [TeamScheduleFavoriteDetail](docs/TeamScheduleFavoriteDetail.md)
 - [TeamScheduleFavoriteEntry](docs/TeamScheduleFavoriteEntry.md)
 - [TeamScheduleGamePosts](docs/TeamScheduleGamePosts.md)
