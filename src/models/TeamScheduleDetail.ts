@@ -20,6 +20,13 @@ import {
     TeamScheduleDetailSchoolToJSON,
     TeamScheduleDetailSchoolToJSONTyped,
 } from './TeamScheduleDetailSchool';
+import type { TeamScheduleDetailSport } from './TeamScheduleDetailSport';
+import {
+    TeamScheduleDetailSportFromJSON,
+    TeamScheduleDetailSportFromJSONTyped,
+    TeamScheduleDetailSportToJSON,
+    TeamScheduleDetailSportToJSONTyped,
+} from './TeamScheduleDetailSport';
 import type { TeamScheduleDetailHeadCoach } from './TeamScheduleDetailHeadCoach';
 import {
     TeamScheduleDetailHeadCoachFromJSON,
@@ -41,13 +48,6 @@ import {
     TeamScheduleDetailSeasonToJSON,
     TeamScheduleDetailSeasonToJSONTyped,
 } from './TeamScheduleDetailSeason';
-import type { ContactSearchCoachOptionsSportsInner } from './ContactSearchCoachOptionsSportsInner';
-import {
-    ContactSearchCoachOptionsSportsInnerFromJSON,
-    ContactSearchCoachOptionsSportsInnerFromJSONTyped,
-    ContactSearchCoachOptionsSportsInnerToJSON,
-    ContactSearchCoachOptionsSportsInnerToJSONTyped,
-} from './ContactSearchCoachOptionsSportsInner';
 import type { TeamScheduleContact } from './TeamScheduleContact';
 import {
     TeamScheduleContactFromJSON,
@@ -70,10 +70,10 @@ export interface TeamScheduleDetail {
     school?: TeamScheduleDetailSchool;
     /**
      * 
-     * @type {ContactSearchCoachOptionsSportsInner}
+     * @type {TeamScheduleDetailSport}
      * @memberof TeamScheduleDetail
      */
-    sport?: ContactSearchCoachOptionsSportsInner;
+    sport?: TeamScheduleDetailSport;
     /**
      * 
      * @type {number}
@@ -148,7 +148,7 @@ export function TeamScheduleDetailFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'school': json['school'] == null ? undefined : TeamScheduleDetailSchoolFromJSON(json['school']),
-        'sport': json['sport'] == null ? undefined : ContactSearchCoachOptionsSportsInnerFromJSON(json['sport']),
+        'sport': json['sport'] == null ? undefined : TeamScheduleDetailSportFromJSON(json['sport']),
         'seasonYear': json['season_year'] == null ? undefined : json['season_year'],
         'performanceYear': json['performance_year'] == null ? undefined : json['performance_year'],
         'season': json['season'] == null ? undefined : TeamScheduleDetailSeasonFromJSON(json['season']),
@@ -173,7 +173,7 @@ export function TeamScheduleDetailToJSONTyped(value?: TeamScheduleDetail | null,
     return {
         
         'school': TeamScheduleDetailSchoolToJSON(value['school']),
-        'sport': ContactSearchCoachOptionsSportsInnerToJSON(value['sport']),
+        'sport': TeamScheduleDetailSportToJSON(value['sport']),
         'season_year': value['seasonYear'],
         'performance_year': value['performanceYear'],
         'season': TeamScheduleDetailSeasonToJSON(value['season']),
