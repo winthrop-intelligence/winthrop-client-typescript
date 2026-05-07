@@ -8,7 +8,6 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`shortName` | string
 `logoUrl` | string
 `city` | string
 `stateName` | string
@@ -23,7 +22,6 @@ import type { TeamScheduleDetailSchool } from '@winthrop-intelligence/winthrop-c
 const example = {
   "id": null,
   "name": null,
-  "shortName": null,
   "logoUrl": null,
   "city": null,
   "stateName": null,

@@ -12,7 +12,6 @@ Name | Type
 `totalCompensations` | number
 `comparisons` | [CoachCompensationTabComparisons](CoachCompensationTabComparisons.md)
 `sidebar` | [CoachCompensationTabSidebar](CoachCompensationTabSidebar.md)
-`quartiles` | [CoachCompensationTabQuartiles](CoachCompensationTabQuartiles.md)
 
 ## Example
 
@@ -27,7 +26,6 @@ const example = {
   "totalCompensations": null,
   "comparisons": null,
   "sidebar": null,
-  "quartiles": null,
 } satisfies CoachCompensationTab
 
 console.log(example)
