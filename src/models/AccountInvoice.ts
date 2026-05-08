@@ -62,6 +62,12 @@ export interface AccountInvoice {
      */
     dueDateNotes?: string | null;
     /**
+     * Internal invoice notes. Null unless the caller has super admin access.
+     * @type {string}
+     * @memberof AccountInvoice
+     */
+    notes?: string | null;
+    /**
      * 
      * @type {Date}
      * @memberof AccountInvoice
@@ -134,6 +140,7 @@ export function AccountInvoiceFromJSONTyped(json: any, ignoreDiscriminator: bool
         'purchaseOrderNumber': json['purchase_order_number'] == null ? undefined : json['purchase_order_number'],
         'dueDate': json['due_date'] == null ? undefined : (new Date(json['due_date'])),
         'dueDateNotes': json['due_date_notes'] == null ? undefined : json['due_date_notes'],
+        'notes': json['notes'] == null ? undefined : json['notes'],
         'paymentReceived': json['payment_received'] == null ? undefined : (new Date(json['payment_received'])),
         'status': json['status'] == null ? undefined : json['status'],
         'reminders': json['reminders'] == null ? undefined : json['reminders'],
@@ -161,6 +168,7 @@ export function AccountInvoiceToJSONTyped(value?: AccountInvoice | null, ignoreD
         'purchase_order_number': value['purchaseOrderNumber'],
         'due_date': value['dueDate'] == null ? value['dueDate'] : value['dueDate'].toISOString().substring(0,10),
         'due_date_notes': value['dueDateNotes'],
+        'notes': value['notes'],
         'payment_received': value['paymentReceived'] == null ? value['paymentReceived'] : value['paymentReceived'].toISOString().substring(0,10),
         'status': value['status'],
         'reminders': value['reminders'],

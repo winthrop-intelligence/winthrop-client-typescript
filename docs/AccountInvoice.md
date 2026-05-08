@@ -13,6 +13,7 @@ Name | Type
 `purchaseOrderNumber` | string
 `dueDate` | Date
 `dueDateNotes` | string
+`notes` | string
 `paymentReceived` | Date
 `status` | string
 `reminders` | boolean
@@ -34,6 +35,7 @@ const example = {
   "purchaseOrderNumber": null,
   "dueDate": null,
   "dueDateNotes": null,
+  "notes": null,
   "paymentReceived": null,
   "status": null,
   "reminders": null,

@@ -16,10 +16,13 @@
 import * as runtime from '../runtime';
 import type {
   FinancialQc,
+  InvoiceReportResult,
 } from '../models/index';
 import {
     FinancialQcFromJSON,
     FinancialQcToJSON,
+    InvoiceReportResultFromJSON,
+    InvoiceReportResultToJSON,
 } from '../models/index';
 
 export interface ReportingApiGetCoachContractRequestsRequest {
@@ -305,7 +308,7 @@ export class ReportingApi extends runtime.BaseAPI {
     /**
      * Retrieve some or all client invoices
      */
-    async getInvoicesRaw(requestParameters: ReportingApiGetInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async getInvoicesRaw(requestParameters: ReportingApiGetInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoiceReportResult>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -337,13 +340,13 @@ export class ReportingApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => InvoiceReportResultFromJSON(jsonValue));
     }
 
     /**
      * Retrieve some or all client invoices
      */
-    async getInvoices(requestParameters: ReportingApiGetInvoicesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async getInvoices(requestParameters: ReportingApiGetInvoicesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvoiceReportResult> {
         const response = await this.getInvoicesRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -64,7 +64,7 @@ export interface InvoiceReportRow {
      */
     amountDollars?: object;
     /**
-     * 
+     * Internal invoice notes. Null unless the caller has super admin access.
      * @type {string}
      * @memberof InvoiceReportRow
      */
