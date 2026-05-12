@@ -9719,7 +9719,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default `per_page=100`) and Ransack filtering via `q`. 
+     * Retrieve some or all schools
      */
     async getSchoolsRaw(requestParameters: DefaultApiGetSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolCollection>> {
         const queryParameters: any = {};
@@ -9761,7 +9761,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default `per_page=100`) and Ransack filtering via `q`. 
+     * Retrieve some or all schools
      */
     async getSchools(requestParameters: DefaultApiGetSchoolsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolCollection> {
         const response = await this.getSchoolsRaw(requestParameters, initOverrides);
@@ -9807,7 +9807,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Return the total number of Division I schools. Like `/schools`, this is hardcoded to D1 only and is intended for the scheduling search surface. 
+     * Return the total number of Division I schools. Intended for the scheduling search surface (empty-state count on the Add School panel). 
      */
     async getSchoolsCountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSchoolsCount200Response>> {
         const queryParameters: any = {};
@@ -9837,7 +9837,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Return the total number of Division I schools. Like `/schools`, this is hardcoded to D1 only and is intended for the scheduling search surface. 
+     * Return the total number of Division I schools. Intended for the scheduling search surface (empty-state count on the Add School panel). 
      */
     async getSchoolsCount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolsCount200Response> {
         const response = await this.getSchoolsCountRaw(initOverrides);

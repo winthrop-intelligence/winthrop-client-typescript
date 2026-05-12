@@ -12935,7 +12935,7 @@ This endpoint does not need any parameter.
 
 
 
-Retrieve schools for the scheduling search surface. Results are hardcoded to Division I schools only (WINAD-9417 / WINAD-9422); the filter lives at the query layer and cannot be disabled via params. Supports pagination (default &#x60;per_page&#x3D;100&#x60;) and Ransack filtering via &#x60;q&#x60;. 
+Retrieve some or all schools
 
 ### Example
 
@@ -13081,7 +13081,7 @@ This endpoint does not need any parameter.
 
 
 
-Return the total number of Division I schools. Like &#x60;/schools&#x60;, this is hardcoded to D1 only and is intended for the scheduling search surface. 
+Return the total number of Division I schools. Intended for the scheduling search surface (empty-state count on the Add School panel). 
 
 ### Example
 
