@@ -15,8 +15,11 @@ Name | Type
 `gameType` | string
 `seasonYear` | number
 `cancelFeeCents` | number
+`rawContractId` | number
 `hasRawContract` | boolean
+`canDownloadRawContract` | boolean
 `rawContractUrl` | string
+`rawContractFilename` | string
 `data` | [Array&lt;GameContractSeriesEntry&gt;](GameContractSeriesEntry.md)
 
 ## Example
@@ -35,8 +38,11 @@ const example = {
   "gameType": null,
   "seasonYear": null,
   "cancelFeeCents": null,
+  "rawContractId": null,
   "hasRawContract": null,
+  "canDownloadRawContract": null,
   "rawContractUrl": null,
+  "rawContractFilename": null,
   "data": null,
 } satisfies GameContractSeriesResponse
 
