@@ -1,5 +1,5 @@
 
-# TeamScheduleDetailSchool
+# GamePostPendingWindow
 
 
 ## Properties
@@ -7,28 +7,20 @@
 Name | Type
 ------------ | -------------
 `id` | number
-`name` | string
-`shortName` | string
-`logoUrl` | string
-`city` | string
-`stateName` | string
-`conferenceName` | string
+`startDate` | Date
+`endDate` | Date
 
 ## Example
 
 ```typescript
-import type { TeamScheduleDetailSchool } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GamePostPendingWindow } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
-  "name": null,
-  "shortName": null,
-  "logoUrl": null,
-  "city": null,
-  "stateName": null,
-  "conferenceName": null,
-} satisfies TeamScheduleDetailSchool
+  "startDate": null,
+  "endDate": null,
+} satisfies GamePostPendingWindow
 
 console.log(example)
 
@@ -37,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleDetailSchool
+const exampleParsed = JSON.parse(exampleJSON) as GamePostPendingWindow
 console.log(exampleParsed)
 ```
 

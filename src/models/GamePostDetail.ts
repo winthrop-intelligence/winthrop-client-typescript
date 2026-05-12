@@ -34,6 +34,13 @@ import {
     GameTypeToJSON,
     GameTypeToJSONTyped,
 } from './GameType';
+import type { GamePostScheduleSummary } from './GamePostScheduleSummary';
+import {
+    GamePostScheduleSummaryFromJSON,
+    GamePostScheduleSummaryFromJSONTyped,
+    GamePostScheduleSummaryToJSON,
+    GamePostScheduleSummaryToJSONTyped,
+} from './GamePostScheduleSummary';
 
 /**
  * Full game post detail with contacts and creator info
@@ -61,6 +68,18 @@ export interface GamePostDetail {
     schoolName?: string;
     /**
      * 
+     * @type {string}
+     * @memberof GamePostDetail
+     */
+    schoolShortName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GamePostDetail
+     */
+    schoolLogoUrl?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof GamePostDetail
      */
@@ -77,6 +96,12 @@ export interface GamePostDetail {
      * @memberof GamePostDetail
      */
     sportSlug?: string;
+    /**
+     * Short sport label (e.g. MBB, FB)
+     * @type {string}
+     * @memberof GamePostDetail
+     */
+    sportAbbreviation?: string | null;
     /**
      * 
      * @type {Date}
@@ -127,6 +152,36 @@ export interface GamePostDetail {
     gameTypesDisplay?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof GamePostDetail
+     */
+    city?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GamePostDetail
+     */
+    stateName?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GamePostDetail
+     */
+    lastRpi?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GamePostDetail
+     */
+    avgRpi?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GamePostDetail
+     */
+    distance?: number | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof GamePostDetail
      */
@@ -149,6 +204,12 @@ export interface GamePostDetail {
      * @memberof GamePostDetail
      */
     contacts?: Array<GamePostContact>;
+    /**
+     * 
+     * @type {GamePostScheduleSummary}
+     * @memberof GamePostDetail
+     */
+    scheduleSummary?: GamePostScheduleSummary;
 }
 
 
@@ -182,9 +243,12 @@ export function GamePostDetailFromJSONTyped(json: any, ignoreDiscriminator: bool
         'id': json['id'] == null ? undefined : json['id'],
         'schoolId': json['school_id'] == null ? undefined : json['school_id'],
         'schoolName': json['school_name'] == null ? undefined : json['school_name'],
+        'schoolShortName': json['school_short_name'] == null ? undefined : json['school_short_name'],
+        'schoolLogoUrl': json['school_logo_url'] == null ? undefined : json['school_logo_url'],
         'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
         'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
         'sportSlug': json['sport_slug'] == null ? undefined : json['sport_slug'],
+        'sportAbbreviation': json['sport_abbreviation'] == null ? undefined : json['sport_abbreviation'],
         'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
         'endDate': json['end_date'] == null ? undefined : (new Date(json['end_date'])),
         'description': json['description'] == null ? undefined : json['description'],
@@ -193,10 +257,16 @@ export function GamePostDetailFromJSONTyped(json: any, ignoreDiscriminator: bool
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'gameTypesDisplay': json['game_types_display'] == null ? undefined : json['game_types_display'],
+        'city': json['city'] == null ? undefined : json['city'],
+        'stateName': json['state_name'] == null ? undefined : json['state_name'],
+        'lastRpi': json['last_rpi'] == null ? undefined : json['last_rpi'],
+        'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
+        'distance': json['distance'] == null ? undefined : json['distance'],
         'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
         'createdBy': json['created_by'] == null ? undefined : GamePostDetailCreatedByFromJSON(json['created_by']),
         'gameTypes': json['game_types'] == null ? undefined : ((json['game_types'] as Array<any>).map(GameTypeFromJSON)),
         'contacts': json['contacts'] == null ? undefined : ((json['contacts'] as Array<any>).map(GamePostContactFromJSON)),
+        'scheduleSummary': json['schedule_summary'] == null ? undefined : GamePostScheduleSummaryFromJSON(json['schedule_summary']),
     };
 }
 
@@ -214,9 +284,12 @@ export function GamePostDetailToJSONTyped(value?: GamePostDetail | null, ignoreD
         'id': value['id'],
         'school_id': value['schoolId'],
         'school_name': value['schoolName'],
+        'school_short_name': value['schoolShortName'],
+        'school_logo_url': value['schoolLogoUrl'],
         'sport_id': value['sportId'],
         'sport_name': value['sportName'],
         'sport_slug': value['sportSlug'],
+        'sport_abbreviation': value['sportAbbreviation'],
         'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
         'end_date': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
         'description': value['description'],
@@ -225,10 +298,16 @@ export function GamePostDetailToJSONTyped(value?: GamePostDetail | null, ignoreD
         'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
         'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
         'game_types_display': value['gameTypesDisplay'],
+        'city': value['city'],
+        'state_name': value['stateName'],
+        'last_rpi': value['lastRpi'],
+        'avg_rpi': value['avgRpi'],
+        'distance': value['distance'],
         'can_manage': value['canManage'],
         'created_by': GamePostDetailCreatedByToJSON(value['createdBy']),
         'game_types': value['gameTypes'] == null ? undefined : ((value['gameTypes'] as Array<any>).map(GameTypeToJSON)),
         'contacts': value['contacts'] == null ? undefined : ((value['contacts'] as Array<any>).map(GamePostContactToJSON)),
+        'schedule_summary': GamePostScheduleSummaryToJSON(value['scheduleSummary']),
     };
 }
 

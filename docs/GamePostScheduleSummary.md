@@ -1,34 +1,26 @@
 
-# TeamScheduleDetailSchool
+# GamePostScheduleSummary
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | number
-`name` | string
-`shortName` | string
-`logoUrl` | string
-`city` | string
-`stateName` | string
-`conferenceName` | string
+`wantedDatesCount` | number
+`scheduledGames` | [Array&lt;GamePostScheduleGame&gt;](GamePostScheduleGame.md)
+`pendingWindows` | [Array&lt;GamePostPendingWindow&gt;](GamePostPendingWindow.md)
 
 ## Example
 
 ```typescript
-import type { TeamScheduleDetailSchool } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GamePostScheduleSummary } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-  "shortName": null,
-  "logoUrl": null,
-  "city": null,
-  "stateName": null,
-  "conferenceName": null,
-} satisfies TeamScheduleDetailSchool
+  "wantedDatesCount": null,
+  "scheduledGames": null,
+  "pendingWindows": null,
+} satisfies GamePostScheduleSummary
 
 console.log(example)
 
@@ -37,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleDetailSchool
+const exampleParsed = JSON.parse(exampleJSON) as GamePostScheduleSummary
 console.log(exampleParsed)
 ```
 
