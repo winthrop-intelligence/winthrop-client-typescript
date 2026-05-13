@@ -119,6 +119,12 @@ export interface User {
      */
     roles?: Array<string>;
     /**
+     * Whether the user is a data admin or super admin
+     * @type {boolean}
+     * @memberof User
+     */
+    isAdmin?: boolean;
+    /**
      * Whether the user can view coach compensation data
      * @type {boolean}
      * @memberof User
@@ -196,6 +202,18 @@ export interface User {
      * @memberof User
      */
     canReadAccount?: boolean;
+    /**
+     * Whether the user can launch Intercollegiate direct access
+     * @type {boolean}
+     * @memberof User
+     */
+    canLaunchIntercollegiate?: boolean;
+    /**
+     * Final Intercollegiate launch or marketing URL for the user
+     * @type {string}
+     * @memberof User
+     */
+    intercollegiateUrl?: string | null;
     /**
      * 
      * @type {boolean}
@@ -332,6 +350,7 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'divisions': json['divisions'] == null ? undefined : ((json['divisions'] as Array<any>).map(DivisionFromJSON)),
         'roles': json['roles'] == null ? undefined : json['roles'],
+        'isAdmin': json['is_admin'] == null ? undefined : json['is_admin'],
         'canSeeCompensation': json['can_see_compensation'] == null ? undefined : json['can_see_compensation'],
         'canShowScouting': json['can_show_scouting'] == null ? undefined : json['can_show_scouting'],
         'canShowGameContract': json['can_show_game_contract'] == null ? undefined : json['can_show_game_contract'],
@@ -345,6 +364,8 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'canShowGamePost': json['can_show_game_post'] == null ? undefined : json['can_show_game_post'],
         'canSeeSchoolGroups': json['can_see_school_groups'] == null ? undefined : json['can_see_school_groups'],
         'canReadAccount': json['can_read_account'] == null ? undefined : json['can_read_account'],
+        'canLaunchIntercollegiate': json['can_launch_intercollegiate'] == null ? undefined : json['can_launch_intercollegiate'],
+        'intercollegiateUrl': json['intercollegiate_url'] == null ? undefined : json['intercollegiate_url'],
         'isSportSpecific': json['is_sport_specific'] == null ? undefined : json['is_sport_specific'],
         'isD2Only': json['is_d2_only'] == null ? undefined : json['is_d2_only'],
         'isConferenceOnly': json['is_conference_only'] == null ? undefined : json['is_conference_only'],
@@ -388,6 +409,7 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'coach_id': value['coachId'],
         'divisions': value['divisions'] == null ? undefined : ((value['divisions'] as Array<any>).map(DivisionToJSON)),
         'roles': value['roles'],
+        'is_admin': value['isAdmin'],
         'can_see_compensation': value['canSeeCompensation'],
         'can_show_scouting': value['canShowScouting'],
         'can_show_game_contract': value['canShowGameContract'],
@@ -401,6 +423,8 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'can_show_game_post': value['canShowGamePost'],
         'can_see_school_groups': value['canSeeSchoolGroups'],
         'can_read_account': value['canReadAccount'],
+        'can_launch_intercollegiate': value['canLaunchIntercollegiate'],
+        'intercollegiate_url': value['intercollegiateUrl'],
         'is_sport_specific': value['isSportSpecific'],
         'is_d2_only': value['isD2Only'],
         'is_conference_only': value['isConferenceOnly'],

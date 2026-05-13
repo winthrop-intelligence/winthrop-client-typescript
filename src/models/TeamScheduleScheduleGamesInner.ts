@@ -99,12 +99,6 @@ export interface TeamScheduleScheduleGamesInner {
     compensationCents?: number | null;
     /**
      * 
-     * @type {string}
-     * @memberof TeamScheduleScheduleGamesInner
-     */
-    compensationDirection?: TeamScheduleScheduleGamesInnerCompensationDirectionEnum | null;
-    /**
-     * 
      * @type {number}
      * @memberof TeamScheduleScheduleGamesInner
      */
@@ -139,15 +133,6 @@ export const TeamScheduleScheduleGamesInnerLocationEnum = {
     Neutral: 'Neutral'
 } as const;
 export type TeamScheduleScheduleGamesInnerLocationEnum = typeof TeamScheduleScheduleGamesInnerLocationEnum[keyof typeof TeamScheduleScheduleGamesInnerLocationEnum];
-
-/**
- * @export
- */
-export const TeamScheduleScheduleGamesInnerCompensationDirectionEnum = {
-    Paid: 'paid',
-    Received: 'received'
-} as const;
-export type TeamScheduleScheduleGamesInnerCompensationDirectionEnum = typeof TeamScheduleScheduleGamesInnerCompensationDirectionEnum[keyof typeof TeamScheduleScheduleGamesInnerCompensationDirectionEnum];
 
 /**
  * @export
@@ -189,7 +174,6 @@ export function TeamScheduleScheduleGamesInnerFromJSONTyped(json: any, ignoreDis
         'inConference': json['in_conference'] == null ? undefined : json['in_conference'],
         'hasContract': json['has_contract'] == null ? undefined : json['has_contract'],
         'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
-        'compensationDirection': json['compensation_direction'] == null ? undefined : json['compensation_direction'],
         'gameContractId': json['game_contract_id'] == null ? undefined : json['game_contract_id'],
         'result': json['result'] == null ? undefined : json['result'],
         'score': json['score'] == null ? undefined : json['score'],
@@ -221,7 +205,6 @@ export function TeamScheduleScheduleGamesInnerToJSONTyped(value?: TeamScheduleSc
         'in_conference': value['inConference'],
         'has_contract': value['hasContract'],
         'compensation_cents': value['compensationCents'],
-        'compensation_direction': value['compensationDirection'],
         'game_contract_id': value['gameContractId'],
         'result': value['result'],
         'score': value['score'],

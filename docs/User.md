@@ -20,6 +20,7 @@ Name | Type
 `coachId` | number
 `divisions` | [Array&lt;Division&gt;](Division.md)
 `roles` | Array&lt;string&gt;
+`isAdmin` | boolean
 `canSeeCompensation` | boolean
 `canShowScouting` | boolean
 `canShowGameContract` | boolean
@@ -33,6 +34,8 @@ Name | Type
 `canShowGamePost` | boolean
 `canSeeSchoolGroups` | boolean
 `canReadAccount` | boolean
+`canLaunchIntercollegiate` | boolean
+`intercollegiateUrl` | string
 `isSportSpecific` | boolean
 `isD2Only` | boolean
 `isConferenceOnly` | boolean
@@ -70,6 +73,7 @@ const example = {
   "coachId": 1,
   "divisions": null,
   "roles": null,
+  "isAdmin": null,
   "canSeeCompensation": null,
   "canShowScouting": null,
   "canShowGameContract": null,
@@ -83,6 +87,8 @@ const example = {
   "canShowGamePost": null,
   "canSeeSchoolGroups": null,
   "canReadAccount": null,
+  "canLaunchIntercollegiate": null,
+  "intercollegiateUrl": null,
   "isSportSpecific": null,
   "isD2Only": null,
   "isConferenceOnly": null,
