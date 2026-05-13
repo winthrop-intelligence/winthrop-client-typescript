@@ -9,6 +9,7 @@ Name | Type
 `groupId` | number
 `name` | string
 `nameId` | string
+`reportLabel` | string
 `football` | number
 `basketballM` | number
 `basketballW` | number
@@ -25,6 +26,7 @@ const example = {
   "groupId": null,
   "name": null,
   "nameId": null,
+  "reportLabel": null,
   "football": null,
   "basketballM": null,
   "basketballW": null,
