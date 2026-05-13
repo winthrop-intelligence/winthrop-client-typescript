@@ -34,6 +34,8 @@ Name | Type
 `canShowGamePost` | boolean
 `canSeeSchoolGroups` | boolean
 `canReadAccount` | boolean
+`canLaunchIntercollegiate` | boolean
+`intercollegiateUrl` | string
 `isSportSpecific` | boolean
 `isD2Only` | boolean
 `isConferenceOnly` | boolean
@@ -85,6 +87,8 @@ const example = {
   "canShowGamePost": null,
   "canSeeSchoolGroups": null,
   "canReadAccount": null,
+  "canLaunchIntercollegiate": null,
+  "intercollegiateUrl": null,
   "isSportSpecific": null,
   "isD2Only": null,
   "isConferenceOnly": null,
