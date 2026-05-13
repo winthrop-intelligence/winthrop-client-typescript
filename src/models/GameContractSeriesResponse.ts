@@ -83,34 +83,16 @@ export interface GameContractSeriesResponse {
     cancelFeeCents?: number | null;
     /**
      * 
-     * @type {number}
-     * @memberof GameContractSeriesResponse
-     */
-    rawContractId?: number | null;
-    /**
-     * 
      * @type {boolean}
      * @memberof GameContractSeriesResponse
      */
     hasRawContract?: boolean;
     /**
      * 
-     * @type {boolean}
-     * @memberof GameContractSeriesResponse
-     */
-    canDownloadRawContract?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof GameContractSeriesResponse
      */
     rawContractUrl?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameContractSeriesResponse
-     */
-    rawContractFilename?: string | null;
     /**
      * 
      * @type {Array<GameContractSeriesEntry>}
@@ -145,11 +127,8 @@ export function GameContractSeriesResponseFromJSONTyped(json: any, ignoreDiscrim
         'gameType': json['game_type'] == null ? undefined : json['game_type'],
         'seasonYear': json['season_year'] == null ? undefined : json['season_year'],
         'cancelFeeCents': json['cancel_fee_cents'] == null ? undefined : json['cancel_fee_cents'],
-        'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
         'hasRawContract': json['has_raw_contract'] == null ? undefined : json['has_raw_contract'],
-        'canDownloadRawContract': json['can_download_raw_contract'] == null ? undefined : json['can_download_raw_contract'],
         'rawContractUrl': json['raw_contract_url'] == null ? undefined : json['raw_contract_url'],
-        'rawContractFilename': json['raw_contract_filename'] == null ? undefined : json['raw_contract_filename'],
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(GameContractSeriesEntryFromJSON)),
     };
 }
@@ -174,11 +153,8 @@ export function GameContractSeriesResponseToJSONTyped(value?: GameContractSeries
         'game_type': value['gameType'],
         'season_year': value['seasonYear'],
         'cancel_fee_cents': value['cancelFeeCents'],
-        'raw_contract_id': value['rawContractId'],
         'has_raw_contract': value['hasRawContract'],
-        'can_download_raw_contract': value['canDownloadRawContract'],
         'raw_contract_url': value['rawContractUrl'],
-        'raw_contract_filename': value['rawContractFilename'],
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(GameContractSeriesEntryToJSON)),
     };
 }

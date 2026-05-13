@@ -36,12 +36,6 @@ export interface TeamScheduleDetailSchool {
      * @type {string}
      * @memberof TeamScheduleDetailSchool
      */
-    shortName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TeamScheduleDetailSchool
-     */
     logoUrl?: string | null;
     /**
      * 
@@ -82,7 +76,6 @@ export function TeamScheduleDetailSchoolFromJSONTyped(json: any, ignoreDiscrimin
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
-        'shortName': json['short_name'] == null ? undefined : json['short_name'],
         'logoUrl': json['logo_url'] == null ? undefined : json['logo_url'],
         'city': json['city'] == null ? undefined : json['city'],
         'stateName': json['state_name'] == null ? undefined : json['state_name'],
@@ -103,7 +96,6 @@ export function TeamScheduleDetailSchoolToJSONTyped(value?: TeamScheduleDetailSc
         
         'id': value['id'],
         'name': value['name'],
-        'short_name': value['shortName'],
         'logo_url': value['logoUrl'],
         'city': value['city'],
         'state_name': value['stateName'],
