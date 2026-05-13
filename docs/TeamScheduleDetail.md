@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `school` | [TeamScheduleDetailSchool](TeamScheduleDetailSchool.md)
-`sport` | [ContactSearchCoachOptionsSportsInner](ContactSearchCoachOptionsSportsInner.md)
+`sport` | [TeamScheduleDetailSport](TeamScheduleDetailSport.md)
 `seasonYear` | number
 `performanceYear` | number
 `season` | [TeamScheduleDetailSeason](TeamScheduleDetailSeason.md)

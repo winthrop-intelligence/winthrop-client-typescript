@@ -7,8 +7,11 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`coachId` | number
 `coachName` | string
 `totalComp` | number
+`positionTitle` | string
+`photoUrl` | string
 
 ## Example
 
@@ -18,8 +21,11 @@ import type { DepartmentStaffMember } from '@winthrop-intelligence/winthrop-clie
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
+  "coachId": null,
   "coachName": null,
   "totalComp": null,
+  "positionTitle": null,
+  "photoUrl": null,
 } satisfies DepartmentStaffMember
 
 console.log(example)
