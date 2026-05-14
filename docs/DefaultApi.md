@@ -187,7 +187,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSubdivisionSportCompensation**](DefaultApi.md#getsubdivisionsportcompensation) | **GET** /api/v1/subdivisions/{subdivisionId}/sport_compensation |  |
 | [**getSubdivisions**](DefaultApi.md#getsubdivisions) | **GET** /api/v1/subdivisions |  |
 | [**getSubscription**](DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} |  |
-| [**getSubscriptionAcceptance**](DefaultApi.md#getsubscriptionacceptance) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
 | [**getSubscriptions**](DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions |  |
 | [**getSystemSettings**](DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting |  |
 | [**getTeamScheduleDetail**](DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} |  |
@@ -238,7 +237,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
 | [**updateSchoolGroup**](DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
-| [**updateSubscriptionAcceptance**](DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
 | [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
 | [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
 | [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
@@ -246,7 +244,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
 | [**viewRawContractFile**](DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file |  |
-| [**viewSubscriptionAcceptanceContract**](DefaultApi.md#viewsubscriptionacceptancecontract) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract |  |
 
 
 
@@ -14243,80 +14240,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getSubscriptionAcceptance
-
-> SubscriptionAcceptance getSubscriptionAcceptance(subscriptionAcceptanceId, acceptanceToken)
-
-
-
-Retrieve token-scoped subscription order details
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetSubscriptionAcceptanceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const api = new DefaultApi();
-
-  const body = {
-    // string | ID or slug of the Subscription
-    subscriptionAcceptanceId: subscriptionAcceptanceId_example,
-    // string | Token from the subscription order email
-    acceptanceToken: acceptanceToken_example,
-  } satisfies GetSubscriptionAcceptanceRequest;
-
-  try {
-    const data = await api.getSubscriptionAcceptance(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **subscriptionAcceptanceId** | `string` | ID or slug of the Subscription | [Defaults to `undefined`] |
-| **acceptanceToken** | `string` | Token from the subscription order email | [Defaults to `undefined`] |
-
-### Return type
-
-[**SubscriptionAcceptance**](SubscriptionAcceptance.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Subscription order details were found |  -  |
-| **400** | Acceptance token is missing |  -  |
-| **404** | Subscription was not found |  -  |
-| **422** | Acceptance token is invalid |  -  |
-| **500** | Unexpected error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## getSubscriptions
 
 > SubscriptionCollection getSubscriptions(page, perPage, q)
@@ -18206,83 +18129,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## updateSubscriptionAcceptance
-
-> SubscriptionAcceptance updateSubscriptionAcceptance(subscriptionAcceptanceId, acceptanceToken, updateSubscriptionAcceptanceRequest)
-
-
-
-Accept a token-scoped subscription order
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateSubscriptionAcceptanceOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const api = new DefaultApi();
-
-  const body = {
-    // string | ID or slug of the Subscription
-    subscriptionAcceptanceId: subscriptionAcceptanceId_example,
-    // string | Token from the subscription order email
-    acceptanceToken: acceptanceToken_example,
-    // UpdateSubscriptionAcceptanceRequest
-    updateSubscriptionAcceptanceRequest: ...,
-  } satisfies UpdateSubscriptionAcceptanceOperationRequest;
-
-  try {
-    const data = await api.updateSubscriptionAcceptance(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **subscriptionAcceptanceId** | `string` | ID or slug of the Subscription | [Defaults to `undefined`] |
-| **acceptanceToken** | `string` | Token from the subscription order email | [Defaults to `undefined`] |
-| **updateSubscriptionAcceptanceRequest** | [UpdateSubscriptionAcceptanceRequest](UpdateSubscriptionAcceptanceRequest.md) |  | |
-
-### Return type
-
-[**SubscriptionAcceptance**](SubscriptionAcceptance.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Subscription order was accepted or already accepted |  -  |
-| **400** | Required parameters are missing |  -  |
-| **404** | Subscription was not found |  -  |
-| **422** | Acceptance token is invalid or validation failed |  -  |
-| **500** | Unexpected error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## updateTeamScheduleFavorite
 
 > CreateTeamScheduleFavorite201Response updateTeamScheduleFavorite(id, updateTeamScheduleFavoriteRequest)
@@ -18806,80 +18652,6 @@ example().catch(console.error);
 | **200** | PDF file stream |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## viewSubscriptionAcceptanceContract
-
-> Blob viewSubscriptionAcceptanceContract(subscriptionAcceptanceId, acceptanceToken)
-
-
-
-Retrieve the token-scoped subscription contract PDF for inline viewing
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ViewSubscriptionAcceptanceContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const api = new DefaultApi();
-
-  const body = {
-    // string | ID or slug of the Subscription
-    subscriptionAcceptanceId: subscriptionAcceptanceId_example,
-    // string | Token from the subscription order email
-    acceptanceToken: acceptanceToken_example,
-  } satisfies ViewSubscriptionAcceptanceContractRequest;
-
-  try {
-    const data = await api.viewSubscriptionAcceptanceContract(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **subscriptionAcceptanceId** | `string` | ID or slug of the Subscription | [Defaults to `undefined`] |
-| **acceptanceToken** | `string` | Token from the subscription order email | [Defaults to `undefined`] |
-
-### Return type
-
-**Blob**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/pdf`, `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | PDF file stream |  -  |
-| **400** | Acceptance token is missing |  -  |
-| **404** | Contract or subscription was not found |  -  |
-| **422** | Acceptance token is invalid |  -  |
-| **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

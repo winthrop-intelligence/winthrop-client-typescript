@@ -103,7 +103,6 @@ docs/ContactSearchCollection.md
 docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
-docs/ContractTermOption.md
 docs/CoworkerEntry.md
 docs/CoworkerTenure.md
 docs/CreateAccountUser422Response.md
@@ -250,11 +249,13 @@ docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
 docs/RoleOption.md
+docs/RunningJob.md
 docs/ScheduleGridAvailableSchoolPost.md
 docs/ScheduleGridAvailableSchoolRow.md
 docs/ScheduleGridAvailableSchools.md
 docs/ScheduleGridGame.md
 docs/ScheduleGridGamePost.md
+docs/ScheduleGridOnboarding.md
 docs/ScheduleGridSchool.md
 docs/ScheduleGridView.md
 docs/School.md
@@ -293,8 +294,6 @@ docs/State.md
 docs/Subdivision.md
 docs/SubdivisionCollection.md
 docs/Subscription.md
-docs/SubscriptionAcceptance.md
-docs/SubscriptionAcceptanceErrors.md
 docs/SubscriptionCollection.md
 docs/SystemSetting.md
 docs/Tag.md
@@ -347,8 +346,6 @@ docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
 docs/UpdateSchoolGroupRequest.md
 docs/UpdateSchoolGroupRequestSchoolGroup.md
-docs/UpdateSubscriptionAcceptanceRequest.md
-docs/UpdateSubscriptionAcceptanceRequestSubscription.md
 docs/UpdateTeamScheduleFavoriteRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateUserRequestUser.md
@@ -484,7 +481,6 @@ src/models/ContactSearchCollection.ts
 src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
-src/models/ContractTermOption.ts
 src/models/CoworkerEntry.ts
 src/models/CoworkerTenure.ts
 src/models/CreateAccountUser422Response.ts
@@ -626,11 +622,13 @@ src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
 src/models/RoleOption.ts
+src/models/RunningJob.ts
 src/models/ScheduleGridAvailableSchoolPost.ts
 src/models/ScheduleGridAvailableSchoolRow.ts
 src/models/ScheduleGridAvailableSchools.ts
 src/models/ScheduleGridGame.ts
 src/models/ScheduleGridGamePost.ts
+src/models/ScheduleGridOnboarding.ts
 src/models/ScheduleGridSchool.ts
 src/models/ScheduleGridView.ts
 src/models/School.ts
@@ -668,8 +666,6 @@ src/models/State.ts
 src/models/Subdivision.ts
 src/models/SubdivisionCollection.ts
 src/models/Subscription.ts
-src/models/SubscriptionAcceptance.ts
-src/models/SubscriptionAcceptanceErrors.ts
 src/models/SubscriptionCollection.ts
 src/models/SystemSetting.ts
 src/models/Tag.ts
@@ -722,8 +718,6 @@ src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
 src/models/UpdateSchoolGroupRequest.ts
 src/models/UpdateSchoolGroupRequestSchoolGroup.ts
-src/models/UpdateSubscriptionAcceptanceRequest.ts
-src/models/UpdateSubscriptionAcceptanceRequestSubscription.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
 src/models/UpdateUserRequest.ts
 src/models/UpdateUserRequestUser.ts

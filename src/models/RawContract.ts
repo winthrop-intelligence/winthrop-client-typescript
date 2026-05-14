@@ -179,7 +179,7 @@ export interface RawContract {
      */
     pdfPreviewUrl?: string | null;
     /**
-     * Proxied URL for downloading the watermarked PDF (present when the current user can download this contract)
+     * Direct download URL (admin only)
      * @type {string}
      * @memberof RawContract
      */

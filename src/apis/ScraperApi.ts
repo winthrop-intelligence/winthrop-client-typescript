@@ -15,12 +15,19 @@
 
 import * as runtime from '../runtime';
 import type {
+  RunningJob,
   Scraper,
 } from '../models/index';
 import {
+    RunningJobFromJSON,
+    RunningJobToJSON,
     ScraperFromJSON,
     ScraperToJSON,
 } from '../models/index';
+
+export interface ScraperApiDeleteRunningJobRequest {
+    jobName: string;
+}
 
 export interface ScraperApiRunScraperRequest {
     command: string;
@@ -31,6 +38,93 @@ export interface ScraperApiRunScraperRequest {
  * 
  */
 export class ScraperApi extends runtime.BaseAPI {
+
+    /**
+     * Delete a running Kubernetes Job started by the run endpoint
+     * Delete a running scraper job
+     */
+    async deleteRunningJobRaw(requestParameters: ScraperApiDeleteRunningJobRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['jobName'] == null) {
+            throw new runtime.RequiredError(
+                'jobName',
+                'Required parameter "jobName" was null or undefined when calling deleteRunningJob().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/ondemand-scrapers/jobs/{job_name}`;
+        urlPath = urlPath.replace(`{${"job_name"}}`, encodeURIComponent(String(requestParameters['jobName'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a running Kubernetes Job started by the run endpoint
+     * Delete a running scraper job
+     */
+    async deleteRunningJob(requestParameters: ScraperApiDeleteRunningJobRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteRunningJobRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * List still-running Kubernetes Jobs started by the run endpoint
+     * List running scraper jobs
+     */
+    async listJobsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<RunningJob>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/ondemand-scrapers/jobs`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(RunningJobFromJSON));
+    }
+
+    /**
+     * List still-running Kubernetes Jobs started by the run endpoint
+     * List running scraper jobs
+     */
+    async listJobs(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<RunningJob>> {
+        const response = await this.listJobsRaw(initOverrides);
+        return await response.value();
+    }
 
     /**
      * Root endpoint
