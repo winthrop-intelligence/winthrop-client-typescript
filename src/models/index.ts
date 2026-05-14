@@ -249,6 +249,7 @@ export * from './ScheduleGridAvailableSchoolRow';
 export * from './ScheduleGridAvailableSchools';
 export * from './ScheduleGridGame';
 export * from './ScheduleGridGamePost';
+export * from './ScheduleGridOnboarding';
 export * from './ScheduleGridSchool';
 export * from './ScheduleGridView';
 export * from './School';
