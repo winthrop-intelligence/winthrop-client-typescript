@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `name` | string
 `title` | string
+`description` | string
 `argumentDefs` | [Array&lt;ScraperArgDef&gt;](ScraperArgDef.md)
 
 ## Example
@@ -19,6 +20,7 @@ import type { Scraper } from '@winthrop-intelligence/winthrop-client-typescript'
 const example = {
   "name": bb_games_scraper,
   "title": Basketball Games Scraper,
+  "description": Scrapes basketball game data.,
   "argumentDefs": null,
 } satisfies Scraper
 
