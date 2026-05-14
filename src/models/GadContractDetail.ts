@@ -168,6 +168,18 @@ export interface GadContractDetail {
      * @type {boolean}
      * @memberof GadContractDetail
      */
+    canDownloadRawContract?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadContractDetail
+     */
+    canSeeAdminView?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GadContractDetail
+     */
     belongsToSeries?: boolean;
     /**
      * 
@@ -266,6 +278,8 @@ export function GadContractDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'hasRawContract': json['has_raw_contract'] == null ? undefined : json['has_raw_contract'],
         'rawContractUrl': json['raw_contract_url'] == null ? undefined : json['raw_contract_url'],
         'rawContractFilename': json['raw_contract_filename'] == null ? undefined : json['raw_contract_filename'],
+        'canDownloadRawContract': json['can_download_raw_contract'] == null ? undefined : json['can_download_raw_contract'],
+        'canSeeAdminView': json['can_see_admin_view'] == null ? undefined : json['can_see_admin_view'],
         'belongsToSeries': json['belongs_to_series'] == null ? undefined : json['belongs_to_series'],
         'verified': json['verified'] == null ? undefined : json['verified'],
         'unstractTextState': json['unstract_text_state'] == null ? undefined : json['unstract_text_state'],
@@ -314,6 +328,8 @@ export function GadContractDetailToJSONTyped(value?: GadContractDetail | null, i
         'has_raw_contract': value['hasRawContract'],
         'raw_contract_url': value['rawContractUrl'],
         'raw_contract_filename': value['rawContractFilename'],
+        'can_download_raw_contract': value['canDownloadRawContract'],
+        'can_see_admin_view': value['canSeeAdminView'],
         'belongs_to_series': value['belongsToSeries'],
         'verified': value['verified'],
         'unstract_text_state': value['unstractTextState'],
