@@ -30,8 +30,6 @@ Name | Type
 `hasRawContract` | boolean
 `rawContractUrl` | string
 `rawContractFilename` | string
-`canDownloadRawContract` | boolean
-`canSeeAdminView` | boolean
 `belongsToSeries` | boolean
 `verified` | boolean
 `unstractTextState` | string
@@ -74,8 +72,6 @@ const example = {
   "hasRawContract": null,
   "rawContractUrl": null,
   "rawContractFilename": null,
-  "canDownloadRawContract": null,
-  "canSeeAdminView": null,
   "belongsToSeries": null,
   "verified": null,
   "unstractTextState": null,
