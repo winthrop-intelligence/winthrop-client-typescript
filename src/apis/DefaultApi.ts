@@ -158,8 +158,6 @@ import type {
   Subdivision,
   SubdivisionCollection,
   Subscription,
-  SubscriptionAcceptance,
-  SubscriptionAcceptanceErrors,
   SubscriptionCollection,
   SystemSetting,
   TeamScheduleCoaches,
@@ -182,7 +180,6 @@ import type {
   UpdatePasswordReset200Response,
   UpdatePasswordResetRequest,
   UpdateSchoolGroupRequest,
-  UpdateSubscriptionAcceptanceRequest,
   UpdateTeamScheduleFavoriteRequest,
   UpdateUserRequest,
   UploadDetail,
@@ -487,10 +484,6 @@ import {
     SubdivisionCollectionToJSON,
     SubscriptionFromJSON,
     SubscriptionToJSON,
-    SubscriptionAcceptanceFromJSON,
-    SubscriptionAcceptanceToJSON,
-    SubscriptionAcceptanceErrorsFromJSON,
-    SubscriptionAcceptanceErrorsToJSON,
     SubscriptionCollectionFromJSON,
     SubscriptionCollectionToJSON,
     SystemSettingFromJSON,
@@ -535,8 +528,6 @@ import {
     UpdatePasswordResetRequestToJSON,
     UpdateSchoolGroupRequestFromJSON,
     UpdateSchoolGroupRequestToJSON,
-    UpdateSubscriptionAcceptanceRequestFromJSON,
-    UpdateSubscriptionAcceptanceRequestToJSON,
     UpdateTeamScheduleFavoriteRequestFromJSON,
     UpdateTeamScheduleFavoriteRequestToJSON,
     UpdateUserRequestFromJSON,
@@ -1390,11 +1381,6 @@ export interface DefaultApiGetSubscriptionRequest {
     subscriptionId: number;
 }
 
-export interface DefaultApiGetSubscriptionAcceptanceRequest {
-    subscriptionAcceptanceId: string;
-    acceptanceToken: string;
-}
-
 export interface DefaultApiGetSubscriptionsRequest {
     page?: number;
     perPage?: number;
@@ -1642,12 +1628,6 @@ export interface DefaultApiUpdateSeasonRequest {
     season: Season;
 }
 
-export interface DefaultApiUpdateSubscriptionAcceptanceOperationRequest {
-    subscriptionAcceptanceId: string;
-    acceptanceToken: string;
-    updateSubscriptionAcceptanceRequest: UpdateSubscriptionAcceptanceRequest;
-}
-
 export interface DefaultApiUpdateTeamScheduleFavoriteOperationRequest {
     id: number;
     updateTeamScheduleFavoriteRequest: UpdateTeamScheduleFavoriteRequest;
@@ -1673,11 +1653,6 @@ export interface DefaultApiVerifyUserIntercollegiateAccessRequest {
 
 export interface DefaultApiViewRawContractFileRequest {
     rawContractId: number;
-}
-
-export interface DefaultApiViewSubscriptionAcceptanceContractRequest {
-    subscriptionAcceptanceId: string;
-    acceptanceToken: string;
 }
 
 /**
@@ -10577,54 +10552,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Retrieve token-scoped subscription order details
-     */
-    async getSubscriptionAcceptanceRaw(requestParameters: DefaultApiGetSubscriptionAcceptanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionAcceptance>> {
-        if (requestParameters['subscriptionAcceptanceId'] == null) {
-            throw new runtime.RequiredError(
-                'subscriptionAcceptanceId',
-                'Required parameter "subscriptionAcceptanceId" was null or undefined when calling getSubscriptionAcceptance().'
-            );
-        }
-
-        if (requestParameters['acceptanceToken'] == null) {
-            throw new runtime.RequiredError(
-                'acceptanceToken',
-                'Required parameter "acceptanceToken" was null or undefined when calling getSubscriptionAcceptance().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['acceptanceToken'] != null) {
-            queryParameters['acceptance_token'] = requestParameters['acceptanceToken'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/v1/subscription_acceptances/{subscriptionAcceptanceId}`;
-        urlPath = urlPath.replace(`{${"subscriptionAcceptanceId"}}`, encodeURIComponent(String(requestParameters['subscriptionAcceptanceId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionAcceptanceFromJSON(jsonValue));
-    }
-
-    /**
-     * Retrieve token-scoped subscription order details
-     */
-    async getSubscriptionAcceptance(requestParameters: DefaultApiGetSubscriptionAcceptanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionAcceptance> {
-        const response = await this.getSubscriptionAcceptanceRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Retrieve the all subscriptions
      */
     async getSubscriptionsRaw(requestParameters: DefaultApiGetSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionCollection>> {
@@ -13225,64 +13152,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accept a token-scoped subscription order
-     */
-    async updateSubscriptionAcceptanceRaw(requestParameters: DefaultApiUpdateSubscriptionAcceptanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionAcceptance>> {
-        if (requestParameters['subscriptionAcceptanceId'] == null) {
-            throw new runtime.RequiredError(
-                'subscriptionAcceptanceId',
-                'Required parameter "subscriptionAcceptanceId" was null or undefined when calling updateSubscriptionAcceptance().'
-            );
-        }
-
-        if (requestParameters['acceptanceToken'] == null) {
-            throw new runtime.RequiredError(
-                'acceptanceToken',
-                'Required parameter "acceptanceToken" was null or undefined when calling updateSubscriptionAcceptance().'
-            );
-        }
-
-        if (requestParameters['updateSubscriptionAcceptanceRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateSubscriptionAcceptanceRequest',
-                'Required parameter "updateSubscriptionAcceptanceRequest" was null or undefined when calling updateSubscriptionAcceptance().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['acceptanceToken'] != null) {
-            queryParameters['acceptance_token'] = requestParameters['acceptanceToken'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/v1/subscription_acceptances/{subscriptionAcceptanceId}`;
-        urlPath = urlPath.replace(`{${"subscriptionAcceptanceId"}}`, encodeURIComponent(String(requestParameters['subscriptionAcceptanceId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateSubscriptionAcceptanceRequestToJSON(requestParameters['updateSubscriptionAcceptanceRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionAcceptanceFromJSON(jsonValue));
-    }
-
-    /**
-     * Accept a token-scoped subscription order
-     */
-    async updateSubscriptionAcceptance(requestParameters: DefaultApiUpdateSubscriptionAcceptanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionAcceptance> {
-        const response = await this.updateSubscriptionAcceptanceRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Update a FilTeam favorite\'s category
      */
     async updateTeamScheduleFavoriteRaw(requestParameters: DefaultApiUpdateTeamScheduleFavoriteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTeamScheduleFavorite201Response>> {
@@ -13628,54 +13497,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async viewRawContractFile(requestParameters: DefaultApiViewRawContractFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
         const response = await this.viewRawContractFileRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Retrieve the token-scoped subscription contract PDF for inline viewing
-     */
-    async viewSubscriptionAcceptanceContractRaw(requestParameters: DefaultApiViewSubscriptionAcceptanceContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
-        if (requestParameters['subscriptionAcceptanceId'] == null) {
-            throw new runtime.RequiredError(
-                'subscriptionAcceptanceId',
-                'Required parameter "subscriptionAcceptanceId" was null or undefined when calling viewSubscriptionAcceptanceContract().'
-            );
-        }
-
-        if (requestParameters['acceptanceToken'] == null) {
-            throw new runtime.RequiredError(
-                'acceptanceToken',
-                'Required parameter "acceptanceToken" was null or undefined when calling viewSubscriptionAcceptanceContract().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['acceptanceToken'] != null) {
-            queryParameters['acceptance_token'] = requestParameters['acceptanceToken'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract`;
-        urlPath = urlPath.replace(`{${"subscriptionAcceptanceId"}}`, encodeURIComponent(String(requestParameters['subscriptionAcceptanceId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.BlobApiResponse(response);
-    }
-
-    /**
-     * Retrieve the token-scoped subscription contract PDF for inline viewing
-     */
-    async viewSubscriptionAcceptanceContract(requestParameters: DefaultApiViewSubscriptionAcceptanceContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
-        const response = await this.viewSubscriptionAcceptanceContractRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
