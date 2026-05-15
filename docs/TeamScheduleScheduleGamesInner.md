@@ -19,7 +19,6 @@ Name | Type
 `inConference` | boolean
 `hasContract` | boolean
 `compensationCents` | number
-`compensationDirection` | string
 `gameContractId` | number
 `result` | string
 `score` | string
@@ -45,7 +44,6 @@ const example = {
   "inConference": null,
   "hasContract": null,
   "compensationCents": null,
-  "compensationDirection": null,
   "gameContractId": null,
   "result": null,
   "score": null,
