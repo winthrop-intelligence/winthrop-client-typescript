@@ -41,6 +41,12 @@ export interface Scraper {
     title?: string;
     /**
      * 
+     * @type {string}
+     * @memberof Scraper
+     */
+    description?: string;
+    /**
+     * 
      * @type {Array<ScraperArgDef>}
      * @memberof Scraper
      */
@@ -66,6 +72,7 @@ export function ScraperFromJSONTyped(json: any, ignoreDiscriminator: boolean): S
         
         'name': json['name'] == null ? undefined : json['name'],
         'title': json['title'] == null ? undefined : json['title'],
+        'description': json['description'] == null ? undefined : json['description'],
         'argumentDefs': json['argumentDefs'] == null ? undefined : ((json['argumentDefs'] as Array<any>).map(ScraperArgDefFromJSON)),
     };
 }
@@ -83,6 +90,7 @@ export function ScraperToJSONTyped(value?: Scraper | null, ignoreDiscriminator: 
         
         'name': value['name'],
         'title': value['title'],
+        'description': value['description'],
         'argumentDefs': value['argumentDefs'] == null ? undefined : ((value['argumentDefs'] as Array<any>).map(ScraperArgDefToJSON)),
     };
 }

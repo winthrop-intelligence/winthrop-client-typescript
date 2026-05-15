@@ -22,8 +22,6 @@ Name | Type
 `homeSchoolScore` | number
 `awaySchoolScore` | number
 `overtime` | boolean
-`createdBySchoolId` | number
-`schoolEntered` | boolean
 
 ## Example
 
@@ -47,8 +45,6 @@ const example = {
   "homeSchoolScore": null,
   "awaySchoolScore": null,
   "overtime": null,
-  "createdBySchoolId": null,
-  "schoolEntered": null,
 } satisfies ScheduleGridGame
 
 console.log(example)

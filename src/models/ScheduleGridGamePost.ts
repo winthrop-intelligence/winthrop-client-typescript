@@ -43,18 +43,6 @@ export interface ScheduleGridGamePost {
      * @memberof ScheduleGridGamePost
      */
     gameTypes?: Array<string>;
-    /**
-     * School account ID that created this post when entered by a school account; null for internal/admin/support or unknown sources
-     * @type {number}
-     * @memberof ScheduleGridGamePost
-     */
-    createdBySchoolId?: number | null;
-    /**
-     * True when this post was entered by a user from the owning school account
-     * @type {boolean}
-     * @memberof ScheduleGridGamePost
-     */
-    schoolEntered?: boolean;
 }
 
 /**
@@ -78,8 +66,6 @@ export function ScheduleGridGamePostFromJSONTyped(json: any, ignoreDiscriminator
         'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
         'endDate': json['end_date'] == null ? undefined : (new Date(json['end_date'])),
         'gameTypes': json['game_types'] == null ? undefined : json['game_types'],
-        'createdBySchoolId': json['created_by_school_id'] == null ? undefined : json['created_by_school_id'],
-        'schoolEntered': json['school_entered'] == null ? undefined : json['school_entered'],
     };
 }
 
@@ -98,8 +84,6 @@ export function ScheduleGridGamePostToJSONTyped(value?: ScheduleGridGamePost | n
         'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
         'end_date': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
         'game_types': value['gameTypes'],
-        'created_by_school_id': value['createdBySchoolId'],
-        'school_entered': value['schoolEntered'],
     };
 }
 

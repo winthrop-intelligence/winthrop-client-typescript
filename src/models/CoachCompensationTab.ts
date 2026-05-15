@@ -20,6 +20,13 @@ import {
     CoachCompensationTabComparisonsToJSON,
     CoachCompensationTabComparisonsToJSONTyped,
 } from './CoachCompensationTabComparisons';
+import type { CoachCompensationTabQuartiles } from './CoachCompensationTabQuartiles';
+import {
+    CoachCompensationTabQuartilesFromJSON,
+    CoachCompensationTabQuartilesFromJSONTyped,
+    CoachCompensationTabQuartilesToJSON,
+    CoachCompensationTabQuartilesToJSONTyped,
+} from './CoachCompensationTabQuartiles';
 import type { CoachCompensationTabChartData } from './CoachCompensationTabChartData';
 import {
     CoachCompensationTabChartDataFromJSON,
@@ -84,6 +91,12 @@ export interface CoachCompensationTab {
      * @memberof CoachCompensationTab
      */
     sidebar?: CoachCompensationTabSidebar;
+    /**
+     * 
+     * @type {CoachCompensationTabQuartiles}
+     * @memberof CoachCompensationTab
+     */
+    quartiles?: CoachCompensationTabQuartiles | null;
 }
 
 /**
@@ -112,6 +125,7 @@ export function CoachCompensationTabFromJSONTyped(json: any, ignoreDiscriminator
         'totalCompensations': json['total_compensations'],
         'comparisons': json['comparisons'] == null ? undefined : CoachCompensationTabComparisonsFromJSON(json['comparisons']),
         'sidebar': json['sidebar'] == null ? undefined : CoachCompensationTabSidebarFromJSON(json['sidebar']),
+        'quartiles': json['quartiles'] == null ? undefined : CoachCompensationTabQuartilesFromJSON(json['quartiles']),
     };
 }
 
@@ -132,6 +146,7 @@ export function CoachCompensationTabToJSONTyped(value?: CoachCompensationTab | n
         'total_compensations': value['totalCompensations'],
         'comparisons': CoachCompensationTabComparisonsToJSON(value['comparisons']),
         'sidebar': CoachCompensationTabSidebarToJSON(value['sidebar']),
+        'quartiles': CoachCompensationTabQuartilesToJSON(value['quartiles']),
     };
 }
 
