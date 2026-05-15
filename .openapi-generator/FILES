@@ -180,9 +180,6 @@ docs/GamePostCollection.md
 docs/GamePostContact.md
 docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
-docs/GamePostPendingWindow.md
-docs/GamePostScheduleGame.md
-docs/GamePostScheduleSummary.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GameType.md
@@ -561,9 +558,6 @@ src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
 src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
-src/models/GamePostPendingWindow.ts
-src/models/GamePostScheduleGame.ts
-src/models/GamePostScheduleSummary.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts

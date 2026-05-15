@@ -11788,7 +11788,7 @@ async function example() {
   const body = {
     // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
     sportName: sportName_example,
-    // Array<number> | School IDs to include on the grid (max 8, ordering is preserved) (optional)
+    // Array<number> | School IDs to include on the grid (max 12, ordering is preserved) (optional)
     schoolIds: ...,
     // number | Four-digit season year. Defaults to the current year when omitted or invalid. (optional)
     year: 2026,
@@ -11812,7 +11812,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
-| **schoolIds** | `Array<number>` | School IDs to include on the grid (max 8, ordering is preserved) | [Optional] |
+| **schoolIds** | `Array<number>` | School IDs to include on the grid (max 12, ordering is preserved) | [Optional] |
 | **year** | `number` | Four-digit season year. Defaults to the current year when omitted or invalid. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -11971,7 +11971,7 @@ async function example() {
   const body = {
     // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
     sportName: sportName_example,
-    // Array<number> | School IDs to include on the grid (max 8, ordering is preserved) (optional)
+    // Array<number> | School IDs to include on the grid (max 12, ordering is preserved) (optional)
     schoolIds: ...,
     // number | Four-digit season year. Defaults to the current year when omitted or invalid. (optional)
     year: 2024,
@@ -11995,7 +11995,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
-| **schoolIds** | `Array<number>` | School IDs to include on the grid (max 8, ordering is preserved) | [Optional] |
+| **schoolIds** | `Array<number>` | School IDs to include on the grid (max 12, ordering is preserved) | [Optional] |
 | **year** | `number` | Four-digit season year. Defaults to the current year when omitted or invalid. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
