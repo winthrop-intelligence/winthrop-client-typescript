@@ -38,7 +38,6 @@ Name | Type
 `latitude` | number
 `longitude` | number
 `canManage` | boolean
-`scheduleSummary` | [GamePostScheduleSummary](GamePostScheduleSummary.md)
 
 ## Example
 
@@ -78,7 +77,6 @@ const example = {
   "latitude": null,
   "longitude": null,
   "canManage": null,
-  "scheduleSummary": null,
 } satisfies GamePostSearchResult
 
 console.log(example)

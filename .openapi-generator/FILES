@@ -57,6 +57,8 @@ docs/CoachCompensationTabChartDataConferenceAvgOverTimeInner.md
 docs/CoachCompensationTabChartDataCurrentBreakdown.md
 docs/CoachCompensationTabChartDataTotalCompOverTimeInner.md
 docs/CoachCompensationTabComparisons.md
+docs/CoachCompensationTabQuartiles.md
+docs/CoachCompensationTabQuartilesRowsInner.md
 docs/CoachCompensationTabSidebar.md
 docs/CoachCompensationTabSidebarCoachingStaffInner.md
 docs/CoachCompensationTabSidebarContractsInner.md
@@ -178,9 +180,6 @@ docs/GamePostCollection.md
 docs/GamePostContact.md
 docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
-docs/GamePostPendingWindow.md
-docs/GamePostScheduleGame.md
-docs/GamePostScheduleSummary.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GameType.md
@@ -438,6 +437,8 @@ src/models/CoachCompensationTabChartDataConferenceAvgOverTimeInner.ts
 src/models/CoachCompensationTabChartDataCurrentBreakdown.ts
 src/models/CoachCompensationTabChartDataTotalCompOverTimeInner.ts
 src/models/CoachCompensationTabComparisons.ts
+src/models/CoachCompensationTabQuartiles.ts
+src/models/CoachCompensationTabQuartilesRowsInner.ts
 src/models/CoachCompensationTabSidebar.ts
 src/models/CoachCompensationTabSidebarCoachingStaffInner.ts
 src/models/CoachCompensationTabSidebarContractsInner.ts
@@ -557,9 +558,6 @@ src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
 src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
-src/models/GamePostPendingWindow.ts
-src/models/GamePostScheduleGame.ts
-src/models/GamePostScheduleSummary.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts
