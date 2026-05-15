@@ -109,6 +109,18 @@ export interface ScheduleGridGame {
      * @memberof ScheduleGridGame
      */
     overtime?: boolean | null;
+    /**
+     * School account ID that created this game when entered by a school account; null for internal/admin/support or unknown sources
+     * @type {number}
+     * @memberof ScheduleGridGame
+     */
+    createdBySchoolId?: number | null;
+    /**
+     * True when this game was entered by a user from the school account represented by this grid column
+     * @type {boolean}
+     * @memberof ScheduleGridGame
+     */
+    schoolEntered?: boolean;
 }
 
 /**
@@ -143,6 +155,8 @@ export function ScheduleGridGameFromJSONTyped(json: any, ignoreDiscriminator: bo
         'homeSchoolScore': json['home_school_score'] == null ? undefined : json['home_school_score'],
         'awaySchoolScore': json['away_school_score'] == null ? undefined : json['away_school_score'],
         'overtime': json['overtime'] == null ? undefined : json['overtime'],
+        'createdBySchoolId': json['created_by_school_id'] == null ? undefined : json['created_by_school_id'],
+        'schoolEntered': json['school_entered'] == null ? undefined : json['school_entered'],
     };
 }
 
@@ -172,6 +186,8 @@ export function ScheduleGridGameToJSONTyped(value?: ScheduleGridGame | null, ign
         'home_school_score': value['homeSchoolScore'],
         'away_school_score': value['awaySchoolScore'],
         'overtime': value['overtime'],
+        'created_by_school_id': value['createdBySchoolId'],
+        'school_entered': value['schoolEntered'],
     };
 }
 

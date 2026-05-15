@@ -180,6 +180,9 @@ docs/GamePostCollection.md
 docs/GamePostContact.md
 docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
+docs/GamePostPendingWindow.md
+docs/GamePostScheduleGame.md
+docs/GamePostScheduleSummary.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GameType.md
@@ -257,6 +260,7 @@ docs/ScheduleGridAvailableSchoolRow.md
 docs/ScheduleGridAvailableSchools.md
 docs/ScheduleGridGame.md
 docs/ScheduleGridGamePost.md
+docs/ScheduleGridOnboarding.md
 docs/ScheduleGridSchool.md
 docs/ScheduleGridView.md
 docs/School.md
@@ -557,6 +561,9 @@ src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
 src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
+src/models/GamePostPendingWindow.ts
+src/models/GamePostScheduleGame.ts
+src/models/GamePostScheduleSummary.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GameType.ts
@@ -631,6 +638,7 @@ src/models/ScheduleGridAvailableSchoolRow.ts
 src/models/ScheduleGridAvailableSchools.ts
 src/models/ScheduleGridGame.ts
 src/models/ScheduleGridGamePost.ts
+src/models/ScheduleGridOnboarding.ts
 src/models/ScheduleGridSchool.ts
 src/models/ScheduleGridView.ts
 src/models/School.ts

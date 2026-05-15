@@ -14,35 +14,17 @@
 
 import { mapValues } from '../runtime';
 /**
- * Request body for the legacy coach search endpoint.
+ * 
  * @export
  * @interface Filters
  */
 export interface Filters {
     /**
-     * Coach IDs to prioritize at the top of the result set.
-     * @type {Array<number>}
+     * Key-value pairs for filtering coaches
+     * @type {object}
      * @memberof Filters
      */
-    priorityIds?: Array<number>;
-    /**
-     * 
-     * @type {number}
-     * @memberof Filters
-     */
-    page?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Filters
-     */
-    perPage?: number;
-    /**
-     * Ransack query parameters for filtering coaches.
-     * @type {{ [key: string]: any; }}
-     * @memberof Filters
-     */
-    q?: { [key: string]: any; };
+    filters?: object;
 }
 
 /**
@@ -62,10 +44,7 @@ export function FiltersFromJSONTyped(json: any, ignoreDiscriminator: boolean): F
     }
     return {
         
-        'priorityIds': json['priority_ids'] == null ? undefined : json['priority_ids'],
-        'page': json['page'] == null ? undefined : json['page'],
-        'perPage': json['per_page'] == null ? undefined : json['per_page'],
-        'q': json['q'] == null ? undefined : json['q'],
+        'filters': json['filters'] == null ? undefined : json['filters'],
     };
 }
 
@@ -80,10 +59,7 @@ export function FiltersToJSONTyped(value?: Filters | null, ignoreDiscriminator: 
 
     return {
         
-        'priority_ids': value['priorityIds'],
-        'page': value['page'],
-        'per_page': value['perPage'],
-        'q': value['q'],
+        'filters': value['filters'],
     };
 }
 
