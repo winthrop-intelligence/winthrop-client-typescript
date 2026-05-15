@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { GamePostScheduleSummary } from './GamePostScheduleSummary';
+import {
+    GamePostScheduleSummaryFromJSON,
+    GamePostScheduleSummaryFromJSONTyped,
+    GamePostScheduleSummaryToJSON,
+    GamePostScheduleSummaryToJSONTyped,
+} from './GamePostScheduleSummary';
+
 /**
  * Enriched game post search result with school, location, and RPI data
  * @export
@@ -205,6 +213,12 @@ export interface GamePostSearchResult {
      * @memberof GamePostSearchResult
      */
     canManage?: boolean;
+    /**
+     * 
+     * @type {GamePostScheduleSummary}
+     * @memberof GamePostSearchResult
+     */
+    scheduleSummary?: GamePostScheduleSummary;
 }
 
 
@@ -266,6 +280,7 @@ export function GamePostSearchResultFromJSONTyped(json: any, ignoreDiscriminator
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'longitude': json['longitude'] == null ? undefined : json['longitude'],
         'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
+        'scheduleSummary': json['schedule_summary'] == null ? undefined : GamePostScheduleSummaryFromJSON(json['schedule_summary']),
     };
 }
 
@@ -311,6 +326,7 @@ export function GamePostSearchResultToJSONTyped(value?: GamePostSearchResult | n
         'latitude': value['latitude'],
         'longitude': value['longitude'],
         'can_manage': value['canManage'],
+        'schedule_summary': GamePostScheduleSummaryToJSON(value['scheduleSummary']),
     };
 }
 
