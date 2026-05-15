@@ -34,13 +34,6 @@ import {
     ScheduleGridGamePostToJSON,
     ScheduleGridGamePostToJSONTyped,
 } from './ScheduleGridGamePost';
-import type { ScheduleGridOnboarding } from './ScheduleGridOnboarding';
-import {
-    ScheduleGridOnboardingFromJSON,
-    ScheduleGridOnboardingFromJSONTyped,
-    ScheduleGridOnboardingToJSON,
-    ScheduleGridOnboardingToJSONTyped,
-} from './ScheduleGridOnboarding';
 
 /**
  * Schedule grid payload for a single sport and season
@@ -90,12 +83,6 @@ export interface ScheduleGridView {
      * @memberof ScheduleGridView
      */
     gamePosts?: { [key: string]: Array<ScheduleGridGamePost>; };
-    /**
-     * 
-     * @type {ScheduleGridOnboarding}
-     * @memberof ScheduleGridView
-     */
-    onboarding?: ScheduleGridOnboarding;
 }
 
 /**
@@ -122,7 +109,6 @@ export function ScheduleGridViewFromJSONTyped(json: any, ignoreDiscriminator: bo
         'schools': json['schools'] == null ? undefined : ((json['schools'] as Array<any>).map(ScheduleGridSchoolFromJSON)),
         'games': json['games'] == null ? undefined : json['games'],
         'gamePosts': json['game_posts'] == null ? undefined : json['game_posts'],
-        'onboarding': json['onboarding'] == null ? undefined : ScheduleGridOnboardingFromJSON(json['onboarding']),
     };
 }
 
@@ -144,7 +130,6 @@ export function ScheduleGridViewToJSONTyped(value?: ScheduleGridView | null, ign
         'schools': value['schools'] == null ? undefined : ((value['schools'] as Array<any>).map(ScheduleGridSchoolToJSON)),
         'games': value['games'],
         'game_posts': value['gamePosts'],
-        'onboarding': ScheduleGridOnboardingToJSON(value['onboarding']),
     };
 }
 

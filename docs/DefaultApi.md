@@ -16248,7 +16248,7 @@ example().catch(console.error);
 
 
 
-Search Coaches by priority_ids
+Search coaches by priority_ids and Ransack filters
 
 ### Example
 
@@ -16311,6 +16311,7 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Coaches were found |  -  |
+| **400** | Invalid pagination parameters |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

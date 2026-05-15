@@ -11827,7 +11827,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Search Coaches by priority_ids
+     * Search coaches by priority_ids and Ransack filters
      */
     async searchCoachesRaw(requestParameters: DefaultApiSearchCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
         const queryParameters: any = {};
@@ -11860,7 +11860,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Search Coaches by priority_ids
+     * Search coaches by priority_ids and Ransack filters
      */
     async searchCoaches(requestParameters: DefaultApiSearchCoachesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CoachCollection> {
         const response = await this.searchCoachesRaw(requestParameters, initOverrides);

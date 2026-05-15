@@ -11,8 +11,6 @@ Name | Type
 `startDate` | Date
 `endDate` | Date
 `gameTypes` | Array&lt;string&gt;
-`createdBySchoolId` | number
-`schoolEntered` | boolean
 
 ## Example
 
@@ -25,8 +23,6 @@ const example = {
   "startDate": null,
   "endDate": null,
   "gameTypes": null,
-  "createdBySchoolId": null,
-  "schoolEntered": null,
 } satisfies ScheduleGridGamePost
 
 console.log(example)

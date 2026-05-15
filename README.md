@@ -577,7 +577,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScheduleGridAvailableSchools](docs/ScheduleGridAvailableSchools.md)
 - [ScheduleGridGame](docs/ScheduleGridGame.md)
 - [ScheduleGridGamePost](docs/ScheduleGridGamePost.md)
-- [ScheduleGridOnboarding](docs/ScheduleGridOnboarding.md)
 - [ScheduleGridSchool](docs/ScheduleGridSchool.md)
 - [ScheduleGridView](docs/ScheduleGridView.md)
 - [School](docs/School.md)
