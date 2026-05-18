@@ -16,9 +16,12 @@ Name | Type
 `stateName` | string
 `opponentRpi` | number
 `opponentAvgRpi` | number
+`opponentNetRank` | number
+`opponentAvgNetRank` | number
 `inConference` | boolean
 `hasContract` | boolean
 `compensationCents` | number
+`compensationDirection` | string
 `gameContractId` | number
 `result` | string
 `score` | string
@@ -41,9 +44,12 @@ const example = {
   "stateName": null,
   "opponentRpi": null,
   "opponentAvgRpi": null,
+  "opponentNetRank": null,
+  "opponentAvgNetRank": null,
   "inConference": null,
   "hasContract": null,
   "compensationCents": null,
+  "compensationDirection": null,
   "gameContractId": null,
   "result": null,
   "score": null,

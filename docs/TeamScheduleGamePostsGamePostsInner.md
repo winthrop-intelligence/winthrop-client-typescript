@@ -12,7 +12,9 @@ Name | Type
 `gameTypes` | string
 `description` | string
 `lastRpi` | number
+`lastNetRank` | number
 `avgRpi` | number
+`avgNetRank` | number
 `city` | string
 `stateName` | string
 `createdAt` | string
@@ -33,7 +35,9 @@ const example = {
   "gameTypes": null,
   "description": null,
   "lastRpi": null,
+  "lastNetRank": null,
   "avgRpi": null,
+  "avgNetRank": null,
   "city": null,
   "stateName": null,
   "createdAt": null,

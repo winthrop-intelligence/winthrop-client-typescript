@@ -57,6 +57,8 @@ docs/CoachCompensationTabChartDataConferenceAvgOverTimeInner.md
 docs/CoachCompensationTabChartDataCurrentBreakdown.md
 docs/CoachCompensationTabChartDataTotalCompOverTimeInner.md
 docs/CoachCompensationTabComparisons.md
+docs/CoachCompensationTabQuartiles.md
+docs/CoachCompensationTabQuartilesRowsInner.md
 docs/CoachCompensationTabSidebar.md
 docs/CoachCompensationTabSidebarCoachingStaffInner.md
 docs/CoachCompensationTabSidebarContractsInner.md
@@ -255,6 +257,7 @@ docs/ScheduleGridAvailableSchoolRow.md
 docs/ScheduleGridAvailableSchools.md
 docs/ScheduleGridGame.md
 docs/ScheduleGridGamePost.md
+docs/ScheduleGridOnboarding.md
 docs/ScheduleGridSchool.md
 docs/ScheduleGridView.md
 docs/School.md
@@ -434,6 +437,8 @@ src/models/CoachCompensationTabChartDataConferenceAvgOverTimeInner.ts
 src/models/CoachCompensationTabChartDataCurrentBreakdown.ts
 src/models/CoachCompensationTabChartDataTotalCompOverTimeInner.ts
 src/models/CoachCompensationTabComparisons.ts
+src/models/CoachCompensationTabQuartiles.ts
+src/models/CoachCompensationTabQuartilesRowsInner.ts
 src/models/CoachCompensationTabSidebar.ts
 src/models/CoachCompensationTabSidebarCoachingStaffInner.ts
 src/models/CoachCompensationTabSidebarContractsInner.ts
@@ -627,6 +632,7 @@ src/models/ScheduleGridAvailableSchoolRow.ts
 src/models/ScheduleGridAvailableSchools.ts
 src/models/ScheduleGridGame.ts
 src/models/ScheduleGridGamePost.ts
+src/models/ScheduleGridOnboarding.ts
 src/models/ScheduleGridSchool.ts
 src/models/ScheduleGridView.ts
 src/models/School.ts

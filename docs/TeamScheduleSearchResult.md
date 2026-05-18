@@ -1,7 +1,7 @@
 
 # TeamScheduleSearchResult
 
-Enriched team schedule search result with contacts, RPI, returning percentages, and guarantee data
+Enriched team schedule search result with contacts, rankings, returning percentages, and guarantee data
 
 ## Properties
 
@@ -18,7 +18,9 @@ Name | Type
 `sportId` | number
 `sportName` | string
 `lastRpi` | number
+`lastNetRank` | number
 `avgRpi` | number
+`avgNetRank` | number
 `distance` | number
 `avgGuaranteePaidCents` | number
 `avgGuaranteeReceivedCents` | number
@@ -52,7 +54,9 @@ const example = {
   "sportId": null,
   "sportName": null,
   "lastRpi": null,
+  "lastNetRank": null,
   "avgRpi": null,
+  "avgNetRank": null,
   "distance": null,
   "avgGuaranteePaidCents": null,
   "avgGuaranteeReceivedCents": null,

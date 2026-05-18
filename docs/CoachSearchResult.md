@@ -28,6 +28,7 @@ Name | Type
 `seasonConferencePosition` | number
 `seasonConferenceNumPositions` | number
 `rpi` | number
+`netRank` | number
 `compensationCents` | number
 `baseSalaryCents` | number
 `coli` | number
@@ -76,6 +77,7 @@ const example = {
   "seasonConferencePosition": null,
   "seasonConferenceNumPositions": null,
   "rpi": null,
+  "netRank": null,
   "compensationCents": null,
   "baseSalaryCents": null,
   "coli": null,

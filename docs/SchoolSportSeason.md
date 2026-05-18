@@ -10,6 +10,7 @@ Name | Type
 `wins` | number
 `losses` | number
 `rpi` | number
+`netRank` | number
 `sos` | number
 
 ## Example
@@ -23,6 +24,7 @@ const example = {
   "wins": null,
   "losses": null,
   "rpi": null,
+  "netRank": null,
   "sos": null,
 } satisfies SchoolSportSeason
 
