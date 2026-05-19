@@ -14,23 +14,11 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * Only game-type designations are mutable. sport_id and date identify the cell and are immutable after creation (WINAD-9646 security).
  * @export
  * @interface UpdateScheduleIntentRequestScheduleIntent
  */
 export interface UpdateScheduleIntentRequestScheduleIntent {
-    /**
-     * 
-     * @type {number}
-     * @memberof UpdateScheduleIntentRequestScheduleIntent
-     */
-    sportId?: number;
-    /**
-     * 
-     * @type {Date}
-     * @memberof UpdateScheduleIntentRequestScheduleIntent
-     */
-    date?: Date;
     /**
      * 
      * @type {Array<number>}
@@ -56,8 +44,6 @@ export function UpdateScheduleIntentRequestScheduleIntentFromJSONTyped(json: any
     }
     return {
         
-        'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
-        'date': json['date'] == null ? undefined : (new Date(json['date'])),
         'gameTypeIds': json['game_type_ids'] == null ? undefined : json['game_type_ids'],
     };
 }
@@ -73,8 +59,6 @@ export function UpdateScheduleIntentRequestScheduleIntentToJSONTyped(value?: Upd
 
     return {
         
-        'sport_id': value['sportId'],
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString().substring(0,10),
         'game_type_ids': value['gameTypeIds'],
     };
 }

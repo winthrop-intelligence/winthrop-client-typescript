@@ -1,13 +1,12 @@
 
 # UpdateScheduleIntentRequestScheduleIntent
 
+Only game-type designations are mutable. sport_id and date identify the cell and are immutable after creation (WINAD-9646 security).
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`sportId` | number
-`date` | Date
 `gameTypeIds` | Array&lt;number&gt;
 
 ## Example
@@ -17,8 +16,6 @@ import type { UpdateScheduleIntentRequestScheduleIntent } from '@winthrop-intell
 
 // TODO: Update the object below with actual values
 const example = {
-  "sportId": null,
-  "date": null,
   "gameTypeIds": null,
 } satisfies UpdateScheduleIntentRequestScheduleIntent
 
