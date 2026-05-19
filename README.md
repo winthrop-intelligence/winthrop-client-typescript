@@ -86,6 +86,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createPasswordReset**](docs/DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset | 
 *DefaultApi* | [**createPosition**](docs/DefaultApi.md#createposition) | **POST** /api/v1/positions | 
 *DefaultApi* | [**createRequestedItem**](docs/DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items | 
+*DefaultApi* | [**createScheduleIntent**](docs/DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents | 
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
@@ -107,6 +108,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteNote**](docs/DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} | 
 *DefaultApi* | [**deletePosition**](docs/DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**deleteRequestedItem**](docs/DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} | 
+*DefaultApi* | [**deleteScheduleIntent**](docs/DefaultApi.md#deletescheduleintent) | **DELETE** /api/v1/schedule_intents/{scheduleIntentId} | 
 *DefaultApi* | [**deleteSchoolGroup**](docs/DefaultApi.md#deleteschoolgroup) | **DELETE** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
@@ -293,6 +295,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updatePasswordReset**](docs/DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset | 
 *DefaultApi* | [**updatePosition**](docs/DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**updateRequestedItem**](docs/DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
+*DefaultApi* | [**updateScheduleIntent**](docs/DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} | 
 *DefaultApi* | [**updateSchoolGroup**](docs/DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
@@ -448,6 +451,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreatePasswordReset200Response](docs/CreatePasswordReset200Response.md)
 - [CreatePasswordResetRequest](docs/CreatePasswordResetRequest.md)
 - [CreatePasswordResetRequestUser](docs/CreatePasswordResetRequestUser.md)
+- [CreateScheduleIntentRequest](docs/CreateScheduleIntentRequest.md)
+- [CreateScheduleIntentRequestScheduleIntent](docs/CreateScheduleIntentRequestScheduleIntent.md)
 - [CreateSchoolGroupRequest](docs/CreateSchoolGroupRequest.md)
 - [CreateSchoolGroupRequestSchoolGroup](docs/CreateSchoolGroupRequestSchoolGroup.md)
 - [CreateTeamScheduleFavorite201Response](docs/CreateTeamScheduleFavorite201Response.md)
@@ -525,9 +530,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [IdName](docs/IdName.md)
 - [IncomeReport](docs/IncomeReport.md)
 - [IncomeReportCollection](docs/IncomeReportCollection.md)
-- [InvoiceReportAccount](docs/InvoiceReportAccount.md)
-- [InvoiceReportResult](docs/InvoiceReportResult.md)
-- [InvoiceReportRow](docs/InvoiceReportRow.md)
 - [Job](docs/Job.md)
 - [JobCandidate](docs/JobCandidate.md)
 - [JobCollection](docs/JobCollection.md)
@@ -579,10 +581,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScheduleGridAvailableSchoolRow](docs/ScheduleGridAvailableSchoolRow.md)
 - [ScheduleGridAvailableSchools](docs/ScheduleGridAvailableSchools.md)
 - [ScheduleGridGame](docs/ScheduleGridGame.md)
-- [ScheduleGridGamePost](docs/ScheduleGridGamePost.md)
 - [ScheduleGridOnboarding](docs/ScheduleGridOnboarding.md)
+- [ScheduleGridScheduleIntent](docs/ScheduleGridScheduleIntent.md)
 - [ScheduleGridSchool](docs/ScheduleGridSchool.md)
 - [ScheduleGridView](docs/ScheduleGridView.md)
+- [ScheduleIntentDetail](docs/ScheduleIntentDetail.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
@@ -668,6 +671,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdatePasswordReset200Response](docs/UpdatePasswordReset200Response.md)
 - [UpdatePasswordResetRequest](docs/UpdatePasswordResetRequest.md)
 - [UpdatePasswordResetRequestUser](docs/UpdatePasswordResetRequestUser.md)
+- [UpdateScheduleIntentRequest](docs/UpdateScheduleIntentRequest.md)
+- [UpdateScheduleIntentRequestScheduleIntent](docs/UpdateScheduleIntentRequestScheduleIntent.md)
 - [UpdateSchoolGroupRequest](docs/UpdateSchoolGroupRequest.md)
 - [UpdateSchoolGroupRequestSchoolGroup](docs/UpdateSchoolGroupRequestSchoolGroup.md)
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)

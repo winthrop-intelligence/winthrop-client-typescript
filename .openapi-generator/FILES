@@ -123,6 +123,8 @@ docs/CreateNoteRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
+docs/CreateScheduleIntentRequest.md
+docs/CreateScheduleIntentRequestScheduleIntent.md
 docs/CreateSchoolGroupRequest.md
 docs/CreateSchoolGroupRequestSchoolGroup.md
 docs/CreateTeamScheduleFavorite201Response.md
@@ -203,9 +205,6 @@ docs/IdName.md
 docs/IncomeReport.md
 docs/IncomeReportCollection.md
 docs/IntercollegiateApi.md
-docs/InvoiceReportAccount.md
-docs/InvoiceReportResult.md
-docs/InvoiceReportRow.md
 docs/Job.md
 docs/JobCandidate.md
 docs/JobCollection.md
@@ -259,10 +258,11 @@ docs/ScheduleGridAvailableSchoolPost.md
 docs/ScheduleGridAvailableSchoolRow.md
 docs/ScheduleGridAvailableSchools.md
 docs/ScheduleGridGame.md
-docs/ScheduleGridGamePost.md
 docs/ScheduleGridOnboarding.md
+docs/ScheduleGridScheduleIntent.md
 docs/ScheduleGridSchool.md
 docs/ScheduleGridView.md
+docs/ScheduleIntentDetail.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -349,6 +349,8 @@ docs/UpdateNoteRequest.md
 docs/UpdatePasswordReset200Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
+docs/UpdateScheduleIntentRequest.md
+docs/UpdateScheduleIntentRequestScheduleIntent.md
 docs/UpdateSchoolGroupRequest.md
 docs/UpdateSchoolGroupRequestSchoolGroup.md
 docs/UpdateTeamScheduleFavoriteRequest.md
@@ -506,6 +508,8 @@ src/models/CreateNoteRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
+src/models/CreateScheduleIntentRequest.ts
+src/models/CreateScheduleIntentRequestScheduleIntent.ts
 src/models/CreateSchoolGroupRequest.ts
 src/models/CreateSchoolGroupRequestSchoolGroup.ts
 src/models/CreateTeamScheduleFavorite201Response.ts
@@ -583,9 +587,6 @@ src/models/HealthCheckSuccess.ts
 src/models/IdName.ts
 src/models/IncomeReport.ts
 src/models/IncomeReportCollection.ts
-src/models/InvoiceReportAccount.ts
-src/models/InvoiceReportResult.ts
-src/models/InvoiceReportRow.ts
 src/models/Job.ts
 src/models/JobCandidate.ts
 src/models/JobCollection.ts
@@ -637,10 +638,11 @@ src/models/ScheduleGridAvailableSchoolPost.ts
 src/models/ScheduleGridAvailableSchoolRow.ts
 src/models/ScheduleGridAvailableSchools.ts
 src/models/ScheduleGridGame.ts
-src/models/ScheduleGridGamePost.ts
 src/models/ScheduleGridOnboarding.ts
+src/models/ScheduleGridScheduleIntent.ts
 src/models/ScheduleGridSchool.ts
 src/models/ScheduleGridView.ts
+src/models/ScheduleIntentDetail.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts
@@ -726,6 +728,8 @@ src/models/UpdateNoteRequest.ts
 src/models/UpdatePasswordReset200Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
+src/models/UpdateScheduleIntentRequest.ts
+src/models/UpdateScheduleIntentRequestScheduleIntent.ts
 src/models/UpdateSchoolGroupRequest.ts
 src/models/UpdateSchoolGroupRequestSchoolGroup.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
