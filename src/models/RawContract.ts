@@ -173,6 +173,12 @@ export interface RawContract {
      */
     canDownload?: boolean;
     /**
+     * Short or full name of the school the raw contract is tied to (matches school_id). Null when no school is linked.
+     * @type {string}
+     * @memberof RawContract
+     */
+    schoolName?: string | null;
+    /**
      * Proxied URL for inline PDF viewing (no direct file access)
      * @type {string}
      * @memberof RawContract
@@ -250,6 +256,7 @@ export function RawContractFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'layoutPreservedPdfText': json['layout_preserved_pdf_text'] == null ? undefined : json['layout_preserved_pdf_text'],
         'canSeeAdminView': json['can_see_admin_view'] == null ? undefined : json['can_see_admin_view'],
         'canDownload': json['can_download'] == null ? undefined : json['can_download'],
+        'schoolName': json['school_name'] == null ? undefined : json['school_name'],
         'pdfPreviewUrl': json['pdf_preview_url'] == null ? undefined : json['pdf_preview_url'],
         'pdfDownloadUrl': json['pdf_download_url'] == null ? undefined : json['pdf_download_url'],
         'hasFile': json['has_file'] == null ? undefined : json['has_file'],
@@ -293,6 +300,7 @@ export function RawContractToJSONTyped(value?: RawContract | null, ignoreDiscrim
         'layout_preserved_pdf_text': value['layoutPreservedPdfText'],
         'can_see_admin_view': value['canSeeAdminView'],
         'can_download': value['canDownload'],
+        'school_name': value['schoolName'],
         'pdf_preview_url': value['pdfPreviewUrl'],
         'pdf_download_url': value['pdfDownloadUrl'],
         'has_file': value['hasFile'],

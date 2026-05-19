@@ -67,6 +67,30 @@ export interface CoachCompensationTabSidebarContractsInner {
      * @memberof CoachCompensationTabSidebarContractsInner
      */
     assetFileName?: string | null;
+    /**
+     * School the contract's first compensation is tied to
+     * @type {number}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    schoolId?: number | null;
+    /**
+     * Short or full name of the contract's first compensation's school
+     * @type {string}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    schoolName?: string | null;
+    /**
+     * Display title of the first position on the contract's first compensation (e.g. "Head Coach")
+     * @type {string}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    positionTitle?: string | null;
+    /**
+     * Display name of the position-type group of the first position on the contract's first compensation (e.g. "Head Coaches", "Assistant Coaches")
+     * @type {string}
+     * @memberof CoachCompensationTabSidebarContractsInner
+     */
+    positionGroup?: string | null;
 }
 
 /**
@@ -94,6 +118,10 @@ export function CoachCompensationTabSidebarContractsInnerFromJSONTyped(json: any
         'hasFile': json['has_file'] == null ? undefined : json['has_file'],
         'canDownload': json['can_download'] == null ? undefined : json['can_download'],
         'assetFileName': json['asset_file_name'] == null ? undefined : json['asset_file_name'],
+        'schoolId': json['school_id'] == null ? undefined : json['school_id'],
+        'schoolName': json['school_name'] == null ? undefined : json['school_name'],
+        'positionTitle': json['position_title'] == null ? undefined : json['position_title'],
+        'positionGroup': json['position_group'] == null ? undefined : json['position_group'],
     };
 }
 
@@ -116,6 +144,10 @@ export function CoachCompensationTabSidebarContractsInnerToJSONTyped(value?: Coa
         'has_file': value['hasFile'],
         'can_download': value['canDownload'],
         'asset_file_name': value['assetFileName'],
+        'school_id': value['schoolId'],
+        'school_name': value['schoolName'],
+        'position_title': value['positionTitle'],
+        'position_group': value['positionGroup'],
     };
 }
 
