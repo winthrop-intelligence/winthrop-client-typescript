@@ -203,6 +203,9 @@ docs/IdName.md
 docs/IncomeReport.md
 docs/IncomeReportCollection.md
 docs/IntercollegiateApi.md
+docs/InvoiceReportAccount.md
+docs/InvoiceReportResult.md
+docs/InvoiceReportRow.md
 docs/Job.md
 docs/JobCandidate.md
 docs/JobCollection.md
@@ -580,6 +583,9 @@ src/models/HealthCheckSuccess.ts
 src/models/IdName.ts
 src/models/IncomeReport.ts
 src/models/IncomeReportCollection.ts
+src/models/InvoiceReportAccount.ts
+src/models/InvoiceReportResult.ts
+src/models/InvoiceReportRow.ts
 src/models/Job.ts
 src/models/JobCandidate.ts
 src/models/JobCollection.ts
