@@ -51,6 +51,12 @@ export interface TeamScheduleCoachesSeasonsInner {
     rpi?: number | null;
     /**
      * 
+     * @type {number}
+     * @memberof TeamScheduleCoachesSeasonsInner
+     */
+    netRank?: number | null;
+    /**
+     * 
      * @type {string}
      * @memberof TeamScheduleCoachesSeasonsInner
      */
@@ -121,6 +127,7 @@ export function TeamScheduleCoachesSeasonsInnerFromJSONTyped(json: any, ignoreDi
         'losses': json['losses'] == null ? undefined : json['losses'],
         'ties': json['ties'] == null ? undefined : json['ties'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'recordStr': json['record_str'] == null ? undefined : json['record_str'],
         'conferenceRecord': json['conference_record'] == null ? undefined : json['conference_record'],
         'postseason': json['postseason'] == null ? undefined : json['postseason'],
@@ -148,6 +155,7 @@ export function TeamScheduleCoachesSeasonsInnerToJSONTyped(value?: TeamScheduleC
         'losses': value['losses'],
         'ties': value['ties'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
         'record_str': value['recordStr'],
         'conference_record': value['conferenceRecord'],
         'postseason': value['postseason'],

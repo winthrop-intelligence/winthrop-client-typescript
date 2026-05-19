@@ -36,7 +36,7 @@ import {
 } from './TeamScheduleContact';
 
 /**
- * Enriched team schedule search result with contacts, RPI, returning percentages, and guarantee data
+ * Enriched team schedule search result with contacts, rankings, returning percentages, and guarantee data
  * @export
  * @interface TeamScheduleSearchResult
  */
@@ -108,11 +108,23 @@ export interface TeamScheduleSearchResult {
      */
     lastRpi?: number | null;
     /**
+     * Most recent NET ranking
+     * @type {number}
+     * @memberof TeamScheduleSearchResult
+     */
+    lastNetRank?: number | null;
+    /**
      * 5-year average RPI ranking
      * @type {number}
      * @memberof TeamScheduleSearchResult
      */
     avgRpi?: number | null;
+    /**
+     * 5-year average NET ranking
+     * @type {number}
+     * @memberof TeamScheduleSearchResult
+     */
+    avgNetRank?: number | null;
     /**
      * Distance in miles from user's school
      * @type {number}
@@ -227,7 +239,9 @@ export function TeamScheduleSearchResultFromJSONTyped(json: any, ignoreDiscrimin
         'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
         'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
         'lastRpi': json['last_rpi'] == null ? undefined : json['last_rpi'],
+        'lastNetRank': json['last_net_rank'] == null ? undefined : json['last_net_rank'],
         'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
+        'avgNetRank': json['avg_net_rank'] == null ? undefined : json['avg_net_rank'],
         'distance': json['distance'] == null ? undefined : json['distance'],
         'avgGuaranteePaidCents': json['avg_guarantee_paid_cents'] == null ? undefined : json['avg_guarantee_paid_cents'],
         'avgGuaranteeReceivedCents': json['avg_guarantee_received_cents'] == null ? undefined : json['avg_guarantee_received_cents'],
@@ -267,7 +281,9 @@ export function TeamScheduleSearchResultToJSONTyped(value?: TeamScheduleSearchRe
         'sport_id': value['sportId'],
         'sport_name': value['sportName'],
         'last_rpi': value['lastRpi'],
+        'last_net_rank': value['lastNetRank'],
         'avg_rpi': value['avgRpi'],
+        'avg_net_rank': value['avgNetRank'],
         'distance': value['distance'],
         'avg_guarantee_paid_cents': value['avgGuaranteePaidCents'],
         'avg_guarantee_received_cents': value['avgGuaranteeReceivedCents'],

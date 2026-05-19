@@ -75,6 +75,12 @@ export interface AthleticProfileShowGamesInner {
     rpi?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof AthleticProfileShowGamesInner
+     */
+    netRank?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof AthleticProfileShowGamesInner
      */
@@ -113,6 +119,7 @@ export function AthleticProfileShowGamesInnerFromJSONTyped(json: any, ignoreDisc
         'city': json['city'] == null ? undefined : json['city'],
         'stateName': json['state_name'] == null ? undefined : json['state_name'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
         'gameContractId': json['game_contract_id'] == null ? undefined : json['game_contract_id'],
     };
@@ -138,6 +145,7 @@ export function AthleticProfileShowGamesInnerToJSONTyped(value?: AthleticProfile
         'city': value['city'],
         'state_name': value['stateName'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
         'compensation_cents': value['compensationCents'],
         'game_contract_id': value['gameContractId'],
     };

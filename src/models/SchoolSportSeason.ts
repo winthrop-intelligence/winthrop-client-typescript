@@ -48,6 +48,12 @@ export interface SchoolSportSeason {
      * @type {number}
      * @memberof SchoolSportSeason
      */
+    netRank?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SchoolSportSeason
+     */
     sos?: number | null;
 }
 
@@ -72,6 +78,7 @@ export function SchoolSportSeasonFromJSONTyped(json: any, ignoreDiscriminator: b
         'wins': json['wins'] == null ? undefined : json['wins'],
         'losses': json['losses'] == null ? undefined : json['losses'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'sos': json['sos'] == null ? undefined : json['sos'],
     };
 }
@@ -91,6 +98,7 @@ export function SchoolSportSeasonToJSONTyped(value?: SchoolSportSeason | null, i
         'wins': value['wins'],
         'losses': value['losses'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
         'sos': value['sos'],
     };
 }

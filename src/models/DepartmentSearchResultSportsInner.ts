@@ -97,6 +97,12 @@ export interface DepartmentSearchResultSportsInner {
      * @memberof DepartmentSearchResultSportsInner
      */
     rpi?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DepartmentSearchResultSportsInner
+     */
+    netRank?: number | null;
 }
 
 /**
@@ -129,6 +135,7 @@ export function DepartmentSearchResultSportsInnerFromJSONTyped(json: any, ignore
         'record': json['record'] == null ? undefined : json['record'],
         'conferenceRecord': json['conference_record'] == null ? undefined : json['conference_record'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
     };
 }
 
@@ -156,6 +163,7 @@ export function DepartmentSearchResultSportsInnerToJSONTyped(value?: DepartmentS
         'record': value['record'],
         'conference_record': value['conferenceRecord'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
     };
 }
 

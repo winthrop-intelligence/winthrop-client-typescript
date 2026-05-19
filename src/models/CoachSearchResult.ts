@@ -152,6 +152,12 @@ export interface CoachSearchResult {
      */
     rpi?: number | null;
     /**
+     * 
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    netRank?: number | null;
+    /**
      * Total compensation in cents (included based on authorization)
      * @type {number}
      * @memberof CoachSearchResult
@@ -300,6 +306,7 @@ export function CoachSearchResultFromJSONTyped(json: any, ignoreDiscriminator: b
         'seasonConferencePosition': json['season_conference_position'] == null ? undefined : json['season_conference_position'],
         'seasonConferenceNumPositions': json['season_conference_num_positions'] == null ? undefined : json['season_conference_num_positions'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'compensationCents': json['compensation_cents'] == null ? undefined : json['compensation_cents'],
         'baseSalaryCents': json['base_salary_cents'] == null ? undefined : json['base_salary_cents'],
         'coli': json['coli'] == null ? undefined : json['coli'],
@@ -354,6 +361,7 @@ export function CoachSearchResultToJSONTyped(value?: CoachSearchResult | null, i
         'season_conference_position': value['seasonConferencePosition'],
         'season_conference_num_positions': value['seasonConferenceNumPositions'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
         'compensation_cents': value['compensationCents'],
         'base_salary_cents': value['baseSalaryCents'],
         'coli': value['coli'],

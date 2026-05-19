@@ -16,6 +16,8 @@ Name | Type
 `stateName` | string
 `opponentRpi` | number
 `opponentAvgRpi` | number
+`opponentNetRank` | number
+`opponentAvgNetRank` | number
 `result` | string
 `score` | string
 `overtime` | number
@@ -38,6 +40,8 @@ const example = {
   "stateName": null,
   "opponentRpi": null,
   "opponentAvgRpi": null,
+  "opponentNetRank": null,
+  "opponentAvgNetRank": null,
   "result": null,
   "score": null,
   "overtime": null,

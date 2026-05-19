@@ -16,6 +16,8 @@ Name | Type
 `stateName` | string
 `opponentRpi` | number
 `opponentAvgRpi` | number
+`opponentNetRank` | number
+`opponentAvgNetRank` | number
 `inConference` | boolean
 `hasContract` | boolean
 `compensationCents` | number
@@ -42,6 +44,8 @@ const example = {
   "stateName": null,
   "opponentRpi": null,
   "opponentAvgRpi": null,
+  "opponentNetRank": null,
+  "opponentAvgNetRank": null,
   "inConference": null,
   "hasContract": null,
   "compensationCents": null,

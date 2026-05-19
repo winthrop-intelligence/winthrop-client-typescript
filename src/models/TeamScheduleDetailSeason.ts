@@ -48,7 +48,19 @@ export interface TeamScheduleDetailSeason {
      * @type {number}
      * @memberof TeamScheduleDetailSeason
      */
+    netRank?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleDetailSeason
+     */
     avgRpi?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleDetailSeason
+     */
+    avgNetRank?: number | null;
 }
 
 /**
@@ -72,7 +84,9 @@ export function TeamScheduleDetailSeasonFromJSONTyped(json: any, ignoreDiscrimin
         'losses': json['losses'] == null ? undefined : json['losses'],
         'recordStr': json['record_str'] == null ? undefined : json['record_str'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
+        'avgNetRank': json['avg_net_rank'] == null ? undefined : json['avg_net_rank'],
     };
 }
 
@@ -91,7 +105,9 @@ export function TeamScheduleDetailSeasonToJSONTyped(value?: TeamScheduleDetailSe
         'losses': value['losses'],
         'record_str': value['recordStr'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
         'avg_rpi': value['avgRpi'],
+        'avg_net_rank': value['avgNetRank'],
     };
 }
 

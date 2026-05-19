@@ -60,7 +60,19 @@ export interface TeamScheduleGamePostsGamePostsInner {
      * @type {number}
      * @memberof TeamScheduleGamePostsGamePostsInner
      */
+    lastNetRank?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleGamePostsGamePostsInner
+     */
     avgRpi?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamScheduleGamePostsGamePostsInner
+     */
+    avgNetRank?: number | null;
     /**
      * 
      * @type {string}
@@ -122,7 +134,9 @@ export function TeamScheduleGamePostsGamePostsInnerFromJSONTyped(json: any, igno
         'gameTypes': json['game_types'] == null ? undefined : json['game_types'],
         'description': json['description'] == null ? undefined : json['description'],
         'lastRpi': json['last_rpi'] == null ? undefined : json['last_rpi'],
+        'lastNetRank': json['last_net_rank'] == null ? undefined : json['last_net_rank'],
         'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
+        'avgNetRank': json['avg_net_rank'] == null ? undefined : json['avg_net_rank'],
         'city': json['city'] == null ? undefined : json['city'],
         'stateName': json['state_name'] == null ? undefined : json['state_name'],
         'createdAt': json['created_at'] == null ? undefined : json['created_at'],
@@ -149,7 +163,9 @@ export function TeamScheduleGamePostsGamePostsInnerToJSONTyped(value?: TeamSched
         'game_types': value['gameTypes'],
         'description': value['description'],
         'last_rpi': value['lastRpi'],
+        'last_net_rank': value['lastNetRank'],
         'avg_rpi': value['avgRpi'],
+        'avg_net_rank': value['avgNetRank'],
         'city': value['city'],
         'state_name': value['stateName'],
         'created_at': value['createdAt'],

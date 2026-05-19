@@ -1,32 +1,26 @@
 
-# SchoolSportSeason
+# UpdateScheduleIntentRequestScheduleIntent
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`year` | number
-`wins` | number
-`losses` | number
-`rpi` | number
-`netRank` | number
-`sos` | number
+`sportId` | number
+`date` | Date
+`gameTypeIds` | Array&lt;number&gt;
 
 ## Example
 
 ```typescript
-import type { SchoolSportSeason } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { UpdateScheduleIntentRequestScheduleIntent } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "year": null,
-  "wins": null,
-  "losses": null,
-  "rpi": null,
-  "netRank": null,
-  "sos": null,
-} satisfies SchoolSportSeason
+  "sportId": null,
+  "date": null,
+  "gameTypeIds": null,
+} satisfies UpdateScheduleIntentRequestScheduleIntent
 
 console.log(example)
 
@@ -35,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as SchoolSportSeason
+const exampleParsed = JSON.parse(exampleJSON) as UpdateScheduleIntentRequestScheduleIntent
 console.log(exampleParsed)
 ```
 

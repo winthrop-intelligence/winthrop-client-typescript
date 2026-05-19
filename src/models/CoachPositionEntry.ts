@@ -66,6 +66,12 @@ export interface CoachPositionEntry {
      * @type {string}
      * @memberof CoachPositionEntry
      */
+    netRank?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachPositionEntry
+     */
     aprAsr?: string | null;
     /**
      * 
@@ -110,6 +116,7 @@ export function CoachPositionEntryFromJSONTyped(json: any, ignoreDiscriminator: 
         'positionSport': json['position_sport'],
         'record': json['record'] == null ? undefined : json['record'],
         'rpi': json['rpi'] == null ? undefined : json['rpi'],
+        'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'aprAsr': json['apr_asr'] == null ? undefined : json['apr_asr'],
         'coachApr': json['coach_apr'] == null ? undefined : json['coach_apr'],
         'departing': json['departing'] == null ? undefined : json['departing'],
@@ -134,6 +141,7 @@ export function CoachPositionEntryToJSONTyped(value?: CoachPositionEntry | null,
         'position_sport': value['positionSport'],
         'record': value['record'],
         'rpi': value['rpi'],
+        'net_rank': value['netRank'],
         'apr_asr': value['aprAsr'],
         'coach_apr': value['coachApr'],
         'departing': value['departing'],

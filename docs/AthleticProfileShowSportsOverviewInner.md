@@ -14,6 +14,7 @@ Name | Type
 `record` | string
 `apr` | number
 `rpi` | number
+`netRank` | number
 `headCoachCompCents` | number
 `asstPoolCents` | number
 
@@ -32,6 +33,7 @@ const example = {
   "record": null,
   "apr": null,
   "rpi": null,
+  "netRank": null,
   "headCoachCompCents": null,
   "asstPoolCents": null,
 } satisfies AthleticProfileShowSportsOverviewInner
