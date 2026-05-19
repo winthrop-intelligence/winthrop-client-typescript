@@ -77,6 +77,7 @@ import type {
   CreateNoteRequest,
   CreatePasswordReset200Response,
   CreatePasswordResetRequest,
+  CreateScheduleIntentRequest,
   CreateSchoolGroupRequest,
   CreateTeamScheduleFavorite201Response,
   CreateTeamScheduleFavoriteRequest,
@@ -142,6 +143,7 @@ import type {
   RequestedItemCollection,
   ScheduleGridAvailableSchools,
   ScheduleGridView,
+  ScheduleIntentDetail,
   School,
   SchoolCollection,
   SchoolFinancialDetail,
@@ -179,6 +181,7 @@ import type {
   UpdateNoteRequest,
   UpdatePasswordReset200Response,
   UpdatePasswordResetRequest,
+  UpdateScheduleIntentRequest,
   UpdateSchoolGroupRequest,
   UpdateTeamScheduleFavoriteRequest,
   UpdateUserRequest,
@@ -322,6 +325,8 @@ import {
     CreatePasswordReset200ResponseToJSON,
     CreatePasswordResetRequestFromJSON,
     CreatePasswordResetRequestToJSON,
+    CreateScheduleIntentRequestFromJSON,
+    CreateScheduleIntentRequestToJSON,
     CreateSchoolGroupRequestFromJSON,
     CreateSchoolGroupRequestToJSON,
     CreateTeamScheduleFavorite201ResponseFromJSON,
@@ -452,6 +457,8 @@ import {
     ScheduleGridAvailableSchoolsToJSON,
     ScheduleGridViewFromJSON,
     ScheduleGridViewToJSON,
+    ScheduleIntentDetailFromJSON,
+    ScheduleIntentDetailToJSON,
     SchoolFromJSON,
     SchoolToJSON,
     SchoolCollectionFromJSON,
@@ -526,6 +533,8 @@ import {
     UpdatePasswordReset200ResponseToJSON,
     UpdatePasswordResetRequestFromJSON,
     UpdatePasswordResetRequestToJSON,
+    UpdateScheduleIntentRequestFromJSON,
+    UpdateScheduleIntentRequestToJSON,
     UpdateSchoolGroupRequestFromJSON,
     UpdateSchoolGroupRequestToJSON,
     UpdateTeamScheduleFavoriteRequestFromJSON,
@@ -672,6 +681,10 @@ export interface DefaultApiCreateRequestedItemRequest {
     requestedItem: RequestedItem;
 }
 
+export interface DefaultApiCreateScheduleIntentOperationRequest {
+    createScheduleIntentRequest: CreateScheduleIntentRequest;
+}
+
 export interface DefaultApiCreateSchoolGroupOperationRequest {
     createSchoolGroupRequest: CreateSchoolGroupRequest;
 }
@@ -754,6 +767,10 @@ export interface DefaultApiDeletePositionRequest {
 
 export interface DefaultApiDeleteRequestedItemRequest {
     requestedItemId: number;
+}
+
+export interface DefaultApiDeleteScheduleIntentRequest {
+    scheduleIntentId: number;
 }
 
 export interface DefaultApiDeleteSchoolGroupRequest {
@@ -1616,6 +1633,11 @@ export interface DefaultApiUpdatePositionRequest {
 export interface DefaultApiUpdateRequestedItemRequest {
     requestedItemId: number;
     requestedItem: RequestedItem;
+}
+
+export interface DefaultApiUpdateScheduleIntentOperationRequest {
+    scheduleIntentId: number;
+    updateScheduleIntentRequest?: UpdateScheduleIntentRequest;
 }
 
 export interface DefaultApiUpdateSchoolGroupOperationRequest {
@@ -2930,6 +2952,54 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a private /schedules grid marker (WINAD-9646). This is NOT a public Games Wanted post — it never reaches the /game_posts feed, the school-detail badge, or the digest email.
+     */
+    async createScheduleIntentRaw(requestParameters: DefaultApiCreateScheduleIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleIntentDetail>> {
+        if (requestParameters['createScheduleIntentRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createScheduleIntentRequest',
+                'Required parameter "createScheduleIntentRequest" was null or undefined when calling createScheduleIntent().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schedule_intents`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateScheduleIntentRequestToJSON(requestParameters['createScheduleIntentRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ScheduleIntentDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a private /schedules grid marker (WINAD-9646). This is NOT a public Games Wanted post — it never reaches the /game_posts feed, the school-detail badge, or the digest email.
+     */
+    async createScheduleIntent(requestParameters: DefaultApiCreateScheduleIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleIntentDetail> {
+        const response = await this.createScheduleIntentRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Create a new custom school group
      */
     async createSchoolGroupRaw(requestParameters: DefaultApiCreateSchoolGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolGroupShow>> {
@@ -3898,6 +3968,51 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteRequestedItem(requestParameters: DefaultApiDeleteRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRequestedItemRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Delete a private /schedules grid marker
+     */
+    async deleteScheduleIntentRaw(requestParameters: DefaultApiDeleteScheduleIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['scheduleIntentId'] == null) {
+            throw new runtime.RequiredError(
+                'scheduleIntentId',
+                'Required parameter "scheduleIntentId" was null or undefined when calling deleteScheduleIntent().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schedule_intents/{scheduleIntentId}`;
+        urlPath = urlPath.replace(`{${"scheduleIntentId"}}`, encodeURIComponent(String(requestParameters['scheduleIntentId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a private /schedules grid marker
+     */
+    async deleteScheduleIntent(requestParameters: DefaultApiDeleteScheduleIntentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteScheduleIntentRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -13036,6 +13151,55 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateRequestedItem(requestParameters: DefaultApiUpdateRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
         const response = await this.updateRequestedItemRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a private /schedules grid marker (replace its game-type designations).
+     */
+    async updateScheduleIntentRaw(requestParameters: DefaultApiUpdateScheduleIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleIntentDetail>> {
+        if (requestParameters['scheduleIntentId'] == null) {
+            throw new runtime.RequiredError(
+                'scheduleIntentId',
+                'Required parameter "scheduleIntentId" was null or undefined when calling updateScheduleIntent().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schedule_intents/{scheduleIntentId}`;
+        urlPath = urlPath.replace(`{${"scheduleIntentId"}}`, encodeURIComponent(String(requestParameters['scheduleIntentId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateScheduleIntentRequestToJSON(requestParameters['updateScheduleIntentRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ScheduleIntentDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a private /schedules grid marker (replace its game-type designations).
+     */
+    async updateScheduleIntent(requestParameters: DefaultApiUpdateScheduleIntentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleIntentDetail> {
+        const response = await this.updateScheduleIntentRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
