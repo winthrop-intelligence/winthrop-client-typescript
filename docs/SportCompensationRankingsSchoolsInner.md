@@ -9,7 +9,9 @@ Name | Type
 `schoolId` | number
 `schoolName` | string
 `avg` | number
+`netAvg` | number
 `byYear` | { [key: string]: number | null; }
+`netByYear` | { [key: string]: number | null; }
 
 ## Example
 
@@ -21,7 +23,9 @@ const example = {
   "schoolId": null,
   "schoolName": null,
   "avg": null,
+  "netAvg": null,
   "byYear": null,
+  "netByYear": null,
 } satisfies SportCompensationRankingsSchoolsInner
 
 console.log(example)

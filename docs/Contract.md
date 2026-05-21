@@ -27,10 +27,10 @@ import type { Contract } from '@winthrop-intelligence/winthrop-client-typescript
 // TODO: Update the object below with actual values
 const example = {
   "id": 1,
-  "executedOn": Tue Jan 01 00:00:00 UTC 2019,
-  "expiresOn": Tue Jan 01 00:00:00 UTC 2019,
-  "startOn": Tue Jan 01 00:00:00 UTC 2019,
-  "endOn": Tue Jan 01 00:00:00 UTC 2019,
+  "executedOn": Mon Dec 31 18:00:00 CST 2018,
+  "expiresOn": Mon Dec 31 18:00:00 CST 2018,
+  "startOn": Mon Dec 31 18:00:00 CST 2018,
+  "endOn": Mon Dec 31 18:00:00 CST 2018,
   "atWill": false,
   "verified": false,
   "contractableType": Coach,

@@ -53,7 +53,7 @@ const example = {
   "leader": false,
   "bio": https://rolltide.com/staff-directory/greg-byrne/519,
   "bioText": Example Bio Text,
-  "dob": Tue Jan 01 00:00:00 UTC 2019,
+  "dob": Mon Dec 31 18:00:00 CST 2018,
   "almaMaterId": 1,
   "almaMaterYear": 2009,
   "hometownCity": Omaha,

@@ -1,7 +1,7 @@
 
 # GamePostSearchResult
 
-Enriched game post search result with school, location, and RPI data
+Enriched game post search result with school, location, and ranking data
 
 ## Properties
 
@@ -28,12 +28,14 @@ Name | Type
 `divisionId` | number
 `divisionName` | string
 `lastRpi` | number
+`lastNetRank` | number
 `distance` | number
 `avgGuaranteePaid` | number
 `avgGuaranteeReceived` | number
 `gameTypesDisplay` | string
 `createdByName` | string
 `avgRpi` | number
+`avgNetRank` | number
 `schoolLogoUrl` | string
 `latitude` | number
 `longitude` | number
@@ -67,12 +69,14 @@ const example = {
   "divisionId": null,
   "divisionName": null,
   "lastRpi": null,
+  "lastNetRank": null,
   "distance": null,
   "avgGuaranteePaid": null,
   "avgGuaranteeReceived": null,
   "gameTypesDisplay": null,
   "createdByName": null,
   "avgRpi": null,
+  "avgNetRank": null,
   "schoolLogoUrl": null,
   "latitude": null,
   "longitude": null,

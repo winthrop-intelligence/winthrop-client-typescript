@@ -17,6 +17,13 @@ Name | Type
 `compensationType` | string
 `mediaLink` | string
 `rawContractId` | number
+`oneTimeBonusCents` | number
+`outsideIncomeCents` | number
+`contingentBonus` | boolean
+`buyoutTerms` | string
+`isCarProvided` | boolean
+`countryClubMembership` | boolean
+`notes` | string
 
 ## Example
 
@@ -36,6 +43,13 @@ const example = {
   "compensationType": null,
   "mediaLink": null,
   "rawContractId": null,
+  "oneTimeBonusCents": null,
+  "outsideIncomeCents": null,
+  "contingentBonus": null,
+  "buyoutTerms": null,
+  "isCarProvided": null,
+  "countryClubMembership": null,
+  "notes": null,
 } satisfies CoachCompensationEntry
 
 console.log(example)

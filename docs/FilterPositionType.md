@@ -10,6 +10,7 @@ Name | Type
 `id` | number
 `name` | string
 `groupStub` | boolean
+`category` | string
 
 ## Example
 
@@ -21,6 +22,7 @@ const example = {
   "id": null,
   "name": null,
   "groupStub": null,
+  "category": null,
 } satisfies FilterPositionType
 
 console.log(example)

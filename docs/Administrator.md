@@ -1,6 +1,7 @@
 
 # Administrator
 
+Administrator search result. In /administrator_searches responses, compensation fields are only included when the user has administrator_compensation permission, and contract fields are only included when the user can view the related contract or raw contract.
 
 ## Properties
 
@@ -95,8 +96,8 @@ const example = {
   "compensationTalentFee": 10000,
   "compensationMediaLink": This is a compensation media link,
   "rawContractId": 1,
-  "contractStartsOn": Tue Jan 01 00:00:00 UTC 2019,
-  "contractExpiresOn": Tue Jan 01 00:00:00 UTC 2019,
+  "contractStartsOn": Mon Dec 31 18:00:00 CST 2018,
+  "contractExpiresOn": Mon Dec 31 18:00:00 CST 2018,
   "contractAtWill": false,
   "diversity": false,
   "gender": M,
