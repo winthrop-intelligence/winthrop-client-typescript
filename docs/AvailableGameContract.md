@@ -27,7 +27,7 @@ const example = {
   "sportName": MBB,
   "homeSchoolName": Duke,
   "awaySchoolName": UNC,
-  "gameDate": Sat Nov 21 18:00:00 CST 2026,
+  "gameDate": Sun Nov 22 00:00:00 UTC 2026,
   "gameDateTbd": TBD 2026,
   "gameType": Guarantee,
   "compCents": 12500000,

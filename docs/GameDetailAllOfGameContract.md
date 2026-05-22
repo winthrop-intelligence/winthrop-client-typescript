@@ -26,7 +26,7 @@ const example = {
   "gameType": HomeAndHome,
   "compCents": 150000,
   "cancelFeeCents": 50000,
-  "signedOn": Tue May 14 19:00:00 CDT 2024,
+  "signedOn": Wed May 15 00:00:00 UTC 2024,
   "offSiteLocation": Mercedes-Benz Stadium, Atlanta,
   "fileUrl": https://app.example.com/rails/active_storage/blobs/.../contract.pdf,
   "hasFile": true,
