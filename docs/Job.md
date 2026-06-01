@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `title` | string
 `description` | string
-`jobUrl` | string
+`url` | string
 `postedAt` | Date
 `createdAt` | Date
 `school` | [JobSchool](JobSchool.md)
@@ -27,7 +27,7 @@ const example = {
   "id": 1,
   "title": John,
   "description": John,
-  "jobUrl": https://job-url.com,
+  "url": https://job-url.com,
   "postedAt": 2019-01-01T00:00Z,
   "createdAt": 2019-01-01T00:00Z,
   "school": null,
