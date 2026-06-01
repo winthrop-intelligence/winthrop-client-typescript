@@ -11995,11 +11995,11 @@ example().catch(console.error);
 
 ## getScheduleGridAvailableSchools
 
-> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, maxDistanceMiles, userSchoolId, excludeSchoolIds, limit)
+> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds, limit)
 
 
 
-Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, and distance.
+Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance.
 
 ### Example
 
@@ -12031,6 +12031,8 @@ async function example() {
     dealTypes: ...,
     // 'power_4' | 'mid_major' | 'smaller' | Restrict to a subdivision tier (optional)
     qualityTier: qualityTier_example,
+    // 'top_50' | '51_100' | '101_200' | '201_plus' | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Schools without a NET rank are excluded from every named tier; omit the param to leave results unfiltered. (optional)
+    netRankingTier: netRankingTier_example,
     // number | Maximum distance (miles) from the user\'s school. Requires user_school_id to resolve a coordinate origin. (optional)
     maxDistanceMiles: 56,
     // number | Requesting user\'s school. Used as the origin for distance filtering and is always excluded from results. (optional)
@@ -12063,6 +12065,7 @@ example().catch(console.error);
 | **windowDays** | `number` | Number of days on either side of target_date to include (default 1) | [Optional] [Defaults to `1`] |
 | **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
 | **qualityTier** | `power_4`, `mid_major`, `smaller` | Restrict to a subdivision tier | [Optional] [Defaults to `undefined`] [Enum: power_4, mid_major, smaller] |
+| **netRankingTier** | `top_50`, `51_100`, `101_200`, `201_plus` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Schools without a NET rank are excluded from every named tier; omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] [Enum: top_50, 51_100, 101_200, 201_plus] |
 | **maxDistanceMiles** | `number` | Maximum distance (miles) from the user\&#39;s school. Requires user_school_id to resolve a coordinate origin. | [Optional] [Defaults to `undefined`] |
 | **userSchoolId** | `number` | Requesting user\&#39;s school. Used as the origin for distance filtering and is always excluded from results. | [Optional] [Defaults to `undefined`] |
 | **excludeSchoolIds** | `Array<number>` | Additional school IDs to exclude from results (e.g. schools already on the grid) | [Optional] |
