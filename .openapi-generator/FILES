@@ -252,6 +252,7 @@ docs/RecruitingChartData.md
 docs/RecruitingConferenceEntry.md
 docs/RecruitingPositionEntry.md
 docs/RegenerateRawContractPdf200Response.md
+docs/RemoteJobPost.md
 docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
@@ -636,6 +637,7 @@ src/models/RecruitingChartData.ts
 src/models/RecruitingConferenceEntry.ts
 src/models/RecruitingPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
+src/models/RemoteJobPost.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
 src/models/RoleOption.ts
