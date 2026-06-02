@@ -13,7 +13,7 @@ Name | Type
 `seasonEnd` | Date
 `schools` | [Array&lt;ScheduleGridSchool&gt;](ScheduleGridSchool.md)
 `games` | { [key: string]: Array&lt;ScheduleGridGame&gt;; }
-`scheduleIntents` | { [key: string]: Array&lt;ScheduleGridScheduleIntent&gt;; }
+`gamePosts` | { [key: string]: Array&lt;ScheduleGridGamePost&gt;; }
 `onboarding` | [ScheduleGridOnboarding](ScheduleGridOnboarding.md)
 
 ## Example
@@ -29,7 +29,7 @@ const example = {
   "seasonEnd": null,
   "schools": null,
   "games": null,
-  "scheduleIntents": null,
+  "gamePosts": null,
   "onboarding": null,
 } satisfies ScheduleGridView
 
