@@ -12,6 +12,7 @@ Name | Type
 `netAvg` | number
 `byYear` | { [key: string]: number | null; }
 `netByYear` | { [key: string]: number | null; }
+`apByYear` | { [key: string]: number | null; }
 
 ## Example
 
@@ -26,6 +27,7 @@ const example = {
   "netAvg": null,
   "byYear": null,
   "netByYear": null,
+  "apByYear": null,
 } satisfies SportCompensationRankingsSchoolsInner
 
 console.log(example)

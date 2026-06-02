@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `rawContractId` | number
 `year` | number
+`hasFile` | boolean
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "id": null,
   "rawContractId": null,
   "year": null,
+  "hasFile": null,
 } satisfies CoachCompensationTabSidebarIncomeReportsInner
 
 console.log(example)
