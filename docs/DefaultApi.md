@@ -29,6 +29,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
 | [**createScheduleIntent**](DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents |  |
+| [**createScheduleTournament**](DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments |  |
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
 | [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
@@ -51,6 +52,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deletePosition**](DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} |  |
 | [**deleteRequestedItem**](DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} |  |
 | [**deleteScheduleIntent**](DefaultApi.md#deletescheduleintent) | **DELETE** /api/v1/schedule_intents/{scheduleIntentId} |  |
+| [**deleteScheduleTournament**](DefaultApi.md#deletescheduletournament) | **DELETE** /api/v1/schedule_tournaments/{scheduleTournamentId} |  |
 | [**deleteSchoolGroup**](DefaultApi.md#deleteschoolgroup) | **DELETE** /api/v1/school_groups/{schoolGroupId} |  |
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
@@ -2165,6 +2167,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createScheduleTournament
+
+> ScheduleTournamentDetail createScheduleTournament(createScheduleTournamentRequest)
+
+
+
+Create a private /schedules grid multi-team event (MTE) placeholder (WINAD-9818). Always scoped to the current user\&#39;s account school (the school is taken from the session, not the request body) plus a permitted sport on a single date; opponents may be unknown when the event is added so no opponent FK is stored. At most one tournament per (school, sport, date). A tournament takes over the whole cell, so creating one destroys any overlapping ScheduleIntent availability marker for that cell. Cells render as \&quot;Tournament Name (MTE)\&quot;.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateScheduleTournamentOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateScheduleTournamentRequest
+    createScheduleTournamentRequest: ...,
+  } satisfies CreateScheduleTournamentOperationRequest;
+
+  try {
+    const data = await api.createScheduleTournament(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createScheduleTournamentRequest** | [CreateScheduleTournamentRequest](CreateScheduleTournamentRequest.md) |  | |
+
+### Return type
+
+[**ScheduleTournamentDetail**](ScheduleTournamentDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Schedule tournament created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — not permitted to create a tournament for this sport |  -  |
+| **422** | Validation error — missing/out-of-range name (3–30 chars), missing date, a tournament already exists for this (school, sport, date), or the current user\&#39;s account has no school |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createSchoolGroup
 
 > SchoolGroupShow createSchoolGroup(createSchoolGroupRequest)
@@ -3810,6 +3888,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **204** | Schedule intent deleted |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteScheduleTournament
+
+> deleteScheduleTournament(scheduleTournamentId)
+
+
+
+Delete a private /schedules grid multi-team event (MTE) placeholder.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteScheduleTournamentRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    scheduleTournamentId: 56,
+  } satisfies DeleteScheduleTournamentRequest;
+
+  try {
+    const data = await api.deleteScheduleTournament(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **scheduleTournamentId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Schedule tournament deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — not owned by current user\&#39;s school or sport not permitted |  -  |
 | **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -11917,7 +12071,7 @@ example().catch(console.error);
 
 
 
-Retrieve the schedule grid for a sport — season window, schools, games, and active game posts for up to eight selected schools.
+Retrieve the schedule grid for a sport — season window, schools (with scheduling contacts), games, private ScheduleIntent availability markers, private ScheduleTournament multi-team event (MTE) placeholders, and empty-schedule onboarding state for up to twelve selected schools.
 
 ### Example
 
@@ -11943,7 +12097,7 @@ async function example() {
     sportName: sportName_example,
     // Array<number> | School IDs to include on the grid (max 12, ordering is preserved) (optional)
     schoolIds: ...,
-    // number | Four-digit season year. Defaults to the current year when omitted or invalid. (optional)
+    // number | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. (optional)
     year: 2026,
   } satisfies GetScheduleGridRequest;
 
@@ -11966,7 +12120,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
 | **schoolIds** | `Array<number>` | School IDs to include on the grid (max 12, ordering is preserved) | [Optional] |
-| **year** | `number` | Four-digit season year. Defaults to the current year when omitted or invalid. | [Optional] [Defaults to `undefined`] |
+| **year** | `number` | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11989,13 +12143,14 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Sport not found |  -  |
+| **422** | year is malformed or outside the supported range |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## getScheduleGridAvailableSchools
 
-> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds, limit)
+> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds)
 
 
 
@@ -12031,16 +12186,14 @@ async function example() {
     dealTypes: ...,
     // 'power_4' | 'mid_major' | 'smaller' | Restrict to a subdivision tier (optional)
     qualityTier: qualityTier_example,
-    // 'top_50' | '51_100' | '101_200' | '201_plus' | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Schools without a NET rank are excluded from every named tier; omit the param to leave results unfiltered. (optional)
-    netRankingTier: netRankingTier_example,
+    // string | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as `custom_<min>_<max>`, where either bound may be blank for an open-ended range (e.g. `custom_50_` => 50 and up, `custom__120` => up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. (optional)
+    netRankingTier: top_50,
     // number | Maximum distance (miles) from the user\'s school. Requires user_school_id to resolve a coordinate origin. (optional)
     maxDistanceMiles: 56,
     // number | Requesting user\'s school. Used as the origin for distance filtering and is always excluded from results. (optional)
     userSchoolId: 56,
     // Array<number> | Additional school IDs to exclude from results (e.g. schools already on the grid) (optional)
     excludeSchoolIds: ...,
-    // number | Maximum rows to return (default 50, capped at 100) (optional)
-    limit: 56,
   } satisfies GetScheduleGridAvailableSchoolsRequest;
 
   try {
@@ -12065,11 +12218,10 @@ example().catch(console.error);
 | **windowDays** | `number` | Number of days on either side of target_date to include (default 1) | [Optional] [Defaults to `1`] |
 | **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
 | **qualityTier** | `power_4`, `mid_major`, `smaller` | Restrict to a subdivision tier | [Optional] [Defaults to `undefined`] [Enum: power_4, mid_major, smaller] |
-| **netRankingTier** | `top_50`, `51_100`, `101_200`, `201_plus` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Schools without a NET rank are excluded from every named tier; omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] [Enum: top_50, 51_100, 101_200, 201_plus] |
+| **netRankingTier** | `string` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
 | **maxDistanceMiles** | `number` | Maximum distance (miles) from the user\&#39;s school. Requires user_school_id to resolve a coordinate origin. | [Optional] [Defaults to `undefined`] |
 | **userSchoolId** | `number` | Requesting user\&#39;s school. Used as the origin for distance filtering and is always excluded from results. | [Optional] [Defaults to `undefined`] |
 | **excludeSchoolIds** | `Array<number>` | Additional school IDs to exclude from results (e.g. schools already on the grid) | [Optional] |
-| **limit** | `number` | Maximum rows to return (default 50, capped at 100) | [Optional] [Defaults to `50`] |
 
 ### Return type
 
@@ -12103,7 +12255,7 @@ example().catch(console.error);
 
 
 
-Retrieve the completed-games schedule grid for a past season — season window, schools, and final results for up to eight selected schools. Game posts are not returned for completed seasons.
+Retrieve the completed-games schedule grid for a past season — season window, schools, and final results for up to twelve selected schools. ScheduleIntent and ScheduleTournament markers are not returned for completed seasons (both keys are emitted as empty objects).
 
 ### Example
 
@@ -12129,7 +12281,7 @@ async function example() {
     sportName: sportName_example,
     // Array<number> | School IDs to include on the grid (max 12, ordering is preserved) (optional)
     schoolIds: ...,
-    // number | Four-digit season year. Defaults to the current year when omitted or invalid. (optional)
+    // number | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. (optional)
     year: 2024,
   } satisfies GetScheduleGridCompletedRequest;
 
@@ -12152,7 +12304,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
 | **schoolIds** | `Array<number>` | School IDs to include on the grid (max 12, ordering is preserved) | [Optional] |
-| **year** | `number` | Four-digit season year. Defaults to the current year when omitted or invalid. | [Optional] [Defaults to `undefined`] |
+| **year** | `number` | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -12171,10 +12323,11 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Completed schedule grid. The season window runs from the first Monday of November of &#x60;year&#x60; through April 30 of &#x60;year + 1&#x60;, and &#x60;game_posts&#x60; is always an empty object. |  -  |
+| **200** | Completed schedule grid. The season window runs from the first Monday of November of &#x60;year - 1&#x60; through December 31 of &#x60;year - 1&#x60;, and both &#x60;schedule_intents&#x60; and &#x60;schedule_tournaments&#x60; are always empty objects. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Sport not found |  -  |
+| **422** | year is malformed or outside the supported range |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
