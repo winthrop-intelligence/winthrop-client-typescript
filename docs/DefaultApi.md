@@ -28,7 +28,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
-| [**createScheduleIntent**](DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents |  |
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
 | [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
@@ -50,7 +49,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteNote**](DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} |  |
 | [**deletePosition**](DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} |  |
 | [**deleteRequestedItem**](DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} |  |
-| [**deleteScheduleIntent**](DefaultApi.md#deletescheduleintent) | **DELETE** /api/v1/schedule_intents/{scheduleIntentId} |  |
 | [**deleteSchoolGroup**](DefaultApi.md#deleteschoolgroup) | **DELETE** /api/v1/school_groups/{schoolGroupId} |  |
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
@@ -237,7 +235,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
-| [**updateScheduleIntent**](DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} |  |
 | [**updateSchoolGroup**](DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
 | [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
@@ -246,6 +243,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
 | [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
+| [**viewInvoiceFile**](DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file |  |
 | [**viewRawContractFile**](DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file |  |
 
 
@@ -2090,81 +2088,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## createScheduleIntent
-
-> ScheduleIntentDetail createScheduleIntent(createScheduleIntentRequest)
-
-
-
-Create a private /schedules grid marker (WINAD-9646). This is NOT a public Games Wanted post — it never reaches the /game_posts feed, the school-detail badge, or the digest email.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateScheduleIntentOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // CreateScheduleIntentRequest
-    createScheduleIntentRequest: ...,
-  } satisfies CreateScheduleIntentOperationRequest;
-
-  try {
-    const data = await api.createScheduleIntent(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createScheduleIntentRequest** | [CreateScheduleIntentRequest](CreateScheduleIntentRequest.md) |  | |
-
-### Return type
-
-[**ScheduleIntentDetail**](ScheduleIntentDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Schedule intent created |  -  |
-| **422** | Validation error |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## createSchoolGroup
 
 > SchoolGroupShow createSchoolGroup(createSchoolGroupRequest)
@@ -3736,81 +3659,6 @@ example().catch(console.error);
 | **204** | Requested item was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## deleteScheduleIntent
-
-> deleteScheduleIntent(scheduleIntentId)
-
-
-
-Delete a private /schedules grid marker
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DeleteScheduleIntentRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    scheduleIntentId: 56,
-  } satisfies DeleteScheduleIntentRequest;
-
-  try {
-    const data = await api.deleteScheduleIntent(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **scheduleIntentId** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Schedule intent deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -11995,11 +11843,11 @@ example().catch(console.error);
 
 ## getScheduleGridAvailableSchools
 
-> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds, limit)
+> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, maxDistanceMiles, userSchoolId, excludeSchoolIds, limit)
 
 
 
-Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance.
+Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, and distance.
 
 ### Example
 
@@ -12031,8 +11879,6 @@ async function example() {
     dealTypes: ...,
     // 'power_4' | 'mid_major' | 'smaller' | Restrict to a subdivision tier (optional)
     qualityTier: qualityTier_example,
-    // 'top_50' | '51_100' | '101_200' | '201_plus' | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Schools without a NET rank are excluded from every named tier; omit the param to leave results unfiltered. (optional)
-    netRankingTier: netRankingTier_example,
     // number | Maximum distance (miles) from the user\'s school. Requires user_school_id to resolve a coordinate origin. (optional)
     maxDistanceMiles: 56,
     // number | Requesting user\'s school. Used as the origin for distance filtering and is always excluded from results. (optional)
@@ -12065,7 +11911,6 @@ example().catch(console.error);
 | **windowDays** | `number` | Number of days on either side of target_date to include (default 1) | [Optional] [Defaults to `1`] |
 | **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
 | **qualityTier** | `power_4`, `mid_major`, `smaller` | Restrict to a subdivision tier | [Optional] [Defaults to `undefined`] [Enum: power_4, mid_major, smaller] |
-| **netRankingTier** | `top_50`, `51_100`, `101_200`, `201_plus` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Schools without a NET rank are excluded from every named tier; omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] [Enum: top_50, 51_100, 101_200, 201_plus] |
 | **maxDistanceMiles** | `number` | Maximum distance (miles) from the user\&#39;s school. Requires user_school_id to resolve a coordinate origin. | [Optional] [Defaults to `undefined`] |
 | **userSchoolId** | `number` | Requesting user\&#39;s school. Used as the origin for distance filtering and is always excluded from results. | [Optional] [Defaults to `undefined`] |
 | **excludeSchoolIds** | `Array<number>` | Additional school IDs to exclude from results (e.g. schools already on the grid) | [Optional] |
@@ -18127,85 +17972,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## updateScheduleIntent
-
-> ScheduleIntentDetail updateScheduleIntent(scheduleIntentId, updateScheduleIntentRequest)
-
-
-
-Update a private /schedules grid marker (replace its game-type designations).
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateScheduleIntentOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    scheduleIntentId: 56,
-    // UpdateScheduleIntentRequest (optional)
-    updateScheduleIntentRequest: ...,
-  } satisfies UpdateScheduleIntentOperationRequest;
-
-  try {
-    const data = await api.updateScheduleIntent(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **scheduleIntentId** | `number` |  | [Defaults to `undefined`] |
-| **updateScheduleIntentRequest** | [UpdateScheduleIntentRequest](UpdateScheduleIntentRequest.md) |  | [Optional] |
-
-### Return type
-
-[**ScheduleIntentDetail**](ScheduleIntentDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Schedule intent updated |  -  |
-| **422** | Validation error |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## updateSchoolGroup
 
 > SchoolGroupShow updateSchoolGroup(schoolGroupId, updateSchoolGroupRequest)
@@ -18812,6 +18578,85 @@ example().catch(console.error);
 | **200** | Successful response with the access granted status |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | User Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## viewInvoiceFile
+
+> Blob viewInvoiceFile(subscriptionId, invoiceId)
+
+
+
+Stream the generated invoice PDF for inline viewing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ViewInvoiceFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Subscription
+    subscriptionId: 56,
+    // number | ID of the Invoice
+    invoiceId: 56,
+  } satisfies ViewInvoiceFileRequest;
+
+  try {
+    const data = await api.viewInvoiceFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionId** | `number` | ID of the Subscription | [Defaults to `undefined`] |
+| **invoiceId** | `number` | ID of the Invoice | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF file stream |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
