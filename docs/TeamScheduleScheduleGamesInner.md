@@ -18,6 +18,8 @@ Name | Type
 `opponentAvgRpi` | number
 `opponentNetRank` | number
 `opponentAvgNetRank` | number
+`opponentApRank` | number
+`opponentAvgApRank` | number
 `inConference` | boolean
 `hasContract` | boolean
 `compensationCents` | number
@@ -46,6 +48,8 @@ const example = {
   "opponentAvgRpi": null,
   "opponentNetRank": null,
   "opponentAvgNetRank": null,
+  "opponentApRank": null,
+  "opponentAvgApRank": null,
   "inConference": null,
   "hasContract": null,
   "compensationCents": null,

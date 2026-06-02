@@ -16,6 +16,7 @@ Name | Type
 `stateName` | string
 `rpi` | string
 `netRank` | string
+`apRank` | string
 `compensationCents` | number
 `gameContractId` | number
 
@@ -36,6 +37,7 @@ const example = {
   "stateName": null,
   "rpi": null,
   "netRank": null,
+  "apRank": null,
   "compensationCents": null,
   "gameContractId": null,
 } satisfies AthleticProfileShowGamesInner

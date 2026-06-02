@@ -13,8 +13,10 @@ Name | Type
 `description` | string
 `lastRpi` | number
 `lastNetRank` | number
+`lastApRank` | number
 `avgRpi` | number
 `avgNetRank` | number
+`avgApRank` | number
 `city` | string
 `stateName` | string
 `createdAt` | string
@@ -36,8 +38,10 @@ const example = {
   "description": null,
   "lastRpi": null,
   "lastNetRank": null,
+  "lastApRank": null,
   "avgRpi": null,
   "avgNetRank": null,
+  "avgApRank": null,
   "city": null,
   "stateName": null,
   "createdAt": null,
