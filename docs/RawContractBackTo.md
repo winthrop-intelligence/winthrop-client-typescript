@@ -9,6 +9,16 @@ Name | Type
 `type` | string
 `id` | number
 `name` | string
+`positionTitle` | string
+`positionGroup` | string
+`sport` | string
+`contractStartOn` | Date
+`contractEndOn` | Date
+`homeSchoolId` | number
+`homeSchoolName` | string
+`awaySchoolId` | number
+`awaySchoolName` | string
+`seasonYear` | number
 
 ## Example
 
@@ -20,6 +30,16 @@ const example = {
   "type": null,
   "id": null,
   "name": null,
+  "positionTitle": null,
+  "positionGroup": null,
+  "sport": null,
+  "contractStartOn": null,
+  "contractEndOn": null,
+  "homeSchoolId": null,
+  "homeSchoolName": null,
+  "awaySchoolId": null,
+  "awaySchoolName": null,
+  "seasonYear": null,
 } satisfies RawContractBackTo
 
 console.log(example)

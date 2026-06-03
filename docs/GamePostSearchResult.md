@@ -29,7 +29,6 @@ Name | Type
 `divisionName` | string
 `lastRpi` | number
 `lastNetRank` | number
-`lastApRank` | number
 `distance` | number
 `avgGuaranteePaid` | number
 `avgGuaranteeReceived` | number
@@ -37,7 +36,6 @@ Name | Type
 `createdByName` | string
 `avgRpi` | number
 `avgNetRank` | number
-`avgApRank` | number
 `schoolLogoUrl` | string
 `latitude` | number
 `longitude` | number
@@ -72,7 +70,6 @@ const example = {
   "divisionName": null,
   "lastRpi": null,
   "lastNetRank": null,
-  "lastApRank": null,
   "distance": null,
   "avgGuaranteePaid": null,
   "avgGuaranteeReceived": null,
@@ -80,7 +77,6 @@ const example = {
   "createdByName": null,
   "avgRpi": null,
   "avgNetRank": null,
-  "avgApRank": null,
   "schoolLogoUrl": null,
   "latitude": null,
   "longitude": null,

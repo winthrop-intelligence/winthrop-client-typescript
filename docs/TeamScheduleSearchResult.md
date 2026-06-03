@@ -19,10 +19,8 @@ Name | Type
 `sportName` | string
 `lastRpi` | number
 `lastNetRank` | number
-`lastApRank` | number
 `avgRpi` | number
 `avgNetRank` | number
-`avgApRank` | number
 `distance` | number
 `avgGuaranteePaidCents` | number
 `avgGuaranteeReceivedCents` | number
@@ -57,10 +55,8 @@ const example = {
   "sportName": null,
   "lastRpi": null,
   "lastNetRank": null,
-  "lastApRank": null,
   "avgRpi": null,
   "avgNetRank": null,
-  "avgApRank": null,
   "distance": null,
   "avgGuaranteePaidCents": null,
   "avgGuaranteeReceivedCents": null,

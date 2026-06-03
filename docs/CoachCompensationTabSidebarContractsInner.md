@@ -14,6 +14,10 @@ Name | Type
 `hasFile` | boolean
 `canDownload` | boolean
 `assetFileName` | string
+`schoolId` | number
+`schoolName` | string
+`positionTitle` | string
+`positionGroup` | string
 
 ## Example
 
@@ -30,6 +34,10 @@ const example = {
   "hasFile": null,
   "canDownload": null,
   "assetFileName": null,
+  "schoolId": null,
+  "schoolName": null,
+  "positionTitle": null,
+  "positionGroup": null,
 } satisfies CoachCompensationTabSidebarContractsInner
 
 console.log(example)
