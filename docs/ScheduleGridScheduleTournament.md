@@ -1,35 +1,27 @@
 
-# ScheduleGridSchool
+# ScheduleGridScheduleTournament
 
-One of the up-to-twelve schools rendered as a column on the schedule grid
+A private single-day /schedules grid multi-team event (MTE) placeholder (WINAD-9818). Rendered as \"Tournament Name (MTE)\" in the cell.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
 `id` | number
+`date` | Date
 `name` | string
-`shortName` | string
-`logoUrl` | string
-`primaryContactName` | string
-`primaryContactEmail` | string
-`primaryContactPhone` | string
 
 ## Example
 
 ```typescript
-import type { ScheduleGridSchool } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ScheduleGridScheduleTournament } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
+  "date": null,
   "name": null,
-  "shortName": null,
-  "logoUrl": null,
-  "primaryContactName": null,
-  "primaryContactEmail": null,
-  "primaryContactPhone": null,
-} satisfies ScheduleGridSchool
+} satisfies ScheduleGridScheduleTournament
 
 console.log(example)
 
@@ -38,7 +30,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ScheduleGridSchool
+const exampleParsed = JSON.parse(exampleJSON) as ScheduleGridScheduleTournament
 console.log(exampleParsed)
 ```
 

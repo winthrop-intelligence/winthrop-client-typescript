@@ -1,29 +1,26 @@
 
-# Filters
+# CreateScheduleTournamentRequestScheduleTournament
 
-Request body for the legacy coach search endpoint.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`priorityIds` | Array&lt;number&gt;
-`page` | number
-`perPage` | number
-`q` | { [key: string]: any; }
+`sportId` | number
+`date` | Date
+`name` | string
 
 ## Example
 
 ```typescript
-import type { Filters } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CreateScheduleTournamentRequestScheduleTournament } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "priorityIds": null,
-  "page": null,
-  "perPage": null,
-  "q": null,
-} satisfies Filters
+  "sportId": null,
+  "date": null,
+  "name": null,
+} satisfies CreateScheduleTournamentRequestScheduleTournament
 
 console.log(example)
 
@@ -32,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as Filters
+const exampleParsed = JSON.parse(exampleJSON) as CreateScheduleTournamentRequestScheduleTournament
 console.log(exampleParsed)
 ```
 

@@ -87,6 +87,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createPosition**](docs/DefaultApi.md#createposition) | **POST** /api/v1/positions | 
 *DefaultApi* | [**createRequestedItem**](docs/DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items | 
 *DefaultApi* | [**createScheduleIntent**](docs/DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents | 
+*DefaultApi* | [**createScheduleTournament**](docs/DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments | 
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
@@ -109,6 +110,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deletePosition**](docs/DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} | 
 *DefaultApi* | [**deleteRequestedItem**](docs/DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**deleteScheduleIntent**](docs/DefaultApi.md#deletescheduleintent) | **DELETE** /api/v1/schedule_intents/{scheduleIntentId} | 
+*DefaultApi* | [**deleteScheduleTournament**](docs/DefaultApi.md#deletescheduletournament) | **DELETE** /api/v1/schedule_tournaments/{scheduleTournamentId} | 
 *DefaultApi* | [**deleteSchoolGroup**](docs/DefaultApi.md#deleteschoolgroup) | **DELETE** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
@@ -304,6 +306,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
 *DefaultApi* | [**verifyUserIntercollegiateAccess**](docs/DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access | 
+*DefaultApi* | [**viewInvoiceFile**](docs/DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file | 
 *DefaultApi* | [**viewRawContractFile**](docs/DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file | 
 *DossierApi* | [**universityDossierReportDossierWinadIdGet**](docs/DossierApi.md#universitydossierreportdossierwinadidget) | **GET** /dossier/{winad_id}/ | University Dossier Report
 *IntercollegiateApi* | [**createJobPost**](docs/IntercollegiateApi.md#createjobpost) | **POST** /wi_jobs/job_posts | 
@@ -456,6 +459,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreatePasswordResetRequestUser](docs/CreatePasswordResetRequestUser.md)
 - [CreateScheduleIntentRequest](docs/CreateScheduleIntentRequest.md)
 - [CreateScheduleIntentRequestScheduleIntent](docs/CreateScheduleIntentRequestScheduleIntent.md)
+- [CreateScheduleTournamentRequest](docs/CreateScheduleTournamentRequest.md)
+- [CreateScheduleTournamentRequestScheduleTournament](docs/CreateScheduleTournamentRequestScheduleTournament.md)
 - [CreateSchoolGroupRequest](docs/CreateSchoolGroupRequest.md)
 - [CreateSchoolGroupRequestSchoolGroup](docs/CreateSchoolGroupRequestSchoolGroup.md)
 - [CreateTeamScheduleFavorite201Response](docs/CreateTeamScheduleFavorite201Response.md)
@@ -590,9 +595,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScheduleGridGame](docs/ScheduleGridGame.md)
 - [ScheduleGridOnboarding](docs/ScheduleGridOnboarding.md)
 - [ScheduleGridScheduleIntent](docs/ScheduleGridScheduleIntent.md)
+- [ScheduleGridScheduleTournament](docs/ScheduleGridScheduleTournament.md)
 - [ScheduleGridSchool](docs/ScheduleGridSchool.md)
 - [ScheduleGridView](docs/ScheduleGridView.md)
 - [ScheduleIntentDetail](docs/ScheduleIntentDetail.md)
+- [ScheduleTournamentDetail](docs/ScheduleTournamentDetail.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
