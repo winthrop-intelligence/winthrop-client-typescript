@@ -45,6 +45,7 @@ Name | Type
 `conference` | [Conference](Conference.md)
 `division` | [Division](Division.md)
 `subdivisions` | [Array&lt;Subdivision&gt;](Subdivision.md)
+`rank` | number
 
 ## Example
 
@@ -92,6 +93,7 @@ const example = {
   "conference": null,
   "division": null,
   "subdivisions": null,
+  "rank": null,
 } satisfies School
 
 console.log(example)
