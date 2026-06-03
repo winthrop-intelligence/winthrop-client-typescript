@@ -1,7 +1,7 @@
 
 # ScheduleGridSchool
 
-One of the up-to-eight schools rendered as a column on the schedule grid
+One of the up-to-twelve schools rendered as a column on the schedule grid
 
 ## Properties
 
@@ -14,6 +14,7 @@ Name | Type
 `primaryContactName` | string
 `primaryContactEmail` | string
 `primaryContactPhone` | string
+`rank` | number
 
 ## Example
 
@@ -29,6 +30,7 @@ const example = {
   "primaryContactName": null,
   "primaryContactEmail": null,
   "primaryContactPhone": null,
+  "rank": null,
 } satisfies ScheduleGridSchool
 
 console.log(example)
