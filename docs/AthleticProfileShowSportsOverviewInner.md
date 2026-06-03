@@ -15,7 +15,6 @@ Name | Type
 `apr` | number
 `rpi` | number
 `netRank` | number
-`apRank` | number
 `headCoachCompCents` | number
 `asstPoolCents` | number
 
@@ -35,7 +34,6 @@ const example = {
   "apr": null,
   "rpi": null,
   "netRank": null,
-  "apRank": null,
   "headCoachCompCents": null,
   "asstPoolCents": null,
 } satisfies AthleticProfileShowSportsOverviewInner

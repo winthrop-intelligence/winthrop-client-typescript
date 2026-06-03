@@ -11,10 +11,8 @@ Name | Type
 `recordStr` | string
 `rpi` | number
 `netRank` | number
-`apRank` | number
 `avgRpi` | number
 `avgNetRank` | number
-`avgApRank` | number
 
 ## Example
 
@@ -28,10 +26,8 @@ const example = {
   "recordStr": null,
   "rpi": null,
   "netRank": null,
-  "apRank": null,
   "avgRpi": null,
   "avgNetRank": null,
-  "avgApRank": null,
 } satisfies TeamScheduleDetailSeason
 
 console.log(example)

@@ -12,7 +12,6 @@ Name | Type
 `ties` | number
 `rpi` | number
 `netRank` | number
-`apRank` | number
 `recordStr` | string
 `conferenceRecord` | string
 `postseason` | string
@@ -35,7 +34,6 @@ const example = {
   "ties": null,
   "rpi": null,
   "netRank": null,
-  "apRank": null,
   "recordStr": null,
   "conferenceRecord": null,
   "postseason": null,

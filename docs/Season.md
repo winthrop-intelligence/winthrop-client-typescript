@@ -45,9 +45,6 @@ Name | Type
 `nonDivisionLosses` | number
 `netRank` | number
 `prevNetRank` | number
-`apRank` | number
-`prevApRank` | number
-`torvikRank` | number
 `nonConferenceSosRanking` | number
 `conferenceSosRanking` | number
 `rankingThroughDate` | Date
@@ -100,9 +97,6 @@ const example = {
   "nonDivisionLosses": null,
   "netRank": null,
   "prevNetRank": null,
-  "apRank": null,
-  "prevApRank": null,
-  "torvikRank": null,
   "nonConferenceSosRanking": null,
   "conferenceSosRanking": null,
   "rankingThroughDate": null,
