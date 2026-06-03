@@ -125,6 +125,8 @@ docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
 docs/CreateScheduleIntentRequest.md
 docs/CreateScheduleIntentRequestScheduleIntent.md
+docs/CreateScheduleTournamentRequest.md
+docs/CreateScheduleTournamentRequestScheduleTournament.md
 docs/CreateSchoolGroupRequest.md
 docs/CreateSchoolGroupRequestSchoolGroup.md
 docs/CreateTeamScheduleFavorite201Response.md
@@ -263,9 +265,11 @@ docs/ScheduleGridAvailableSchools.md
 docs/ScheduleGridGame.md
 docs/ScheduleGridOnboarding.md
 docs/ScheduleGridScheduleIntent.md
+docs/ScheduleGridScheduleTournament.md
 docs/ScheduleGridSchool.md
 docs/ScheduleGridView.md
 docs/ScheduleIntentDetail.md
+docs/ScheduleTournamentDetail.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -513,6 +517,8 @@ src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
 src/models/CreateScheduleIntentRequest.ts
 src/models/CreateScheduleIntentRequestScheduleIntent.ts
+src/models/CreateScheduleTournamentRequest.ts
+src/models/CreateScheduleTournamentRequestScheduleTournament.ts
 src/models/CreateSchoolGroupRequest.ts
 src/models/CreateSchoolGroupRequestSchoolGroup.ts
 src/models/CreateTeamScheduleFavorite201Response.ts
@@ -646,9 +652,11 @@ src/models/ScheduleGridAvailableSchools.ts
 src/models/ScheduleGridGame.ts
 src/models/ScheduleGridOnboarding.ts
 src/models/ScheduleGridScheduleIntent.ts
+src/models/ScheduleGridScheduleTournament.ts
 src/models/ScheduleGridSchool.ts
 src/models/ScheduleGridView.ts
 src/models/ScheduleIntentDetail.ts
+src/models/ScheduleTournamentDetail.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts
