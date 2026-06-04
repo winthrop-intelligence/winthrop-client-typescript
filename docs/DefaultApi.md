@@ -13241,7 +13241,7 @@ This endpoint does not need any parameter.
 
 ## getSchools
 
-> SchoolCollection getSchools(page, perPage, q)
+> SchoolCollection getSchools(page, perPage, q, sportName)
 
 
 
@@ -13273,6 +13273,8 @@ async function example() {
     perPage: 56,
     // object | Ransack query (optional)
     q: Object,
+    // string | A sport\'s internal name (e.g. `BASKETBALL_M`, `BASKETBALL_W`, `FOOTBALL`). When supplied, each returned school includes a `rank` field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. (optional)
+    sportName: BASKETBALL_M,
   } satisfies GetSchoolsRequest;
 
   try {
@@ -13295,6 +13297,7 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **sportName** | `string` | A sport\&#39;s internal name (e.g. &#x60;BASKETBALL_M&#x60;, &#x60;BASKETBALL_W&#x60;, &#x60;FOOTBALL&#x60;). When supplied, each returned school includes a &#x60;rank&#x60; field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
