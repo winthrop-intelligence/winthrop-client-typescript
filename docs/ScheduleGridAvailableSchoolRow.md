@@ -14,6 +14,7 @@ Name | Type
 `primaryContactName` | string
 `primaryContactEmail` | string
 `primaryContactPhone` | string
+`primaryContactMobilePhone` | string
 `subdivisionName` | string
 `rank` | number
 `distanceMiles` | number
@@ -33,6 +34,7 @@ const example = {
   "primaryContactName": null,
   "primaryContactEmail": null,
   "primaryContactPhone": null,
+  "primaryContactMobilePhone": null,
   "subdivisionName": null,
   "rank": null,
   "distanceMiles": null,
