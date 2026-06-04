@@ -12151,11 +12151,11 @@ example().catch(console.error);
 
 ## getScheduleGridAvailableSchools
 
-> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds)
+> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, includeNoConflict, matchTournaments, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds)
 
 
 
-Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance.
+Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance. Omit target_date for an \&quot;Any date\&quot; market browse (no window). Set match_tournaments&#x3D;true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
 
 ### Example
 
@@ -12179,10 +12179,14 @@ async function example() {
   const body = {
     // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
     sportName: sportName_example,
-    // Date | Target date in ISO format (YYYY-MM-DD)
+    // Date | Target date in ISO format (YYYY-MM-DD). Omit (blank) for an \"Any date\" market browse that ignores the window and surfaces signals across all dates. A present-but-malformed value is rejected with 400. (optional)
     targetDate: 2013-10-20,
-    // number | Number of days on either side of target_date to include (default 1) (optional)
+    // number | Number of days on either side of target_date to include (default 1). Ignored in \"Any date\" mode. (optional)
     windowDays: 56,
+    // boolean | When true (default), include assumed-eligible schools that have no marked conflict (no availability signal). Set false to drop them. Only meaningful in Specific-date mode. (optional)
+    includeNoConflict: true,
+    // boolean | When true (the MTE intent), match only schools advertising a ScheduleTournament for the sport rather than a deal-type availability post; deal_types and assumed-eligible rows are ignored. (optional)
+    matchTournaments: true,
     // Array<string> | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) (optional)
     dealTypes: ...,
     // 'power_4' | 'mid_major' | 'smaller' | Restrict to a subdivision tier (optional)
@@ -12215,8 +12219,10 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
-| **targetDate** | `Date` | Target date in ISO format (YYYY-MM-DD) | [Defaults to `undefined`] |
-| **windowDays** | `number` | Number of days on either side of target_date to include (default 1) | [Optional] [Defaults to `1`] |
+| **targetDate** | `Date` | Target date in ISO format (YYYY-MM-DD). Omit (blank) for an \&quot;Any date\&quot; market browse that ignores the window and surfaces signals across all dates. A present-but-malformed value is rejected with 400. | [Optional] [Defaults to `undefined`] |
+| **windowDays** | `number` | Number of days on either side of target_date to include (default 1). Ignored in \&quot;Any date\&quot; mode. | [Optional] [Defaults to `1`] |
+| **includeNoConflict** | `boolean` | When true (default), include assumed-eligible schools that have no marked conflict (no availability signal). Set false to drop them. Only meaningful in Specific-date mode. | [Optional] [Defaults to `true`] |
+| **matchTournaments** | `boolean` | When true (the MTE intent), match only schools advertising a ScheduleTournament for the sport rather than a deal-type availability post; deal_types and assumed-eligible rows are ignored. | [Optional] [Defaults to `false`] |
 | **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
 | **qualityTier** | `power_4`, `mid_major`, `smaller` | Restrict to a subdivision tier | [Optional] [Defaults to `undefined`] [Enum: power_4, mid_major, smaller] |
 | **netRankingTier** | `string` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
@@ -12242,7 +12248,7 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available schools |  -  |
-| **400** | target_date missing or not a valid ISO date |  -  |
+| **400** | target_date present but not a valid ISO date |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Sport not found |  -  |

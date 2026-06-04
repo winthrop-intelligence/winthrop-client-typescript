@@ -13,6 +13,8 @@ Name | Type
 `email` | string
 `phone` | string
 `phoneDial` | string
+`mobilePhone` | string
+`mobilePhoneDial` | string
 
 ## Example
 
@@ -27,6 +29,8 @@ const example = {
   "email": null,
   "phone": null,
   "phoneDial": null,
+  "mobilePhone": null,
+  "mobilePhoneDial": null,
 } satisfies GamePostContact
 
 console.log(example)

@@ -12,6 +12,7 @@ Name | Type
 `title` | string
 `email` | string
 `phone` | string
+`mobilePhone` | string
 `avatarUrl` | string
 
 ## Example
@@ -26,6 +27,7 @@ const example = {
   "title": null,
   "email": null,
   "phone": null,
+  "mobilePhone": null,
   "avatarUrl": null,
 } satisfies TeamScheduleContact
 
