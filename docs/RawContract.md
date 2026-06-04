@@ -29,6 +29,7 @@ Name | Type
 `layoutPreservedPdfText` | string
 `canSeeAdminView` | boolean
 `canDownload` | boolean
+`schoolName` | string
 `pdfPreviewUrl` | string
 `pdfDownloadUrl` | string
 `hasFile` | boolean
@@ -66,6 +67,7 @@ const example = {
   "layoutPreservedPdfText": null,
   "canSeeAdminView": null,
   "canDownload": null,
+  "schoolName": null,
   "pdfPreviewUrl": null,
   "pdfDownloadUrl": null,
   "hasFile": null,
