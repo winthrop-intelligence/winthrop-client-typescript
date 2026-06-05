@@ -9,6 +9,10 @@ Name | Type
 `data` | [Array&lt;GadSearchResult&gt;](GadSearchResult.md)
 `meta` | [Meta](Meta.md)
 `stats` | [GadSearchStats](GadSearchStats.md)
+`schoolSummary` | [GadSchoolSummary](GadSchoolSummary.md)
+`schoolSummaryError` | [GadSummaryError](GadSummaryError.md)
+`cohortSummary` | [GadCohortSummary](GadCohortSummary.md)
+`cohortError` | [GadCohortError](GadCohortError.md)
 
 ## Example
 
@@ -20,6 +24,10 @@ const example = {
   "data": null,
   "meta": null,
   "stats": null,
+  "schoolSummary": null,
+  "schoolSummaryError": null,
+  "cohortSummary": null,
+  "cohortError": null,
 } satisfies GadSearchResultCollection
 
 console.log(example)
