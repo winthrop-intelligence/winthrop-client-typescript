@@ -9838,11 +9838,11 @@ example().catch(console.error);
 
 ## getGadSearches
 
-> GadSearchResultCollection getGadSearches(page, perPage, q)
+> GadSearchResultCollection getGadSearches(page, perPage, q, distanceSchoolType, includeSchoolSummary, seasonWindow, includeCohortSummary, buyerCohort, sellerCohort)
 
 
 
-Search game contracts (GAD) with filtering and pagination
+Search game contracts (GAD) with filtering and pagination. Optionally returns school-summary (median paid/received) and cohort-summary (NCAA cohort benchmark) aggregates alongside the paginated agreements.
 
 ### Example
 
@@ -9870,6 +9870,18 @@ async function example() {
     perPage: 56,
     // object | Ransack query (optional)
     q: Object,
+    // 'home' | 'away' | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\'s account is tied to a school. (optional)
+    distanceSchoolType: distanceSchoolType_example,
+    // boolean | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. (optional)
+    includeSchoolSummary: true,
+    // 'last_3_completed_seasons' | 'specific_year' | 'custom_range' | Window for school-summary / cohort-summary aggregations. last_3_completed_seasons auto-fills season_year_gteq/lteq with the three most recent completed NCAA academic years. (optional)
+    seasonWindow: seasonWindow_example,
+    // boolean | When true, also compute median/mean/min/max/count across the filtered cohort. Requires q[sport_id_eq]. Mutually exclusive with include_school_summary. (optional)
+    includeCohortSummary: true,
+    // 'P4' | 'G6' | 'FBS' | 'FCS' | 'D2' | 'D3' | Restrict the buyer (home/paying) side to one NCAA cohort. Resolved server-side via Subdivision / Division taxonomy. (optional)
+    buyerCohort: buyerCohort_example,
+    // 'P4' | 'G6' | 'FBS' | 'FCS' | 'D2' | 'D3' | Restrict the seller (away/paid) side to one NCAA cohort. (optional)
+    sellerCohort: sellerCohort_example,
   } satisfies GetGadSearchesRequest;
 
   try {
@@ -9892,6 +9904,12 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
+| **includeSchoolSummary** | `boolean` | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. | [Optional] [Defaults to `undefined`] |
+| **seasonWindow** | `last_3_completed_seasons`, `specific_year`, `custom_range` | Window for school-summary / cohort-summary aggregations. last_3_completed_seasons auto-fills season_year_gteq/lteq with the three most recent completed NCAA academic years. | [Optional] [Defaults to `undefined`] [Enum: last_3_completed_seasons, specific_year, custom_range] |
+| **includeCohortSummary** | `boolean` | When true, also compute median/mean/min/max/count across the filtered cohort. Requires q[sport_id_eq]. Mutually exclusive with include_school_summary. | [Optional] [Defaults to `undefined`] |
+| **buyerCohort** | `P4`, `G6`, `FBS`, `FCS`, `D2`, `D3` | Restrict the buyer (home/paying) side to one NCAA cohort. Resolved server-side via Subdivision / Division taxonomy. | [Optional] [Defaults to `undefined`] [Enum: P4, G6, FBS, FCS, D2, D3] |
+| **sellerCohort** | `P4`, `G6`, `FBS`, `FCS`, `D2`, `D3` | Restrict the seller (away/paid) side to one NCAA cohort. | [Optional] [Defaults to `undefined`] [Enum: P4, G6, FBS, FCS, D2, D3] |
 
 ### Return type
 
