@@ -12207,8 +12207,8 @@ async function example() {
     matchTournaments: true,
     // Array<string> | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) (optional)
     dealTypes: ...,
-    // 'power_4' | 'mid_major' | 'smaller' | Restrict to a subdivision tier (optional)
-    qualityTier: qualityTier_example,
+    // string | Restrict to one or more subdivision tiers (power_4, mid_major, smaller). Accepts a single tier or a comma-separated list for multi-select (e.g. `power_4,mid_major`); the listed tiers are OR\'d together. Omit the param (or pass every tier) for \"Any\" — no constraint. Unrecognized tiers are ignored. (optional)
+    qualityTier: power_4,mid_major,
     // string | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as `custom_<min>_<max>`, where either bound may be blank for an open-ended range (e.g. `custom_50_` => 50 and up, `custom__120` => up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. (optional)
     netRankingTier: top_50,
     // number | Maximum distance (miles) from the user\'s school. Requires user_school_id to resolve a coordinate origin. (optional)
@@ -12242,7 +12242,7 @@ example().catch(console.error);
 | **includeNoConflict** | `boolean` | When true (default), include assumed-eligible schools that have no marked conflict (no availability signal). Set false to drop them. Only meaningful in Specific-date mode. | [Optional] [Defaults to `true`] |
 | **matchTournaments** | `boolean` | When true (the MTE intent), match only schools advertising a ScheduleTournament for the sport rather than a deal-type availability post; deal_types and assumed-eligible rows are ignored. | [Optional] [Defaults to `false`] |
 | **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
-| **qualityTier** | `power_4`, `mid_major`, `smaller` | Restrict to a subdivision tier | [Optional] [Defaults to `undefined`] [Enum: power_4, mid_major, smaller] |
+| **qualityTier** | `string` | Restrict to one or more subdivision tiers (power_4, mid_major, smaller). Accepts a single tier or a comma-separated list for multi-select (e.g. &#x60;power_4,mid_major&#x60;); the listed tiers are OR\&#39;d together. Omit the param (or pass every tier) for \&quot;Any\&quot; — no constraint. Unrecognized tiers are ignored. | [Optional] [Defaults to `undefined`] |
 | **netRankingTier** | `string` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
 | **maxDistanceMiles** | `number` | Maximum distance (miles) from the user\&#39;s school. Requires user_school_id to resolve a coordinate origin. | [Optional] [Defaults to `undefined`] |
 | **userSchoolId** | `number` | Requesting user\&#39;s school. Used as the origin for distance filtering and is always excluded from results. | [Optional] [Defaults to `undefined`] |
