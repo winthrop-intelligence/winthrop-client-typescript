@@ -178,6 +178,12 @@ export interface GameDetail {
      */
     awaySchoolSosRanking?: number | null;
     /**
+     * Season year the displayed NET/SOS rankings are from, or null when neither team has a ranked season
+     * @type {number}
+     * @memberof GameDetail
+     */
+    rankingsSeasonYear?: number | null;
+    /**
      * 
      * @type {GameDetailAllOfGameContract}
      * @memberof GameDetail
@@ -228,6 +234,7 @@ export function GameDetailFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'awaySchoolNetRank': json['away_school_net_rank'] == null ? undefined : json['away_school_net_rank'],
         'homeSchoolSosRanking': json['home_school_sos_ranking'] == null ? undefined : json['home_school_sos_ranking'],
         'awaySchoolSosRanking': json['away_school_sos_ranking'] == null ? undefined : json['away_school_sos_ranking'],
+        'rankingsSeasonYear': json['rankings_season_year'] == null ? undefined : json['rankings_season_year'],
         'gameContract': json['game_contract'] == null ? undefined : GameDetailAllOfGameContractFromJSON(json['game_contract']),
     };
 }
@@ -268,6 +275,7 @@ export function GameDetailToJSONTyped(value?: GameDetail | null, ignoreDiscrimin
         'away_school_net_rank': value['awaySchoolNetRank'],
         'home_school_sos_ranking': value['homeSchoolSosRanking'],
         'away_school_sos_ranking': value['awaySchoolSosRanking'],
+        'rankings_season_year': value['rankingsSeasonYear'],
         'game_contract': GameDetailAllOfGameContractToJSON(value['gameContract']),
     };
 }

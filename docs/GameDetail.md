@@ -31,6 +31,7 @@ Name | Type
 `awaySchoolNetRank` | number
 `homeSchoolSosRanking` | number
 `awaySchoolSosRanking` | number
+`rankingsSeasonYear` | number
 `gameContract` | [GameDetailAllOfGameContract](GameDetailAllOfGameContract.md)
 
 ## Example
@@ -65,6 +66,7 @@ const example = {
   "awaySchoolNetRank": 31,
   "homeSchoolSosRanking": 42,
   "awaySchoolSosRanking": 35,
+  "rankingsSeasonYear": 2026,
   "gameContract": null,
 } satisfies GameDetail
 
