@@ -13,6 +13,8 @@ Name | Type
 `email` | string
 `phone` | string
 `mobilePhone` | string
+`schedulingPhone` | string
+`schedulingPhoneDial` | string
 `avatarUrl` | string
 
 ## Example
@@ -28,6 +30,8 @@ const example = {
   "email": null,
   "phone": null,
   "mobilePhone": null,
+  "schedulingPhone": null,
+  "schedulingPhoneDial": null,
   "avatarUrl": null,
 } satisfies TeamScheduleContact
 
