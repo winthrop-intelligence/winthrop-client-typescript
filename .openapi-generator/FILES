@@ -105,6 +105,7 @@ docs/ContactSearchCollection.md
 docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
+docs/ContractTermOption.md
 docs/CoworkerEntry.md
 docs/CoworkerTenure.md
 docs/CreateAccountUser422Response.md
@@ -314,6 +315,8 @@ docs/State.md
 docs/Subdivision.md
 docs/SubdivisionCollection.md
 docs/Subscription.md
+docs/SubscriptionAcceptance.md
+docs/SubscriptionAcceptanceErrors.md
 docs/SubscriptionCollection.md
 docs/SystemSetting.md
 docs/Tag.md
@@ -368,6 +371,8 @@ docs/UpdateScheduleIntentRequest.md
 docs/UpdateScheduleIntentRequestScheduleIntent.md
 docs/UpdateSchoolGroupRequest.md
 docs/UpdateSchoolGroupRequestSchoolGroup.md
+docs/UpdateSubscriptionAcceptanceRequest.md
+docs/UpdateSubscriptionAcceptanceRequestSubscription.md
 docs/UpdateTeamScheduleFavoriteRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateUserRequestUser.md
@@ -505,6 +510,7 @@ src/models/ContactSearchCollection.ts
 src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
+src/models/ContractTermOption.ts
 src/models/CoworkerEntry.ts
 src/models/CoworkerTenure.ts
 src/models/CreateAccountUser422Response.ts
@@ -708,6 +714,8 @@ src/models/State.ts
 src/models/Subdivision.ts
 src/models/SubdivisionCollection.ts
 src/models/Subscription.ts
+src/models/SubscriptionAcceptance.ts
+src/models/SubscriptionAcceptanceErrors.ts
 src/models/SubscriptionCollection.ts
 src/models/SystemSetting.ts
 src/models/Tag.ts
@@ -762,6 +770,8 @@ src/models/UpdateScheduleIntentRequest.ts
 src/models/UpdateScheduleIntentRequestScheduleIntent.ts
 src/models/UpdateSchoolGroupRequest.ts
 src/models/UpdateSchoolGroupRequestSchoolGroup.ts
+src/models/UpdateSubscriptionAcceptanceRequest.ts
+src/models/UpdateSubscriptionAcceptanceRequestSubscription.ts
 src/models/UpdateTeamScheduleFavoriteRequest.ts
 src/models/UpdateUserRequest.ts
 src/models/UpdateUserRequestUser.ts
