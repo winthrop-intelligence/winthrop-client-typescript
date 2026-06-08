@@ -158,13 +158,13 @@ export interface GameDetail {
      * @type {number}
      * @memberof GameDetail
      */
-    homeSchoolNetRank?: number | null;
+    homeSchoolNetRanking?: number | null;
     /**
      * Latest NET ranking for the away team, or null when not loaded yet
      * @type {number}
      * @memberof GameDetail
      */
-    awaySchoolNetRank?: number | null;
+    awaySchoolNetRanking?: number | null;
     /**
      * Latest strength-of-schedule ranking for the home team, or null when not loaded yet
      * @type {number}
@@ -230,8 +230,8 @@ export function GameDetailFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'homeSchoolName': json['home_school_name'] == null ? undefined : json['home_school_name'],
         'awaySchoolName': json['away_school_name'] == null ? undefined : json['away_school_name'],
         'stateName': json['state_name'] == null ? undefined : json['state_name'],
-        'homeSchoolNetRank': json['home_school_net_rank'] == null ? undefined : json['home_school_net_rank'],
-        'awaySchoolNetRank': json['away_school_net_rank'] == null ? undefined : json['away_school_net_rank'],
+        'homeSchoolNetRanking': json['home_school_net_ranking'] == null ? undefined : json['home_school_net_ranking'],
+        'awaySchoolNetRanking': json['away_school_net_ranking'] == null ? undefined : json['away_school_net_ranking'],
         'homeSchoolSosRanking': json['home_school_sos_ranking'] == null ? undefined : json['home_school_sos_ranking'],
         'awaySchoolSosRanking': json['away_school_sos_ranking'] == null ? undefined : json['away_school_sos_ranking'],
         'rankingsSeasonYear': json['rankings_season_year'] == null ? undefined : json['rankings_season_year'],
@@ -271,8 +271,8 @@ export function GameDetailToJSONTyped(value?: GameDetail | null, ignoreDiscrimin
         'home_school_name': value['homeSchoolName'],
         'away_school_name': value['awaySchoolName'],
         'state_name': value['stateName'],
-        'home_school_net_rank': value['homeSchoolNetRank'],
-        'away_school_net_rank': value['awaySchoolNetRank'],
+        'home_school_net_ranking': value['homeSchoolNetRanking'],
+        'away_school_net_ranking': value['awaySchoolNetRanking'],
         'home_school_sos_ranking': value['homeSchoolSosRanking'],
         'away_school_sos_ranking': value['awaySchoolSosRanking'],
         'rankings_season_year': value['rankingsSeasonYear'],

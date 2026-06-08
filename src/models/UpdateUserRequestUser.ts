@@ -45,6 +45,12 @@ export interface UpdateUserRequestUser {
     timeZone?: string;
     /**
      * 
+     * @type {string}
+     * @memberof UpdateUserRequestUser
+     */
+    schedulingPhone?: string | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof UpdateUserRequestUser
      */
@@ -102,6 +108,7 @@ export function UpdateUserRequestUserFromJSONTyped(json: any, ignoreDiscriminato
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'email': json['email'] == null ? undefined : json['email'],
         'timeZone': json['time_zone'] == null ? undefined : json['time_zone'],
+        'schedulingPhone': json['scheduling_phone'] == null ? undefined : json['scheduling_phone'],
         'schedulingNotifications': json['scheduling_notifications'] == null ? undefined : json['scheduling_notifications'],
         'gamePostNotifications': json['game_post_notifications'] == null ? undefined : json['game_post_notifications'],
         'gamesDigest': json['games_digest'] == null ? undefined : json['games_digest'],
@@ -126,6 +133,7 @@ export function UpdateUserRequestUserToJSONTyped(value?: UpdateUserRequestUser |
         'last_name': value['lastName'],
         'email': value['email'],
         'time_zone': value['timeZone'],
+        'scheduling_phone': value['schedulingPhone'],
         'scheduling_notifications': value['schedulingNotifications'],
         'game_post_notifications': value['gamePostNotifications'],
         'games_digest': value['gamesDigest'],
