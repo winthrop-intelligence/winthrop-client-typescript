@@ -47,6 +47,8 @@ Name | Type
 `schoolState` | string
 `otpRequired` | boolean
 `timeZone` | string
+`schedulingPhone` | string
+`schedulingPhoneDefault` | string
 `schedulingNotifications` | boolean
 `gamePostNotifications` | boolean
 `gamesDigest` | boolean
@@ -100,6 +102,8 @@ const example = {
   "schoolState": null,
   "otpRequired": null,
   "timeZone": null,
+  "schedulingPhone": null,
+  "schedulingPhoneDefault": null,
   "schedulingNotifications": null,
   "gamePostNotifications": null,
   "gamesDigest": null,

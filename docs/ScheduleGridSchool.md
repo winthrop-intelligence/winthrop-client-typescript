@@ -15,6 +15,8 @@ Name | Type
 `primaryContactEmail` | string
 `primaryContactPhone` | string
 `primaryContactMobilePhone` | string
+`primaryContactSchedulingPhone` | string
+`primaryContactSchedulingPhoneDial` | string
 `rank` | number
 
 ## Example
@@ -32,6 +34,8 @@ const example = {
   "primaryContactEmail": null,
   "primaryContactPhone": null,
   "primaryContactMobilePhone": null,
+  "primaryContactSchedulingPhone": null,
+  "primaryContactSchedulingPhoneDial": null,
   "rank": null,
 } satisfies ScheduleGridSchool
 
