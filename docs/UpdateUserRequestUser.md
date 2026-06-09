@@ -10,6 +10,7 @@ Name | Type
 `lastName` | string
 `email` | string
 `timeZone` | string
+`schedulingPhone` | string
 `schedulingNotifications` | boolean
 `gamePostNotifications` | boolean
 `gamesDigest` | boolean
@@ -28,6 +29,7 @@ const example = {
   "lastName": null,
   "email": null,
   "timeZone": null,
+  "schedulingPhone": null,
   "schedulingNotifications": null,
   "gamePostNotifications": null,
   "gamesDigest": null,
