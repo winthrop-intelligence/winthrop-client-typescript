@@ -35,6 +35,8 @@ Name | Type
 `avgGuaranteeReceived` | number
 `gameTypesDisplay` | string
 `createdByName` | string
+`createdBySchedulingPhone` | string
+`createdBySchedulingPhoneDial` | string
 `avgRpi` | number
 `avgNetRank` | number
 `avgApRank` | number
@@ -78,6 +80,8 @@ const example = {
   "avgGuaranteeReceived": null,
   "gameTypesDisplay": null,
   "createdByName": null,
+  "createdBySchedulingPhone": null,
+  "createdBySchedulingPhoneDial": null,
   "avgRpi": null,
   "avgNetRank": null,
   "avgApRank": null,

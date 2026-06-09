@@ -27,6 +27,11 @@ Name | Type
 `homeSchoolName` | string
 `awaySchoolName` | string
 `stateName` | string
+`homeSchoolNetRanking` | number
+`awaySchoolNetRanking` | number
+`homeSchoolSosRanking` | number
+`awaySchoolSosRanking` | number
+`rankingsSeasonYear` | number
 `gameContract` | [GameDetailAllOfGameContract](GameDetailAllOfGameContract.md)
 
 ## Example
@@ -57,6 +62,11 @@ const example = {
   "homeSchoolName": Michigan,
   "awaySchoolName": Ohio State,
   "stateName": Michigan,
+  "homeSchoolNetRanking": 38,
+  "awaySchoolNetRanking": 31,
+  "homeSchoolSosRanking": 42,
+  "awaySchoolSosRanking": 35,
+  "rankingsSeasonYear": 2026,
   "gameContract": null,
 } satisfies GameDetail
 
