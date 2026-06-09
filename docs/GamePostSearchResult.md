@@ -35,6 +35,8 @@ Name | Type
 `avgGuaranteeReceived` | number
 `gameTypesDisplay` | string
 `createdByName` | string
+`createdBySchedulingPhone` | string
+`createdBySchedulingPhoneDial` | string
 `avgRpi` | number
 `avgNetRank` | number
 `avgApRank` | number
@@ -42,6 +44,7 @@ Name | Type
 `latitude` | number
 `longitude` | number
 `canManage` | boolean
+`scheduleSummary` | [GamePostScheduleSummary](GamePostScheduleSummary.md)
 
 ## Example
 
@@ -78,6 +81,8 @@ const example = {
   "avgGuaranteeReceived": null,
   "gameTypesDisplay": null,
   "createdByName": null,
+  "createdBySchedulingPhone": null,
+  "createdBySchedulingPhoneDial": null,
   "avgRpi": null,
   "avgNetRank": null,
   "avgApRank": null,
@@ -85,6 +90,7 @@ const example = {
   "latitude": null,
   "longitude": null,
   "canManage": null,
+  "scheduleSummary": null,
 } satisfies GamePostSearchResult
 
 console.log(example)

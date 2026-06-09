@@ -11,6 +11,7 @@ Name | Type
 `schoolId` | number
 `schoolName` | string
 `schoolShortName` | string
+`schoolLogoUrl` | string
 `sportId` | number
 `sportName` | string
 `sportSlug` | string
@@ -23,10 +24,16 @@ Name | Type
 `createdAt` | Date
 `updatedAt` | Date
 `gameTypesDisplay` | string
+`city` | string
+`stateName` | string
+`lastRpi` | number
+`avgRpi` | number
+`distance` | number
 `canManage` | boolean
 `createdBy` | [GamePostDetailCreatedBy](GamePostDetailCreatedBy.md)
 `gameTypes` | [Array&lt;GameType&gt;](GameType.md)
 `contacts` | [Array&lt;GamePostContact&gt;](GamePostContact.md)
+`scheduleSummary` | [GamePostScheduleSummary](GamePostScheduleSummary.md)
 
 ## Example
 
@@ -39,6 +46,7 @@ const example = {
   "schoolId": null,
   "schoolName": null,
   "schoolShortName": null,
+  "schoolLogoUrl": null,
   "sportId": null,
   "sportName": null,
   "sportSlug": null,
@@ -51,10 +59,16 @@ const example = {
   "createdAt": null,
   "updatedAt": null,
   "gameTypesDisplay": null,
+  "city": null,
+  "stateName": null,
+  "lastRpi": null,
+  "avgRpi": null,
+  "distance": null,
   "canManage": null,
   "createdBy": null,
   "gameTypes": null,
   "contacts": null,
+  "scheduleSummary": null,
 } satisfies GamePostDetail
 
 console.log(example)

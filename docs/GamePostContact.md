@@ -15,6 +15,8 @@ Name | Type
 `phoneDial` | string
 `mobilePhone` | string
 `mobilePhoneDial` | string
+`schedulingPhone` | string
+`schedulingPhoneDial` | string
 
 ## Example
 
@@ -31,6 +33,8 @@ const example = {
   "phoneDial": null,
   "mobilePhone": null,
   "mobilePhoneDial": null,
+  "schedulingPhone": null,
+  "schedulingPhoneDial": null,
 } satisfies GamePostContact
 
 console.log(example)
