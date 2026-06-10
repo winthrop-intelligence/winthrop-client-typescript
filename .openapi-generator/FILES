@@ -195,6 +195,8 @@ docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
+docs/GamePostSearchResultGamesInner.md
+docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
@@ -598,6 +600,8 @@ src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
+src/models/GamePostSearchResultGamesInner.ts
+src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetAccountUserActivation200Response.ts

@@ -192,6 +192,8 @@ export * from './GamePostDetail';
 export * from './GamePostDetailCreatedBy';
 export * from './GamePostSearchResult';
 export * from './GamePostSearchResultCollection';
+export * from './GamePostSearchResultGamesInner';
+export * from './GamePostSearchResultScheduleIntentsInner';
 export * from './GameType';
 export * from './GeoRegion';
 export * from './GetAccountUserActivation200Response';
