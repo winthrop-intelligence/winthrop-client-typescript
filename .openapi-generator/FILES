@@ -195,6 +195,8 @@ docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
+docs/GamePostSearchResultGamesInner.md
+docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
@@ -209,6 +211,10 @@ docs/GetSchoolsCount200Response.md
 docs/GetTeamScheduleFavorites200ResponseInner.md
 docs/GetTimeZones200Response.md
 docs/GetWireChanges200Response.md
+docs/GuaranteeBenchmarkError.md
+docs/GuaranteeBenchmarkStats.md
+docs/GuaranteeBenchmarkTable.md
+docs/GuaranteeBenchmarkTier.md
 docs/HTTPValidationError.md
 docs/HealthCheckFailure.md
 docs/HealthCheckSuccess.md
@@ -598,6 +604,8 @@ src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
+src/models/GamePostSearchResultGamesInner.ts
+src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetAccountUserActivation200Response.ts
@@ -612,6 +620,10 @@ src/models/GetSchoolsCount200Response.ts
 src/models/GetTeamScheduleFavorites200ResponseInner.ts
 src/models/GetTimeZones200Response.ts
 src/models/GetWireChanges200Response.ts
+src/models/GuaranteeBenchmarkError.ts
+src/models/GuaranteeBenchmarkStats.ts
+src/models/GuaranteeBenchmarkTable.ts
+src/models/GuaranteeBenchmarkTier.ts
 src/models/HTTPValidationError.ts
 src/models/HealthCheckFailure.ts
 src/models/HealthCheckSuccess.ts
