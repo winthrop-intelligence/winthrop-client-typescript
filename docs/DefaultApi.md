@@ -141,6 +141,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getGamePosts**](DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts |  |
 | [**getGames**](DefaultApi.md#getgames) | **GET** /api/v1/games |  |
 | [**getGamesAvailableContracts**](DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts |  |
+| [**getGuaranteeBenchmarks**](DefaultApi.md#getguaranteebenchmarks) | **GET** /api/v1/guarantee_benchmarks |  |
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
@@ -10709,6 +10710,80 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Compatible contracts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGuaranteeBenchmarks
+
+> GuaranteeBenchmarkTable getGuaranteeBenchmarks(sportId)
+
+
+
+NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903). Returns, per Opponent Quality tier (power_4 / mid_major / smaller), the median/mean/min/max/count of game guarantees the tier pays out (home/buyer side) and receives (away/seller side) for one sport over the last three completed seasons. Permission filtered via the caller\&#39;s ability.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGuaranteeBenchmarksRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The sport to benchmark. Required; a missing or unknown sport returns a structured error block instead of tier data.
+    sportId: 56,
+  } satisfies GetGuaranteeBenchmarksRequest;
+
+  try {
+    const data = await api.getGuaranteeBenchmarks(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportId** | `number` | The sport to benchmark. Required; a missing or unknown sport returns a structured error block instead of tier data. | [Defaults to `undefined`] |
+
+### Return type
+
+[**GuaranteeBenchmarkTable**](GuaranteeBenchmarkTable.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Guarantee benchmark table, or a structured error block when sport_id is missing/unknown |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
