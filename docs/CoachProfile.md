@@ -28,6 +28,7 @@ Name | Type
 `currentSchoolName` | string
 `currentSchoolId` | number
 `currentSportName` | string
+`currentPositionTitle` | string
 `currentPositionTypes` | Array&lt;string&gt;
 `avatarUrl` | string
 `canSeeCompensation` | boolean
@@ -65,6 +66,7 @@ const example = {
   "currentSchoolName": null,
   "currentSchoolId": null,
   "currentSportName": null,
+  "currentPositionTitle": null,
   "currentPositionTypes": null,
   "avatarUrl": null,
   "canSeeCompensation": null,

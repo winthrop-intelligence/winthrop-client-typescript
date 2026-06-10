@@ -153,6 +153,12 @@ export interface CoachProfile {
     currentSportName?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof CoachProfile
+     */
+    currentPositionTitle?: string | null;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof CoachProfile
      */
@@ -247,6 +253,7 @@ export function CoachProfileFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'currentSchoolName': json['current_school_name'] == null ? undefined : json['current_school_name'],
         'currentSchoolId': json['current_school_id'] == null ? undefined : json['current_school_id'],
         'currentSportName': json['current_sport_name'] == null ? undefined : json['current_sport_name'],
+        'currentPositionTitle': json['current_position_title'] == null ? undefined : json['current_position_title'],
         'currentPositionTypes': json['current_position_types'],
         'avatarUrl': json['avatar_url'] == null ? undefined : json['avatar_url'],
         'canSeeCompensation': json['can_see_compensation'],
@@ -290,6 +297,7 @@ export function CoachProfileToJSONTyped(value?: CoachProfile | null, ignoreDiscr
         'current_school_name': value['currentSchoolName'],
         'current_school_id': value['currentSchoolId'],
         'current_sport_name': value['currentSportName'],
+        'current_position_title': value['currentPositionTitle'],
         'current_position_types': value['currentPositionTypes'],
         'avatar_url': value['avatarUrl'],
         'can_see_compensation': value['canSeeCompensation'],

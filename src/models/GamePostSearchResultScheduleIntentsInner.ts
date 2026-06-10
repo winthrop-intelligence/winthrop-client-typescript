@@ -32,7 +32,7 @@ export interface GamePostSearchResultScheduleIntentsInner {
      */
     date?: Date | null;
     /**
-     * Game-type designations for this availability marker
+     * Game-type designations for this availability marker, as plain display-name strings (e.g. "Home & Home"). Intentionally not the full GameType object — unlike GamePost.game_types, this field carries only the name_display values, so it is typed as an array of strings rather than $ref GameType.
      * @type {Array<string>}
      * @memberof GamePostSearchResultScheduleIntentsInner
      */
