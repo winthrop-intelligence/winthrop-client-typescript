@@ -190,6 +190,8 @@ export * from './GamePostCollection';
 export * from './GamePostContact';
 export * from './GamePostDetail';
 export * from './GamePostDetailCreatedBy';
+export * from './GamePostGapCountCollection';
+export * from './GamePostGapCountCollectionDataInner';
 export * from './GamePostSearchResult';
 export * from './GamePostSearchResultCollection';
 export * from './GamePostSearchResultGamesInner';
