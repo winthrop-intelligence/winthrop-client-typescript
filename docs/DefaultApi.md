@@ -164,6 +164,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getScheduleGrid**](DefaultApi.md#getschedulegrid) | **GET** /api/v1/schedule_grid/{sport_name} |  |
 | [**getScheduleGridAvailableSchools**](DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools |  |
 | [**getScheduleGridCompleted**](DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed |  |
+| [**getScheduleUpdates**](DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
@@ -12510,6 +12511,85 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Sport not found |  -  |
 | **422** | year is malformed or outside the supported range |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getScheduleUpdates
+
+> ScheduleUpdateCollection getScheduleUpdates(sportName, limit)
+
+
+
+Recently Updated dashboard sidebar module (WINAD-9930). Returns the schools whose schedules changed most recently for a sport — games added, availabilities added / adjusted / removed (a filled date), and MTE slots — one row per school keyed by its latest update, newest first. Each row\&#39;s change summary aggregates that school\&#39;s edits in the 24h window ending at its latest update.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetScheduleUpdatesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
+    sportName: sportName_example,
+    // number | Max rows to return (default 8, capped at 25). (optional)
+    limit: 8,
+  } satisfies GetScheduleUpdatesRequest;
+
+  try {
+    const data = await api.getScheduleUpdates(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
+| **limit** | `number` | Max rows to return (default 8, capped at 25). | [Optional] [Defaults to `8`] |
+
+### Return type
+
+[**ScheduleUpdateCollection**](ScheduleUpdateCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Recently-updated schools for the sport, newest first |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Sport not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
