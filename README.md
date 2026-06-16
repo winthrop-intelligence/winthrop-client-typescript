@@ -222,6 +222,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getScheduleGrid**](docs/DefaultApi.md#getschedulegrid) | **GET** /api/v1/schedule_grid/{sport_name} | 
 *DefaultApi* | [**getScheduleGridAvailableSchools**](docs/DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools | 
 *DefaultApi* | [**getScheduleGridCompleted**](docs/DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed | 
+*DefaultApi* | [**getScheduleUpdates**](docs/DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates | 
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
@@ -618,6 +619,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScheduleGridView](docs/ScheduleGridView.md)
 - [ScheduleIntentDetail](docs/ScheduleIntentDetail.md)
 - [ScheduleTournamentDetail](docs/ScheduleTournamentDetail.md)
+- [ScheduleUpdate](docs/ScheduleUpdate.md)
+- [ScheduleUpdateCollection](docs/ScheduleUpdateCollection.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
