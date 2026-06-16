@@ -281,6 +281,8 @@ export * from './ScheduleGridSchool';
 export * from './ScheduleGridView';
 export * from './ScheduleIntentDetail';
 export * from './ScheduleTournamentDetail';
+export * from './ScheduleUpdate';
+export * from './ScheduleUpdateCollection';
 export * from './School';
 export * from './SchoolCollection';
 export * from './SchoolContractEntry';
