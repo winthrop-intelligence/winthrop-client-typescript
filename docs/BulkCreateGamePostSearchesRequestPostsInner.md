@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `sportId` | number
-`startDate` | Date
+`date` | Date
 `description` | string
 `gameTypeIds` | Array&lt;number&gt;
 
@@ -19,7 +19,7 @@ import type { BulkCreateGamePostSearchesRequestPostsInner } from '@winthrop-inte
 // TODO: Update the object below with actual values
 const example = {
   "sportId": null,
-  "startDate": null,
+  "date": null,
   "description": null,
   "gameTypeIds": null,
 } satisfies BulkCreateGamePostSearchesRequestPostsInner

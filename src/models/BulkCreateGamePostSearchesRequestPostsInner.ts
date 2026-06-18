@@ -26,11 +26,11 @@ export interface BulkCreateGamePostSearchesRequestPostsInner {
      */
     sportId: number;
     /**
-     * 
+     * WINAD-9908: the post's single open day. Optional; replaces the legacy start_date in the slim-create payload (start_date is left null on these posts).
      * @type {Date}
      * @memberof BulkCreateGamePostSearchesRequestPostsInner
      */
-    startDate: Date;
+    date?: Date;
     /**
      * 
      * @type {string}
@@ -50,7 +50,6 @@ export interface BulkCreateGamePostSearchesRequestPostsInner {
  */
 export function instanceOfBulkCreateGamePostSearchesRequestPostsInner(value: object): value is BulkCreateGamePostSearchesRequestPostsInner {
     if (!('sportId' in value) || value['sportId'] === undefined) return false;
-    if (!('startDate' in value) || value['startDate'] === undefined) return false;
     return true;
 }
 
@@ -65,7 +64,7 @@ export function BulkCreateGamePostSearchesRequestPostsInnerFromJSONTyped(json: a
     return {
         
         'sportId': json['sport_id'],
-        'startDate': (new Date(json['start_date'])),
+        'date': json['date'] == null ? undefined : (new Date(json['date'])),
         'description': json['description'] == null ? undefined : json['description'],
         'gameTypeIds': json['game_type_ids'] == null ? undefined : json['game_type_ids'],
     };
@@ -83,7 +82,7 @@ export function BulkCreateGamePostSearchesRequestPostsInnerToJSONTyped(value?: B
     return {
         
         'sport_id': value['sportId'],
-        'start_date': value['startDate'].toISOString().substring(0,10),
+        'date': value['date'] == null ? value['date'] : value['date'].toISOString().substring(0,10),
         'description': value['description'],
         'game_type_ids': value['gameTypeIds'],
     };
