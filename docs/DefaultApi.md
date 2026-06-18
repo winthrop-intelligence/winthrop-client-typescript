@@ -8,6 +8,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageDivisionComp**](DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp |  |
 | [**averageSchoolComp**](DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp |  |
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
+| [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
@@ -591,6 +592,82 @@ example().catch(console.error);
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkCreateGamePostSearches
+
+> BulkGamePostSearchResult bulkCreateGamePostSearches(bulkCreateGamePostSearchesRequest)
+
+
+
+WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkCreateGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkCreateGamePostSearchesRequest
+    bulkCreateGamePostSearchesRequest: ...,
+  } satisfies BulkCreateGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.bulkCreateGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkCreateGamePostSearchesRequest** | [BulkCreateGamePostSearchesRequest](BulkCreateGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**BulkGamePostSearchResult**](BulkGamePostSearchResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Posts created |  -  |
+| **422** | Validation error or empty batch |  -  |
+| **403** | Forbidden — only school accounts can create game posts |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10476,7 +10553,7 @@ example().catch(console.error);
 
 ## getGamePostSearches
 
-> GamePostSearchResultCollection getGamePostSearches(page, perPage, q)
+> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool)
 
 
 
@@ -10508,6 +10585,8 @@ async function example() {
     perPage: 56,
     // object | Ransack query (optional)
     q: Object,
+    // boolean | WINAD-9909: when true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
+    groupBySchool: true,
   } satisfies GetGamePostSearchesRequest;
 
   try {
@@ -10530,6 +10609,7 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **groupBySchool** | `boolean` | WINAD-9909: when true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
