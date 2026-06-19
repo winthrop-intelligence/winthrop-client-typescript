@@ -32,11 +32,14 @@ docs/AuditedFinancialReportStatusCollection.md
 docs/AvailableGameContract.md
 docs/Avatar.md
 docs/AverageCompensation.md
+docs/BulkCreateGamePostSearchesRequest.md
+docs/BulkCreateGamePostSearchesRequestPostsInner.md
 docs/BulkCreateGames201Response.md
 docs/BulkCreateGames422Response.md
 docs/BulkCreateGames422ResponseErrorsValue.md
 docs/BulkCreateGamesRequest.md
 docs/BulkCreateGamesRequestGamesInner.md
+docs/BulkGamePostSearchResult.md
 docs/COLIAdjusted.md
 docs/Cashflow.md
 docs/CashflowCollection.md
@@ -121,6 +124,7 @@ docs/CreateGamePostSearchRequestGamePost.md
 docs/CreateGameRequest.md
 docs/CreateGameRequestGame.md
 docs/CreateNoteRequest.md
+docs/CreatePageViewRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
@@ -198,6 +202,7 @@ docs/GamePostGapCountCollectionDataInner.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GamePostSearchResultGamesInner.md
+docs/GamePostSearchResultPostsInner.md
 docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
@@ -249,6 +254,7 @@ docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
+docs/PageView.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
 docs/PerformanceChartRecord.md
@@ -274,6 +280,10 @@ docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
+docs/RequestedItemNote.md
+docs/RequestedItemNoteInput.md
+docs/RequestedItemNoteInputRiNote.md
+docs/RequestedItemNoteResponse.md
 docs/RoleOption.md
 docs/RunningJob.md
 docs/ScheduleGridAvailableSchoolPost.md
@@ -447,11 +457,14 @@ src/models/AuditedFinancialReportStatusCollection.ts
 src/models/AvailableGameContract.ts
 src/models/Avatar.ts
 src/models/AverageCompensation.ts
+src/models/BulkCreateGamePostSearchesRequest.ts
+src/models/BulkCreateGamePostSearchesRequestPostsInner.ts
 src/models/BulkCreateGames201Response.ts
 src/models/BulkCreateGames422Response.ts
 src/models/BulkCreateGames422ResponseErrorsValue.ts
 src/models/BulkCreateGamesRequest.ts
 src/models/BulkCreateGamesRequestGamesInner.ts
+src/models/BulkGamePostSearchResult.ts
 src/models/COLIAdjusted.ts
 src/models/Cashflow.ts
 src/models/CashflowCollection.ts
@@ -536,6 +549,7 @@ src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/CreateGameRequest.ts
 src/models/CreateGameRequestGame.ts
 src/models/CreateNoteRequest.ts
+src/models/CreatePageViewRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
@@ -611,6 +625,7 @@ src/models/GamePostGapCountCollectionDataInner.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GamePostSearchResultGamesInner.ts
+src/models/GamePostSearchResultPostsInner.ts
 src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
@@ -660,6 +675,7 @@ src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
+src/models/PageView.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
 src/models/PerformanceChartRecord.ts
@@ -684,6 +700,10 @@ src/models/RecruitingPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
+src/models/RequestedItemNote.ts
+src/models/RequestedItemNoteInput.ts
+src/models/RequestedItemNoteInputRiNote.ts
+src/models/RequestedItemNoteResponse.ts
 src/models/RoleOption.ts
 src/models/RunningJob.ts
 src/models/ScheduleGridAvailableSchoolPost.ts
