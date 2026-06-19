@@ -1,26 +1,24 @@
 
-# GamePostSearchResultCollection
+# GamePostSearchResultPostsInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;GamePostSearchResult&gt;](GamePostSearchResult.md)
-`meta` | [Meta](Meta.md)
-`activePostsTotal` | number
+`date` | Date
+`gameTypes` | Array&lt;string&gt;
 
 ## Example
 
 ```typescript
-import type { GamePostSearchResultCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GamePostSearchResultPostsInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-  "activePostsTotal": null,
-} satisfies GamePostSearchResultCollection
+  "date": null,
+  "gameTypes": null,
+} satisfies GamePostSearchResultPostsInner
 
 console.log(example)
 
@@ -29,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GamePostSearchResultCollection
+const exampleParsed = JSON.parse(exampleJSON) as GamePostSearchResultPostsInner
 console.log(exampleParsed)
 ```
 

@@ -1,26 +1,26 @@
 
-# GamePostSearchResultCollection
+# PageView
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [Array&lt;GamePostSearchResult&gt;](GamePostSearchResult.md)
-`meta` | [Meta](Meta.md)
-`activePostsTotal` | number
+`id` | number
+`route` | string
+`createdAt` | Date
 
 ## Example
 
 ```typescript
-import type { GamePostSearchResultCollection } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { PageView } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-  "meta": null,
-  "activePostsTotal": null,
-} satisfies GamePostSearchResultCollection
+  "id": null,
+  "route": null,
+  "createdAt": null,
+} satisfies PageView
 
 console.log(example)
 
@@ -29,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GamePostSearchResultCollection
+const exampleParsed = JSON.parse(exampleJSON) as PageView
 console.log(exampleParsed)
 ```
 

@@ -84,6 +84,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
 *DefaultApi* | [**createNote**](docs/DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes | 
+*DefaultApi* | [**createPageView**](docs/DefaultApi.md#createpageviewoperation) | **POST** /api/v1/page_views | 
 *DefaultApi* | [**createPasswordReset**](docs/DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset | 
 *DefaultApi* | [**createPosition**](docs/DefaultApi.md#createposition) | **POST** /api/v1/positions | 
 *DefaultApi* | [**createRequestedItem**](docs/DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items | 
@@ -462,6 +463,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateGameRequest](docs/CreateGameRequest.md)
 - [CreateGameRequestGame](docs/CreateGameRequestGame.md)
 - [CreateNoteRequest](docs/CreateNoteRequest.md)
+- [CreatePageViewRequest](docs/CreatePageViewRequest.md)
 - [CreatePasswordReset200Response](docs/CreatePasswordReset200Response.md)
 - [CreatePasswordResetRequest](docs/CreatePasswordResetRequest.md)
 - [CreatePasswordResetRequestUser](docs/CreatePasswordResetRequestUser.md)
@@ -537,6 +539,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GamePostSearchResult](docs/GamePostSearchResult.md)
 - [GamePostSearchResultCollection](docs/GamePostSearchResultCollection.md)
 - [GamePostSearchResultGamesInner](docs/GamePostSearchResultGamesInner.md)
+- [GamePostSearchResultPostsInner](docs/GamePostSearchResultPostsInner.md)
 - [GamePostSearchResultScheduleIntentsInner](docs/GamePostSearchResultScheduleIntentsInner.md)
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
@@ -586,6 +589,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Note](docs/Note.md)
+- [PageView](docs/PageView.md)
 - [PerformanceChartCoach](docs/PerformanceChartCoach.md)
 - [PerformanceChartData](docs/PerformanceChartData.md)
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)

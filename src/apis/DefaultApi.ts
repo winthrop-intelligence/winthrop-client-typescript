@@ -77,6 +77,7 @@ import type {
   CreateGamePostSearchRequest,
   CreateGameRequest,
   CreateNoteRequest,
+  CreatePageViewRequest,
   CreatePasswordReset200Response,
   CreatePasswordResetRequest,
   CreateScheduleIntentRequest,
@@ -139,6 +140,7 @@ import type {
   NewAccountUserResponse,
   NewsFeed,
   Note,
+  PageView,
   Position,
   PositionCollection,
   RawContract,
@@ -335,6 +337,8 @@ import {
     CreateGameRequestToJSON,
     CreateNoteRequestFromJSON,
     CreateNoteRequestToJSON,
+    CreatePageViewRequestFromJSON,
+    CreatePageViewRequestToJSON,
     CreatePasswordReset200ResponseFromJSON,
     CreatePasswordReset200ResponseToJSON,
     CreatePasswordResetRequestFromJSON,
@@ -459,6 +463,8 @@ import {
     NewsFeedToJSON,
     NoteFromJSON,
     NoteToJSON,
+    PageViewFromJSON,
+    PageViewToJSON,
     PositionFromJSON,
     PositionToJSON,
     PositionCollectionFromJSON,
@@ -701,6 +707,10 @@ export interface DefaultApiCreateJobPostRequest {
 
 export interface DefaultApiCreateNoteOperationRequest {
     createNoteRequest: CreateNoteRequest;
+}
+
+export interface DefaultApiCreatePageViewOperationRequest {
+    createPageViewRequest: CreatePageViewRequest;
 }
 
 export interface DefaultApiCreatePasswordResetOperationRequest {
@@ -1200,6 +1210,7 @@ export interface DefaultApiGetGamePostSearchesRequest {
     page?: number;
     perPage?: number;
     q?: object;
+    groupBySchool?: boolean;
 }
 
 export interface DefaultApiGetGamePostsRequest {
@@ -2947,6 +2958,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async createNote(requestParameters: DefaultApiCreateNoteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Note> {
         const response = await this.createNoteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Record a page view for the current user
+     */
+    async createPageViewRaw(requestParameters: DefaultApiCreatePageViewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PageView>> {
+        if (requestParameters['createPageViewRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createPageViewRequest',
+                'Required parameter "createPageViewRequest" was null or undefined when calling createPageView().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/page_views`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreatePageViewRequestToJSON(requestParameters['createPageViewRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PageViewFromJSON(jsonValue));
+    }
+
+    /**
+     * Record a page view for the current user
+     */
+    async createPageView(requestParameters: DefaultApiCreatePageViewOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PageView> {
+        const response = await this.createPageViewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -8307,6 +8366,10 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['q'] != null) {
             queryParameters['q'] = requestParameters['q'];
+        }
+
+        if (requestParameters['groupBySchool'] != null) {
+            queryParameters['group_by_school'] = requestParameters['groupBySchool'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

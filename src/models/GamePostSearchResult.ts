@@ -20,6 +20,13 @@ import {
     GamePostSearchResultScheduleIntentsInnerToJSON,
     GamePostSearchResultScheduleIntentsInnerToJSONTyped,
 } from './GamePostSearchResultScheduleIntentsInner';
+import type { GamePostSearchResultPostsInner } from './GamePostSearchResultPostsInner';
+import {
+    GamePostSearchResultPostsInnerFromJSON,
+    GamePostSearchResultPostsInnerFromJSONTyped,
+    GamePostSearchResultPostsInnerToJSON,
+    GamePostSearchResultPostsInnerToJSONTyped,
+} from './GamePostSearchResultPostsInner';
 import type { GamePostSearchResultGamesInner } from './GamePostSearchResultGamesInner';
 import {
     GamePostSearchResultGamesInnerFromJSON,
@@ -257,6 +264,12 @@ export interface GamePostSearchResult {
      */
     canManage?: boolean;
     /**
+     * The posting school's own active Games Wanted posts for this sport, one entry per day (the card's date chips). Present only when group_by_school=true, where the feed is grouped one row per school so this aggregates every post for the school.
+     * @type {Array<GamePostSearchResultPostsInner>}
+     * @memberof GamePostSearchResult
+     */
+    posts?: Array<GamePostSearchResultPostsInner>;
+    /**
      * Games already on the posting school's schedule for this sport, within the current scheduling-season window. Opponent fields are relative to the posting school.
      * @type {Array<GamePostSearchResultGamesInner>}
      * @memberof GamePostSearchResult
@@ -335,6 +348,7 @@ export function GamePostSearchResultFromJSONTyped(json: any, ignoreDiscriminator
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'longitude': json['longitude'] == null ? undefined : json['longitude'],
         'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
+        'posts': json['posts'] == null ? undefined : ((json['posts'] as Array<any>).map(GamePostSearchResultPostsInnerFromJSON)),
         'games': json['games'] == null ? undefined : ((json['games'] as Array<any>).map(GamePostSearchResultGamesInnerFromJSON)),
         'scheduleIntents': json['schedule_intents'] == null ? undefined : ((json['schedule_intents'] as Array<any>).map(GamePostSearchResultScheduleIntentsInnerFromJSON)),
     };
@@ -388,6 +402,7 @@ export function GamePostSearchResultToJSONTyped(value?: GamePostSearchResult | n
         'latitude': value['latitude'],
         'longitude': value['longitude'],
         'can_manage': value['canManage'],
+        'posts': value['posts'] == null ? undefined : ((value['posts'] as Array<any>).map(GamePostSearchResultPostsInnerToJSON)),
         'games': value['games'] == null ? undefined : ((value['games'] as Array<any>).map(GamePostSearchResultGamesInnerToJSON)),
         'schedule_intents': value['scheduleIntents'] == null ? undefined : ((value['scheduleIntents'] as Array<any>).map(GamePostSearchResultScheduleIntentsInnerToJSON)),
     };

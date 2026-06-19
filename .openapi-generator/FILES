@@ -124,6 +124,7 @@ docs/CreateGamePostSearchRequestGamePost.md
 docs/CreateGameRequest.md
 docs/CreateGameRequestGame.md
 docs/CreateNoteRequest.md
+docs/CreatePageViewRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
@@ -201,6 +202,7 @@ docs/GamePostGapCountCollectionDataInner.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GamePostSearchResultGamesInner.md
+docs/GamePostSearchResultPostsInner.md
 docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
@@ -252,6 +254,7 @@ docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
+docs/PageView.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
 docs/PerformanceChartRecord.md
@@ -542,6 +545,7 @@ src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/CreateGameRequest.ts
 src/models/CreateGameRequestGame.ts
 src/models/CreateNoteRequest.ts
+src/models/CreatePageViewRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
@@ -617,6 +621,7 @@ src/models/GamePostGapCountCollectionDataInner.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GamePostSearchResultGamesInner.ts
+src/models/GamePostSearchResultPostsInner.ts
 src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
@@ -666,6 +671,7 @@ src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
+src/models/PageView.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
 src/models/PerformanceChartRecord.ts

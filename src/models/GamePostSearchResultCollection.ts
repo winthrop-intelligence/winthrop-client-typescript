@@ -46,6 +46,12 @@ export interface GamePostSearchResultCollection {
      * @memberof GamePostSearchResultCollection
      */
     meta?: Meta;
+    /**
+     * Raw count of active posts matching the filters (the "N active posts" headline). Only present/meaningful when group_by_school=true: cards are then grouped one per school, so meta.total_entries counts schools while this counts posts. Absent for the per-post listing (group_by_school false/absent).
+     * @type {number}
+     * @memberof GamePostSearchResultCollection
+     */
+    activePostsTotal?: number;
 }
 
 /**
@@ -67,6 +73,7 @@ export function GamePostSearchResultCollectionFromJSONTyped(json: any, ignoreDis
         
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(GamePostSearchResultFromJSON)),
         'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'activePostsTotal': json['active_posts_total'] == null ? undefined : json['active_posts_total'],
     };
 }
 
@@ -83,6 +90,7 @@ export function GamePostSearchResultCollectionToJSONTyped(value?: GamePostSearch
         
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(GamePostSearchResultToJSON)),
         'meta': MetaToJSON(value['meta']),
+        'active_posts_total': value['activePostsTotal'],
     };
 }
 
