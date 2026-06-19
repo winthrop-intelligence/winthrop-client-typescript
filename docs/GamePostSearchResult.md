@@ -44,7 +44,9 @@ Name | Type
 `latitude` | number
 `longitude` | number
 `canManage` | boolean
-`scheduleSummary` | [GamePostScheduleSummary](GamePostScheduleSummary.md)
+`posts` | [Array&lt;GamePostSearchResultPostsInner&gt;](GamePostSearchResultPostsInner.md)
+`games` | [Array&lt;GamePostSearchResultGamesInner&gt;](GamePostSearchResultGamesInner.md)
+`scheduleIntents` | [Array&lt;GamePostSearchResultScheduleIntentsInner&gt;](GamePostSearchResultScheduleIntentsInner.md)
 
 ## Example
 
@@ -90,7 +92,9 @@ const example = {
   "latitude": null,
   "longitude": null,
   "canManage": null,
-  "scheduleSummary": null,
+  "posts": null,
+  "games": null,
+  "scheduleIntents": null,
 } satisfies GamePostSearchResult
 
 console.log(example)

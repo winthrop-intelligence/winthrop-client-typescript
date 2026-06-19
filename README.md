@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.27215536391
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.27826025081
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -66,6 +66,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
 *DefaultApi* | [**averageSchoolComp**](docs/DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp | 
 *DefaultApi* | [**averageSubdivisionComp**](docs/DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp | 
+*DefaultApi* | [**bulkCreateGamePostSearches**](docs/DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create | 
 *DefaultApi* | [**bulkCreateGames**](docs/DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk | 
 *DefaultApi* | [**compareColi**](docs/DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli | 
 *DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
@@ -83,9 +84,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
 *DefaultApi* | [**createNote**](docs/DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes | 
+*DefaultApi* | [**createPageView**](docs/DefaultApi.md#createpageviewoperation) | **POST** /api/v1/page_views | 
 *DefaultApi* | [**createPasswordReset**](docs/DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset | 
 *DefaultApi* | [**createPosition**](docs/DefaultApi.md#createposition) | **POST** /api/v1/positions | 
 *DefaultApi* | [**createRequestedItem**](docs/DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items | 
+*DefaultApi* | [**createRequestedItemRiNote**](docs/DefaultApi.md#createrequesteditemrinote) | **POST** /api/v1/requested_items/{requestedItemId}/ri_note | 
 *DefaultApi* | [**createScheduleIntent**](docs/DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents | 
 *DefaultApi* | [**createScheduleTournament**](docs/DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments | 
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
@@ -195,10 +198,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getGameContracts**](docs/DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts | 
 *DefaultApi* | [**getGamePost**](docs/DefaultApi.md#getgamepost) | **GET** /api/v1/game_posts/{gamePostId} | 
 *DefaultApi* | [**getGamePostSearch**](docs/DefaultApi.md#getgamepostsearch) | **GET** /api/v1/game_post_searches/{gamePostSearchId} | 
+*DefaultApi* | [**getGamePostSearchGapCounts**](docs/DefaultApi.md#getgamepostsearchgapcounts) | **GET** /api/v1/game_post_searches/gap_counts | 
 *DefaultApi* | [**getGamePostSearches**](docs/DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches | 
 *DefaultApi* | [**getGamePosts**](docs/DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts | 
 *DefaultApi* | [**getGames**](docs/DefaultApi.md#getgames) | **GET** /api/v1/games | 
 *DefaultApi* | [**getGamesAvailableContracts**](docs/DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts | 
+*DefaultApi* | [**getGuaranteeBenchmarks**](docs/DefaultApi.md#getguaranteebenchmarks) | **GET** /api/v1/guarantee_benchmarks | 
 *DefaultApi* | [**getIncomeReport**](docs/DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} | 
 *DefaultApi* | [**getIncomeReports**](docs/DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports | 
 *DefaultApi* | [**getJobPost**](docs/DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post
@@ -214,12 +219,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getRawContract**](docs/DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} | 
 *DefaultApi* | [**getRawContracts**](docs/DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts | 
 *DefaultApi* | [**getRequestedItem**](docs/DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} | 
+*DefaultApi* | [**getRequestedItemRiNote**](docs/DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note | 
 *DefaultApi* | [**getRequestedItems**](docs/DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items | 
 *DefaultApi* | [**getRevenueSearch**](docs/DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} | 
 *DefaultApi* | [**getRevenueSearches**](docs/DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches | 
 *DefaultApi* | [**getScheduleGrid**](docs/DefaultApi.md#getschedulegrid) | **GET** /api/v1/schedule_grid/{sport_name} | 
 *DefaultApi* | [**getScheduleGridAvailableSchools**](docs/DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools | 
 *DefaultApi* | [**getScheduleGridCompleted**](docs/DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed | 
+*DefaultApi* | [**getScheduleUpdates**](docs/DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates | 
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
@@ -366,11 +373,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AvailableGameContract](docs/AvailableGameContract.md)
 - [Avatar](docs/Avatar.md)
 - [AverageCompensation](docs/AverageCompensation.md)
+- [BulkCreateGamePostSearchesRequest](docs/BulkCreateGamePostSearchesRequest.md)
+- [BulkCreateGamePostSearchesRequestPostsInner](docs/BulkCreateGamePostSearchesRequestPostsInner.md)
 - [BulkCreateGames201Response](docs/BulkCreateGames201Response.md)
 - [BulkCreateGames422Response](docs/BulkCreateGames422Response.md)
 - [BulkCreateGames422ResponseErrorsValue](docs/BulkCreateGames422ResponseErrorsValue.md)
 - [BulkCreateGamesRequest](docs/BulkCreateGamesRequest.md)
 - [BulkCreateGamesRequestGamesInner](docs/BulkCreateGamesRequestGamesInner.md)
+- [BulkGamePostSearchResult](docs/BulkGamePostSearchResult.md)
 - [COLIAdjusted](docs/COLIAdjusted.md)
 - [Cashflow](docs/Cashflow.md)
 - [CashflowCollection](docs/CashflowCollection.md)
@@ -455,6 +465,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateGameRequest](docs/CreateGameRequest.md)
 - [CreateGameRequestGame](docs/CreateGameRequestGame.md)
 - [CreateNoteRequest](docs/CreateNoteRequest.md)
+- [CreatePageViewRequest](docs/CreatePageViewRequest.md)
 - [CreatePasswordReset200Response](docs/CreatePasswordReset200Response.md)
 - [CreatePasswordResetRequest](docs/CreatePasswordResetRequest.md)
 - [CreatePasswordResetRequestUser](docs/CreatePasswordResetRequestUser.md)
@@ -525,11 +536,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GamePostContact](docs/GamePostContact.md)
 - [GamePostDetail](docs/GamePostDetail.md)
 - [GamePostDetailCreatedBy](docs/GamePostDetailCreatedBy.md)
-- [GamePostPendingWindow](docs/GamePostPendingWindow.md)
-- [GamePostScheduleGame](docs/GamePostScheduleGame.md)
-- [GamePostScheduleSummary](docs/GamePostScheduleSummary.md)
+- [GamePostGapCountCollection](docs/GamePostGapCountCollection.md)
+- [GamePostGapCountCollectionDataInner](docs/GamePostGapCountCollectionDataInner.md)
 - [GamePostSearchResult](docs/GamePostSearchResult.md)
 - [GamePostSearchResultCollection](docs/GamePostSearchResultCollection.md)
+- [GamePostSearchResultGamesInner](docs/GamePostSearchResultGamesInner.md)
+- [GamePostSearchResultPostsInner](docs/GamePostSearchResultPostsInner.md)
+- [GamePostSearchResultScheduleIntentsInner](docs/GamePostSearchResultScheduleIntentsInner.md)
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
 - [GetAccountUserActivation200Response](docs/GetAccountUserActivation200Response.md)
@@ -544,6 +557,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetTeamScheduleFavorites200ResponseInner](docs/GetTeamScheduleFavorites200ResponseInner.md)
 - [GetTimeZones200Response](docs/GetTimeZones200Response.md)
 - [GetWireChanges200Response](docs/GetWireChanges200Response.md)
+- [GuaranteeBenchmarkError](docs/GuaranteeBenchmarkError.md)
+- [GuaranteeBenchmarkStats](docs/GuaranteeBenchmarkStats.md)
+- [GuaranteeBenchmarkTable](docs/GuaranteeBenchmarkTable.md)
+- [GuaranteeBenchmarkTier](docs/GuaranteeBenchmarkTier.md)
 - [HTTPValidationError](docs/HTTPValidationError.md)
 - [HealthCheckFailure](docs/HealthCheckFailure.md)
 - [HealthCheckSuccess](docs/HealthCheckSuccess.md)
@@ -574,6 +591,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Note](docs/Note.md)
+- [PageView](docs/PageView.md)
 - [PerformanceChartCoach](docs/PerformanceChartCoach.md)
 - [PerformanceChartData](docs/PerformanceChartData.md)
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)
@@ -598,6 +616,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RegenerateRawContractPdf200Response](docs/RegenerateRawContractPdf200Response.md)
 - [RequestedItem](docs/RequestedItem.md)
 - [RequestedItemCollection](docs/RequestedItemCollection.md)
+- [RequestedItemNote](docs/RequestedItemNote.md)
+- [RequestedItemNoteInput](docs/RequestedItemNoteInput.md)
+- [RequestedItemNoteInputRiNote](docs/RequestedItemNoteInputRiNote.md)
+- [RequestedItemNoteResponse](docs/RequestedItemNoteResponse.md)
 - [RoleOption](docs/RoleOption.md)
 - [RunningJob](docs/RunningJob.md)
 - [ScheduleGridAvailableSchoolPost](docs/ScheduleGridAvailableSchoolPost.md)
@@ -611,6 +633,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScheduleGridView](docs/ScheduleGridView.md)
 - [ScheduleIntentDetail](docs/ScheduleIntentDetail.md)
 - [ScheduleTournamentDetail](docs/ScheduleTournamentDetail.md)
+- [ScheduleUpdate](docs/ScheduleUpdate.md)
+- [ScheduleUpdateCollection](docs/ScheduleUpdateCollection.md)
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
@@ -755,8 +779,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `0.0.0-dev.27215536391`
-- Package version: `0.0.0-dev.27215536391`
+- API version: `0.0.0-dev.27826025081`
+- Package version: `0.0.0-dev.27826025081`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

@@ -8,6 +8,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageDivisionComp**](DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp |  |
 | [**averageSchoolComp**](DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp |  |
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
+| [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
@@ -25,9 +26,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
 | [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
+| [**createPageView**](DefaultApi.md#createpageviewoperation) | **POST** /api/v1/page_views |  |
 | [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
+| [**createRequestedItemRiNote**](DefaultApi.md#createrequesteditemrinote) | **POST** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**createScheduleIntent**](DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents |  |
 | [**createScheduleTournament**](DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments |  |
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
@@ -137,10 +140,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getGameContracts**](DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts |  |
 | [**getGamePost**](DefaultApi.md#getgamepost) | **GET** /api/v1/game_posts/{gamePostId} |  |
 | [**getGamePostSearch**](DefaultApi.md#getgamepostsearch) | **GET** /api/v1/game_post_searches/{gamePostSearchId} |  |
+| [**getGamePostSearchGapCounts**](DefaultApi.md#getgamepostsearchgapcounts) | **GET** /api/v1/game_post_searches/gap_counts |  |
 | [**getGamePostSearches**](DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches |  |
 | [**getGamePosts**](DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts |  |
 | [**getGames**](DefaultApi.md#getgames) | **GET** /api/v1/games |  |
 | [**getGamesAvailableContracts**](DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts |  |
+| [**getGuaranteeBenchmarks**](DefaultApi.md#getguaranteebenchmarks) | **GET** /api/v1/guarantee_benchmarks |  |
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
@@ -156,12 +161,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
+| [**getRequestedItemRiNote**](DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
 | [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
 | [**getRevenueSearches**](DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches |  |
 | [**getScheduleGrid**](DefaultApi.md#getschedulegrid) | **GET** /api/v1/schedule_grid/{sport_name} |  |
 | [**getScheduleGridAvailableSchools**](DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools |  |
 | [**getScheduleGridCompleted**](DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed |  |
+| [**getScheduleUpdates**](DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
@@ -588,6 +595,82 @@ example().catch(console.error);
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkCreateGamePostSearches
+
+> BulkGamePostSearchResult bulkCreateGamePostSearches(bulkCreateGamePostSearchesRequest)
+
+
+
+WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkCreateGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkCreateGamePostSearchesRequest
+    bulkCreateGamePostSearchesRequest: ...,
+  } satisfies BulkCreateGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.bulkCreateGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkCreateGamePostSearchesRequest** | [BulkCreateGamePostSearchesRequest](BulkCreateGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**BulkGamePostSearchResult**](BulkGamePostSearchResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Posts created |  -  |
+| **422** | Validation error or empty batch |  -  |
+| **403** | Forbidden — only school accounts can create game posts |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1877,6 +1960,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createPageView
+
+> PageView createPageView(createPageViewRequest)
+
+
+
+Record a page view for the current user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreatePageViewOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreatePageViewRequest
+    createPageViewRequest: ...,
+  } satisfies CreatePageViewOperationRequest;
+
+  try {
+    const data = await api.createPageView(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createPageViewRequest** | [CreatePageViewRequest](CreatePageViewRequest.md) |  | |
+
+### Return type
+
+[**PageView**](PageView.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Page view recorded |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable - route is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createPasswordReset
 
 > CreatePasswordReset200Response createPasswordReset(createPasswordResetRequest)
@@ -2092,6 +2251,88 @@ example().catch(console.error);
 | **201** | Requested item was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create requested item |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createRequestedItemRiNote
+
+> RequestedItemNoteResponse createRequestedItemRiNote(requestedItemId, requestedItemNoteInput)
+
+
+
+Create or append a note attached to a requested item
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateRequestedItemRiNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose note should be created or appended
+    requestedItemId: 56,
+    // RequestedItemNoteInput | Requested item note content
+    requestedItemNoteInput: ...,
+  } satisfies CreateRequestedItemRiNoteRequest;
+
+  try {
+    const data = await api.createRequestedItemRiNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose note should be created or appended | [Defaults to `undefined`] |
+| **requestedItemNoteInput** | [RequestedItemNoteInput](RequestedItemNoteInput.md) | Requested item note content | |
+
+### Return type
+
+[**RequestedItemNoteResponse**](RequestedItemNoteResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item note already existed and was returned or appended |  -  |
+| **201** | Requested item note was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to create requested item note |  -  |
+| **503** | Scraper notes author was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10393,9 +10634,87 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getGamePostSearchGapCounts
+
+> GamePostGapCountCollection getGamePostSearchGapCounts(windows, q)
+
+
+
+Counts-only companion to the game post search for the sidebar schedule-gaps module (WINAD-9904). Accepts the same q filters as the search plus 1-10 date windows, and returns the number of active feed posts overlapping each window — each count equals what applying that window as a date filter to the search would return.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamePostSearchGapCountsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<string> | 1-10 inclusive date windows as YYYY-MM-DD..YYYY-MM-DD ranges
+    windows: ...,
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetGamePostSearchGapCountsRequest;
+
+  try {
+    const data = await api.getGamePostSearchGapCounts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **windows** | `Array<string>` | 1-10 inclusive date windows as YYYY-MM-DD..YYYY-MM-DD ranges | |
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GamePostGapCountCollection**](GamePostGapCountCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Overlapping-post count per requested window, in request order |  -  |
+| **422** | Missing, malformed, inverted, or too many windows |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGamePostSearches
 
-> GamePostSearchResultCollection getGamePostSearches(page, perPage, q)
+> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool)
 
 
 
@@ -10427,6 +10746,8 @@ async function example() {
     perPage: 56,
     // object | Ransack query (optional)
     q: Object,
+    // boolean | WINAD-9909: when true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
+    groupBySchool: true,
   } satisfies GetGamePostSearchesRequest;
 
   try {
@@ -10449,6 +10770,7 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **groupBySchool** | `boolean` | WINAD-9909: when true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10709,6 +11031,80 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Compatible contracts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGuaranteeBenchmarks
+
+> GuaranteeBenchmarkTable getGuaranteeBenchmarks(sportId)
+
+
+
+NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903). Returns, per Opponent Quality tier (power_4 / mid_major / smaller), the median/mean/min/max/count of game guarantees the tier pays out (home/buyer side) and receives (away/seller side) for one sport over the last three completed seasons. Permission filtered via the caller\&#39;s ability.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGuaranteeBenchmarksRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The sport to benchmark. Required; a missing or unknown sport returns a structured error block instead of tier data.
+    sportId: 56,
+  } satisfies GetGuaranteeBenchmarksRequest;
+
+  try {
+    const data = await api.getGuaranteeBenchmarks(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportId** | `number` | The sport to benchmark. Required; a missing or unknown sport returns a structured error block instead of tier data. | [Defaults to `undefined`] |
+
+### Return type
+
+[**GuaranteeBenchmarkTable**](GuaranteeBenchmarkTable.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Guarantee benchmark table, or a structured error block when sport_id is missing/unknown |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -11848,6 +12244,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getRequestedItemRiNote
+
+> RequestedItemNoteResponse getRequestedItemRiNote(requestedItemId)
+
+
+
+Retrieve the note attached to a requested item
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRequestedItemRiNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose note should be retrieved
+    requestedItemId: 56,
+  } satisfies GetRequestedItemRiNoteRequest;
+
+  try {
+    const data = await api.getRequestedItemRiNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose note should be retrieved | [Defaults to `undefined`] |
+
+### Return type
+
+[**RequestedItemNoteResponse**](RequestedItemNoteResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item note lookup completed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getRequestedItems
 
 > RequestedItemCollection getRequestedItems(page, perPage, q)
@@ -12356,6 +12828,85 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Sport not found |  -  |
 | **422** | year is malformed or outside the supported range |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getScheduleUpdates
+
+> ScheduleUpdateCollection getScheduleUpdates(sportName, limit)
+
+
+
+Recently Updated dashboard sidebar module (WINAD-9930). Returns the schools whose schedules changed most recently for a sport — games added, availabilities added / adjusted / removed (a filled date), and MTE slots — one row per school keyed by its latest update, newest first. Each row\&#39;s change summary aggregates that school\&#39;s edits in the 24h window ending at its latest update.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetScheduleUpdatesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
+    sportName: sportName_example,
+    // number | Max rows to return (default 8, capped at 25). (optional)
+    limit: 8,
+  } satisfies GetScheduleUpdatesRequest;
+
+  try {
+    const data = await api.getScheduleUpdates(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
+| **limit** | `number` | Max rows to return (default 8, capped at 25). | [Optional] [Defaults to `8`] |
+
+### Return type
+
+[**ScheduleUpdateCollection**](ScheduleUpdateCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Recently-updated schools for the sport, newest first |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Sport not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
