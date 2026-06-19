@@ -25,6 +25,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
 | [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
+| [**createPageView**](DefaultApi.md#createpageviewoperation) | **POST** /api/v1/page_views |  |
 | [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
@@ -1876,6 +1877,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **201** | Note created |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createPageView
+
+> PageView createPageView(createPageViewRequest)
+
+
+
+Record a page view for the current user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreatePageViewOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreatePageViewRequest
+    createPageViewRequest: ...,
+  } satisfies CreatePageViewOperationRequest;
+
+  try {
+    const data = await api.createPageView(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createPageViewRequest** | [CreatePageViewRequest](CreatePageViewRequest.md) |  | |
+
+### Return type
+
+[**PageView**](PageView.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Page view recorded |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable - route is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
