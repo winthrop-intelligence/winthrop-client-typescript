@@ -140,6 +140,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getGameContracts**](DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts |  |
 | [**getGamePost**](DefaultApi.md#getgamepost) | **GET** /api/v1/game_posts/{gamePostId} |  |
 | [**getGamePostSearch**](DefaultApi.md#getgamepostsearch) | **GET** /api/v1/game_post_searches/{gamePostSearchId} |  |
+| [**getGamePostSearchAvailabilities**](DefaultApi.md#getgamepostsearchavailabilities) | **GET** /api/v1/game_post_searches/availabilities |  |
 | [**getGamePostSearchGapCounts**](DefaultApi.md#getgamepostsearchgapcounts) | **GET** /api/v1/game_post_searches/gap_counts |  |
 | [**getGamePostSearches**](DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches |  |
 | [**getGamePosts**](DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts |  |
@@ -10624,6 +10625,81 @@ example().catch(console.error);
 | **200** | Game post detail |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGamePostSearchAvailabilities
+
+> GamePostAvailabilityCollection getGamePostSearchAvailabilities(q)
+
+
+
+Full-scan companion to the game post search for the sidebar \&quot;Posted Availabilities\&quot; module. Scans every active post for the sport (q[sport_name_eq] is required), buckets them by deal type, and returns each bucket\&#39;s total post count plus its most-recent posts deduped by school (capped server-side). Each post carries the school\&#39;s most recent posted date for that bucket (WINAD-9908 single &#x60;date&#x60;, falling back to start_date when empty).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamePostSearchAvailabilitiesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // object | Ransack query (optional)
+    q: Object,
+  } satisfies GetGamePostSearchAvailabilitiesRequest;
+
+  try {
+    const data = await api.getGamePostSearchAvailabilities(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GamePostAvailabilityCollection**](GamePostAvailabilityCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Per-deal-type availability breakdown for the sport |  -  |
+| **422** | Missing sport (q[sport_name_eq] is required) |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

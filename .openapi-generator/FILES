@@ -195,6 +195,9 @@ docs/GameContractSeriesResponse.md
 docs/GameDetail.md
 docs/GameDetailAllOfGameContract.md
 docs/GamePost.md
+docs/GamePostAvailabilityCollection.md
+docs/GamePostAvailabilityCollectionGroupsInner.md
+docs/GamePostAvailabilityCollectionGroupsInnerPostsInner.md
 docs/GamePostCollection.md
 docs/GamePostContact.md
 docs/GamePostDetail.md
@@ -621,6 +624,9 @@ src/models/GameContractSeriesResponse.ts
 src/models/GameDetail.ts
 src/models/GameDetailAllOfGameContract.ts
 src/models/GamePost.ts
+src/models/GamePostAvailabilityCollection.ts
+src/models/GamePostAvailabilityCollectionGroupsInner.ts
+src/models/GamePostAvailabilityCollectionGroupsInnerPostsInner.ts
 src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
 src/models/GamePostDetail.ts
