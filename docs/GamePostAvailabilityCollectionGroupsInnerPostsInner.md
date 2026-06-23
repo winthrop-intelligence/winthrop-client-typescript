@@ -1,0 +1,52 @@
+
+# GamePostAvailabilityCollectionGroupsInnerPostsInner
+
+
+## Properties
+
+Name | Type
+------------ | -------------
+`id` | number
+`gamePostId` | number
+`schoolId` | number
+`schoolName` | string
+`sportName` | string
+`date` | Date
+`lastRpi` | number
+`lastNetRank` | number
+`avgRpi` | number
+`avgNetRank` | number
+
+## Example
+
+```typescript
+import type { GamePostAvailabilityCollectionGroupsInnerPostsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+
+// TODO: Update the object below with actual values
+const example = {
+  "id": null,
+  "gamePostId": null,
+  "schoolId": null,
+  "schoolName": null,
+  "sportName": null,
+  "date": null,
+  "lastRpi": null,
+  "lastNetRank": null,
+  "avgRpi": null,
+  "avgNetRank": null,
+} satisfies GamePostAvailabilityCollectionGroupsInnerPostsInner
+
+console.log(example)
+
+// Convert the instance to a JSON string
+const exampleJSON: string = JSON.stringify(example)
+console.log(exampleJSON)
+
+// Parse the JSON string back to an object
+const exampleParsed = JSON.parse(exampleJSON) as GamePostAvailabilityCollectionGroupsInnerPostsInner
+console.log(exampleParsed)
+```
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
