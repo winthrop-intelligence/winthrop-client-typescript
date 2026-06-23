@@ -123,6 +123,8 @@ docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
 docs/CreateGameRequest.md
 docs/CreateGameRequestGame.md
+docs/CreateMcpEventRequest.md
+docs/CreateMcpEventRequestMcpEvent.md
 docs/CreateNoteRequest.md
 docs/CreatePageViewRequest.md
 docs/CreatePasswordReset200Response.md
@@ -238,6 +240,10 @@ docs/JobCollection.md
 docs/JobDepartment.md
 docs/JobPost.md
 docs/JobPostCollection.md
+docs/JobPostInterestLead.md
+docs/JobPostInterestLeadCandidate.md
+docs/JobPostInterestLeadCollection.md
+docs/JobPostInterestLeadJob.md
 docs/JobSchool.md
 docs/JobSport.md
 docs/Link.md
@@ -246,6 +252,7 @@ docs/LinkCollection1.md
 docs/ListNotes200ResponseInner.md
 docs/LocationInner.md
 docs/Logo.md
+docs/McpEvent.md
 docs/Meta.md
 docs/MlAthleticApi.md
 docs/NcaaFinancialReportStatus.md
@@ -544,6 +551,8 @@ src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/CreateGameRequest.ts
 src/models/CreateGameRequestGame.ts
+src/models/CreateMcpEventRequest.ts
+src/models/CreateMcpEventRequestMcpEvent.ts
 src/models/CreateNoteRequest.ts
 src/models/CreatePageViewRequest.ts
 src/models/CreatePasswordReset200Response.ts
@@ -656,6 +665,10 @@ src/models/JobCollection.ts
 src/models/JobDepartment.ts
 src/models/JobPost.ts
 src/models/JobPostCollection.ts
+src/models/JobPostInterestLead.ts
+src/models/JobPostInterestLeadCandidate.ts
+src/models/JobPostInterestLeadCollection.ts
+src/models/JobPostInterestLeadJob.ts
 src/models/JobSchool.ts
 src/models/JobSport.ts
 src/models/Link.ts
@@ -664,6 +677,7 @@ src/models/LinkCollection1.ts
 src/models/ListNotes200ResponseInner.ts
 src/models/LocationInner.ts
 src/models/Logo.ts
+src/models/McpEvent.ts
 src/models/Meta.ts
 src/models/NcaaFinancialReportStatus.ts
 src/models/NcaaFinancialReportStatusCollection.ts
