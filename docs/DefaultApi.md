@@ -31,6 +31,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
+| [**createRequestedItemRiNote**](DefaultApi.md#createrequesteditemrinote) | **POST** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**createScheduleIntent**](DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents |  |
 | [**createScheduleTournament**](DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments |  |
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
@@ -162,6 +163,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
+| [**getRequestedItemRiNote**](DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
 | [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
 | [**getRevenueSearches**](DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches |  |
@@ -2328,6 +2330,88 @@ example().catch(console.error);
 | **201** | Requested item was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create requested item |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createRequestedItemRiNote
+
+> RequestedItemNoteResponse createRequestedItemRiNote(requestedItemId, requestedItemNoteInput)
+
+
+
+Create or append a note attached to a requested item
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateRequestedItemRiNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose note should be created or appended
+    requestedItemId: 56,
+    // RequestedItemNoteInput | Requested item note content
+    requestedItemNoteInput: ...,
+  } satisfies CreateRequestedItemRiNoteRequest;
+
+  try {
+    const data = await api.createRequestedItemRiNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose note should be created or appended | [Defaults to `undefined`] |
+| **requestedItemNoteInput** | [RequestedItemNoteInput](RequestedItemNoteInput.md) | Requested item note content | |
+
+### Return type
+
+[**RequestedItemNoteResponse**](RequestedItemNoteResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item note already existed and was returned or appended |  -  |
+| **201** | Requested item note was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to create requested item note |  -  |
+| **503** | Scraper notes author was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10784,7 +10868,7 @@ example().catch(console.error);
 
 ## getGamePostSearches
 
-> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool)
+> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool, postDetails)
 
 
 
@@ -10818,6 +10902,8 @@ async function example() {
     q: Object,
     // boolean | When true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
     groupBySchool: true,
+    // boolean | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). (optional)
+    postDetails: true,
   } satisfies GetGamePostSearchesRequest;
 
   try {
@@ -10841,6 +10927,7 @@ example().catch(console.error);
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 | **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
+| **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -12309,6 +12396,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Requested item was found |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRequestedItemRiNote
+
+> RequestedItemNoteResponse getRequestedItemRiNote(requestedItemId)
+
+
+
+Retrieve the note attached to a requested item
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRequestedItemRiNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose note should be retrieved
+    requestedItemId: 56,
+  } satisfies GetRequestedItemRiNoteRequest;
+
+  try {
+    const data = await api.getRequestedItemRiNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose note should be retrieved | [Defaults to `undefined`] |
+
+### Return type
+
+[**RequestedItemNoteResponse**](RequestedItemNoteResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item note lookup completed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
