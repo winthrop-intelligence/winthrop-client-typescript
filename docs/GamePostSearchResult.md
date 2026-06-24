@@ -7,7 +7,6 @@ Enriched game post search result with school, location, and ranking data
 
 Name | Type
 ------------ | -------------
-`gamePostId` | number
 `id` | number
 `schoolId` | number
 `schoolName` | string
@@ -47,6 +46,7 @@ Name | Type
 `posts` | [Array&lt;GamePostSearchResultPostsInner&gt;](GamePostSearchResultPostsInner.md)
 `games` | [Array&lt;GamePostSearchResultGamesInner&gt;](GamePostSearchResultGamesInner.md)
 `scheduleIntents` | [Array&lt;GamePostSearchResultScheduleIntentsInner&gt;](GamePostSearchResultScheduleIntentsInner.md)
+`contacts` | [Array&lt;GamePostSearchResultContactsInner&gt;](GamePostSearchResultContactsInner.md)
 
 ## Example
 
@@ -55,7 +55,6 @@ import type { GamePostSearchResult } from '@winthrop-intelligence/winthrop-clien
 
 // TODO: Update the object below with actual values
 const example = {
-  "gamePostId": null,
   "id": null,
   "schoolId": null,
   "schoolName": null,
@@ -95,6 +94,7 @@ const example = {
   "posts": null,
   "games": null,
   "scheduleIntents": null,
+  "contacts": null,
 } satisfies GamePostSearchResult
 
 console.log(example)
