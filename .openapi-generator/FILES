@@ -290,6 +290,10 @@ docs/RegenerateRawContractPdf200Response.md
 docs/ReportingApi.md
 docs/RequestedItem.md
 docs/RequestedItemCollection.md
+docs/RequestedItemNote.md
+docs/RequestedItemNoteInput.md
+docs/RequestedItemNoteInputRiNote.md
+docs/RequestedItemNoteResponse.md
 docs/RoleOption.md
 docs/RunningJob.md
 docs/ScheduleGridAvailableSchoolPost.md
@@ -716,6 +720,10 @@ src/models/RecruitingPositionEntry.ts
 src/models/RegenerateRawContractPdf200Response.ts
 src/models/RequestedItem.ts
 src/models/RequestedItemCollection.ts
+src/models/RequestedItemNote.ts
+src/models/RequestedItemNoteInput.ts
+src/models/RequestedItemNoteInputRiNote.ts
+src/models/RequestedItemNoteResponse.ts
 src/models/RoleOption.ts
 src/models/RunningJob.ts
 src/models/ScheduleGridAvailableSchoolPost.ts
