@@ -13,36 +13,19 @@ Name | Type
 `sportId` | number
 `sportName` | string
 `startDate` | Date
-`endDate` | Date
 `endDateDisplay` | Date
 `description` | string
-`status` | string
-`expiresOn` | Date
 `createdAt` | Date
-`updatedAt` | Date
 `city` | string
 `stateName` | string
-`conferenceId` | number
-`conferenceName` | string
-`divisionId` | number
-`divisionName` | string
 `lastRpi` | number
-`lastNetRank` | number
-`lastApRank` | number
 `distance` | number
-`avgGuaranteePaid` | number
-`avgGuaranteeReceived` | number
 `gameTypesDisplay` | string
 `createdByName` | string
 `createdBySchedulingPhone` | string
 `createdBySchedulingPhoneDial` | string
-`avgRpi` | number
 `avgNetRank` | number
-`avgApRank` | number
 `schoolLogoUrl` | string
-`latitude` | number
-`longitude` | number
-`canManage` | boolean
 `posts` | [Array&lt;GamePostSearchResultPostsInner&gt;](GamePostSearchResultPostsInner.md)
 `games` | [Array&lt;GamePostSearchResultGamesInner&gt;](GamePostSearchResultGamesInner.md)
 `scheduleIntents` | [Array&lt;GamePostSearchResultScheduleIntentsInner&gt;](GamePostSearchResultScheduleIntentsInner.md)
@@ -61,36 +44,19 @@ const example = {
   "sportId": null,
   "sportName": null,
   "startDate": null,
-  "endDate": null,
   "endDateDisplay": null,
   "description": null,
-  "status": null,
-  "expiresOn": null,
   "createdAt": null,
-  "updatedAt": null,
   "city": null,
   "stateName": null,
-  "conferenceId": null,
-  "conferenceName": null,
-  "divisionId": null,
-  "divisionName": null,
   "lastRpi": null,
-  "lastNetRank": null,
-  "lastApRank": null,
   "distance": null,
-  "avgGuaranteePaid": null,
-  "avgGuaranteeReceived": null,
   "gameTypesDisplay": null,
   "createdByName": null,
   "createdBySchedulingPhone": null,
   "createdBySchedulingPhoneDial": null,
-  "avgRpi": null,
   "avgNetRank": null,
-  "avgApRank": null,
   "schoolLogoUrl": null,
-  "latitude": null,
-  "longitude": null,
-  "canManage": null,
   "posts": null,
   "games": null,
   "scheduleIntents": null,

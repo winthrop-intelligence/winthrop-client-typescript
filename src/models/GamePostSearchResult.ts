@@ -89,12 +89,6 @@ export interface GamePostSearchResult {
      * @type {Date}
      * @memberof GamePostSearchResult
      */
-    endDate?: Date | null;
-    /**
-     * 
-     * @type {Date}
-     * @memberof GamePostSearchResult
-     */
     endDateDisplay?: Date | null;
     /**
      * 
@@ -104,28 +98,10 @@ export interface GamePostSearchResult {
     description?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof GamePostSearchResult
-     */
-    status?: GamePostSearchResultStatusEnum;
-    /**
-     * 
-     * @type {Date}
-     * @memberof GamePostSearchResult
-     */
-    expiresOn?: Date | null;
-    /**
-     * 
      * @type {Date}
      * @memberof GamePostSearchResult
      */
     createdAt?: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof GamePostSearchResult
-     */
-    updatedAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -139,65 +115,17 @@ export interface GamePostSearchResult {
      */
     stateName?: string | null;
     /**
-     * 
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    conferenceId?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GamePostSearchResult
-     */
-    conferenceName?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    divisionId?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GamePostSearchResult
-     */
-    divisionName?: string | null;
-    /**
      * Most recent RPI ranking
      * @type {number}
      * @memberof GamePostSearchResult
      */
     lastRpi?: number | null;
     /**
-     * Most recent NET ranking
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    lastNetRank?: number | null;
-    /**
-     * Most recent AP ranking
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    lastApRank?: number | null;
-    /**
      * Distance in miles from user's school
      * @type {number}
      * @memberof GamePostSearchResult
      */
     distance?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    avgGuaranteePaid?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    avgGuaranteeReceived?: number | null;
     /**
      * Comma-separated list of game type names
      * @type {string}
@@ -223,47 +151,17 @@ export interface GamePostSearchResult {
      */
     createdBySchedulingPhoneDial?: string | null;
     /**
-     * 5-year average RPI ranking
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    avgRpi?: number | null;
-    /**
      * 5-year average NET ranking
      * @type {number}
      * @memberof GamePostSearchResult
      */
     avgNetRank?: number | null;
     /**
-     * 5-year average AP ranking
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    avgApRank?: number | null;
-    /**
      * URL to school logo image (small variant)
      * @type {string}
      * @memberof GamePostSearchResult
      */
     schoolLogoUrl?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    latitude?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof GamePostSearchResult
-     */
-    longitude?: number | null;
-    /**
-     * Whether the current user can manage this game post
-     * @type {boolean}
-     * @memberof GamePostSearchResult
-     */
-    canManage?: boolean;
     /**
      * The posting school's own active Games Wanted posts for this sport, one entry per post (each carrying its id). Present only when group_by_school=true, where the feed is grouped one row per school so this aggregates every post for the school. The card collapses same-day posts into chips; the school+sport show page lists each. With post_details=true each entry also carries the per-post detail fields below.
      * @type {Array<GamePostSearchResultPostsInner>}
@@ -290,17 +188,6 @@ export interface GamePostSearchResult {
     contacts?: Array<GamePostSearchResultContactsInner>;
 }
 
-
-/**
- * @export
- */
-export const GamePostSearchResultStatusEnum = {
-    Active: 'Active',
-    Inactive: 'Inactive'
-} as const;
-export type GamePostSearchResultStatusEnum = typeof GamePostSearchResultStatusEnum[keyof typeof GamePostSearchResultStatusEnum];
-
-
 /**
  * Check if a given object implements the GamePostSearchResult interface.
  */
@@ -324,36 +211,19 @@ export function GamePostSearchResultFromJSONTyped(json: any, ignoreDiscriminator
         'sportId': json['sport_id'] == null ? undefined : json['sport_id'],
         'sportName': json['sport_name'] == null ? undefined : json['sport_name'],
         'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
-        'endDate': json['end_date'] == null ? undefined : (new Date(json['end_date'])),
         'endDateDisplay': json['end_date_display'] == null ? undefined : (new Date(json['end_date_display'])),
         'description': json['description'] == null ? undefined : json['description'],
-        'status': json['status'] == null ? undefined : json['status'],
-        'expiresOn': json['expires_on'] == null ? undefined : (new Date(json['expires_on'])),
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'city': json['city'] == null ? undefined : json['city'],
         'stateName': json['state_name'] == null ? undefined : json['state_name'],
-        'conferenceId': json['conference_id'] == null ? undefined : json['conference_id'],
-        'conferenceName': json['conference_name'] == null ? undefined : json['conference_name'],
-        'divisionId': json['division_id'] == null ? undefined : json['division_id'],
-        'divisionName': json['division_name'] == null ? undefined : json['division_name'],
         'lastRpi': json['last_rpi'] == null ? undefined : json['last_rpi'],
-        'lastNetRank': json['last_net_rank'] == null ? undefined : json['last_net_rank'],
-        'lastApRank': json['last_ap_rank'] == null ? undefined : json['last_ap_rank'],
         'distance': json['distance'] == null ? undefined : json['distance'],
-        'avgGuaranteePaid': json['avg_guarantee_paid'] == null ? undefined : json['avg_guarantee_paid'],
-        'avgGuaranteeReceived': json['avg_guarantee_received'] == null ? undefined : json['avg_guarantee_received'],
         'gameTypesDisplay': json['game_types_display'] == null ? undefined : json['game_types_display'],
         'createdByName': json['created_by_name'] == null ? undefined : json['created_by_name'],
         'createdBySchedulingPhone': json['created_by_scheduling_phone'] == null ? undefined : json['created_by_scheduling_phone'],
         'createdBySchedulingPhoneDial': json['created_by_scheduling_phone_dial'] == null ? undefined : json['created_by_scheduling_phone_dial'],
-        'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
         'avgNetRank': json['avg_net_rank'] == null ? undefined : json['avg_net_rank'],
-        'avgApRank': json['avg_ap_rank'] == null ? undefined : json['avg_ap_rank'],
         'schoolLogoUrl': json['school_logo_url'] == null ? undefined : json['school_logo_url'],
-        'latitude': json['latitude'] == null ? undefined : json['latitude'],
-        'longitude': json['longitude'] == null ? undefined : json['longitude'],
-        'canManage': json['can_manage'] == null ? undefined : json['can_manage'],
         'posts': json['posts'] == null ? undefined : ((json['posts'] as Array<any>).map(GamePostSearchResultPostsInnerFromJSON)),
         'games': json['games'] == null ? undefined : ((json['games'] as Array<any>).map(GamePostSearchResultGamesInnerFromJSON)),
         'scheduleIntents': json['schedule_intents'] == null ? undefined : ((json['schedule_intents'] as Array<any>).map(GamePostSearchResultScheduleIntentsInnerFromJSON)),
@@ -378,36 +248,19 @@ export function GamePostSearchResultToJSONTyped(value?: GamePostSearchResult | n
         'sport_id': value['sportId'],
         'sport_name': value['sportName'],
         'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
-        'end_date': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
         'end_date_display': value['endDateDisplay'] == null ? value['endDateDisplay'] : value['endDateDisplay'].toISOString().substring(0,10),
         'description': value['description'],
-        'status': value['status'],
-        'expires_on': value['expiresOn'] == null ? value['expiresOn'] : value['expiresOn'].toISOString().substring(0,10),
         'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
         'city': value['city'],
         'state_name': value['stateName'],
-        'conference_id': value['conferenceId'],
-        'conference_name': value['conferenceName'],
-        'division_id': value['divisionId'],
-        'division_name': value['divisionName'],
         'last_rpi': value['lastRpi'],
-        'last_net_rank': value['lastNetRank'],
-        'last_ap_rank': value['lastApRank'],
         'distance': value['distance'],
-        'avg_guarantee_paid': value['avgGuaranteePaid'],
-        'avg_guarantee_received': value['avgGuaranteeReceived'],
         'game_types_display': value['gameTypesDisplay'],
         'created_by_name': value['createdByName'],
         'created_by_scheduling_phone': value['createdBySchedulingPhone'],
         'created_by_scheduling_phone_dial': value['createdBySchedulingPhoneDial'],
-        'avg_rpi': value['avgRpi'],
         'avg_net_rank': value['avgNetRank'],
-        'avg_ap_rank': value['avgApRank'],
         'school_logo_url': value['schoolLogoUrl'],
-        'latitude': value['latitude'],
-        'longitude': value['longitude'],
-        'can_manage': value['canManage'],
         'posts': value['posts'] == null ? undefined : ((value['posts'] as Array<any>).map(GamePostSearchResultPostsInnerToJSON)),
         'games': value['games'] == null ? undefined : ((value['games'] as Array<any>).map(GamePostSearchResultGamesInnerToJSON)),
         'schedule_intents': value['scheduleIntents'] == null ? undefined : ((value['scheduleIntents'] as Array<any>).map(GamePostSearchResultScheduleIntentsInnerToJSON)),
