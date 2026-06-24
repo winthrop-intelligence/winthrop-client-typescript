@@ -16,6 +16,7 @@ Next, try it out.
 ```ts
 import {
   Configuration,
+  DeviceToken,
   DefaultApi,
 } from '@winthrop-intelligence/winthrop-client-typescript';
 import type { AverageConferenceCompRequest } from '@winthrop-intelligence/winthrop-client-typescript';
@@ -26,7 +27,7 @@ async function example() {
     // To configure API key authorization: ApiKey
     apiKey: "YOUR API KEY",
     // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
+    accessToken: await DeviceToken.accessToken(),
   });
   const api = new DefaultApi(config);
 
@@ -52,6 +53,30 @@ async function example() {
 // Run the test
 example().catch(console.error);
 ```
+
+## Authentication
+
+Human users should install the Winthrop CLI and log in before using this client:
+
+```bash
+winthrop login
+```
+
+For human-user workflows, use the Node-only `DeviceToken` helper. It shells out to `winthrop token`, keeps the short-lived access token in memory for the current process, and never writes refresh tokens itself.
+
+```ts
+import { Configuration, DefaultApi, DeviceToken } from '@winthrop-intelligence/winthrop-client-typescript';
+
+const config = new Configuration({
+  accessToken: await DeviceToken.accessToken(),
+});
+
+const api = new DefaultApi(config);
+```
+
+If a DeviceToken-backed request receives a 401, the client clears the in-memory DeviceToken cache, asks the Winthrop CLI for a fresh access token, and retries once. If the retry is also a 401, it raises an authentication error.
+
+Service accounts and automation should keep using RefreshToken/client_credentials flows where applicable. Client libraries should receive access tokens only; they should not handle refresh tokens directly.
 
 
 ## Documentation

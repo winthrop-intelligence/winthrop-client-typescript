@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { AuthenticationError, DeviceToken } from './DeviceToken';
 
 export const BASE_PATH = "http://api-gateway.default.svc.cluster.local".replace(/\/+$/, "");
 
@@ -73,6 +74,13 @@ export class Configuration {
             return typeof accessToken === 'function' ? accessToken : async () => accessToken;
         }
         return undefined;
+    }
+
+    replaceAccessToken(currentAccessToken: string, nextAccessToken: string): void {
+        const accessToken = this.configuration.accessToken;
+        if (typeof accessToken !== 'function' && accessToken === currentAccessToken) {
+            this.configuration.accessToken = nextAccessToken;
+        }
     }
 
     get headers(): HTTPHeaders | undefined {
@@ -137,7 +145,35 @@ export class BaseAPI {
         if (response && (response.status >= 200 && response.status < 300)) {
             return response;
         }
+        if (response && response.status === 401) {
+            const retryResponse = await this.retryWithRefreshedDeviceToken(url, init);
+            if (retryResponse) {
+                if (retryResponse.status >= 200 && retryResponse.status < 300) {
+                    return retryResponse;
+                }
+                if (retryResponse.status === 401) {
+                    throw new AuthenticationError('Authentication error: refreshed Winthrop CLI access token was rejected with 401.');
+                }
+                throw new ResponseError(retryResponse, 'Response returned an error code');
+            }
+        }
         throw new ResponseError(response, 'Response returned an error code');
+    }
+
+    private async retryWithRefreshedDeviceToken(url: string, init: RequestInit): Promise<Response | undefined> {
+        const authorization = getHeader(init.headers, 'Authorization');
+        if (!DeviceToken.isCachedAccessToken(authorization)) {
+            return undefined;
+        }
+
+        DeviceToken.clearCache();
+        const refreshedAccessToken = await DeviceToken.refreshAccessToken();
+        this.configuration.replaceAccessToken(authorization, refreshedAccessToken);
+        const retryInit = {
+            ...init,
+            headers: setHeader(init.headers, 'Authorization', refreshedAccessToken),
+        };
+        return this.fetchApi(url, retryInit);
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
@@ -255,6 +291,53 @@ function isBlob(value: any): value is Blob {
 
 function isFormData(value: any): value is FormData {
     return typeof FormData !== "undefined" && value instanceof FormData;
+}
+
+function getHeader(headers: HeadersInit | undefined, name: string): string | undefined {
+    if (headers === undefined) {
+        return undefined;
+    }
+
+    if (typeof Headers !== "undefined" && headers instanceof Headers) {
+        return headers.get(name) || undefined;
+    }
+
+    if (Array.isArray(headers)) {
+        const found = headers.find(([key]) => key.toLowerCase() === name.toLowerCase());
+        return found ? found[1] : undefined;
+    }
+
+    const record = headers as { [key: string]: string };
+    const key = Object.keys(record).find(headerName => headerName.toLowerCase() === name.toLowerCase());
+    return key ? record[key] : undefined;
+}
+
+function setHeader(headers: HeadersInit | undefined, name: string, value: string): HeadersInit {
+    if (headers === undefined) {
+        return { [name]: value };
+    }
+
+    if (typeof Headers !== "undefined" && headers instanceof Headers) {
+        const next = new Headers(headers);
+        next.set(name, value);
+        return next;
+    }
+
+    if (Array.isArray(headers)) {
+        const next = headers.slice();
+        const index = next.findIndex(([key]) => key.toLowerCase() === name.toLowerCase());
+        if (index >= 0) {
+            next[index] = [next[index][0], value];
+        } else {
+            next.push([name, value]);
+        }
+        return next;
+    }
+
+    return {
+        ...(headers as { [key: string]: string }),
+        [name]: value,
+    };
 }
 
 export class ResponseError extends Error {
