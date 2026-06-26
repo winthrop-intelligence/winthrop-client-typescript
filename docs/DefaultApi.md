@@ -122,6 +122,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFilterOptionsAllSchools**](DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools |  |
 | [**getFilterOptionsConferences**](DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences |  |
 | [**getFilterOptionsDealTypes**](DefaultApi.md#getfilteroptionsdealtypes) | **GET** /api/v1/filter_options/deal_types |  |
+| [**getFilterOptionsFoiaRequestableDealTypes**](DefaultApi.md#getfilteroptionsfoiarequestabledealtypes) | **GET** /api/v1/filter_options/foia_requestable_deal_types |  |
 | [**getFilterOptionsGameTypes**](DefaultApi.md#getfilteroptionsgametypes) | **GET** /api/v1/filter_options/game_types |  |
 | [**getFilterOptionsSchoolGroups**](DefaultApi.md#getfilteroptionsschoolgroups) | **GET** /api/v1/filter_options/school_groups |  |
 | [**getFilterOptionsSchools**](DefaultApi.md#getfilteroptionsschools) | **GET** /api/v1/filter_options/schools |  |
@@ -9263,6 +9264,72 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Deal types retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFilterOptionsFoiaRequestableDealTypes
+
+> Array&lt;IdName&gt; getFilterOptionsFoiaRequestableDealTypes()
+
+
+
+Retrieve all FOIA-requestable deal types, including those hidden from public deal filtering (e.g. Athletics Software, Travel, Executive Search)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFilterOptionsFoiaRequestableDealTypesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFilterOptionsFoiaRequestableDealTypes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;IdName&gt;**](IdName.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA-requestable deal types retrieved |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
