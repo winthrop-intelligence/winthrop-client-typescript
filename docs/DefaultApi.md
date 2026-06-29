@@ -122,6 +122,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFilterOptionsAllSchools**](DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools |  |
 | [**getFilterOptionsConferences**](DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences |  |
 | [**getFilterOptionsDealTypes**](DefaultApi.md#getfilteroptionsdealtypes) | **GET** /api/v1/filter_options/deal_types |  |
+| [**getFilterOptionsFoiaRequestableDealTypes**](DefaultApi.md#getfilteroptionsfoiarequestabledealtypes) | **GET** /api/v1/filter_options/foia_requestable_deal_types |  |
 | [**getFilterOptionsGameTypes**](DefaultApi.md#getfilteroptionsgametypes) | **GET** /api/v1/filter_options/game_types |  |
 | [**getFilterOptionsSchoolGroups**](DefaultApi.md#getfilteroptionsschoolgroups) | **GET** /api/v1/filter_options/school_groups |  |
 | [**getFilterOptionsSchools**](DefaultApi.md#getfilteroptionsschools) | **GET** /api/v1/filter_options/schools |  |
@@ -9268,6 +9269,72 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFilterOptionsFoiaRequestableDealTypes
+
+> Array&lt;IdName&gt; getFilterOptionsFoiaRequestableDealTypes()
+
+
+
+Retrieve all FOIA-requestable deal types, including those hidden from public deal filtering (e.g. Athletics Software, Travel, Executive Search)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFilterOptionsFoiaRequestableDealTypesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFilterOptionsFoiaRequestableDealTypes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;IdName&gt;**](IdName.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA-requestable deal types retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getFilterOptionsGameTypes
 
 > Array&lt;GameType&gt; getFilterOptionsGameTypes()
@@ -10868,7 +10935,7 @@ example().catch(console.error);
 
 ## getGamePostSearches
 
-> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool)
+> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool, postDetails)
 
 
 
@@ -10902,6 +10969,8 @@ async function example() {
     q: Object,
     // boolean | When true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
     groupBySchool: true,
+    // boolean | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). (optional)
+    postDetails: true,
   } satisfies GetGamePostSearchesRequest;
 
   try {
@@ -10925,6 +10994,7 @@ example().catch(console.error);
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 | **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
+| **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

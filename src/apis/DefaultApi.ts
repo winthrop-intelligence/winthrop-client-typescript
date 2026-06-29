@@ -1239,6 +1239,7 @@ export interface DefaultApiGetGamePostSearchesRequest {
     perPage?: number;
     q?: object;
     groupBySchool?: boolean;
+    postDetails?: boolean;
 }
 
 export interface DefaultApiGetGamePostsRequest {
@@ -7544,6 +7545,44 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all FOIA-requestable deal types, including those hidden from public deal filtering (e.g. Athletics Software, Travel, Executive Search)
+     */
+    async getFilterOptionsFoiaRequestableDealTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IdName>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/filter_options/foia_requestable_deal_types`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IdNameFromJSON));
+    }
+
+    /**
+     * Retrieve all FOIA-requestable deal types, including those hidden from public deal filtering (e.g. Athletics Software, Travel, Executive Search)
+     */
+    async getFilterOptionsFoiaRequestableDealTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IdName>> {
+        const response = await this.getFilterOptionsFoiaRequestableDealTypesRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve all available game types for game post filtering
      */
     async getFilterOptionsGameTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GameType>>> {
@@ -8548,6 +8587,10 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['groupBySchool'] != null) {
             queryParameters['group_by_school'] = requestParameters['groupBySchool'];
+        }
+
+        if (requestParameters['postDetails'] != null) {
+            queryParameters['post_details'] = requestParameters['postDetails'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

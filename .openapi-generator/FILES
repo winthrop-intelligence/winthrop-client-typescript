@@ -206,8 +206,10 @@ docs/GamePostGapCountCollection.md
 docs/GamePostGapCountCollectionDataInner.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
+docs/GamePostSearchResultContactsInner.md
 docs/GamePostSearchResultGamesInner.md
 docs/GamePostSearchResultPostsInner.md
+docs/GamePostSearchResultPostsInnerCreatedBy.md
 docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
@@ -639,8 +641,10 @@ src/models/GamePostGapCountCollection.ts
 src/models/GamePostGapCountCollectionDataInner.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
+src/models/GamePostSearchResultContactsInner.ts
 src/models/GamePostSearchResultGamesInner.ts
 src/models/GamePostSearchResultPostsInner.ts
+src/models/GamePostSearchResultPostsInnerCreatedBy.ts
 src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
