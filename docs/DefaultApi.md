@@ -2419,7 +2419,7 @@ example().catch(console.error);
 
 ## createScheduleIntent
 
-> ScheduleIntentDetail createScheduleIntent(createScheduleIntentRequest)
+> ScheduleIntentDetail createScheduleIntent(createScheduleIntentRequest, skipGamePostSync)
 
 
 
@@ -2447,6 +2447,8 @@ async function example() {
   const body = {
     // CreateScheduleIntentRequest
     createScheduleIntentRequest: ...,
+    // boolean | WINAD-10041: when true, persists the ScheduleIntent WITHOUT syncing the public Games Wanted GamePost(s) for that cell. Sent by the slim editor (/game_posts/new) so composing chips doesn\'t publish until the user clicks Publish; the schedules grid omits it and keeps the public post in lockstep with the cell live.  (optional)
+    skipGamePostSync: true,
   } satisfies CreateScheduleIntentOperationRequest;
 
   try {
@@ -2467,6 +2469,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **createScheduleIntentRequest** | [CreateScheduleIntentRequest](CreateScheduleIntentRequest.md) |  | |
+| **skipGamePostSync** | `boolean` | WINAD-10041: when true, persists the ScheduleIntent WITHOUT syncing the public Games Wanted GamePost(s) for that cell. Sent by the slim editor (/game_posts/new) so composing chips doesn\&#39;t publish until the user clicks Publish; the schedules grid omits it and keeps the public post in lockstep with the cell live.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -4145,7 +4148,7 @@ example().catch(console.error);
 
 ## deleteScheduleIntent
 
-> deleteScheduleIntent(scheduleIntentId)
+> deleteScheduleIntent(scheduleIntentId, skipGamePostSync)
 
 
 
@@ -4173,6 +4176,8 @@ async function example() {
   const body = {
     // number
     scheduleIntentId: 56,
+    // boolean | WINAD-10041: when true, persists the ScheduleIntent WITHOUT syncing the public Games Wanted GamePost(s) for that cell. Sent by the slim editor (/game_posts/new) so composing chips doesn\'t publish until the user clicks Publish; the schedules grid omits it and keeps the public post in lockstep with the cell live.  (optional)
+    skipGamePostSync: true,
   } satisfies DeleteScheduleIntentRequest;
 
   try {
@@ -4193,6 +4198,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **scheduleIntentId** | `number` |  | [Defaults to `undefined`] |
+| **skipGamePostSync** | `boolean` | WINAD-10041: when true, persists the ScheduleIntent WITHOUT syncing the public Games Wanted GamePost(s) for that cell. Sent by the slim editor (/game_posts/new) so composing chips doesn\&#39;t publish until the user clicks Publish; the schedules grid omits it and keeps the public post in lockstep with the cell live.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -19163,7 +19169,7 @@ example().catch(console.error);
 
 ## updateScheduleIntent
 
-> ScheduleIntentDetail updateScheduleIntent(scheduleIntentId, updateScheduleIntentRequest)
+> ScheduleIntentDetail updateScheduleIntent(scheduleIntentId, skipGamePostSync, updateScheduleIntentRequest)
 
 
 
@@ -19191,6 +19197,8 @@ async function example() {
   const body = {
     // number
     scheduleIntentId: 56,
+    // boolean | WINAD-10041: when true, persists the ScheduleIntent WITHOUT syncing the public Games Wanted GamePost(s) for that cell. Sent by the slim editor (/game_posts/new) so composing chips doesn\'t publish until the user clicks Publish; the schedules grid omits it and keeps the public post in lockstep with the cell live.  (optional)
+    skipGamePostSync: true,
     // UpdateScheduleIntentRequest (optional)
     updateScheduleIntentRequest: ...,
   } satisfies UpdateScheduleIntentOperationRequest;
@@ -19213,6 +19221,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **scheduleIntentId** | `number` |  | [Defaults to `undefined`] |
+| **skipGamePostSync** | `boolean` | WINAD-10041: when true, persists the ScheduleIntent WITHOUT syncing the public Games Wanted GamePost(s) for that cell. Sent by the slim editor (/game_posts/new) so composing chips doesn\&#39;t publish until the user clicks Publish; the schedules grid omits it and keeps the public post in lockstep with the cell live.  | [Optional] [Defaults to `undefined`] |
 | **updateScheduleIntentRequest** | [UpdateScheduleIntentRequest](UpdateScheduleIntentRequest.md) |  | [Optional] |
 
 ### Return type
