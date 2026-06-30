@@ -391,6 +391,7 @@ docs/UpdateAccountUserActivationRequest.md
 docs/UpdateAccountUserActivationRequestUser.md
 docs/UpdateAccountUserRequest.md
 docs/UpdateAccountUserRequestUser.md
+docs/UpdateFavorite200Response.md
 docs/UpdateFavoriteRequest.md
 docs/UpdateFavoritesCategoryRequest.md
 docs/UpdateGamePostSearchRequest.md
@@ -822,6 +823,7 @@ src/models/UpdateAccountUserActivationRequest.ts
 src/models/UpdateAccountUserActivationRequestUser.ts
 src/models/UpdateAccountUserRequest.ts
 src/models/UpdateAccountUserRequestUser.ts
+src/models/UpdateFavorite200Response.ts
 src/models/UpdateFavoriteRequest.ts
 src/models/UpdateFavoritesCategoryRequest.ts
 src/models/UpdateGamePostSearchRequest.ts

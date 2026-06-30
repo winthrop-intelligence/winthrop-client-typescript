@@ -730,6 +730,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateAccountUserActivationRequestUser](docs/UpdateAccountUserActivationRequestUser.md)
 - [UpdateAccountUserRequest](docs/UpdateAccountUserRequest.md)
 - [UpdateAccountUserRequestUser](docs/UpdateAccountUserRequestUser.md)
+- [UpdateFavorite200Response](docs/UpdateFavorite200Response.md)
 - [UpdateFavoriteRequest](docs/UpdateFavoriteRequest.md)
 - [UpdateFavoritesCategoryRequest](docs/UpdateFavoritesCategoryRequest.md)
 - [UpdateGamePostSearchRequest](docs/UpdateGamePostSearchRequest.md)

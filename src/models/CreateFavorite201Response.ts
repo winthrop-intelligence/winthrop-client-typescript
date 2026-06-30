@@ -31,6 +31,12 @@ export interface CreateFavorite201Response {
      * @memberof CreateFavorite201Response
      */
     favoritableId: number;
+    /**
+     * The list (category) the favorite was saved to
+     * @type {number}
+     * @memberof CreateFavorite201Response
+     */
+    favoritesCategoryId?: number | null;
 }
 
 /**
@@ -54,6 +60,7 @@ export function CreateFavorite201ResponseFromJSONTyped(json: any, ignoreDiscrimi
         
         'id': json['id'],
         'favoritableId': json['favoritable_id'],
+        'favoritesCategoryId': json['favorites_category_id'] == null ? undefined : json['favorites_category_id'],
     };
 }
 
@@ -70,6 +77,7 @@ export function CreateFavorite201ResponseToJSONTyped(value?: CreateFavorite201Re
         
         'id': value['id'],
         'favoritable_id': value['favoritableId'],
+        'favorites_category_id': value['favoritesCategoryId'],
     };
 }
 

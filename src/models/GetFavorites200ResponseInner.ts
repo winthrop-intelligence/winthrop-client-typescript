@@ -32,7 +32,7 @@ export interface GetFavorites200ResponseInner {
      */
     favoritableId: number;
     /**
-     * Category ID (only when detailed=1)
+     * ID of the list (category) this favorite belongs to.
      * @type {number}
      * @memberof GetFavorites200ResponseInner
      */
