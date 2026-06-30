@@ -384,7 +384,6 @@ export * from './UpdateAccountUserActivationRequest';
 export * from './UpdateAccountUserActivationRequestUser';
 export * from './UpdateAccountUserRequest';
 export * from './UpdateAccountUserRequestUser';
-export * from './UpdateFavorite200Response';
 export * from './UpdateFavoriteRequest';
 export * from './UpdateFavoritesCategoryRequest';
 export * from './UpdateGamePostSearchRequest';

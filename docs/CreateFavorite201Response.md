@@ -8,7 +8,6 @@ Name | Type
 ------------ | -------------
 `id` | number
 `favoritableId` | number
-`favoritesCategoryId` | number
 
 ## Example
 
@@ -19,7 +18,6 @@ import type { CreateFavorite201Response } from '@winthrop-intelligence/winthrop-
 const example = {
   "id": null,
   "favoritableId": null,
-  "favoritesCategoryId": null,
 } satisfies CreateFavorite201Response
 
 console.log(example)
