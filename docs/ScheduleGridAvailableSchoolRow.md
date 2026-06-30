@@ -17,6 +17,7 @@ Name | Type
 `primaryContactMobilePhone` | string
 `subdivisionName` | string
 `rank` | number
+`torvikRank` | number
 `distanceMiles` | number
 `nearestPost` | [ScheduleGridAvailableSchoolPost](ScheduleGridAvailableSchoolPost.md)
 
@@ -37,6 +38,7 @@ const example = {
   "primaryContactMobilePhone": null,
   "subdivisionName": null,
   "rank": null,
+  "torvikRank": null,
   "distanceMiles": null,
   "nearestPost": null,
 } satisfies ScheduleGridAvailableSchoolRow
