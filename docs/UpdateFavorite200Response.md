@@ -1,5 +1,5 @@
 
-# CreateFavorite201Response
+# UpdateFavorite200Response
 
 
 ## Properties
@@ -13,14 +13,14 @@ Name | Type
 ## Example
 
 ```typescript
-import type { CreateFavorite201Response } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { UpdateFavorite200Response } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
   "favoritableId": null,
   "favoritesCategoryId": null,
-} satisfies CreateFavorite201Response
+} satisfies UpdateFavorite200Response
 
 console.log(example)
 
@@ -29,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateFavorite201Response
+const exampleParsed = JSON.parse(exampleJSON) as UpdateFavorite200Response
 console.log(exampleParsed)
 ```
 
