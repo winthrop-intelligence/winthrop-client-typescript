@@ -16,43 +16,43 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface CreateFavorite201Response
+ * @interface UpdateFavorite200Response
  */
-export interface CreateFavorite201Response {
+export interface UpdateFavorite200Response {
     /**
      * 
      * @type {number}
-     * @memberof CreateFavorite201Response
+     * @memberof UpdateFavorite200Response
      */
     id: number;
     /**
      * 
      * @type {number}
-     * @memberof CreateFavorite201Response
+     * @memberof UpdateFavorite200Response
      */
     favoritableId: number;
     /**
-     * The list (category) the favorite was saved to
+     * The list (category) the favorite belongs to
      * @type {number}
-     * @memberof CreateFavorite201Response
+     * @memberof UpdateFavorite200Response
      */
     favoritesCategoryId?: number | null;
 }
 
 /**
- * Check if a given object implements the CreateFavorite201Response interface.
+ * Check if a given object implements the UpdateFavorite200Response interface.
  */
-export function instanceOfCreateFavorite201Response(value: object): value is CreateFavorite201Response {
+export function instanceOfUpdateFavorite200Response(value: object): value is UpdateFavorite200Response {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('favoritableId' in value) || value['favoritableId'] === undefined) return false;
     return true;
 }
 
-export function CreateFavorite201ResponseFromJSON(json: any): CreateFavorite201Response {
-    return CreateFavorite201ResponseFromJSONTyped(json, false);
+export function UpdateFavorite200ResponseFromJSON(json: any): UpdateFavorite200Response {
+    return UpdateFavorite200ResponseFromJSONTyped(json, false);
 }
 
-export function CreateFavorite201ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateFavorite201Response {
+export function UpdateFavorite200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateFavorite200Response {
     if (json == null) {
         return json;
     }
@@ -64,11 +64,11 @@ export function CreateFavorite201ResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function CreateFavorite201ResponseToJSON(json: any): CreateFavorite201Response {
-    return CreateFavorite201ResponseToJSONTyped(json, false);
+export function UpdateFavorite200ResponseToJSON(json: any): UpdateFavorite200Response {
+    return UpdateFavorite200ResponseToJSONTyped(json, false);
 }
 
-export function CreateFavorite201ResponseToJSONTyped(value?: CreateFavorite201Response | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateFavorite200ResponseToJSONTyped(value?: UpdateFavorite200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

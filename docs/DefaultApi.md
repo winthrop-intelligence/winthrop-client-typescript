@@ -18194,7 +18194,7 @@ example().catch(console.error);
 
 ## updateFavorite
 
-> CreateFavorite201Response updateFavorite(id, updateFavoriteRequest)
+> UpdateFavorite200Response updateFavorite(id, updateFavoriteRequest)
 
 
 
@@ -18248,7 +18248,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**CreateFavorite201Response**](CreateFavorite201Response.md)
+[**UpdateFavorite200Response**](UpdateFavorite200Response.md)
 
 ### Authorization
 
