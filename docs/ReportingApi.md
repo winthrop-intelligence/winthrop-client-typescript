@@ -8,6 +8,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachHistory**](ReportingApi.md#getcoachhistory) | **GET** /api/v1/reports/coach_history |  |
 | [**getConferenceships**](ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships |  |
 | [**getFoiaDetails**](ReportingApi.md#getfoiadetails) | **GET** /api/v1/reports/foia_details |  |
+| [**getFoiaFollowUpReport**](ReportingApi.md#getfoiafollowupreport) | **GET** /api/v1/reports/foia_follow_up_report |  |
 | [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
 | [**getInvoices**](ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices |  |
 | [**getSchoolContractRequests**](ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests |  |
@@ -316,6 +317,112 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Foia details were found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaFollowUpReport
+
+> FoiaFollowUpReportResponse getFoiaFollowUpReport(scope, page, perPage, sortBy, foiaLabelId, schoolId, state, followUpDateLte, includeNotDue, showProcessedToday, includeDirectContact)
+
+
+
+Retrieve read-only FOIA follow-up rows for Codex follow-up drafting and FOIA freshness dashboards
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaFollowUpReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // 'due_followup_queue' | 'freshness_dashboard'
+    scope: scope_example,
+    // number | Results page to retrieve. (optional)
+    page: 56,
+    // number | Number of rows per page. Values above 200 are capped at 200. (optional)
+    perPage: 56,
+    // 'follow_up_date_asc' | 'follow_up_date_desc' | 'date_sent_asc' | 'date_sent_desc' | 'updated_by_school_asc' | 'updated_by_school_desc' | 'updated_by_wi_asc' | 'updated_by_wi_desc' | 'id_asc' | 'id_desc' | Sort field with optional _asc or _desc suffix. (optional)
+    sortBy: sortBy_example,
+    // number (optional)
+    foiaLabelId: 56,
+    // number (optional)
+    schoolId: 56,
+    // string | School state id, abbreviation, or display name. (optional)
+    state: state_example,
+    // Date (optional)
+    followUpDateLte: 2013-10-20,
+    // boolean (optional)
+    includeNotDue: true,
+    // 'false' | 'true' | 'all' (optional)
+    showProcessedToday: showProcessedToday_example,
+    // boolean (optional)
+    includeDirectContact: true,
+  } satisfies GetFoiaFollowUpReportRequest;
+
+  try {
+    const data = await api.getFoiaFollowUpReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **scope** | `due_followup_queue`, `freshness_dashboard` |  | [Defaults to `undefined`] [Enum: due_followup_queue, freshness_dashboard] |
+| **page** | `number` | Results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Number of rows per page. Values above 200 are capped at 200. | [Optional] [Defaults to `40`] |
+| **sortBy** | `follow_up_date_asc`, `follow_up_date_desc`, `date_sent_asc`, `date_sent_desc`, `updated_by_school_asc`, `updated_by_school_desc`, `updated_by_wi_asc`, `updated_by_wi_desc`, `id_asc`, `id_desc` | Sort field with optional _asc or _desc suffix. | [Optional] [Defaults to `&#39;follow_up_date_asc&#39;`] [Enum: follow_up_date_asc, follow_up_date_desc, date_sent_asc, date_sent_desc, updated_by_school_asc, updated_by_school_desc, updated_by_wi_asc, updated_by_wi_desc, id_asc, id_desc] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **state** | `string` | School state id, abbreviation, or display name. | [Optional] [Defaults to `undefined`] |
+| **followUpDateLte** | `Date` |  | [Optional] [Defaults to `undefined`] |
+| **includeNotDue** | `boolean` |  | [Optional] [Defaults to `false`] |
+| **showProcessedToday** | `false`, `true`, `all` |  | [Optional] [Defaults to `&#39;false&#39;`] [Enum: false, true, all] |
+| **includeDirectContact** | `boolean` |  | [Optional] [Defaults to `false`] |
+
+### Return type
+
+[**FoiaFollowUpReportResponse**](FoiaFollowUpReportResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA follow-up report rows were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
