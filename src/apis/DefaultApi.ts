@@ -1358,6 +1358,7 @@ export interface DefaultApiGetScheduleGridAvailableSchoolsRequest {
     dealTypes?: Array<string>;
     qualityTier?: string;
     netRankingTier?: string;
+    torvikRankingTier?: string;
     maxDistanceMiles?: number;
     userSchoolId?: number;
     excludeSchoolIds?: Array<number>;
@@ -9745,7 +9746,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
+     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, T-Rank tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
      */
     async getScheduleGridAvailableSchoolsRaw(requestParameters: DefaultApiGetScheduleGridAvailableSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleGridAvailableSchools>> {
         if (requestParameters['sportName'] == null) {
@@ -9783,6 +9784,10 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['netRankingTier'] != null) {
             queryParameters['net_ranking_tier'] = requestParameters['netRankingTier'];
+        }
+
+        if (requestParameters['torvikRankingTier'] != null) {
+            queryParameters['torvik_ranking_tier'] = requestParameters['torvikRankingTier'];
         }
 
         if (requestParameters['maxDistanceMiles'] != null) {
@@ -9823,7 +9828,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
+     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, T-Rank tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
      */
     async getScheduleGridAvailableSchools(requestParameters: DefaultApiGetScheduleGridAvailableSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleGridAvailableSchools> {
         const response = await this.getScheduleGridAvailableSchoolsRaw(requestParameters, initOverrides);
