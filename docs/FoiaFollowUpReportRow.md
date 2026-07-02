@@ -53,12 +53,20 @@ Name | Type
 `allFoiaContacts` | [Array&lt;FoiaFollowUpContact&gt;](FoiaFollowUpContact.md)
 `escalationContacts` | [Array&lt;FoiaFollowUpContact&gt;](FoiaFollowUpContact.md)
 `requestedItems` | [Array&lt;FoiaFollowUpRequestedItem&gt;](FoiaFollowUpRequestedItem.md)
+`pendingCount` | number
+`receivedCount` | number
+`notAvailableCount` | number
+`accountedForCount` | number
+`totalCount` | number
+`completionPercentage` | number
 `lastRequestedItemReceivedAt` | Date
 `receivedItemsLast7dCount` | number
 `receivedItemsLast14dCount` | number
 `receivedItemsLast30dCount` | number
 `receivedAfterLastFollowupCount` | number
 `recentReceivedItems` | [Array&lt;FoiaFollowUpRecentReceivedItem&gt;](FoiaFollowUpRecentReceivedItem.md)
+`foiaNotes` | [Array&lt;FoiaFollowUpNote&gt;](FoiaFollowUpNote.md)
+`schoolNotes` | [Array&lt;FoiaFollowUpNote&gt;](FoiaFollowUpNote.md)
 
 ## Example
 
@@ -114,12 +122,20 @@ const example = {
   "allFoiaContacts": null,
   "escalationContacts": null,
   "requestedItems": null,
+  "pendingCount": null,
+  "receivedCount": null,
+  "notAvailableCount": null,
+  "accountedForCount": null,
+  "totalCount": null,
+  "completionPercentage": null,
   "lastRequestedItemReceivedAt": null,
   "receivedItemsLast7dCount": null,
   "receivedItemsLast14dCount": null,
   "receivedItemsLast30dCount": null,
   "receivedAfterLastFollowupCount": null,
   "recentReceivedItems": null,
+  "foiaNotes": null,
+  "schoolNotes": null,
 } satisfies FoiaFollowUpReportRow
 
 console.log(example)
