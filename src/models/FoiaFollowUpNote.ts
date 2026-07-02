@@ -16,71 +16,78 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface Vendor
+ * @interface FoiaFollowUpNote
  */
-export interface Vendor {
+export interface FoiaFollowUpNote {
     /**
      * 
      * @type {number}
-     * @memberof Vendor
+     * @memberof FoiaFollowUpNote
      */
     id?: number;
     /**
      * 
      * @type {string}
-     * @memberof Vendor
+     * @memberof FoiaFollowUpNote
      */
-    name?: string;
+    content?: string;
     /**
      * 
      * @type {Date}
-     * @memberof Vendor
+     * @memberof FoiaFollowUpNote
      */
     createdAt?: Date;
     /**
      * 
      * @type {Date}
-     * @memberof Vendor
+     * @memberof FoiaFollowUpNote
      */
     updatedAt?: Date;
     /**
      * 
      * @type {number}
-     * @memberof Vendor
+     * @memberof FoiaFollowUpNote
      */
-    dealTypeId?: number;
+    userId?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof FoiaFollowUpNote
+     */
+    userName?: string | null;
 }
 
 /**
- * Check if a given object implements the Vendor interface.
+ * Check if a given object implements the FoiaFollowUpNote interface.
  */
-export function instanceOfVendor(value: object): value is Vendor {
+export function instanceOfFoiaFollowUpNote(value: object): value is FoiaFollowUpNote {
     return true;
 }
 
-export function VendorFromJSON(json: any): Vendor {
-    return VendorFromJSONTyped(json, false);
+export function FoiaFollowUpNoteFromJSON(json: any): FoiaFollowUpNote {
+    return FoiaFollowUpNoteFromJSONTyped(json, false);
 }
 
-export function VendorFromJSONTyped(json: any, ignoreDiscriminator: boolean): Vendor {
+export function FoiaFollowUpNoteFromJSONTyped(json: any, ignoreDiscriminator: boolean): FoiaFollowUpNote {
     if (json == null) {
         return json;
     }
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
-        'name': json['name'] == null ? undefined : json['name'],
+        'content': json['content'] == null ? undefined : json['content'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'dealTypeId': json['deal_type_id'] == null ? undefined : json['deal_type_id'],
+        'userId': json['user_id'] == null ? undefined : json['user_id'],
+        'userName': json['user_name'] == null ? undefined : json['user_name'],
     };
 }
 
-export function VendorToJSON(json: any): Vendor {
-    return VendorToJSONTyped(json, false);
+export function FoiaFollowUpNoteToJSON(json: any): FoiaFollowUpNote {
+    return FoiaFollowUpNoteToJSONTyped(json, false);
 }
 
-export function VendorToJSONTyped(value?: Vendor | null, ignoreDiscriminator: boolean = false): any {
+export function FoiaFollowUpNoteToJSONTyped(value?: FoiaFollowUpNote | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -88,10 +95,11 @@ export function VendorToJSONTyped(value?: Vendor | null, ignoreDiscriminator: bo
     return {
         
         'id': value['id'],
-        'name': value['name'],
+        'content': value['content'],
         'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
         'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'deal_type_id': value['dealTypeId'],
+        'user_id': value['userId'],
+        'user_name': value['userName'],
     };
 }
 
