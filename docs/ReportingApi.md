@@ -10,6 +10,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFoiaDetails**](ReportingApi.md#getfoiadetails) | **GET** /api/v1/reports/foia_details |  |
 | [**getFoiaFollowUpReport**](ReportingApi.md#getfoiafollowupreport) | **GET** /api/v1/reports/foia_follow_up_report |  |
 | [**getFoiaRequestedItemStatusBreakdown**](ReportingApi.md#getfoiarequesteditemstatusbreakdown) | **GET** /api/v1/reports/foia_requested_item_status_breakdown |  |
+| [**getFoiaRequestedItemStatusTransitions**](ReportingApi.md#getfoiarequesteditemstatustransitions) | **GET** /api/v1/reports/foia_requested_item_status_transitions |  |
 | [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
 | [**getInvoices**](ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices |  |
 | [**getSchoolContractRequests**](ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests |  |
@@ -518,6 +519,100 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Grouped requested-item status counts were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaRequestedItemStatusTransitions
+
+> FoiaRequestedItemStatusTransitionsResponse getFoiaRequestedItemStatusTransitions(changedAtGte, changedAtLte, foiaLabelId, schoolId, requestableType, page, perPage)
+
+
+
+Retrieve read-only requested-item status transition history (into received or not_available) sourced from audit versions, for items-received FOIA freshness reporting. Rows are transition events, so one item can appear multiple times. Label, school, and requestable fields reflect each item\&#39;s current associations rather than the values at transition time, and only items on active requests with unarchived labels are included. Status changes written without callbacks are not captured in the audit history and do not appear.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaRequestedItemStatusTransitionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // string | Include transitions on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day.
+    changedAtGte: changedAtGte_example,
+    // string | Include transitions on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the window may span at most 366 days. (optional)
+    changedAtLte: changedAtLte_example,
+    // number (optional)
+    foiaLabelId: 56,
+    // number (optional)
+    schoolId: 56,
+    // 'DealStatus' | 'Game' | 'Compensation' | 'IncomeReport' | 'NcaaFinancialReportStatus' | 'AuditedFinancialReportStatus' (optional)
+    requestableType: requestableType_example,
+    // number (optional)
+    page: 56,
+    // number | Values above the maximum are capped. (optional)
+    perPage: 56,
+  } satisfies GetFoiaRequestedItemStatusTransitionsRequest;
+
+  try {
+    const data = await api.getFoiaRequestedItemStatusTransitions(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **changedAtGte** | `string` | Include transitions on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day. | [Defaults to `undefined`] |
+| **changedAtLte** | `string` | Include transitions on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the window may span at most 366 days. | [Optional] [Defaults to `undefined`] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **requestableType** | `DealStatus`, `Game`, `Compensation`, `IncomeReport`, `NcaaFinancialReportStatus`, `AuditedFinancialReportStatus` |  | [Optional] [Defaults to `undefined`] [Enum: DealStatus, Game, Compensation, IncomeReport, NcaaFinancialReportStatus, AuditedFinancialReportStatus] |
+| **page** | `number` |  | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Values above the maximum are capped. | [Optional] [Defaults to `40`] |
+
+### Return type
+
+[**FoiaRequestedItemStatusTransitionsResponse**](FoiaRequestedItemStatusTransitionsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested-item status transitions were found |  -  |
 | **400** | Invalid report parameters |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |

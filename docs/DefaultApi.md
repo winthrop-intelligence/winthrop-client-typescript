@@ -10,6 +10,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
 | [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
+| [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
@@ -607,7 +608,7 @@ example().catch(console.error);
 
 
 
-WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side).
+WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side). WINAD-10067: the slim editor no longer writes grid markers live — it stages availability/pending edits and commits them here. In the same transaction the school\&#39;s ScheduleIntents are reconciled to &#x60;intents&#x60; for the &#x60;season_start&#x60;..&#x60;season_end&#x60; window, and any Active post in that window whose day is no longer open is removed. WINAD-10093: the feed renders a card\&#39;s dates from ScheduleIntents, so this also guarantees a non-Pending ScheduleIntent for every posted open day (even when &#x60;intents&#x60; is omitted) and protects those days from the intent reconciliation.
 
 ### Example
 
@@ -749,6 +750,82 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **422** | Validation error — the whole batch was rolled back |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkUpdateGamePostSearches
+
+> BulkGamePostSearchResult bulkUpdateGamePostSearches(bulkUpdateGamePostSearchesRequest)
+
+
+
+WINAD-10067: save an edited Games Wanted card (publish group). Reconciles the card\&#39;s Active posts to the submitted open days and shared message: a day already on this card is updated (id kept), a day on another card is left alone, a genuinely-new day is created under this publish_group_id, and a day the card no longer lists is deleted. Scoped to the caller\&#39;s own school + group; fires no alert (an edit must not re-blast the instant Games Wanted email). WINAD-10067: the slim editor stages its grid edits and commits them here too — in the same transaction the school\&#39;s ScheduleIntents are reconciled to &#x60;intents&#x60; for the &#x60;season_start&#x60;..&#x60;season_end&#x60; window, protecting days another card still owns so an edit never clears a sibling card\&#39;s markers. WINAD-10093: this card\&#39;s own posted days are protected too, and a non-Pending ScheduleIntent is guaranteed for each. Dropping a day from the card deletes only its post — the day\&#39;s ScheduleIntent (availability) stays unless the grid itself cleared it.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkUpdateGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkUpdateGamePostSearchesRequest
+    bulkUpdateGamePostSearchesRequest: ...,
+  } satisfies BulkUpdateGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.bulkUpdateGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkUpdateGamePostSearchesRequest** | [BulkUpdateGamePostSearchesRequest](BulkUpdateGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**BulkGamePostSearchResult**](BulkGamePostSearchResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Publish group reconciled |  -  |
+| **422** | Validation error, empty batch, or unknown publish group |  -  |
+| **403** | Forbidden — only school accounts can edit game posts |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -3775,7 +3852,7 @@ example().catch(console.error);
 
 
 
-Delete a game post
+Delete a game post. WINAD-10093: removes only this post (the caller scopes a card delete to its publish group). The cell\&#39;s ScheduleIntent is left intact — the feed and /schedules grid source displayed availability from ScheduleIntents, so a deleted card never shrinks a sibling card\&#39;s dates.
 
 ### Example
 
