@@ -172,6 +172,7 @@ docs/FinancialSearchResult.md
 docs/FinancialSearchResultCollection.md
 docs/FoiaFollowUpContact.md
 docs/FoiaFollowUpGmailSearchHints.md
+docs/FoiaFollowUpNote.md
 docs/FoiaFollowUpRecentReceivedItem.md
 docs/FoiaFollowUpReportMeta.md
 docs/FoiaFollowUpReportResponse.md
@@ -182,6 +183,9 @@ docs/FoiaLabel.md
 docs/FoiaLabelCollection.md
 docs/FoiaRequest.md
 docs/FoiaRequestCollection.md
+docs/FoiaRequestedItemStatusBreakdownMeta.md
+docs/FoiaRequestedItemStatusBreakdownResponse.md
+docs/FoiaRequestedItemStatusBreakdownRow.md
 docs/GadCohortError.md
 docs/GadCohortSummary.md
 docs/GadCohortSummaryBuyerFilters.md
@@ -210,8 +214,6 @@ docs/GamePostCollection.md
 docs/GamePostContact.md
 docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
-docs/GamePostGapCountCollection.md
-docs/GamePostGapCountCollectionDataInner.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GamePostSearchResultContactsInner.md
@@ -616,6 +618,7 @@ src/models/FinancialSearchResult.ts
 src/models/FinancialSearchResultCollection.ts
 src/models/FoiaFollowUpContact.ts
 src/models/FoiaFollowUpGmailSearchHints.ts
+src/models/FoiaFollowUpNote.ts
 src/models/FoiaFollowUpRecentReceivedItem.ts
 src/models/FoiaFollowUpReportMeta.ts
 src/models/FoiaFollowUpReportResponse.ts
@@ -626,6 +629,9 @@ src/models/FoiaLabel.ts
 src/models/FoiaLabelCollection.ts
 src/models/FoiaRequest.ts
 src/models/FoiaRequestCollection.ts
+src/models/FoiaRequestedItemStatusBreakdownMeta.ts
+src/models/FoiaRequestedItemStatusBreakdownResponse.ts
+src/models/FoiaRequestedItemStatusBreakdownRow.ts
 src/models/GadCohortError.ts
 src/models/GadCohortSummary.ts
 src/models/GadCohortSummaryBuyerFilters.ts
@@ -654,8 +660,6 @@ src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
 src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
-src/models/GamePostGapCountCollection.ts
-src/models/GamePostGapCountCollectionDataInner.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GamePostSearchResultContactsInner.ts

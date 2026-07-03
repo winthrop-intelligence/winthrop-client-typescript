@@ -9,6 +9,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getConferenceships**](ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships |  |
 | [**getFoiaDetails**](ReportingApi.md#getfoiadetails) | **GET** /api/v1/reports/foia_details |  |
 | [**getFoiaFollowUpReport**](ReportingApi.md#getfoiafollowupreport) | **GET** /api/v1/reports/foia_follow_up_report |  |
+| [**getFoiaRequestedItemStatusBreakdown**](ReportingApi.md#getfoiarequesteditemstatusbreakdown) | **GET** /api/v1/reports/foia_requested_item_status_breakdown |  |
 | [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
 | [**getInvoices**](ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices |  |
 | [**getSchoolContractRequests**](ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests |  |
@@ -420,6 +421,103 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | FOIA follow-up report rows were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaRequestedItemStatusBreakdown
+
+> FoiaRequestedItemStatusBreakdownResponse getFoiaRequestedItemStatusBreakdown(groupBy, period, updatedAtGte, updatedAtLte, foiaLabelId, schoolId, state, includeDirectContact)
+
+
+
+Retrieve read-only grouped requested-item status counts for FOIA freshness reporting widgets
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaRequestedItemStatusBreakdownRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // string | Comma-separated grouping dimensions. Defaults to both dimensions. (optional)
+    groupBy: groupBy_example,
+    // 'day' | 'week' | 'month' | Calendar bucket size for the updated_period dimension. Weeks are ISO weeks starting Monday. (optional)
+    period: period_example,
+    // Date | Include items updated on or after this date. (optional)
+    updatedAtGte: 2013-10-20,
+    // Date | Include items updated on or before this date. (optional)
+    updatedAtLte: 2013-10-20,
+    // number (optional)
+    foiaLabelId: 56,
+    // number (optional)
+    schoolId: 56,
+    // string | School state id, abbreviation, or display name. (optional)
+    state: state_example,
+    // boolean (optional)
+    includeDirectContact: true,
+  } satisfies GetFoiaRequestedItemStatusBreakdownRequest;
+
+  try {
+    const data = await api.getFoiaRequestedItemStatusBreakdown(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupBy** | `string` | Comma-separated grouping dimensions. Defaults to both dimensions. | [Optional] [Defaults to `&#39;updated_period,requestable_type&#39;`] |
+| **period** | `day`, `week`, `month` | Calendar bucket size for the updated_period dimension. Weeks are ISO weeks starting Monday. | [Optional] [Defaults to `&#39;day&#39;`] [Enum: day, week, month] |
+| **updatedAtGte** | `Date` | Include items updated on or after this date. | [Optional] [Defaults to `undefined`] |
+| **updatedAtLte** | `Date` | Include items updated on or before this date. | [Optional] [Defaults to `undefined`] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **state** | `string` | School state id, abbreviation, or display name. | [Optional] [Defaults to `undefined`] |
+| **includeDirectContact** | `boolean` |  | [Optional] [Defaults to `false`] |
+
+### Return type
+
+[**FoiaRequestedItemStatusBreakdownResponse**](FoiaRequestedItemStatusBreakdownResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Grouped requested-item status counts were found |  -  |
 | **400** | Invalid report parameters |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |

@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `note` | string
+`append` | boolean
 
 ## Example
 
@@ -16,6 +17,7 @@ import type { RequestedItemNoteInputRiNote } from '@winthrop-intelligence/winthr
 // TODO: Update the object below with actual values
 const example = {
   "note": Received employment contract.,
+  "append": false,
 } satisfies RequestedItemNoteInputRiNote
 
 console.log(example)
