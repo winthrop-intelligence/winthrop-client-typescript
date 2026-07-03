@@ -7,6 +7,9 @@
 Name | Type
 ------------ | -------------
 `posts` | [Array&lt;BulkCreateGamePostSearchesRequestPostsInner&gt;](BulkCreateGamePostSearchesRequestPostsInner.md)
+`seasonStart` | Date
+`seasonEnd` | Date
+`intents` | [Array&lt;BulkCreateGamePostSearchesRequestIntentsInner&gt;](BulkCreateGamePostSearchesRequestIntentsInner.md)
 
 ## Example
 
@@ -16,6 +19,9 @@ import type { BulkCreateGamePostSearchesRequest } from '@winthrop-intelligence/w
 // TODO: Update the object below with actual values
 const example = {
   "posts": null,
+  "seasonStart": null,
+  "seasonEnd": null,
+  "intents": null,
 } satisfies BulkCreateGamePostSearchesRequest
 
 console.log(example)
