@@ -8,6 +8,8 @@ Name | Type
 ------------ | -------------
 `id` | number
 `gamePostId` | number
+`publishGroupId` | string
+`date` | Date
 `displayDate` | string
 `gameTypes` | string
 `description` | string
@@ -33,6 +35,8 @@ import type { TeamScheduleGamePostsGamePostsInner } from '@winthrop-intelligence
 const example = {
   "id": null,
   "gamePostId": null,
+  "publishGroupId": null,
+  "date": null,
   "displayDate": null,
   "gameTypes": null,
   "description": null,
