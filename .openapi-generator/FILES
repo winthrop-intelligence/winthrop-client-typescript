@@ -245,6 +245,9 @@ docs/GuaranteeBenchmarkError.md
 docs/GuaranteeBenchmarkStats.md
 docs/GuaranteeBenchmarkTable.md
 docs/GuaranteeBenchmarkTier.md
+docs/GuaranteeEconomics.md
+docs/GuaranteeEconomicsError.md
+docs/GuaranteeEconomicsSide.md
 docs/HTTPValidationError.md
 docs/HealthCheckFailure.md
 docs/HealthCheckSuccess.md
@@ -697,6 +700,9 @@ src/models/GuaranteeBenchmarkError.ts
 src/models/GuaranteeBenchmarkStats.ts
 src/models/GuaranteeBenchmarkTable.ts
 src/models/GuaranteeBenchmarkTier.ts
+src/models/GuaranteeEconomics.ts
+src/models/GuaranteeEconomicsError.ts
+src/models/GuaranteeEconomicsSide.ts
 src/models/HTTPValidationError.ts
 src/models/HealthCheckFailure.ts
 src/models/HealthCheckSuccess.ts
