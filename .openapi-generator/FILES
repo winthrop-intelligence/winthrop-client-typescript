@@ -186,6 +186,9 @@ docs/FoiaLabel.md
 docs/FoiaLabelCollection.md
 docs/FoiaRequest.md
 docs/FoiaRequestCollection.md
+docs/FoiaRequestFollowUpHistoryMeta.md
+docs/FoiaRequestFollowUpHistoryResponse.md
+docs/FoiaRequestFollowUpHistoryRow.md
 docs/FoiaRequestedItemStatusBreakdownMeta.md
 docs/FoiaRequestedItemStatusBreakdownResponse.md
 docs/FoiaRequestedItemStatusBreakdownRow.md
@@ -245,6 +248,9 @@ docs/GuaranteeBenchmarkError.md
 docs/GuaranteeBenchmarkStats.md
 docs/GuaranteeBenchmarkTable.md
 docs/GuaranteeBenchmarkTier.md
+docs/GuaranteeEconomics.md
+docs/GuaranteeEconomicsError.md
+docs/GuaranteeEconomicsSide.md
 docs/HTTPValidationError.md
 docs/HealthCheckFailure.md
 docs/HealthCheckSuccess.md
@@ -638,6 +644,9 @@ src/models/FoiaLabel.ts
 src/models/FoiaLabelCollection.ts
 src/models/FoiaRequest.ts
 src/models/FoiaRequestCollection.ts
+src/models/FoiaRequestFollowUpHistoryMeta.ts
+src/models/FoiaRequestFollowUpHistoryResponse.ts
+src/models/FoiaRequestFollowUpHistoryRow.ts
 src/models/FoiaRequestedItemStatusBreakdownMeta.ts
 src/models/FoiaRequestedItemStatusBreakdownResponse.ts
 src/models/FoiaRequestedItemStatusBreakdownRow.ts
@@ -697,6 +706,9 @@ src/models/GuaranteeBenchmarkError.ts
 src/models/GuaranteeBenchmarkStats.ts
 src/models/GuaranteeBenchmarkTable.ts
 src/models/GuaranteeBenchmarkTier.ts
+src/models/GuaranteeEconomics.ts
+src/models/GuaranteeEconomicsError.ts
+src/models/GuaranteeEconomicsSide.ts
 src/models/HTTPValidationError.ts
 src/models/HealthCheckFailure.ts
 src/models/HealthCheckSuccess.ts

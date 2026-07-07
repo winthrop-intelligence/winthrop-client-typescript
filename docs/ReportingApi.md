@@ -9,6 +9,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getConferenceships**](ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships |  |
 | [**getFoiaDetails**](ReportingApi.md#getfoiadetails) | **GET** /api/v1/reports/foia_details |  |
 | [**getFoiaFollowUpReport**](ReportingApi.md#getfoiafollowupreport) | **GET** /api/v1/reports/foia_follow_up_report |  |
+| [**getFoiaRequestFollowupHistory**](ReportingApi.md#getfoiarequestfollowuphistory) | **GET** /api/v1/reports/foia_request_followup_history |  |
 | [**getFoiaRequestedItemStatusBreakdown**](ReportingApi.md#getfoiarequesteditemstatusbreakdown) | **GET** /api/v1/reports/foia_requested_item_status_breakdown |  |
 | [**getFoiaRequestedItemStatusTransitions**](ReportingApi.md#getfoiarequesteditemstatustransitions) | **GET** /api/v1/reports/foia_requested_item_status_transitions |  |
 | [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
@@ -422,6 +423,100 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | FOIA follow-up report rows were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaRequestFollowupHistory
+
+> FoiaRequestFollowUpHistoryResponse getFoiaRequestFollowupHistory(foiaRequestId, schoolId, foiaLabelId, changedAtGte, changedAtLte, page, perPage)
+
+
+
+Retrieve read-only FOIA request follow-up history sourced from audit versions. Rows are historical change events for follow-up-related request fields, so one FOIA request can appear multiple times. Label and school fields reflect each request\&#39;s current associations, and only active requests with unarchived labels are included. When no changed_at filters are supplied, the endpoint defaults to the most recent 366 days.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaRequestFollowupHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // number (optional)
+    foiaRequestId: 56,
+    // number (optional)
+    schoolId: 56,
+    // number (optional)
+    foiaLabelId: 56,
+    // string | Include changes on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day. Defaults to 366 days before changed_at_lte or now. (optional)
+    changedAtGte: changedAtGte_example,
+    // string | Include changes on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the effective window may span at most 366 days. (optional)
+    changedAtLte: changedAtLte_example,
+    // number (optional)
+    page: 56,
+    // number | Values above the maximum are capped. (optional)
+    perPage: 56,
+  } satisfies GetFoiaRequestFollowupHistoryRequest;
+
+  try {
+    const data = await api.getFoiaRequestFollowupHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **foiaRequestId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **changedAtGte** | `string` | Include changes on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day. Defaults to 366 days before changed_at_lte or now. | [Optional] [Defaults to `undefined`] |
+| **changedAtLte** | `string` | Include changes on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the effective window may span at most 366 days. | [Optional] [Defaults to `undefined`] |
+| **page** | `number` |  | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Values above the maximum are capped. | [Optional] [Defaults to `40`] |
+
+### Return type
+
+[**FoiaRequestFollowUpHistoryResponse**](FoiaRequestFollowUpHistoryResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA request follow-up history rows were found |  -  |
 | **400** | Invalid report parameters |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
