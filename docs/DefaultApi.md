@@ -149,6 +149,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getGames**](DefaultApi.md#getgames) | **GET** /api/v1/games |  |
 | [**getGamesAvailableContracts**](DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts |  |
 | [**getGuaranteeBenchmarks**](DefaultApi.md#getguaranteebenchmarks) | **GET** /api/v1/guarantee_benchmarks |  |
+| [**getGuaranteeEconomics**](DefaultApi.md#getguaranteeeconomics) | **GET** /api/v1/guarantee_economics |  |
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
@@ -11264,7 +11265,7 @@ example().catch(console.error);
 
 
 
-NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903). Returns, per Opponent Quality tier (power_4 / mid_major / smaller), the median/mean/min/max/count of game guarantees the tier pays out (home/buyer side) and receives (away/seller side) for one sport over the last three completed seasons. Permission filtered via the caller\&#39;s ability.
+NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903, tiers reworked in WINAD-10023). Returns, per basketball conference tier (high_major / upper_mid_major / mid_major / low_major), the median/mean/min/max/count of guarantee-game dollars the tier pays out (home/buyer side) and receives (away/seller side) for one basketball sport over the last three completed seasons. Only guarantee games with a recorded amount are counted (excludes tournament/exhibition/neutral contracts, TBD, and $0/unrecorded amounts). Permission filtered via the caller\&#39;s ability.
 
 ### Example
 
@@ -11327,6 +11328,83 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Guarantee benchmark table, or a structured error block when sport_id is missing/unknown |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGuaranteeEconomics
+
+> GuaranteeEconomics getGuaranteeEconomics(schoolId, sportId)
+
+
+
+Per-school guarantee economics for scheduling surfaces (WINAD-10005). For one school and basketball sport, returns the median guarantee the school paid as host and received when traveling over the last three completed seasons, each with its sample size and the gad_searches ransack filters that deep-link the Guarantees tab to the exact games behind the median. Permission-critical — callers without guarantee aggregate access receive host/travel as null, indistinguishable from a school with no qualifying games.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGuaranteeEconomicsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The school to summarize. Missing or non-integer values return a structured error block.
+    schoolId: 56,
+    // number | The (basketball) sport. Missing, unknown, or non-basketball sports return a structured error block.
+    sportId: 56,
+  } satisfies GetGuaranteeEconomicsRequest;
+
+  try {
+    const data = await api.getGuaranteeEconomics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | The school to summarize. Missing or non-integer values return a structured error block. | [Defaults to `undefined`] |
+| **sportId** | `number` | The (basketball) sport. Missing, unknown, or non-basketball sports return a structured error block. | [Defaults to `undefined`] |
+
+### Return type
+
+[**GuaranteeEconomics**](GuaranteeEconomics.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Guarantee economics for the school/sport, or a structured error block when params are missing/invalid |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
