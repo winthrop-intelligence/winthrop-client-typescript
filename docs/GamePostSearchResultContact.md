@@ -8,6 +8,7 @@ WINAD-10053: the school+sport scheduling contact for this card, sourced exactly 
 Name | Type
 ------------ | -------------
 `name` | string
+`title` | string
 `office` | [GamePostSearchResultContactOffice](GamePostSearchResultContactOffice.md)
 `cell` | [GamePostSearchResultContactCell](GamePostSearchResultContactCell.md)
 `email` | [GamePostSearchResultContactEmail](GamePostSearchResultContactEmail.md)
@@ -22,6 +23,7 @@ import type { GamePostSearchResultContact } from '@winthrop-intelligence/winthro
 // TODO: Update the object below with actual values
 const example = {
   "name": null,
+  "title": null,
   "office": null,
   "cell": null,
   "email": null,

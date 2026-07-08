@@ -48,6 +48,12 @@ export interface GamePostSearchResultContact {
      */
     name: string | null;
     /**
+     * The contact coach's designation (e.g. "Associate AD"); null when none is on file.
+     * @type {string}
+     * @memberof GamePostSearchResultContact
+     */
+    title?: string | null;
+    /**
      * 
      * @type {GamePostSearchResultContactOffice}
      * @memberof GamePostSearchResultContact
@@ -101,6 +107,7 @@ export function GamePostSearchResultContactFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'name': json['name'],
+        'title': json['title'] == null ? undefined : json['title'],
         'office': GamePostSearchResultContactOfficeFromJSON(json['office']),
         'cell': GamePostSearchResultContactCellFromJSON(json['cell']),
         'email': GamePostSearchResultContactEmailFromJSON(json['email']),
@@ -121,6 +128,7 @@ export function GamePostSearchResultContactToJSONTyped(value?: GamePostSearchRes
     return {
         
         'name': value['name'],
+        'title': value['title'],
         'office': GamePostSearchResultContactOfficeToJSON(value['office']),
         'cell': GamePostSearchResultContactCellToJSON(value['cell']),
         'email': GamePostSearchResultContactEmailToJSON(value['email']),
