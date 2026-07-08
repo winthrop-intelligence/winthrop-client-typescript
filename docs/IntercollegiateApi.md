@@ -7,6 +7,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createNewsFeeds**](IntercollegiateApi.md#createnewsfeeds) | **POST** /wi_jobs/news_feeds |  |
 | [**getJobPost**](IntercollegiateApi.md#getjobpost) | **GET** /wi_jobs/job_posts/{jobPostId} |  |
 | [**getJobPostInterestLeads**](IntercollegiateApi.md#getjobpostinterestleads) | **GET** /wi_jobs/job_post_interest_leads |  |
+| [**getJobPostSalaryBenchmark**](IntercollegiateApi.md#getjobpostsalarybenchmark) | **GET** /wi_jobs/job_posts/salary_benchmark |  |
 | [**getJobPosts**](IntercollegiateApi.md#getjobposts) | **GET** /wi_jobs/job_posts |  |
 | [**getNewsFeeds**](IntercollegiateApi.md#getnewsfeeds) | **GET** /wi_jobs/news_feeds |  |
 
@@ -241,6 +242,112 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Interest leads were found |  -  |
 | **400** | Invalid request — a supplied date/submitted_after/submitted_before value could not be parsed. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Insufficient scope |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getJobPostSalaryBenchmark
+
+> JobPostSalaryBenchmark getJobPostSalaryBenchmark(roleQuery, department, sport, conference, division, schoolQuery, peerSet, dateRangeStart, dateRangeEnd, salaryBasis, responseFormat)
+
+
+
+Benchmark recent posted salary ranges for comparable Intercollegiate job posts. This endpoint uses posted job salary fields only and does not use executed WinAD compensation data.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  IntercollegiateApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetJobPostSalaryBenchmarkRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new IntercollegiateApi(config);
+
+  const body = {
+    // string | Natural-language role/title query, such as athletics HR or Assistant AD Marketing. (optional)
+    roleQuery: roleQuery_example,
+    // string | Department filter, such as Human Resources, Marketing, or Business Office. (optional)
+    department: department_example,
+    // string | Sport filter. (optional)
+    sport: sport_example,
+    // string | Conference name or nickname filter, such as SEC. (optional)
+    conference: conference_example,
+    // string | Division or subdivision filter, such as Division I, DI, FBS, or Power 4. (optional)
+    division: division_example,
+    // string | School name, short name, local ID, or WinAD ID filter. (optional)
+    schoolQuery: schoolQuery_example,
+    // Array<string> | Explicit peer school names or IDs. May be supplied multiple times or comma-separated. (optional)
+    peerSet: ...,
+    // Date | Start of the posted_at date window. Defaults to six months ago. (optional)
+    dateRangeStart: 2013-10-20,
+    // Date | End of the posted_at date window. Defaults to today. (optional)
+    dateRangeEnd: 2013-10-20,
+    // 'posted_range' | 'annualized' | 'raw_posted' | Salary basis requested for the benchmark. (optional)
+    salaryBasis: salaryBasis_example,
+    // 'concise' | 'detailed' | Concise returns up to five representative posts; detailed returns up to ten. (optional)
+    responseFormat: responseFormat_example,
+  } satisfies GetJobPostSalaryBenchmarkRequest;
+
+  try {
+    const data = await api.getJobPostSalaryBenchmark(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **roleQuery** | `string` | Natural-language role/title query, such as athletics HR or Assistant AD Marketing. | [Optional] [Defaults to `undefined`] |
+| **department** | `string` | Department filter, such as Human Resources, Marketing, or Business Office. | [Optional] [Defaults to `undefined`] |
+| **sport** | `string` | Sport filter. | [Optional] [Defaults to `undefined`] |
+| **conference** | `string` | Conference name or nickname filter, such as SEC. | [Optional] [Defaults to `undefined`] |
+| **division** | `string` | Division or subdivision filter, such as Division I, DI, FBS, or Power 4. | [Optional] [Defaults to `undefined`] |
+| **schoolQuery** | `string` | School name, short name, local ID, or WinAD ID filter. | [Optional] [Defaults to `undefined`] |
+| **peerSet** | `Array<string>` | Explicit peer school names or IDs. May be supplied multiple times or comma-separated. | [Optional] |
+| **dateRangeStart** | `Date` | Start of the posted_at date window. Defaults to six months ago. | [Optional] [Defaults to `undefined`] |
+| **dateRangeEnd** | `Date` | End of the posted_at date window. Defaults to today. | [Optional] [Defaults to `undefined`] |
+| **salaryBasis** | `posted_range`, `annualized`, `raw_posted` | Salary basis requested for the benchmark. | [Optional] [Defaults to `&#39;posted_range&#39;`] [Enum: posted_range, annualized, raw_posted] |
+| **responseFormat** | `concise`, `detailed` | Concise returns up to five representative posts; detailed returns up to ten. | [Optional] [Defaults to `&#39;concise&#39;`] [Enum: concise, detailed] |
+
+### Return type
+
+[**JobPostSalaryBenchmark**](JobPostSalaryBenchmark.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Posted salary benchmark packet. |  -  |
+| **400** | Invalid request parameters. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Insufficient scope |  -  |
 
