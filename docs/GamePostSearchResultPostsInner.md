@@ -10,6 +10,7 @@ Name | Type
 `date` | Date
 `gameTypes` | Array&lt;string&gt;
 `status` | string
+`publishGroupId` | string
 `startDate` | Date
 `endDate` | Date
 `description` | string
@@ -30,6 +31,7 @@ const example = {
   "date": null,
   "gameTypes": null,
   "status": null,
+  "publishGroupId": null,
   "startDate": null,
   "endDate": null,
   "description": null,

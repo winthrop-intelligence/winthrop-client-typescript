@@ -30,6 +30,9 @@ Name | Type
 `posts` | [Array&lt;GamePostSearchResultPostsInner&gt;](GamePostSearchResultPostsInner.md)
 `games` | [Array&lt;GamePostSearchResultGamesInner&gt;](GamePostSearchResultGamesInner.md)
 `scheduleIntents` | [Array&lt;GamePostSearchResultScheduleIntentsInner&gt;](GamePostSearchResultScheduleIntentsInner.md)
+`overlap` | [GamePostSearchResultOverlap](GamePostSearchResultOverlap.md)
+`contact` | [GamePostSearchResultContact](GamePostSearchResultContact.md)
+`guarantee` | [GamePostSearchResultGuarantee](GamePostSearchResultGuarantee.md)
 `contacts` | [Array&lt;GamePostSearchResultContactsInner&gt;](GamePostSearchResultContactsInner.md)
 
 ## Example
@@ -62,6 +65,9 @@ const example = {
   "posts": null,
   "games": null,
   "scheduleIntents": null,
+  "overlap": null,
+  "contact": null,
+  "guarantee": null,
   "contacts": null,
 } satisfies GamePostSearchResult
 
