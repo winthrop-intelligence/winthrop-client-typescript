@@ -18,6 +18,7 @@ import type {
   Job,
   JobCollection,
   JobPostInterestLeadCollection,
+  JobPostSalaryBenchmark,
   NewsFeed,
   NewsFeedCollection,
 } from '../models/index';
@@ -28,6 +29,8 @@ import {
     JobCollectionToJSON,
     JobPostInterestLeadCollectionFromJSON,
     JobPostInterestLeadCollectionToJSON,
+    JobPostSalaryBenchmarkFromJSON,
+    JobPostSalaryBenchmarkToJSON,
     NewsFeedFromJSON,
     NewsFeedToJSON,
     NewsFeedCollectionFromJSON,
@@ -48,6 +51,20 @@ export interface IntercollegiateApiGetJobPostInterestLeadsRequest {
     submittedBefore?: Date;
     page?: number;
     perPage?: number;
+}
+
+export interface IntercollegiateApiGetJobPostSalaryBenchmarkRequest {
+    roleQuery?: string;
+    department?: string;
+    sport?: string;
+    conference?: string;
+    division?: string;
+    schoolQuery?: string;
+    peerSet?: Array<string>;
+    dateRangeStart?: Date;
+    dateRangeEnd?: Date;
+    salaryBasis?: GetJobPostSalaryBenchmarkSalaryBasisEnum;
+    responseFormat?: GetJobPostSalaryBenchmarkResponseFormatEnum;
 }
 
 export interface IntercollegiateApiGetJobPostsRequest {
@@ -207,6 +224,88 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     }
 
     /**
+     * Benchmark recent posted salary ranges for comparable Intercollegiate job posts. This endpoint uses posted job salary fields only and does not use executed WinAD compensation data.
+     */
+    async getJobPostSalaryBenchmarkRaw(requestParameters: IntercollegiateApiGetJobPostSalaryBenchmarkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPostSalaryBenchmark>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['roleQuery'] != null) {
+            queryParameters['role_query'] = requestParameters['roleQuery'];
+        }
+
+        if (requestParameters['department'] != null) {
+            queryParameters['department'] = requestParameters['department'];
+        }
+
+        if (requestParameters['sport'] != null) {
+            queryParameters['sport'] = requestParameters['sport'];
+        }
+
+        if (requestParameters['conference'] != null) {
+            queryParameters['conference'] = requestParameters['conference'];
+        }
+
+        if (requestParameters['division'] != null) {
+            queryParameters['division'] = requestParameters['division'];
+        }
+
+        if (requestParameters['schoolQuery'] != null) {
+            queryParameters['school_query'] = requestParameters['schoolQuery'];
+        }
+
+        if (requestParameters['peerSet'] != null) {
+            queryParameters['peer_set[]'] = requestParameters['peerSet'];
+        }
+
+        if (requestParameters['dateRangeStart'] != null) {
+            queryParameters['date_range[start]'] = (requestParameters['dateRangeStart'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['dateRangeEnd'] != null) {
+            queryParameters['date_range[end]'] = (requestParameters['dateRangeEnd'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['salaryBasis'] != null) {
+            queryParameters['salary_basis'] = requestParameters['salaryBasis'];
+        }
+
+        if (requestParameters['responseFormat'] != null) {
+            queryParameters['response_format'] = requestParameters['responseFormat'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/wi_jobs/job_posts/salary_benchmark`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => JobPostSalaryBenchmarkFromJSON(jsonValue));
+    }
+
+    /**
+     * Benchmark recent posted salary ranges for comparable Intercollegiate job posts. This endpoint uses posted job salary fields only and does not use executed WinAD compensation data.
+     */
+    async getJobPostSalaryBenchmark(requestParameters: IntercollegiateApiGetJobPostSalaryBenchmarkRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPostSalaryBenchmark> {
+        const response = await this.getJobPostSalaryBenchmarkRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve some or all active jobs
      */
     async getJobPostsRaw(requestParameters: IntercollegiateApiGetJobPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobCollection>> {
@@ -295,3 +394,21 @@ export class IntercollegiateApi extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const GetJobPostSalaryBenchmarkSalaryBasisEnum = {
+    PostedRange: 'posted_range',
+    Annualized: 'annualized',
+    RawPosted: 'raw_posted'
+} as const;
+export type GetJobPostSalaryBenchmarkSalaryBasisEnum = typeof GetJobPostSalaryBenchmarkSalaryBasisEnum[keyof typeof GetJobPostSalaryBenchmarkSalaryBasisEnum];
+/**
+ * @export
+ */
+export const GetJobPostSalaryBenchmarkResponseFormatEnum = {
+    Concise: 'concise',
+    Detailed: 'detailed'
+} as const;
+export type GetJobPostSalaryBenchmarkResponseFormatEnum = typeof GetJobPostSalaryBenchmarkResponseFormatEnum[keyof typeof GetJobPostSalaryBenchmarkResponseFormatEnum];

@@ -326,6 +326,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *IntercollegiateApi* | [**createNewsFeeds**](docs/IntercollegiateApi.md#createnewsfeeds) | **POST** /wi_jobs/news_feeds | 
 *IntercollegiateApi* | [**getJobPost**](docs/IntercollegiateApi.md#getjobpost) | **GET** /wi_jobs/job_posts/{jobPostId} | 
 *IntercollegiateApi* | [**getJobPostInterestLeads**](docs/IntercollegiateApi.md#getjobpostinterestleads) | **GET** /wi_jobs/job_post_interest_leads | 
+*IntercollegiateApi* | [**getJobPostSalaryBenchmark**](docs/IntercollegiateApi.md#getjobpostsalarybenchmark) | **GET** /wi_jobs/job_posts/salary_benchmark | 
 *IntercollegiateApi* | [**getJobPosts**](docs/IntercollegiateApi.md#getjobposts) | **GET** /wi_jobs/job_posts | 
 *IntercollegiateApi* | [**getNewsFeeds**](docs/IntercollegiateApi.md#getnewsfeeds) | **GET** /wi_jobs/news_feeds | 
 *MlAthleticApi* | [**healthCheck**](docs/MlAthleticApi.md#healthcheck) | **GET** /ml-athletic/health_check | 
@@ -625,6 +626,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [JobPostInterestLeadCandidate](docs/JobPostInterestLeadCandidate.md)
 - [JobPostInterestLeadCollection](docs/JobPostInterestLeadCollection.md)
 - [JobPostInterestLeadJob](docs/JobPostInterestLeadJob.md)
+- [JobPostSalaryBenchmark](docs/JobPostSalaryBenchmark.md)
+- [JobPostSalaryBenchmarkPost](docs/JobPostSalaryBenchmarkPost.md)
+- [JobPostSalaryBenchmarkProvenance](docs/JobPostSalaryBenchmarkProvenance.md)
+- [JobPostSalaryBenchmarkSalaryBasisNotes](docs/JobPostSalaryBenchmarkSalaryBasisNotes.md)
+- [JobPostSalaryBenchmarkSample](docs/JobPostSalaryBenchmarkSample.md)
+- [JobPostSalaryBenchmarkScope](docs/JobPostSalaryBenchmarkScope.md)
+- [JobPostSalaryBenchmarkScopeDateWindow](docs/JobPostSalaryBenchmarkScopeDateWindow.md)
+- [JobPostSalarySummary](docs/JobPostSalarySummary.md)
 - [JobSchool](docs/JobSchool.md)
 - [JobSport](docs/JobSport.md)
 - [Link](docs/Link.md)
