@@ -11,6 +11,7 @@ Name | Type
 `publishGroupId` | string
 `schoolId` | number
 `schoolName` | string
+`scheduleProfileEligible` | boolean
 `sportId` | number
 `sportName` | string
 `startDate` | Date
@@ -43,6 +44,7 @@ const example = {
   "publishGroupId": null,
   "schoolId": null,
   "schoolName": null,
+  "scheduleProfileEligible": null,
   "sportId": null,
   "sportName": null,
   "startDate": null,
