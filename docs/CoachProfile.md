@@ -15,7 +15,7 @@ Name | Type
 `hometownCity` | string
 `hometownState` | string
 `almaMaterName` | string
-`almaMaterYear` | number
+`almaMaterYear` | string
 `twitterHandle` | string
 `twitterVerified` | boolean
 `linkedin` | string
