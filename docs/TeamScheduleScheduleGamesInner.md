@@ -11,6 +11,7 @@ Name | Type
 `gameDateDisplay` | string
 `opponentId` | number
 `opponentName` | string
+`opponentScheduleProfileEligible` | boolean
 `location` | string
 `city` | string
 `stateName` | string
@@ -41,6 +42,7 @@ const example = {
   "gameDateDisplay": null,
   "opponentId": null,
   "opponentName": null,
+  "opponentScheduleProfileEligible": null,
   "location": null,
   "city": null,
   "stateName": null,
