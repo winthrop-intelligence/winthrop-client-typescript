@@ -16,6 +16,7 @@ Name | Type
 `lastNetRank` | number
 `avgRpi` | number
 `avgNetRank` | number
+`scheduleProfileEligible` | boolean
 
 ## Example
 
@@ -34,6 +35,7 @@ const example = {
   "lastNetRank": null,
   "avgRpi": null,
   "avgNetRank": null,
+  "scheduleProfileEligible": null,
 } satisfies GamePostAvailabilityCollectionGroupsInnerPostsInner
 
 console.log(example)
