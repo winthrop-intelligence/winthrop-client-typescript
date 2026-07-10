@@ -1,7 +1,7 @@
 
 # GamePostSearchResultOverlap
 
-WINAD-10052/10053: availability overlap between the requesting viewer\'s own school and this posting school for the sport, computed by AvailabilityOverlapMatcher. Both sides are read from schedule_intents, so every lined-up date is a subset of the availability the card shows. Always present; when the viewer has no school (e.g. a super-admin or conference account) or no dates line up, total is 0 with an empty line_ups array (the no-overlap state, never an error).
+WINAD-10052/10053: availability overlap between the requesting viewer\'s own school and this posting school for the sport, computed by AvailabilityOverlapMatcher. Both sides are read from schedule_intents, so every lined-up date is a subset of the availability the card shows. When present and the viewer has no school (e.g. a super-admin or conference account) or no dates line up, total is 0 with an empty line_ups array (the no-overlap state, never an error). WINAD: OMITTED when q[defer_enrichment] is set (the dashboard feed) — deferred to POST /game_post_searches/enrichment so the feed cards paint first. Present on the inline path (the show page\'s post_details response).
 
 ## Properties
 

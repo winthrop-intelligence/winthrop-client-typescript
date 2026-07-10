@@ -14,49 +14,49 @@
 
 import { mapValues } from '../runtime';
 /**
- * WINAD-10054: the school's 3-yr median guarantee economics (from SchoolGuaranteeEconomicsBatchQuery) — what it typically receives when it travels and pays when it hosts, in cents. Medians/estimates, labelled "3-yr median" in the UI (rounded, e.g. $90K), never a hard quote. Each side is null when the school has no qualifying history; the whole block is null when it has neither, or when the viewer lacks the guarantee- aggregate grant — the UI hides the chip rather than showing $0. WINAD: OMITTED (key absent, not null) when q[defer_enrichment] is set (the dashboard feed) — deferred to POST /game_post_searches/enrichment. Present on the inline path (the show page's post_details response).
+ * The school's 3-yr median guarantee economics (SchoolGuaranteeEconomicsBatchQuery) in cents — same shape as GamePostSearchResult.guarantee. Each side is null when the school has no qualifying history; the whole block is null when it has neither, or when the viewer lacks the guarantee-aggregate grant.
  * @export
- * @interface GamePostSearchResultGuarantee
+ * @interface GamePostEnrichmentGuarantee
  */
-export interface GamePostSearchResultGuarantee {
+export interface GamePostEnrichmentGuarantee {
     /**
      * 3-yr median guarantee paid as the home/host team; null when no history.
      * @type {number}
-     * @memberof GamePostSearchResultGuarantee
+     * @memberof GamePostEnrichmentGuarantee
      */
     hostMedianCents?: number | null;
     /**
      * Number of host money-games behind the median.
      * @type {number}
-     * @memberof GamePostSearchResultGuarantee
+     * @memberof GamePostEnrichmentGuarantee
      */
     hostSampleSize?: number | null;
     /**
      * 3-yr median guarantee received as the away/traveling team; null when no history.
      * @type {number}
-     * @memberof GamePostSearchResultGuarantee
+     * @memberof GamePostEnrichmentGuarantee
      */
     travelMedianCents?: number | null;
     /**
      * Number of travel money-games behind the median.
      * @type {number}
-     * @memberof GamePostSearchResultGuarantee
+     * @memberof GamePostEnrichmentGuarantee
      */
     travelSampleSize?: number | null;
 }
 
 /**
- * Check if a given object implements the GamePostSearchResultGuarantee interface.
+ * Check if a given object implements the GamePostEnrichmentGuarantee interface.
  */
-export function instanceOfGamePostSearchResultGuarantee(value: object): value is GamePostSearchResultGuarantee {
+export function instanceOfGamePostEnrichmentGuarantee(value: object): value is GamePostEnrichmentGuarantee {
     return true;
 }
 
-export function GamePostSearchResultGuaranteeFromJSON(json: any): GamePostSearchResultGuarantee {
-    return GamePostSearchResultGuaranteeFromJSONTyped(json, false);
+export function GamePostEnrichmentGuaranteeFromJSON(json: any): GamePostEnrichmentGuarantee {
+    return GamePostEnrichmentGuaranteeFromJSONTyped(json, false);
 }
 
-export function GamePostSearchResultGuaranteeFromJSONTyped(json: any, ignoreDiscriminator: boolean): GamePostSearchResultGuarantee {
+export function GamePostEnrichmentGuaranteeFromJSONTyped(json: any, ignoreDiscriminator: boolean): GamePostEnrichmentGuarantee {
     if (json == null) {
         return json;
     }
@@ -69,11 +69,11 @@ export function GamePostSearchResultGuaranteeFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-export function GamePostSearchResultGuaranteeToJSON(json: any): GamePostSearchResultGuarantee {
-    return GamePostSearchResultGuaranteeToJSONTyped(json, false);
+export function GamePostEnrichmentGuaranteeToJSON(json: any): GamePostEnrichmentGuarantee {
+    return GamePostEnrichmentGuaranteeToJSONTyped(json, false);
 }
 
-export function GamePostSearchResultGuaranteeToJSONTyped(value?: GamePostSearchResultGuarantee | null, ignoreDiscriminator: boolean = false): any {
+export function GamePostEnrichmentGuaranteeToJSONTyped(value?: GamePostEnrichmentGuarantee | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

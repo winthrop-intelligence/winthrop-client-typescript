@@ -168,6 +168,7 @@ docs/DossierApi.md
 docs/DossierReportResponse.md
 docs/EditAccountUser.md
 docs/EditAccountUserResponse.md
+docs/EnrichGamePostSearchesRequest.md
 docs/FilterPositionType.md
 docs/Filters.md
 docs/FinancialQc.md
@@ -223,6 +224,12 @@ docs/GamePostCollection.md
 docs/GamePostContact.md
 docs/GamePostDetail.md
 docs/GamePostDetailCreatedBy.md
+docs/GamePostEnrichment.md
+docs/GamePostEnrichmentCollection.md
+docs/GamePostEnrichmentGuarantee.md
+docs/GamePostEnrichmentOverlap.md
+docs/GamePostEnrichmentOverlapLineUpsInner.md
+docs/GamePostEnrichmentScheduleIntentsInner.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
 docs/GamePostSearchResultContact.md
@@ -641,6 +648,7 @@ src/models/DivisionCollection.ts
 src/models/DossierReportResponse.ts
 src/models/EditAccountUser.ts
 src/models/EditAccountUserResponse.ts
+src/models/EnrichGamePostSearchesRequest.ts
 src/models/FilterPositionType.ts
 src/models/Filters.ts
 src/models/FinancialQc.ts
@@ -696,6 +704,12 @@ src/models/GamePostCollection.ts
 src/models/GamePostContact.ts
 src/models/GamePostDetail.ts
 src/models/GamePostDetailCreatedBy.ts
+src/models/GamePostEnrichment.ts
+src/models/GamePostEnrichmentCollection.ts
+src/models/GamePostEnrichmentGuarantee.ts
+src/models/GamePostEnrichmentOverlap.ts
+src/models/GamePostEnrichmentOverlapLineUpsInner.ts
+src/models/GamePostEnrichmentScheduleIntentsInner.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
 src/models/GamePostSearchResultContact.ts

@@ -202,7 +202,7 @@ export interface GamePostSearchResult {
      */
     games?: Array<GamePostSearchResultGamesInner>;
     /**
-     * The posting school+sport's schedule-intent (availability) markers within the current scheduling-season window, only present for sports the requesting schedule user is permitted to see. WINAD-10093: these drive the feed card's displayed dates (the card is grouped per publish, but its dates come from the school's durable availability calendar, so deleting or expiring one publish group never shrinks a sibling card's dates). The private "Pending" marker is stripped: a Pending-only cell is omitted and a mixed cell drops the Pending type.
+     * The posting school+sport's schedule-intent (availability) markers within the current scheduling-season window, only present for sports the requesting schedule user is permitted to see. WINAD-10093: these drive the feed card's displayed dates (the card is grouped per publish, but its dates come from the school's durable availability calendar, so deleting or expiring one publish group never shrinks a sibling card's dates). The private "Pending" marker is stripped: a Pending-only cell is omitted and a mixed cell drops the Pending type. WINAD: OMITTED when q[defer_enrichment] is set (the dashboard feed) — the open windows are then deferred to POST /game_post_searches/enrichment alongside overlap and guarantee, so the whole availability bar reveals together. Present on the inline path (the show page's post_details response).
      * @type {Array<GamePostSearchResultScheduleIntentsInner>}
      * @memberof GamePostSearchResult
      */

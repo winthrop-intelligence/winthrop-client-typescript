@@ -122,6 +122,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**downloadRawContractFile**](docs/DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download | 
+*DefaultApi* | [**enrichGamePostSearches**](docs/DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment | 
 *DefaultApi* | [**exportRevenueSearches**](docs/DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export | 
 *DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
@@ -517,6 +518,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DossierReportResponse](docs/DossierReportResponse.md)
 - [EditAccountUser](docs/EditAccountUser.md)
 - [EditAccountUserResponse](docs/EditAccountUserResponse.md)
+- [EnrichGamePostSearchesRequest](docs/EnrichGamePostSearchesRequest.md)
 - [FilterPositionType](docs/FilterPositionType.md)
 - [Filters](docs/Filters.md)
 - [FinancialQc](docs/FinancialQc.md)
@@ -572,6 +574,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GamePostContact](docs/GamePostContact.md)
 - [GamePostDetail](docs/GamePostDetail.md)
 - [GamePostDetailCreatedBy](docs/GamePostDetailCreatedBy.md)
+- [GamePostEnrichment](docs/GamePostEnrichment.md)
+- [GamePostEnrichmentCollection](docs/GamePostEnrichmentCollection.md)
+- [GamePostEnrichmentGuarantee](docs/GamePostEnrichmentGuarantee.md)
+- [GamePostEnrichmentOverlap](docs/GamePostEnrichmentOverlap.md)
+- [GamePostEnrichmentOverlapLineUpsInner](docs/GamePostEnrichmentOverlapLineUpsInner.md)
+- [GamePostEnrichmentScheduleIntentsInner](docs/GamePostEnrichmentScheduleIntentsInner.md)
 - [GamePostSearchResult](docs/GamePostSearchResult.md)
 - [GamePostSearchResultCollection](docs/GamePostSearchResultCollection.md)
 - [GamePostSearchResultContact](docs/GamePostSearchResultContact.md)

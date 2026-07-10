@@ -64,6 +64,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
+| [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
 | [**exportRevenueSearches**](DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export |  |
 | [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
@@ -4818,6 +4819,80 @@ example().catch(console.error);
 | **200** | Watermarked PDF attachment |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## enrichGamePostSearches
+
+> GamePostEnrichmentCollection enrichGamePostSearches(enrichGamePostSearchesRequest)
+
+
+
+Async companion to GET /game_post_searches. The dashboard feed sends q[defer_enrichment]&#x3D;true so its cards paint first without the slow per-card computes; this returns those deferred blocks — availability overlap, guarantee economics, and the schedule-intent \&quot;open windows\&quot; — for the loaded page\&#39;s [school_id, sport_id] pairs, which the client merges onto each card. POST (not GET) because ~35 pairs are sent as a JSON body. Runs neither the search nor the grouping — just the two heavy per-card computes plus the poster intents.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { EnrichGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // EnrichGamePostSearchesRequest
+    enrichGamePostSearchesRequest: ...,
+  } satisfies EnrichGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.enrichGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **enrichGamePostSearchesRequest** | [EnrichGamePostSearchesRequest](EnrichGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**GamePostEnrichmentCollection**](GamePostEnrichmentCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deferred per-card blocks, one row per requested pair. |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10938,7 +11013,7 @@ example().catch(console.error);
 
 
 
-Search game posts with enriched data including school info, location, RPI, etc.
+Search game posts with enriched data including school info, location, RPI, etc. WINAD: pass q[defer_enrichment]&#x3D;true (the dashboard feed) to omit the slow per-card blocks — overlap, guarantee, and schedule_intents — from each row so the cards paint first; POST /game_post_searches/enrichment then returns those blocks for the loaded pairs. The inline path (e.g. post_details) leaves the flag off and keeps them on each row.
 
 ### Example
 
