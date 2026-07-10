@@ -314,6 +314,7 @@ export * from './RecruitingChartData';
 export * from './RecruitingConferenceEntry';
 export * from './RecruitingPositionEntry';
 export * from './RegenerateRawContractPdf200Response';
+export * from './RemoteJobPost';
 export * from './RequestedItem';
 export * from './RequestedItemCollection';
 export * from './RequestedItemNote';

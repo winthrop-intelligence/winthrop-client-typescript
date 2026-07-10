@@ -5,11 +5,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createNewsFeeds**](IntercollegiateApi.md#createnewsfeeds) | **POST** /wi_jobs/news_feeds |  |
+| [**deleteJobPost**](IntercollegiateApi.md#deletejobpost) | **DELETE** /wi_jobs/job_posts/{jobPostId} |  |
 | [**getJobPost**](IntercollegiateApi.md#getjobpost) | **GET** /wi_jobs/job_posts/{jobPostId} |  |
 | [**getJobPostInterestLeads**](IntercollegiateApi.md#getjobpostinterestleads) | **GET** /wi_jobs/job_post_interest_leads |  |
 | [**getJobPostSalaryBenchmark**](IntercollegiateApi.md#getjobpostsalarybenchmark) | **GET** /wi_jobs/job_posts/salary_benchmark |  |
 | [**getJobPosts**](IntercollegiateApi.md#getjobposts) | **GET** /wi_jobs/job_posts |  |
 | [**getNewsFeeds**](IntercollegiateApi.md#getnewsfeeds) | **GET** /wi_jobs/news_feeds |  |
+| [**syncJobPost**](IntercollegiateApi.md#syncjobpost) | **PUT** /wi_jobs/job_posts/{jobPostId}/sync |  |
 
 
 
@@ -82,6 +84,85 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | News Feed was create |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteJobPost
+
+> deleteJobPost(jobPostId, updatedAt)
+
+
+
+Delete a synced remote job post
+
+### Example
+
+```ts
+import {
+  Configuration,
+  IntercollegiateApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteJobPostRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new IntercollegiateApi(config);
+
+  const body = {
+    // number | Remote ID of job post to delete
+    jobPostId: 56,
+    // Date | Timestamp of the remote operation being synced.
+    updatedAt: 2013-10-20T19:20:30+01:00,
+  } satisfies DeleteJobPostRequest;
+
+  try {
+    const data = await api.deleteJobPost(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobPostId** | `number` | Remote ID of job post to delete | [Defaults to `undefined`] |
+| **updatedAt** | `Date` | Timestamp of the remote operation being synced. | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Job post was deleted or was already absent |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Invalid delete payload |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -495,6 +576,86 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | News Feed were found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## syncJobPost
+
+> Job syncJobPost(jobPostId, remoteJobPost)
+
+
+
+Sync a remote Central Jobs job post snapshot, creating or updating as needed
+
+### Example
+
+```ts
+import {
+  Configuration,
+  IntercollegiateApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { SyncJobPostRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new IntercollegiateApi(config);
+
+  const body = {
+    // number | Central Jobs remote ID of job post to sync
+    jobPostId: 56,
+    // RemoteJobPost
+    remoteJobPost: ...,
+  } satisfies SyncJobPostRequest;
+
+  try {
+    const data = await api.syncJobPost(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobPostId** | `number` | Central Jobs remote ID of job post to sync | [Defaults to `undefined`] |
+| **remoteJobPost** | [RemoteJobPost](RemoteJobPost.md) |  | |
+
+### Return type
+
+[**Job**](Job.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Job post was synced |  -  |
+| **204** | Stale sync payload was ignored |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Invalid job post payload |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
