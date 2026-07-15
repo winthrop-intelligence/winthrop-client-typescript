@@ -166,6 +166,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
+| [**getRequestedItemReviewContext**](DefaultApi.md#getrequesteditemreviewcontext) | **GET** /api/v1/requested_items/{requestedItemId}/review_context |  |
 | [**getRequestedItemRiNote**](DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
 | [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
@@ -12614,6 +12615,86 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Requested item was found |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRequestedItemReviewContext
+
+> RequestedItemReviewContext getRequestedItemReviewContext(requestedItemId, ifNoneMatch)
+
+
+
+Retrieve the canonical review context for a requested item, including its display title and type, current note text, parent FOIA request with the legacy admin URL, and any single unambiguous existing document the caller is authorized to see.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRequestedItemReviewContextRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose review context should be retrieved
+    requestedItemId: 56,
+    // string | ETag from a previous response; when it still matches, the server responds 304 Not Modified instead of re-sending the payload. (optional)
+    ifNoneMatch: ifNoneMatch_example,
+  } satisfies GetRequestedItemReviewContextRequest;
+
+  try {
+    const data = await api.getRequestedItemReviewContext(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose review context should be retrieved | [Defaults to `undefined`] |
+| **ifNoneMatch** | `string` | ETag from a previous response; when it still matches, the server responds 304 Not Modified instead of re-sending the payload. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**RequestedItemReviewContext**](RequestedItemReviewContext.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item review context was found |  * ETag - Entity tag for the current review context; send it back via If-None-Match for conditional requests. <br>  |
+| **304** | Not Modified — the review context matching the ETag supplied in If-None-Match is still current; no body is returned. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
