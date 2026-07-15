@@ -341,6 +341,10 @@ docs/RequestedItemNote.md
 docs/RequestedItemNoteInput.md
 docs/RequestedItemNoteInputRiNote.md
 docs/RequestedItemNoteResponse.md
+docs/RequestedItemReviewContext.md
+docs/RequestedItemReviewContextDocument.md
+docs/RequestedItemReviewContextFoiaRequest.md
+docs/RequestedItemReviewContextRequestedItem.md
 docs/RoleOption.md
 docs/RunningJob.md
 docs/ScheduleGridAvailableSchoolPost.md
@@ -819,6 +823,10 @@ src/models/RequestedItemNote.ts
 src/models/RequestedItemNoteInput.ts
 src/models/RequestedItemNoteInputRiNote.ts
 src/models/RequestedItemNoteResponse.ts
+src/models/RequestedItemReviewContext.ts
+src/models/RequestedItemReviewContextDocument.ts
+src/models/RequestedItemReviewContextFoiaRequest.ts
+src/models/RequestedItemReviewContextRequestedItem.ts
 src/models/RoleOption.ts
 src/models/RunningJob.ts
 src/models/ScheduleGridAvailableSchoolPost.ts
