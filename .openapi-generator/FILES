@@ -356,6 +356,11 @@ docs/ScheduleIntentDetail.md
 docs/ScheduleTournamentDetail.md
 docs/ScheduleUpdate.md
 docs/ScheduleUpdateCollection.md
+docs/SchedulingContact.md
+docs/SchedulingContactConference.md
+docs/SchedulingContactPerson.md
+docs/SchedulingContactSchool.md
+docs/SchedulingContactsResponse.md
 docs/School.md
 docs/SchoolCollection.md
 docs/SchoolContractEntry.md
@@ -834,6 +839,11 @@ src/models/ScheduleIntentDetail.ts
 src/models/ScheduleTournamentDetail.ts
 src/models/ScheduleUpdate.ts
 src/models/ScheduleUpdateCollection.ts
+src/models/SchedulingContact.ts
+src/models/SchedulingContactConference.ts
+src/models/SchedulingContactPerson.ts
+src/models/SchedulingContactSchool.ts
+src/models/SchedulingContactsResponse.ts
 src/models/School.ts
 src/models/SchoolCollection.ts
 src/models/SchoolContractEntry.ts

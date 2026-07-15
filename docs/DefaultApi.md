@@ -174,6 +174,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getScheduleGridAvailableSchools**](DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools |  |
 | [**getScheduleGridCompleted**](DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed |  |
 | [**getScheduleUpdates**](DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates |  |
+| [**getSchedulingContacts**](DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
@@ -13285,6 +13286,81 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Sport not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchedulingContacts
+
+> SchedulingContactsResponse getSchedulingContacts(sport)
+
+
+
+WINAD-10119 — the Scheduling Contacts directory. One primary scheduling contact per school for the given sport, enriched with distance from the viewer\&#39;s school and open Games Wanted post count. verified/verified_at reflect the admin-set verification on the contact (WINAD-10122).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchedulingContactsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Scheduling sport name, e.g. BASKETBALL_M. (optional)
+    sport: sport_example,
+  } satisfies GetSchedulingContactsRequest;
+
+  try {
+    const data = await api.getSchedulingContacts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sport** | `string` | Scheduling sport name, e.g. BASKETBALL_M. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchedulingContactsResponse**](SchedulingContactsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Scheduling contacts directory |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
