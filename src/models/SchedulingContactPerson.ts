@@ -37,6 +37,12 @@ export interface SchedulingContactPerson {
      * @memberof SchedulingContactPerson
      */
     coachId: number | null;
+    /**
+     * Cropped coach avatar path; null when the coach has no image.
+     * @type {string}
+     * @memberof SchedulingContactPerson
+     */
+    photoUrl: string | null;
 }
 
 /**
@@ -46,6 +52,7 @@ export function instanceOfSchedulingContactPerson(value: object): value is Sched
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('coachId' in value) || value['coachId'] === undefined) return false;
+    if (!('photoUrl' in value) || value['photoUrl'] === undefined) return false;
     return true;
 }
 
@@ -62,6 +69,7 @@ export function SchedulingContactPersonFromJSONTyped(json: any, ignoreDiscrimina
         'name': json['name'],
         'title': json['title'],
         'coachId': json['coach_id'],
+        'photoUrl': json['photo_url'],
     };
 }
 
@@ -79,6 +87,7 @@ export function SchedulingContactPersonToJSONTyped(value?: SchedulingContactPers
         'name': value['name'],
         'title': value['title'],
         'coach_id': value['coachId'],
+        'photo_url': value['photoUrl'],
     };
 }
 

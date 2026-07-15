@@ -9,6 +9,7 @@ Name | Type
 `name` | string
 `title` | string
 `coachId` | number
+`photoUrl` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "name": null,
   "title": null,
   "coachId": null,
+  "photoUrl": null,
 } satisfies SchedulingContactPerson
 
 console.log(example)
