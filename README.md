@@ -224,6 +224,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getRawContract**](docs/DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} | 
 *DefaultApi* | [**getRawContracts**](docs/DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts | 
 *DefaultApi* | [**getRequestedItem**](docs/DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} | 
+*DefaultApi* | [**getRequestedItemReviewContext**](docs/DefaultApi.md#getrequesteditemreviewcontext) | **GET** /api/v1/requested_items/{requestedItemId}/review_context | 
 *DefaultApi* | [**getRequestedItemRiNote**](docs/DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note | 
 *DefaultApi* | [**getRequestedItems**](docs/DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items | 
 *DefaultApi* | [**getRevenueSearch**](docs/DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} | 
@@ -691,6 +692,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RequestedItemNoteInput](docs/RequestedItemNoteInput.md)
 - [RequestedItemNoteInputRiNote](docs/RequestedItemNoteInputRiNote.md)
 - [RequestedItemNoteResponse](docs/RequestedItemNoteResponse.md)
+- [RequestedItemReviewContext](docs/RequestedItemReviewContext.md)
+- [RequestedItemReviewContextDocument](docs/RequestedItemReviewContextDocument.md)
+- [RequestedItemReviewContextFoiaRequest](docs/RequestedItemReviewContextFoiaRequest.md)
+- [RequestedItemReviewContextRequestedItem](docs/RequestedItemReviewContextRequestedItem.md)
 - [RoleOption](docs/RoleOption.md)
 - [RunningJob](docs/RunningJob.md)
 - [ScheduleGridAvailableSchoolPost](docs/ScheduleGridAvailableSchoolPost.md)

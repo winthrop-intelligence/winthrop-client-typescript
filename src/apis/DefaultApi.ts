@@ -156,6 +156,7 @@ import type {
   RequestedItemCollection,
   RequestedItemNoteInput,
   RequestedItemNoteResponse,
+  RequestedItemReviewContext,
   ScheduleGridAvailableSchools,
   ScheduleGridView,
   ScheduleIntentDetail,
@@ -505,6 +506,8 @@ import {
     RequestedItemNoteInputToJSON,
     RequestedItemNoteResponseFromJSON,
     RequestedItemNoteResponseToJSON,
+    RequestedItemReviewContextFromJSON,
+    RequestedItemReviewContextToJSON,
     ScheduleGridAvailableSchoolsFromJSON,
     ScheduleGridAvailableSchoolsToJSON,
     ScheduleGridViewFromJSON,
@@ -1348,6 +1351,11 @@ export interface DefaultApiGetRawContractsRequest {
 
 export interface DefaultApiGetRequestedItemRequest {
     requestedItemId: number;
+}
+
+export interface DefaultApiGetRequestedItemReviewContextRequest {
+    requestedItemId: number;
+    ifNoneMatch?: string;
 }
 
 export interface DefaultApiGetRequestedItemRiNoteRequest {
@@ -9666,6 +9674,56 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getRequestedItem(requestParameters: DefaultApiGetRequestedItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItem> {
         const response = await this.getRequestedItemRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve the canonical review context for a requested item, including its display title and type, current note text, parent FOIA request with the legacy admin URL, and any single unambiguous existing document the caller is authorized to see.
+     */
+    async getRequestedItemReviewContextRaw(requestParameters: DefaultApiGetRequestedItemReviewContextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestedItemReviewContext>> {
+        if (requestParameters['requestedItemId'] == null) {
+            throw new runtime.RequiredError(
+                'requestedItemId',
+                'Required parameter "requestedItemId" was null or undefined when calling getRequestedItemReviewContext().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['ifNoneMatch'] != null) {
+            headerParameters['If-None-Match'] = String(requestParameters['ifNoneMatch']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/requested_items/{requestedItemId}/review_context`;
+        urlPath = urlPath.replace(`{${"requestedItemId"}}`, encodeURIComponent(String(requestParameters['requestedItemId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RequestedItemReviewContextFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve the canonical review context for a requested item, including its display title and type, current note text, parent FOIA request with the legacy admin URL, and any single unambiguous existing document the caller is authorized to see.
+     */
+    async getRequestedItemReviewContext(requestParameters: DefaultApiGetRequestedItemReviewContextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestedItemReviewContext> {
+        const response = await this.getRequestedItemReviewContextRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
