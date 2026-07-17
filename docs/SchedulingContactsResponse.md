@@ -9,6 +9,7 @@ Name | Type
 ------------ | -------------
 `contacts` | [Array&lt;SchedulingContact&gt;](SchedulingContact.md)
 `viewerSchoolName` | string
+`viewerSchoolLogoUrl` | string
 `viewerHasLocation` | boolean
 
 ## Example
@@ -20,6 +21,7 @@ import type { SchedulingContactsResponse } from '@winthrop-intelligence/winthrop
 const example = {
   "contacts": null,
   "viewerSchoolName": null,
+  "viewerSchoolLogoUrl": null,
   "viewerHasLocation": null,
 } satisfies SchedulingContactsResponse
 

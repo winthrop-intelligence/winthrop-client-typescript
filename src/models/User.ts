@@ -257,6 +257,18 @@ export interface User {
      */
     scheduleSports?: Array<UserScheduleSportsInner>;
     /**
+     * Viewer's own school name (school accounts only) — the scheduling Message dialog sender identity
+     * @type {string}
+     * @memberof User
+     */
+    schoolName?: string | null;
+    /**
+     * Viewer's own school logo URL (small variant); null when no school or no logo — dialog falls back to initials
+     * @type {string}
+     * @memberof User
+     */
+    schoolLogoUrl?: string | null;
+    /**
      * 
      * @type {string}
      * @memberof User
@@ -385,6 +397,8 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'coliIndex': json['coli_index'] == null ? undefined : json['coli_index'],
         'subscriptionType': json['subscription_type'] == null ? undefined : json['subscription_type'],
         'scheduleSports': json['schedule_sports'] == null ? undefined : ((json['schedule_sports'] as Array<any>).map(UserScheduleSportsInnerFromJSON)),
+        'schoolName': json['school_name'] == null ? undefined : json['school_name'],
+        'schoolLogoUrl': json['school_logo_url'] == null ? undefined : json['school_logo_url'],
         'schoolCity': json['school_city'] == null ? undefined : json['school_city'],
         'schoolState': json['school_state'] == null ? undefined : json['school_state'],
         'otpRequired': json['otp_required'] == null ? undefined : json['otp_required'],
@@ -446,6 +460,8 @@ export function UserToJSONTyped(value?: User | null, ignoreDiscriminator: boolea
         'coli_index': value['coliIndex'],
         'subscription_type': value['subscriptionType'],
         'schedule_sports': value['scheduleSports'] == null ? undefined : ((value['scheduleSports'] as Array<any>).map(UserScheduleSportsInnerToJSON)),
+        'school_name': value['schoolName'],
+        'school_logo_url': value['schoolLogoUrl'],
         'school_city': value['schoolCity'],
         'school_state': value['schoolState'],
         'otp_required': value['otpRequired'],

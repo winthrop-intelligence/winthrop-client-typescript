@@ -91,6 +91,13 @@ docs/ComparisonSection.md
 docs/ComparisonSectionCoachesInner.md
 docs/Compensation.md
 docs/CompensationCollection.md
+docs/CompensationComparisonCohortStats.md
+docs/CompensationComparisonCompVisibility.md
+docs/CompensationComparisonResolvedScope.md
+docs/CompensationComparisonResolvedScopeConference.md
+docs/CompensationComparisonResolvedScopeSchoolsInner.md
+docs/CompensationComparisonResult.md
+docs/CompensationComparisonRow.md
 docs/CompensationRow.md
 docs/Conference.md
 docs/ConferenceAdminCompensationResponse.md
@@ -247,6 +254,7 @@ docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
+docs/GetCompensationComparisons400Response.md
 docs/GetFavorites200ResponseInner.md
 docs/GetFavoritesCategories200ResponseInner.md
 docs/GetFilterOptions200Response.md
@@ -375,7 +383,6 @@ docs/SchoolFinancialDetailSport.md
 docs/SchoolFinancialGroup.md
 docs/SchoolFinancialSummary.md
 docs/SchoolGameContractsResponse.md
-docs/SchoolGameContractsResponseSchool.md
 docs/SchoolGroupShow.md
 docs/SchoolInfo.md
 docs/SchoolNoComp.md
@@ -583,6 +590,13 @@ src/models/ComparisonSection.ts
 src/models/ComparisonSectionCoachesInner.ts
 src/models/Compensation.ts
 src/models/CompensationCollection.ts
+src/models/CompensationComparisonCohortStats.ts
+src/models/CompensationComparisonCompVisibility.ts
+src/models/CompensationComparisonResolvedScope.ts
+src/models/CompensationComparisonResolvedScopeConference.ts
+src/models/CompensationComparisonResolvedScopeSchoolsInner.ts
+src/models/CompensationComparisonResult.ts
+src/models/CompensationComparisonRow.ts
 src/models/CompensationRow.ts
 src/models/Conference.ts
 src/models/ConferenceAdminCompensationResponse.ts
@@ -737,6 +751,7 @@ src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetAccountUserActivation200Response.ts
+src/models/GetCompensationComparisons400Response.ts
 src/models/GetFavorites200ResponseInner.ts
 src/models/GetFavoritesCategories200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts
@@ -862,7 +877,6 @@ src/models/SchoolFinancialDetailSport.ts
 src/models/SchoolFinancialGroup.ts
 src/models/SchoolFinancialSummary.ts
 src/models/SchoolGameContractsResponse.ts
-src/models/SchoolGameContractsResponseSchool.ts
 src/models/SchoolGroupShow.ts
 src/models/SchoolInfo.ts
 src/models/SchoolNoComp.ts

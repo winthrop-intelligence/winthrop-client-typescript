@@ -53,6 +53,7 @@ import type {
   CompareColi422Response,
   Compensation,
   CompensationCollection,
+  CompensationComparisonResult,
   Conference,
   ConferenceAdminCompensationResponse,
   ConferenceCashflowStatsResponse,
@@ -122,6 +123,7 @@ import type {
   GamePostSearchResultCollection,
   GameType,
   GetAccountUserActivation200Response,
+  GetCompensationComparisons400Response,
   GetFavorites200ResponseInner,
   GetFavoritesCategories200ResponseInner,
   GetFilterOptions200Response,
@@ -300,6 +302,8 @@ import {
     CompensationToJSON,
     CompensationCollectionFromJSON,
     CompensationCollectionToJSON,
+    CompensationComparisonResultFromJSON,
+    CompensationComparisonResultToJSON,
     ConferenceFromJSON,
     ConferenceToJSON,
     ConferenceAdminCompensationResponseFromJSON,
@@ -438,6 +442,8 @@ import {
     GameTypeToJSON,
     GetAccountUserActivation200ResponseFromJSON,
     GetAccountUserActivation200ResponseToJSON,
+    GetCompensationComparisons400ResponseFromJSON,
+    GetCompensationComparisons400ResponseToJSON,
     GetFavorites200ResponseInnerFromJSON,
     GetFavorites200ResponseInnerToJSON,
     GetFavoritesCategories200ResponseInnerFromJSON,
@@ -1024,6 +1030,19 @@ export interface DefaultApiGetCoachesRequest {
 
 export interface DefaultApiGetCompensationRequest {
     compensationId: number;
+}
+
+export interface DefaultApiGetCompensationComparisonsRequest {
+    schoolIds?: Array<number>;
+    conferenceId?: number;
+    sportId?: number;
+    positionTypeId?: number;
+    titleInclude?: Array<string>;
+    titleExclude?: Array<string>;
+    year?: number;
+    includeMissing?: boolean;
+    perSchoolLimit?: number;
+    maxRows?: number;
 }
 
 export interface DefaultApiGetCompensationsRequest {
@@ -6151,6 +6170,84 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getCompensation(requestParameters: DefaultApiGetCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
         const response = await this.getCompensationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cross-school coach/administrator role compensation comparison (MCP-174). Expands the requested schools and/or conference, matches the queried role by position type and/or title terms, classifies each candidate\'s raw title (clean_match / assistant / chief_of_staff / hybrid_coach_gm / related_role), applies per-row compensation permission gating, and returns cohort stats with explicit denominator counts. One row per school/match candidate; schools with no match surface as no_role_match or school_not_accessible rows when include_missing is true. Known limitation: administrator records, and coach records when no sport_id is given, are matched against WinAD views that collapse to one record per person per year, so a person holding multiple same-year positions may surface under a different position than the queried role (a response warning flags the no-sport case). Sport-scoped coach matching is per-position and unaffected.
+     */
+    async getCompensationComparisonsRaw(requestParameters: DefaultApiGetCompensationComparisonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompensationComparisonResult>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['schoolIds'] != null) {
+            queryParameters['school_ids[]'] = requestParameters['schoolIds'];
+        }
+
+        if (requestParameters['conferenceId'] != null) {
+            queryParameters['conference_id'] = requestParameters['conferenceId'];
+        }
+
+        if (requestParameters['sportId'] != null) {
+            queryParameters['sport_id'] = requestParameters['sportId'];
+        }
+
+        if (requestParameters['positionTypeId'] != null) {
+            queryParameters['position_type_id'] = requestParameters['positionTypeId'];
+        }
+
+        if (requestParameters['titleInclude'] != null) {
+            queryParameters['title_include[]'] = requestParameters['titleInclude'];
+        }
+
+        if (requestParameters['titleExclude'] != null) {
+            queryParameters['title_exclude[]'] = requestParameters['titleExclude'];
+        }
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        if (requestParameters['includeMissing'] != null) {
+            queryParameters['include_missing'] = requestParameters['includeMissing'];
+        }
+
+        if (requestParameters['perSchoolLimit'] != null) {
+            queryParameters['per_school_limit'] = requestParameters['perSchoolLimit'];
+        }
+
+        if (requestParameters['maxRows'] != null) {
+            queryParameters['max_rows'] = requestParameters['maxRows'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/compensation_comparisons`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CompensationComparisonResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Cross-school coach/administrator role compensation comparison (MCP-174). Expands the requested schools and/or conference, matches the queried role by position type and/or title terms, classifies each candidate\'s raw title (clean_match / assistant / chief_of_staff / hybrid_coach_gm / related_role), applies per-row compensation permission gating, and returns cohort stats with explicit denominator counts. One row per school/match candidate; schools with no match surface as no_role_match or school_not_accessible rows when include_missing is true. Known limitation: administrator records, and coach records when no sport_id is given, are matched against WinAD views that collapse to one record per person per year, so a person holding multiple same-year positions may surface under a different position than the queried role (a response warning flags the no-sport case). Sport-scoped coach matching is per-position and unaffected.
+     */
+    async getCompensationComparisons(requestParameters: DefaultApiGetCompensationComparisonsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompensationComparisonResult> {
+        const response = await this.getCompensationComparisonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

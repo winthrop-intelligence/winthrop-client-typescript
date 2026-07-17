@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SchoolGameContractsResponseSchool } from './SchoolGameContractsResponseSchool';
+import type { CompensationComparisonResolvedScopeSchoolsInner } from './CompensationComparisonResolvedScopeSchoolsInner';
 import {
-    SchoolGameContractsResponseSchoolFromJSON,
-    SchoolGameContractsResponseSchoolFromJSONTyped,
-    SchoolGameContractsResponseSchoolToJSON,
-    SchoolGameContractsResponseSchoolToJSONTyped,
-} from './SchoolGameContractsResponseSchool';
+    CompensationComparisonResolvedScopeSchoolsInnerFromJSON,
+    CompensationComparisonResolvedScopeSchoolsInnerFromJSONTyped,
+    CompensationComparisonResolvedScopeSchoolsInnerToJSON,
+    CompensationComparisonResolvedScopeSchoolsInnerToJSONTyped,
+} from './CompensationComparisonResolvedScopeSchoolsInner';
 import type { SchoolSportSection } from './SchoolSportSection';
 import {
     SchoolSportSectionFromJSON,
@@ -36,10 +36,10 @@ import {
 export interface SchoolGameContractsResponse {
     /**
      * 
-     * @type {SchoolGameContractsResponseSchool}
+     * @type {CompensationComparisonResolvedScopeSchoolsInner}
      * @memberof SchoolGameContractsResponse
      */
-    school?: SchoolGameContractsResponseSchool;
+    school?: CompensationComparisonResolvedScopeSchoolsInner;
     /**
      * 
      * @type {Array<SchoolSportSection>}
@@ -65,7 +65,7 @@ export function SchoolGameContractsResponseFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'school': json['school'] == null ? undefined : SchoolGameContractsResponseSchoolFromJSON(json['school']),
+        'school': json['school'] == null ? undefined : CompensationComparisonResolvedScopeSchoolsInnerFromJSON(json['school']),
         'sports': json['sports'] == null ? undefined : ((json['sports'] as Array<any>).map(SchoolSportSectionFromJSON)),
     };
 }
@@ -81,7 +81,7 @@ export function SchoolGameContractsResponseToJSONTyped(value?: SchoolGameContrac
 
     return {
         
-        'school': SchoolGameContractsResponseSchoolToJSON(value['school']),
+        'school': CompensationComparisonResolvedScopeSchoolsInnerToJSON(value['school']),
         'sports': value['sports'] == null ? undefined : ((value['sports'] as Array<any>).map(SchoolSportSectionToJSON)),
     };
 }

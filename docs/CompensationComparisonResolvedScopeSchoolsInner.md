@@ -1,24 +1,26 @@
 
-# SchoolGameContractsResponse
+# CompensationComparisonResolvedScopeSchoolsInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`school` | [CompensationComparisonResolvedScopeSchoolsInner](CompensationComparisonResolvedScopeSchoolsInner.md)
-`sports` | [Array&lt;SchoolSportSection&gt;](SchoolSportSection.md)
+`id` | number
+`name` | string
+`shortName` | string
 
 ## Example
 
 ```typescript
-import type { SchoolGameContractsResponse } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CompensationComparisonResolvedScopeSchoolsInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "school": null,
-  "sports": null,
-} satisfies SchoolGameContractsResponse
+  "id": null,
+  "name": null,
+  "shortName": null,
+} satisfies CompensationComparisonResolvedScopeSchoolsInner
 
 console.log(example)
 
@@ -27,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as SchoolGameContractsResponse
+const exampleParsed = JSON.parse(exampleJSON) as CompensationComparisonResolvedScopeSchoolsInner
 console.log(exampleParsed)
 ```
 

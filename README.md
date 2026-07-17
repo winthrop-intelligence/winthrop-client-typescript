@@ -150,6 +150,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getCoachSearches**](docs/DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches | 
 *DefaultApi* | [**getCoaches**](docs/DefaultApi.md#getcoaches) | **GET** /api/v1/coaches | 
 *DefaultApi* | [**getCompensation**](docs/DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} | 
+*DefaultApi* | [**getCompensationComparisons**](docs/DefaultApi.md#getcompensationcomparisons) | **GET** /api/v1/compensation_comparisons | 
 *DefaultApi* | [**getCompensations**](docs/DefaultApi.md#getcompensations) | **GET** /api/v1/compensations | 
 *DefaultApi* | [**getConference**](docs/DefaultApi.md#getconference) | **GET** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**getConferenceAdminCompensation**](docs/DefaultApi.md#getconferenceadmincompensation) | **GET** /api/v1/conferences/{conferenceId}/admin_compensation | 
@@ -447,6 +448,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ComparisonSectionCoachesInner](docs/ComparisonSectionCoachesInner.md)
 - [Compensation](docs/Compensation.md)
 - [CompensationCollection](docs/CompensationCollection.md)
+- [CompensationComparisonCohortStats](docs/CompensationComparisonCohortStats.md)
+- [CompensationComparisonCompVisibility](docs/CompensationComparisonCompVisibility.md)
+- [CompensationComparisonResolvedScope](docs/CompensationComparisonResolvedScope.md)
+- [CompensationComparisonResolvedScopeConference](docs/CompensationComparisonResolvedScopeConference.md)
+- [CompensationComparisonResolvedScopeSchoolsInner](docs/CompensationComparisonResolvedScopeSchoolsInner.md)
+- [CompensationComparisonResult](docs/CompensationComparisonResult.md)
+- [CompensationComparisonRow](docs/CompensationComparisonRow.md)
 - [CompensationRow](docs/CompensationRow.md)
 - [Conference](docs/Conference.md)
 - [ConferenceAdminCompensationResponse](docs/ConferenceAdminCompensationResponse.md)
@@ -601,6 +609,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
 - [GetAccountUserActivation200Response](docs/GetAccountUserActivation200Response.md)
+- [GetCompensationComparisons400Response](docs/GetCompensationComparisons400Response.md)
 - [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)
 - [GetFavoritesCategories200ResponseInner](docs/GetFavoritesCategories200ResponseInner.md)
 - [GetFilterOptions200Response](docs/GetFilterOptions200Response.md)
@@ -726,7 +735,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SchoolFinancialGroup](docs/SchoolFinancialGroup.md)
 - [SchoolFinancialSummary](docs/SchoolFinancialSummary.md)
 - [SchoolGameContractsResponse](docs/SchoolGameContractsResponse.md)
-- [SchoolGameContractsResponseSchool](docs/SchoolGameContractsResponseSchool.md)
 - [SchoolGroupShow](docs/SchoolGroupShow.md)
 - [SchoolInfo](docs/SchoolInfo.md)
 - [SchoolNoComp](docs/SchoolNoComp.md)
