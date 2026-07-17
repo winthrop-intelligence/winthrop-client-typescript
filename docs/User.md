@@ -43,6 +43,8 @@ Name | Type
 `coliIndex` | number
 `subscriptionType` | string
 `scheduleSports` | [Array&lt;UserScheduleSportsInner&gt;](UserScheduleSportsInner.md)
+`schoolName` | string
+`schoolLogoUrl` | string
 `schoolCity` | string
 `schoolState` | string
 `otpRequired` | boolean
@@ -98,6 +100,8 @@ const example = {
   "coliIndex": null,
   "subscriptionType": null,
   "scheduleSports": null,
+  "schoolName": null,
+  "schoolLogoUrl": null,
   "schoolCity": null,
   "schoolState": null,
   "otpRequired": null,
