@@ -12,8 +12,8 @@ Name | Type
 `schoolId` | number
 `positionSport` | string
 `record` | string
-`rpi` | number
-`netRank` | number
+`rpi` | string
+`netRank` | string
 `apRank` | string
 `aprAsr` | string
 `coachApr` | number
