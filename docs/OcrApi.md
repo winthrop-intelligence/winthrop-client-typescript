@@ -4,10 +4,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createJobOcrV1JobsPost**](OcrApi.md#createjobocrv1jobspost) | **POST** /ocr/ocr/v1/jobs | Submit an OCR job for a Google Drive file |
-| [**jobResultOcrV1JobsJobIdResultGet**](OcrApi.md#jobresultocrv1jobsjobidresultget) | **GET** /ocr/ocr/v1/jobs/{job_id}/result | Fetch the full result |
-| [**jobStatusBatchOcrV1JobsGet**](OcrApi.md#jobstatusbatchocrv1jobsget) | **GET** /ocr/ocr/v1/jobs | Poll many jobs in one request |
-| [**jobStatusOcrV1JobsJobIdGet**](OcrApi.md#jobstatusocrv1jobsjobidget) | **GET** /ocr/ocr/v1/jobs/{job_id} | Poll one job |
+| [**createJobOcrV1JobsPost**](OcrApi.md#createjobocrv1jobspost) | **POST** /ocr/v1/jobs | Submit an OCR job for a Google Drive file |
+| [**jobResultOcrV1JobsJobIdResultGet**](OcrApi.md#jobresultocrv1jobsjobidresultget) | **GET** /ocr/v1/jobs/{job_id}/result | Fetch the full result |
+| [**jobStatusBatchOcrV1JobsGet**](OcrApi.md#jobstatusbatchocrv1jobsget) | **GET** /ocr/v1/jobs | Poll many jobs in one request |
+| [**jobStatusOcrV1JobsJobIdGet**](OcrApi.md#jobstatusocrv1jobsjobidget) | **GET** /ocr/v1/jobs/{job_id} | Poll one job |
 
 
 
