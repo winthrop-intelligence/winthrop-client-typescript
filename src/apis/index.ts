@@ -2,7 +2,9 @@
 /* eslint-disable */
 export * from './DefaultApi';
 export * from './DossierApi';
+export * from './HealthApi';
 export * from './IntercollegiateApi';
 export * from './MlAthleticApi';
+export * from './OcrApi';
 export * from './ReportingApi';
 export * from './ScraperApi';

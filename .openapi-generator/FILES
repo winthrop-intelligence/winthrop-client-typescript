@@ -91,6 +91,13 @@ docs/ComparisonSection.md
 docs/ComparisonSectionCoachesInner.md
 docs/Compensation.md
 docs/CompensationCollection.md
+docs/CompensationComparisonCohortStats.md
+docs/CompensationComparisonCompVisibility.md
+docs/CompensationComparisonResolvedScope.md
+docs/CompensationComparisonResolvedScopeConference.md
+docs/CompensationComparisonResolvedScopeSchoolsInner.md
+docs/CompensationComparisonResult.md
+docs/CompensationComparisonRow.md
 docs/CompensationRow.md
 docs/Conference.md
 docs/ConferenceAdminCompensationResponse.md
@@ -126,6 +133,7 @@ docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
 docs/CreateGameRequest.md
 docs/CreateGameRequestGame.md
+docs/CreateJobJson.md
 docs/CreateMcpEventRequest.md
 docs/CreateMcpEventRequestMcpEvent.md
 docs/CreateNoteRequest.md
@@ -247,6 +255,7 @@ docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
+docs/GetCompensationComparisons400Response.md
 docs/GetFavorites200ResponseInner.md
 docs/GetFavoritesCategories200ResponseInner.md
 docs/GetFilterOptions200Response.md
@@ -266,6 +275,7 @@ docs/GuaranteeEconomics.md
 docs/GuaranteeEconomicsError.md
 docs/GuaranteeEconomicsSide.md
 docs/HTTPValidationError.md
+docs/HealthApi.md
 docs/HealthCheckFailure.md
 docs/HealthCheckSuccess.md
 docs/IdName.md
@@ -276,9 +286,11 @@ docs/InvoiceReportAccount.md
 docs/InvoiceReportResult.md
 docs/InvoiceReportRow.md
 docs/Job.md
+docs/JobAccepted.md
 docs/JobCandidate.md
 docs/JobCollection.md
 docs/JobDepartment.md
+docs/JobOptions.md
 docs/JobPost.md
 docs/JobPostCollection.md
 docs/JobPostInterestLead.md
@@ -293,8 +305,13 @@ docs/JobPostSalaryBenchmarkSample.md
 docs/JobPostSalaryBenchmarkScope.md
 docs/JobPostSalaryBenchmarkScopeDateWindow.md
 docs/JobPostSalarySummary.md
+docs/JobProgress.md
+docs/JobResult.md
 docs/JobSchool.md
+docs/JobSource.md
 docs/JobSport.md
+docs/JobStatus.md
+docs/JobStatusBatch.md
 docs/Link.md
 docs/LinkCollection.md
 docs/LinkCollection1.md
@@ -310,6 +327,8 @@ docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
+docs/OcrApi.md
+docs/PageResult.md
 docs/PageView.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
@@ -375,7 +394,6 @@ docs/SchoolFinancialDetailSport.md
 docs/SchoolFinancialGroup.md
 docs/SchoolFinancialSummary.md
 docs/SchoolGameContractsResponse.md
-docs/SchoolGameContractsResponseSchool.md
 docs/SchoolGroupShow.md
 docs/SchoolInfo.md
 docs/SchoolNoComp.md
@@ -487,8 +505,10 @@ docs/WireChangeSchool.md
 package.json
 src/apis/DefaultApi.ts
 src/apis/DossierApi.ts
+src/apis/HealthApi.ts
 src/apis/IntercollegiateApi.ts
 src/apis/MlAthleticApi.ts
+src/apis/OcrApi.ts
 src/apis/ReportingApi.ts
 src/apis/ScraperApi.ts
 src/apis/index.ts
@@ -583,6 +603,13 @@ src/models/ComparisonSection.ts
 src/models/ComparisonSectionCoachesInner.ts
 src/models/Compensation.ts
 src/models/CompensationCollection.ts
+src/models/CompensationComparisonCohortStats.ts
+src/models/CompensationComparisonCompVisibility.ts
+src/models/CompensationComparisonResolvedScope.ts
+src/models/CompensationComparisonResolvedScopeConference.ts
+src/models/CompensationComparisonResolvedScopeSchoolsInner.ts
+src/models/CompensationComparisonResult.ts
+src/models/CompensationComparisonRow.ts
 src/models/CompensationRow.ts
 src/models/Conference.ts
 src/models/ConferenceAdminCompensationResponse.ts
@@ -618,6 +645,7 @@ src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/CreateGameRequest.ts
 src/models/CreateGameRequestGame.ts
+src/models/CreateJobJson.ts
 src/models/CreateMcpEventRequest.ts
 src/models/CreateMcpEventRequestMcpEvent.ts
 src/models/CreateNoteRequest.ts
@@ -737,6 +765,7 @@ src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetAccountUserActivation200Response.ts
+src/models/GetCompensationComparisons400Response.ts
 src/models/GetFavorites200ResponseInner.ts
 src/models/GetFavoritesCategories200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts
@@ -765,9 +794,11 @@ src/models/InvoiceReportAccount.ts
 src/models/InvoiceReportResult.ts
 src/models/InvoiceReportRow.ts
 src/models/Job.ts
+src/models/JobAccepted.ts
 src/models/JobCandidate.ts
 src/models/JobCollection.ts
 src/models/JobDepartment.ts
+src/models/JobOptions.ts
 src/models/JobPost.ts
 src/models/JobPostCollection.ts
 src/models/JobPostInterestLead.ts
@@ -782,8 +813,13 @@ src/models/JobPostSalaryBenchmarkSample.ts
 src/models/JobPostSalaryBenchmarkScope.ts
 src/models/JobPostSalaryBenchmarkScopeDateWindow.ts
 src/models/JobPostSalarySummary.ts
+src/models/JobProgress.ts
+src/models/JobResult.ts
 src/models/JobSchool.ts
+src/models/JobSource.ts
 src/models/JobSport.ts
+src/models/JobStatus.ts
+src/models/JobStatusBatch.ts
 src/models/Link.ts
 src/models/LinkCollection.ts
 src/models/LinkCollection1.ts
@@ -798,6 +834,7 @@ src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
+src/models/PageResult.ts
 src/models/PageView.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
@@ -862,7 +899,6 @@ src/models/SchoolFinancialDetailSport.ts
 src/models/SchoolFinancialGroup.ts
 src/models/SchoolFinancialSummary.ts
 src/models/SchoolGameContractsResponse.ts
-src/models/SchoolGameContractsResponseSchool.ts
 src/models/SchoolGroupShow.ts
 src/models/SchoolInfo.ts
 src/models/SchoolNoComp.ts
