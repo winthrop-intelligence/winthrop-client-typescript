@@ -275,7 +275,6 @@ docs/GuaranteeEconomics.md
 docs/GuaranteeEconomicsError.md
 docs/GuaranteeEconomicsSide.md
 docs/HTTPValidationError.md
-docs/HealthApi.md
 docs/HealthCheckFailure.md
 docs/HealthCheckSuccess.md
 docs/IdName.md
@@ -505,7 +504,6 @@ docs/WireChangeSchool.md
 package.json
 src/apis/DefaultApi.ts
 src/apis/DossierApi.ts
-src/apis/HealthApi.ts
 src/apis/IntercollegiateApi.ts
 src/apis/MlAthleticApi.ts
 src/apis/OcrApi.ts

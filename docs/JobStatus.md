@@ -13,6 +13,7 @@ Name | Type
 `progress` | [JobProgress](JobProgress.md)
 `createdAt` | string
 `completedAt` | string
+`uploadedFileId` | string
 `error` | string
 
 ## Example
@@ -29,6 +30,7 @@ const example = {
   "progress": null,
   "createdAt": null,
   "completedAt": null,
+  "uploadedFileId": null,
   "error": null,
 } satisfies JobStatus
 
