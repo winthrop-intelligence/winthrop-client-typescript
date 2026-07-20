@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `scheduleProfileEligible` | boolean
+`logoUrl` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "id": null,
   "name": null,
   "scheduleProfileEligible": null,
+  "logoUrl": null,
 } satisfies SchedulingContactSchool
 
 console.log(example)
