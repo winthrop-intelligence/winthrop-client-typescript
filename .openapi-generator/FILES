@@ -32,6 +32,7 @@ docs/AuditedFinancialReportStatusCollection.md
 docs/AvailableGameContract.md
 docs/Avatar.md
 docs/AverageCompensation.md
+docs/BatchGuaranteeEconomicsRequest.md
 docs/BulkCreateGamePostSearchesRequest.md
 docs/BulkCreateGamePostSearchesRequestIntentsInner.md
 docs/BulkCreateGamePostSearchesRequestPostsInner.md
@@ -272,6 +273,8 @@ docs/GuaranteeBenchmarkStats.md
 docs/GuaranteeBenchmarkTable.md
 docs/GuaranteeBenchmarkTier.md
 docs/GuaranteeEconomics.md
+docs/GuaranteeEconomicsBatch.md
+docs/GuaranteeEconomicsBatchPair.md
 docs/GuaranteeEconomicsError.md
 docs/GuaranteeEconomicsSide.md
 docs/HTTPValidationError.md
@@ -542,6 +545,7 @@ src/models/AuditedFinancialReportStatusCollection.ts
 src/models/AvailableGameContract.ts
 src/models/Avatar.ts
 src/models/AverageCompensation.ts
+src/models/BatchGuaranteeEconomicsRequest.ts
 src/models/BulkCreateGamePostSearchesRequest.ts
 src/models/BulkCreateGamePostSearchesRequestIntentsInner.ts
 src/models/BulkCreateGamePostSearchesRequestPostsInner.ts
@@ -780,6 +784,8 @@ src/models/GuaranteeBenchmarkStats.ts
 src/models/GuaranteeBenchmarkTable.ts
 src/models/GuaranteeBenchmarkTier.ts
 src/models/GuaranteeEconomics.ts
+src/models/GuaranteeEconomicsBatch.ts
+src/models/GuaranteeEconomicsBatchPair.ts
 src/models/GuaranteeEconomicsError.ts
 src/models/GuaranteeEconomicsSide.ts
 src/models/HTTPValidationError.ts
