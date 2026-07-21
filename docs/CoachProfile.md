@@ -30,6 +30,8 @@ Name | Type
 `currentSportName` | string
 `currentPositionTitle` | string
 `currentPositionTypes` | Array&lt;string&gt;
+`headerPositionSeasonYearStr` | string
+`headerPositionHistorical` | boolean
 `avatarUrl` | string
 `canSeeCompensation` | boolean
 `canSeeVideos` | boolean
@@ -68,6 +70,8 @@ const example = {
   "currentSportName": null,
   "currentPositionTitle": null,
   "currentPositionTypes": null,
+  "headerPositionSeasonYearStr": null,
+  "headerPositionHistorical": null,
   "avatarUrl": null,
   "canSeeCompensation": null,
   "canSeeVideos": null,
