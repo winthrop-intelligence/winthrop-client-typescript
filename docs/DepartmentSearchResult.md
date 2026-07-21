@@ -15,6 +15,7 @@ Name | Type
 `conferenceId` | number
 `divisionName` | string
 `divisionId` | number
+`subdivisionName` | string
 `usnwrRanking` | number
 `directorsCupRanking` | number
 `isPrivate` | boolean
@@ -39,6 +40,7 @@ const example = {
   "conferenceId": null,
   "divisionName": null,
   "divisionId": null,
+  "subdivisionName": null,
   "usnwrRanking": null,
   "directorsCupRanking": null,
   "isPrivate": null,
