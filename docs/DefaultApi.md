@@ -8,6 +8,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageDivisionComp**](DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp |  |
 | [**averageSchoolComp**](DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp |  |
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
+| [**batchGuaranteeEconomics**](DefaultApi.md#batchguaranteeeconomicsoperation) | **POST** /api/v1/guarantee_economics/batch |  |
 | [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
 | [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
@@ -603,6 +604,80 @@ example().catch(console.error);
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## batchGuaranteeEconomics
+
+> GuaranteeEconomicsBatch batchGuaranteeEconomics(batchGuaranteeEconomicsRequest)
+
+
+
+Batch companion to GET /guarantee_economics (WINAD-10147). Returns the same per-school host/travel median guarantee economics — with the identical gad_filters deep-link target — for a page of [school_id, sport_id] pairs in one request, so list surfaces (Find Opponent sheet, schedule grid, Games Wanted feed) stop firing one singular request per row. POST (not GET) because a full sheet\&#39;s ~364 pairs are sent as a JSON body. Permission- critical: callers without guarantee aggregate access get every pair\&#39;s host/travel as null, indistinguishable from schools with no qualifying games.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BatchGuaranteeEconomicsOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BatchGuaranteeEconomicsRequest
+    batchGuaranteeEconomicsRequest: ...,
+  } satisfies BatchGuaranteeEconomicsOperationRequest;
+
+  try {
+    const data = await api.batchGuaranteeEconomics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **batchGuaranteeEconomicsRequest** | [BatchGuaranteeEconomicsRequest](BatchGuaranteeEconomicsRequest.md) |  | |
+
+### Return type
+
+[**GuaranteeEconomicsBatch**](GuaranteeEconomicsBatch.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Host/travel medians + deep-link filters per requested pair, plus the shared season window. |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
