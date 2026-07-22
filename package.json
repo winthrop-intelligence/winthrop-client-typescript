@@ -1,6 +1,6 @@
 {
   "name": "@winthrop-intelligence/winthrop-client-typescript",
-  "version": "1.53.46",
+  "version": "0.0.0-dev.29901950789",
   "description": "OpenAPI client for @winthrop-intelligence/winthrop-client-typescript",
   "author": "OpenAPI-Generator",
   "repository": {

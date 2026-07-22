@@ -8869,7 +8869,7 @@ example().catch(console.error);
 
 ## getDepartmentSearches
 
-> DepartmentSearchResultCollection getDepartmentSearches(page, year, q)
+> DepartmentSearchResultCollection getDepartmentSearches(page, q)
 
 
 
@@ -8897,8 +8897,6 @@ async function example() {
   const body = {
     // number | results page to retrieve. (optional)
     page: 56,
-    // number | Financial report season year to use for department financials and season-scoped staff data (optional)
-    year: 56,
     // object | Ransack query (optional)
     q: Object,
   } satisfies GetDepartmentSearchesRequest;
@@ -8921,7 +8919,6 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **year** | `number` | Financial report season year to use for department financials and season-scoped staff data | [Optional] [Defaults to `undefined`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
