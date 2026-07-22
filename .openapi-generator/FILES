@@ -134,6 +134,7 @@ docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
 docs/CreateGameRequest.md
 docs/CreateGameRequestGame.md
+docs/CreateJobJson.md
 docs/CreateMcpEventRequest.md
 docs/CreateMcpEventRequestMcpEvent.md
 docs/CreateNoteRequest.md
@@ -287,9 +288,11 @@ docs/InvoiceReportAccount.md
 docs/InvoiceReportResult.md
 docs/InvoiceReportRow.md
 docs/Job.md
+docs/JobAccepted.md
 docs/JobCandidate.md
 docs/JobCollection.md
 docs/JobDepartment.md
+docs/JobOptions.md
 docs/JobPost.md
 docs/JobPostCollection.md
 docs/JobPostInterestLead.md
@@ -304,8 +307,13 @@ docs/JobPostSalaryBenchmarkSample.md
 docs/JobPostSalaryBenchmarkScope.md
 docs/JobPostSalaryBenchmarkScopeDateWindow.md
 docs/JobPostSalarySummary.md
+docs/JobProgress.md
+docs/JobResult.md
 docs/JobSchool.md
+docs/JobSource.md
 docs/JobSport.md
+docs/JobStatus.md
+docs/JobStatusBatch.md
 docs/Link.md
 docs/LinkCollection.md
 docs/LinkCollection1.md
@@ -321,6 +329,8 @@ docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
+docs/OcrApi.md
+docs/PageResult.md
 docs/PageView.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
@@ -499,6 +509,7 @@ src/apis/DefaultApi.ts
 src/apis/DossierApi.ts
 src/apis/IntercollegiateApi.ts
 src/apis/MlAthleticApi.ts
+src/apis/OcrApi.ts
 src/apis/ReportingApi.ts
 src/apis/ScraperApi.ts
 src/apis/index.ts
@@ -636,6 +647,7 @@ src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/CreateGameRequest.ts
 src/models/CreateGameRequestGame.ts
+src/models/CreateJobJson.ts
 src/models/CreateMcpEventRequest.ts
 src/models/CreateMcpEventRequestMcpEvent.ts
 src/models/CreateNoteRequest.ts
@@ -786,9 +798,11 @@ src/models/InvoiceReportAccount.ts
 src/models/InvoiceReportResult.ts
 src/models/InvoiceReportRow.ts
 src/models/Job.ts
+src/models/JobAccepted.ts
 src/models/JobCandidate.ts
 src/models/JobCollection.ts
 src/models/JobDepartment.ts
+src/models/JobOptions.ts
 src/models/JobPost.ts
 src/models/JobPostCollection.ts
 src/models/JobPostInterestLead.ts
@@ -803,8 +817,13 @@ src/models/JobPostSalaryBenchmarkSample.ts
 src/models/JobPostSalaryBenchmarkScope.ts
 src/models/JobPostSalaryBenchmarkScopeDateWindow.ts
 src/models/JobPostSalarySummary.ts
+src/models/JobProgress.ts
+src/models/JobResult.ts
 src/models/JobSchool.ts
+src/models/JobSource.ts
 src/models/JobSport.ts
+src/models/JobStatus.ts
+src/models/JobStatusBatch.ts
 src/models/Link.ts
 src/models/LinkCollection.ts
 src/models/LinkCollection1.ts
@@ -819,6 +838,7 @@ src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
+src/models/PageResult.ts
 src/models/PageView.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
