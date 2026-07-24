@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.53.49
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.30092524332
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -81,6 +81,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createFavoritesCategory**](docs/DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories | 
 *DefaultApi* | [**createFoiaLabel**](docs/DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels | 
 *DefaultApi* | [**createFoiaRequest**](docs/DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests | 
+*DefaultApi* | [**createFrsExport**](docs/DefaultApi.md#createfrsexportoperation) | **POST** /api/v1/frs_exports | 
 *DefaultApi* | [**createGame**](docs/DefaultApi.md#creategameoperation) | **POST** /api/v1/games | 
 *DefaultApi* | [**createGamePost**](docs/DefaultApi.md#creategamepost) | **POST** /api/v1/game_posts | 
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
@@ -196,6 +197,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getFoiaLabels**](docs/DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels | 
 *DefaultApi* | [**getFoiaRequest**](docs/DefaultApi.md#getfoiarequest) | **GET** /api/v1/foia_requests/{foiaRequestId} | 
 *DefaultApi* | [**getFoiaRequests**](docs/DefaultApi.md#getfoiarequests) | **GET** /api/v1/foia_requests | 
+*DefaultApi* | [**getFrsExportSchoolSearch**](docs/DefaultApi.md#getfrsexportschoolsearch) | **GET** /api/v1/frs_exports/school_search | 
+*DefaultApi* | [**getFrsExports**](docs/DefaultApi.md#getfrsexports) | **GET** /api/v1/frs_exports | 
 *DefaultApi* | [**getGadSearchDetail**](docs/DefaultApi.md#getgadsearchdetail) | **GET** /api/v1/gad_searches/{id}/detail | 
 *DefaultApi* | [**getGadSearches**](docs/DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches | 
 *DefaultApi* | [**getGame**](docs/DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} | 
@@ -292,6 +295,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
+*DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
+*DefaultApi* | [**retryFrsExport**](docs/DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry | 
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
 *DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
@@ -492,6 +497,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
+- [CreateFrsExport422Response](docs/CreateFrsExport422Response.md)
+- [CreateFrsExportRequest](docs/CreateFrsExportRequest.md)
 - [CreateGamePostSearchRequest](docs/CreateGamePostSearchRequest.md)
 - [CreateGamePostSearchRequestGamePost](docs/CreateGamePostSearchRequestGamePost.md)
 - [CreateGameRequest](docs/CreateGameRequest.md)
@@ -565,6 +572,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [FoiaRequestedItemStatusTransitionRow](docs/FoiaRequestedItemStatusTransitionRow.md)
 - [FoiaRequestedItemStatusTransitionsMeta](docs/FoiaRequestedItemStatusTransitionsMeta.md)
 - [FoiaRequestedItemStatusTransitionsResponse](docs/FoiaRequestedItemStatusTransitionsResponse.md)
+- [FrsExport](docs/FrsExport.md)
+- [FrsExportConfig](docs/FrsExportConfig.md)
+- [FrsExportsResponse](docs/FrsExportsResponse.md)
+- [FrsResolveRequest](docs/FrsResolveRequest.md)
+- [FrsResolvedPopulation](docs/FrsResolvedPopulation.md)
+- [FrsResolvedSchool](docs/FrsResolvedSchool.md)
+- [FrsSchoolSearchResponse](docs/FrsSchoolSearchResponse.md)
 - [GadCohortError](docs/GadCohortError.md)
 - [GadCohortSummary](docs/GadCohortSummary.md)
 - [GadCohortSummaryBuyerFilters](docs/GadCohortSummaryBuyerFilters.md)
@@ -722,6 +736,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RequestedItemReviewContextDocument](docs/RequestedItemReviewContextDocument.md)
 - [RequestedItemReviewContextFoiaRequest](docs/RequestedItemReviewContextFoiaRequest.md)
 - [RequestedItemReviewContextRequestedItem](docs/RequestedItemReviewContextRequestedItem.md)
+- [RetryFrsExport422Response](docs/RetryFrsExport422Response.md)
 - [RoleOption](docs/RoleOption.md)
 - [RunningJob](docs/RunningJob.md)
 - [ScheduleGridAvailableSchoolPost](docs/ScheduleGridAvailableSchoolPost.md)
@@ -763,7 +778,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScraperArgDef](docs/ScraperArgDef.md)
 - [Season](docs/Season.md)
 - [SeasonCollection](docs/SeasonCollection.md)
-- [SendOtpCode422Response](docs/SendOtpCode422Response.md)
 - [SnapshotIncomeReport](docs/SnapshotIncomeReport.md)
 - [Sport](docs/Sport.md)
 - [SportCollection](docs/SportCollection.md)
@@ -886,8 +900,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.53.49`
-- Package version: `1.53.49`
+- API version: `0.0.0-dev.30092524332`
+- Package version: `0.0.0-dev.30092524332`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
