@@ -130,6 +130,8 @@ docs/CreateContactSearchRequestContact.md
 docs/CreateFavorite201Response.md
 docs/CreateFavoriteRequest.md
 docs/CreateFavoritesCategoryRequest.md
+docs/CreateFrsExport422Response.md
+docs/CreateFrsExportRequest.md
 docs/CreateGamePostSearchRequest.md
 docs/CreateGamePostSearchRequestGamePost.md
 docs/CreateGameRequest.md
@@ -205,6 +207,13 @@ docs/FoiaRequestedItemStatusBreakdownRow.md
 docs/FoiaRequestedItemStatusTransitionRow.md
 docs/FoiaRequestedItemStatusTransitionsMeta.md
 docs/FoiaRequestedItemStatusTransitionsResponse.md
+docs/FrsExport.md
+docs/FrsExportConfig.md
+docs/FrsExportsResponse.md
+docs/FrsResolveRequest.md
+docs/FrsResolvedPopulation.md
+docs/FrsResolvedSchool.md
+docs/FrsSchoolSearchResponse.md
 docs/GadCohortError.md
 docs/GadCohortSummary.md
 docs/GadCohortSummaryBuyerFilters.md
@@ -366,6 +375,7 @@ docs/RequestedItemReviewContext.md
 docs/RequestedItemReviewContextDocument.md
 docs/RequestedItemReviewContextFoiaRequest.md
 docs/RequestedItemReviewContextRequestedItem.md
+docs/RetryFrsExport422Response.md
 docs/RoleOption.md
 docs/RunningJob.md
 docs/ScheduleGridAvailableSchoolPost.md
@@ -408,7 +418,6 @@ docs/ScraperApi.md
 docs/ScraperArgDef.md
 docs/Season.md
 docs/SeasonCollection.md
-docs/SendOtpCode422Response.md
 docs/SnapshotIncomeReport.md
 docs/Sport.md
 docs/SportCollection.md
@@ -643,6 +652,8 @@ src/models/CreateContactSearchRequestContact.ts
 src/models/CreateFavorite201Response.ts
 src/models/CreateFavoriteRequest.ts
 src/models/CreateFavoritesCategoryRequest.ts
+src/models/CreateFrsExport422Response.ts
+src/models/CreateFrsExportRequest.ts
 src/models/CreateGamePostSearchRequest.ts
 src/models/CreateGamePostSearchRequestGamePost.ts
 src/models/CreateGameRequest.ts
@@ -716,6 +727,13 @@ src/models/FoiaRequestedItemStatusBreakdownRow.ts
 src/models/FoiaRequestedItemStatusTransitionRow.ts
 src/models/FoiaRequestedItemStatusTransitionsMeta.ts
 src/models/FoiaRequestedItemStatusTransitionsResponse.ts
+src/models/FrsExport.ts
+src/models/FrsExportConfig.ts
+src/models/FrsExportsResponse.ts
+src/models/FrsResolveRequest.ts
+src/models/FrsResolvedPopulation.ts
+src/models/FrsResolvedSchool.ts
+src/models/FrsSchoolSearchResponse.ts
 src/models/GadCohortError.ts
 src/models/GadCohortSummary.ts
 src/models/GadCohortSummaryBuyerFilters.ts
@@ -873,6 +891,7 @@ src/models/RequestedItemReviewContext.ts
 src/models/RequestedItemReviewContextDocument.ts
 src/models/RequestedItemReviewContextFoiaRequest.ts
 src/models/RequestedItemReviewContextRequestedItem.ts
+src/models/RetryFrsExport422Response.ts
 src/models/RoleOption.ts
 src/models/RunningJob.ts
 src/models/ScheduleGridAvailableSchoolPost.ts
@@ -914,7 +933,6 @@ src/models/Scraper.ts
 src/models/ScraperArgDef.ts
 src/models/Season.ts
 src/models/SeasonCollection.ts
-src/models/SendOtpCode422Response.ts
 src/models/SnapshotIncomeReport.ts
 src/models/Sport.ts
 src/models/SportCollection.ts
