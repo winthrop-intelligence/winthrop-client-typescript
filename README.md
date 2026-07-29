@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.53.49
+# @winthrop-intelligence/winthrop-client-typescript@1.53.50
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -16,9 +16,9 @@ Next, try it out.
 ```ts
 import {
   Configuration,
-  DefaultApi,
+  CtbApi,
 } from '@winthrop-intelligence/winthrop-client-typescript';
-import type { AverageConferenceCompRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ApplyCtbCompensationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
 async function example() {
   console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
@@ -28,21 +28,15 @@ async function example() {
     // To configure OAuth2 access token for authorization: Oauth2 application
     accessToken: "YOUR ACCESS TOKEN",
   });
-  const api = new DefaultApi(config);
+  const api = new CtbApi(config);
 
   const body = {
-    // number | ID of the conference
-    conferenceId: 56,
-    // Array<number> | Season years
-    seasonYears: ...,
-    // Array<number> | IDs of the sports
-    sportIds: ...,
-    // Array<number> | IDs of the position types
-    positionTypeIds: ...,
-  } satisfies AverageConferenceCompRequest;
+    // CtbCompensationApplyRequest
+    ctbCompensationApplyRequest: ...,
+  } satisfies ApplyCtbCompensationRequest;
 
   try {
-    const data = await api.averageConferenceComp(body);
+    const data = await api.applyCtbCompensation(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -62,6 +56,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 | Class | Method | HTTP request | Description
 | ----- | ------ | ------------ | -------------
+*CtbApi* | [**applyCtbCompensation**](docs/CtbApi.md#applyctbcompensation) | **POST** /api/v1/ctb_compensation_apply | 
 *DefaultApi* | [**averageConferenceComp**](docs/DefaultApi.md#averageconferencecomp) | **GET** /api/v1/compensations/average_conference_comp | 
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
 *DefaultApi* | [**averageSchoolComp**](docs/DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp | 
@@ -328,6 +323,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**viewRawContractFile**](docs/DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file | 
 *DefaultApi* | [**viewSubscriptionAcceptanceContract**](docs/DefaultApi.md#viewsubscriptionacceptancecontract) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract | 
 *DossierApi* | [**universityDossierReportDossierWinadIdGet**](docs/DossierApi.md#universitydossierreportdossierwinadidget) | **GET** /dossier/{winad_id}/ | University Dossier Report
+*FoiaInboxApi* | [**applyFoiaInbox**](docs/FoiaInboxApi.md#applyfoiainbox) | **POST** /api/v1/foia_inbox_apply | 
+*FoiaInboxApi* | [**getFoiaInboxCandidates**](docs/FoiaInboxApi.md#getfoiainboxcandidates) | **GET** /api/v1/foia_inbox_candidates | 
 *IntercollegiateApi* | [**createNewsFeeds**](docs/IntercollegiateApi.md#createnewsfeeds) | **POST** /wi_jobs/news_feeds | 
 *IntercollegiateApi* | [**deleteJobPost**](docs/IntercollegiateApi.md#deletejobpost) | **DELETE** /wi_jobs/job_posts/{jobPostId} | 
 *IntercollegiateApi* | [**getJobPost**](docs/IntercollegiateApi.md#getjobpost) | **GET** /wi_jobs/job_posts/{jobPostId} | 
@@ -513,6 +510,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateTeamScheduleFavorite201Response](docs/CreateTeamScheduleFavorite201Response.md)
 - [CreateTeamScheduleFavoriteRequest](docs/CreateTeamScheduleFavoriteRequest.md)
 - [CreateUpload201Response](docs/CreateUpload201Response.md)
+- [CtbCompensationAppliedException](docs/CtbCompensationAppliedException.md)
+- [CtbCompensationApplyInput](docs/CtbCompensationApplyInput.md)
+- [CtbCompensationApplyRequest](docs/CtbCompensationApplyRequest.md)
+- [CtbCompensationApplyResponse](docs/CtbCompensationApplyResponse.md)
+- [CtbCompensationExpectedRequest](docs/CtbCompensationExpectedRequest.md)
+- [CtbGraduateAssistantCompensationApplyInput](docs/CtbGraduateAssistantCompensationApplyInput.md)
+- [CtbNotEmployedCompensationApplyInput](docs/CtbNotEmployedCompensationApplyInput.md)
+- [CtbVolunteerCompensationApplyInput](docs/CtbVolunteerCompensationApplyInput.md)
 - [Deal](docs/Deal.md)
 - [DealCollection](docs/DealCollection.md)
 - [DealDetail](docs/DealDetail.md)
@@ -552,6 +557,25 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [FoiaFollowUpReportRow](docs/FoiaFollowUpReportRow.md)
 - [FoiaFollowUpRequestableData](docs/FoiaFollowUpRequestableData.md)
 - [FoiaFollowUpRequestedItem](docs/FoiaFollowUpRequestedItem.md)
+- [FoiaInboxApplyInput](docs/FoiaInboxApplyInput.md)
+- [FoiaInboxApplyInputExpectedRequest](docs/FoiaInboxApplyInputExpectedRequest.md)
+- [FoiaInboxApplyRequest](docs/FoiaInboxApplyRequest.md)
+- [FoiaInboxApplyResponse](docs/FoiaInboxApplyResponse.md)
+- [FoiaInboxCandidate](docs/FoiaInboxCandidate.md)
+- [FoiaInboxCandidatesMeta](docs/FoiaInboxCandidatesMeta.md)
+- [FoiaInboxCandidatesResponse](docs/FoiaInboxCandidatesResponse.md)
+- [FoiaInboxCompensationException](docs/FoiaInboxCompensationException.md)
+- [FoiaInboxEffects](docs/FoiaInboxEffects.md)
+- [FoiaInboxEffectsFoiaRequest](docs/FoiaInboxEffectsFoiaRequest.md)
+- [FoiaInboxErrorsResponse](docs/FoiaInboxErrorsResponse.md)
+- [FoiaInboxExpectedCompensation](docs/FoiaInboxExpectedCompensation.md)
+- [FoiaInboxExpectedPosition](docs/FoiaInboxExpectedPosition.md)
+- [FoiaInboxExpectedRequestedItem](docs/FoiaInboxExpectedRequestedItem.md)
+- [FoiaInboxLabel](docs/FoiaInboxLabel.md)
+- [FoiaInboxNote](docs/FoiaInboxNote.md)
+- [FoiaInboxRequestableData](docs/FoiaInboxRequestableData.md)
+- [FoiaInboxRequestedItem](docs/FoiaInboxRequestedItem.md)
+- [FoiaInboxSchool](docs/FoiaInboxSchool.md)
 - [FoiaLabel](docs/FoiaLabel.md)
 - [FoiaLabelCollection](docs/FoiaLabelCollection.md)
 - [FoiaRequest](docs/FoiaRequest.md)
@@ -886,8 +910,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.53.49`
-- Package version: `1.53.49`
+- API version: `1.53.50`
+- Package version: `1.53.50`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
