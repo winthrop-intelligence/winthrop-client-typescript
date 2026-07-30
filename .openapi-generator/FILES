@@ -318,6 +318,9 @@ docs/GuaranteeEconomicsSide.md
 docs/HTTPValidationError.md
 docs/HealthCheckFailure.md
 docs/HealthCheckSuccess.md
+docs/HumanOverrideRequest.md
+docs/HumanOverrideRequestJobPost.md
+docs/HumanOverrideResult.md
 docs/IdName.md
 docs/IncomeReport.md
 docs/IncomeReportCollection.md
@@ -333,6 +336,8 @@ docs/JobDepartment.md
 docs/JobOptions.md
 docs/JobPost.md
 docs/JobPostCollection.md
+docs/JobPostDisagreement.md
+docs/JobPostDisagreementCollection.md
 docs/JobPostInterestLead.md
 docs/JobPostInterestLeadCandidate.md
 docs/JobPostInterestLeadCollection.md
@@ -867,6 +872,9 @@ src/models/GuaranteeEconomicsSide.ts
 src/models/HTTPValidationError.ts
 src/models/HealthCheckFailure.ts
 src/models/HealthCheckSuccess.ts
+src/models/HumanOverrideRequest.ts
+src/models/HumanOverrideRequestJobPost.ts
+src/models/HumanOverrideResult.ts
 src/models/IdName.ts
 src/models/IncomeReport.ts
 src/models/IncomeReportCollection.ts
@@ -881,6 +889,8 @@ src/models/JobDepartment.ts
 src/models/JobOptions.ts
 src/models/JobPost.ts
 src/models/JobPostCollection.ts
+src/models/JobPostDisagreement.ts
+src/models/JobPostDisagreementCollection.ts
 src/models/JobPostInterestLead.ts
 src/models/JobPostInterestLeadCandidate.ts
 src/models/JobPostInterestLeadCollection.ts
