@@ -27,8 +27,9 @@ Name | Type
 `homeSchoolName` | string
 `awaySchoolName` | string
 `stateName` | string
-`homeSchoolNetRanking` | number
-`awaySchoolNetRanking` | number
+`homeSchoolRanking` | number
+`awaySchoolRanking` | number
+`rankingMetric` | string
 `homeSchoolSosRanking` | number
 `awaySchoolSosRanking` | number
 `rankingsSeasonYear` | number
@@ -62,8 +63,9 @@ const example = {
   "homeSchoolName": Michigan,
   "awaySchoolName": Ohio State,
   "stateName": Michigan,
-  "homeSchoolNetRanking": 38,
-  "awaySchoolNetRanking": 31,
+  "homeSchoolRanking": 38,
+  "awaySchoolRanking": 31,
+  "rankingMetric": RPI,
   "homeSchoolSosRanking": 42,
   "awaySchoolSosRanking": 35,
   "rankingsSeasonYear": 2026,
