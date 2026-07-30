@@ -159,6 +159,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
+| [**getJobPostDisagreements**](DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved LLM/ML athletics classification disagreements |
 | [**getJobPosts**](DefaultApi.md#getjobposts) | **GET** /central_jobs/job_posts | List all job posts |
 | [**getLadFilterOptions**](DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options |  |
 | [**getNcaaFinancialReportStatus**](DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} |  |
@@ -257,6 +258,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateGameContract**](DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} |  |
 | [**updateGamePostSearch**](DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
+| [**updateJobPostHumanOverride**](DefaultApi.md#updatejobposthumanoverride) | **PATCH** /central_jobs/job_posts/{jobPostId}/human_override | Set the human_override_is_athletics value for one job post |
 | [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
 | [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
@@ -12118,6 +12120,94 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getJobPostDisagreements
+
+> JobPostDisagreementCollection getJobPostDisagreements(since, schoolId, limit, newPage, stillPendingPage)
+
+List unresolved LLM/ML athletics classification disagreements
+
+Unresolved, non-expired JobPost rows where llm_is_athletics and ml_is_athletics disagree, split into posts created within the since window (\&quot;new\&quot;) and everything else still unresolved (\&quot;still_pending\&quot;). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetJobPostDisagreementsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Duration string (e.g. \"24h\", \"7d\") bounding the \"new\" section. (optional)
+    since: since_example,
+    // number | Filter to one school\'s winad_id. (optional)
+    schoolId: 789,
+    // number | Max number of disagreement rows returned per section, per page. (optional)
+    limit: 56,
+    // number | Page number for the \"new\" section (1-indexed, Kaminari-paginated independently of still_pending_page). (optional)
+    newPage: 56,
+    // number | Page number for the \"still_pending\" section (1-indexed, Kaminari-paginated independently of new_page). (optional)
+    stillPendingPage: 56,
+  } satisfies GetJobPostDisagreementsRequest;
+
+  try {
+    const data = await api.getJobPostDisagreements(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **since** | `string` | Duration string (e.g. \&quot;24h\&quot;, \&quot;7d\&quot;) bounding the \&quot;new\&quot; section. | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` | Filter to one school\&#39;s winad_id. | [Optional] [Defaults to `undefined`] |
+| **limit** | `number` | Max number of disagreement rows returned per section, per page. | [Optional] [Defaults to `200`] |
+| **newPage** | `number` | Page number for the \&quot;new\&quot; section (1-indexed, Kaminari-paginated independently of still_pending_page). | [Optional] [Defaults to `1`] |
+| **stillPendingPage** | `number` | Page number for the \&quot;still_pending\&quot; section (1-indexed, Kaminari-paginated independently of new_page). | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**JobPostDisagreementCollection**](JobPostDisagreementCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Unresolved disagreements were found |  -  |
+| **400** | since could not be parsed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Token is missing the cj_read scope |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getJobPosts
 
 > JobPostCollection getJobPosts(page, perPage, q)
@@ -19716,6 +19806,86 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Job post was updated |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateJobPostHumanOverride
+
+> HumanOverrideResult updateJobPostHumanOverride(jobPostId, humanOverrideRequest)
+
+Set the human_override_is_athletics value for one job post
+
+Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateJobPostHumanOverrideRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of job post to override
+    jobPostId: 789,
+    // HumanOverrideRequest (optional)
+    humanOverrideRequest: ...,
+  } satisfies UpdateJobPostHumanOverrideRequest;
+
+  try {
+    const data = await api.updateJobPostHumanOverride(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobPostId** | `number` | ID of job post to override | [Defaults to `undefined`] |
+| **humanOverrideRequest** | [HumanOverrideRequest](HumanOverrideRequest.md) |  | [Optional] |
+
+### Return type
+
+[**HumanOverrideResult**](HumanOverrideResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Override applied, or skipped because it was already resolved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Token is missing the cj_write scope |  -  |
+| **404** | Job post not found |  -  |
+| **422** | The override could not be saved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
