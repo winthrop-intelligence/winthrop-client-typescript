@@ -1423,7 +1423,6 @@ export interface DefaultApiGetScheduleGridAvailableSchoolsRequest {
     dealTypes?: Array<string>;
     qualityTier?: string;
     rankingTier?: string;
-    netRankingTier?: string;
     torvikRankingTier?: string;
     maxDistanceMiles?: number;
     userSchoolId?: number;
@@ -10186,10 +10185,6 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters['rankingTier'] != null) {
             queryParameters['ranking_tier'] = requestParameters['rankingTier'];
-        }
-
-        if (requestParameters['netRankingTier'] != null) {
-            queryParameters['net_ranking_tier'] = requestParameters['netRankingTier'];
         }
 
         if (requestParameters['torvikRankingTier'] != null) {
