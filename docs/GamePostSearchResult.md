@@ -27,6 +27,7 @@ Name | Type
 `createdBySchedulingPhone` | string
 `createdBySchedulingPhoneDial` | string
 `avgNetRank` | number
+`avgRpi` | number
 `schoolLogoUrl` | string
 `posts` | [Array&lt;GamePostSearchResultPostsInner&gt;](GamePostSearchResultPostsInner.md)
 `games` | [Array&lt;GamePostSearchResultGamesInner&gt;](GamePostSearchResultGamesInner.md)
@@ -63,6 +64,7 @@ const example = {
   "createdBySchedulingPhone": null,
   "createdBySchedulingPhoneDial": null,
   "avgNetRank": null,
+  "avgRpi": null,
   "schoolLogoUrl": null,
   "posts": null,
   "games": null,

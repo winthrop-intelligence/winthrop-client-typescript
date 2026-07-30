@@ -184,11 +184,17 @@ export interface GamePostSearchResult {
      */
     createdBySchedulingPhoneDial?: string | null;
     /**
-     * 5-year average NET ranking
+     * 3-season average NET ranking (basketball's ranking window)
      * @type {number}
      * @memberof GamePostSearchResult
      */
     avgNetRank?: number | null;
+    /**
+     * 5-season average RPI ranking — the value non-basketball feed cards display and the ranking filter compares against, so the card matches the filter that surfaced it. `last_rpi` remains for surfaces that show the latest value.
+     * @type {number}
+     * @memberof GamePostSearchResult
+     */
+    avgRpi?: number | null;
     /**
      * URL to school logo image (small variant)
      * @type {string}
@@ -276,6 +282,7 @@ export function GamePostSearchResultFromJSONTyped(json: any, ignoreDiscriminator
         'createdBySchedulingPhone': json['created_by_scheduling_phone'] == null ? undefined : json['created_by_scheduling_phone'],
         'createdBySchedulingPhoneDial': json['created_by_scheduling_phone_dial'] == null ? undefined : json['created_by_scheduling_phone_dial'],
         'avgNetRank': json['avg_net_rank'] == null ? undefined : json['avg_net_rank'],
+        'avgRpi': json['avg_rpi'] == null ? undefined : json['avg_rpi'],
         'schoolLogoUrl': json['school_logo_url'] == null ? undefined : json['school_logo_url'],
         'posts': json['posts'] == null ? undefined : ((json['posts'] as Array<any>).map(GamePostSearchResultPostsInnerFromJSON)),
         'games': json['games'] == null ? undefined : ((json['games'] as Array<any>).map(GamePostSearchResultGamesInnerFromJSON)),
@@ -318,6 +325,7 @@ export function GamePostSearchResultToJSONTyped(value?: GamePostSearchResult | n
         'created_by_scheduling_phone': value['createdBySchedulingPhone'],
         'created_by_scheduling_phone_dial': value['createdBySchedulingPhoneDial'],
         'avg_net_rank': value['avgNetRank'],
+        'avg_rpi': value['avgRpi'],
         'school_logo_url': value['schoolLogoUrl'],
         'posts': value['posts'] == null ? undefined : ((value['posts'] as Array<any>).map(GamePostSearchResultPostsInnerToJSON)),
         'games': value['games'] == null ? undefined : ((value['games'] as Array<any>).map(GamePostSearchResultGamesInnerToJSON)),
