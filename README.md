@@ -739,6 +739,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Meta](docs/Meta.md)
 - [NcaaFinancialReportStatus](docs/NcaaFinancialReportStatus.md)
 - [NcaaFinancialReportStatusCollection](docs/NcaaFinancialReportStatusCollection.md)
+- [NcaaFinancialReportItemGroup](docs/NcaaFinancialReportItemGroup.md)
+- [NcaaFinancialReportItemValue](docs/NcaaFinancialReportItemValue.md)
 - [NewAccountUserResponse](docs/NewAccountUserResponse.md)
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)

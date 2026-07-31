@@ -371,6 +371,8 @@ export * from './McpEvent';
 export * from './Meta';
 export * from './NcaaFinancialReportStatus';
 export * from './NcaaFinancialReportStatusCollection';
+export * from './NcaaFinancialReportItemGroup';
+export * from './NcaaFinancialReportItemValue';
 export * from './NewAccountUserResponse';
 export * from './NewsFeed';
 export * from './NewsFeedCollection';

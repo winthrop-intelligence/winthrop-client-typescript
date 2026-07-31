@@ -378,6 +378,8 @@ docs/Meta.md
 docs/MlAthleticApi.md
 docs/NcaaFinancialReportStatus.md
 docs/NcaaFinancialReportStatusCollection.md
+docs/NcaaFinancialReportItemGroup.md
+docs/NcaaFinancialReportItemValue.md
 docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
@@ -943,6 +945,8 @@ src/models/McpEvent.ts
 src/models/Meta.ts
 src/models/NcaaFinancialReportStatus.ts
 src/models/NcaaFinancialReportStatusCollection.ts
+src/models/NcaaFinancialReportItemGroup.ts
+src/models/NcaaFinancialReportItemValue.ts
 src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts

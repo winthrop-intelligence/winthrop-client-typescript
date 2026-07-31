@@ -12,6 +12,7 @@ Name | Type
 `years` | Array&lt;number&gt;
 `schoolInfo` | [SchoolInfo](SchoolInfo.md)
 `studentFeePerStudent` | number
+`otherReportingItems` | [Array&lt;NcaaFinancialReportItemGroup&gt;](NcaaFinancialReportItemGroup.md)
 `ncaaReportId` | number
 `auditedReportId` | number
 `revenues` | [Array&lt;SchoolFinancialGroup&gt;](SchoolFinancialGroup.md)
@@ -30,6 +31,7 @@ const example = {
   "years": null,
   "schoolInfo": null,
   "studentFeePerStudent": null,
+  "otherReportingItems": null,
   "ncaaReportId": null,
   "auditedReportId": null,
   "revenues": null,
@@ -48,5 +50,4 @@ console.log(exampleParsed)
 ```
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 

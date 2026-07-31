@@ -27,6 +27,13 @@ import {
     SchoolFinancialGroupToJSON,
     SchoolFinancialGroupToJSONTyped,
 } from './SchoolFinancialGroup';
+import type { NcaaFinancialReportItemGroup } from './NcaaFinancialReportItemGroup';
+import {
+    NcaaFinancialReportItemGroupFromJSON,
+    NcaaFinancialReportItemGroupFromJSONTyped,
+    NcaaFinancialReportItemGroupToJSON,
+    NcaaFinancialReportItemGroupToJSONTyped,
+} from './NcaaFinancialReportItemGroup';
 
 /**
  * 
@@ -70,6 +77,12 @@ export interface SchoolFinancialSummary {
      * @memberof SchoolFinancialSummary
      */
     studentFeePerStudent?: number | null;
+    /**
+     *
+     * @type {Array<NcaaFinancialReportItemGroup>}
+     * @memberof SchoolFinancialSummary
+     */
+    otherReportingItems?: Array<NcaaFinancialReportItemGroup>;
     /**
      * 
      * @type {number}
@@ -119,6 +132,7 @@ export function SchoolFinancialSummaryFromJSONTyped(json: any, ignoreDiscriminat
         'years': json['years'] == null ? undefined : json['years'],
         'schoolInfo': json['school_info'] == null ? undefined : SchoolInfoFromJSON(json['school_info']),
         'studentFeePerStudent': json['student_fee_per_student'] == null ? undefined : json['student_fee_per_student'],
+        'otherReportingItems': json['other_reporting_items'] == null ? undefined : ((json['other_reporting_items'] as Array<any>).map(NcaaFinancialReportItemGroupFromJSON)),
         'ncaaReportId': json['ncaa_report_id'] == null ? undefined : json['ncaa_report_id'],
         'auditedReportId': json['audited_report_id'] == null ? undefined : json['audited_report_id'],
         'revenues': json['revenues'] == null ? undefined : ((json['revenues'] as Array<any>).map(SchoolFinancialGroupFromJSON)),
@@ -143,10 +157,10 @@ export function SchoolFinancialSummaryToJSONTyped(value?: SchoolFinancialSummary
         'years': value['years'],
         'school_info': SchoolInfoToJSON(value['schoolInfo']),
         'student_fee_per_student': value['studentFeePerStudent'],
+        'other_reporting_items': value['otherReportingItems'] == null ? undefined : ((value['otherReportingItems'] as Array<any>).map(NcaaFinancialReportItemGroupToJSON)),
         'ncaa_report_id': value['ncaaReportId'],
         'audited_report_id': value['auditedReportId'],
         'revenues': value['revenues'] == null ? undefined : ((value['revenues'] as Array<any>).map(SchoolFinancialGroupToJSON)),
         'expenses': value['expenses'] == null ? undefined : ((value['expenses'] as Array<any>).map(SchoolFinancialGroupToJSON)),
     };
 }
-
