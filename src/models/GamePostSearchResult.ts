@@ -184,13 +184,13 @@ export interface GamePostSearchResult {
      */
     createdBySchedulingPhoneDial?: string | null;
     /**
-     * 3-season average NET ranking (basketball's ranking window)
+     * 3-year average NET ranking
      * @type {number}
      * @memberof GamePostSearchResult
      */
     avgNetRank?: number | null;
     /**
-     * 5-season average RPI ranking — the value non-basketball feed cards display and the ranking filter compares against, so the card matches the filter that surfaced it. `last_rpi` remains for surfaces that show the latest value.
+     * 3-year average RPI ranking (WINAD-10196 — the value non-basketball feed cards display, matching the basis the ranking filter compares against)
      * @type {number}
      * @memberof GamePostSearchResult
      */

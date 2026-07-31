@@ -120,13 +120,13 @@ export interface TeamScheduleSearchResult {
      */
     lastApRank?: number | null;
     /**
-     * 5-year average RPI ranking
+     * 3-year average RPI ranking
      * @type {number}
      * @memberof TeamScheduleSearchResult
      */
     avgRpi?: number | null;
     /**
-     * 5-year average NET ranking
+     * 3-year average NET ranking
      * @type {number}
      * @memberof TeamScheduleSearchResult
      */

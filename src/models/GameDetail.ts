@@ -154,19 +154,19 @@ export interface GameDetail {
      */
     stateName?: string | null;
     /**
-     * Latest value of the sport's primary ranking metric for the home team (WINAD-10197) — NET for basketball, RPI otherwise. Null when the team has no ranked season for that metric.
+     * Latest value of the sport's primary ranking metric for the home team (WINAD-10197) — NET for basketball, AP for football, RPI otherwise. Null when the team has no ranked season for that metric.
      * @type {number}
      * @memberof GameDetail
      */
     homeSchoolRanking?: number | null;
     /**
-     * Latest value of the sport's primary ranking metric for the away team (WINAD-10197) — NET for basketball, RPI otherwise. Null when the team has no ranked season for that metric.
+     * Latest value of the sport's primary ranking metric for the away team (WINAD-10197) — NET for basketball, AP for football, RPI otherwise. Null when the team has no ranked season for that metric.
      * @type {number}
      * @memberof GameDetail
      */
     awaySchoolRanking?: number | null;
     /**
-     * Label of the primary ranking metric the *_school_ranking values were read from, for display (WINAD-10197). Null on create/update responses, which do not run the ranking lookups.
+     * Label of the primary ranking metric the *_school_ranking values were read from, for display (WINAD-10197). AP covers football, whose seasons carry no NET/RPI. Null on create/update responses, which do not run the ranking lookups.
      * @type {string}
      * @memberof GameDetail
      */
@@ -184,7 +184,7 @@ export interface GameDetail {
      */
     awaySchoolSosRanking?: number | null;
     /**
-     * Season year the displayed NET/SOS rankings are from, or null when neither team has a ranked season
+     * Season year the displayed primary-metric/SOS rankings are from, or null when neither team has a ranked season
      * @type {number}
      * @memberof GameDetail
      */
@@ -203,7 +203,8 @@ export interface GameDetail {
  */
 export const GameDetailRankingMetricEnum = {
     Net: 'NET',
-    Rpi: 'RPI'
+    Rpi: 'RPI',
+    Ap: 'AP'
 } as const;
 export type GameDetailRankingMetricEnum = typeof GameDetailRankingMetricEnum[keyof typeof GameDetailRankingMetricEnum];
 

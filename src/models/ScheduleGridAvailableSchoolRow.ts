@@ -82,7 +82,7 @@ export interface ScheduleGridAvailableSchoolRow {
      */
     subdivisionName?: string | null;
     /**
-     * Latest known NET rank for the requested sport (omitted when blank)
+     * The sport's primary ranking metric (WINAD-10196) — 3-year average NET rank for basketball, 3-year average RPI for every other sport (omitted when blank)
      * @type {number}
      * @memberof ScheduleGridAvailableSchoolRow
      */

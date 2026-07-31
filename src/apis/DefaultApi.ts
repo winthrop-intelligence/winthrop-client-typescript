@@ -77,6 +77,8 @@ import type {
   CreateFavorite201Response,
   CreateFavoriteRequest,
   CreateFavoritesCategoryRequest,
+  CreateFrsExport422Response,
+  CreateFrsExportRequest,
   CreateGamePostSearchRequest,
   CreateGameRequest,
   CreateMcpEventRequest,
@@ -109,6 +111,11 @@ import type {
   FoiaLabelCollection,
   FoiaRequest,
   FoiaRequestCollection,
+  FrsExport,
+  FrsExportsResponse,
+  FrsResolveRequest,
+  FrsResolvedPopulation,
+  FrsSchoolSearchResponse,
   GadContractDetail,
   GadSearchResultCollection,
   GameCollection,
@@ -138,11 +145,14 @@ import type {
   GuaranteeBenchmarkTable,
   GuaranteeEconomics,
   GuaranteeEconomicsBatch,
+  HumanOverrideRequest,
+  HumanOverrideResult,
   IdName,
   IncomeReport,
   IncomeReportCollection,
   JobPost,
   JobPostCollection,
+  JobPostDisagreementCollection,
   ListNotes200ResponseInner,
   McpEvent,
   NcaaFinancialReportStatus,
@@ -161,6 +171,7 @@ import type {
   RequestedItemNoteInput,
   RequestedItemNoteResponse,
   RequestedItemReviewContext,
+  RetryFrsExport422Response,
   ScheduleGridAvailableSchools,
   ScheduleGridView,
   ScheduleIntentDetail,
@@ -175,7 +186,6 @@ import type {
   SchoolGroupShow,
   Season,
   SeasonCollection,
-  SendOtpCode422Response,
   Sport,
   SportCollection,
   SportCompensationResponse,
@@ -352,6 +362,10 @@ import {
     CreateFavoriteRequestToJSON,
     CreateFavoritesCategoryRequestFromJSON,
     CreateFavoritesCategoryRequestToJSON,
+    CreateFrsExport422ResponseFromJSON,
+    CreateFrsExport422ResponseToJSON,
+    CreateFrsExportRequestFromJSON,
+    CreateFrsExportRequestToJSON,
     CreateGamePostSearchRequestFromJSON,
     CreateGamePostSearchRequestToJSON,
     CreateGameRequestFromJSON,
@@ -416,6 +430,16 @@ import {
     FoiaRequestToJSON,
     FoiaRequestCollectionFromJSON,
     FoiaRequestCollectionToJSON,
+    FrsExportFromJSON,
+    FrsExportToJSON,
+    FrsExportsResponseFromJSON,
+    FrsExportsResponseToJSON,
+    FrsResolveRequestFromJSON,
+    FrsResolveRequestToJSON,
+    FrsResolvedPopulationFromJSON,
+    FrsResolvedPopulationToJSON,
+    FrsSchoolSearchResponseFromJSON,
+    FrsSchoolSearchResponseToJSON,
     GadContractDetailFromJSON,
     GadContractDetailToJSON,
     GadSearchResultCollectionFromJSON,
@@ -474,6 +498,10 @@ import {
     GuaranteeEconomicsToJSON,
     GuaranteeEconomicsBatchFromJSON,
     GuaranteeEconomicsBatchToJSON,
+    HumanOverrideRequestFromJSON,
+    HumanOverrideRequestToJSON,
+    HumanOverrideResultFromJSON,
+    HumanOverrideResultToJSON,
     IdNameFromJSON,
     IdNameToJSON,
     IncomeReportFromJSON,
@@ -484,6 +512,8 @@ import {
     JobPostToJSON,
     JobPostCollectionFromJSON,
     JobPostCollectionToJSON,
+    JobPostDisagreementCollectionFromJSON,
+    JobPostDisagreementCollectionToJSON,
     ListNotes200ResponseInnerFromJSON,
     ListNotes200ResponseInnerToJSON,
     McpEventFromJSON,
@@ -520,6 +550,8 @@ import {
     RequestedItemNoteResponseToJSON,
     RequestedItemReviewContextFromJSON,
     RequestedItemReviewContextToJSON,
+    RetryFrsExport422ResponseFromJSON,
+    RetryFrsExport422ResponseToJSON,
     ScheduleGridAvailableSchoolsFromJSON,
     ScheduleGridAvailableSchoolsToJSON,
     ScheduleGridViewFromJSON,
@@ -548,8 +580,6 @@ import {
     SeasonToJSON,
     SeasonCollectionFromJSON,
     SeasonCollectionToJSON,
-    SendOtpCode422ResponseFromJSON,
-    SendOtpCode422ResponseToJSON,
     SportFromJSON,
     SportToJSON,
     SportCollectionFromJSON,
@@ -740,6 +770,10 @@ export interface DefaultApiCreateFoiaLabelRequest {
 
 export interface DefaultApiCreateFoiaRequestRequest {
     foiaRequest: FoiaRequest;
+}
+
+export interface DefaultApiCreateFrsExportOperationRequest {
+    createFrsExportRequest: CreateFrsExportRequest;
 }
 
 export interface DefaultApiCreateGameOperationRequest {
@@ -1238,6 +1272,11 @@ export interface DefaultApiGetFoiaRequestsRequest {
     q?: object;
 }
 
+export interface DefaultApiGetFrsExportSchoolSearchRequest {
+    query: string;
+    year: number;
+}
+
 export interface DefaultApiGetGadSearchDetailRequest {
     id: number;
 }
@@ -1331,6 +1370,14 @@ export interface DefaultApiGetIncomeReportsRequest {
 
 export interface DefaultApiGetJobPostRequest {
     jobPostId: number;
+}
+
+export interface DefaultApiGetJobPostDisagreementsRequest {
+    since?: string;
+    schoolId?: number;
+    limit?: number;
+    newPage?: number;
+    stillPendingPage?: number;
 }
 
 export interface DefaultApiGetJobPostsRequest {
@@ -1698,6 +1745,14 @@ export interface DefaultApiRegenerateRawContractPdfRequest {
     rawContractId: number;
 }
 
+export interface DefaultApiResolveFrsExportRequest {
+    frsResolveRequest: FrsResolveRequest;
+}
+
+export interface DefaultApiRetryFrsExportRequest {
+    frsExportId: number;
+}
+
 export interface DefaultApiSearchCoachesRequest {
     filters?: Filters;
 }
@@ -1793,6 +1848,11 @@ export interface DefaultApiUpdateGamePostSearchOperationRequest {
 export interface DefaultApiUpdateJobPostRequest {
     jobPostId: number;
     jobPost?: JobPost;
+}
+
+export interface DefaultApiUpdateJobPostHumanOverrideRequest {
+    jobPostId: number;
+    humanOverrideRequest?: HumanOverrideRequest;
 }
 
 export interface DefaultApiUpdateNoteOperationRequest {
@@ -2917,6 +2977,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async createFoiaRequest(requestParameters: DefaultApiCreateFoiaRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FoiaRequest> {
         const response = await this.createFoiaRequestRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create an FRS Report Export and enqueue workbook generation
+     */
+    async createFrsExportRaw(requestParameters: DefaultApiCreateFrsExportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FrsExport>> {
+        if (requestParameters['createFrsExportRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createFrsExportRequest',
+                'Required parameter "createFrsExportRequest" was null or undefined when calling createFrsExport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/frs_exports`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateFrsExportRequestToJSON(requestParameters['createFrsExportRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FrsExportFromJSON(jsonValue));
+    }
+
+    /**
+     * Create an FRS Report Export and enqueue workbook generation
+     */
+    async createFrsExport(requestParameters: DefaultApiCreateFrsExportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FrsExport> {
+        const response = await this.createFrsExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -8360,6 +8468,104 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Search schools for the FRS export Pick-schools picker, with FRS status for the selected year
+     */
+    async getFrsExportSchoolSearchRaw(requestParameters: DefaultApiGetFrsExportSchoolSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FrsSchoolSearchResponse>> {
+        if (requestParameters['query'] == null) {
+            throw new runtime.RequiredError(
+                'query',
+                'Required parameter "query" was null or undefined when calling getFrsExportSchoolSearch().'
+            );
+        }
+
+        if (requestParameters['year'] == null) {
+            throw new runtime.RequiredError(
+                'year',
+                'Required parameter "year" was null or undefined when calling getFrsExportSchoolSearch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['query'] != null) {
+            queryParameters['query'] = requestParameters['query'];
+        }
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/frs_exports/school_search`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FrsSchoolSearchResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Search schools for the FRS export Pick-schools picker, with FRS status for the selected year
+     */
+    async getFrsExportSchoolSearch(requestParameters: DefaultApiGetFrsExportSchoolSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FrsSchoolSearchResponse> {
+        const response = await this.getFrsExportSchoolSearchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List the caller\'s FRS Report Export jobs (WINAD-10151..10155)
+     */
+    async getFrsExportsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FrsExportsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/frs_exports`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FrsExportsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * List the caller\'s FRS Report Export jobs (WINAD-10151..10155)
+     */
+    async getFrsExports(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FrsExportsResponse> {
+        const response = await this.getFrsExportsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve detailed game contract data for the GAD detail page
      */
     async getGadSearchDetailRaw(requestParameters: DefaultApiGetGadSearchDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GadContractDetail>> {
@@ -9263,6 +9469,66 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Unresolved, non-expired JobPost rows where llm_is_athletics and ml_is_athletics disagree, split into posts created within the since window (\"new\") and everything else still unresolved (\"still_pending\"). 
+     * List unresolved LLM/ML athletics classification disagreements
+     */
+    async getJobPostDisagreementsRaw(requestParameters: DefaultApiGetJobPostDisagreementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<JobPostDisagreementCollection>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['since'] != null) {
+            queryParameters['since'] = requestParameters['since'];
+        }
+
+        if (requestParameters['schoolId'] != null) {
+            queryParameters['school_id'] = requestParameters['schoolId'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['newPage'] != null) {
+            queryParameters['new_page'] = requestParameters['newPage'];
+        }
+
+        if (requestParameters['stillPendingPage'] != null) {
+            queryParameters['still_pending_page'] = requestParameters['stillPendingPage'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/central_jobs/job_posts/disagreements`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => JobPostDisagreementCollectionFromJSON(jsonValue));
+    }
+
+    /**
+     * Unresolved, non-expired JobPost rows where llm_is_athletics and ml_is_athletics disagree, split into posts created within the since window (\"new\") and everything else still unresolved (\"still_pending\"). 
+     * List unresolved LLM/ML athletics classification disagreements
+     */
+    async getJobPostDisagreements(requestParameters: DefaultApiGetJobPostDisagreementsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPostDisagreementCollection> {
+        const response = await this.getJobPostDisagreementsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * List all job posts
      * List all job posts
      */
@@ -10147,7 +10413,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, T-Rank tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
+     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, primary-metric ranking tier (NET for basketball, RPI otherwise), T-Rank tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
      */
     async getScheduleGridAvailableSchoolsRaw(requestParameters: DefaultApiGetScheduleGridAvailableSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduleGridAvailableSchools>> {
         if (requestParameters['sportName'] == null) {
@@ -10229,7 +10495,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, T-Rank tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
+     * Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, primary-metric ranking tier (NET for basketball, RPI otherwise), T-Rank tier, and distance. Omit target_date for an \"Any date\" market browse (no window). Set match_tournaments=true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
      */
     async getScheduleGridAvailableSchools(requestParameters: DefaultApiGetScheduleGridAvailableSchoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduleGridAvailableSchools> {
         const response = await this.getScheduleGridAvailableSchoolsRaw(requestParameters, initOverrides);
@@ -13121,6 +13387,100 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Resolve an FRS export scope into the selected/in-scope/included school population
+     */
+    async resolveFrsExportRaw(requestParameters: DefaultApiResolveFrsExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FrsResolvedPopulation>> {
+        if (requestParameters['frsResolveRequest'] == null) {
+            throw new runtime.RequiredError(
+                'frsResolveRequest',
+                'Required parameter "frsResolveRequest" was null or undefined when calling resolveFrsExport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/frs_exports/resolve`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: FrsResolveRequestToJSON(requestParameters['frsResolveRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FrsResolvedPopulationFromJSON(jsonValue));
+    }
+
+    /**
+     * Resolve an FRS export scope into the selected/in-scope/included school population
+     */
+    async resolveFrsExport(requestParameters: DefaultApiResolveFrsExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FrsResolvedPopulation> {
+        const response = await this.resolveFrsExportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Re-enqueue a failed FRS export
+     */
+    async retryFrsExportRaw(requestParameters: DefaultApiRetryFrsExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FrsExport>> {
+        if (requestParameters['frsExportId'] == null) {
+            throw new runtime.RequiredError(
+                'frsExportId',
+                'Required parameter "frsExportId" was null or undefined when calling retryFrsExport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/frs_exports/{frsExportId}/retry`;
+        urlPath = urlPath.replace(`{${"frsExportId"}}`, encodeURIComponent(String(requestParameters['frsExportId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FrsExportFromJSON(jsonValue));
+    }
+
+    /**
+     * Re-enqueue a failed FRS export
+     */
+    async retryFrsExport(requestParameters: DefaultApiRetryFrsExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FrsExport> {
+        const response = await this.retryFrsExportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Search coaches by priority_ids and Ransack filters
      */
     async searchCoachesRaw(requestParameters: DefaultApiSearchCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CoachCollection>> {
@@ -14123,6 +14483,57 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateJobPost(requestParameters: DefaultApiUpdateJobPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<JobPost> {
         const response = await this.updateJobPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. 
+     * Set the human_override_is_athletics value for one job post
+     */
+    async updateJobPostHumanOverrideRaw(requestParameters: DefaultApiUpdateJobPostHumanOverrideRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HumanOverrideResult>> {
+        if (requestParameters['jobPostId'] == null) {
+            throw new runtime.RequiredError(
+                'jobPostId',
+                'Required parameter "jobPostId" was null or undefined when calling updateJobPostHumanOverride().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/central_jobs/job_posts/{jobPostId}/human_override`;
+        urlPath = urlPath.replace(`{${"jobPostId"}}`, encodeURIComponent(String(requestParameters['jobPostId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: HumanOverrideRequestToJSON(requestParameters['humanOverrideRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => HumanOverrideResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. 
+     * Set the human_override_is_athletics value for one job post
+     */
+    async updateJobPostHumanOverride(requestParameters: DefaultApiUpdateJobPostHumanOverrideRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HumanOverrideResult> {
+        const response = await this.updateJobPostHumanOverrideRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

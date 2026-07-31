@@ -56,25 +56,25 @@ export interface GamePostAvailabilityCollectionGroupsInnerPostsInner {
      */
     date?: Date | null;
     /**
-     * 
+     * Most recent RPI ranking
      * @type {number}
      * @memberof GamePostAvailabilityCollectionGroupsInnerPostsInner
      */
     lastRpi?: number | null;
     /**
-     * 
+     * Most recent NET ranking
      * @type {number}
      * @memberof GamePostAvailabilityCollectionGroupsInnerPostsInner
      */
     lastNetRank?: number | null;
     /**
-     * 
+     * 3-year average RPI ranking
      * @type {number}
      * @memberof GamePostAvailabilityCollectionGroupsInnerPostsInner
      */
     avgRpi?: number | null;
     /**
-     * 
+     * 3-year average NET ranking
      * @type {number}
      * @memberof GamePostAvailabilityCollectionGroupsInnerPostsInner
      */
