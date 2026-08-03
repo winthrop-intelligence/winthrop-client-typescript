@@ -19816,7 +19816,7 @@ example().catch(console.error);
 
 Set the human_override_is_athletics value for one job post
 
-Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. 
+Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. When expected_source_fingerprint is supplied, blocks the write if the reviewed source or classifier data changed. 
 
 ### Example
 

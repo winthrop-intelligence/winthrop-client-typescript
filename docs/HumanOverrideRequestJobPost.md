@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `humanOverrideIsAthletics` | boolean
+`expectedSourceFingerprint` | string
 
 ## Example
 
@@ -16,6 +17,7 @@ import type { HumanOverrideRequestJobPost } from '@winthrop-intelligence/winthro
 // TODO: Update the object below with actual values
 const example = {
   "humanOverrideIsAthletics": null,
+  "expectedSourceFingerprint": null,
 } satisfies HumanOverrideRequestJobPost
 
 console.log(example)

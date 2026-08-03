@@ -10,6 +10,9 @@ Name | Type
 `compensationId` | number
 `role` | string
 `actions` | Set&lt;string&gt;
+`requestedItemNote` | string
+`compensationComment` | string
+`positionIds` | Set&lt;number&gt;
 
 ## Example
 
@@ -22,6 +25,9 @@ const example = {
   "compensationId": null,
   "role": null,
   "actions": null,
+  "requestedItemNote": null,
+  "compensationComment": null,
+  "positionIds": null,
 } satisfies CtbCompensationAppliedException
 
 console.log(example)

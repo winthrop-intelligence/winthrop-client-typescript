@@ -159,8 +159,10 @@ docs/CtbCompensationApplyInput.md
 docs/CtbCompensationApplyRequest.md
 docs/CtbCompensationApplyResponse.md
 docs/CtbCompensationExpectedRequest.md
+docs/CtbFoundationEmployeeCompensationApplyInput.md
 docs/CtbGraduateAssistantCompensationApplyInput.md
 docs/CtbNotEmployedCompensationApplyInput.md
+docs/CtbThirdPartyContractorCompensationApplyInput.md
 docs/CtbVolunteerCompensationApplyInput.md
 docs/Deal.md
 docs/DealCollection.md
@@ -716,8 +718,10 @@ src/models/CtbCompensationApplyInput.ts
 src/models/CtbCompensationApplyRequest.ts
 src/models/CtbCompensationApplyResponse.ts
 src/models/CtbCompensationExpectedRequest.ts
+src/models/CtbFoundationEmployeeCompensationApplyInput.ts
 src/models/CtbGraduateAssistantCompensationApplyInput.ts
 src/models/CtbNotEmployedCompensationApplyInput.ts
+src/models/CtbThirdPartyContractorCompensationApplyInput.ts
 src/models/CtbVolunteerCompensationApplyInput.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
