@@ -184,6 +184,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchedulingContacts**](DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
+| [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
@@ -14088,6 +14089,85 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSchoolDepartmentFinancials
+
+> SchoolDepartmentFinancials getSchoolDepartmentFinancials(schoolId, year)
+
+
+
+Department-level FRS financials for a school — conference spend-vs-revenue quadrant, per-line conference ranks, revenue/expense ledgers, and the five-year trend
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentFinancialsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentFinancialsRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentFinancials(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentFinancials**](SchoolDepartmentFinancials.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department financials |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — private school or no financials permission |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSchoolGameContracts
 
 > SchoolGameContractsResponse getSchoolGameContracts(schoolId)
@@ -19816,7 +19896,7 @@ example().catch(console.error);
 
 Set the human_override_is_athletics value for one job post
 
-Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. 
+Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. When expected_source_fingerprint is supplied, blocks the write if the reviewed source or classifier data changed. 
 
 ### Example
 
