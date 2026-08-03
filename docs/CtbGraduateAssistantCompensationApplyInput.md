@@ -15,6 +15,9 @@ Name | Type
 `compensationId` | number
 `role` | string
 `actions` | Set&lt;string&gt;
+`requestedItemNote` | string
+`compensationComment` | string
+`positionIds` | Set&lt;number&gt;
 `expectedRequest` | [CtbCompensationExpectedRequest](CtbCompensationExpectedRequest.md)
 `expectedRequestedItem` | [FoiaInboxExpectedRequestedItem](FoiaInboxExpectedRequestedItem.md)
 `expectedCompensation` | [FoiaInboxExpectedCompensation](FoiaInboxExpectedCompensation.md)
@@ -35,6 +38,9 @@ const example = {
   "compensationId": null,
   "role": null,
   "actions": null,
+  "requestedItemNote": null,
+  "compensationComment": null,
+  "positionIds": null,
   "expectedRequest": null,
   "expectedRequestedItem": null,
   "expectedCompensation": null,
