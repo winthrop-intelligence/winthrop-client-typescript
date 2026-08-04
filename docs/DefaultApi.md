@@ -8,8 +8,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageDivisionComp**](DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp |  |
 | [**averageSchoolComp**](DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp |  |
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
+| [**batchGuaranteeEconomics**](DefaultApi.md#batchguaranteeeconomicsoperation) | **POST** /api/v1/guarantee_economics/batch |  |
 | [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
+| [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
@@ -21,10 +23,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createFavoritesCategory**](DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories |  |
 | [**createFoiaLabel**](DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels |  |
 | [**createFoiaRequest**](DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests |  |
+| [**createFrsExport**](DefaultApi.md#createfrsexportoperation) | **POST** /api/v1/frs_exports |  |
 | [**createGame**](DefaultApi.md#creategameoperation) | **POST** /api/v1/games |  |
 | [**createGamePost**](DefaultApi.md#creategamepost) | **POST** /api/v1/game_posts |  |
 | [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
+| [**createMcpEvent**](DefaultApi.md#createmcpeventoperation) | **POST** /api/v1/mcp_events |  |
 | [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
 | [**createPageView**](DefaultApi.md#createpageviewoperation) | **POST** /api/v1/page_views |  |
 | [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
@@ -62,6 +66,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
+| [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
 | [**exportRevenueSearches**](DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export |  |
 | [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
@@ -89,6 +94,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachSearches**](DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches |  |
 | [**getCoaches**](DefaultApi.md#getcoaches) | **GET** /api/v1/coaches |  |
 | [**getCompensation**](DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} |  |
+| [**getCompensationComparisons**](DefaultApi.md#getcompensationcomparisons) | **GET** /api/v1/compensation_comparisons |  |
 | [**getCompensations**](DefaultApi.md#getcompensations) | **GET** /api/v1/compensations |  |
 | [**getConference**](DefaultApi.md#getconference) | **GET** /api/v1/conferences/{conferenceId} |  |
 | [**getConferenceAdminCompensation**](DefaultApi.md#getconferenceadmincompensation) | **GET** /api/v1/conferences/{conferenceId}/admin_compensation |  |
@@ -121,6 +127,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFilterOptionsAllSchools**](DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools |  |
 | [**getFilterOptionsConferences**](DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences |  |
 | [**getFilterOptionsDealTypes**](DefaultApi.md#getfilteroptionsdealtypes) | **GET** /api/v1/filter_options/deal_types |  |
+| [**getFilterOptionsFoiaRequestableDealTypes**](DefaultApi.md#getfilteroptionsfoiarequestabledealtypes) | **GET** /api/v1/filter_options/foia_requestable_deal_types |  |
 | [**getFilterOptionsGameTypes**](DefaultApi.md#getfilteroptionsgametypes) | **GET** /api/v1/filter_options/game_types |  |
 | [**getFilterOptionsSchoolGroups**](DefaultApi.md#getfilteroptionsschoolgroups) | **GET** /api/v1/filter_options/school_groups |  |
 | [**getFilterOptionsSchools**](DefaultApi.md#getfilteroptionsschools) | **GET** /api/v1/filter_options/schools |  |
@@ -132,6 +139,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFoiaLabels**](DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels |  |
 | [**getFoiaRequest**](DefaultApi.md#getfoiarequest) | **GET** /api/v1/foia_requests/{foiaRequestId} |  |
 | [**getFoiaRequests**](DefaultApi.md#getfoiarequests) | **GET** /api/v1/foia_requests |  |
+| [**getFrsExportSchoolSearch**](DefaultApi.md#getfrsexportschoolsearch) | **GET** /api/v1/frs_exports/school_search |  |
+| [**getFrsExports**](DefaultApi.md#getfrsexports) | **GET** /api/v1/frs_exports |  |
 | [**getGadSearchDetail**](DefaultApi.md#getgadsearchdetail) | **GET** /api/v1/gad_searches/{id}/detail |  |
 | [**getGadSearches**](DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches |  |
 | [**getGame**](DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} |  |
@@ -140,15 +149,17 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getGameContracts**](DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts |  |
 | [**getGamePost**](DefaultApi.md#getgamepost) | **GET** /api/v1/game_posts/{gamePostId} |  |
 | [**getGamePostSearch**](DefaultApi.md#getgamepostsearch) | **GET** /api/v1/game_post_searches/{gamePostSearchId} |  |
-| [**getGamePostSearchGapCounts**](DefaultApi.md#getgamepostsearchgapcounts) | **GET** /api/v1/game_post_searches/gap_counts |  |
+| [**getGamePostSearchAvailabilities**](DefaultApi.md#getgamepostsearchavailabilities) | **GET** /api/v1/game_post_searches/availabilities |  |
 | [**getGamePostSearches**](DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches |  |
 | [**getGamePosts**](DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts |  |
 | [**getGames**](DefaultApi.md#getgames) | **GET** /api/v1/games |  |
 | [**getGamesAvailableContracts**](DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts |  |
 | [**getGuaranteeBenchmarks**](DefaultApi.md#getguaranteebenchmarks) | **GET** /api/v1/guarantee_benchmarks |  |
+| [**getGuaranteeEconomics**](DefaultApi.md#getguaranteeeconomics) | **GET** /api/v1/guarantee_economics |  |
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
+| [**getJobPostDisagreements**](DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved LLM/ML athletics classification disagreements |
 | [**getJobPosts**](DefaultApi.md#getjobposts) | **GET** /central_jobs/job_posts | List all job posts |
 | [**getLadFilterOptions**](DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options |  |
 | [**getNcaaFinancialReportStatus**](DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} |  |
@@ -161,6 +172,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
+| [**getRequestedItemReviewContext**](DefaultApi.md#getrequesteditemreviewcontext) | **GET** /api/v1/requested_items/{requestedItemId}/review_context |  |
 | [**getRequestedItemRiNote**](DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
 | [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
@@ -169,8 +181,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getScheduleGridAvailableSchools**](DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools |  |
 | [**getScheduleGridCompleted**](DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed |  |
 | [**getScheduleUpdates**](DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates |  |
+| [**getSchedulingContacts**](DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
+| [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
+| [**getSchoolDepartmentGuarantees**](DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees |  |
+| [**getSchoolDepartmentOverview**](DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
@@ -225,6 +241,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
+| [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
+| [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
 | [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
 | [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
@@ -243,6 +261,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateGameContract**](DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} |  |
 | [**updateGamePostSearch**](DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
+| [**updateJobPostHumanOverride**](DefaultApi.md#updatejobposthumanoverride) | **PATCH** /central_jobs/job_posts/{jobPostId}/human_override | Set the human_override_is_athletics value for one job post |
 | [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
 | [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
@@ -599,13 +618,87 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## batchGuaranteeEconomics
+
+> GuaranteeEconomicsBatch batchGuaranteeEconomics(batchGuaranteeEconomicsRequest)
+
+
+
+Batch companion to GET /guarantee_economics (WINAD-10147). Returns the same per-school host/travel median guarantee economics — with the identical gad_filters deep-link target — for a page of [school_id, sport_id] pairs in one request, so list surfaces (Find Opponent sheet, schedule grid, Games Wanted feed) stop firing one singular request per row. POST (not GET) because a full sheet\&#39;s ~364 pairs are sent as a JSON body. Permission- critical: callers without guarantee aggregate access get every pair\&#39;s host/travel as null, indistinguishable from schools with no qualifying games.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BatchGuaranteeEconomicsOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BatchGuaranteeEconomicsRequest
+    batchGuaranteeEconomicsRequest: ...,
+  } satisfies BatchGuaranteeEconomicsOperationRequest;
+
+  try {
+    const data = await api.batchGuaranteeEconomics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **batchGuaranteeEconomicsRequest** | [BatchGuaranteeEconomicsRequest](BatchGuaranteeEconomicsRequest.md) |  | |
+
+### Return type
+
+[**GuaranteeEconomicsBatch**](GuaranteeEconomicsBatch.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Host/travel medians + deep-link filters per requested pair, plus the shared season window. |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## bulkCreateGamePostSearches
 
 > BulkGamePostSearchResult bulkCreateGamePostSearches(bulkCreateGamePostSearchesRequest)
 
 
 
-WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side).
+WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side). WINAD-10067: the slim editor no longer writes grid markers live — it stages availability/pending edits and commits them here. In the same transaction the school\&#39;s ScheduleIntents are reconciled to &#x60;intents&#x60; for the &#x60;season_start&#x60;..&#x60;season_end&#x60; window, and any Active post in that window whose day is no longer open is removed. WINAD-10093: the feed renders a card\&#39;s dates from ScheduleIntents, so this also guarantees a non-Pending ScheduleIntent for every posted open day (even when &#x60;intents&#x60; is omitted) and protects those days from the intent reconciliation.
 
 ### Example
 
@@ -747,6 +840,82 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **422** | Validation error — the whole batch was rolled back |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkUpdateGamePostSearches
+
+> BulkGamePostSearchResult bulkUpdateGamePostSearches(bulkUpdateGamePostSearchesRequest)
+
+
+
+WINAD-10067: save an edited Games Wanted card (publish group). Reconciles the card\&#39;s Active posts to the submitted open days and shared message: a day already on this card is updated (id kept), a day on another card is left alone, a genuinely-new day is created under this publish_group_id, and a day the card no longer lists is deleted. Scoped to the caller\&#39;s own school + group; fires no alert (an edit must not re-blast the instant Games Wanted email). WINAD-10067: the slim editor stages its grid edits and commits them here too — in the same transaction the school\&#39;s ScheduleIntents are reconciled to &#x60;intents&#x60; for the &#x60;season_start&#x60;..&#x60;season_end&#x60; window, protecting days another card still owns so an edit never clears a sibling card\&#39;s markers. WINAD-10093: this card\&#39;s own posted days are protected too, and a non-Pending ScheduleIntent is guaranteed for each. Dropping a day from the card deletes only its post — the day\&#39;s ScheduleIntent (availability) stays unless the grid itself cleared it.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkUpdateGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkUpdateGamePostSearchesRequest
+    bulkUpdateGamePostSearchesRequest: ...,
+  } satisfies BulkUpdateGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.bulkUpdateGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkUpdateGamePostSearchesRequest** | [BulkUpdateGamePostSearchesRequest](BulkUpdateGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**BulkGamePostSearchResult**](BulkGamePostSearchResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Publish group reconciled |  -  |
+| **422** | Validation error, empty batch, or unknown publish group |  -  |
+| **403** | Forbidden — only school accounts can edit game posts |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1584,6 +1753,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createFrsExport
+
+> FrsExport createFrsExport(createFrsExportRequest)
+
+
+
+Create an FRS Report Export and enqueue workbook generation
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateFrsExportOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateFrsExportRequest
+    createFrsExportRequest: ...,
+  } satisfies CreateFrsExportOperationRequest;
+
+  try {
+    const data = await api.createFrsExport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createFrsExportRequest** | [CreateFrsExportRequest](CreateFrsExportRequest.md) |  | |
+
+### Return type
+
+[**FrsExport**](FrsExport.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | FRS export created and queued |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation error - no exportable sports/schools, unsupported year, or save failure |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createGame
 
 > GameDetail createGame(createGameRequest)
@@ -1882,6 +2126,83 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **201** | Job post was created |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createMcpEvent
+
+> McpEvent createMcpEvent(createMcpEventRequest)
+
+
+
+Ingest an MCP (Model Context Protocol) event for the current user. The request is idempotent per user on &#x60;event_uuid&#x60; - re-submitting the same &#x60;event_uuid&#x60; returns the previously stored event with a 200 status instead of creating a duplicate.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateMcpEventOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateMcpEventRequest
+    createMcpEventRequest: ...,
+  } satisfies CreateMcpEventOperationRequest;
+
+  try {
+    const data = await api.createMcpEvent(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createMcpEventRequest** | [CreateMcpEventRequest](CreateMcpEventRequest.md) |  | |
+
+### Return type
+
+[**McpEvent**](McpEvent.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Existing event returned (idempotent re-submission) |  -  |
+| **201** | Event created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - token lacks the winad_self scope |  -  |
+| **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -2261,7 +2582,7 @@ example().catch(console.error);
 
 
 
-Create or append a note attached to a requested item
+Create or replace the note attached to a requested item. When &#x60;append&#x60; is true, the note text is appended to any existing note instead of replacing it.
 
 ### Example
 
@@ -2283,7 +2604,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | ID of requested item whose note should be created or appended
+    // number | ID of requested item whose note should be created, replaced, or appended
     requestedItemId: 56,
     // RequestedItemNoteInput | Requested item note content
     requestedItemNoteInput: ...,
@@ -2306,7 +2627,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **requestedItemId** | `number` | ID of requested item whose note should be created or appended | [Defaults to `undefined`] |
+| **requestedItemId** | `number` | ID of requested item whose note should be created, replaced, or appended | [Defaults to `undefined`] |
 | **requestedItemNoteInput** | [RequestedItemNoteInput](RequestedItemNoteInput.md) | Requested item note content | |
 
 ### Return type
@@ -2326,7 +2647,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Requested item note already existed and was returned or appended |  -  |
+| **200** | Requested item note already existed and was replaced or appended |  -  |
 | **201** | Requested item note was created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
@@ -3696,7 +4017,7 @@ example().catch(console.error);
 
 
 
-Delete a game post
+Delete a game post. WINAD-10093: removes only this post (the caller scopes a card delete to its publish group). The cell\&#39;s ScheduleIntent is left intact — the feed and /schedules grid source displayed availability from ScheduleIntents, so a deleted card never shrinks a sibling card\&#39;s dates.
 
 ### Example
 
@@ -4661,6 +4982,80 @@ example().catch(console.error);
 | **200** | Watermarked PDF attachment |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## enrichGamePostSearches
+
+> GamePostEnrichmentCollection enrichGamePostSearches(enrichGamePostSearchesRequest)
+
+
+
+Async companion to GET /game_post_searches. The dashboard feed sends q[defer_enrichment]&#x3D;true so its cards paint first without the slow per-card computes; this returns those deferred blocks — availability overlap, guarantee economics, and the schedule-intent \&quot;open windows\&quot; — for the loaded page\&#39;s [school_id, sport_id] pairs, which the client merges onto each card. POST (not GET) because ~35 pairs are sent as a JSON body. Runs neither the search nor the grouping — just the two heavy per-card computes plus the poster intents.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { EnrichGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // EnrichGamePostSearchesRequest
+    enrichGamePostSearchesRequest: ...,
+  } satisfies EnrichGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.enrichGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **enrichGamePostSearchesRequest** | [EnrichGamePostSearchesRequest](EnrichGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**GamePostEnrichmentCollection**](GamePostEnrichmentCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deferred per-card blocks, one row per requested pair. |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -6735,6 +7130,109 @@ example().catch(console.error);
 | **200** | Compensation was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCompensationComparisons
+
+> CompensationComparisonResult getCompensationComparisons(schoolIds, conferenceId, sportId, positionTypeId, titleInclude, titleExclude, year, includeMissing, perSchoolLimit, maxRows)
+
+
+
+Cross-school coach/administrator role compensation comparison (MCP-174). Expands the requested schools and/or conference, matches the queried role by position type and/or title terms, classifies each candidate\&#39;s raw title (clean_match / assistant / chief_of_staff / hybrid_coach_gm / related_role), applies per-row compensation permission gating, and returns cohort stats with explicit denominator counts. One row per school/match candidate; schools with no match surface as no_role_match or school_not_accessible rows when include_missing is true. Known limitation: administrator records, and coach records when no sport_id is given, are matched against WinAD views that collapse to one record per person per year, so a person holding multiple same-year positions may surface under a different position than the queried role (a response warning flags the no-sport case). Sport-scoped coach matching is per-position and unaffected.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCompensationComparisonsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<number> | Explicit school ids to compare, kept in request order. Provide school_ids[] and/or conference_id. More than 40 ids is rejected with error_type=scope_too_large. (optional)
+    schoolIds: ...,
+    // number | Conference scope; expands to member schools (conferenceship members when sport_id is given, primary members otherwise). The combined resolved scope (explicit schools plus conference members) is capped at 40 schools; beyond that the request is rejected with error_type=scope_too_large. (optional)
+    conferenceId: 56,
+    // number | Sport scope for coach candidates. Administrator records are not sport-scoped; their rows carry a caveat instead. (optional)
+    sportId: 56,
+    // number | Position type for the queried role (expands to the group when the id is a group stub). Provide position_type_id and/or title_include[]. (optional)
+    positionTypeId: 56,
+    // Array<string> | Title words/phrases that strengthen a match (ILIKE, OR-combined with the position-type arm). More than 10 terms or terms over 60 chars are rejected with error_type=invalid_param. (optional)
+    titleInclude: ...,
+    // Array<string> | Title words/phrases that exclude a candidate (ILIKE). More than 10 terms or terms over 60 chars are rejected with error_type=invalid_param. (optional)
+    titleExclude: ...,
+    // number | Compensation season year; defaults to the current season year. (optional)
+    year: 56,
+    // boolean | Emit a synthesized no_role_match / school_not_accessible row per school with no candidates. (optional)
+    includeMissing: true,
+    // number | Max candidate rows per school (best matches kept; cohort stats still cover the full matching set). Out-of-range values are silently clamped to 1..10, not rejected. (optional)
+    perSchoolLimit: 56,
+    // number | Overall row cap for token safety; sets resolved_scope.truncated when it bites. Out-of-range values are silently clamped to 1..200, not rejected. (optional)
+    maxRows: 56,
+  } satisfies GetCompensationComparisonsRequest;
+
+  try {
+    const data = await api.getCompensationComparisons(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolIds** | `Array<number>` | Explicit school ids to compare, kept in request order. Provide school_ids[] and/or conference_id. More than 40 ids is rejected with error_type&#x3D;scope_too_large. | [Optional] |
+| **conferenceId** | `number` | Conference scope; expands to member schools (conferenceship members when sport_id is given, primary members otherwise). The combined resolved scope (explicit schools plus conference members) is capped at 40 schools; beyond that the request is rejected with error_type&#x3D;scope_too_large. | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` | Sport scope for coach candidates. Administrator records are not sport-scoped; their rows carry a caveat instead. | [Optional] [Defaults to `undefined`] |
+| **positionTypeId** | `number` | Position type for the queried role (expands to the group when the id is a group stub). Provide position_type_id and/or title_include[]. | [Optional] [Defaults to `undefined`] |
+| **titleInclude** | `Array<string>` | Title words/phrases that strengthen a match (ILIKE, OR-combined with the position-type arm). More than 10 terms or terms over 60 chars are rejected with error_type&#x3D;invalid_param. | [Optional] |
+| **titleExclude** | `Array<string>` | Title words/phrases that exclude a candidate (ILIKE). More than 10 terms or terms over 60 chars are rejected with error_type&#x3D;invalid_param. | [Optional] |
+| **year** | `number` | Compensation season year; defaults to the current season year. | [Optional] [Defaults to `undefined`] |
+| **includeMissing** | `boolean` | Emit a synthesized no_role_match / school_not_accessible row per school with no candidates. | [Optional] [Defaults to `true`] |
+| **perSchoolLimit** | `number` | Max candidate rows per school (best matches kept; cohort stats still cover the full matching set). Out-of-range values are silently clamped to 1..10, not rejected. | [Optional] [Defaults to `3`] |
+| **maxRows** | `number` | Overall row cap for token safety; sets resolved_scope.truncated when it bites. Out-of-range values are silently clamped to 1..200, not rejected. | [Optional] [Defaults to `60`] |
+
+### Return type
+
+[**CompensationComparisonResult**](CompensationComparisonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Comparison rows plus cohort stats with explicit denominators |  -  |
+| **400** | Invalid request (missing_scope, missing_role, invalid_param, scope_too_large, sport_not_permitted) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Authenticated token lacks the winad_read OAuth scope |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -9189,6 +9687,72 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFilterOptionsFoiaRequestableDealTypes
+
+> Array&lt;IdName&gt; getFilterOptionsFoiaRequestableDealTypes()
+
+
+
+Retrieve all FOIA-requestable deal types, including those hidden from public deal filtering (e.g. Athletics Software, Travel, Executive Search)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFilterOptionsFoiaRequestableDealTypesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFilterOptionsFoiaRequestableDealTypes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;IdName&gt;**](IdName.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA-requestable deal types retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getFilterOptionsGameTypes
 
 > Array&lt;GameType&gt; getFilterOptionsGameTypes()
@@ -10005,6 +10569,149 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFrsExportSchoolSearch
+
+> FrsSchoolSearchResponse getFrsExportSchoolSearch(query, year)
+
+
+
+Search schools for the FRS export Pick-schools picker, with FRS status for the selected year
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFrsExportSchoolSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    query: query_example,
+    // number
+    year: 56,
+  } satisfies GetFrsExportSchoolSearchRequest;
+
+  try {
+    const data = await api.getFrsExportSchoolSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **query** | `string` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**FrsSchoolSearchResponse**](FrsSchoolSearchResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Matching schools with FRS status |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFrsExports
+
+> FrsExportsResponse getFrsExports()
+
+
+
+List the caller\&#39;s FRS Report Export jobs (WINAD-10151..10155)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFrsExportsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFrsExports();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FrsExportsResponse**](FrsExportsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FRS export jobs retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGadSearchDetail
 
 > GadContractDetail getGadSearchDetail(id)
@@ -10634,13 +11341,13 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getGamePostSearchGapCounts
+## getGamePostSearchAvailabilities
 
-> GamePostGapCountCollection getGamePostSearchGapCounts(windows, q)
+> GamePostAvailabilityCollection getGamePostSearchAvailabilities(q)
 
 
 
-Counts-only companion to the game post search for the sidebar schedule-gaps module (WINAD-9904). Accepts the same q filters as the search plus 1-10 date windows, and returns the number of active feed posts overlapping each window — each count equals what applying that window as a date filter to the search would return.
+Full-scan companion to the game post search for the sidebar \&quot;Posted Availabilities\&quot; module. Scans every active post for the sport (q[sport_name_eq] is required), buckets them by deal type, and returns each bucket\&#39;s total post count plus its most-recent posts deduped by school (capped server-side). Each post carries the school\&#39;s most recent posted date for that bucket (WINAD-9908 single &#x60;date&#x60;, falling back to start_date when empty).
 
 ### Example
 
@@ -10649,7 +11356,7 @@ import {
   Configuration,
   DefaultApi,
 } from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetGamePostSearchGapCountsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamePostSearchAvailabilitiesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
 async function example() {
   console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
@@ -10662,14 +11369,12 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // Array<string> | 1-10 inclusive date windows as YYYY-MM-DD..YYYY-MM-DD ranges
-    windows: ...,
     // object | Ransack query (optional)
     q: Object,
-  } satisfies GetGamePostSearchGapCountsRequest;
+  } satisfies GetGamePostSearchAvailabilitiesRequest;
 
   try {
-    const data = await api.getGamePostSearchGapCounts(body);
+    const data = await api.getGamePostSearchAvailabilities(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -10685,12 +11390,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **windows** | `Array<string>` | 1-10 inclusive date windows as YYYY-MM-DD..YYYY-MM-DD ranges | |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-[**GamePostGapCountCollection**](GamePostGapCountCollection.md)
+[**GamePostAvailabilityCollection**](GamePostAvailabilityCollection.md)
 
 ### Authorization
 
@@ -10705,8 +11409,8 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Overlapping-post count per requested window, in request order |  -  |
-| **422** | Missing, malformed, inverted, or too many windows |  -  |
+| **200** | Per-deal-type availability breakdown for the sport |  -  |
+| **422** | Missing sport (q[sport_name_eq] is required) |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -10714,11 +11418,11 @@ example().catch(console.error);
 
 ## getGamePostSearches
 
-> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool)
+> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool, postDetails)
 
 
 
-Search game posts with enriched data including school info, location, RPI, etc.
+Search game posts with enriched data including school info, location, RPI, etc. WINAD: pass q[defer_enrichment]&#x3D;true (the dashboard feed) to omit the slow per-card blocks — overlap, guarantee, and schedule_intents — from each row so the cards paint first; POST /game_post_searches/enrichment then returns those blocks for the loaded pairs. The inline path (e.g. post_details) leaves the flag off and keeps them on each row.
 
 ### Example
 
@@ -10746,8 +11450,10 @@ async function example() {
     perPage: 56,
     // object | Ransack query (optional)
     q: Object,
-    // boolean | WINAD-9909: when true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
+    // boolean | When true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
     groupBySchool: true,
+    // boolean | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). (optional)
+    postDetails: true,
   } satisfies GetGamePostSearchesRequest;
 
   try {
@@ -10770,7 +11476,8 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
-| **groupBySchool** | `boolean` | WINAD-9909: when true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
+| **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
+| **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10962,7 +11669,7 @@ example().catch(console.error);
 
 
 
-List GameContracts compatible with the given sport + school pair, for the Edit Game sheet\&#39;s Contract picker. Matches either direction (home&#x3D;A,away&#x3D;B or home&#x3D;B,away&#x3D;A). Uses &#x60;GameContract.filtered_for_game&#x60;. Capped at 50 rows, ordered by game date descending. 
+List GameContracts compatible with the given sport + school pair, for the Edit Game sheet\&#39;s Contract picker. Matches either direction (home&#x3D;A,away&#x3D;B or home&#x3D;B,away&#x3D;A). Uses &#x60;GameContract.filtered_for_game&#x60;. Capped at 50 rows, ordered by game date descending. Rows are permission-filtered to contracts the caller\&#39;s ability can view. Requires sport_id plus at least one of home_school_id/away_school_id — broader queries return an empty list. 
 
 ### Example
 
@@ -11042,7 +11749,7 @@ example().catch(console.error);
 
 
 
-NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903). Returns, per Opponent Quality tier (power_4 / mid_major / smaller), the median/mean/min/max/count of game guarantees the tier pays out (home/buyer side) and receives (away/seller side) for one sport over the last three completed seasons. Permission filtered via the caller\&#39;s ability.
+NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903, tiers reworked in WINAD-10023). Returns, per basketball conference tier (high_major / upper_mid_major / mid_major / low_major), the median/mean/min/max/count of guarantee-game dollars the tier pays out (home/buyer side) and receives (away/seller side) for one basketball sport over the last three completed seasons. Only guarantee games with a recorded amount are counted (excludes tournament/exhibition/neutral contracts, TBD, and $0/unrecorded amounts). Permission filtered via the caller\&#39;s ability.
 
 ### Example
 
@@ -11105,6 +11812,83 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Guarantee benchmark table, or a structured error block when sport_id is missing/unknown |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGuaranteeEconomics
+
+> GuaranteeEconomics getGuaranteeEconomics(schoolId, sportId)
+
+
+
+Per-school guarantee economics for scheduling surfaces (WINAD-10005). For one school and basketball sport, returns the median guarantee the school paid as host and received when traveling over the last three completed seasons, each with its sample size and the gad_searches ransack filters that deep-link the Guarantees tab to the exact games behind the median. Permission-critical — callers without guarantee aggregate access receive host/travel as null, indistinguishable from a school with no qualifying games.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGuaranteeEconomicsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The school to summarize. Missing or non-integer values return a structured error block.
+    schoolId: 56,
+    // number | The (basketball) sport. Missing, unknown, or non-basketball sports return a structured error block.
+    sportId: 56,
+  } satisfies GetGuaranteeEconomicsRequest;
+
+  try {
+    const data = await api.getGuaranteeEconomics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | The school to summarize. Missing or non-integer values return a structured error block. | [Defaults to `undefined`] |
+| **sportId** | `number` | The (basketball) sport. Missing, unknown, or non-basketball sports return a structured error block. | [Defaults to `undefined`] |
+
+### Return type
+
+[**GuaranteeEconomics**](GuaranteeEconomics.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Guarantee economics for the school/sport, or a structured error block when params are missing/invalid |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -11335,6 +12119,94 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Job post was found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getJobPostDisagreements
+
+> JobPostDisagreementCollection getJobPostDisagreements(since, schoolId, limit, newPage, stillPendingPage)
+
+List unresolved LLM/ML athletics classification disagreements
+
+Unresolved, non-expired JobPost rows where llm_is_athletics and ml_is_athletics disagree, split into posts created within the since window (\&quot;new\&quot;) and everything else still unresolved (\&quot;still_pending\&quot;). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetJobPostDisagreementsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Duration string (e.g. \"24h\", \"7d\") bounding the \"new\" section. (optional)
+    since: since_example,
+    // number | Filter to one school\'s winad_id. (optional)
+    schoolId: 789,
+    // number | Max number of disagreement rows returned per section, per page. (optional)
+    limit: 56,
+    // number | Page number for the \"new\" section (1-indexed, Kaminari-paginated independently of still_pending_page). (optional)
+    newPage: 56,
+    // number | Page number for the \"still_pending\" section (1-indexed, Kaminari-paginated independently of new_page). (optional)
+    stillPendingPage: 56,
+  } satisfies GetJobPostDisagreementsRequest;
+
+  try {
+    const data = await api.getJobPostDisagreements(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **since** | `string` | Duration string (e.g. \&quot;24h\&quot;, \&quot;7d\&quot;) bounding the \&quot;new\&quot; section. | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` | Filter to one school\&#39;s winad_id. | [Optional] [Defaults to `undefined`] |
+| **limit** | `number` | Max number of disagreement rows returned per section, per page. | [Optional] [Defaults to `200`] |
+| **newPage** | `number` | Page number for the \&quot;new\&quot; section (1-indexed, Kaminari-paginated independently of still_pending_page). | [Optional] [Defaults to `1`] |
+| **stillPendingPage** | `number` | Page number for the \&quot;still_pending\&quot; section (1-indexed, Kaminari-paginated independently of new_page). | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**JobPostDisagreementCollection**](JobPostDisagreementCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Unresolved disagreements were found |  -  |
+| **400** | since could not be parsed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Token is missing the cj_read scope |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12244,6 +13116,86 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getRequestedItemReviewContext
+
+> RequestedItemReviewContext getRequestedItemReviewContext(requestedItemId, ifNoneMatch)
+
+
+
+Retrieve the canonical review context for a requested item, including its display title and type, current note text, parent FOIA request with the legacy admin URL, and any single unambiguous existing document the caller is authorized to see.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRequestedItemReviewContextRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose review context should be retrieved
+    requestedItemId: 56,
+    // string | ETag from a previous response; when it still matches, the server responds 304 Not Modified instead of re-sending the payload. (optional)
+    ifNoneMatch: ifNoneMatch_example,
+  } satisfies GetRequestedItemReviewContextRequest;
+
+  try {
+    const data = await api.getRequestedItemReviewContext(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose review context should be retrieved | [Defaults to `undefined`] |
+| **ifNoneMatch** | `string` | ETag from a previous response; when it still matches, the server responds 304 Not Modified instead of re-sending the payload. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**RequestedItemReviewContext**](RequestedItemReviewContext.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item review context was found |  * ETag - Entity tag for the current review context; send it back via If-None-Match for conditional requests. <br>  |
+| **304** | Not Modified — the review context matching the ETag supplied in If-None-Match is still current; no body is returned. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getRequestedItemRiNote
 
 > RequestedItemNoteResponse getRequestedItemRiNote(requestedItemId)
@@ -12644,11 +13596,11 @@ example().catch(console.error);
 
 ## getScheduleGridAvailableSchools
 
-> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, includeNoConflict, matchTournaments, dealTypes, qualityTier, netRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds)
+> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, includeNoConflict, matchTournaments, dealTypes, qualityTier, netRankingTier, torvikRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds)
 
 
 
-Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, and distance. Omit target_date for an \&quot;Any date\&quot; market browse (no window). Set match_tournaments&#x3D;true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
+Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, T-Rank tier, and distance. Omit target_date for an \&quot;Any date\&quot; market browse (no window). Set match_tournaments&#x3D;true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
 
 ### Example
 
@@ -12686,6 +13638,8 @@ async function example() {
     qualityTier: power_4,mid_major,
     // string | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as `custom_<min>_<max>`, where either bound may be blank for an open-ended range (e.g. `custom_50_` => 50 and up, `custom__120` => up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. (optional)
     netRankingTier: top_50,
+    // string | Restrict to a T-Rank (Bart Torvik) band, mirroring net_ranking_tier (latest non-null 3-year T-Rank average for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as `custom_<min>_<max>`, where either bound may be blank for an open-ended range (e.g. `custom_50_` => 50 and up, `custom__120` => up to 120). Schools without a T-Rank are excluded from every tier. T-Rank is basketball-only, so this filter is ignored for non-basketball sports. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. (optional)
+    torvikRankingTier: top_50,
     // number | Maximum distance (miles) from the user\'s school. Requires user_school_id to resolve a coordinate origin. (optional)
     maxDistanceMiles: 56,
     // number | Requesting user\'s school. Used as the origin for distance filtering and is always excluded from results. (optional)
@@ -12719,6 +13673,7 @@ example().catch(console.error);
 | **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
 | **qualityTier** | `string` | Restrict to one or more subdivision tiers (power_4, mid_major, smaller). Accepts a single tier or a comma-separated list for multi-select (e.g. &#x60;power_4,mid_major&#x60;); the listed tiers are OR\&#39;d together. Omit the param (or pass every tier) for \&quot;Any\&quot; — no constraint. Unrecognized tiers are ignored. | [Optional] [Defaults to `undefined`] |
 | **netRankingTier** | `string` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
+| **torvikRankingTier** | `string` | Restrict to a T-Rank (Bart Torvik) band, mirroring net_ranking_tier (latest non-null 3-year T-Rank average for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a T-Rank are excluded from every tier. T-Rank is basketball-only, so this filter is ignored for non-basketball sports. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
 | **maxDistanceMiles** | `number` | Maximum distance (miles) from the user\&#39;s school. Requires user_school_id to resolve a coordinate origin. | [Optional] [Defaults to `undefined`] |
 | **userSchoolId** | `number` | Requesting user\&#39;s school. Used as the origin for distance filtering and is always excluded from results. | [Optional] [Defaults to `undefined`] |
 | **excludeSchoolIds** | `Array<number>` | Additional school IDs to exclude from results (e.g. schools already on the grid) | [Optional] |
@@ -12911,6 +13866,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSchedulingContacts
+
+> SchedulingContactsResponse getSchedulingContacts(sport)
+
+
+
+WINAD-10119 — the Scheduling Contacts directory. One primary scheduling contact per school for the given sport, enriched with distance from the viewer\&#39;s school and open Games Wanted post count. verified/verified_at reflect the admin-set verification on the contact (WINAD-10122).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchedulingContactsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Scheduling sport name, e.g. BASKETBALL_M. (optional)
+    sport: sport_example,
+  } satisfies GetSchedulingContactsRequest;
+
+  try {
+    const data = await api.getSchedulingContacts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sport** | `string` | Scheduling sport name, e.g. BASKETBALL_M. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchedulingContactsResponse**](SchedulingContactsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Scheduling contacts directory |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSchool
 
 > School getSchool(schoolId)
@@ -13057,6 +14087,243 @@ example().catch(console.error);
 | **200** | Alternate names were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | School not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentFinancials
+
+> SchoolDepartmentFinancials getSchoolDepartmentFinancials(schoolId, year)
+
+
+
+Department-level FRS financials for a school — conference spend-vs-revenue quadrant, per-line conference ranks, revenue/expense ledgers, and the five-year trend
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentFinancialsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentFinancialsRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentFinancials(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentFinancials**](SchoolDepartmentFinancials.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department financials |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — private school or no financials permission |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentGuarantees
+
+> SchoolDepartmentGuarantees getSchoolDepartmentGuarantees(schoolId, year)
+
+
+
+Department-level guarantee-game market for a school — FRS bought-vs-sold quadrant, current-season committed slate with per-sport agreement ledgers, filed-line reconciliation, market medians, and the three-season trend
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentGuaranteesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year for the FRS modules; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentGuaranteesRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentGuarantees(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year for the FRS modules; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentGuarantees**](SchoolDepartmentGuarantees.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department guarantees |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no guarantees permission for this school |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentOverview
+
+> SchoolDepartmentOverview getSchoolDepartmentOverview(schoolId, year)
+
+
+
+Department landing-page summary for a school — headline spend/revenue/coaching stats with conference ranks and the adjacent peer, the earns/spends/keeps flow, top revenue and expense lines, expense shares, filing provenance, and any missing results lens
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentOverviewRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentOverviewRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentOverview(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentOverview**](SchoolDepartmentOverview.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department overview |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — private school or no financials permission |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -15427,7 +16694,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Team schedule detail |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **404** | Not Found, or (WINAD-10097) the school is not D1/D2 and has no supported schedule profile. In the latter case the response body is the JSON object {\&quot;error\&quot;:\&quot;schedule_profile_unsupported\&quot;}. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -15981,7 +17248,7 @@ example().catch(console.error);
 
 
 
-Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info.
+Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info. Guarantee contract data (home_contracts/away_contracts) is permission-filtered to contracts the caller\&#39;s ability can view; for users without guarantee access the home_contracts/away_contracts objects are omitted entirely, and the avg_guarantee_paid_cents/avg_guarantee_received_cents aggregate fields are null unless the caller can view aggregate guarantee amounts.
 
 ### Example
 
@@ -17207,6 +18474,155 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## resolveFrsExport
+
+> FrsResolvedPopulation resolveFrsExport(frsResolveRequest)
+
+
+
+Resolve an FRS export scope into the selected/in-scope/included school population
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ResolveFrsExportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // FrsResolveRequest
+    frsResolveRequest: ...,
+  } satisfies ResolveFrsExportRequest;
+
+  try {
+    const data = await api.resolveFrsExport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **frsResolveRequest** | [FrsResolveRequest](FrsResolveRequest.md) |  | |
+
+### Return type
+
+[**FrsResolvedPopulation**](FrsResolvedPopulation.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Resolved population |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## retryFrsExport
+
+> FrsExport retryFrsExport(frsExportId)
+
+
+
+Re-enqueue a failed FRS export
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RetryFrsExportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    frsExportId: 56,
+  } satisfies RetryFrsExportRequest;
+
+  try {
+    const data = await api.retryFrsExport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **frsExportId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**FrsExport**](FrsExport.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FRS export re-queued |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Only failed exports can be retried |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## searchCoaches
 
 > CoachCollection searchCoaches(filters)
@@ -17970,7 +19386,7 @@ example().catch(console.error);
 
 ## updateFavorite
 
-> CreateFavorite201Response updateFavorite(id, updateFavoriteRequest)
+> UpdateFavorite200Response updateFavorite(id, updateFavoriteRequest)
 
 
 
@@ -18024,7 +19440,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**CreateFavorite201Response**](CreateFavorite201Response.md)
+[**UpdateFavorite200Response**](UpdateFavorite200Response.md)
 
 ### Authorization
 
@@ -18630,6 +20046,86 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Job post was updated |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateJobPostHumanOverride
+
+> HumanOverrideResult updateJobPostHumanOverride(jobPostId, humanOverrideRequest)
+
+Set the human_override_is_athletics value for one job post
+
+Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. When expected_source_fingerprint is supplied, blocks the write if the reviewed source or classifier data changed. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateJobPostHumanOverrideRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of job post to override
+    jobPostId: 789,
+    // HumanOverrideRequest (optional)
+    humanOverrideRequest: ...,
+  } satisfies UpdateJobPostHumanOverrideRequest;
+
+  try {
+    const data = await api.updateJobPostHumanOverride(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobPostId** | `number` | ID of job post to override | [Defaults to `undefined`] |
+| **humanOverrideRequest** | [HumanOverrideRequest](HumanOverrideRequest.md) |  | [Optional] |
+
+### Return type
+
+[**HumanOverrideResult**](HumanOverrideResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Override applied, or skipped because it was already resolved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Token is missing the cj_write scope |  -  |
+| **404** | Job post not found |  -  |
+| **422** | The override could not be saved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

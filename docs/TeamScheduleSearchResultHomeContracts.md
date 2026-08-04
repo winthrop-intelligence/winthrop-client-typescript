@@ -1,6 +1,7 @@
 
 # TeamScheduleSearchResultHomeContracts
 
+Guarantee contracts where the school is the home/paying side, limited to contracts the caller can view.
 
 ## Properties
 

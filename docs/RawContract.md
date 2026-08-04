@@ -25,7 +25,7 @@ Name | Type
 `migratedSuccessfully` | boolean
 `migrationFailureReason` | string
 `unstractPdfText` | string
-`unstractResponsesDetails` | string
+`unstractResponsesDetails` | object
 `layoutPreservedPdfText` | string
 `canSeeAdminView` | boolean
 `canDownload` | boolean

@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`school` | [SchoolGameContractsResponseSchool](SchoolGameContractsResponseSchool.md)
+`school` | [CompensationComparisonResolvedScopeSchoolsInner](CompensationComparisonResolvedScopeSchoolsInner.md)
 `sports` | [Array&lt;SchoolSportSection&gt;](SchoolSportSection.md)
 
 ## Example

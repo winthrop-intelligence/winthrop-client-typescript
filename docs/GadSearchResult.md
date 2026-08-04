@@ -28,7 +28,7 @@ Name | Type
 `cancelled` | boolean
 `seasonYear` | number
 `gameDate` | Date
-`gameDateTbd` | boolean
+`gameDateTbd` | string
 `rawContractId` | number
 `belongsToSeries` | boolean
 `canLinkHomeSchool` | boolean

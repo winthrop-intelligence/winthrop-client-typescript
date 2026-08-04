@@ -6,8 +6,19 @@
 
 Name | Type
 ------------ | -------------
+`id` | number
 `date` | Date
 `gameTypes` | Array&lt;string&gt;
+`status` | string
+`publishGroupId` | string
+`startDate` | Date
+`endDate` | Date
+`description` | string
+`gameTypesDisplay` | string
+`expiresOn` | Date
+`createdAt` | Date
+`canManage` | boolean
+`createdBy` | [GamePostSearchResultPostsInnerCreatedBy](GamePostSearchResultPostsInnerCreatedBy.md)
 
 ## Example
 
@@ -16,8 +27,19 @@ import type { GamePostSearchResultPostsInner } from '@winthrop-intelligence/wint
 
 // TODO: Update the object below with actual values
 const example = {
+  "id": null,
   "date": null,
   "gameTypes": null,
+  "status": null,
+  "publishGroupId": null,
+  "startDate": null,
+  "endDate": null,
+  "description": null,
+  "gameTypesDisplay": null,
+  "expiresOn": null,
+  "createdAt": null,
+  "canManage": null,
+  "createdBy": null,
 } satisfies GamePostSearchResultPostsInner
 
 console.log(example)

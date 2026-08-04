@@ -17,6 +17,7 @@ Name | Type
 `dealType` | string
 `dealTypeCount` | number
 `updatedAt` | Date
+`scheduleProfileEligible` | boolean
 
 ## Example
 
@@ -35,6 +36,7 @@ const example = {
   "dealType": null,
   "dealTypeCount": null,
   "updatedAt": null,
+  "scheduleProfileEligible": null,
 } satisfies ScheduleUpdate
 
 console.log(example)

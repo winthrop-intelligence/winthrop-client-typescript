@@ -18,6 +18,7 @@ Name | Type
 `primaryContactSchedulingPhone` | string
 `primaryContactSchedulingPhoneDial` | string
 `rank` | number
+`scheduleProfileEligible` | boolean
 
 ## Example
 
@@ -37,6 +38,7 @@ const example = {
   "primaryContactSchedulingPhone": null,
   "primaryContactSchedulingPhoneDial": null,
   "rank": null,
+  "scheduleProfileEligible": null,
 } satisfies ScheduleGridSchool
 
 console.log(example)

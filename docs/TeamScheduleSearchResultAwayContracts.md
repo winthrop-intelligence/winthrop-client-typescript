@@ -1,6 +1,7 @@
 
 # TeamScheduleSearchResultAwayContracts
 
+Guarantee contracts where the school is the away/receiving side, limited to contracts the caller can view.
 
 ## Properties
 

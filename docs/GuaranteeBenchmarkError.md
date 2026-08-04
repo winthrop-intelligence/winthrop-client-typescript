@@ -1,7 +1,7 @@
 
 # GuaranteeBenchmarkError
 
-Structured error returned in place of tier data when sport_id is missing or unknown.
+Structured error returned in place of tier data when sport_id is missing, unknown, or not a basketball sport.
 
 ## Properties
 

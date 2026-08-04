@@ -1,6 +1,7 @@
 
 # TeamScheduleRecentContract
 
+A recent Guarantee contract row in a team schedule search result\'s home_contracts/away_contracts lookup. Only contracts viewable by the caller\'s ability are included.
 
 ## Properties
 

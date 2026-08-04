@@ -7,8 +7,8 @@
 Name | Type
 ------------ | -------------
 `seasons` | Array&lt;string&gt;
-`records` | [Array&lt;PerformanceChartRecord&gt;](PerformanceChartRecord.md)
-`coaches` | [Array&lt;PerformanceChartCoach&gt;](PerformanceChartCoach.md)
+`records` | [Array&lt;PerformanceChartRecord | null&gt;](PerformanceChartRecord.md)
+`coaches` | [Array&lt;PerformanceChartCoach | null&gt;](PerformanceChartCoach.md)
 
 ## Example
 

@@ -8,6 +8,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachHistory**](ReportingApi.md#getcoachhistory) | **GET** /api/v1/reports/coach_history |  |
 | [**getConferenceships**](ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships |  |
 | [**getFoiaDetails**](ReportingApi.md#getfoiadetails) | **GET** /api/v1/reports/foia_details |  |
+| [**getFoiaFollowUpReport**](ReportingApi.md#getfoiafollowupreport) | **GET** /api/v1/reports/foia_follow_up_report |  |
+| [**getFoiaRequestFollowupHistory**](ReportingApi.md#getfoiarequestfollowuphistory) | **GET** /api/v1/reports/foia_request_followup_history |  |
+| [**getFoiaRequestedItemStatusBreakdown**](ReportingApi.md#getfoiarequesteditemstatusbreakdown) | **GET** /api/v1/reports/foia_requested_item_status_breakdown |  |
+| [**getFoiaRequestedItemStatusTransitions**](ReportingApi.md#getfoiarequesteditemstatustransitions) | **GET** /api/v1/reports/foia_requested_item_status_transitions |  |
 | [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
 | [**getInvoices**](ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices |  |
 | [**getSchoolContractRequests**](ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests |  |
@@ -316,6 +320,397 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Foia details were found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaFollowUpReport
+
+> FoiaFollowUpReportResponse getFoiaFollowUpReport(scope, page, perPage, sortBy, foiaLabelId, schoolId, state, followUpDateLte, includeNotDue, showProcessedToday, includeDirectContact)
+
+
+
+Retrieve read-only FOIA follow-up rows for Codex follow-up drafting and FOIA freshness dashboards
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaFollowUpReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // 'due_followup_queue' | 'freshness_dashboard'
+    scope: scope_example,
+    // number | Results page to retrieve. (optional)
+    page: 56,
+    // number | Number of rows per page. Values above 200 are capped at 200. (optional)
+    perPage: 56,
+    // 'follow_up_date_asc' | 'follow_up_date_desc' | 'date_sent_asc' | 'date_sent_desc' | 'updated_by_school_asc' | 'updated_by_school_desc' | 'updated_by_wi_asc' | 'updated_by_wi_desc' | 'id_asc' | 'id_desc' | Sort field with optional _asc or _desc suffix. (optional)
+    sortBy: sortBy_example,
+    // number (optional)
+    foiaLabelId: 56,
+    // number (optional)
+    schoolId: 56,
+    // string | School state id, abbreviation, or display name. (optional)
+    state: state_example,
+    // Date (optional)
+    followUpDateLte: 2013-10-20,
+    // boolean (optional)
+    includeNotDue: true,
+    // 'false' | 'true' | 'all' (optional)
+    showProcessedToday: showProcessedToday_example,
+    // boolean (optional)
+    includeDirectContact: true,
+  } satisfies GetFoiaFollowUpReportRequest;
+
+  try {
+    const data = await api.getFoiaFollowUpReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **scope** | `due_followup_queue`, `freshness_dashboard` |  | [Defaults to `undefined`] [Enum: due_followup_queue, freshness_dashboard] |
+| **page** | `number` | Results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Number of rows per page. Values above 200 are capped at 200. | [Optional] [Defaults to `40`] |
+| **sortBy** | `follow_up_date_asc`, `follow_up_date_desc`, `date_sent_asc`, `date_sent_desc`, `updated_by_school_asc`, `updated_by_school_desc`, `updated_by_wi_asc`, `updated_by_wi_desc`, `id_asc`, `id_desc` | Sort field with optional _asc or _desc suffix. | [Optional] [Defaults to `&#39;follow_up_date_asc&#39;`] [Enum: follow_up_date_asc, follow_up_date_desc, date_sent_asc, date_sent_desc, updated_by_school_asc, updated_by_school_desc, updated_by_wi_asc, updated_by_wi_desc, id_asc, id_desc] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **state** | `string` | School state id, abbreviation, or display name. | [Optional] [Defaults to `undefined`] |
+| **followUpDateLte** | `Date` |  | [Optional] [Defaults to `undefined`] |
+| **includeNotDue** | `boolean` |  | [Optional] [Defaults to `false`] |
+| **showProcessedToday** | `false`, `true`, `all` |  | [Optional] [Defaults to `&#39;false&#39;`] [Enum: false, true, all] |
+| **includeDirectContact** | `boolean` |  | [Optional] [Defaults to `false`] |
+
+### Return type
+
+[**FoiaFollowUpReportResponse**](FoiaFollowUpReportResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA follow-up report rows were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaRequestFollowupHistory
+
+> FoiaRequestFollowUpHistoryResponse getFoiaRequestFollowupHistory(foiaRequestId, schoolId, foiaLabelId, changedAtGte, changedAtLte, page, perPage)
+
+
+
+Retrieve read-only FOIA request follow-up history sourced from audit versions. Rows are historical change events for follow-up-related request fields, so one FOIA request can appear multiple times. Label and school fields reflect each request\&#39;s current associations, and only active requests with unarchived labels are included. When no changed_at filters are supplied, the endpoint defaults to the most recent 366 days.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaRequestFollowupHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // number (optional)
+    foiaRequestId: 56,
+    // number (optional)
+    schoolId: 56,
+    // number (optional)
+    foiaLabelId: 56,
+    // string | Include changes on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day. Defaults to 366 days before changed_at_lte or now. (optional)
+    changedAtGte: changedAtGte_example,
+    // string | Include changes on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the effective window may span at most 366 days. (optional)
+    changedAtLte: changedAtLte_example,
+    // number (optional)
+    page: 56,
+    // number | Values above the maximum are capped. (optional)
+    perPage: 56,
+  } satisfies GetFoiaRequestFollowupHistoryRequest;
+
+  try {
+    const data = await api.getFoiaRequestFollowupHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **foiaRequestId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **changedAtGte** | `string` | Include changes on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day. Defaults to 366 days before changed_at_lte or now. | [Optional] [Defaults to `undefined`] |
+| **changedAtLte** | `string` | Include changes on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the effective window may span at most 366 days. | [Optional] [Defaults to `undefined`] |
+| **page** | `number` |  | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Values above the maximum are capped. | [Optional] [Defaults to `40`] |
+
+### Return type
+
+[**FoiaRequestFollowUpHistoryResponse**](FoiaRequestFollowUpHistoryResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA request follow-up history rows were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaRequestedItemStatusBreakdown
+
+> FoiaRequestedItemStatusBreakdownResponse getFoiaRequestedItemStatusBreakdown(groupBy, period, updatedAtGte, updatedAtLte, foiaLabelId, schoolId, state, includeDirectContact)
+
+
+
+Retrieve read-only grouped requested-item status counts for FOIA freshness reporting widgets
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaRequestedItemStatusBreakdownRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // string | Comma-separated grouping dimensions. Defaults to both dimensions. (optional)
+    groupBy: groupBy_example,
+    // 'day' | 'week' | 'month' | Calendar bucket size for the updated_period dimension. Weeks are ISO weeks starting Monday. (optional)
+    period: period_example,
+    // Date | Include items updated on or after this date. (optional)
+    updatedAtGte: 2013-10-20,
+    // Date | Include items updated on or before this date. (optional)
+    updatedAtLte: 2013-10-20,
+    // number (optional)
+    foiaLabelId: 56,
+    // number (optional)
+    schoolId: 56,
+    // string | School state id, abbreviation, or display name. (optional)
+    state: state_example,
+    // boolean (optional)
+    includeDirectContact: true,
+  } satisfies GetFoiaRequestedItemStatusBreakdownRequest;
+
+  try {
+    const data = await api.getFoiaRequestedItemStatusBreakdown(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupBy** | `string` | Comma-separated grouping dimensions. Defaults to both dimensions. | [Optional] [Defaults to `&#39;updated_period,requestable_type&#39;`] |
+| **period** | `day`, `week`, `month` | Calendar bucket size for the updated_period dimension. Weeks are ISO weeks starting Monday. | [Optional] [Defaults to `&#39;day&#39;`] [Enum: day, week, month] |
+| **updatedAtGte** | `Date` | Include items updated on or after this date. | [Optional] [Defaults to `undefined`] |
+| **updatedAtLte** | `Date` | Include items updated on or before this date. | [Optional] [Defaults to `undefined`] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **state** | `string` | School state id, abbreviation, or display name. | [Optional] [Defaults to `undefined`] |
+| **includeDirectContact** | `boolean` |  | [Optional] [Defaults to `false`] |
+
+### Return type
+
+[**FoiaRequestedItemStatusBreakdownResponse**](FoiaRequestedItemStatusBreakdownResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Grouped requested-item status counts were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaRequestedItemStatusTransitions
+
+> FoiaRequestedItemStatusTransitionsResponse getFoiaRequestedItemStatusTransitions(changedAtGte, changedAtLte, foiaLabelId, schoolId, requestableType, page, perPage)
+
+
+
+Retrieve read-only requested-item status transition history (into received or not_available) sourced from audit versions, for items-received FOIA freshness reporting. Rows are transition events, so one item can appear multiple times. Label, school, and requestable fields reflect each item\&#39;s current associations rather than the values at transition time, and only items on active requests with unarchived labels are included. Status changes written without callbacks are not captured in the audit history and do not appear.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaRequestedItemStatusTransitionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // string | Include transitions on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day.
+    changedAtGte: changedAtGte_example,
+    // string | Include transitions on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the window may span at most 366 days. (optional)
+    changedAtLte: changedAtLte_example,
+    // number (optional)
+    foiaLabelId: 56,
+    // number (optional)
+    schoolId: 56,
+    // 'DealStatus' | 'Game' | 'Compensation' | 'IncomeReport' | 'NcaaFinancialReportStatus' | 'AuditedFinancialReportStatus' (optional)
+    requestableType: requestableType_example,
+    // number (optional)
+    page: 56,
+    // number | Values above the maximum are capped. (optional)
+    perPage: 56,
+  } satisfies GetFoiaRequestedItemStatusTransitionsRequest;
+
+  try {
+    const data = await api.getFoiaRequestedItemStatusTransitions(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **changedAtGte** | `string` | Include transitions on or after this ISO-8601 date or datetime. Date-only values start at the beginning of the day. | [Defaults to `undefined`] |
+| **changedAtLte** | `string` | Include transitions on or before this ISO-8601 date or datetime. Date-only values run through the end of the day. Defaults to now; the window may span at most 366 days. | [Optional] [Defaults to `undefined`] |
+| **foiaLabelId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **requestableType** | `DealStatus`, `Game`, `Compensation`, `IncomeReport`, `NcaaFinancialReportStatus`, `AuditedFinancialReportStatus` |  | [Optional] [Defaults to `undefined`] [Enum: DealStatus, Game, Compensation, IncomeReport, NcaaFinancialReportStatus, AuditedFinancialReportStatus] |
+| **page** | `number` |  | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Values above the maximum are capped. | [Optional] [Defaults to `40`] |
+
+### Return type
+
+[**FoiaRequestedItemStatusTransitionsResponse**](FoiaRequestedItemStatusTransitionsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested-item status transitions were found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `years` | Array&lt;number&gt;
+`financialYears` | Array&lt;number&gt;
 `currentYear` | number
 `currentFinancialsYear` | number
 `divisions` | [Array&lt;IdName&gt;](IdName.md)
@@ -25,6 +26,7 @@ import type { GetFilterOptions200Response } from '@winthrop-intelligence/winthro
 // TODO: Update the object below with actual values
 const example = {
   "years": null,
+  "financialYears": null,
   "currentYear": null,
   "currentFinancialsYear": null,
   "divisions": null,

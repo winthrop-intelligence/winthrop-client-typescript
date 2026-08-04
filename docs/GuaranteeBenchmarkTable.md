@@ -1,7 +1,7 @@
 
 # GuaranteeBenchmarkTable
 
-NCAA guarantee benchmark table for one sport, reusing the Find Opponent \"Opponent Quality\" tiers (power_4 / mid_major / smaller). When sport_id is missing/unknown the `error` block is returned instead of `tiers`.
+NCAA guarantee benchmark table for one basketball sport, grouped by basketball conference tier (high_major / upper_mid_major / mid_major / low_major — WINAD-10023). When sport_id is missing/unknown/non-basketball the `error` block is returned instead of `tiers`.
 
 ## Properties
 

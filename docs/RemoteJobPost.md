@@ -1,6 +1,7 @@
 
 # RemoteJobPost
 
+Full Central Jobs job post snapshot. Required nullable fields must be sent with null when blank.
 
 ## Properties
 

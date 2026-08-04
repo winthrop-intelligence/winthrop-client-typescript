@@ -18,6 +18,7 @@ Name | Type
 `nameDisplay` | string
 `departing` | boolean
 `departingSetAt` | Date
+`suppressDepartingSetAt` | boolean
 `creationReason` | string
 `creationReasonUpdatedAt` | Date
 `coach` | [Coach](Coach.md)
@@ -50,6 +51,7 @@ const example = {
   "nameDisplay": This is a display name,
   "departing": false,
   "departingSetAt": 2019-01-01T00:00Z,
+  "suppressDepartingSetAt": false,
   "creationReason": null,
   "creationReasonUpdatedAt": 2019-01-01T00:00Z,
   "coach": null,
