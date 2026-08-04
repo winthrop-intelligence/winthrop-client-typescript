@@ -237,6 +237,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchedulingContacts**](docs/DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts | 
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
+*DefaultApi* | [**getSchoolDepartmentFinancials**](docs/DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
 *DefaultApi* | [**getSchoolGroup**](docs/DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**getSchoolGroupAdminCompensation**](docs/DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation | 
@@ -567,6 +568,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DeleteAccountUser200Response](docs/DeleteAccountUser200Response.md)
 - [DeleteContactSearch200Response](docs/DeleteContactSearch200Response.md)
 - [DeleteFavorite200Response](docs/DeleteFavorite200Response.md)
+- [DepartmentFinancialsLedger](docs/DepartmentFinancialsLedger.md)
+- [DepartmentFinancialsLedgerLine](docs/DepartmentFinancialsLedgerLine.md)
+- [DepartmentFinancialsNetResult](docs/DepartmentFinancialsNetResult.md)
+- [DepartmentFinancialsQuadrant](docs/DepartmentFinancialsQuadrant.md)
+- [DepartmentFinancialsQuadrantPoint](docs/DepartmentFinancialsQuadrantPoint.md)
+- [DepartmentFinancialsRankLine](docs/DepartmentFinancialsRankLine.md)
+- [DepartmentFinancialsTrendEntry](docs/DepartmentFinancialsTrendEntry.md)
+- [DepartmentFinancialsUnplottedSchool](docs/DepartmentFinancialsUnplottedSchool.md)
 - [DepartmentSearchResult](docs/DepartmentSearchResult.md)
 - [DepartmentSearchResultCollection](docs/DepartmentSearchResultCollection.md)
 - [DepartmentSearchResultDepartment](docs/DepartmentSearchResultDepartment.md)
@@ -820,6 +829,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
+- [SchoolDepartmentFinancials](docs/SchoolDepartmentFinancials.md)
+- [SchoolDepartmentFinancialsConference](docs/SchoolDepartmentFinancialsConference.md)
+- [SchoolDepartmentFinancialsSchool](docs/SchoolDepartmentFinancialsSchool.md)
 - [SchoolFinancialDetail](docs/SchoolFinancialDetail.md)
 - [SchoolFinancialDetailGroup](docs/SchoolFinancialDetailGroup.md)
 - [SchoolFinancialDetailSibling](docs/SchoolFinancialDetailSibling.md)

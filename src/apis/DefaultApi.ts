@@ -180,6 +180,7 @@ import type {
   SchedulingContactsResponse,
   School,
   SchoolCollection,
+  SchoolDepartmentFinancials,
   SchoolFinancialDetail,
   SchoolFinancialSummary,
   SchoolGameContractsResponse,
@@ -568,6 +569,8 @@ import {
     SchoolToJSON,
     SchoolCollectionFromJSON,
     SchoolCollectionToJSON,
+    SchoolDepartmentFinancialsFromJSON,
+    SchoolDepartmentFinancialsToJSON,
     SchoolFinancialDetailFromJSON,
     SchoolFinancialDetailToJSON,
     SchoolFinancialSummaryFromJSON,
@@ -1497,6 +1500,11 @@ export interface DefaultApiGetSchoolRequest {
 
 export interface DefaultApiGetSchoolAlternateNamesRequest {
     schoolId: number;
+}
+
+export interface DefaultApiGetSchoolDepartmentFinancialsRequest {
+    schoolId: number;
+    year?: number;
 }
 
 export interface DefaultApiGetSchoolGameContractsRequest {
@@ -10740,6 +10748,56 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolAlternateNames(requestParameters: DefaultApiGetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolAlternateNames200Response> {
         const response = await this.getSchoolAlternateNamesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Department-level FRS financials for a school — conference spend-vs-revenue quadrant, per-line conference ranks, revenue/expense ledgers, and the five-year trend
+     */
+    async getSchoolDepartmentFinancialsRaw(requestParameters: DefaultApiGetSchoolDepartmentFinancialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolDepartmentFinancials>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getSchoolDepartmentFinancials().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/{schoolId}/department_financials`;
+        urlPath = urlPath.replace(`{${"schoolId"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolDepartmentFinancialsFromJSON(jsonValue));
+    }
+
+    /**
+     * Department-level FRS financials for a school — conference spend-vs-revenue quadrant, per-line conference ranks, revenue/expense ledgers, and the five-year trend
+     */
+    async getSchoolDepartmentFinancials(requestParameters: DefaultApiGetSchoolDepartmentFinancialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentFinancials> {
+        const response = await this.getSchoolDepartmentFinancialsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
