@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.53.54
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.30914047022
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -238,6 +238,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
 *DefaultApi* | [**getSchoolDepartmentFinancials**](docs/DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials | 
+*DefaultApi* | [**getSchoolDepartmentGuarantees**](docs/DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees | 
+*DefaultApi* | [**getSchoolDepartmentOverview**](docs/DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
 *DefaultApi* | [**getSchoolGroup**](docs/DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**getSchoolGroupAdminCompensation**](docs/DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation | 
@@ -392,6 +394,33 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AthleticProfileShowPermissions](docs/AthleticProfileShowPermissions.md)
 - [AthleticProfileShowPersonnelInner](docs/AthleticProfileShowPersonnelInner.md)
 - [AthleticProfileShowSchool](docs/AthleticProfileShowSchool.md)
+- [AthleticProfileShowSportCoachStaff](docs/AthleticProfileShowSportCoachStaff.md)
+- [AthleticProfileShowSportCoachStaffAssistantsInner](docs/AthleticProfileShowSportCoachStaffAssistantsInner.md)
+- [AthleticProfileShowSportCoachStaffHeadCoach](docs/AthleticProfileShowSportCoachStaffHeadCoach.md)
+- [AthleticProfileShowSportCoachStaffHeadCoachCareerInner](docs/AthleticProfileShowSportCoachStaffHeadCoachCareerInner.md)
+- [AthleticProfileShowSportCoachStaffHeadCoachYearOne](docs/AthleticProfileShowSportCoachStaffHeadCoachYearOne.md)
+- [AthleticProfileShowSportCoachStaffQuadrantPointsInner](docs/AthleticProfileShowSportCoachStaffQuadrantPointsInner.md)
+- [AthleticProfileShowSportCoachStaffStaffPool](docs/AthleticProfileShowSportCoachStaffStaffPool.md)
+- [AthleticProfileShowSportCoachStaffSupportStaffInner](docs/AthleticProfileShowSportCoachStaffSupportStaffInner.md)
+- [AthleticProfileShowSportFinancials](docs/AthleticProfileShowSportFinancials.md)
+- [AthleticProfileShowSportFinancialsCostBuild](docs/AthleticProfileShowSportFinancialsCostBuild.md)
+- [AthleticProfileShowSportFinancialsCostBuildAssistantPool](docs/AthleticProfileShowSportFinancialsCostBuildAssistantPool.md)
+- [AthleticProfileShowSportFinancialsCostBuildGuaranteesNet](docs/AthleticProfileShowSportFinancialsCostBuildGuaranteesNet.md)
+- [AthleticProfileShowSportFinancialsCostBuildHeadCoach](docs/AthleticProfileShowSportFinancialsCostBuildHeadCoach.md)
+- [AthleticProfileShowSportFinancialsCostBuildSupportStaffInner](docs/AthleticProfileShowSportFinancialsCostBuildSupportStaffInner.md)
+- [AthleticProfileShowSportFinancialsCostPerWin](docs/AthleticProfileShowSportFinancialsCostPerWin.md)
+- [AthleticProfileShowSportFinancialsCostPerWinCheapest](docs/AthleticProfileShowSportFinancialsCostPerWinCheapest.md)
+- [AthleticProfileShowSportFinancialsDeptLine](docs/AthleticProfileShowSportFinancialsDeptLine.md)
+- [AthleticProfileShowSportFinancialsFrsSplit](docs/AthleticProfileShowSportFinancialsFrsSplit.md)
+- [AthleticProfileShowSportFinancialsQuadrant](docs/AthleticProfileShowSportFinancialsQuadrant.md)
+- [AthleticProfileShowSportFinancialsQuadrantPointsInner](docs/AthleticProfileShowSportFinancialsQuadrantPointsInner.md)
+- [AthleticProfileShowSportOverview](docs/AthleticProfileShowSportOverview.md)
+- [AthleticProfileShowSportOverviewGuarantees](docs/AthleticProfileShowSportOverviewGuarantees.md)
+- [AthleticProfileShowSportOverviewGuaranteesUpcomingInner](docs/AthleticProfileShowSportOverviewGuaranteesUpcomingInner.md)
+- [AthleticProfileShowSportOverviewHeadCoach](docs/AthleticProfileShowSportOverviewHeadCoach.md)
+- [AthleticProfileShowSportOverviewPayLadderInner](docs/AthleticProfileShowSportOverviewPayLadderInner.md)
+- [AthleticProfileShowSportOverviewQuadrantPointsInner](docs/AthleticProfileShowSportOverviewQuadrantPointsInner.md)
+- [AthleticProfileShowSportOverviewSeasonsInner](docs/AthleticProfileShowSportOverviewSeasonsInner.md)
 - [AthleticProfileShowSportsOverviewInner](docs/AthleticProfileShowSportsOverviewInner.md)
 - [AthleticProfileShowTabSportsInner](docs/AthleticProfileShowTabSportsInner.md)
 - [AuditedFinancialReportStatus](docs/AuditedFinancialReportStatus.md)
@@ -549,6 +578,28 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentFinancialsRankLine](docs/DepartmentFinancialsRankLine.md)
 - [DepartmentFinancialsTrendEntry](docs/DepartmentFinancialsTrendEntry.md)
 - [DepartmentFinancialsUnplottedSchool](docs/DepartmentFinancialsUnplottedSchool.md)
+- [DepartmentGuaranteesAgreement](docs/DepartmentGuaranteesAgreement.md)
+- [DepartmentGuaranteesAgreementOpponent](docs/DepartmentGuaranteesAgreementOpponent.md)
+- [DepartmentGuaranteesCommittedSide](docs/DepartmentGuaranteesCommittedSide.md)
+- [DepartmentGuaranteesFiledLine](docs/DepartmentGuaranteesFiledLine.md)
+- [DepartmentGuaranteesMarket](docs/DepartmentGuaranteesMarket.md)
+- [DepartmentGuaranteesMarketSide](docs/DepartmentGuaranteesMarketSide.md)
+- [DepartmentGuaranteesQuadrant](docs/DepartmentGuaranteesQuadrant.md)
+- [DepartmentGuaranteesQuadrantPoint](docs/DepartmentGuaranteesQuadrantPoint.md)
+- [DepartmentGuaranteesSportLedger](docs/DepartmentGuaranteesSportLedger.md)
+- [DepartmentGuaranteesTrendEntry](docs/DepartmentGuaranteesTrendEntry.md)
+- [DepartmentOverviewDollarShares](docs/DepartmentOverviewDollarShares.md)
+- [DepartmentOverviewFlowSummary](docs/DepartmentOverviewFlowSummary.md)
+- [DepartmentOverviewHeadlineStat](docs/DepartmentOverviewHeadlineStat.md)
+- [DepartmentOverviewNeighbour](docs/DepartmentOverviewNeighbour.md)
+- [DepartmentOverviewNonReportingSchool](docs/DepartmentOverviewNonReportingSchool.md)
+- [DepartmentOverviewProvenance](docs/DepartmentOverviewProvenance.md)
+- [DepartmentOverviewQuadrantPoint](docs/DepartmentOverviewQuadrantPoint.md)
+- [DepartmentOverviewResultsGap](docs/DepartmentOverviewResultsGap.md)
+- [DepartmentOverviewResultsQuadrant](docs/DepartmentOverviewResultsQuadrant.md)
+- [DepartmentOverviewShareLine](docs/DepartmentOverviewShareLine.md)
+- [DepartmentOverviewTopLine](docs/DepartmentOverviewTopLine.md)
+- [DepartmentOverviewUnplottedSchool](docs/DepartmentOverviewUnplottedSchool.md)
 - [DepartmentSearchResult](docs/DepartmentSearchResult.md)
 - [DepartmentSearchResultCollection](docs/DepartmentSearchResultCollection.md)
 - [DepartmentSearchResultDepartment](docs/DepartmentSearchResultDepartment.md)
@@ -803,8 +854,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
 - [SchoolDepartmentFinancials](docs/SchoolDepartmentFinancials.md)
-- [SchoolDepartmentFinancialsConference](docs/SchoolDepartmentFinancialsConference.md)
-- [SchoolDepartmentFinancialsSchool](docs/SchoolDepartmentFinancialsSchool.md)
+- [SchoolDepartmentGuarantees](docs/SchoolDepartmentGuarantees.md)
+- [SchoolDepartmentGuaranteesSchool](docs/SchoolDepartmentGuaranteesSchool.md)
+- [SchoolDepartmentOverview](docs/SchoolDepartmentOverview.md)
+- [SchoolDepartmentOverviewConference](docs/SchoolDepartmentOverviewConference.md)
+- [SchoolDepartmentOverviewSchool](docs/SchoolDepartmentOverviewSchool.md)
 - [SchoolFinancialDetail](docs/SchoolFinancialDetail.md)
 - [SchoolFinancialDetailGroup](docs/SchoolFinancialDetailGroup.md)
 - [SchoolFinancialDetailSibling](docs/SchoolFinancialDetailSibling.md)
@@ -945,8 +999,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.53.54`
-- Package version: `1.53.54`
+- API version: `0.0.0-dev.30914047022`
+- Package version: `0.0.0-dev.30914047022`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
