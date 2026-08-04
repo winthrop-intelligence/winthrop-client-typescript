@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `school` | [SchoolDepartmentGuaranteesSchool](SchoolDepartmentGuaranteesSchool.md)
-`conference` | [CompensationComparisonResolvedScopeConference](CompensationComparisonResolvedScopeConference.md)
+`conference` | [SchoolDepartmentFinancialsConference](SchoolDepartmentFinancialsConference.md)
 `seasonYear` | number
 `latestFiledYear` | number
 `selectedYear` | number
@@ -19,7 +19,6 @@ Name | Type
 `sports` | [Array&lt;DepartmentGuaranteesSportLedger&gt;](DepartmentGuaranteesSportLedger.md)
 `market` | [DepartmentGuaranteesMarket](DepartmentGuaranteesMarket.md)
 `trend` | [Array&lt;DepartmentGuaranteesTrendEntry&gt;](DepartmentGuaranteesTrendEntry.md)
-`counterpartyDocumentedCount` | number
 
 ## Example
 
@@ -41,7 +40,6 @@ const example = {
   "sports": null,
   "market": null,
   "trend": null,
-  "counterpartyDocumentedCount": null,
 } satisfies SchoolDepartmentGuarantees
 
 console.log(example)

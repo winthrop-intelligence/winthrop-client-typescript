@@ -445,6 +445,8 @@ export * from './School';
 export * from './SchoolCollection';
 export * from './SchoolContractEntry';
 export * from './SchoolDepartmentFinancials';
+export * from './SchoolDepartmentFinancialsConference';
+export * from './SchoolDepartmentFinancialsSchool';
 export * from './SchoolDepartmentGuarantees';
 export * from './SchoolDepartmentGuaranteesSchool';
 export * from './SchoolFinancialDetail';

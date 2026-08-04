@@ -6,8 +6,8 @@
 
 Name | Type
 ------------ | -------------
-`school` | [CompensationComparisonResolvedScopeSchoolsInner](CompensationComparisonResolvedScopeSchoolsInner.md)
-`conference` | [CompensationComparisonResolvedScopeConference](CompensationComparisonResolvedScopeConference.md)
+`school` | [SchoolDepartmentFinancialsSchool](SchoolDepartmentFinancialsSchool.md)
+`conference` | [SchoolDepartmentFinancialsConference](SchoolDepartmentFinancialsConference.md)
 `latestFiledYear` | number
 `selectedYear` | number
 `availableYears` | Array&lt;number&gt;
