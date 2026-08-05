@@ -181,6 +181,7 @@ import type {
   School,
   SchoolCollection,
   SchoolDepartmentFinancials,
+  SchoolDepartmentOverview,
   SchoolFinancialDetail,
   SchoolFinancialSummary,
   SchoolGameContractsResponse,
@@ -571,6 +572,8 @@ import {
     SchoolCollectionToJSON,
     SchoolDepartmentFinancialsFromJSON,
     SchoolDepartmentFinancialsToJSON,
+    SchoolDepartmentOverviewFromJSON,
+    SchoolDepartmentOverviewToJSON,
     SchoolFinancialDetailFromJSON,
     SchoolFinancialDetailToJSON,
     SchoolFinancialSummaryFromJSON,
@@ -1512,6 +1515,11 @@ export interface DefaultApiGetSchoolAlternateNamesRequest {
 }
 
 export interface DefaultApiGetSchoolDepartmentFinancialsRequest {
+    schoolId: number;
+    year?: number;
+}
+
+export interface DefaultApiGetSchoolDepartmentOverviewRequest {
     schoolId: number;
     year?: number;
 }
@@ -10880,6 +10888,56 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolDepartmentFinancials(requestParameters: DefaultApiGetSchoolDepartmentFinancialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentFinancials> {
         const response = await this.getSchoolDepartmentFinancialsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Department landing-page summary for a school — headline spend/revenue/coaching stats with conference ranks and the adjacent peer, the earns/spends/keeps flow, top revenue and expense lines, expense shares, filing provenance, and any missing results lens
+     */
+    async getSchoolDepartmentOverviewRaw(requestParameters: DefaultApiGetSchoolDepartmentOverviewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolDepartmentOverview>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getSchoolDepartmentOverview().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/{schoolId}/department_overview`;
+        urlPath = urlPath.replace(`{${"schoolId"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolDepartmentOverviewFromJSON(jsonValue));
+    }
+
+    /**
+     * Department landing-page summary for a school — headline spend/revenue/coaching stats with conference ranks and the adjacent peer, the earns/spends/keeps flow, top revenue and expense lines, expense shares, filing provenance, and any missing results lens
+     */
+    async getSchoolDepartmentOverview(requestParameters: DefaultApiGetSchoolDepartmentOverviewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentOverview> {
+        const response = await this.getSchoolDepartmentOverviewRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

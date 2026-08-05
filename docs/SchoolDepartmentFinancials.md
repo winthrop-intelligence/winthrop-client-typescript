@@ -6,8 +6,8 @@
 
 Name | Type
 ------------ | -------------
-`school` | [SchoolDepartmentFinancialsSchool](SchoolDepartmentFinancialsSchool.md)
-`conference` | [SchoolDepartmentFinancialsConference](SchoolDepartmentFinancialsConference.md)
+`school` | [SchoolDepartmentOverviewSchool](SchoolDepartmentOverviewSchool.md)
+`conference` | [SchoolDepartmentOverviewConference](SchoolDepartmentOverviewConference.md)
 `latestFiledYear` | number
 `selectedYear` | number
 `availableYears` | Array&lt;number&gt;
