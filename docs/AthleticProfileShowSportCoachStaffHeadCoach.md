@@ -17,6 +17,7 @@ Name | Type
 `contractEndOn` | Date
 `contractOnFile` | boolean
 `atWill` | boolean
+`interim` | boolean
 `firstSeasonYear` | number
 `careerSeasonCount` | number
 `yearOne` | [AthleticProfileShowSportCoachStaffHeadCoachYearOne](AthleticProfileShowSportCoachStaffHeadCoachYearOne.md)
@@ -40,6 +41,7 @@ const example = {
   "contractEndOn": null,
   "contractOnFile": null,
   "atWill": null,
+  "interim": null,
   "firstSeasonYear": null,
   "careerSeasonCount": null,
   "yearOne": null,

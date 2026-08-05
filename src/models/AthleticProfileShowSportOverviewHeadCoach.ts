@@ -32,6 +32,12 @@ export interface AthleticProfileShowSportOverviewHeadCoach {
      */
     name?: string;
     /**
+     * True when the resolved seat-holder's position is interim-only.
+     * @type {boolean}
+     * @memberof AthleticProfileShowSportOverviewHeadCoach
+     */
+    interim?: boolean;
+    /**
      * 
      * @type {number}
      * @memberof AthleticProfileShowSportOverviewHeadCoach
@@ -118,6 +124,7 @@ export function AthleticProfileShowSportOverviewHeadCoachFromJSONTyped(json: any
         
         'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'name': json['name'] == null ? undefined : json['name'],
+        'interim': json['interim'] == null ? undefined : json['interim'],
         'firstSeasonYear': json['first_season_year'] == null ? undefined : json['first_season_year'],
         'compCents': json['comp_cents'] == null ? undefined : json['comp_cents'],
         'compRank': json['comp_rank'] == null ? undefined : json['comp_rank'],
@@ -145,6 +152,7 @@ export function AthleticProfileShowSportOverviewHeadCoachToJSONTyped(value?: Ath
         
         'coach_id': value['coachId'],
         'name': value['name'],
+        'interim': value['interim'],
         'first_season_year': value['firstSeasonYear'],
         'comp_cents': value['compCents'],
         'comp_rank': value['compRank'],

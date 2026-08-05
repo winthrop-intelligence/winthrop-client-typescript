@@ -1,5 +1,5 @@
 
-# AthleticProfileShowSportOverviewSeasonsInner
+# AthleticProfileShowSportHistorySeasonsInner
 
 
 ## Properties
@@ -7,28 +7,34 @@
 Name | Type
 ------------ | -------------
 `year` | number
+`coachId` | number
+`coachName` | string
+`interim` | boolean
 `record` | string
 `conferenceRecord` | string
 `netRank` | number
+`rpi` | number
 `postseason` | string
-`headCoachName` | string
-`headCoachInterim` | boolean
+`spendCents` | number
 
 ## Example
 
 ```typescript
-import type { AthleticProfileShowSportOverviewSeasonsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AthleticProfileShowSportHistorySeasonsInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "year": null,
+  "coachId": null,
+  "coachName": null,
+  "interim": null,
   "record": null,
   "conferenceRecord": null,
   "netRank": null,
+  "rpi": null,
   "postseason": null,
-  "headCoachName": null,
-  "headCoachInterim": null,
-} satisfies AthleticProfileShowSportOverviewSeasonsInner
+  "spendCents": null,
+} satisfies AthleticProfileShowSportHistorySeasonsInner
 
 console.log(example)
 
@@ -37,7 +43,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AthleticProfileShowSportOverviewSeasonsInner
+const exampleParsed = JSON.parse(exampleJSON) as AthleticProfileShowSportHistorySeasonsInner
 console.log(exampleParsed)
 ```
 

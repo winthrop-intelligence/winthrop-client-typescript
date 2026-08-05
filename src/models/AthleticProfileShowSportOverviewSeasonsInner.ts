@@ -55,6 +55,12 @@ export interface AthleticProfileShowSportOverviewSeasonsInner {
      * @memberof AthleticProfileShowSportOverviewSeasonsInner
      */
     headCoachName?: string | null;
+    /**
+     * True when the season's seat-holder is filed only as INTERIM_HEAD_COACH.
+     * @type {boolean}
+     * @memberof AthleticProfileShowSportOverviewSeasonsInner
+     */
+    headCoachInterim?: boolean;
 }
 
 /**
@@ -80,6 +86,7 @@ export function AthleticProfileShowSportOverviewSeasonsInnerFromJSONTyped(json: 
         'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'postseason': json['postseason'] == null ? undefined : json['postseason'],
         'headCoachName': json['head_coach_name'] == null ? undefined : json['head_coach_name'],
+        'headCoachInterim': json['head_coach_interim'] == null ? undefined : json['head_coach_interim'],
     };
 }
 
@@ -100,6 +107,7 @@ export function AthleticProfileShowSportOverviewSeasonsInnerToJSONTyped(value?: 
         'net_rank': value['netRank'],
         'postseason': value['postseason'],
         'head_coach_name': value['headCoachName'],
+        'head_coach_interim': value['headCoachInterim'],
     };
 }
 

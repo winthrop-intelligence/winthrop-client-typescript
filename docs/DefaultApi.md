@@ -74,6 +74,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
+| [**getAthleticProfileReport**](DefaultApi.md#getathleticprofilereport) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId}/report |  |
 | [**getAthleticProfileSearch**](DefaultApi.md#getathleticprofilesearch) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId} |  |
 | [**getAuditedFinancialReportStatus**](DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} |  |
 | [**getAuditedFinancialReportStatuses**](DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses |  |
@@ -5592,6 +5593,97 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Administrators were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAthleticProfileReport
+
+> Blob getAthleticProfileReport(athleticProfileSearchId, sport, year, scope, tab, appendix)
+
+
+
+Download a sport profile view as a letter-format PDF report (WINAD-10211). Department scopes are rejected with 422 until their report pages exist.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAthleticProfileReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | School ID
+    athleticProfileSearchId: 56,
+    // string | Sport key (non-ADMIN)
+    sport: sport_example,
+    // number | Season year (defaults to the current season) (optional)
+    year: 56,
+    // 'full' | 'tab' | Report scope (optional)
+    scope: scope_example,
+    // 'overview' | 'coach-staff' | 'financials' | 'guarantees' | 'history' | Tab key when scope=tab (optional)
+    tab: tab_example,
+    // '0' | '1' | Include the sources appendix (\'1\' default, \'0\' to omit) (optional)
+    appendix: appendix_example,
+  } satisfies GetAthleticProfileReportRequest;
+
+  try {
+    const data = await api.getAthleticProfileReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **athleticProfileSearchId** | `number` | School ID | [Defaults to `undefined`] |
+| **sport** | `string` | Sport key (non-ADMIN) | [Defaults to `undefined`] |
+| **year** | `number` | Season year (defaults to the current season) | [Optional] [Defaults to `undefined`] |
+| **scope** | `full`, `tab` | Report scope | [Optional] [Defaults to `&#39;full&#39;`] [Enum: full, tab] |
+| **tab** | `overview`, `coach-staff`, `financials`, `guarantees`, `history` | Tab key when scope&#x3D;tab | [Optional] [Defaults to `&#39;overview&#39;`] [Enum: overview, coach-staff, financials, guarantees, history] |
+| **appendix** | `0`, `1` | Include the sources appendix (\&#39;1\&#39; default, \&#39;0\&#39; to omit) | [Optional] [Defaults to `&#39;1&#39;`] [Enum: 0, 1] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF report attachment |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+| **422** | Department report pages are pending |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
