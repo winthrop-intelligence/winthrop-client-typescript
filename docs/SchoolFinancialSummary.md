@@ -12,6 +12,9 @@ Name | Type
 `years` | Array&lt;number&gt;
 `schoolInfo` | [SchoolInfo](SchoolInfo.md)
 `studentFeePerStudent` | number
+`otherReportingItems` | [Array&lt;NcaaFinancialReportItemGroup&gt;](NcaaFinancialReportItemGroup.md)
+`financialStats` | [Array&lt;NcaaFinancialStat&gt;](NcaaFinancialStat.md)
+`participationSummaries` | [Array&lt;NcaaFinancialParticipationSummary&gt;](NcaaFinancialParticipationSummary.md)
 `ncaaReportId` | number
 `auditedReportId` | number
 `revenues` | [Array&lt;SchoolFinancialGroup&gt;](SchoolFinancialGroup.md)
@@ -30,6 +33,9 @@ const example = {
   "years": null,
   "schoolInfo": null,
   "studentFeePerStudent": null,
+  "otherReportingItems": null,
+  "financialStats": null,
+  "participationSummaries": null,
   "ncaaReportId": null,
   "auditedReportId": null,
   "revenues": null,

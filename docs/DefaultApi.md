@@ -185,6 +185,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchedulingContacts**](DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
+| [**getSchoolDepartmentCoaches**](DefaultApi.md#getschooldepartmentcoaches) | **GET** /api/v1/schools/{schoolId}/department_coaches |  |
 | [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
 | [**getSchoolDepartmentGuarantees**](DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees |  |
 | [**getSchoolDepartmentOverview**](DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview |  |
@@ -14179,6 +14180,84 @@ example().catch(console.error);
 | **200** | Alternate names were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | School not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentCoaches
+
+> SchoolDepartmentCoaches getSchoolDepartmentCoaches(schoolId, year)
+
+
+
+Department Coaches tab — every head-coach seat with comp and its conference pay rank, results by the sport\&#39;s rank lens, pay-vs-impact quadrant points, verdict buckets, portfolio-shape counts, and contract clocks; private schools degrade to 990-basis comp with pay ranks withheld (mode private_990)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentCoachesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Season year; defaults to the latest season with head-coach seats (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentCoachesRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentCoaches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Season year; defaults to the latest season with head-coach seats | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentCoaches**](SchoolDepartmentCoaches.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department coaches portfolio |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
