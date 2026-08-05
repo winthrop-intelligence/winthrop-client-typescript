@@ -239,6 +239,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
 *DefaultApi* | [**getSchoolDepartmentFinancials**](docs/DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials | 
+*DefaultApi* | [**getSchoolDepartmentGuarantees**](docs/DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees | 
 *DefaultApi* | [**getSchoolDepartmentOverview**](docs/DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
 *DefaultApi* | [**getSchoolGroup**](docs/DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} | 
@@ -587,6 +588,16 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentFinancialsRankLine](docs/DepartmentFinancialsRankLine.md)
 - [DepartmentFinancialsTrendEntry](docs/DepartmentFinancialsTrendEntry.md)
 - [DepartmentFinancialsUnplottedSchool](docs/DepartmentFinancialsUnplottedSchool.md)
+- [DepartmentGuaranteesAgreement](docs/DepartmentGuaranteesAgreement.md)
+- [DepartmentGuaranteesAgreementOpponent](docs/DepartmentGuaranteesAgreementOpponent.md)
+- [DepartmentGuaranteesCommittedSide](docs/DepartmentGuaranteesCommittedSide.md)
+- [DepartmentGuaranteesFiledLine](docs/DepartmentGuaranteesFiledLine.md)
+- [DepartmentGuaranteesMarket](docs/DepartmentGuaranteesMarket.md)
+- [DepartmentGuaranteesMarketSide](docs/DepartmentGuaranteesMarketSide.md)
+- [DepartmentGuaranteesQuadrant](docs/DepartmentGuaranteesQuadrant.md)
+- [DepartmentGuaranteesQuadrantPoint](docs/DepartmentGuaranteesQuadrantPoint.md)
+- [DepartmentGuaranteesSportLedger](docs/DepartmentGuaranteesSportLedger.md)
+- [DepartmentGuaranteesTrendEntry](docs/DepartmentGuaranteesTrendEntry.md)
 - [DepartmentOverviewDollarShares](docs/DepartmentOverviewDollarShares.md)
 - [DepartmentOverviewFlowSummary](docs/DepartmentOverviewFlowSummary.md)
 - [DepartmentOverviewHeadlineStat](docs/DepartmentOverviewHeadlineStat.md)
@@ -853,6 +864,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
 - [SchoolDepartmentFinancials](docs/SchoolDepartmentFinancials.md)
+- [SchoolDepartmentGuarantees](docs/SchoolDepartmentGuarantees.md)
+- [SchoolDepartmentGuaranteesSchool](docs/SchoolDepartmentGuaranteesSchool.md)
 - [SchoolDepartmentOverview](docs/SchoolDepartmentOverview.md)
 - [SchoolDepartmentOverviewConference](docs/SchoolDepartmentOverviewConference.md)
 - [SchoolDepartmentOverviewSchool](docs/SchoolDepartmentOverviewSchool.md)

@@ -181,6 +181,7 @@ import type {
   School,
   SchoolCollection,
   SchoolDepartmentFinancials,
+  SchoolDepartmentGuarantees,
   SchoolDepartmentOverview,
   SchoolFinancialDetail,
   SchoolFinancialSummary,
@@ -572,6 +573,8 @@ import {
     SchoolCollectionToJSON,
     SchoolDepartmentFinancialsFromJSON,
     SchoolDepartmentFinancialsToJSON,
+    SchoolDepartmentGuaranteesFromJSON,
+    SchoolDepartmentGuaranteesToJSON,
     SchoolDepartmentOverviewFromJSON,
     SchoolDepartmentOverviewToJSON,
     SchoolFinancialDetailFromJSON,
@@ -1515,6 +1518,11 @@ export interface DefaultApiGetSchoolAlternateNamesRequest {
 }
 
 export interface DefaultApiGetSchoolDepartmentFinancialsRequest {
+    schoolId: number;
+    year?: number;
+}
+
+export interface DefaultApiGetSchoolDepartmentGuaranteesRequest {
     schoolId: number;
     year?: number;
 }
@@ -10888,6 +10896,56 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolDepartmentFinancials(requestParameters: DefaultApiGetSchoolDepartmentFinancialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentFinancials> {
         const response = await this.getSchoolDepartmentFinancialsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Department-level guarantee-game market for a school — FRS bought-vs-sold quadrant, current-season committed slate with per-sport agreement ledgers, filed-line reconciliation, market medians, and the three-season trend
+     */
+    async getSchoolDepartmentGuaranteesRaw(requestParameters: DefaultApiGetSchoolDepartmentGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolDepartmentGuarantees>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getSchoolDepartmentGuarantees().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/{schoolId}/department_guarantees`;
+        urlPath = urlPath.replace(`{${"schoolId"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolDepartmentGuaranteesFromJSON(jsonValue));
+    }
+
+    /**
+     * Department-level guarantee-game market for a school — FRS bought-vs-sold quadrant, current-season committed slate with per-sport agreement ledgers, filed-line reconciliation, market medians, and the three-season trend
+     */
+    async getSchoolDepartmentGuarantees(requestParameters: DefaultApiGetSchoolDepartmentGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentGuarantees> {
+        const response = await this.getSchoolDepartmentGuaranteesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
