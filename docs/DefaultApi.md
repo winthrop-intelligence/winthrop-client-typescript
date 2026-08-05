@@ -186,6 +186,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
 | [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
 | [**getSchoolDepartmentGuarantees**](DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees |  |
+| [**getSchoolDepartmentOverview**](DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
@@ -14244,6 +14245,85 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden — no guarantees permission for this school |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentOverview
+
+> SchoolDepartmentOverview getSchoolDepartmentOverview(schoolId, year)
+
+
+
+Department landing-page summary for a school — headline spend/revenue/coaching stats with conference ranks and the adjacent peer, the earns/spends/keeps flow, top revenue and expense lines, expense shares, filing provenance, and any missing results lens
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentOverviewRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentOverviewRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentOverview(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentOverview**](SchoolDepartmentOverview.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department overview |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — private school or no financials permission |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

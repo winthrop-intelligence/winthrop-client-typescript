@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `school` | [SchoolDepartmentGuaranteesSchool](SchoolDepartmentGuaranteesSchool.md)
-`conference` | [SchoolDepartmentFinancialsConference](SchoolDepartmentFinancialsConference.md)
+`conference` | [SchoolDepartmentOverviewConference](SchoolDepartmentOverviewConference.md)
 `seasonYear` | number
 `latestFiledYear` | number
 `selectedYear` | number
