@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `coachId` | number
 `name` | string
+`interim` | boolean
 `firstSeasonYear` | number
 `compCents` | number
 `compRank` | number
@@ -29,6 +30,7 @@ import type { AthleticProfileShowSportOverviewHeadCoach } from '@winthrop-intell
 const example = {
   "coachId": null,
   "name": null,
+  "interim": null,
   "firstSeasonYear": null,
   "compCents": null,
   "compRank": null,

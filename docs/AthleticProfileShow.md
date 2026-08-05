@@ -19,6 +19,8 @@ Name | Type
 `sportOverview` | [AthleticProfileShowSportOverview](AthleticProfileShowSportOverview.md)
 `sportCoachStaff` | [AthleticProfileShowSportCoachStaff](AthleticProfileShowSportCoachStaff.md)
 `sportFinancials` | [AthleticProfileShowSportFinancials](AthleticProfileShowSportFinancials.md)
+`sportGuarantees` | [AthleticProfileShowSportGuarantees](AthleticProfileShowSportGuarantees.md)
+`sportHistory` | [AthleticProfileShowSportHistory](AthleticProfileShowSportHistory.md)
 `sponsoredCount` | number
 `personnel` | [Array&lt;AthleticProfileShowPersonnelInner&gt;](AthleticProfileShowPersonnelInner.md)
 `personnelTotalCount` | number
@@ -49,6 +51,8 @@ const example = {
   "sportOverview": null,
   "sportCoachStaff": null,
   "sportFinancials": null,
+  "sportGuarantees": null,
+  "sportHistory": null,
   "sponsoredCount": null,
   "personnel": null,
   "personnelTotalCount": null,

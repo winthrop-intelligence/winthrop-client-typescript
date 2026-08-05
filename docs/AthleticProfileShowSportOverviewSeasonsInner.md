@@ -12,6 +12,7 @@ Name | Type
 `netRank` | number
 `postseason` | string
 `headCoachName` | string
+`headCoachInterim` | boolean
 
 ## Example
 
@@ -26,6 +27,7 @@ const example = {
   "netRank": null,
   "postseason": null,
   "headCoachName": null,
+  "headCoachInterim": null,
 } satisfies AthleticProfileShowSportOverviewSeasonsInner
 
 console.log(example)
