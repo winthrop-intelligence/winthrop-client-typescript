@@ -1,7 +1,7 @@
 
 # DepartmentFinancialsEadaCategory
 
-Suppressed (null) when the source reports no salary, no coach count, or no FTE
+Suppressed (null) when the source reports no salary, coach count or FTE, when any of them is not positive, or when the salary is negative
 
 ## Properties
 
