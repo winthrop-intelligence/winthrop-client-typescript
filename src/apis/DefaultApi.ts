@@ -180,6 +180,8 @@ import type {
   SchedulingContactsResponse,
   School,
   SchoolCollection,
+  SchoolDepartmentAdministrators,
+  SchoolDepartmentCoaches,
   SchoolDepartmentFinancials,
   SchoolDepartmentGuarantees,
   SchoolDepartmentOverview,
@@ -571,6 +573,10 @@ import {
     SchoolToJSON,
     SchoolCollectionFromJSON,
     SchoolCollectionToJSON,
+    SchoolDepartmentAdministratorsFromJSON,
+    SchoolDepartmentAdministratorsToJSON,
+    SchoolDepartmentCoachesFromJSON,
+    SchoolDepartmentCoachesToJSON,
     SchoolDepartmentFinancialsFromJSON,
     SchoolDepartmentFinancialsToJSON,
     SchoolDepartmentGuaranteesFromJSON,
@@ -1515,6 +1521,16 @@ export interface DefaultApiGetSchoolRequest {
 
 export interface DefaultApiGetSchoolAlternateNamesRequest {
     schoolId: number;
+}
+
+export interface DefaultApiGetSchoolDepartmentAdministratorsRequest {
+    schoolId: number;
+    year?: number;
+}
+
+export interface DefaultApiGetSchoolDepartmentCoachesRequest {
+    schoolId: number;
+    year?: number;
 }
 
 export interface DefaultApiGetSchoolDepartmentFinancialsRequest {
@@ -10846,6 +10862,106 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getSchoolAlternateNames(requestParameters: DefaultApiGetSchoolAlternateNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSchoolAlternateNames200Response> {
         const response = await this.getSchoolAlternateNamesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Department Administrators tab — the leader roster deduped to people with comp and departments, comp stats, the AD\'s office with tenure, recent moves, and the support-staff-payroll-vs-Cup-place scorecard; private schools degrade to the 990 officer lines (mode private_990) and comp everywhere respects the administrator_compensation ability
+     */
+    async getSchoolDepartmentAdministratorsRaw(requestParameters: DefaultApiGetSchoolDepartmentAdministratorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolDepartmentAdministrators>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getSchoolDepartmentAdministrators().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/{schoolId}/department_administrators`;
+        urlPath = urlPath.replace(`{${"schoolId"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolDepartmentAdministratorsFromJSON(jsonValue));
+    }
+
+    /**
+     * Department Administrators tab — the leader roster deduped to people with comp and departments, comp stats, the AD\'s office with tenure, recent moves, and the support-staff-payroll-vs-Cup-place scorecard; private schools degrade to the 990 officer lines (mode private_990) and comp everywhere respects the administrator_compensation ability
+     */
+    async getSchoolDepartmentAdministrators(requestParameters: DefaultApiGetSchoolDepartmentAdministratorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentAdministrators> {
+        const response = await this.getSchoolDepartmentAdministratorsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Department Coaches tab — every head-coach seat with comp and its conference pay rank, results by the sport\'s rank lens, pay-vs-impact quadrant points, verdict buckets, portfolio-shape counts, and contract clocks; private schools degrade to 990-basis comp with pay ranks withheld (mode private_990)
+     */
+    async getSchoolDepartmentCoachesRaw(requestParameters: DefaultApiGetSchoolDepartmentCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SchoolDepartmentCoaches>> {
+        if (requestParameters['schoolId'] == null) {
+            throw new runtime.RequiredError(
+                'schoolId',
+                'Required parameter "schoolId" was null or undefined when calling getSchoolDepartmentCoaches().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['year'] != null) {
+            queryParameters['year'] = requestParameters['year'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/schools/{schoolId}/department_coaches`;
+        urlPath = urlPath.replace(`{${"schoolId"}}`, encodeURIComponent(String(requestParameters['schoolId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SchoolDepartmentCoachesFromJSON(jsonValue));
+    }
+
+    /**
+     * Department Coaches tab — every head-coach seat with comp and its conference pay rank, results by the sport\'s rank lens, pay-vs-impact quadrant points, verdict buckets, portfolio-shape counts, and contract clocks; private schools degrade to 990-basis comp with pay ranks withheld (mode private_990)
+     */
+    async getSchoolDepartmentCoaches(requestParameters: DefaultApiGetSchoolDepartmentCoachesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SchoolDepartmentCoaches> {
+        const response = await this.getSchoolDepartmentCoachesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
