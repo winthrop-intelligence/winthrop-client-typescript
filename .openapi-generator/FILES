@@ -464,8 +464,13 @@ docs/Logo.md
 docs/McpEvent.md
 docs/Meta.md
 docs/MlAthleticApi.md
+docs/NcaaFinancialParticipationSummary.md
+docs/NcaaFinancialReportItemGroup.md
+docs/NcaaFinancialReportItemValue.md
 docs/NcaaFinancialReportStatus.md
 docs/NcaaFinancialReportStatusCollection.md
+docs/NcaaFinancialSourceAggregate.md
+docs/NcaaFinancialStat.md
 docs/NewAccountUserResponse.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
@@ -1123,8 +1128,13 @@ src/models/LocationInner.ts
 src/models/Logo.ts
 src/models/McpEvent.ts
 src/models/Meta.ts
+src/models/NcaaFinancialParticipationSummary.ts
+src/models/NcaaFinancialReportItemGroup.ts
+src/models/NcaaFinancialReportItemValue.ts
 src/models/NcaaFinancialReportStatus.ts
 src/models/NcaaFinancialReportStatusCollection.ts
+src/models/NcaaFinancialSourceAggregate.ts
+src/models/NcaaFinancialStat.ts
 src/models/NewAccountUserResponse.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
