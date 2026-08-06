@@ -17,6 +17,7 @@ Name | Type
 `revenue` | [DepartmentFinancialsLedger](DepartmentFinancialsLedger.md)
 `expenses` | [DepartmentFinancialsLedger](DepartmentFinancialsLedger.md)
 `trend` | [Array&lt;DepartmentFinancialsTrendEntry&gt;](DepartmentFinancialsTrendEntry.md)
+`eadaCoaching` | [DepartmentFinancialsEadaCoaching](DepartmentFinancialsEadaCoaching.md)
 
 ## Example
 
@@ -36,6 +37,7 @@ const example = {
   "revenue": null,
   "expenses": null,
   "trend": null,
+  "eadaCoaching": null,
 } satisfies SchoolDepartmentFinancials
 
 console.log(example)
