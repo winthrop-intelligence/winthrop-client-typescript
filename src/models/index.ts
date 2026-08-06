@@ -472,6 +472,7 @@ export * from './PositionTypeGroup';
 export * from './PredictBody';
 export * from './PredictFailure';
 export * from './PredictSuccess';
+export * from './QuadrantUnplottedSchool';
 export * from './RawContract';
 export * from './RawContractBackTo';
 export * from './RawContractCollection';

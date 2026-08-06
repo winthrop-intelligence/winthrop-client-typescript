@@ -9,6 +9,7 @@ Name | Type
 `coachId` | number
 `friendlyId` | string
 `name` | string
+`lastName` | string
 `title` | string
 `departments` | Array&lt;string&gt;
 `isAd` | boolean
@@ -28,6 +29,7 @@ const example = {
   "coachId": null,
   "friendlyId": null,
   "name": null,
+  "lastName": null,
   "title": null,
   "departments": null,
   "isAd": null,

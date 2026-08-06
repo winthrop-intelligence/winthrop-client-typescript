@@ -480,6 +480,7 @@ docs/PositionTypeGroup.md
 docs/PredictBody.md
 docs/PredictFailure.md
 docs/PredictSuccess.md
+docs/QuadrantUnplottedSchool.md
 docs/RawContract.md
 docs/RawContractBackTo.md
 docs/RawContractCollection.md
@@ -1132,6 +1133,7 @@ src/models/PositionTypeGroup.ts
 src/models/PredictBody.ts
 src/models/PredictFailure.ts
 src/models/PredictSuccess.ts
+src/models/QuadrantUnplottedSchool.ts
 src/models/RawContract.ts
 src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts

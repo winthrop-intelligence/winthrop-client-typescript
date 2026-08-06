@@ -13,7 +13,7 @@ Name | Type
 `metric` | string
 `cohortSize` | number
 `points` | [Array&lt;DepartmentAdministratorsScorecardPoint&gt;](DepartmentAdministratorsScorecardPoint.md)
-`unplotted` | [Array&lt;DepartmentOverviewUnplottedSchool&gt;](DepartmentOverviewUnplottedSchool.md)
+`unplotted` | [Array&lt;QuadrantUnplottedSchool&gt;](QuadrantUnplottedSchool.md)
 
 ## Example
 
