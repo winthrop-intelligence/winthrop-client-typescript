@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.53.56
+# @winthrop-intelligence/winthrop-client-typescript@1.53.56-dev.10080
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -238,6 +238,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchedulingContacts**](docs/DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts | 
 *DefaultApi* | [**getSchool**](docs/DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} | 
 *DefaultApi* | [**getSchoolAlternateNames**](docs/DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names | 
+*DefaultApi* | [**getSchoolDepartmentAdministrators**](docs/DefaultApi.md#getschooldepartmentadministrators) | **GET** /api/v1/schools/{schoolId}/department_administrators | 
+*DefaultApi* | [**getSchoolDepartmentCoaches**](docs/DefaultApi.md#getschooldepartmentcoaches) | **GET** /api/v1/schools/{schoolId}/department_coaches | 
 *DefaultApi* | [**getSchoolDepartmentFinancials**](docs/DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials | 
 *DefaultApi* | [**getSchoolDepartmentGuarantees**](docs/DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees | 
 *DefaultApi* | [**getSchoolDepartmentOverview**](docs/DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview | 
@@ -580,6 +582,36 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DeleteAccountUser200Response](docs/DeleteAccountUser200Response.md)
 - [DeleteContactSearch200Response](docs/DeleteContactSearch200Response.md)
 - [DeleteFavorite200Response](docs/DeleteFavorite200Response.md)
+- [DepartmentAdministratorStaffRow](docs/DepartmentAdministratorStaffRow.md)
+- [DepartmentAdministrators990Officer](docs/DepartmentAdministrators990Officer.md)
+- [DepartmentAdministratorsAdOffice](docs/DepartmentAdministratorsAdOffice.md)
+- [DepartmentAdministratorsAdProfile](docs/DepartmentAdministratorsAdProfile.md)
+- [DepartmentAdministratorsAdSeat](docs/DepartmentAdministratorsAdSeat.md)
+- [DepartmentAdministratorsBasis](docs/DepartmentAdministratorsBasis.md)
+- [DepartmentAdministratorsRecentMove](docs/DepartmentAdministratorsRecentMove.md)
+- [DepartmentAdministratorsScorecard](docs/DepartmentAdministratorsScorecard.md)
+- [DepartmentAdministratorsScorecardGap](docs/DepartmentAdministratorsScorecardGap.md)
+- [DepartmentAdministratorsScorecardPoint](docs/DepartmentAdministratorsScorecardPoint.md)
+- [DepartmentAdministratorsStaffStats](docs/DepartmentAdministratorsStaffStats.md)
+- [DepartmentCoachPay](docs/DepartmentCoachPay.md)
+- [DepartmentCoachQuadrantPoint](docs/DepartmentCoachQuadrantPoint.md)
+- [DepartmentCoachResult](docs/DepartmentCoachResult.md)
+- [DepartmentCoachSeat](docs/DepartmentCoachSeat.md)
+- [DepartmentCoachSeatCoach](docs/DepartmentCoachSeatCoach.md)
+- [DepartmentCoachSeatSport](docs/DepartmentCoachSeatSport.md)
+- [DepartmentCoachVerdict](docs/DepartmentCoachVerdict.md)
+- [DepartmentCoachesBasis](docs/DepartmentCoachesBasis.md)
+- [DepartmentCoachesClockRow](docs/DepartmentCoachesClockRow.md)
+- [DepartmentCoachesContractClocks](docs/DepartmentCoachesContractClocks.md)
+- [DepartmentCoachesPortfolioShape](docs/DepartmentCoachesPortfolioShape.md)
+- [DepartmentCoachesQuadrant](docs/DepartmentCoachesQuadrant.md)
+- [DepartmentCoachesResultWindow](docs/DepartmentCoachesResultWindow.md)
+- [DepartmentCoachesShapeEntry](docs/DepartmentCoachesShapeEntry.md)
+- [DepartmentFinancialsEadaCategory](docs/DepartmentFinancialsEadaCategory.md)
+- [DepartmentFinancialsEadaCoaching](docs/DepartmentFinancialsEadaCoaching.md)
+- [DepartmentFinancialsEadaLedger](docs/DepartmentFinancialsEadaLedger.md)
+- [DepartmentFinancialsEadaLedgerLine](docs/DepartmentFinancialsEadaLedgerLine.md)
+- [DepartmentFinancialsEadaRole](docs/DepartmentFinancialsEadaRole.md)
 - [DepartmentFinancialsLedger](docs/DepartmentFinancialsLedger.md)
 - [DepartmentFinancialsLedgerLine](docs/DepartmentFinancialsLedgerLine.md)
 - [DepartmentFinancialsNetResult](docs/DepartmentFinancialsNetResult.md)
@@ -818,6 +850,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PredictBody](docs/PredictBody.md)
 - [PredictFailure](docs/PredictFailure.md)
 - [PredictSuccess](docs/PredictSuccess.md)
+- [QuadrantUnplottedSchool](docs/QuadrantUnplottedSchool.md)
 - [RawContract](docs/RawContract.md)
 - [RawContractBackTo](docs/RawContractBackTo.md)
 - [RawContractCollection](docs/RawContractCollection.md)
@@ -863,6 +896,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [School](docs/School.md)
 - [SchoolCollection](docs/SchoolCollection.md)
 - [SchoolContractEntry](docs/SchoolContractEntry.md)
+- [SchoolDepartmentAdministrators](docs/SchoolDepartmentAdministrators.md)
+- [SchoolDepartmentCoaches](docs/SchoolDepartmentCoaches.md)
 - [SchoolDepartmentFinancials](docs/SchoolDepartmentFinancials.md)
 - [SchoolDepartmentGuarantees](docs/SchoolDepartmentGuarantees.md)
 - [SchoolDepartmentGuaranteesSchool](docs/SchoolDepartmentGuaranteesSchool.md)
@@ -1009,8 +1044,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.53.56`
-- Package version: `1.53.56`
+- API version: `1.53.56-dev.10080`
+- Package version: `1.53.56-dev.10080`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
