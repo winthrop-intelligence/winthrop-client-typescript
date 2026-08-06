@@ -228,6 +228,8 @@ docs/DepartmentCoachesResultWindow.md
 docs/DepartmentCoachesShapeEntry.md
 docs/DepartmentFinancialsEadaCategory.md
 docs/DepartmentFinancialsEadaCoaching.md
+docs/DepartmentFinancialsEadaLedger.md
+docs/DepartmentFinancialsEadaLedgerLine.md
 docs/DepartmentFinancialsEadaRole.md
 docs/DepartmentFinancialsLedger.md
 docs/DepartmentFinancialsLedgerLine.md
@@ -876,6 +878,8 @@ src/models/DepartmentCoachesResultWindow.ts
 src/models/DepartmentCoachesShapeEntry.ts
 src/models/DepartmentFinancialsEadaCategory.ts
 src/models/DepartmentFinancialsEadaCoaching.ts
+src/models/DepartmentFinancialsEadaLedger.ts
+src/models/DepartmentFinancialsEadaLedgerLine.ts
 src/models/DepartmentFinancialsEadaRole.ts
 src/models/DepartmentFinancialsLedger.ts
 src/models/DepartmentFinancialsLedgerLine.ts

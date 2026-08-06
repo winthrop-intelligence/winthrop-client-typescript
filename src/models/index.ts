@@ -225,6 +225,8 @@ export * from './DepartmentCoachesResultWindow';
 export * from './DepartmentCoachesShapeEntry';
 export * from './DepartmentFinancialsEadaCategory';
 export * from './DepartmentFinancialsEadaCoaching';
+export * from './DepartmentFinancialsEadaLedger';
+export * from './DepartmentFinancialsEadaLedgerLine';
 export * from './DepartmentFinancialsEadaRole';
 export * from './DepartmentFinancialsLedger';
 export * from './DepartmentFinancialsLedgerLine';
