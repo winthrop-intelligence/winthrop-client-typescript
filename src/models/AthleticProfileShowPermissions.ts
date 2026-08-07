@@ -42,6 +42,12 @@ export interface AthleticProfileShowPermissions {
      * @type {boolean}
      * @memberof AthleticProfileShowPermissions
      */
+    canSeeEadaFinancials?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AthleticProfileShowPermissions
+     */
     canSeeDeals?: boolean;
     /**
      * 
@@ -77,6 +83,7 @@ export function AthleticProfileShowPermissionsFromJSONTyped(json: any, ignoreDis
         'canSeePersonnel': json['can_see_personnel'] == null ? undefined : json['can_see_personnel'],
         'canSeeCompensation': json['can_see_compensation'] == null ? undefined : json['can_see_compensation'],
         'canSeeFinancials': json['can_see_financials'] == null ? undefined : json['can_see_financials'],
+        'canSeeEadaFinancials': json['can_see_eada_financials'] == null ? undefined : json['can_see_eada_financials'],
         'canSeeDeals': json['can_see_deals'] == null ? undefined : json['can_see_deals'],
         'canSeeGuarantees': json['can_see_guarantees'] == null ? undefined : json['can_see_guarantees'],
         'canShowSchedule': json['can_show_schedule'] == null ? undefined : json['can_show_schedule'],
@@ -97,6 +104,7 @@ export function AthleticProfileShowPermissionsToJSONTyped(value?: AthleticProfil
         'can_see_personnel': value['canSeePersonnel'],
         'can_see_compensation': value['canSeeCompensation'],
         'can_see_financials': value['canSeeFinancials'],
+        'can_see_eada_financials': value['canSeeEadaFinancials'],
         'can_see_deals': value['canSeeDeals'],
         'can_see_guarantees': value['canSeeGuarantees'],
         'can_show_schedule': value['canShowSchedule'],
