@@ -9,6 +9,7 @@ Name | Type
 `year` | number
 `coachId` | number
 `coachName` | string
+`coachLastName` | string
 `interim` | boolean
 `record` | string
 `conferenceRecord` | string
@@ -27,6 +28,7 @@ const example = {
   "year": null,
   "coachId": null,
   "coachName": null,
+  "coachLastName": null,
   "interim": null,
   "record": null,
   "conferenceRecord": null,

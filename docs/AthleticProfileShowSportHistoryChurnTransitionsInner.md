@@ -8,7 +8,9 @@ Name | Type
 ------------ | -------------
 `seasonYear` | number
 `fromCoachName` | string
+`fromCoachLastName` | string
 `toCoachName` | string
+`toCoachLastName` | string
 `settlementRawContractId` | number
 
 ## Example
@@ -20,7 +22,9 @@ import type { AthleticProfileShowSportHistoryChurnTransitionsInner } from '@wint
 const example = {
   "seasonYear": null,
   "fromCoachName": null,
+  "fromCoachLastName": null,
   "toCoachName": null,
+  "toCoachLastName": null,
   "settlementRawContractId": null,
 } satisfies AthleticProfileShowSportHistoryChurnTransitionsInner
 

@@ -14,6 +14,7 @@ Name | Type
 `boughtCents` | number
 `boughtCount` | number
 `netRank` | number
+`rpi` | number
 
 ## Example
 
@@ -30,6 +31,7 @@ const example = {
   "boughtCents": null,
   "boughtCount": null,
   "netRank": null,
+  "rpi": null,
 } satisfies AthleticProfileShowSportGuaranteesQuadrantPointsInner
 
 console.log(example)
