@@ -12,6 +12,8 @@ Name | Type
 `colors` | string
 `expTotalCents` | number
 `revTotalCents` | number
+`basis` | string
+`basisYear` | number
 
 ## Example
 
@@ -26,6 +28,8 @@ const example = {
   "colors": null,
   "expTotalCents": null,
   "revTotalCents": null,
+  "basis": null,
+  "basisYear": null,
 } satisfies DepartmentFinancialsQuadrantPoint
 
 console.log(example)
