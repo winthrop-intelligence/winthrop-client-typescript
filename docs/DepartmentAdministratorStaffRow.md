@@ -16,6 +16,7 @@ Name | Type
 `compCents` | number
 `compBasis` | string
 `compEstimated` | boolean
+`photoUrl` | string
 
 ## Example
 
@@ -34,6 +35,7 @@ const example = {
   "compCents": null,
   "compBasis": null,
   "compEstimated": null,
+  "photoUrl": null,
 } satisfies DepartmentAdministratorStaffRow
 
 console.log(example)
