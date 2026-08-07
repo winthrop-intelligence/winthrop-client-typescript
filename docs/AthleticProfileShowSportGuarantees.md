@@ -11,6 +11,7 @@ Name | Type
 `conferenceName` | string
 `sportId` | number
 `basketball` | boolean
+`resultsLens` | string
 `agreements` | [Array&lt;AthleticProfileShowSportGuaranteesAgreementsInner&gt;](AthleticProfileShowSportGuaranteesAgreementsInner.md)
 `summary` | [AthleticProfileShowSportGuaranteesSummary](AthleticProfileShowSportGuaranteesSummary.md)
 `quadrant` | [AthleticProfileShowSportGuaranteesQuadrant](AthleticProfileShowSportGuaranteesQuadrant.md)
@@ -27,6 +28,7 @@ const example = {
   "conferenceName": null,
   "sportId": null,
   "basketball": null,
+  "resultsLens": null,
   "agreements": null,
   "summary": null,
   "quadrant": null,

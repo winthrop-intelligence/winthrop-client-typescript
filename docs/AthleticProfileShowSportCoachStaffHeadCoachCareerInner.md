@@ -10,6 +10,7 @@ Name | Type
 `schoolShortName` | string
 `record` | string
 `netRank` | number
+`rpi` | number
 `postseason` | string
 `isSubjectSchool` | boolean
 
@@ -24,6 +25,7 @@ const example = {
   "schoolShortName": null,
   "record": null,
   "netRank": null,
+  "rpi": null,
   "postseason": null,
   "isSubjectSchool": null,
 } satisfies AthleticProfileShowSportCoachStaffHeadCoachCareerInner
