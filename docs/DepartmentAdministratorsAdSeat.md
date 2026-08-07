@@ -18,6 +18,7 @@ Name | Type
 `compEstimated` | boolean
 `tenureYears` | number
 `compYear` | number
+`photoUrl` | string
 
 ## Example
 
@@ -38,6 +39,7 @@ const example = {
   "compEstimated": null,
   "tenureYears": null,
   "compYear": null,
+  "photoUrl": null,
 } satisfies DepartmentAdministratorsAdSeat
 
 console.log(example)
