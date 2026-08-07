@@ -229,6 +229,7 @@ export * from './DepartmentCoachSeatSport';
 export * from './DepartmentCoachVerdict';
 export * from './DepartmentCoachesBasis';
 export * from './DepartmentCoachesClockRow';
+export * from './DepartmentCoachesClockRowPeopleInner';
 export * from './DepartmentCoachesContractClocks';
 export * from './DepartmentCoachesPortfolioShape';
 export * from './DepartmentCoachesQuadrant';
