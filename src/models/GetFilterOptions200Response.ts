@@ -55,6 +55,12 @@ export interface GetFilterOptions200Response {
      */
     years?: Array<number>;
     /**
+     * Season years that have guarantee contracts, keyed by sport id. Always a subset of `years`. Sports with no accessible contracts are omitted. Populated only when `context=gad`; an empty object otherwise.
+     * @type {{ [key: string]: Array<number>; }}
+     * @memberof GetFilterOptions200Response
+     */
+    seasonYearsBySport?: { [key: string]: Array<number>; };
+    /**
      * 
      * @type {Array<number>}
      * @memberof GetFilterOptions200Response
@@ -134,6 +140,7 @@ export function GetFilterOptions200ResponseFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'years': json['years'] == null ? undefined : json['years'],
+        'seasonYearsBySport': json['season_years_by_sport'] == null ? undefined : json['season_years_by_sport'],
         'financialYears': json['financial_years'] == null ? undefined : json['financial_years'],
         'currentYear': json['current_year'] == null ? undefined : json['current_year'],
         'currentFinancialsYear': json['current_financials_year'] == null ? undefined : json['current_financials_year'],
@@ -159,6 +166,7 @@ export function GetFilterOptions200ResponseToJSONTyped(value?: GetFilterOptions2
     return {
         
         'years': value['years'],
+        'season_years_by_sport': value['seasonYearsBySport'],
         'financial_years': value['financialYears'],
         'current_year': value['currentYear'],
         'current_financials_year': value['currentFinancialsYear'],

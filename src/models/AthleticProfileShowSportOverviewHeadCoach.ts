@@ -109,6 +109,13 @@ export interface AthleticProfileShowSportOverviewHeadCoach {
      * @memberof AthleticProfileShowSportOverviewHeadCoach
      */
     staffPoolAllOnFile?: boolean | null;
+    /**
+     * Assistants on the season's staff whose compensation has a filed contract, so the card can give a partly-filed pool its provenance ("$825,000 · 4 of 5 on file"). Null when compensation is not permitted or the season has no staff on file.
+     * 
+     * @type {number}
+     * @memberof AthleticProfileShowSportOverviewHeadCoach
+     */
+    staffPoolOnFileCount?: number | null;
 }
 
 /**
@@ -143,6 +150,7 @@ export function AthleticProfileShowSportOverviewHeadCoachFromJSONTyped(json: any
         'assistantCount': json['assistant_count'] == null ? undefined : json['assistant_count'],
         'staffPoolCents': json['staff_pool_cents'] == null ? undefined : json['staff_pool_cents'],
         'staffPoolAllOnFile': json['staff_pool_all_on_file'] == null ? undefined : json['staff_pool_all_on_file'],
+        'staffPoolOnFileCount': json['staff_pool_on_file_count'] == null ? undefined : json['staff_pool_on_file_count'],
     };
 }
 
@@ -172,6 +180,7 @@ export function AthleticProfileShowSportOverviewHeadCoachToJSONTyped(value?: Ath
         'assistant_count': value['assistantCount'],
         'staff_pool_cents': value['staffPoolCents'],
         'staff_pool_all_on_file': value['staffPoolAllOnFile'],
+        'staff_pool_on_file_count': value['staffPoolOnFileCount'],
     };
 }
 

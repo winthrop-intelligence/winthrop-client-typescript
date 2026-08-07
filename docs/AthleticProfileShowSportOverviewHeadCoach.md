@@ -21,6 +21,7 @@ Name | Type
 `assistantCount` | number
 `staffPoolCents` | number
 `staffPoolAllOnFile` | boolean
+`staffPoolOnFileCount` | number
 
 ## Example
 
@@ -44,6 +45,7 @@ const example = {
   "assistantCount": null,
   "staffPoolCents": null,
   "staffPoolAllOnFile": null,
+  "staffPoolOnFileCount": null,
 } satisfies AthleticProfileShowSportOverviewHeadCoach
 
 console.log(example)

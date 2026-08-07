@@ -26,11 +26,11 @@ export interface AthleticProfileShowSportOverviewGuaranteesUpcomingInner {
      */
     opponentShortName?: string | null;
     /**
-     * 
+     * Null when the agreement is filed comp_tbd — an amount-pending game is never a priced one.
      * @type {number}
      * @memberof AthleticProfileShowSportOverviewGuaranteesUpcomingInner
      */
-    compCents?: number;
+    compCents?: number | null;
     /**
      * 
      * @type {Date}
