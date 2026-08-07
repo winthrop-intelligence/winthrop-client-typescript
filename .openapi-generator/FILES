@@ -232,6 +232,7 @@ docs/DepartmentCoachSeatSport.md
 docs/DepartmentCoachVerdict.md
 docs/DepartmentCoachesBasis.md
 docs/DepartmentCoachesClockRow.md
+docs/DepartmentCoachesClockRowPeopleInner.md
 docs/DepartmentCoachesContractClocks.md
 docs/DepartmentCoachesPortfolioShape.md
 docs/DepartmentCoachesQuadrant.md
@@ -895,6 +896,7 @@ src/models/DepartmentCoachSeatSport.ts
 src/models/DepartmentCoachVerdict.ts
 src/models/DepartmentCoachesBasis.ts
 src/models/DepartmentCoachesClockRow.ts
+src/models/DepartmentCoachesClockRowPeopleInner.ts
 src/models/DepartmentCoachesContractClocks.ts
 src/models/DepartmentCoachesPortfolioShape.ts
 src/models/DepartmentCoachesQuadrant.ts
