@@ -602,6 +602,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentCoachVerdict](docs/DepartmentCoachVerdict.md)
 - [DepartmentCoachesBasis](docs/DepartmentCoachesBasis.md)
 - [DepartmentCoachesClockRow](docs/DepartmentCoachesClockRow.md)
+- [DepartmentCoachesClockRowPeopleInner](docs/DepartmentCoachesClockRowPeopleInner.md)
 - [DepartmentCoachesContractClocks](docs/DepartmentCoachesContractClocks.md)
 - [DepartmentCoachesPortfolioShape](docs/DepartmentCoachesPortfolioShape.md)
 - [DepartmentCoachesQuadrant](docs/DepartmentCoachesQuadrant.md)
