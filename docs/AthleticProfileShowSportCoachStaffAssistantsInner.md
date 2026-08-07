@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `coachId` | number
 `name` | string
+`lastName` | string
 `title` | string
 `compCents` | number
 `contractEndOn` | Date
@@ -23,6 +24,7 @@ import type { AthleticProfileShowSportCoachStaffAssistantsInner } from '@winthro
 const example = {
   "coachId": null,
   "name": null,
+  "lastName": null,
   "title": null,
   "compCents": null,
   "contractEndOn": null,

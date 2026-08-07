@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `name` | string
+`lastName` | string
 `compCents` | number
 `onFile` | boolean
 
@@ -18,6 +19,7 @@ import type { AthleticProfileShowSportFinancialsCostBuildHeadCoach } from '@wint
 // TODO: Update the object below with actual values
 const example = {
   "name": null,
+  "lastName": null,
   "compCents": null,
   "onFile": null,
 } satisfies AthleticProfileShowSportFinancialsCostBuildHeadCoach

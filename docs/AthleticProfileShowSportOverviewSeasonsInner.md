@@ -10,8 +10,10 @@ Name | Type
 `record` | string
 `conferenceRecord` | string
 `netRank` | number
+`rpi` | number
 `postseason` | string
 `headCoachName` | string
+`headCoachLastName` | string
 `headCoachInterim` | boolean
 
 ## Example
@@ -25,8 +27,10 @@ const example = {
   "record": null,
   "conferenceRecord": null,
   "netRank": null,
+  "rpi": null,
   "postseason": null,
   "headCoachName": null,
+  "headCoachLastName": null,
   "headCoachInterim": null,
 } satisfies AthleticProfileShowSportOverviewSeasonsInner
 

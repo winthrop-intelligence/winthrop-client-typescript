@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `schoolShortName` | string
 `coachName` | string
+`coachLastName` | string
 `perWinCents` | number
 
 ## Example
@@ -19,6 +20,7 @@ import type { AthleticProfileShowSportFinancialsCostPerWinCheapest } from '@wint
 const example = {
   "schoolShortName": null,
   "coachName": null,
+  "coachLastName": null,
   "perWinCents": null,
 } satisfies AthleticProfileShowSportFinancialsCostPerWinCheapest
 
