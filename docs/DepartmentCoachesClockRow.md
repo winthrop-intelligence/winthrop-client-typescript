@@ -9,6 +9,7 @@ Name | Type
 `sportAbbrev` | string
 `group` | string
 `names` | Array&lt;string&gt;
+`people` | [Array&lt;DepartmentCoachesClockRowPeopleInner&gt;](DepartmentCoachesClockRowPeopleInner.md)
 `state` | string
 `date` | string
 `approximate` | boolean
@@ -23,6 +24,7 @@ const example = {
   "sportAbbrev": null,
   "group": null,
   "names": null,
+  "people": null,
   "state": null,
   "date": null,
   "approximate": null,
