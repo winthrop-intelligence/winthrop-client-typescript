@@ -9,6 +9,7 @@ Name | Type
 ------------ | -------------
 `seasonYear` | number
 `conferenceName` | string
+`resultsLens` | string
 `quadrantPoints` | [Array&lt;AthleticProfileShowSportCoachStaffQuadrantPointsInner&gt;](AthleticProfileShowSportCoachStaffQuadrantPointsInner.md)
 `headCoach` | [AthleticProfileShowSportCoachStaffHeadCoach](AthleticProfileShowSportCoachStaffHeadCoach.md)
 `assistants` | [Array&lt;AthleticProfileShowSportCoachStaffAssistantsInner&gt;](AthleticProfileShowSportCoachStaffAssistantsInner.md)
@@ -25,6 +26,7 @@ import type { AthleticProfileShowSportCoachStaff } from '@winthrop-intelligence/
 const example = {
   "seasonYear": null,
   "conferenceName": null,
+  "resultsLens": null,
   "quadrantPoints": null,
   "headCoach": null,
   "assistants": null,

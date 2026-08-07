@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `coachName` | string
+`coachLastName` | string
 `schoolShortName` | string
 `compCents` | number
 `isSubject` | boolean
@@ -19,6 +20,7 @@ import type { AthleticProfileShowSportOverviewPayLadderInner } from '@winthrop-i
 // TODO: Update the object below with actual values
 const example = {
   "coachName": null,
+  "coachLastName": null,
   "schoolShortName": null,
   "compCents": null,
   "isSubject": null,

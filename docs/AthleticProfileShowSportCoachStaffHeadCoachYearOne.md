@@ -10,6 +10,7 @@ Name | Type
 `record` | string
 `conferenceRecord` | string
 `netRank` | number
+`rpi` | number
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "record": null,
   "conferenceRecord": null,
   "netRank": null,
+  "rpi": null,
 } satisfies AthleticProfileShowSportCoachStaffHeadCoachYearOne
 
 console.log(example)
