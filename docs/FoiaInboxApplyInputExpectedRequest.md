@@ -7,10 +7,10 @@
 Name | Type
 ------------ | -------------
 `status` | string
-`updatedAt` | Date
+`foiaLabelId` | number
 `updatedBySchool` | Date
 `updatedByWi` | Date
-`foiaNotesSha256` | string
+`followUpDate` | Date
 
 ## Example
 
@@ -20,10 +20,10 @@ import type { FoiaInboxApplyInputExpectedRequest } from '@winthrop-intelligence/
 // TODO: Update the object below with actual values
 const example = {
   "status": null,
-  "updatedAt": null,
+  "foiaLabelId": null,
   "updatedBySchool": null,
   "updatedByWi": null,
-  "foiaNotesSha256": null,
+  "followUpDate": null,
 } satisfies FoiaInboxApplyInputExpectedRequest
 
 console.log(example)

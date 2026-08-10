@@ -11,8 +11,6 @@ Name | Type
 `coachId` | number
 `contractStatus` | string
 `comment` | string
-`updatedAt` | Date
-`positionsSha256` | string
 `positions` | [Array&lt;FoiaInboxExpectedPosition&gt;](FoiaInboxExpectedPosition.md)
 
 ## Example
@@ -27,8 +25,6 @@ const example = {
   "coachId": null,
   "contractStatus": null,
   "comment": null,
-  "updatedAt": null,
-  "positionsSha256": null,
   "positions": null,
 } satisfies FoiaInboxRequestableData
 
