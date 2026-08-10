@@ -18,7 +18,6 @@ Name | Type
 `followUpDate` | Date
 `createdAt` | Date
 `updatedAt` | Date
-`foiaNotesSha256` | string
 `foiaNotes` | [Array&lt;FoiaInboxNote&gt;](FoiaInboxNote.md)
 `requestedItems` | [Array&lt;FoiaInboxRequestedItem&gt;](FoiaInboxRequestedItem.md)
 
@@ -41,7 +40,6 @@ const example = {
   "followUpDate": null,
   "createdAt": null,
   "updatedAt": null,
-  "foiaNotesSha256": null,
   "foiaNotes": null,
   "requestedItems": null,
 } satisfies FoiaInboxCandidate
