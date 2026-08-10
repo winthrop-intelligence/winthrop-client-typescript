@@ -13,6 +13,7 @@ Name | Type
 `name` | string
 `schoolId` | number
 `sportName` | string
+`avatarUrl` | string
 
 ## Example
 
@@ -28,6 +29,7 @@ const example = {
   "name": null,
   "schoolId": null,
   "sportName": null,
+  "avatarUrl": null,
 } satisfies GetFavorites200ResponseInner
 
 console.log(example)
