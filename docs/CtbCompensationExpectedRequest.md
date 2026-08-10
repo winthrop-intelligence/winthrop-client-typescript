@@ -7,10 +7,8 @@
 Name | Type
 ------------ | -------------
 `status` | string
-`updatedAt` | Date
 `updatedBySchool` | Date
 `updatedByWi` | Date
-`foiaNotesSha256` | string
 
 ## Example
 
@@ -20,10 +18,8 @@ import type { CtbCompensationExpectedRequest } from '@winthrop-intelligence/wint
 // TODO: Update the object below with actual values
 const example = {
   "status": null,
-  "updatedAt": null,
   "updatedBySchool": null,
   "updatedByWi": null,
-  "foiaNotesSha256": null,
 } satisfies CtbCompensationExpectedRequest
 
 console.log(example)
