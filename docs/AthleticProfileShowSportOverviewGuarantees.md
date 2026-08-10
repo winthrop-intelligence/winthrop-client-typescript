@@ -12,6 +12,7 @@ Name | Type
 `inCents` | number
 `allOnFile` | boolean
 `upcoming` | [Array&lt;AthleticProfileShowSportOverviewGuaranteesUpcomingInner&gt;](AthleticProfileShowSportOverviewGuaranteesUpcomingInner.md)
+`recent` | [Array&lt;AthleticProfileShowSportOverviewGuaranteesUpcomingInner&gt;](AthleticProfileShowSportOverviewGuaranteesUpcomingInner.md)
 
 ## Example
 
@@ -26,6 +27,7 @@ const example = {
   "inCents": null,
   "allOnFile": null,
   "upcoming": null,
+  "recent": null,
 } satisfies AthleticProfileShowSportOverviewGuarantees
 
 console.log(example)

@@ -12,9 +12,10 @@ Name | Type
 `colors` | string
 `isSubject` | boolean
 `coachName` | string
+`coachLastName` | string
 `compCents` | number
 `netRank` | number
-`netYear` | number
+`rpi` | number
 `record` | string
 
 ## Example
@@ -30,9 +31,10 @@ const example = {
   "colors": null,
   "isSubject": null,
   "coachName": null,
+  "coachLastName": null,
   "compCents": null,
   "netRank": null,
-  "netYear": null,
+  "rpi": null,
   "record": null,
 } satisfies AthleticProfileShowSportCoachStaffQuadrantPointsInner
 

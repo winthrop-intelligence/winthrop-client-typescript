@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `coachId` | number
 `name` | string
+`lastName` | string
 `title` | string
 `compCents` | number
 `onFile` | boolean
@@ -21,6 +22,7 @@ import type { AthleticProfileShowSportCoachStaffSupportStaffInner } from '@winth
 const example = {
   "coachId": null,
   "name": null,
+  "lastName": null,
   "title": null,
   "compCents": null,
   "onFile": null,

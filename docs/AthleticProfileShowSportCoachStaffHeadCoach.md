@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `coachId` | number
 `name` | string
+`lastName` | string
 `compCents` | number
 `baseSalaryCents` | number
 `compRank` | number
@@ -32,6 +33,7 @@ import type { AthleticProfileShowSportCoachStaffHeadCoach } from '@winthrop-inte
 const example = {
   "coachId": null,
   "name": null,
+  "lastName": null,
   "compCents": null,
   "baseSalaryCents": null,
   "compRank": null,

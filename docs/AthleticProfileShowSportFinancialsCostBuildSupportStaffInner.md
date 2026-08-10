@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `name` | string
+`lastName` | string
 `title` | string
 `compCents` | number
 `onFile` | boolean
@@ -19,6 +20,7 @@ import type { AthleticProfileShowSportFinancialsCostBuildSupportStaffInner } fro
 // TODO: Update the object below with actual values
 const example = {
   "name": null,
+  "lastName": null,
   "title": null,
   "compCents": null,
   "onFile": null,

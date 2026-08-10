@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `coachId` | number
 `name` | string
+`lastName` | string
 `interim` | boolean
 `firstSeasonYear` | number
 `compCents` | number
@@ -20,6 +21,7 @@ Name | Type
 `assistantCount` | number
 `staffPoolCents` | number
 `staffPoolAllOnFile` | boolean
+`staffPoolOnFileCount` | number
 
 ## Example
 
@@ -30,6 +32,7 @@ import type { AthleticProfileShowSportOverviewHeadCoach } from '@winthrop-intell
 const example = {
   "coachId": null,
   "name": null,
+  "lastName": null,
   "interim": null,
   "firstSeasonYear": null,
   "compCents": null,
@@ -42,6 +45,7 @@ const example = {
   "assistantCount": null,
   "staffPoolCents": null,
   "staffPoolAllOnFile": null,
+  "staffPoolOnFileCount": null,
 } satisfies AthleticProfileShowSportOverviewHeadCoach
 
 console.log(example)
