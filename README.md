@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.53.62
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.31393187616
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -66,7 +66,17 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**bulkCreateGames**](docs/DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk | 
 *DefaultApi* | [**bulkUpdateGamePostSearches**](docs/DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update | 
 *DefaultApi* | [**compareColi**](docs/DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli | 
+*DefaultApi* | [**copyAdminCompensationToNextYear**](docs/DefaultApi.md#copyadmincompensationtonextyear) | **POST** /api/v1/admin/compensations/{id}/copy_to_next_year | 
 *DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
+*DefaultApi* | [**createAdminCoach**](docs/DefaultApi.md#createadmincoachoperation) | **POST** /api/v1/admin/coaches | 
+*DefaultApi* | [**createAdminCoachAprUpload**](docs/DefaultApi.md#createadmincoachaprupload) | **POST** /api/v1/admin/coaches/coach_apr_upload | 
+*DefaultApi* | [**createAdminCoachContract**](docs/DefaultApi.md#createadmincoachcontract) | **POST** /api/v1/admin/coach_contracts | 
+*DefaultApi* | [**createAdminCoachContractsOutsideIncome**](docs/DefaultApi.md#createadmincoachcontractsoutsideincome) | **POST** /api/v1/admin/coach_contracts/outside_income_upload | 
+*DefaultApi* | [**createAdminCoachMassUpdate**](docs/DefaultApi.md#createadmincoachmassupdate) | **POST** /api/v1/admin/coaches/mass_update | 
+*DefaultApi* | [**createAdminCoachMergeLog**](docs/DefaultApi.md#createadmincoachmergelogoperation) | **POST** /api/v1/admin/coach_merge_logs | 
+*DefaultApi* | [**createAdminCoachProfileMatch**](docs/DefaultApi.md#createadmincoachprofilematch) | **POST** /api/v1/admin/coaches/profile_match | 
+*DefaultApi* | [**createAdminCoachUpload**](docs/DefaultApi.md#createadmincoachupload) | **POST** /api/v1/admin/coaches/upload | 
+*DefaultApi* | [**createAdminContract**](docs/DefaultApi.md#createadmincontract) | **POST** /api/v1/admin/contracts | 
 *DefaultApi* | [**createCashflow**](docs/DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows | 
 *DefaultApi* | [**createCoach**](docs/DefaultApi.md#createcoach) | **POST** /api/v1/coaches | 
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
@@ -118,12 +128,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
+*DefaultApi* | [**destroyAdminCoach**](docs/DefaultApi.md#destroyadmincoach) | **DELETE** /api/v1/admin/coaches/{id} | 
+*DefaultApi* | [**destroyAdminCompensation**](docs/DefaultApi.md#destroyadmincompensation) | **DELETE** /api/v1/admin/compensations/{id} | 
+*DefaultApi* | [**destroyAdminContract**](docs/DefaultApi.md#destroyadmincontract) | **DELETE** /api/v1/admin/contracts/{id} | 
+*DefaultApi* | [**downloadAdminCoachContractsCsvTemplate**](docs/DefaultApi.md#downloadadmincoachcontractscsvtemplate) | **GET** /api/v1/admin/coach_contracts/download_csv_template | 
+*DefaultApi* | [**downloadAdminCoachContractsOutsideIncomeCsvTemplate**](docs/DefaultApi.md#downloadadmincoachcontractsoutsideincomecsvtemplate) | **GET** /api/v1/admin/coach_contracts/outside_income_csv_template | 
 *DefaultApi* | [**downloadRawContractFile**](docs/DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download | 
 *DefaultApi* | [**enrichGamePostSearches**](docs/DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment | 
 *DefaultApi* | [**exportRevenueSearches**](docs/DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export | 
 *DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
+*DefaultApi* | [**getAdminCoach**](docs/DefaultApi.md#getadmincoach) | **GET** /api/v1/admin/coaches/{id} | 
+*DefaultApi* | [**getAdminCoachMergeLog**](docs/DefaultApi.md#getadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/{id} | 
+*DefaultApi* | [**getAdminContract**](docs/DefaultApi.md#getadmincontract) | **GET** /api/v1/admin/contracts/{id} | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
 *DefaultApi* | [**getAdministratorSearches**](docs/DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches | 
 *DefaultApi* | [**getAdministrators**](docs/DefaultApi.md#getadministrators) | **GET** /api/v1/administrators | 
@@ -295,7 +313,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getVendor**](docs/DefaultApi.md#getvendor) | **GET** /api/v1/vendors/{vendorId} | 
 *DefaultApi* | [**getVendors**](docs/DefaultApi.md#getvendors) | **GET** /api/v1/vendors | 
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
+*DefaultApi* | [**listAdminCoachAprUploadJobs**](docs/DefaultApi.md#listadmincoachapruploadjobs) | **GET** /api/v1/admin/coaches/coach_apr_upload | 
+*DefaultApi* | [**listAdminCoachContracts**](docs/DefaultApi.md#listadmincoachcontracts) | **GET** /api/v1/admin/coach_contracts | 
+*DefaultApi* | [**listAdminCoachContractsOutsideIncome**](docs/DefaultApi.md#listadmincoachcontractsoutsideincome) | **GET** /api/v1/admin/coach_contracts/outside_income | 
+*DefaultApi* | [**listAdminCoachContractsQc**](docs/DefaultApi.md#listadmincoachcontractsqc) | **GET** /api/v1/admin/coach_contracts/qc | 
+*DefaultApi* | [**listAdminCoachMassUpdateJobs**](docs/DefaultApi.md#listadmincoachmassupdatejobs) | **GET** /api/v1/admin/coaches/mass_update | 
+*DefaultApi* | [**listAdminCoachMergeLogs**](docs/DefaultApi.md#listadmincoachmergelogs) | **GET** /api/v1/admin/coach_merge_logs | 
+*DefaultApi* | [**listAdminCoachUploadJobs**](docs/DefaultApi.md#listadmincoachuploadjobs) | **GET** /api/v1/admin/coaches/upload | 
+*DefaultApi* | [**listAdminCoaches**](docs/DefaultApi.md#listadmincoaches) | **GET** /api/v1/admin/coaches | 
+*DefaultApi* | [**listAdminCompensations**](docs/DefaultApi.md#listadmincompensations) | **GET** /api/v1/admin/compensations | 
+*DefaultApi* | [**listAdminContracts**](docs/DefaultApi.md#listadmincontracts) | **GET** /api/v1/admin/contracts | 
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
+*DefaultApi* | [**massUpdateAdminCompensations**](docs/DefaultApi.md#massupdateadmincompensationsoperation) | **POST** /api/v1/admin/compensations/mass_update | 
+*DefaultApi* | [**previewAdminCoachContracts**](docs/DefaultApi.md#previewadmincoachcontracts) | **POST** /api/v1/admin/coach_contracts/preview | 
+*DefaultApi* | [**previewAdminCoachMergeLog**](docs/DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
 *DefaultApi* | [**retryFrsExport**](docs/DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry | 
@@ -304,6 +335,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
 *DefaultApi* | [**updateAccountUser**](docs/DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**updateAccountUserActivation**](docs/DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation | 
+*DefaultApi* | [**updateAdminCoach**](docs/DefaultApi.md#updateadmincoach) | **PATCH** /api/v1/admin/coaches/{id} | 
+*DefaultApi* | [**updateAdminContract**](docs/DefaultApi.md#updateadmincontract) | **PATCH** /api/v1/admin/contracts/{id} | 
 *DefaultApi* | [**updateCashflow**](docs/DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**updateCoach**](docs/DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} | 
 *DefaultApi* | [**updateCompensation**](docs/DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
@@ -381,7 +414,42 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AccountSubscription](docs/AccountSubscription.md)
 - [AccountUser](docs/AccountUser.md)
 - [AccountUsersResponse](docs/AccountUsersResponse.md)
+- [AdminCoach](docs/AdminCoach.md)
+- [AdminCoachAvatar](docs/AdminCoachAvatar.md)
+- [AdminCoachBlockedSections](docs/AdminCoachBlockedSections.md)
+- [AdminCoachBlockedSectionsCompensations](docs/AdminCoachBlockedSectionsCompensations.md)
+- [AdminCoachContractJob](docs/AdminCoachContractJob.md)
+- [AdminCoachContractQc](docs/AdminCoachContractQc.md)
+- [AdminCoachContractsPreview](docs/AdminCoachContractsPreview.md)
+- [AdminCoachContractsQcList](docs/AdminCoachContractsQcList.md)
+- [AdminCoachContractsQcListMeta](docs/AdminCoachContractsQcListMeta.md)
+- [AdminCoachContractsUploadIndex](docs/AdminCoachContractsUploadIndex.md)
+- [AdminCoachContractsUploadIndexMeta](docs/AdminCoachContractsUploadIndexMeta.md)
+- [AdminCoachCurrentPosition](docs/AdminCoachCurrentPosition.md)
+- [AdminCoachCurrentSchool](docs/AdminCoachCurrentSchool.md)
+- [AdminCoachCurrentSport](docs/AdminCoachCurrentSport.md)
+- [AdminCoachHometownState](docs/AdminCoachHometownState.md)
+- [AdminCoachMergeLog](docs/AdminCoachMergeLog.md)
+- [AdminCoachMergeLogDetail](docs/AdminCoachMergeLogDetail.md)
+- [AdminCoachMergeLogDetailAllOfCoaches](docs/AdminCoachMergeLogDetailAllOfCoaches.md)
+- [AdminCoachMergeLogList](docs/AdminCoachMergeLogList.md)
+- [AdminCoachMergeLogListMeta](docs/AdminCoachMergeLogListMeta.md)
+- [AdminCoachMergeLogListMetaFilterOptions](docs/AdminCoachMergeLogListMetaFilterOptions.md)
+- [AdminCoachMergeLogPreview](docs/AdminCoachMergeLogPreview.md)
+- [AdminCoachOutsideIncomeUploadIndex](docs/AdminCoachOutsideIncomeUploadIndex.md)
+- [AdminCoachOutsideIncomeUploadIndexMeta](docs/AdminCoachOutsideIncomeUploadIndexMeta.md)
+- [AdminCoachPositionsBySportInner](docs/AdminCoachPositionsBySportInner.md)
+- [AdminCoachesList](docs/AdminCoachesList.md)
+- [AdminCompensation](docs/AdminCompensation.md)
+- [AdminCompensationList](docs/AdminCompensationList.md)
+- [AdminCompensationListMeta](docs/AdminCompensationListMeta.md)
+- [AdminCompensationListMetaCoachContractOptionsInner](docs/AdminCompensationListMetaCoachContractOptionsInner.md)
+- [AdminCompensationListMetaContractStatusOptionsInner](docs/AdminCompensationListMetaContractStatusOptionsInner.md)
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)
+- [AdminContract](docs/AdminContract.md)
+- [AdminContractCoach](docs/AdminContractCoach.md)
+- [AdminContractList](docs/AdminContractList.md)
+- [AdminContractRawContract](docs/AdminContractRawContract.md)
 - [Administrator](docs/Administrator.md)
 - [AdministratorCollection](docs/AdministratorCollection.md)
 - [AdministratorSearchResultCollection](docs/AdministratorSearchResultCollection.md)
@@ -529,11 +597,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Contract](docs/Contract.md)
 - [ContractCollection](docs/ContractCollection.md)
 - [ContractTermOption](docs/ContractTermOption.md)
+- [CopyAdminCompensationToNextYear201Response](docs/CopyAdminCompensationToNextYear201Response.md)
 - [CoworkerEntry](docs/CoworkerEntry.md)
 - [CoworkerTenure](docs/CoworkerTenure.md)
 - [CreateAccountUser422Response](docs/CreateAccountUser422Response.md)
 - [CreateAccountUserRequest](docs/CreateAccountUserRequest.md)
 - [CreateAccountUserRequestUser](docs/CreateAccountUserRequestUser.md)
+- [CreateAdminCoachContractRequestImport](docs/CreateAdminCoachContractRequestImport.md)
+- [CreateAdminCoachMergeLogRequest](docs/CreateAdminCoachMergeLogRequest.md)
+- [CreateAdminCoachProfileMatch200Response](docs/CreateAdminCoachProfileMatch200Response.md)
+- [CreateAdminCoachRequest](docs/CreateAdminCoachRequest.md)
+- [CreateAdminCoachRequestCoach](docs/CreateAdminCoachRequestCoach.md)
+- [CreateAdminCoachRequestCoachAvatarAttributes](docs/CreateAdminCoachRequestCoachAvatarAttributes.md)
+- [CreateAdminContractRequestContract](docs/CreateAdminContractRequestContract.md)
+- [CreateAdminContractRequestRawContract](docs/CreateAdminContractRequestRawContract.md)
 - [CreateContactSearchRequest](docs/CreateContactSearchRequest.md)
 - [CreateContactSearchRequestContact](docs/CreateContactSearchRequestContact.md)
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
@@ -835,6 +912,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ListNotes200ResponseInner](docs/ListNotes200ResponseInner.md)
 - [LocationInner](docs/LocationInner.md)
 - [Logo](docs/Logo.md)
+- [MassUpdateAdminCompensations200Response](docs/MassUpdateAdminCompensations200Response.md)
+- [MassUpdateAdminCompensationsRequest](docs/MassUpdateAdminCompensationsRequest.md)
+- [MassUpdateAdminCompensationsRequestCompensationsInner](docs/MassUpdateAdminCompensationsRequestCompensationsInner.md)
 - [McpEvent](docs/McpEvent.md)
 - [Meta](docs/Meta.md)
 - [NcaaFinancialParticipationSummary](docs/NcaaFinancialParticipationSummary.md)
@@ -862,6 +942,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PredictBody](docs/PredictBody.md)
 - [PredictFailure](docs/PredictFailure.md)
 - [PredictSuccess](docs/PredictSuccess.md)
+- [PreviewAdminCoachContractsRequestImport](docs/PreviewAdminCoachContractsRequestImport.md)
 - [QuadrantUnplottedSchool](docs/QuadrantUnplottedSchool.md)
 - [RawContract](docs/RawContract.md)
 - [RawContractBackTo](docs/RawContractBackTo.md)
@@ -1056,8 +1137,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.53.62`
-- Package version: `1.53.62`
+- API version: `0.0.0-dev.31393187616`
+- Package version: `0.0.0-dev.31393187616`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
