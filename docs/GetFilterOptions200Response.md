@@ -7,7 +7,6 @@
 Name | Type
 ------------ | -------------
 `years` | Array&lt;number&gt;
-`seasonYearsBySport` | { [key: string]: Array&lt;number&gt;; }
 `financialYears` | Array&lt;number&gt;
 `currentYear` | number
 `currentFinancialsYear` | number
@@ -27,7 +26,6 @@ import type { GetFilterOptions200Response } from '@winthrop-intelligence/winthro
 // TODO: Update the object below with actual values
 const example = {
   "years": null,
-  "seasonYearsBySport": null,
   "financialYears": null,
   "currentYear": null,
   "currentFinancialsYear": null,
