@@ -7,8 +7,6 @@
 Name | Type
 ------------ | -------------
 `status` | string
-`updatedAt` | Date
-`riNoteSha256` | string
 
 ## Example
 
@@ -18,8 +16,6 @@ import type { FoiaInboxExpectedRequestedItem } from '@winthrop-intelligence/wint
 // TODO: Update the object below with actual values
 const example = {
   "status": null,
-  "updatedAt": null,
-  "riNoteSha256": null,
 } satisfies FoiaInboxExpectedRequestedItem
 
 console.log(example)
