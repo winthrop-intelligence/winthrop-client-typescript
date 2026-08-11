@@ -8,7 +8,6 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;GadSearchResult&gt;](GadSearchResult.md)
 `meta` | [Meta](Meta.md)
-`seasonFacets` | Array&lt;number&gt;
 `stats` | [GadSearchStats](GadSearchStats.md)
 `schoolSummary` | [GadSchoolSummary](GadSchoolSummary.md)
 `schoolSummaryError` | [GadSummaryError](GadSummaryError.md)
@@ -24,7 +23,6 @@ import type { GadSearchResultCollection } from '@winthrop-intelligence/winthrop-
 const example = {
   "data": null,
   "meta": null,
-  "seasonFacets": null,
   "stats": null,
   "schoolSummary": null,
   "schoolSummaryError": null,
