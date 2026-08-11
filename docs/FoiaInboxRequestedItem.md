@@ -15,7 +15,6 @@ Name | Type
 `coachId` | number
 `coachName` | string
 `note` | string
-`riNoteSha256` | string
 `createdAt` | Date
 `updatedAt` | Date
 `requestableData` | [FoiaInboxRequestableData](FoiaInboxRequestableData.md)
@@ -36,7 +35,6 @@ const example = {
   "coachId": null,
   "coachName": null,
   "note": null,
-  "riNoteSha256": null,
   "createdAt": null,
   "updatedAt": null,
   "requestableData": null,
