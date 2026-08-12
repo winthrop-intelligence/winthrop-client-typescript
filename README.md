@@ -196,6 +196,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getFrsExportSchoolSearch**](docs/DefaultApi.md#getfrsexportschoolsearch) | **GET** /api/v1/frs_exports/school_search | 
 *DefaultApi* | [**getFrsExports**](docs/DefaultApi.md#getfrsexports) | **GET** /api/v1/frs_exports | 
 *DefaultApi* | [**getGadSearchDetail**](docs/DefaultApi.md#getgadsearchdetail) | **GET** /api/v1/gad_searches/{id}/detail | 
+*DefaultApi* | [**getGadSearchSeasonFacets**](docs/DefaultApi.md#getgadsearchseasonfacets) | **GET** /api/v1/gad_searches/season_facets | 
 *DefaultApi* | [**getGadSearches**](docs/DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches | 
 *DefaultApi* | [**getGame**](docs/DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} | 
 *DefaultApi* | [**getGameContract**](docs/DefaultApi.md#getgamecontract) | **GET** /api/v1/game_contracts/{game_contractId} | 
@@ -771,6 +772,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)
 - [GetFavoritesCategories200ResponseInner](docs/GetFavoritesCategories200ResponseInner.md)
 - [GetFilterOptions200Response](docs/GetFilterOptions200Response.md)
+- [GetGadSearchSeasonFacets200Response](docs/GetGadSearchSeasonFacets200Response.md)
 - [GetLadFilterOptions200Response](docs/GetLadFilterOptions200Response.md)
 - [GetLadFilterOptions200ResponsePositionTypesInner](docs/GetLadFilterOptions200ResponsePositionTypesInner.md)
 - [GetSchoolAlternateNames200Response](docs/GetSchoolAlternateNames200Response.md)

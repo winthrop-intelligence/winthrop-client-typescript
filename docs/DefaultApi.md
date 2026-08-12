@@ -143,6 +143,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFrsExportSchoolSearch**](DefaultApi.md#getfrsexportschoolsearch) | **GET** /api/v1/frs_exports/school_search |  |
 | [**getFrsExports**](DefaultApi.md#getfrsexports) | **GET** /api/v1/frs_exports |  |
 | [**getGadSearchDetail**](DefaultApi.md#getgadsearchdetail) | **GET** /api/v1/gad_searches/{id}/detail |  |
+| [**getGadSearchSeasonFacets**](DefaultApi.md#getgadsearchseasonfacets) | **GET** /api/v1/gad_searches/season_facets |  |
 | [**getGadSearches**](DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches |  |
 | [**getGame**](DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} |  |
 | [**getGameContract**](DefaultApi.md#getgamecontract) | **GET** /api/v1/game_contracts/{game_contractId} |  |
@@ -10877,6 +10878,83 @@ example().catch(console.error);
 | **200** | Game contract detail |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGadSearchSeasonFacets
+
+> GetGadSearchSeasonFacets200Response getGadSearchSeasonFacets(q, distanceSchoolType)
+
+
+
+Season years that would still return rows under the given filters, newest first. Season itself is excluded from the calculation, so choosing a season does not collapse the list. Answered without running the search, so the client can reconcile an unsatisfiable season before it renders results rather than after.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGadSearchSeasonFacetsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // object | Ransack query (optional)
+    q: Object,
+    // 'home' | 'away' | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\'s account is tied to a school. (optional)
+    distanceSchoolType: distanceSchoolType_example,
+  } satisfies GetGadSearchSeasonFacetsRequest;
+
+  try {
+    const data = await api.getGadSearchSeasonFacets(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
+
+### Return type
+
+[**GetGadSearchSeasonFacets200Response**](GetGadSearchSeasonFacets200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Season years matching the filters |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
