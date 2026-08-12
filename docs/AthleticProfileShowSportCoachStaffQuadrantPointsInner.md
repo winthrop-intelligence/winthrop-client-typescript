@@ -16,6 +16,7 @@ Name | Type
 `compCents` | number
 `netRank` | number
 `rpi` | number
+`conferenceWins` | number
 `record` | string
 
 ## Example
@@ -35,6 +36,7 @@ const example = {
   "compCents": null,
   "netRank": null,
   "rpi": null,
+  "conferenceWins": null,
   "record": null,
 } satisfies AthleticProfileShowSportCoachStaffQuadrantPointsInner
 
