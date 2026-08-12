@@ -11,6 +11,7 @@ Name | Type
 `record` | string
 `netRank` | number
 `rpi` | number
+`conferenceWins` | number
 `postseason` | string
 `isSubjectSchool` | boolean
 
@@ -26,6 +27,7 @@ const example = {
   "record": null,
   "netRank": null,
   "rpi": null,
+  "conferenceWins": null,
   "postseason": null,
   "isSubjectSchool": null,
 } satisfies AthleticProfileShowSportCoachStaffHeadCoachCareerInner

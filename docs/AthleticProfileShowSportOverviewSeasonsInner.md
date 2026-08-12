@@ -11,6 +11,7 @@ Name | Type
 `conferenceRecord` | string
 `netRank` | number
 `rpi` | number
+`conferenceWins` | number
 `postseason` | string
 `headCoachName` | string
 `headCoachLastName` | string
@@ -28,6 +29,7 @@ const example = {
   "conferenceRecord": null,
   "netRank": null,
   "rpi": null,
+  "conferenceWins": null,
   "postseason": null,
   "headCoachName": null,
   "headCoachLastName": null,
