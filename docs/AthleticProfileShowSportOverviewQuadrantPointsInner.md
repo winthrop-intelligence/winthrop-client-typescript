@@ -15,6 +15,7 @@ Name | Type
 `spendYear` | number
 `netRank` | number
 `rpi` | number
+`conferenceWins` | number
 `record` | string
 
 ## Example
@@ -33,6 +34,7 @@ const example = {
   "spendYear": null,
   "netRank": null,
   "rpi": null,
+  "conferenceWins": null,
   "record": null,
 } satisfies AthleticProfileShowSportOverviewQuadrantPointsInner
 
