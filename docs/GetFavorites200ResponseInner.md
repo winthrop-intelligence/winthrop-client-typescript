@@ -14,6 +14,7 @@ Name | Type
 `schoolId` | number
 `sportName` | string
 `avatarUrl` | string
+`leader` | boolean
 
 ## Example
 
@@ -30,6 +31,7 @@ const example = {
   "schoolId": null,
   "sportName": null,
   "avatarUrl": null,
+  "leader": null,
 } satisfies GetFavorites200ResponseInner
 
 console.log(example)
