@@ -397,6 +397,7 @@ export * from './GetCompensationComparisons400Response';
 export * from './GetFavorites200ResponseInner';
 export * from './GetFavoritesCategories200ResponseInner';
 export * from './GetFilterOptions200Response';
+export * from './GetGadSearchSeasonFacets200Response';
 export * from './GetLadFilterOptions200Response';
 export * from './GetLadFilterOptions200ResponsePositionTypesInner';
 export * from './GetSchoolAlternateNames200Response';
