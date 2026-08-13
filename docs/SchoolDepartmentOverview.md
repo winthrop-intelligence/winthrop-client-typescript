@@ -19,6 +19,13 @@ Name | Type
 `dollarShares` | [DepartmentOverviewDollarShares](DepartmentOverviewDollarShares.md)
 `provenance` | [DepartmentOverviewProvenance](DepartmentOverviewProvenance.md)
 `resultsGap` | [DepartmentOverviewResultsGap](DepartmentOverviewResultsGap.md)
+`mode` | string
+`privateSpend` | [DepartmentOverviewPrivateSpend](DepartmentOverviewPrivateSpend.md)
+`privateResults` | [DepartmentOverviewPrivateResults](DepartmentOverviewPrivateResults.md)
+`privateCoverage` | [DepartmentOverviewPrivateCoverage](DepartmentOverviewPrivateCoverage.md)
+`privateDisclosure` | [DepartmentOverviewPrivateDisclosure](DepartmentOverviewPrivateDisclosure.md)
+`privateAd` | [DepartmentOverviewPrivateAd](DepartmentOverviewPrivateAd.md)
+`privateBasis` | [DepartmentOverviewPrivateBasis](DepartmentOverviewPrivateBasis.md)
 
 ## Example
 
@@ -40,6 +47,13 @@ const example = {
   "dollarShares": null,
   "provenance": null,
   "resultsGap": null,
+  "mode": null,
+  "privateSpend": null,
+  "privateResults": null,
+  "privateCoverage": null,
+  "privateDisclosure": null,
+  "privateAd": null,
+  "privateBasis": null,
 } satisfies SchoolDepartmentOverview
 
 console.log(example)
