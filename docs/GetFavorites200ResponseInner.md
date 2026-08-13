@@ -13,6 +13,8 @@ Name | Type
 `name` | string
 `schoolId` | number
 `sportName` | string
+`schoolLogoUrl` | string
+`rawContractId` | number
 `avatarUrl` | string
 `leader` | boolean
 
@@ -30,6 +32,8 @@ const example = {
   "name": null,
   "schoolId": null,
   "sportName": null,
+  "schoolLogoUrl": null,
+  "rawContractId": null,
   "avatarUrl": null,
   "leader": null,
 } satisfies GetFavorites200ResponseInner
