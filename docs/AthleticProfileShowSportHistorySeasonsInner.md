@@ -15,6 +15,7 @@ Name | Type
 `conferenceRecord` | string
 `netRank` | number
 `rpi` | number
+`conferenceWins` | number
 `postseason` | string
 `spendCents` | number
 
@@ -34,6 +35,7 @@ const example = {
   "conferenceRecord": null,
   "netRank": null,
   "rpi": null,
+  "conferenceWins": null,
   "postseason": null,
   "spendCents": null,
 } satisfies AthleticProfileShowSportHistorySeasonsInner
