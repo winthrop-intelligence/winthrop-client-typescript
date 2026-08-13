@@ -9,6 +9,7 @@ Name | Type
 `canSeePersonnel` | boolean
 `canSeeCompensation` | boolean
 `canSeeFinancials` | boolean
+`canSeeEadaFinancials` | boolean
 `canSeeDeals` | boolean
 `canSeeGuarantees` | boolean
 `canShowSchedule` | boolean
@@ -23,6 +24,7 @@ const example = {
   "canSeePersonnel": null,
   "canSeeCompensation": null,
   "canSeeFinancials": null,
+  "canSeeEadaFinancials": null,
   "canSeeDeals": null,
   "canSeeGuarantees": null,
   "canShowSchedule": null,
