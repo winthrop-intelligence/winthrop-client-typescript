@@ -17,6 +17,7 @@ Name | Type
 `rpi` | number
 `conferenceWins` | number
 `record` | string
+`conferenceRecord` | string
 
 ## Example
 
@@ -36,6 +37,7 @@ const example = {
   "rpi": null,
   "conferenceWins": null,
   "record": null,
+  "conferenceRecord": null,
 } satisfies AthleticProfileShowSportOverviewQuadrantPointsInner
 
 console.log(example)
