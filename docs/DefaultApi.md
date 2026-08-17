@@ -365,7 +365,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -450,7 +449,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -535,7 +533,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -620,7 +617,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Average compensation calculated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -7228,7 +7224,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Compensation was found |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -7411,7 +7406,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Compensations were found. Results are limited to the records the caller is permitted to view; a caller without a compensation role receives an empty collection rather than a 403. |  -  |
+| **200** | Compensations were found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -8576,7 +8571,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Contract was found |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -8656,7 +8650,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Contracts were found. Results are limited to the records the caller is permitted to view; a caller without a compensation role receives an empty collection rather than a 403. |  -  |
+| **200** | Contracts were found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -12142,7 +12136,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Income report was found |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller lacks the required compensation role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -12222,7 +12215,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Income reports were found. Results are limited to the records the caller is permitted to view; a caller without a compensation role receives an empty collection rather than a 403. |  -  |
+| **200** | Income reports were found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -19556,7 +19549,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden, the caller may not modify compensation records |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

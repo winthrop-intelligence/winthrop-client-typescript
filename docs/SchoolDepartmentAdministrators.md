@@ -16,7 +16,6 @@ Name | Type
 `staff` | [Array&lt;DepartmentAdministratorStaffRow&gt;](DepartmentAdministratorStaffRow.md)
 `staffStats` | [DepartmentAdministratorsStaffStats](DepartmentAdministratorsStaffStats.md)
 `adOffice` | [DepartmentAdministratorsAdOffice](DepartmentAdministratorsAdOffice.md)
-`recentMoves` | [Array&lt;DepartmentAdministratorsRecentMove&gt;](DepartmentAdministratorsRecentMove.md)
 `scorecard` | [DepartmentAdministratorsScorecard](DepartmentAdministratorsScorecard.md)
 `scorecardGap` | [DepartmentAdministratorsScorecardGap](DepartmentAdministratorsScorecardGap.md)
 `officers990` | [Array&lt;DepartmentAdministrators990Officer&gt;](DepartmentAdministrators990Officer.md)
@@ -40,7 +39,6 @@ const example = {
   "staff": null,
   "staffStats": null,
   "adOffice": null,
-  "recentMoves": null,
   "scorecard": null,
   "scorecardGap": null,
   "officers990": null,

@@ -46,6 +46,7 @@ docs/AthleticProfileShowSportFinancialsFrsSplit.md
 docs/AthleticProfileShowSportFinancialsQuadrant.md
 docs/AthleticProfileShowSportFinancialsQuadrantPointsInner.md
 docs/AthleticProfileShowSportGuarantees.md
+docs/AthleticProfileShowSportGuaranteesAgreementWindow.md
 docs/AthleticProfileShowSportGuaranteesAgreementsInner.md
 docs/AthleticProfileShowSportGuaranteesQuadrant.md
 docs/AthleticProfileShowSportGuaranteesQuadrantPointsInner.md
@@ -218,7 +219,6 @@ docs/DepartmentAdministratorsAdOffice.md
 docs/DepartmentAdministratorsAdProfile.md
 docs/DepartmentAdministratorsAdSeat.md
 docs/DepartmentAdministratorsBasis.md
-docs/DepartmentAdministratorsRecentMove.md
 docs/DepartmentAdministratorsScorecard.md
 docs/DepartmentAdministratorsScorecardGap.md
 docs/DepartmentAdministratorsScorecardPoint.md
@@ -532,6 +532,10 @@ docs/RequestedItemReviewContextRequestedItem.md
 docs/RetryFrsExport422Response.md
 docs/RoleOption.md
 docs/RunningJob.md
+docs/SalarySiteAssociation.md
+docs/SalarySiteAssociationsMeta.md
+docs/SalarySiteAssociationsResponse.md
+docs/SalarySitesApi.md
 docs/ScheduleGridAvailableSchoolPost.md
 docs/ScheduleGridAvailableSchoolRow.md
 docs/ScheduleGridAvailableSchools.md
@@ -685,6 +689,7 @@ src/apis/IntercollegiateApi.ts
 src/apis/MlAthleticApi.ts
 src/apis/OcrApi.ts
 src/apis/ReportingApi.ts
+src/apis/SalarySitesApi.ts
 src/apis/ScraperApi.ts
 src/apis/index.ts
 src/index.ts
@@ -733,6 +738,7 @@ src/models/AthleticProfileShowSportFinancialsFrsSplit.ts
 src/models/AthleticProfileShowSportFinancialsQuadrant.ts
 src/models/AthleticProfileShowSportFinancialsQuadrantPointsInner.ts
 src/models/AthleticProfileShowSportGuarantees.ts
+src/models/AthleticProfileShowSportGuaranteesAgreementWindow.ts
 src/models/AthleticProfileShowSportGuaranteesAgreementsInner.ts
 src/models/AthleticProfileShowSportGuaranteesQuadrant.ts
 src/models/AthleticProfileShowSportGuaranteesQuadrantPointsInner.ts
@@ -903,7 +909,6 @@ src/models/DepartmentAdministratorsAdOffice.ts
 src/models/DepartmentAdministratorsAdProfile.ts
 src/models/DepartmentAdministratorsAdSeat.ts
 src/models/DepartmentAdministratorsBasis.ts
-src/models/DepartmentAdministratorsRecentMove.ts
 src/models/DepartmentAdministratorsScorecard.ts
 src/models/DepartmentAdministratorsScorecardGap.ts
 src/models/DepartmentAdministratorsScorecardPoint.ts
@@ -1210,6 +1215,9 @@ src/models/RequestedItemReviewContextRequestedItem.ts
 src/models/RetryFrsExport422Response.ts
 src/models/RoleOption.ts
 src/models/RunningJob.ts
+src/models/SalarySiteAssociation.ts
+src/models/SalarySiteAssociationsMeta.ts
+src/models/SalarySiteAssociationsResponse.ts
 src/models/ScheduleGridAvailableSchoolPost.ts
 src/models/ScheduleGridAvailableSchoolRow.ts
 src/models/ScheduleGridAvailableSchools.ts

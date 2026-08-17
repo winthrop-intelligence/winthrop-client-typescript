@@ -9,4 +9,5 @@ export * from './IntercollegiateApi';
 export * from './MlAthleticApi';
 export * from './OcrApi';
 export * from './ReportingApi';
+export * from './SalarySitesApi';
 export * from './ScraperApi';
