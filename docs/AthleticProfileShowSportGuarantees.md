@@ -13,6 +13,7 @@ Name | Type
 `basketball` | boolean
 `resultsLens` | string
 `agreements` | [Array&lt;AthleticProfileShowSportGuaranteesAgreementsInner&gt;](AthleticProfileShowSportGuaranteesAgreementsInner.md)
+`agreementWindow` | [AthleticProfileShowSportGuaranteesAgreementWindow](AthleticProfileShowSportGuaranteesAgreementWindow.md)
 `summary` | [AthleticProfileShowSportGuaranteesSummary](AthleticProfileShowSportGuaranteesSummary.md)
 `quadrant` | [AthleticProfileShowSportGuaranteesQuadrant](AthleticProfileShowSportGuaranteesQuadrant.md)
 `asOf` | Date
@@ -30,6 +31,7 @@ const example = {
   "basketball": null,
   "resultsLens": null,
   "agreements": null,
+  "agreementWindow": null,
   "summary": null,
   "quadrant": null,
   "asOf": null,

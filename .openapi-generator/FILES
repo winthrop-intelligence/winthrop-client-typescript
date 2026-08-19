@@ -46,6 +46,7 @@ docs/AthleticProfileShowSportFinancialsFrsSplit.md
 docs/AthleticProfileShowSportFinancialsQuadrant.md
 docs/AthleticProfileShowSportFinancialsQuadrantPointsInner.md
 docs/AthleticProfileShowSportGuarantees.md
+docs/AthleticProfileShowSportGuaranteesAgreementWindow.md
 docs/AthleticProfileShowSportGuaranteesAgreementsInner.md
 docs/AthleticProfileShowSportGuaranteesQuadrant.md
 docs/AthleticProfileShowSportGuaranteesQuadrantPointsInner.md
@@ -218,7 +219,6 @@ docs/DepartmentAdministratorsAdOffice.md
 docs/DepartmentAdministratorsAdProfile.md
 docs/DepartmentAdministratorsAdSeat.md
 docs/DepartmentAdministratorsBasis.md
-docs/DepartmentAdministratorsRecentMove.md
 docs/DepartmentAdministratorsScorecard.md
 docs/DepartmentAdministratorsScorecardGap.md
 docs/DepartmentAdministratorsScorecardPoint.md
@@ -738,6 +738,7 @@ src/models/AthleticProfileShowSportFinancialsFrsSplit.ts
 src/models/AthleticProfileShowSportFinancialsQuadrant.ts
 src/models/AthleticProfileShowSportFinancialsQuadrantPointsInner.ts
 src/models/AthleticProfileShowSportGuarantees.ts
+src/models/AthleticProfileShowSportGuaranteesAgreementWindow.ts
 src/models/AthleticProfileShowSportGuaranteesAgreementsInner.ts
 src/models/AthleticProfileShowSportGuaranteesQuadrant.ts
 src/models/AthleticProfileShowSportGuaranteesQuadrantPointsInner.ts
@@ -908,7 +909,6 @@ src/models/DepartmentAdministratorsAdOffice.ts
 src/models/DepartmentAdministratorsAdProfile.ts
 src/models/DepartmentAdministratorsAdSeat.ts
 src/models/DepartmentAdministratorsBasis.ts
-src/models/DepartmentAdministratorsRecentMove.ts
 src/models/DepartmentAdministratorsScorecard.ts
 src/models/DepartmentAdministratorsScorecardGap.ts
 src/models/DepartmentAdministratorsScorecardPoint.ts
