@@ -9,6 +9,7 @@ Name | Type
 `seasonYear` | number
 `conferenceName` | string
 `resultsLens` | string
+`resultsYear` | number
 `seasons` | [Array&lt;AthleticProfileShowSportOverviewSeasonsInner&gt;](AthleticProfileShowSportOverviewSeasonsInner.md)
 `headCoach` | [AthleticProfileShowSportOverviewHeadCoach](AthleticProfileShowSportOverviewHeadCoach.md)
 `payLadder` | [Array&lt;AthleticProfileShowSportOverviewPayLadderInner&gt;](AthleticProfileShowSportOverviewPayLadderInner.md)
@@ -26,6 +27,7 @@ const example = {
   "seasonYear": null,
   "conferenceName": null,
   "resultsLens": null,
+  "resultsYear": null,
   "seasons": null,
   "headCoach": null,
   "payLadder": null,
