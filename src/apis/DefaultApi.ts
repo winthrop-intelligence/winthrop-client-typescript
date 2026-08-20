@@ -852,7 +852,7 @@ export interface DefaultApiCreateSchoolGroupOperationRequest {
 }
 
 export interface DefaultApiCreateSeasonRequest {
-    season?: Omit<Season, 'torvik_rank'>;
+    season?: Omit<Season, 'cfp_rank'|'torvik_rank'>;
 }
 
 export interface DefaultApiCreateTeamScheduleFavoriteOperationRequest {
@@ -1943,7 +1943,7 @@ export interface DefaultApiUpdateSchoolGroupOperationRequest {
 
 export interface DefaultApiUpdateSeasonRequest {
     seasonId: number;
-    season: Omit<Season, 'torvik_rank'>;
+    season: Omit<Season, 'cfp_rank'|'torvik_rank'>;
 }
 
 export interface DefaultApiUpdateSubscriptionAcceptanceOperationRequest {

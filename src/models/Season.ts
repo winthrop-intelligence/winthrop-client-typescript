@@ -278,7 +278,7 @@ export interface Season {
      * @type {number}
      * @memberof Season
      */
-    cfpRank?: number | null;
+    readonly cfpRank?: number | null;
     /**
      * 
      * @type {number}
@@ -389,7 +389,7 @@ export function SeasonToJSON(json: any): Season {
     return SeasonToJSONTyped(json, false);
 }
 
-export function SeasonToJSONTyped(value?: Omit<Season, 'torvik_rank'> | null, ignoreDiscriminator: boolean = false): any {
+export function SeasonToJSONTyped(value?: Omit<Season, 'cfp_rank'|'torvik_rank'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -437,7 +437,6 @@ export function SeasonToJSONTyped(value?: Omit<Season, 'torvik_rank'> | null, ig
         'prev_net_rank': value['prevNetRank'],
         'ap_rank': value['apRank'],
         'prev_ap_rank': value['prevApRank'],
-        'cfp_rank': value['cfpRank'],
         'non_conference_sos_ranking': value['nonConferenceSosRanking'],
         'conference_sos_ranking': value['conferenceSosRanking'],
         'ranking_through_date': value['rankingThroughDate'] == null ? value['rankingThroughDate'] : value['rankingThroughDate'].toISOString().substring(0,10),
