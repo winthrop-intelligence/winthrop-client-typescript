@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`seasonYear` | number
 `opponentId` | number
 `opponentName` | string
 `opponentShortName` | string
@@ -27,6 +28,7 @@ import type { AthleticProfileShowSportGuaranteesAgreementsInner } from '@winthro
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
+  "seasonYear": null,
   "opponentId": null,
   "opponentName": null,
   "opponentShortName": null,
