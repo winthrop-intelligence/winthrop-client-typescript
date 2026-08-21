@@ -18,6 +18,7 @@ Name | Type
 `divisionId` | number
 `year` | number
 `coachFriendlyId` | string
+`visible` | boolean
 `positionTypes` | Array&lt;string&gt;
 `sportName` | string
 `sportFullName` | string
@@ -68,6 +69,7 @@ const example = {
   "divisionId": null,
   "year": null,
   "coachFriendlyId": null,
+  "visible": true,
   "positionTypes": null,
   "sportName": null,
   "sportFullName": null,
