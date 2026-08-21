@@ -47,6 +47,7 @@ Name | Type
 `prevNetRank` | number
 `apRank` | number
 `prevApRank` | number
+`cfpRank` | number
 `torvikRank` | number
 `nonConferenceSosRanking` | number
 `conferenceSosRanking` | number
@@ -102,6 +103,7 @@ const example = {
   "prevNetRank": null,
   "apRank": null,
   "prevApRank": null,
+  "cfpRank": null,
   "torvikRank": null,
   "nonConferenceSosRanking": null,
   "conferenceSosRanking": null,
