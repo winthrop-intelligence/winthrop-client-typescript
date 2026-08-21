@@ -42,7 +42,7 @@ export interface CreateDeskRequestRequest {
      * @type {string}
      * @memberof CreateDeskRequestRequest
      */
-    ctaKey?: string | null;
+    ctaKey?: CreateDeskRequestRequestCtaKeyEnum | null;
 }
 
 
@@ -57,6 +57,38 @@ export const CreateDeskRequestRequestCategoryEnum = {
     Other: 'other'
 } as const;
 export type CreateDeskRequestRequestCategoryEnum = typeof CreateDeskRequestRequestCategoryEnum[keyof typeof CreateDeskRequestRequestCategoryEnum];
+
+/**
+ * @export
+ */
+export const CreateDeskRequestRequestCtaKeyEnum = {
+    AnotherSport: 'another-sport',
+    DifferentPeers: 'different-peers',
+    PushOnThis: 'push-on-this',
+    AskAnything: 'ask-anything',
+    MakeReport: 'make-report',
+    CandidateList: 'candidate-list',
+    ExtensionRaiseScenario: 'extension-raise-scenario',
+    BuyoutSchedule: 'buyout-schedule',
+    RecruitPosition: 'recruit-position',
+    RetentionRaiseCase: 'retention-raise-case',
+    StaffBenchmarkAllSports: 'staff-benchmark-all-sports',
+    RunBidProcess: 'run-bid-process',
+    DraftCounter: 'draft-counter',
+    BidOnePager: 'bid-one-pager',
+    BudgetProposal: 'budget-proposal',
+    CaseForSupport: 'case-for-support',
+    RerunOnFiling: 'rerun-on-filing',
+    BoardDeck: 'board-deck',
+    DefendLine: 'defend-line',
+    TrackActuals: 'track-actuals',
+    ModelTermination: 'model-termination',
+    CompareExposure: 'compare-exposure',
+    PeerBuyoutAlert: 'peer-buyout-alert',
+    WalkUsThrough: 'walk-us-through',
+    BoardVersion: 'board-version'
+} as const;
+export type CreateDeskRequestRequestCtaKeyEnum = typeof CreateDeskRequestRequestCtaKeyEnum[keyof typeof CreateDeskRequestRequestCtaKeyEnum];
 
 
 /**

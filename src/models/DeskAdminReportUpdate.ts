@@ -142,7 +142,7 @@ export type DeskAdminReportUpdateCoverTreatmentEnum = typeof DeskAdminReportUpda
  * @export
  */
 export const DeskAdminReportUpdateRerunCadenceEnum = {
-    False: 'false',
+    Off: 'off',
     Quarterly: 'quarterly',
     OnNewFiling: 'on_new_filing',
     OnNewDeal: 'on_new_deal'

@@ -283,7 +283,7 @@ export type DeskAdminReportReportTypeEnum = typeof DeskAdminReportReportTypeEnum
  * @export
  */
 export const DeskAdminReportRerunCadenceEnum = {
-    False: 'false',
+    Off: 'off',
     Quarterly: 'quarterly',
     OnNewFiling: 'on_new_filing',
     OnNewDeal: 'on_new_deal'

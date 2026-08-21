@@ -218,7 +218,7 @@ export type DeskReportFullArtifactKindsEnum = typeof DeskReportFullArtifactKinds
  * @export
  */
 export const DeskReportFullRerunCadenceEnum = {
-    False: 'false',
+    Off: 'off',
     Quarterly: 'quarterly',
     OnNewFiling: 'on_new_filing',
     OnNewDeal: 'on_new_deal'
