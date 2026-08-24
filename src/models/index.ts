@@ -306,6 +306,7 @@ export * from './DeskAdminReportRequest';
 export * from './DeskAdminReportResponse';
 export * from './DeskAdminReportUpdate';
 export * from './DeskAdminReportsResponse';
+export * from './DeskAdminReportsResponseMeta';
 export * from './DeskAdminVersion';
 export * from './DeskFinding';
 export * from './DeskHeadlineStat';

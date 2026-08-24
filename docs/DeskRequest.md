@@ -18,6 +18,7 @@ Name | Type
 `deliversLabel` | string
 `sourceReportUuid` | string
 `ctaKey` | string
+`clientNote` | string
 `adminNote` | string
 
 ## Example
@@ -38,6 +39,7 @@ const example = {
   "deliversLabel": null,
   "sourceReportUuid": null,
   "ctaKey": null,
+  "clientNote": null,
   "adminNote": null,
 } satisfies DeskRequest
 

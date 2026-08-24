@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`meta` | [DeskReportsResponseMeta](DeskReportsResponseMeta.md)
+`meta` | [DeskAdminReportsResponseMeta](DeskAdminReportsResponseMeta.md)
 `data` | [Array&lt;DeskAdminReport&gt;](DeskAdminReport.md)
 
 ## Example

@@ -8,8 +8,10 @@ Name | Type
 ------------ | -------------
 `uuid` | string
 `status` | string
-`adminNote` | string
+`clientNote` | string
 `clockPaused` | boolean
+`sentTo` | Array&lt;string&gt;
+`sentToCount` | number
 
 ## Example
 
@@ -20,8 +22,10 @@ import type { NeedsInfoAdminDeskRequest200ResponseData } from '@winthrop-intelli
 const example = {
   "uuid": null,
   "status": null,
-  "adminNote": null,
+  "clientNote": null,
   "clockPaused": null,
+  "sentTo": null,
+  "sentToCount": null,
 } satisfies NeedsInfoAdminDeskRequest200ResponseData
 
 console.log(example)

@@ -309,6 +309,7 @@ docs/DeskAdminReportRequest.md
 docs/DeskAdminReportResponse.md
 docs/DeskAdminReportUpdate.md
 docs/DeskAdminReportsResponse.md
+docs/DeskAdminReportsResponseMeta.md
 docs/DeskAdminVersion.md
 docs/DeskFinding.md
 docs/DeskHeadlineStat.md
@@ -1046,6 +1047,7 @@ src/models/DeskAdminReportRequest.ts
 src/models/DeskAdminReportResponse.ts
 src/models/DeskAdminReportUpdate.ts
 src/models/DeskAdminReportsResponse.ts
+src/models/DeskAdminReportsResponseMeta.ts
 src/models/DeskAdminVersion.ts
 src/models/DeskFinding.ts
 src/models/DeskHeadlineStat.ts

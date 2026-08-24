@@ -14,6 +14,8 @@ Name | Type
 `version` | [DeskAdminVersion](DeskAdminVersion.md)
 `notified` | boolean
 `notifiedCount` | number
+`notifiedNames` | Array&lt;string&gt;
+`notifyFailed` | boolean
 `warnings` | [Array&lt;DeskFinding&gt;](DeskFinding.md)
 
 ## Example
@@ -30,6 +32,8 @@ const example = {
   "version": null,
   "notified": null,
   "notifiedCount": null,
+  "notifiedNames": null,
+  "notifyFailed": null,
   "warnings": null,
 } satisfies DeskAdminPublishResponseData
 

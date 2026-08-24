@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `followUpSubject` | string
 `followUpBody` | string
-`adminNote` | string
+`clientNote` | string
 
 ## Example
 
@@ -19,7 +19,7 @@ import type { NeedsInfoAdminDeskRequestRequest } from '@winthrop-intelligence/wi
 const example = {
   "followUpSubject": null,
   "followUpBody": null,
-  "adminNote": null,
+  "clientNote": null,
 } satisfies NeedsInfoAdminDeskRequestRequest
 
 console.log(example)
