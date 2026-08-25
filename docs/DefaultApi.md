@@ -5468,7 +5468,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // string | When \"1\" or \"true\", restrict results to the current user\'s favorited administrators (optional)
     favoritesOnly: favoritesOnly_example,
@@ -5495,7 +5495,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **favoritesOnly** | `string` | When \&quot;1\&quot; or \&quot;true\&quot;, restrict results to the current user\&#39;s favorited administrators | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; or a date range like \&quot;2025-01-01..2025-12-31\&quot; | [Optional] [Defaults to `undefined`] |
 
@@ -5554,7 +5554,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetAdministratorsRequest;
 
@@ -5577,7 +5577,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5881,7 +5881,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetAuditedFinancialReportStatusesRequest;
 
@@ -5904,7 +5904,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -6102,7 +6102,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCashflowsRequest;
 
@@ -6125,7 +6125,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -6183,7 +6183,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCategoriesRequest;
 
@@ -6206,7 +6206,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7020,7 +7020,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // number | Filter by position type (expands to group if position is a group stub) (optional)
     positionTypeId: 56,
@@ -7047,7 +7047,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **positionTypeId** | `number` | Filter by position type (expands to group if position is a group stub) | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; for expired contracts, or a date range in \&quot;YYYY-MM-DD..YYYY-MM-DD\&quot; format. | [Optional] [Defaults to `undefined`] |
 
@@ -7106,7 +7106,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCoachesRequest;
 
@@ -7129,7 +7129,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7364,7 +7364,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCompensationsRequest;
 
@@ -7387,7 +7387,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7993,7 +7993,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetConferencesRequest;
 
@@ -8016,7 +8016,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8149,7 +8149,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetConferenceshipsRequest;
 
@@ -8172,7 +8172,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8372,7 +8372,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetContactSearchesRequest;
 
@@ -8395,7 +8395,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8453,7 +8453,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetContactsRequest;
 
@@ -8476,7 +8476,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8608,7 +8608,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetContractsRequest;
 
@@ -8631,7 +8631,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8763,7 +8763,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDealSearchesRequest;
 
@@ -8786,7 +8786,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8918,7 +8918,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDealStatusesRequest;
 
@@ -8941,7 +8941,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8998,7 +8998,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDealsRequest;
 
@@ -9021,7 +9021,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -9077,7 +9077,7 @@ async function example() {
   const body = {
     // number | results page to retrieve. (optional)
     page: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDepartmentSearchesRequest;
 
@@ -9099,7 +9099,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -9231,7 +9231,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDivisionsRequest;
 
@@ -9254,7 +9254,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10306,7 +10306,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetFinancialSearchesRequest;
 
@@ -10329,7 +10329,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10461,7 +10461,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetFoiaLabelsRequest;
 
@@ -10484,7 +10484,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10616,7 +10616,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetFoiaRequestsRequest;
 
@@ -10639,7 +10639,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10910,7 +10910,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // 'home' | 'away' | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\'s account is tied to a school. (optional)
     distanceSchoolType: distanceSchoolType_example,
@@ -10933,7 +10933,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
 
 ### Return type
@@ -10991,7 +10991,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // 'home' | 'away' | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\'s account is tied to a school. (optional)
     distanceSchoolType: distanceSchoolType_example,
@@ -11026,7 +11026,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
 | **includeSchoolSummary** | `boolean` | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. | [Optional] [Defaults to `undefined`] |
 | **seasonWindow** | `last_3_completed_seasons`, `specific_year`, `custom_range` | Window for school-summary / cohort-summary aggregations. last_3_completed_seasons auto-fills season_year_gteq/lteq with the three most recent completed NCAA academic years. | [Optional] [Defaults to `undefined`] [Enum: last_3_completed_seasons, specific_year, custom_range] |
@@ -11314,7 +11314,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGameContractsRequest;
 
@@ -11337,7 +11337,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11541,7 +11541,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGamePostSearchAvailabilitiesRequest;
 
@@ -11562,7 +11562,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11620,7 +11620,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // boolean | When true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
     groupBySchool: true,
@@ -11647,7 +11647,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
 | **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
 
@@ -11706,7 +11706,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGamePostsRequest;
 
@@ -11729,7 +11729,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11787,7 +11787,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGamesRequest;
 
@@ -11810,7 +11810,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -12173,7 +12173,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetIncomeReportsRequest;
 
@@ -12196,7 +12196,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -12415,7 +12415,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetJobPostsRequest;
 
@@ -12438,7 +12438,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -12636,7 +12636,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetNcaaFinancialReportStatusesRequest;
 
@@ -12659,7 +12659,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -13009,7 +13009,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetPositionsRequest;
 
@@ -13032,7 +13032,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -13164,7 +13164,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetRawContractsRequest;
 
@@ -13187,7 +13187,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -13476,7 +13476,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetRequestedItemsRequest;
 
@@ -13499,7 +13499,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -15444,7 +15444,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // string | A sport\'s internal name (e.g. `BASKETBALL_M`, `BASKETBALL_W`, `FOOTBALL`). When supplied, each returned school includes a `rank` field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. (optional)
     sportName: BASKETBALL_M,
@@ -15469,7 +15469,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sportName** | `string` | A sport\&#39;s internal name (e.g. &#x60;BASKETBALL_M&#x60;, &#x60;BASKETBALL_W&#x60;, &#x60;FOOTBALL&#x60;). When supplied, each returned school includes a &#x60;rank&#x60; field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15734,7 +15734,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSeasonsRequest;
 
@@ -15757,7 +15757,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -15813,7 +15813,7 @@ async function example() {
   const body = {
     // number | ID of coach to retrieve
     coachId: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // number | results page to retrieve. (optional)
     page: 56,
@@ -15839,7 +15839,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` | ID of coach to retrieve | [Defaults to `undefined`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 
@@ -15973,7 +15973,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSportsRequest;
 
@@ -15996,7 +15996,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -16602,7 +16602,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSubdivisionsRequest;
 
@@ -16625,7 +16625,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -16832,7 +16832,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSubscriptionsRequest;
 
@@ -16855,7 +16855,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -17602,7 +17602,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // string | Sport name filter (e.g. BASKETBALL_M) (optional)
     sportName: sportName_example,
@@ -17631,7 +17631,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sportName** | `string` | Sport name filter (e.g. BASKETBALL_M) | [Optional] [Defaults to `undefined`] |
 | **excludeAlreadyScheduled** | `1` | Exclude schools already on the user\&#39;s schedule | [Optional] [Defaults to `undefined`] [Enum: 1] |
 | **excludeConference** | `1` | Exclude schools in the user\&#39;s conference | [Optional] [Defaults to `undefined`] [Enum: 1] |
@@ -18056,7 +18056,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetUserActivitySummariesRequest;
 
@@ -18079,7 +18079,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -18287,7 +18287,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetUserRequestsRequest;
 
@@ -18310,7 +18310,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -18368,7 +18368,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetUsersRequest;
 
@@ -18391,7 +18391,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -18523,7 +18523,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetVendorsRequest;
 
@@ -18546,7 +18546,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -18604,7 +18604,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // number | Filter by coach ID (optional)
     qCoachIdEq: 56,
@@ -18633,7 +18633,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **qCoachIdEq** | `number` | Filter by coach ID | [Optional] [Defaults to `undefined`] |
 | **qSchoolIdEq** | `number` | Filter by school ID | [Optional] [Defaults to `undefined`] |
 | **qSportIdEq** | `number` | Filter by sport ID | [Optional] [Defaults to `undefined`] |
