@@ -13,6 +13,7 @@ Name | Type
 `genderCode` | string
 `emerging` | boolean
 `meetSport` | boolean
+`visible` | boolean
 `createdAt` | Date
 `updatedAt` | Date
 `ncaaId` | string
@@ -31,6 +32,7 @@ const example = {
   "genderCode": null,
   "emerging": false,
   "meetSport": false,
+  "visible": true,
   "createdAt": 2019-01-01T00:00Z,
   "updatedAt": 2019-01-01T00:00Z,
   "ncaaId": MBA,
