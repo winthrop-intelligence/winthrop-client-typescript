@@ -244,6 +244,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
+| [**rawContractPreviewUrl**](DefaultApi.md#rawcontractpreviewurl) | **GET** /api/v1/raw_contracts/{raw_contractId}/preview_url |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
 | [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
@@ -18727,6 +18728,81 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## rawContractPreviewUrl
+
+> RawContractPreviewUrl200Response rawContractPreviewUrl(rawContractId)
+
+
+
+Return the short-lived presigned storage URL for the raw contract PDF as JSON, for viewers that range-load the file directly from object storage.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RawContractPreviewUrlRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies RawContractPreviewUrlRequest;
+
+  try {
+    const data = await api.rawContractPreviewUrl(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**RawContractPreviewUrl200Response**](RawContractPreviewUrl200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Presigned storage URL for the PDF |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## regenerateRawContractPdf
 
 > RegenerateRawContractPdf200Response regenerateRawContractPdf(rawContractId)
@@ -21608,11 +21684,11 @@ example().catch(console.error);
 
 ## viewRawContractFile
 
-> Blob viewRawContractFile(rawContractId)
+> viewRawContractFile(rawContractId)
 
 
 
-Stream the raw contract PDF for inline viewing (no watermark)
+Redirect to a short-lived presigned storage URL for the raw contract PDF (no watermark), so the client can range-load it directly from object storage. Clients that only need the URL itself should call preview_url instead of following this redirect.
 
 ### Example
 
@@ -21659,7 +21735,7 @@ example().catch(console.error);
 
 ### Return type
 
-**Blob**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -21668,13 +21744,13 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/pdf`
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | PDF file stream |  -  |
+| **302** | Redirect to the presigned storage URL for the PDF |  * Location - Presigned storage URL, valid for 6 hours <br>  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
