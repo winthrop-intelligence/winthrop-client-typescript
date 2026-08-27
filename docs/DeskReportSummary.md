@@ -22,6 +22,7 @@ Name | Type
 `rerunCadence` | string
 `pushExample` | string
 `unread` | boolean
+`archived` | boolean
 `requestContext` | [DeskRequestContext](DeskRequestContext.md)
 
 ## Example
@@ -46,6 +47,7 @@ const example = {
   "rerunCadence": null,
   "pushExample": null,
   "unread": null,
+  "archived": null,
   "requestContext": null,
 } satisfies DeskReportSummary
 

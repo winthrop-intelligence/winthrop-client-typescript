@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `number` | number
 `note` | string
+`changeNote` | string
 `publishedAt` | Date
 `publishedBy` | string
 
@@ -20,6 +21,7 @@ import type { DeskAdminVersion } from '@winthrop-intelligence/winthrop-client-ty
 const example = {
   "number": null,
   "note": null,
+  "changeNote": null,
   "publishedAt": null,
   "publishedBy": null,
 } satisfies DeskAdminVersion

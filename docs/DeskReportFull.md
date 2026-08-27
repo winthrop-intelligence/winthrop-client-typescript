@@ -21,8 +21,10 @@ Name | Type
 `rerunCadence` | string
 `pushExample` | string
 `unread` | boolean
+`archived` | boolean
 `requestContext` | [DeskRequestContext](DeskRequestContext.md)
 `bodyHtml` | string
+`versions` | [Array&lt;DeskReportVersion&gt;](DeskReportVersion.md)
 `sections` | [Array&lt;DeskReportFullAllOfSections&gt;](DeskReportFullAllOfSections.md)
 `versionNumber` | number
 `firstOpen` | boolean
@@ -49,8 +51,10 @@ const example = {
   "rerunCadence": null,
   "pushExample": null,
   "unread": null,
+  "archived": null,
   "requestContext": null,
   "bodyHtml": null,
+  "versions": null,
   "sections": null,
   "versionNumber": null,
   "firstOpen": null,

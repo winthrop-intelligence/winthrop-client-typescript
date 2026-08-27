@@ -21,6 +21,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
 | [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
+| [**createDeskReportArchive**](DefaultApi.md#createdeskreportarchive) | **POST** /api/v1/desk_reports/{uuid}/archive |  |
 | [**createDeskReportOpened**](DefaultApi.md#createdeskreportopened) | **POST** /api/v1/desk_reports/{uuid}/opened |  |
 | [**createDeskRequest**](DefaultApi.md#createdeskrequestoperation) | **POST** /api/v1/desk_requests |  |
 | [**createFavorite**](DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites |  |
@@ -51,6 +52,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**deleteContactSearch**](DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} |  |
+| [**deleteDeskReportArchive**](DefaultApi.md#deletedeskreportarchive) | **DELETE** /api/v1/desk_reports/{uuid}/archive |  |
 | [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
 | [**deleteFavoritesCategory**](DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
@@ -128,6 +130,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDeals**](DefaultApi.md#getdeals) | **GET** /api/v1/deals |  |
 | [**getDepartmentSearches**](DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches |  |
 | [**getDeskReport**](DefaultApi.md#getdeskreport) | **GET** /api/v1/desk_reports/{uuid} |  |
+| [**getDeskReportDownloadsZip**](DefaultApi.md#getdeskreportdownloadszip) | **GET** /api/v1/desk_reports/{uuid}/downloads.zip |  |
 | [**getDeskReports**](DefaultApi.md#getdeskreports) | **GET** /api/v1/desk_reports |  |
 | [**getDeskRequests**](DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
@@ -258,6 +261,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
 | [**needsInfoAdminDeskRequest**](DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
+| [**rawContractPreviewUrl**](DefaultApi.md#rawcontractpreviewurl) | **GET** /api/v1/raw_contracts/{raw_contractId}/preview_url |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
 | [**restoreAdminDeskReport**](DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore |  |
@@ -1183,7 +1187,7 @@ example().catch(console.error);
 
 
 
-Upload a download (PDF / XLSX / PPTX). One row per kind — uploading an existing kind replaces its file (06.5 Replace). 
+Upload a download (PDF / XLSX / PPTX) to a report in any status. One row per kind — uploading an existing kind replaces its file (06.5 Replace); a kind the report lacks is added (06.5 Add, D-20). On a live report the file is served to the client at once — no version is minted here; the update screen\&#39;s Publish update is what mints one. 
 
 ### Example
 
@@ -1632,6 +1636,82 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - requires account admin role |  -  |
 | **422** | Unable to create the Contact |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createDeskReportArchive
+
+> DeskReportArchiveResponse createDeskReportArchive(uuid)
+
+
+
+Archives the report for the current user only (WINAD-10348 / D-24): upserts the caller\&#39;s desk_report_reads row and stamps archived_at. The report leaves this user\&#39;s rack and category chips and lists under &#x60;?filter&#x3D;archive&#x60;; colleagues and the report itself are unaffected, and a later republish (UPDATED) does not un-archive. Archiving also marks the report read. Idempotent. 404 (never 403) for a foreign, draft, hidden or unknown uuid. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateDeskReportArchiveRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Public uuid of the report
+    uuid: uuid_example,
+  } satisfies CreateDeskReportArchiveRequest;
+
+  try {
+    const data = await api.createDeskReportArchive(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uuid** | `string` | Public uuid of the report | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeskReportArchiveResponse**](DeskReportArchiveResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Report archived for the current user |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -3892,6 +3972,82 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Contact was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteDeskReportArchive
+
+> DeskReportArchiveResponse deleteDeskReportArchive(uuid)
+
+
+
+Restores the report to the current user\&#39;s rack — clears archived_at on their read row. Idempotent; a report never archived answers the same 200. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteDeskReportArchiveRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Public uuid of the report
+    uuid: uuid_example,
+  } satisfies DeleteDeskReportArchiveRequest;
+
+  try {
+    const data = await api.deleteDeskReportArchive(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uuid** | `string` | Public uuid of the report | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeskReportArchiveResponse**](DeskReportArchiveResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Report restored for the current user |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -9844,13 +10000,89 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getDeskReportDownloadsZip
+
+> Blob getDeskReportDownloadsZip(uuid)
+
+
+
+Every live download of the report in one zip archive (WINAD-10345 / D-21) — the reader\&#39;s \&quot;Everything\&quot; row. Entry names are the artifacts\&#39; own file names; the archive is named &#x60;&lt;report-slug&gt;.zip&#x60; (Content-Disposition attachment). Same resolution and authorization as GET /desk_reports/{uuid}: 404 (never 403) for a foreign, draft, hidden or unknown uuid, the live replacement for a hidden report that points old links at one, and 404 for a report with no downloads. The response is private and uncacheable. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetDeskReportDownloadsZipRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Public uuid of the report
+    uuid: uuid_example,
+  } satisfies GetDeskReportDownloadsZipRequest;
+
+  try {
+    const data = await api.getDeskReportDownloadsZip(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uuid** | `string` | Public uuid of the report | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/zip`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Zip archive of the report\&#39;s downloads |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getDeskReports
 
-> DeskReportsResponse getDeskReports()
+> DeskReportsResponse getDeskReports(filter)
 
 
 
-The Desk (WINAD-10311 / D-14) — live reports of the current user\&#39;s account only, newest activity first (GREATEST(published_at, current version\&#39;s created_at once past v1) DESC). Drafts, building and hidden reports are never listed. 
+The Desk (WINAD-10311 / D-14) — live reports of the current user\&#39;s account only, newest activity first (GREATEST(published_at, current version\&#39;s created_at once past v1) DESC). Drafts, building and hidden reports are never listed. Every row carries &#x60;archived&#x60; (the caller\&#39;s own per-user archive, WINAD-10348 / D-24); &#x60;?filter&#x3D;archive&#x60; lists only the reports the caller archived, any other value lists everything. 
 
 ### Example
 
@@ -9871,8 +10103,13 @@ async function example() {
   });
   const api = new DefaultApi(config);
 
+  const body = {
+    // 'archive' | `archive` — only the reports the current user archived (optional)
+    filter: filter_example,
+  } satisfies GetDeskReportsRequest;
+
   try {
-    const data = await api.getDeskReports();
+    const data = await api.getDeskReports(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -9885,7 +10122,10 @@ example().catch(console.error);
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filter** | `archive` | &#x60;archive&#x60; — only the reports the current user archived | [Optional] [Defaults to `undefined`] [Enum: archive] |
 
 ### Return type
 
@@ -19821,6 +20061,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## rawContractPreviewUrl
+
+> RawContractPreviewUrl200Response rawContractPreviewUrl(rawContractId)
+
+
+
+Return the short-lived presigned storage URL for the raw contract PDF as JSON, for viewers that range-load the file directly from object storage.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RawContractPreviewUrlRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies RawContractPreviewUrlRequest;
+
+  try {
+    const data = await api.rawContractPreviewUrl(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**RawContractPreviewUrl200Response**](RawContractPreviewUrl200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Presigned storage URL for the PDF |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## regenerateRawContractPdf
 
 > RegenerateRawContractPdf200Response regenerateRawContractPdf(rawContractId)
@@ -23018,11 +23333,11 @@ example().catch(console.error);
 
 ## viewRawContractFile
 
-> Blob viewRawContractFile(rawContractId)
+> viewRawContractFile(rawContractId)
 
 
 
-Stream the raw contract PDF for inline viewing (no watermark)
+Redirect to a short-lived presigned storage URL for the raw contract PDF (no watermark), so the client can range-load it directly from object storage. Clients that only need the URL itself should call preview_url instead of following this redirect.
 
 ### Example
 
@@ -23069,7 +23384,7 @@ example().catch(console.error);
 
 ### Return type
 
-**Blob**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -23078,13 +23393,13 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/pdf`
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | PDF file stream |  -  |
+| **302** | Redirect to the presigned storage URL for the PDF |  * Location - Presigned storage URL, valid for 6 hours <br>  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 

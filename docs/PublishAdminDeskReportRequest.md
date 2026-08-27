@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `bodyHtml` | string
 `note` | string
+`changeNote` | string
 `renotify` | boolean
 
 ## Example
@@ -19,6 +20,7 @@ import type { PublishAdminDeskReportRequest } from '@winthrop-intelligence/winth
 const example = {
   "bodyHtml": null,
   "note": null,
+  "changeNote": null,
   "renotify": null,
 } satisfies PublishAdminDeskReportRequest
 

@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.32749287850
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.33073049861
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -74,6 +74,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
 *DefaultApi* | [**createConferenceship**](docs/DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships | 
 *DefaultApi* | [**createContactSearch**](docs/DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches | 
+*DefaultApi* | [**createDeskReportArchive**](docs/DefaultApi.md#createdeskreportarchive) | **POST** /api/v1/desk_reports/{uuid}/archive | 
 *DefaultApi* | [**createDeskReportOpened**](docs/DefaultApi.md#createdeskreportopened) | **POST** /api/v1/desk_reports/{uuid}/opened | 
 *DefaultApi* | [**createDeskRequest**](docs/DefaultApi.md#createdeskrequestoperation) | **POST** /api/v1/desk_requests | 
 *DefaultApi* | [**createFavorite**](docs/DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites | 
@@ -104,6 +105,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**deleteContactSearch**](docs/DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} | 
+*DefaultApi* | [**deleteDeskReportArchive**](docs/DefaultApi.md#deletedeskreportarchive) | **DELETE** /api/v1/desk_reports/{uuid}/archive | 
 *DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
 *DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
@@ -181,6 +183,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDeals**](docs/DefaultApi.md#getdeals) | **GET** /api/v1/deals | 
 *DefaultApi* | [**getDepartmentSearches**](docs/DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches | 
 *DefaultApi* | [**getDeskReport**](docs/DefaultApi.md#getdeskreport) | **GET** /api/v1/desk_reports/{uuid} | 
+*DefaultApi* | [**getDeskReportDownloadsZip**](docs/DefaultApi.md#getdeskreportdownloadszip) | **GET** /api/v1/desk_reports/{uuid}/downloads.zip | 
 *DefaultApi* | [**getDeskReports**](docs/DefaultApi.md#getdeskreports) | **GET** /api/v1/desk_reports | 
 *DefaultApi* | [**getDeskRequests**](docs/DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests | 
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
@@ -311,6 +314,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
 *DefaultApi* | [**needsInfoAdminDeskRequest**](docs/DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info | 
 *DefaultApi* | [**publishAdminDeskReport**](docs/DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish | 
+*DefaultApi* | [**rawContractPreviewUrl**](docs/DefaultApi.md#rawcontractpreviewurl) | **GET** /api/v1/raw_contracts/{raw_contractId}/preview_url | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
 *DefaultApi* | [**restoreAdminDeskReport**](docs/DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore | 
@@ -368,10 +372,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *IntercollegiateApi* | [**syncJobPost**](docs/IntercollegiateApi.md#syncjobpost) | **PUT** /wi_jobs/job_posts/{jobPostId}/sync | 
 *MlAthleticApi* | [**healthCheck**](docs/MlAthleticApi.md#healthcheck) | **GET** /ml-athletic/health_check | 
 *MlAthleticApi* | [**predict**](docs/MlAthleticApi.md#predict) | **POST** /ml-athletic/predict | 
-*OcrApi* | [**createJobOcrV1JobsPost**](docs/OcrApi.md#createjobocrv1jobspost) | **POST** /ocr/v1/jobs | Submit an OCR job for a Google Drive file
-*OcrApi* | [**jobResultOcrV1JobsJobIdResultGet**](docs/OcrApi.md#jobresultocrv1jobsjobidresultget) | **GET** /ocr/v1/jobs/{job_id}/result | Fetch the full result
-*OcrApi* | [**jobStatusBatchOcrV1JobsGet**](docs/OcrApi.md#jobstatusbatchocrv1jobsget) | **GET** /ocr/v1/jobs | Poll many jobs in one request
-*OcrApi* | [**jobStatusOcrV1JobsJobIdGet**](docs/OcrApi.md#jobstatusocrv1jobsjobidget) | **GET** /ocr/v1/jobs/{job_id} | Poll one job
 *ReportingApi* | [**getCoachContractRequests**](docs/ReportingApi.md#getcoachcontractrequests) | **GET** /api/v1/reports/coach_contract_requests | 
 *ReportingApi* | [**getCoachHistory**](docs/ReportingApi.md#getcoachhistory) | **GET** /api/v1/reports/coach_history | 
 *ReportingApi* | [**getConferenceships**](docs/ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships | 
@@ -569,7 +569,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateGamePostSearchRequestGamePost](docs/CreateGamePostSearchRequestGamePost.md)
 - [CreateGameRequest](docs/CreateGameRequest.md)
 - [CreateGameRequestGame](docs/CreateGameRequestGame.md)
-- [CreateJobJson](docs/CreateJobJson.md)
 - [CreateMcpEventRequest](docs/CreateMcpEventRequest.md)
 - [CreateMcpEventRequestMcpEvent](docs/CreateMcpEventRequestMcpEvent.md)
 - [CreateNoteRequest](docs/CreateNoteRequest.md)
@@ -704,6 +703,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DeskAdminVersion](docs/DeskAdminVersion.md)
 - [DeskFinding](docs/DeskFinding.md)
 - [DeskHeadlineStat](docs/DeskHeadlineStat.md)
+- [DeskReportArchiveResponse](docs/DeskReportArchiveResponse.md)
+- [DeskReportArchiveResponseData](docs/DeskReportArchiveResponseData.md)
 - [DeskReportArtifact](docs/DeskReportArtifact.md)
 - [DeskReportFull](docs/DeskReportFull.md)
 - [DeskReportFullAllOfSections](docs/DeskReportFullAllOfSections.md)
@@ -712,6 +713,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DeskReportResponse](docs/DeskReportResponse.md)
 - [DeskReportSummary](docs/DeskReportSummary.md)
 - [DeskReportSummaryCover](docs/DeskReportSummaryCover.md)
+- [DeskReportVersion](docs/DeskReportVersion.md)
 - [DeskReportsResponse](docs/DeskReportsResponse.md)
 - [DeskReportsResponseMeta](docs/DeskReportsResponseMeta.md)
 - [DeskRequest](docs/DeskRequest.md)
@@ -869,11 +871,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [InvoiceReportResult](docs/InvoiceReportResult.md)
 - [InvoiceReportRow](docs/InvoiceReportRow.md)
 - [Job](docs/Job.md)
-- [JobAccepted](docs/JobAccepted.md)
 - [JobCandidate](docs/JobCandidate.md)
 - [JobCollection](docs/JobCollection.md)
 - [JobDepartment](docs/JobDepartment.md)
-- [JobOptions](docs/JobOptions.md)
 - [JobPost](docs/JobPost.md)
 - [JobPostCollection](docs/JobPostCollection.md)
 - [JobPostDisagreement](docs/JobPostDisagreement.md)
@@ -890,13 +890,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [JobPostSalaryBenchmarkScope](docs/JobPostSalaryBenchmarkScope.md)
 - [JobPostSalaryBenchmarkScopeDateWindow](docs/JobPostSalaryBenchmarkScopeDateWindow.md)
 - [JobPostSalarySummary](docs/JobPostSalarySummary.md)
-- [JobProgress](docs/JobProgress.md)
-- [JobResult](docs/JobResult.md)
 - [JobSchool](docs/JobSchool.md)
-- [JobSource](docs/JobSource.md)
 - [JobSport](docs/JobSport.md)
-- [JobStatus](docs/JobStatus.md)
-- [JobStatusBatch](docs/JobStatusBatch.md)
 - [Link](docs/Link.md)
 - [LinkCollection](docs/LinkCollection.md)
 - [LinkCollection1](docs/LinkCollection1.md)
@@ -919,7 +914,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Note](docs/Note.md)
-- [PageResult](docs/PageResult.md)
 - [PageView](docs/PageView.md)
 - [PerformanceChartCoach](docs/PerformanceChartCoach.md)
 - [PerformanceChartData](docs/PerformanceChartData.md)
@@ -939,6 +933,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RawContractBackTo](docs/RawContractBackTo.md)
 - [RawContractCollection](docs/RawContractCollection.md)
 - [RawContractDealInfo](docs/RawContractDealInfo.md)
+- [RawContractPreviewUrl200Response](docs/RawContractPreviewUrl200Response.md)
 - [RecordPositionEntry](docs/RecordPositionEntry.md)
 - [RecruitingBudgetEntry](docs/RecruitingBudgetEntry.md)
 - [RecruitingChartData](docs/RecruitingChartData.md)
@@ -1136,8 +1131,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `0.0.0-dev.32749287850`
-- Package version: `0.0.0-dev.32749287850`
+- API version: `0.0.0-dev.33073049861`
+- Package version: `0.0.0-dev.33073049861`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

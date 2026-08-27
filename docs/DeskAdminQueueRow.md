@@ -14,6 +14,9 @@ Name | Type
 `account` | [DeskAdminAccount](DeskAdminAccount.md)
 `requestedBy` | string
 `askBody` | string
+`askCategory` | string
+`ctaKey` | string
+`sourceReportTitle` | string
 `askReceivedAt` | Date
 `dueAt` | Date
 `clockPaused` | boolean
@@ -40,6 +43,9 @@ const example = {
   "account": null,
   "requestedBy": null,
   "askBody": null,
+  "askCategory": null,
+  "ctaKey": null,
+  "sourceReportTitle": null,
   "askReceivedAt": null,
   "dueAt": null,
   "clockPaused": null,

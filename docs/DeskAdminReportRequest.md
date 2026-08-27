@@ -10,6 +10,9 @@ Name | Type
 `status` | string
 `requesterName` | string
 `body` | string
+`category` | string
+`ctaKey` | string
+`sourceReportTitle` | string
 `receivedAt` | Date
 `clockPaused` | boolean
 
@@ -24,6 +27,9 @@ const example = {
   "status": null,
   "requesterName": null,
   "body": null,
+  "category": null,
+  "ctaKey": null,
+  "sourceReportTitle": null,
   "receivedAt": null,
   "clockPaused": null,
 } satisfies DeskAdminReportRequest
