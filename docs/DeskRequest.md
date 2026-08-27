@@ -19,7 +19,6 @@ Name | Type
 `sourceReportUuid` | string
 `ctaKey` | string
 `clientNote` | string
-`adminNote` | string
 
 ## Example
 
@@ -40,7 +39,6 @@ const example = {
   "sourceReportUuid": null,
   "ctaKey": null,
   "clientNote": null,
-  "adminNote": null,
 } satisfies DeskRequest
 
 console.log(example)

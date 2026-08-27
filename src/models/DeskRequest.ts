@@ -88,21 +88,12 @@ export interface DeskRequest {
     /**
      * The needs-more-info note shown on the customer's pending card. Was
      * `admin_note`, which read as internal-only while being rendered to
-     * the customer — a naming trap on a live field. The old key still
-     * ships alongside this one until the generated client is regenerated
-     * from this spec; drop it then.
+     * the customer — a naming trap on a live field.
      * 
      * @type {string}
      * @memberof DeskRequest
      */
     clientNote: string | null;
-    /**
-     * Deprecated alias for client_note. Remove once clients are regenerated.
-     * @type {string}
-     * @memberof DeskRequest
-     * @deprecated
-     */
-    adminNote?: string | null;
 }
 
 
@@ -204,7 +195,6 @@ export function DeskRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'sourceReportUuid': json['source_report_uuid'],
         'ctaKey': json['cta_key'],
         'clientNote': json['client_note'],
-        'adminNote': json['admin_note'] == null ? undefined : json['admin_note'],
     };
 }
 
@@ -231,7 +221,6 @@ export function DeskRequestToJSONTyped(value?: DeskRequest | null, ignoreDiscrim
         'source_report_uuid': value['sourceReportUuid'],
         'cta_key': value['ctaKey'],
         'client_note': value['clientNote'],
-        'admin_note': value['adminNote'],
     };
 }
 
