@@ -18,6 +18,7 @@ Name | Type
 `divisionId` | number
 `year` | number
 `coachFriendlyId` | string
+`visible` | boolean
 `positionTypes` | Array&lt;string&gt;
 `sportName` | string
 `sportFullName` | string
@@ -28,6 +29,8 @@ Name | Type
 `seasonConferencePosition` | number
 `seasonConferenceNumPositions` | number
 `rpi` | number
+`netRank` | number
+`apRank` | number
 `compensationCents` | number
 `baseSalaryCents` | number
 `coli` | number
@@ -66,6 +69,7 @@ const example = {
   "divisionId": null,
   "year": null,
   "coachFriendlyId": null,
+  "visible": true,
   "positionTypes": null,
   "sportName": null,
   "sportFullName": null,
@@ -76,6 +80,8 @@ const example = {
   "seasonConferencePosition": null,
   "seasonConferenceNumPositions": null,
   "rpi": null,
+  "netRank": null,
+  "apRank": null,
   "compensationCents": null,
   "baseSalaryCents": null,
   "coli": null,

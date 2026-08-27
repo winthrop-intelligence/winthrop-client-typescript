@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `data` | [Array&lt;GamePostSearchResult&gt;](GamePostSearchResult.md)
 `meta` | [Meta](Meta.md)
+`activePostsTotal` | number
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { GamePostSearchResultCollection } from '@winthrop-intelligence/wint
 const example = {
   "data": null,
   "meta": null,
+  "activePostsTotal": null,
 } satisfies GamePostSearchResultCollection
 
 console.log(example)

@@ -37,6 +37,7 @@ Name | Type
 `emailScrapingDisabled` | boolean
 `mobilityIndex` | number
 `hasNewJob` | boolean
+`visible` | boolean
 
 ## Example
 
@@ -76,6 +77,7 @@ const example = {
   "emailScrapingDisabled": false,
   "mobilityIndex": 5,
   "hasNewJob": false,
+  "visible": true,
 } satisfies Coach
 
 console.log(example)

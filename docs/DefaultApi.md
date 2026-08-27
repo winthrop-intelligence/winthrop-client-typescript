@@ -8,33 +8,74 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**averageDivisionComp**](DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp |  |
 | [**averageSchoolComp**](DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp |  |
 | [**averageSubdivisionComp**](DefaultApi.md#averagesubdivisioncomp) | **GET** /api/v1/compensations/average_subdivision_comp |  |
+| [**batchGuaranteeEconomics**](DefaultApi.md#batchguaranteeeconomicsoperation) | **POST** /api/v1/guarantee_economics/batch |  |
+| [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
+| [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
+| [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
+| [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
 | [**createCoach**](DefaultApi.md#createcoach) | **POST** /api/v1/coaches |  |
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
+| [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
 | [**createFavorite**](DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites |  |
 | [**createFavoritesCategory**](DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories |  |
 | [**createFoiaLabel**](DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels |  |
 | [**createFoiaRequest**](DefaultApi.md#createfoiarequest) | **POST** /api/v1/foia_requests |  |
+| [**createFrsExport**](DefaultApi.md#createfrsexportoperation) | **POST** /api/v1/frs_exports |  |
+| [**createGame**](DefaultApi.md#creategameoperation) | **POST** /api/v1/games |  |
+| [**createGamePost**](DefaultApi.md#creategamepost) | **POST** /api/v1/game_posts |  |
+| [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
+| [**createMcpEvent**](DefaultApi.md#createmcpeventoperation) | **POST** /api/v1/mcp_events |  |
+| [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
+| [**createPageView**](DefaultApi.md#createpageviewoperation) | **POST** /api/v1/page_views |  |
+| [**createPasswordReset**](DefaultApi.md#createpasswordresetoperation) | **POST** /api/v1/password_reset |  |
 | [**createPosition**](DefaultApi.md#createposition) | **POST** /api/v1/positions |  |
 | [**createRequestedItem**](DefaultApi.md#createrequesteditem) | **POST** /api/v1/requested_items |  |
+| [**createRequestedItemRiNote**](DefaultApi.md#createrequesteditemrinote) | **POST** /api/v1/requested_items/{requestedItemId}/ri_note |  |
+| [**createScheduleIntent**](DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents |  |
+| [**createScheduleTournament**](DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments |  |
+| [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
+| [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
+| [**createUpload**](DefaultApi.md#createupload) | **POST** /api/v1/uploads |  |
+| [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
+| [**deleteContactSearch**](DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} |  |
 | [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
 | [**deleteFavoritesCategory**](DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**deleteFoiaRequest**](DefaultApi.md#deletefoiarequest) | **DELETE** /api/v1/foia_requests/{foiaRequestId} |  |
+| [**deleteGame**](DefaultApi.md#deletegame) | **DELETE** /api/v1/games/{gameId} |  |
+| [**deleteGameContractRawContract**](DefaultApi.md#deletegamecontractrawcontract) | **DELETE** /api/v1/game_contracts/{game_contractId}/delete_raw_contract |  |
+| [**deleteGamePost**](DefaultApi.md#deletegamepost) | **DELETE** /api/v1/game_posts/{gamePostId} |  |
+| [**deleteGamePostSearch**](DefaultApi.md#deletegamepostsearch) | **DELETE** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**deleteJobPost**](DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post |
+| [**deleteNote**](DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} |  |
 | [**deletePosition**](DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} |  |
 | [**deleteRequestedItem**](DefaultApi.md#deleterequesteditem) | **DELETE** /api/v1/requested_items/{requestedItemId} |  |
+| [**deleteScheduleIntent**](DefaultApi.md#deletescheduleintent) | **DELETE** /api/v1/schedule_intents/{scheduleIntentId} |  |
+| [**deleteScheduleTournament**](DefaultApi.md#deletescheduletournament) | **DELETE** /api/v1/schedule_tournaments/{scheduleTournamentId} |  |
+| [**deleteSchoolGroup**](DefaultApi.md#deleteschoolgroup) | **DELETE** /api/v1/school_groups/{schoolGroupId} |  |
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
+| [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
+| [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
+| [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
+| [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
+| [**exportRevenueSearches**](DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export |  |
+| [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
+| [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
+| [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
+| [**getAthleticProfileReport**](DefaultApi.md#getathleticprofilereport) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId}/report |  |
+| [**getAthleticProfileSearch**](DefaultApi.md#getathleticprofilesearch) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId} |  |
 | [**getAuditedFinancialReportStatus**](DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} |  |
 | [**getAuditedFinancialReportStatuses**](DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses |  |
 | [**getCashflow**](DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} |  |
@@ -49,10 +90,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getCoachSearchCoworkerHistory**](DefaultApi.md#getcoachsearchcoworkerhistory) | **GET** /api/v1/coach_searches/{id}/coworker_history |  |
 | [**getCoachSearchOverview**](DefaultApi.md#getcoachsearchoverview) | **GET** /api/v1/coach_searches/{id}/overview |  |
 | [**getCoachSearchRecord**](DefaultApi.md#getcoachsearchrecord) | **GET** /api/v1/coach_searches/{id}/record |  |
+| [**getCoachSearchRecruiting**](DefaultApi.md#getcoachsearchrecruiting) | **GET** /api/v1/coach_searches/{id}/recruiting |  |
 | [**getCoachSearchVideos**](DefaultApi.md#getcoachsearchvideos) | **GET** /api/v1/coach_searches/{id}/videos |  |
 | [**getCoachSearches**](DefaultApi.md#getcoachsearches) | **GET** /api/v1/coach_searches |  |
 | [**getCoaches**](DefaultApi.md#getcoaches) | **GET** /api/v1/coaches |  |
 | [**getCompensation**](DefaultApi.md#getcompensation) | **GET** /api/v1/compensations/{compensationId} |  |
+| [**getCompensationComparisons**](DefaultApi.md#getcompensationcomparisons) | **GET** /api/v1/compensation_comparisons |  |
 | [**getCompensations**](DefaultApi.md#getcompensations) | **GET** /api/v1/compensations |  |
 | [**getConference**](DefaultApi.md#getconference) | **GET** /api/v1/conferences/{conferenceId} |  |
 | [**getConferenceAdminCompensation**](DefaultApi.md#getconferenceadmincompensation) | **GET** /api/v1/conferences/{conferenceId}/admin_compensation |  |
@@ -65,6 +108,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getConferenceship**](DefaultApi.md#getconferenceship) | **GET** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**getConferenceships**](DefaultApi.md#getconferenceships) | **GET** /api/v1/conferenceships |  |
 | [**getContact**](DefaultApi.md#getcontact) | **GET** /api/v1/contacts/{contactId} |  |
+| [**getContactSearchCoachOptions**](DefaultApi.md#getcontactsearchcoachoptions) | **GET** /api/v1/contact_searches/coach_options |  |
+| [**getContactSearches**](DefaultApi.md#getcontactsearches) | **GET** /api/v1/contact_searches |  |
 | [**getContacts**](DefaultApi.md#getcontacts) | **GET** /api/v1/contacts |  |
 | [**getContract**](DefaultApi.md#getcontract) | **GET** /api/v1/contracts/{contractId} |  |
 | [**getContracts**](DefaultApi.md#getcontracts) | **GET** /api/v1/contracts |  |
@@ -76,15 +121,18 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDepartmentSearches**](DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
+| [**getEditAccountUser**](DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
 | [**getFavoritesCategories**](DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories |  |
 | [**getFilterOptions**](DefaultApi.md#getfilteroptions) | **GET** /api/v1/filter_options |  |
 | [**getFilterOptionsAllSchools**](DefaultApi.md#getfilteroptionsallschools) | **GET** /api/v1/filter_options/all_schools |  |
 | [**getFilterOptionsConferences**](DefaultApi.md#getfilteroptionsconferences) | **GET** /api/v1/filter_options/conferences |  |
 | [**getFilterOptionsDealTypes**](DefaultApi.md#getfilteroptionsdealtypes) | **GET** /api/v1/filter_options/deal_types |  |
+| [**getFilterOptionsFoiaRequestableDealTypes**](DefaultApi.md#getfilteroptionsfoiarequestabledealtypes) | **GET** /api/v1/filter_options/foia_requestable_deal_types |  |
 | [**getFilterOptionsGameTypes**](DefaultApi.md#getfilteroptionsgametypes) | **GET** /api/v1/filter_options/game_types |  |
 | [**getFilterOptionsSchoolGroups**](DefaultApi.md#getfilteroptionsschoolgroups) | **GET** /api/v1/filter_options/school_groups |  |
 | [**getFilterOptionsSchools**](DefaultApi.md#getfilteroptionsschools) | **GET** /api/v1/filter_options/schools |  |
+| [**getFilterOptionsStates**](DefaultApi.md#getfilteroptionsstates) | **GET** /api/v1/filter_options/states |  |
 | [**getFilterOptionsSubdivisions**](DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions |  |
 | [**getFilterOptionsVendors**](DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors |  |
 | [**getFinancialSearches**](DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches |  |
@@ -92,30 +140,58 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFoiaLabels**](DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels |  |
 | [**getFoiaRequest**](DefaultApi.md#getfoiarequest) | **GET** /api/v1/foia_requests/{foiaRequestId} |  |
 | [**getFoiaRequests**](DefaultApi.md#getfoiarequests) | **GET** /api/v1/foia_requests |  |
+| [**getFrsExportSchoolSearch**](DefaultApi.md#getfrsexportschoolsearch) | **GET** /api/v1/frs_exports/school_search |  |
+| [**getFrsExports**](DefaultApi.md#getfrsexports) | **GET** /api/v1/frs_exports |  |
+| [**getGadSearchDetail**](DefaultApi.md#getgadsearchdetail) | **GET** /api/v1/gad_searches/{id}/detail |  |
+| [**getGadSearchSeasonFacets**](DefaultApi.md#getgadsearchseasonfacets) | **GET** /api/v1/gad_searches/season_facets |  |
 | [**getGadSearches**](DefaultApi.md#getgadsearches) | **GET** /api/v1/gad_searches |  |
 | [**getGame**](DefaultApi.md#getgame) | **GET** /api/v1/games/{gameId} |  |
 | [**getGameContract**](DefaultApi.md#getgamecontract) | **GET** /api/v1/game_contracts/{game_contractId} |  |
+| [**getGameContractSeries**](DefaultApi.md#getgamecontractseries) | **GET** /api/v1/game_contracts/{game_contractId}/series |  |
 | [**getGameContracts**](DefaultApi.md#getgamecontracts) | **GET** /api/v1/game_contracts |  |
 | [**getGamePost**](DefaultApi.md#getgamepost) | **GET** /api/v1/game_posts/{gamePostId} |  |
+| [**getGamePostSearch**](DefaultApi.md#getgamepostsearch) | **GET** /api/v1/game_post_searches/{gamePostSearchId} |  |
+| [**getGamePostSearchAvailabilities**](DefaultApi.md#getgamepostsearchavailabilities) | **GET** /api/v1/game_post_searches/availabilities |  |
 | [**getGamePostSearches**](DefaultApi.md#getgamepostsearches) | **GET** /api/v1/game_post_searches |  |
 | [**getGamePosts**](DefaultApi.md#getgameposts) | **GET** /api/v1/game_posts |  |
 | [**getGames**](DefaultApi.md#getgames) | **GET** /api/v1/games |  |
+| [**getGamesAvailableContracts**](DefaultApi.md#getgamesavailablecontracts) | **GET** /api/v1/games/available_contracts |  |
+| [**getGuaranteeBenchmarks**](DefaultApi.md#getguaranteebenchmarks) | **GET** /api/v1/guarantee_benchmarks |  |
+| [**getGuaranteeEconomics**](DefaultApi.md#getguaranteeeconomics) | **GET** /api/v1/guarantee_economics |  |
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
+| [**getJobPostDisagreements**](DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved LLM/ML athletics classification disagreements |
 | [**getJobPosts**](DefaultApi.md#getjobposts) | **GET** /central_jobs/job_posts | List all job posts |
 | [**getLadFilterOptions**](DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options |  |
 | [**getNcaaFinancialReportStatus**](DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} |  |
 | [**getNcaaFinancialReportStatuses**](DefaultApi.md#getncaafinancialreportstatuses) | **GET** /api/v1/ncaa_financial_report_statuses |  |
+| [**getNewAccountUser**](DefaultApi.md#getnewaccountuser) | **GET** /api/v1/account_users/new |  |
 | [**getNewsFeed**](DefaultApi.md#getnewsfeed) | **GET** /wi_jobs/news_feeds/{newsFeedId} | Get a news feed |
+| [**getNote**](DefaultApi.md#getnote) | **GET** /api/v1/notes |  |
 | [**getPosition**](DefaultApi.md#getposition) | **GET** /api/v1/positions/{positionId} |  |
 | [**getPositions**](DefaultApi.md#getpositions) | **GET** /api/v1/positions |  |
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
+| [**getRequestedItemReviewContext**](DefaultApi.md#getrequesteditemreviewcontext) | **GET** /api/v1/requested_items/{requestedItemId}/review_context |  |
+| [**getRequestedItemRiNote**](DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**getRequestedItems**](DefaultApi.md#getrequesteditems) | **GET** /api/v1/requested_items |  |
+| [**getRevenueSearch**](DefaultApi.md#getrevenuesearch) | **GET** /api/v1/revenue_searches/{revenueSearchId} |  |
+| [**getRevenueSearches**](DefaultApi.md#getrevenuesearches) | **GET** /api/v1/revenue_searches |  |
+| [**getScheduleGrid**](DefaultApi.md#getschedulegrid) | **GET** /api/v1/schedule_grid/{sport_name} |  |
+| [**getScheduleGridAvailableSchools**](DefaultApi.md#getschedulegridavailableschools) | **GET** /api/v1/schedule_grid/{sport_name}/available_schools |  |
+| [**getScheduleGridCompleted**](DefaultApi.md#getschedulegridcompleted) | **GET** /api/v1/schedule_grid/{sport_name}/completed |  |
+| [**getScheduleUpdates**](DefaultApi.md#getscheduleupdates) | **GET** /api/v1/schedule_updates |  |
+| [**getSchedulingContacts**](DefaultApi.md#getschedulingcontacts) | **GET** /api/v1/scheduling_contacts |  |
 | [**getSchool**](DefaultApi.md#getschool) | **GET** /api/v1/schools/{schoolId} |  |
 | [**getSchoolAlternateNames**](DefaultApi.md#getschoolalternatenames) | **GET** /api/v1/schools/{schoolId}/alternate_names |  |
+| [**getSchoolDepartmentAdministrators**](DefaultApi.md#getschooldepartmentadministrators) | **GET** /api/v1/schools/{schoolId}/department_administrators |  |
+| [**getSchoolDepartmentCoaches**](DefaultApi.md#getschooldepartmentcoaches) | **GET** /api/v1/schools/{schoolId}/department_coaches |  |
+| [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
+| [**getSchoolDepartmentGuarantees**](DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees |  |
+| [**getSchoolDepartmentOverview**](DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview |  |
+| [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
 | [**getSchoolGroupCashflowStats**](DefaultApi.md#getschoolgroupcashflowstats) | **GET** /api/v1/school_groups/{schoolGroupId}/cashflow_stats |  |
@@ -123,8 +199,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchoolGroupDirectorsCup**](DefaultApi.md#getschoolgroupdirectorscup) | **GET** /api/v1/school_groups/{schoolGroupId}/directors_cup |  |
 | [**getSchoolGroupPositionStats**](DefaultApi.md#getschoolgrouppositionstats) | **GET** /api/v1/school_groups/{schoolGroupId}/position_stats |  |
 | [**getSchoolGroupSportCompensation**](DefaultApi.md#getschoolgroupsportcompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/sport_compensation |  |
+| [**getSchoolGroups**](DefaultApi.md#getschoolgroups) | **GET** /api/v1/school_groups |  |
+| [**getSchoolGroupsAvailableSchools**](DefaultApi.md#getschoolgroupsavailableschools) | **GET** /api/v1/school_groups/available_schools |  |
 | [**getSchools**](DefaultApi.md#getschools) | **GET** /api/v1/schools |  |
 | [**getSchoolsAlmaMater**](DefaultApi.md#getschoolsalmamater) | **GET** /api/v1/schools/alma_mater |  |
+| [**getSchoolsCount**](DefaultApi.md#getschoolscount) | **GET** /api/v1/schools/count |  |
 | [**getSeason**](DefaultApi.md#getseason) | **GET** /api/v1/seasons/{seasonId} |  |
 | [**getSeasons**](DefaultApi.md#getseasons) | **GET** /api/v1/seasons |  |
 | [**getSimilarCoaches**](DefaultApi.md#getsimilarcoaches) | **GET** /api/v1/coaches/{coachId}/similar_coaches |  |
@@ -139,8 +218,22 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSubdivisionSportCompensation**](DefaultApi.md#getsubdivisionsportcompensation) | **GET** /api/v1/subdivisions/{subdivisionId}/sport_compensation |  |
 | [**getSubdivisions**](DefaultApi.md#getsubdivisions) | **GET** /api/v1/subdivisions |  |
 | [**getSubscription**](DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} |  |
+| [**getSubscriptionAcceptance**](DefaultApi.md#getsubscriptionacceptance) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
 | [**getSubscriptions**](DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions |  |
 | [**getSystemSettings**](DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting |  |
+| [**getTeamScheduleDetail**](DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} |  |
+| [**getTeamScheduleDetailCoaches**](DefaultApi.md#getteamscheduledetailcoaches) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/coaches |  |
+| [**getTeamScheduleDetailGamePosts**](DefaultApi.md#getteamscheduledetailgameposts) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/game_posts |  |
+| [**getTeamScheduleDetailPlayerData**](DefaultApi.md#getteamscheduledetailplayerdata) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/player_data |  |
+| [**getTeamScheduleDetailSchedule**](DefaultApi.md#getteamscheduledetailschedule) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/schedule |  |
+| [**getTeamScheduleDetailScheduleOverlap**](DefaultApi.md#getteamscheduledetailscheduleoverlap) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id}/schedule_overlap |  |
+| [**getTeamScheduleFavorites**](DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites |  |
+| [**getTeamScheduleNote**](DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
+| [**getTimeZones**](DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones |  |
+| [**getUpload**](DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} |  |
+| [**getUploadFile**](DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file |  |
+| [**getUploads**](DefaultApi.md#getuploads) | **GET** /api/v1/uploads |  |
 | [**getUser**](DefaultApi.md#getuser) | **GET** /api/v1/users/{userId} |  |
 | [**getUserActivitySummaries**](DefaultApi.md#getuseractivitysummaries) | **GET** /api/v1/user_activity_summaries |  |
 | [**getUserActivitySummary**](DefaultApi.md#getuseractivitysummary) | **GET** /api/v1/user_activity_summaries/{user_activity_summaryId} |  |
@@ -150,7 +243,15 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendor**](DefaultApi.md#getvendor) | **GET** /api/v1/vendors/{vendorId} |  |
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
+| [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
+| [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
+| [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
+| [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
+| [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
+| [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
+| [**updateAccountUser**](DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} |  |
+| [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
 | [**updateCoach**](DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} |  |
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
@@ -160,12 +261,28 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateFavoritesCategory**](DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} |  |
 | [**updateFoiaLabel**](DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**updateFoiaRequest**](DefaultApi.md#updatefoiarequest) | **PATCH** /api/v1/foia_requests/{foiaRequestId} |  |
+| [**updateGame**](DefaultApi.md#updategame) | **PATCH** /api/v1/games/{gameId} |  |
+| [**updateGameContract**](DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} |  |
+| [**updateGamePostSearch**](DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
+| [**updateJobPostHumanOverride**](DefaultApi.md#updatejobposthumanoverride) | **PATCH** /central_jobs/job_posts/{jobPostId}/human_override | Set the human_override_is_athletics value for one job post |
+| [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
+| [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
+| [**updateScheduleIntent**](DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} |  |
+| [**updateSchoolGroup**](DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
+| [**updateSubscriptionAcceptance**](DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
+| [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
+| [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
+| [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
+| [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
+| [**viewInvoiceFile**](DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file |  |
+| [**viewRawContractFile**](DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file |  |
+| [**viewSubscriptionAcceptanceContract**](DefaultApi.md#viewsubscriptionacceptancecontract) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract |  |
 
 
 
@@ -505,6 +622,308 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## batchGuaranteeEconomics
+
+> GuaranteeEconomicsBatch batchGuaranteeEconomics(batchGuaranteeEconomicsRequest)
+
+
+
+Batch companion to GET /guarantee_economics (WINAD-10147). Returns the same per-school host/travel median guarantee economics — with the identical gad_filters deep-link target — for a page of [school_id, sport_id] pairs in one request, so list surfaces (Find Opponent sheet, schedule grid, Games Wanted feed) stop firing one singular request per row. POST (not GET) because a full sheet\&#39;s ~364 pairs are sent as a JSON body. Permission- critical: callers without guarantee aggregate access get every pair\&#39;s host/travel as null, indistinguishable from schools with no qualifying games.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BatchGuaranteeEconomicsOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BatchGuaranteeEconomicsRequest
+    batchGuaranteeEconomicsRequest: ...,
+  } satisfies BatchGuaranteeEconomicsOperationRequest;
+
+  try {
+    const data = await api.batchGuaranteeEconomics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **batchGuaranteeEconomicsRequest** | [BatchGuaranteeEconomicsRequest](BatchGuaranteeEconomicsRequest.md) |  | |
+
+### Return type
+
+[**GuaranteeEconomicsBatch**](GuaranteeEconomicsBatch.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Host/travel medians + deep-link filters per requested pair, plus the shared season window. |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkCreateGamePostSearches
+
+> BulkGamePostSearchResult bulkCreateGamePostSearches(bulkCreateGamePostSearchesRequest)
+
+
+
+WINAD-9908: publish the slim-create flow as one GamePost per (open date × deal type) in a single request. Created in one transaction (a bad entry rolls the whole batch back) and a single consolidated alert fires for the batch instead of one email per post. Each post is a single day (end_date is forced nil server-side). WINAD-10067: the slim editor no longer writes grid markers live — it stages availability/pending edits and commits them here. In the same transaction the school\&#39;s ScheduleIntents are reconciled to &#x60;intents&#x60; for the &#x60;season_start&#x60;..&#x60;season_end&#x60; window, and any Active post in that window whose day is no longer open is removed. WINAD-10093: the feed renders a card\&#39;s dates from ScheduleIntents, so this also guarantees a non-Pending ScheduleIntent for every posted open day (even when &#x60;intents&#x60; is omitted) and protects those days from the intent reconciliation.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkCreateGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkCreateGamePostSearchesRequest
+    bulkCreateGamePostSearchesRequest: ...,
+  } satisfies BulkCreateGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.bulkCreateGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkCreateGamePostSearchesRequest** | [BulkCreateGamePostSearchesRequest](BulkCreateGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**BulkGamePostSearchResult**](BulkGamePostSearchResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Posts created |  -  |
+| **422** | Validation error or empty batch |  -  |
+| **403** | Forbidden — only school accounts can create game posts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkCreateGames
+
+> BulkCreateGames201Response bulkCreateGames(bulkCreateGamesRequest)
+
+
+
+Create multiple games in a single transactional request. Used by the bulk-entry workflow on the schedule grid. All rows are inserted in one transaction — if any row fails validation the whole batch is rolled back and the response identifies the failing row by its index. The batch is capped at 500 rows; larger payloads return 422. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkCreateGamesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkCreateGamesRequest
+    bulkCreateGamesRequest: ...,
+  } satisfies BulkCreateGamesOperationRequest;
+
+  try {
+    const data = await api.bulkCreateGames(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkCreateGamesRequest** | [BulkCreateGamesRequest](BulkCreateGamesRequest.md) |  | |
+
+### Return type
+
+[**BulkCreateGames201Response**](BulkCreateGames201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Games created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Validation error — the whole batch was rolled back |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## bulkUpdateGamePostSearches
+
+> BulkGamePostSearchResult bulkUpdateGamePostSearches(bulkUpdateGamePostSearchesRequest)
+
+
+
+WINAD-10067: save an edited Games Wanted card (publish group). Reconciles the card\&#39;s Active posts to the submitted open days and shared message: a day already on this card is updated (id kept), a day on another card is left alone, a genuinely-new day is created under this publish_group_id, and a day the card no longer lists is deleted. Scoped to the caller\&#39;s own school + group; fires no alert (an edit must not re-blast the instant Games Wanted email). WINAD-10067: the slim editor stages its grid edits and commits them here too — in the same transaction the school\&#39;s ScheduleIntents are reconciled to &#x60;intents&#x60; for the &#x60;season_start&#x60;..&#x60;season_end&#x60; window, protecting days another card still owns so an edit never clears a sibling card\&#39;s markers. WINAD-10093: this card\&#39;s own posted days are protected too, and a non-Pending ScheduleIntent is guaranteed for each. Dropping a day from the card deletes only its post — the day\&#39;s ScheduleIntent (availability) stays unless the grid itself cleared it.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { BulkUpdateGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // BulkUpdateGamePostSearchesRequest
+    bulkUpdateGamePostSearchesRequest: ...,
+  } satisfies BulkUpdateGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.bulkUpdateGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkUpdateGamePostSearchesRequest** | [BulkUpdateGamePostSearchesRequest](BulkUpdateGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**BulkGamePostSearchResult**](BulkGamePostSearchResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Publish group reconciled |  -  |
+| **422** | Validation error, empty batch, or unknown publish group |  -  |
+| **403** | Forbidden — only school accounts can edit game posts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## compareColi
 
 > COLIAdjusted compareColi(schoolId, otherPersonSchoolId, otherPersonTotalCompensation)
@@ -583,6 +1002,82 @@ example().catch(console.error);
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAccountUser
+
+> AccountUser createAccountUser(createAccountUserRequest)
+
+
+
+Create a new user for the current account. The email prefix is combined with the account email domain. The new user receives an invitation email.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAccountUserOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAccountUserRequest
+    createAccountUserRequest: ...,
+  } satisfies CreateAccountUserOperationRequest;
+
+  try {
+    const data = await api.createAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAccountUserRequest** | [CreateAccountUserRequest](CreateAccountUserRequest.md) |  | |
+
+### Return type
+
+[**AccountUser**](AccountUser.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | User created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -887,6 +1382,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createContactSearch
+
+> ContactSearchEntry createContactSearch(createContactSearchRequest)
+
+
+
+Create a new scheduling contact
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateContactSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateContactSearchRequest (optional)
+    createContactSearchRequest: ...,
+  } satisfies CreateContactSearchOperationRequest;
+
+  try {
+    const data = await api.createContactSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createContactSearchRequest** | [CreateContactSearchRequest](CreateContactSearchRequest.md) |  | [Optional] |
+
+### Return type
+
+[**ContactSearchEntry**](ContactSearchEntry.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Contact was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **422** | Unable to create the Contact |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createFavorite
 
 > CreateFavorite201Response createFavorite(createFavoriteRequest)
@@ -1186,6 +1757,309 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createFrsExport
+
+> FrsExport createFrsExport(createFrsExportRequest)
+
+
+
+Create an FRS Report Export and enqueue workbook generation
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateFrsExportOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateFrsExportRequest
+    createFrsExportRequest: ...,
+  } satisfies CreateFrsExportOperationRequest;
+
+  try {
+    const data = await api.createFrsExport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createFrsExportRequest** | [CreateFrsExportRequest](CreateFrsExportRequest.md) |  | |
+
+### Return type
+
+[**FrsExport**](FrsExport.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | FRS export created and queued |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation error - no exportable sports/schools, unsupported year, or save failure |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createGame
+
+> GameDetail createGame(createGameRequest)
+
+
+
+Create a game
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateGameOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateGameRequest
+    createGameRequest: ...,
+  } satisfies CreateGameOperationRequest;
+
+  try {
+    const data = await api.createGame(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createGameRequest** | [CreateGameRequest](CreateGameRequest.md) |  | |
+
+### Return type
+
+[**GameDetail**](GameDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Game created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createGamePost
+
+> GamePost createGamePost(createGamePostSearchRequest)
+
+
+
+Create a game post for the current user\&#39;s school
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateGamePostRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateGamePostSearchRequest
+    createGamePostSearchRequest: ...,
+  } satisfies CreateGamePostRequest;
+
+  try {
+    const data = await api.createGamePost(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createGamePostSearchRequest** | [CreateGamePostSearchRequest](CreateGamePostSearchRequest.md) |  | |
+
+### Return type
+
+[**GamePost**](GamePost.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Game post created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Validation error (missing school, duplicate post, or invalid attributes) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createGamePostSearch
+
+> GamePostDetail createGamePostSearch(createGamePostSearchRequest)
+
+
+
+Create a new game post
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateGamePostSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateGamePostSearchRequest
+    createGamePostSearchRequest: ...,
+  } satisfies CreateGamePostSearchOperationRequest;
+
+  try {
+    const data = await api.createGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createGamePostSearchRequest** | [CreateGamePostSearchRequest](CreateGamePostSearchRequest.md) |  | |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Game post created |  -  |
+| **422** | Validation error |  -  |
+| **403** | Forbidden — only school accounts can create game posts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createJobPost
 
 > JobPost createJobPost(jobPost)
@@ -1256,6 +2130,302 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **201** | Job post was created |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createMcpEvent
+
+> McpEvent createMcpEvent(createMcpEventRequest)
+
+
+
+Ingest an MCP (Model Context Protocol) event for the current user. The request is idempotent per user on &#x60;event_uuid&#x60; - re-submitting the same &#x60;event_uuid&#x60; returns the previously stored event with a 200 status instead of creating a duplicate.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateMcpEventOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateMcpEventRequest
+    createMcpEventRequest: ...,
+  } satisfies CreateMcpEventOperationRequest;
+
+  try {
+    const data = await api.createMcpEvent(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createMcpEventRequest** | [CreateMcpEventRequest](CreateMcpEventRequest.md) |  | |
+
+### Return type
+
+[**McpEvent**](McpEvent.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Existing event returned (idempotent re-submission) |  -  |
+| **201** | Event created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - token lacks the winad_self scope |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createNote
+
+> Note createNote(createNoteRequest)
+
+
+
+Create a note for the current user on a notable object
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateNoteRequest
+    createNoteRequest: ...,
+  } satisfies CreateNoteOperationRequest;
+
+  try {
+    const data = await api.createNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createNoteRequest** | [CreateNoteRequest](CreateNoteRequest.md) |  | |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Note created |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createPageView
+
+> PageView createPageView(createPageViewRequest)
+
+
+
+Record a page view for the current user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreatePageViewOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreatePageViewRequest
+    createPageViewRequest: ...,
+  } satisfies CreatePageViewOperationRequest;
+
+  try {
+    const data = await api.createPageView(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createPageViewRequest** | [CreatePageViewRequest](CreatePageViewRequest.md) |  | |
+
+### Return type
+
+[**PageView**](PageView.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Page view recorded |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable - route is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createPasswordReset
+
+> CreatePasswordReset200Response createPasswordReset(createPasswordResetRequest)
+
+
+
+Send password reset instructions to the given email address
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreatePasswordResetOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // CreatePasswordResetRequest
+    createPasswordResetRequest: ...,
+  } satisfies CreatePasswordResetOperationRequest;
+
+  try {
+    const data = await api.createPasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createPasswordResetRequest** | [CreatePasswordResetRequest](CreatePasswordResetRequest.md) |  | |
+
+### Return type
+
+[**CreatePasswordReset200Response**](CreatePasswordReset200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Reset instructions sent successfully |  -  |
+| **400** | Missing or blank email parameter |  -  |
+| **422** | Email not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1410,6 +2580,314 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createRequestedItemRiNote
+
+> RequestedItemNoteResponse createRequestedItemRiNote(requestedItemId, requestedItemNoteInput)
+
+
+
+Create or replace the note attached to a requested item. When &#x60;append&#x60; is true, the note text is appended to any existing note instead of replacing it.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateRequestedItemRiNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose note should be created, replaced, or appended
+    requestedItemId: 56,
+    // RequestedItemNoteInput | Requested item note content
+    requestedItemNoteInput: ...,
+  } satisfies CreateRequestedItemRiNoteRequest;
+
+  try {
+    const data = await api.createRequestedItemRiNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose note should be created, replaced, or appended | [Defaults to `undefined`] |
+| **requestedItemNoteInput** | [RequestedItemNoteInput](RequestedItemNoteInput.md) | Requested item note content | |
+
+### Return type
+
+[**RequestedItemNoteResponse**](RequestedItemNoteResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item note already existed and was replaced or appended |  -  |
+| **201** | Requested item note was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to create requested item note |  -  |
+| **503** | Scraper notes author was not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createScheduleIntent
+
+> ScheduleIntentDetail createScheduleIntent(createScheduleIntentRequest)
+
+
+
+Create a private /schedules grid marker (WINAD-9646). This is NOT a public Games Wanted post — it never reaches the /game_posts feed, the school-detail badge, or the digest email.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateScheduleIntentOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateScheduleIntentRequest
+    createScheduleIntentRequest: ...,
+  } satisfies CreateScheduleIntentOperationRequest;
+
+  try {
+    const data = await api.createScheduleIntent(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createScheduleIntentRequest** | [CreateScheduleIntentRequest](CreateScheduleIntentRequest.md) |  | |
+
+### Return type
+
+[**ScheduleIntentDetail**](ScheduleIntentDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Schedule intent created |  -  |
+| **422** | Validation error |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createScheduleTournament
+
+> ScheduleTournamentDetail createScheduleTournament(createScheduleTournamentRequest)
+
+
+
+Create a private /schedules grid multi-team event (MTE) placeholder (WINAD-9818). Always scoped to the current user\&#39;s account school (the school is taken from the session, not the request body) plus a permitted sport on a single date; opponents may be unknown when the event is added so no opponent FK is stored. At most one tournament per (school, sport, date). A tournament takes over the whole cell, so creating one destroys any overlapping ScheduleIntent availability marker for that cell. Cells render as \&quot;Tournament Name (MTE)\&quot;.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateScheduleTournamentOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateScheduleTournamentRequest
+    createScheduleTournamentRequest: ...,
+  } satisfies CreateScheduleTournamentOperationRequest;
+
+  try {
+    const data = await api.createScheduleTournament(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createScheduleTournamentRequest** | [CreateScheduleTournamentRequest](CreateScheduleTournamentRequest.md) |  | |
+
+### Return type
+
+[**ScheduleTournamentDetail**](ScheduleTournamentDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Schedule tournament created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — not permitted to create a tournament for this sport |  -  |
+| **422** | Validation error — missing/out-of-range name (3–30 chars), missing date, a tournament already exists for this (school, sport, date), or the current user\&#39;s account has no school |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createSchoolGroup
+
+> SchoolGroupShow createSchoolGroup(createSchoolGroupRequest)
+
+
+
+Create a new custom school group
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateSchoolGroupOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateSchoolGroupRequest
+    createSchoolGroupRequest: ...,
+  } satisfies CreateSchoolGroupOperationRequest;
+
+  try {
+    const data = await api.createSchoolGroup(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createSchoolGroupRequest** | [CreateSchoolGroupRequest](CreateSchoolGroupRequest.md) |  | |
+
+### Return type
+
+[**SchoolGroupShow**](SchoolGroupShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | School group created |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createSeason
 
 > Season createSeason(season)
@@ -1481,6 +2959,232 @@ example().catch(console.error);
 | **201** | Season was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create the Season |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createTeamScheduleFavorite
+
+> CreateTeamScheduleFavorite201Response createTeamScheduleFavorite(createTeamScheduleFavoriteRequest)
+
+
+
+Add a FilTeam to favorites
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateTeamScheduleFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateTeamScheduleFavoriteRequest
+    createTeamScheduleFavoriteRequest: ...,
+  } satisfies CreateTeamScheduleFavoriteOperationRequest;
+
+  try {
+    const data = await api.createTeamScheduleFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createTeamScheduleFavoriteRequest** | [CreateTeamScheduleFavoriteRequest](CreateTeamScheduleFavoriteRequest.md) |  | |
+
+### Return type
+
+[**CreateTeamScheduleFavorite201Response**](CreateTeamScheduleFavorite201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Favorite created |  -  |
+| **400** | Bad request (missing favoritable_id) |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createUpload
+
+> CreateUpload201Response createUpload(files)
+
+
+
+Upload one or more PDF contract files
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<Blob> | PDF files to upload (optional)
+    files: /path/to/file.txt,
+  } satisfies CreateUploadRequest;
+
+  try {
+    const data = await api.createUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **files** | `Array<Blob>` | PDF files to upload | [Optional] |
+
+### Return type
+
+[**CreateUpload201Response**](CreateUpload201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Files uploaded |  -  |
+| **400** | No files provided |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteAccountUser
+
+> DeleteAccountUser200Response deleteAccountUser(accountUserId)
+
+
+
+Delete a user from the current account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to delete
+    accountUserId: 56,
+  } satisfies DeleteAccountUserRequest;
+
+  try {
+    const data = await api.deleteAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1705,6 +3409,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **204** | Conferenceship was deleted |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteContactSearch
+
+> DeleteContactSearch200Response deleteContactSearch(id)
+
+
+
+Delete a scheduling contact
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteContactSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of contact to delete
+    id: 56,
+  } satisfies DeleteContactSearchRequest;
+
+  try {
+    const data = await api.deleteContactSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | ID of contact to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteContactSearch200Response**](DeleteContactSearch200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contact was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -2008,6 +3788,308 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteGame
+
+> deleteGame(gameId)
+
+
+
+Delete a game
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteGameRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of game to delete
+    gameId: 56,
+  } satisfies DeleteGameRequest;
+
+  try {
+    const data = await api.deleteGame(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameId** | `number` | ID of game to delete | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Game deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteGameContractRawContract
+
+> deleteGameContractRawContract(gameContractId)
+
+
+
+Delete the raw contract attached to a game contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteGameContractRawContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GameContract
+    gameContractId: 56,
+  } satisfies DeleteGameContractRawContractRequest;
+
+  try {
+    const data = await api.deleteGameContractRawContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameContractId** | `number` | ID of the GameContract | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Raw contract was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteGamePost
+
+> deleteGamePost(gamePostId)
+
+
+
+Delete a game post
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteGamePostRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GamePost
+    gamePostId: 56,
+  } satisfies DeleteGamePostRequest;
+
+  try {
+    const data = await api.deleteGamePost(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostId** | `number` | ID of the GamePost | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Game post deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to delete game post |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteGamePostSearch
+
+> DeleteContactSearch200Response deleteGamePostSearch(gamePostSearchId)
+
+
+
+Delete a game post. WINAD-10093: removes only this post (the caller scopes a card delete to its publish group). The cell\&#39;s ScheduleIntent is left intact — the feed and /schedules grid source displayed availability from ScheduleIntents, so a deleted card never shrinks a sibling card\&#39;s dates.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteGamePostSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    gamePostSearchId: 56,
+  } satisfies DeleteGamePostSearchRequest;
+
+  try {
+    const data = await api.deleteGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostSearchId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteContactSearch200Response**](DeleteContactSearch200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game post deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteJobPost
 
 > deleteJobPost(jobPostId)
@@ -2077,6 +4159,80 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Job post was deleted |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteNote
+
+> DeleteAccountUser200Response deleteNote(id)
+
+
+
+Delete a note
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies DeleteNoteRequest;
+
+  try {
+    const data = await api.deleteNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -2232,6 +4388,232 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteScheduleIntent
+
+> deleteScheduleIntent(scheduleIntentId)
+
+
+
+Delete a private /schedules grid marker
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteScheduleIntentRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    scheduleIntentId: 56,
+  } satisfies DeleteScheduleIntentRequest;
+
+  try {
+    const data = await api.deleteScheduleIntent(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **scheduleIntentId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Schedule intent deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteScheduleTournament
+
+> deleteScheduleTournament(scheduleTournamentId)
+
+
+
+Delete a private /schedules grid multi-team event (MTE) placeholder.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteScheduleTournamentRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    scheduleTournamentId: 56,
+  } satisfies DeleteScheduleTournamentRequest;
+
+  try {
+    const data = await api.deleteScheduleTournament(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **scheduleTournamentId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Schedule tournament deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — not owned by current user\&#39;s school or sport not permitted |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteSchoolGroup
+
+> DeleteAccountUser200Response deleteSchoolGroup(schoolGroupId)
+
+
+
+Delete a custom school group
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteSchoolGroupRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School Group
+    schoolGroupId: 56,
+  } satisfies DeleteSchoolGroupRequest;
+
+  try {
+    const data = await api.deleteSchoolGroup(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolGroupId** | `number` | ID of the School Group | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School group deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteSeason
 
 > deleteSeason(seasonId)
@@ -2303,6 +4685,678 @@ example().catch(console.error);
 | **204** | Season was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteTeamScheduleFavorite
+
+> DeleteAccountUser200Response deleteTeamScheduleFavorite(id)
+
+
+
+Remove a FilTeam favorite
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteTeamScheduleFavoriteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The favorite record ID
+    id: 56,
+  } satisfies DeleteTeamScheduleFavoriteRequest;
+
+  try {
+    const data = await api.deleteTeamScheduleFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Favorite removed |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteTeamScheduleNote
+
+> deleteTeamScheduleNote(filTeamId)
+
+
+
+Delete the current user\&#39;s note for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteTeamScheduleNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    filTeamId: filTeamId_example,
+  } satisfies DeleteTeamScheduleNoteRequest;
+
+  try {
+    const data = await api.deleteTeamScheduleNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filTeamId** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Note deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteUpload
+
+> DeleteAccountUser200Response deleteUpload(uploadId)
+
+
+
+Delete an uploaded contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the upload to delete
+    uploadId: 56,
+  } satisfies DeleteUploadRequest;
+
+  try {
+    const data = await api.deleteUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uploadId** | `number` | ID of the upload to delete | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Upload deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## downloadRawContractFile
+
+> Blob downloadRawContractFile(rawContractId)
+
+
+
+Download the raw contract PDF with a provenance watermark (attachment disposition)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DownloadRawContractFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies DownloadRawContractFileRequest;
+
+  try {
+    const data = await api.downloadRawContractFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Watermarked PDF attachment |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## enrichGamePostSearches
+
+> GamePostEnrichmentCollection enrichGamePostSearches(enrichGamePostSearchesRequest)
+
+
+
+Async companion to GET /game_post_searches. The dashboard feed sends q[defer_enrichment]&#x3D;true so its cards paint first without the slow per-card computes; this returns those deferred blocks — availability overlap, guarantee economics, and the schedule-intent \&quot;open windows\&quot; — for the loaded page\&#39;s [school_id, sport_id] pairs, which the client merges onto each card. POST (not GET) because ~35 pairs are sent as a JSON body. Runs neither the search nor the grouping — just the two heavy per-card computes plus the poster intents.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { EnrichGamePostSearchesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // EnrichGamePostSearchesRequest
+    enrichGamePostSearchesRequest: ...,
+  } satisfies EnrichGamePostSearchesOperationRequest;
+
+  try {
+    const data = await api.enrichGamePostSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **enrichGamePostSearchesRequest** | [EnrichGamePostSearchesRequest](EnrichGamePostSearchesRequest.md) |  | |
+
+### Return type
+
+[**GamePostEnrichmentCollection**](GamePostEnrichmentCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deferred per-card blocks, one row per requested pair. |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## exportRevenueSearches
+
+> Blob exportRevenueSearches(schoolId, year)
+
+
+
+Download full NCAA financial report as CSV (51 columns, all sports)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ExportRevenueSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies ExportRevenueSearchesRequest;
+
+  try {
+    const data = await api.exportRevenueSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/csv`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | CSV file download |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccount
+
+> AccountDetail getAccount(id)
+
+
+
+Retrieve an account with subscriptions, invoices, and billing addresses
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies GetAccountRequest;
+
+  try {
+    const data = await api.getAccount(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AccountDetail**](AccountDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not an account admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccountUserActivation
+
+> GetAccountUserActivation200Response getAccountUserActivation(confirmationToken)
+
+
+
+Validate a confirmation token and return the user\&#39;s name and email for the account activation form
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountUserActivationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // string | The confirmation token from the invitation email
+    confirmationToken: confirmationToken_example,
+  } satisfies GetAccountUserActivationRequest;
+
+  try {
+    const data = await api.getAccountUserActivation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **confirmationToken** | `string` | The confirmation token from the invitation email | [Defaults to `undefined`] |
+
+### Return type
+
+[**GetAccountUserActivation200Response**](GetAccountUserActivation200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Token is valid |  -  |
+| **400** | Missing token |  -  |
+| **422** | Invalid or expired token |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAccountUsers
+
+> AccountUsersResponse getAccountUsers(page)
+
+
+
+Retrieve paginated list of users for the current user\&#39;s account with their computed access permissions
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountUsersRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+  } satisfies GetAccountUsersRequest;
+
+  try {
+    const data = await api.getAccountUsers(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**AccountUsersResponse**](AccountUsersResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account users retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -2414,7 +5468,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // string | When \"1\" or \"true\", restrict results to the current user\'s favorited administrators (optional)
     favoritesOnly: favoritesOnly_example,
@@ -2441,7 +5495,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **favoritesOnly** | `string` | When \&quot;1\&quot; or \&quot;true\&quot;, restrict results to the current user\&#39;s favorited administrators | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; or a date range like \&quot;2025-01-01..2025-12-31\&quot; | [Optional] [Defaults to `undefined`] |
 
@@ -2500,7 +5554,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetAdministratorsRequest;
 
@@ -2523,7 +5577,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -2544,6 +5598,178 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Administrators were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAthleticProfileReport
+
+> Blob getAthleticProfileReport(athleticProfileSearchId, sport, year, scope, tab, appendix)
+
+
+
+Download a sport profile view as a letter-format PDF report (WINAD-10211). Department scopes are rejected with 422 until their report pages exist.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAthleticProfileReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | School ID
+    athleticProfileSearchId: 56,
+    // string | Sport key (non-ADMIN)
+    sport: sport_example,
+    // number | Season year (defaults to the current season) (optional)
+    year: 56,
+    // 'full' | 'tab' | Report scope (optional)
+    scope: scope_example,
+    // 'overview' | 'coach-staff' | 'financials' | 'guarantees' | 'history' | Tab key when scope=tab (optional)
+    tab: tab_example,
+    // '0' | '1' | Include the sources appendix (\'1\' default, \'0\' to omit) (optional)
+    appendix: appendix_example,
+  } satisfies GetAthleticProfileReportRequest;
+
+  try {
+    const data = await api.getAthleticProfileReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **athleticProfileSearchId** | `number` | School ID | [Defaults to `undefined`] |
+| **sport** | `string` | Sport key (non-ADMIN) | [Defaults to `undefined`] |
+| **year** | `number` | Season year (defaults to the current season) | [Optional] [Defaults to `undefined`] |
+| **scope** | `full`, `tab` | Report scope | [Optional] [Defaults to `&#39;full&#39;`] [Enum: full, tab] |
+| **tab** | `overview`, `coach-staff`, `financials`, `guarantees`, `history` | Tab key when scope&#x3D;tab | [Optional] [Defaults to `&#39;overview&#39;`] [Enum: overview, coach-staff, financials, guarantees, history] |
+| **appendix** | `0`, `1` | Include the sources appendix (\&#39;1\&#39; default, \&#39;0\&#39; to omit) | [Optional] [Defaults to `&#39;1&#39;`] [Enum: 0, 1] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF report attachment |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+| **422** | Department report pages are pending |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAthleticProfileSearch
+
+> AthleticProfileShow getAthleticProfileSearch(athleticProfileSearchId, sport, year)
+
+
+
+Get school athletic profile with overview data
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAthleticProfileSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | School ID
+    athleticProfileSearchId: 56,
+    // string | Sport key (defaults to ADMIN for department overview) (optional)
+    sport: sport_example,
+    // number | Performance year (optional)
+    year: 56,
+  } satisfies GetAthleticProfileSearchRequest;
+
+  try {
+    const data = await api.getAthleticProfileSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **athleticProfileSearchId** | `number` | School ID | [Defaults to `undefined`] |
+| **sport** | `string` | Sport key (defaults to ADMIN for department overview) | [Optional] [Defaults to `&#39;ADMIN&#39;`] |
+| **year** | `number` | Performance year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AthleticProfileShow**](AthleticProfileShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Athletic profile data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -2655,7 +5881,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetAuditedFinancialReportStatusesRequest;
 
@@ -2678,7 +5904,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -2876,7 +6102,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCashflowsRequest;
 
@@ -2899,7 +6125,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -2957,7 +6183,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCategoriesRequest;
 
@@ -2980,7 +6206,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -3612,6 +6838,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getCoachSearchRecruiting
+
+> CoachRecruitingTab getCoachSearchRecruiting(id)
+
+
+
+Get coach recruiting tab data including class strength, conference comparison, budgets, and charts
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCoachSearchRecruitingRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Coach ID or friendly slug
+    id: id_example,
+  } satisfies GetCoachSearchRecruitingRequest;
+
+  try {
+    const data = await api.getCoachSearchRecruiting(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Coach ID or friendly slug | [Defaults to `undefined`] |
+
+### Return type
+
+[**CoachRecruitingTab**](CoachRecruitingTab.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach recruiting tab data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getCoachSearchVideos
 
 > CoachVideosTab getCoachSearchVideos(id)
@@ -3719,7 +7020,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // number | Filter by position type (expands to group if position is a group stub) (optional)
     positionTypeId: 56,
@@ -3746,7 +7047,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **positionTypeId** | `number` | Filter by position type (expands to group if position is a group stub) | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; for expired contracts, or a date range in \&quot;YYYY-MM-DD..YYYY-MM-DD\&quot; format. | [Optional] [Defaults to `undefined`] |
 
@@ -3805,7 +7106,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCoachesRequest;
 
@@ -3828,7 +7129,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -3928,6 +7229,109 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getCompensationComparisons
+
+> CompensationComparisonResult getCompensationComparisons(schoolIds, conferenceId, sportId, positionTypeId, titleInclude, titleExclude, year, includeMissing, perSchoolLimit, maxRows)
+
+
+
+Cross-school coach/administrator role compensation comparison (MCP-174). Expands the requested schools and/or conference, matches the queried role by position type and/or title terms, classifies each candidate\&#39;s raw title (clean_match / assistant / chief_of_staff / hybrid_coach_gm / related_role), applies per-row compensation permission gating, and returns cohort stats with explicit denominator counts. One row per school/match candidate; schools with no match surface as no_role_match or school_not_accessible rows when include_missing is true. Known limitation: administrator records, and coach records when no sport_id is given, are matched against WinAD views that collapse to one record per person per year, so a person holding multiple same-year positions may surface under a different position than the queried role (a response warning flags the no-sport case). Sport-scoped coach matching is per-position and unaffected.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCompensationComparisonsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<number> | Explicit school ids to compare, kept in request order. Provide school_ids[] and/or conference_id. More than 40 ids is rejected with error_type=scope_too_large. (optional)
+    schoolIds: ...,
+    // number | Conference scope; expands to member schools (conferenceship members when sport_id is given, primary members otherwise). The combined resolved scope (explicit schools plus conference members) is capped at 40 schools; beyond that the request is rejected with error_type=scope_too_large. (optional)
+    conferenceId: 56,
+    // number | Sport scope for coach candidates. Administrator records are not sport-scoped; their rows carry a caveat instead. (optional)
+    sportId: 56,
+    // number | Position type for the queried role (expands to the group when the id is a group stub). Provide position_type_id and/or title_include[]. (optional)
+    positionTypeId: 56,
+    // Array<string> | Title words/phrases that strengthen a match (ILIKE, OR-combined with the position-type arm). More than 10 terms or terms over 60 chars are rejected with error_type=invalid_param. (optional)
+    titleInclude: ...,
+    // Array<string> | Title words/phrases that exclude a candidate (ILIKE). More than 10 terms or terms over 60 chars are rejected with error_type=invalid_param. (optional)
+    titleExclude: ...,
+    // number | Compensation season year; defaults to the current season year. (optional)
+    year: 56,
+    // boolean | Emit a synthesized no_role_match / school_not_accessible row per school with no candidates. (optional)
+    includeMissing: true,
+    // number | Max candidate rows per school (best matches kept; cohort stats still cover the full matching set). Out-of-range values are silently clamped to 1..10, not rejected. (optional)
+    perSchoolLimit: 56,
+    // number | Overall row cap for token safety; sets resolved_scope.truncated when it bites. Out-of-range values are silently clamped to 1..200, not rejected. (optional)
+    maxRows: 56,
+  } satisfies GetCompensationComparisonsRequest;
+
+  try {
+    const data = await api.getCompensationComparisons(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolIds** | `Array<number>` | Explicit school ids to compare, kept in request order. Provide school_ids[] and/or conference_id. More than 40 ids is rejected with error_type&#x3D;scope_too_large. | [Optional] |
+| **conferenceId** | `number` | Conference scope; expands to member schools (conferenceship members when sport_id is given, primary members otherwise). The combined resolved scope (explicit schools plus conference members) is capped at 40 schools; beyond that the request is rejected with error_type&#x3D;scope_too_large. | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` | Sport scope for coach candidates. Administrator records are not sport-scoped; their rows carry a caveat instead. | [Optional] [Defaults to `undefined`] |
+| **positionTypeId** | `number` | Position type for the queried role (expands to the group when the id is a group stub). Provide position_type_id and/or title_include[]. | [Optional] [Defaults to `undefined`] |
+| **titleInclude** | `Array<string>` | Title words/phrases that strengthen a match (ILIKE, OR-combined with the position-type arm). More than 10 terms or terms over 60 chars are rejected with error_type&#x3D;invalid_param. | [Optional] |
+| **titleExclude** | `Array<string>` | Title words/phrases that exclude a candidate (ILIKE). More than 10 terms or terms over 60 chars are rejected with error_type&#x3D;invalid_param. | [Optional] |
+| **year** | `number` | Compensation season year; defaults to the current season year. | [Optional] [Defaults to `undefined`] |
+| **includeMissing** | `boolean` | Emit a synthesized no_role_match / school_not_accessible row per school with no candidates. | [Optional] [Defaults to `true`] |
+| **perSchoolLimit** | `number` | Max candidate rows per school (best matches kept; cohort stats still cover the full matching set). Out-of-range values are silently clamped to 1..10, not rejected. | [Optional] [Defaults to `3`] |
+| **maxRows** | `number` | Overall row cap for token safety; sets resolved_scope.truncated when it bites. Out-of-range values are silently clamped to 1..200, not rejected. | [Optional] [Defaults to `60`] |
+
+### Return type
+
+[**CompensationComparisonResult**](CompensationComparisonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Comparison rows plus cohort stats with explicit denominators |  -  |
+| **400** | Invalid request (missing_scope, missing_role, invalid_param, scope_too_large, sport_not_permitted) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Authenticated token lacks the winad_read OAuth scope |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getCompensations
 
 > CompensationCollection getCompensations(page, perPage, q)
@@ -3960,7 +7364,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetCompensationsRequest;
 
@@ -3983,7 +7387,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -4589,7 +7993,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetConferencesRequest;
 
@@ -4612,7 +8016,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -4745,7 +8149,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetConferenceshipsRequest;
 
@@ -4768,7 +8172,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -4869,6 +8273,154 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getContactSearchCoachOptions
+
+> ContactSearchCoachOptions getContactSearchCoachOptions()
+
+
+
+Retrieve coach options for the scheduling contacts form
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetContactSearchCoachOptionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getContactSearchCoachOptions();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ContactSearchCoachOptions**](ContactSearchCoachOptions.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach options retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getContactSearches
+
+> ContactSearchCollection getContactSearches(page, perPage, q)
+
+
+
+Retrieve scheduling contacts for the current account\&#39;s school
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetContactSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies GetContactSearchesRequest;
+
+  try {
+    const data = await api.getContactSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ContactSearchCollection**](ContactSearchCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contacts were found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getContacts
 
 > ContactCollection getContacts(page, perPage, q)
@@ -4901,7 +8453,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetContactsRequest;
 
@@ -4924,7 +8476,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5056,7 +8608,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetContractsRequest;
 
@@ -5079,7 +8631,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5211,7 +8763,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDealSearchesRequest;
 
@@ -5234,7 +8786,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5366,7 +8918,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDealStatusesRequest;
 
@@ -5389,7 +8941,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5446,7 +8998,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDealsRequest;
 
@@ -5469,7 +9021,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5525,7 +9077,7 @@ async function example() {
   const body = {
     // number | results page to retrieve. (optional)
     page: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDepartmentSearchesRequest;
 
@@ -5547,7 +9099,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5679,7 +9231,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetDivisionsRequest;
 
@@ -5702,7 +9254,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5723,6 +9275,82 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Divisions were found |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEditAccountUser
+
+> EditAccountUserResponse getEditAccountUser(accountUserId)
+
+
+
+Retrieve a single account user with their current roles, sports, and form metadata for editing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEditAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to edit
+    accountUserId: 56,
+  } satisfies GetEditAccountUserRequest;
+
+  try {
+    const data = await api.getEditAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to edit | [Defaults to `undefined`] |
+
+### Return type
+
+[**EditAccountUserResponse**](EditAccountUserResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account user edit data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -5899,7 +9527,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // 'gad' | Filter context: \'gad\' returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball) (optional)
+    // 'gad' | 'financial' | Filter context: \'gad\' returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball); \'financial\' returns only NCAA financial report sports with finance-specific display labels (optional)
     context: context_example,
   } satisfies GetFilterOptionsRequest;
 
@@ -5920,7 +9548,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **context** | `gad` | Filter context: \&#39;gad\&#39; returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball) | [Optional] [Defaults to `undefined`] [Enum: gad] |
+| **context** | `gad`, `financial` | Filter context: \&#39;gad\&#39; returns only D1/D2 divisions and guarantee sports (Football, M/W Basketball, Baseball, Softball, M/W Volleyball); \&#39;financial\&#39; returns only NCAA financial report sports with finance-specific display labels | [Optional] [Defaults to `undefined`] [Enum: gad, financial] |
 
 ### Return type
 
@@ -6154,6 +9782,72 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFilterOptionsFoiaRequestableDealTypes
+
+> Array&lt;IdName&gt; getFilterOptionsFoiaRequestableDealTypes()
+
+
+
+Retrieve all FOIA-requestable deal types, including those hidden from public deal filtering (e.g. Athletics Software, Travel, Executive Search)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFilterOptionsFoiaRequestableDealTypesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFilterOptionsFoiaRequestableDealTypes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;IdName&gt;**](IdName.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA-requestable deal types retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getFilterOptionsGameTypes
 
 > Array&lt;GameType&gt; getFilterOptionsGameTypes()
@@ -6366,6 +10060,72 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFilterOptionsStates
+
+> Array&lt;State&gt; getFilterOptionsStates()
+
+
+
+Retrieve all US states, ordered by name. Used by the Edit Game sheet\&#39;s neutral-venue picker.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFilterOptionsStatesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFilterOptionsStates();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;State&gt;**](State.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | States retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getFilterOptionsSubdivisions
 
 > Array&lt;IdName&gt; getFilterOptionsSubdivisions(divisionId)
@@ -6546,7 +10306,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetFinancialSearchesRequest;
 
@@ -6569,7 +10329,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -6701,7 +10461,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetFoiaLabelsRequest;
 
@@ -6724,7 +10484,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -6856,7 +10616,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetFoiaRequestsRequest;
 
@@ -6879,7 +10639,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -6904,13 +10664,308 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFrsExportSchoolSearch
+
+> FrsSchoolSearchResponse getFrsExportSchoolSearch(query, year)
+
+
+
+Search schools for the FRS export Pick-schools picker, with FRS status for the selected year
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFrsExportSchoolSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    query: query_example,
+    // number
+    year: 56,
+  } satisfies GetFrsExportSchoolSearchRequest;
+
+  try {
+    const data = await api.getFrsExportSchoolSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **query** | `string` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**FrsSchoolSearchResponse**](FrsSchoolSearchResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Matching schools with FRS status |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFrsExports
+
+> FrsExportsResponse getFrsExports()
+
+
+
+List the caller\&#39;s FRS Report Export jobs (WINAD-10151..10155)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFrsExportsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getFrsExports();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FrsExportsResponse**](FrsExportsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FRS export jobs retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGadSearchDetail
+
+> GadContractDetail getGadSearchDetail(id)
+
+
+
+Retrieve detailed game contract data for the GAD detail page
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGadSearchDetailRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies GetGadSearchDetailRequest;
+
+  try {
+    const data = await api.getGadSearchDetail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**GadContractDetail**](GadContractDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game contract detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGadSearchSeasonFacets
+
+> GetGadSearchSeasonFacets200Response getGadSearchSeasonFacets(q, distanceSchoolType)
+
+
+
+Season years that would still return rows under the given filters, newest first. Season itself is excluded from the calculation, so choosing a season does not collapse the list. Answered without running the search, so the client can reconcile an unsatisfiable season before it renders results rather than after.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGadSearchSeasonFacetsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+    // 'home' | 'away' | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\'s account is tied to a school. (optional)
+    distanceSchoolType: distanceSchoolType_example,
+  } satisfies GetGadSearchSeasonFacetsRequest;
+
+  try {
+    const data = await api.getGadSearchSeasonFacets(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
+
+### Return type
+
+[**GetGadSearchSeasonFacets200Response**](GetGadSearchSeasonFacets200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Season years matching the filters |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGadSearches
 
-> GadSearchResultCollection getGadSearches(page, perPage, q)
+> GadSearchResultCollection getGadSearches(page, perPage, q, distanceSchoolType, includeSchoolSummary, seasonWindow, includeCohortSummary, buyerCohort, sellerCohort)
 
 
 
-Search game contracts (GAD) with filtering and pagination
+Search game contracts (GAD) with filtering and pagination. Optionally returns school-summary (median paid/received) and cohort-summary (NCAA cohort benchmark) aggregates alongside the paginated agreements.
 
 ### Example
 
@@ -6936,8 +10991,20 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
+    // 'home' | 'away' | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\'s account is tied to a school. (optional)
+    distanceSchoolType: distanceSchoolType_example,
+    // boolean | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. (optional)
+    includeSchoolSummary: true,
+    // 'last_3_completed_seasons' | 'specific_year' | 'custom_range' | Window for school-summary / cohort-summary aggregations. last_3_completed_seasons auto-fills season_year_gteq/lteq with the three most recent completed NCAA academic years. (optional)
+    seasonWindow: seasonWindow_example,
+    // boolean | When true, also compute median/mean/min/max/count across the filtered cohort. Requires q[sport_id_eq]. Mutually exclusive with include_school_summary. (optional)
+    includeCohortSummary: true,
+    // 'P4' | 'G6' | 'FBS' | 'FCS' | 'D2' | 'D3' | Restrict the buyer (home/paying) side to one NCAA cohort. Resolved server-side via Subdivision / Division taxonomy. (optional)
+    buyerCohort: buyerCohort_example,
+    // 'P4' | 'G6' | 'FBS' | 'FCS' | 'D2' | 'D3' | Restrict the seller (away/paid) side to one NCAA cohort. (optional)
+    sellerCohort: sellerCohort_example,
   } satisfies GetGadSearchesRequest;
 
   try {
@@ -6959,7 +11026,13 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
+| **includeSchoolSummary** | `boolean` | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. | [Optional] [Defaults to `undefined`] |
+| **seasonWindow** | `last_3_completed_seasons`, `specific_year`, `custom_range` | Window for school-summary / cohort-summary aggregations. last_3_completed_seasons auto-fills season_year_gteq/lteq with the three most recent completed NCAA academic years. | [Optional] [Defaults to `undefined`] [Enum: last_3_completed_seasons, specific_year, custom_range] |
+| **includeCohortSummary** | `boolean` | When true, also compute median/mean/min/max/count across the filtered cohort. Requires q[sport_id_eq]. Mutually exclusive with include_school_summary. | [Optional] [Defaults to `undefined`] |
+| **buyerCohort** | `P4`, `G6`, `FBS`, `FCS`, `D2`, `D3` | Restrict the buyer (home/paying) side to one NCAA cohort. Resolved server-side via Subdivision / Division taxonomy. | [Optional] [Defaults to `undefined`] [Enum: P4, G6, FBS, FCS, D2, D3] |
+| **sellerCohort** | `P4`, `G6`, `FBS`, `FCS`, `D2`, `D3` | Restrict the seller (away/paid) side to one NCAA cohort. | [Optional] [Defaults to `undefined`] [Enum: P4, G6, FBS, FCS, D2, D3] |
 
 ### Return type
 
@@ -6986,7 +11059,7 @@ example().catch(console.error);
 
 ## getGame
 
-> Game getGame(gameId)
+> GameDetail getGame(gameId)
 
 
 
@@ -7037,7 +11110,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**Game**](Game.md)
+[**GameDetail**](GameDetail.md)
 
 ### Authorization
 
@@ -7134,6 +11207,81 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getGameContractSeries
+
+> GameContractSeriesResponse getGameContractSeries(gameContractId)
+
+
+
+Retrieve the series of game contracts related to this contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGameContractSeriesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GameContract
+    gameContractId: 56,
+  } satisfies GetGameContractSeriesRequest;
+
+  try {
+    const data = await api.getGameContractSeries(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameContractId** | `number` | ID of the GameContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**GameContractSeriesResponse**](GameContractSeriesResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game contract series |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGameContracts
 
 > GameContractCollection getGameContracts(page, perPage, q)
@@ -7166,7 +11314,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGameContractsRequest;
 
@@ -7189,7 +11337,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7290,13 +11438,163 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getGamePostSearch
+
+> GamePostDetail getGamePostSearch(gamePostSearchId)
+
+
+
+Get a single game post with enriched details including contacts
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamePostSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    gamePostSearchId: 56,
+  } satisfies GetGamePostSearchRequest;
+
+  try {
+    const data = await api.getGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostSearchId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game post detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGamePostSearchAvailabilities
+
+> GamePostAvailabilityCollection getGamePostSearchAvailabilities(q)
+
+
+
+Full-scan companion to the game post search for the sidebar \&quot;Posted Availabilities\&quot; module. Scans every active post for the sport (q[sport_name_eq] is required), buckets them by deal type, and returns each bucket\&#39;s total post count plus its most-recent posts deduped by school (capped server-side). Each post carries the school\&#39;s most recent posted date for that bucket (WINAD-9908 single &#x60;date&#x60;, falling back to start_date when empty).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamePostSearchAvailabilitiesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies GetGamePostSearchAvailabilitiesRequest;
+
+  try {
+    const data = await api.getGamePostSearchAvailabilities(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GamePostAvailabilityCollection**](GamePostAvailabilityCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Per-deal-type availability breakdown for the sport |  -  |
+| **422** | Missing sport (q[sport_name_eq] is required) |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getGamePostSearches
 
-> GamePostSearchResultCollection getGamePostSearches(page, perPage, q)
+> GamePostSearchResultCollection getGamePostSearches(page, perPage, q, groupBySchool, postDetails)
 
 
 
-Search game posts with enriched data including school info, location, RPI, etc.
+Search game posts with enriched data including school info, location, RPI, etc. WINAD: pass q[defer_enrichment]&#x3D;true (the dashboard feed) to omit the slow per-card blocks — overlap, guarantee, and schedule_intents — from each row so the cards paint first; POST /game_post_searches/enrichment then returns those blocks for the loaded pairs. The inline path (e.g. post_details) leaves the flag off and keeps them on each row.
 
 ### Example
 
@@ -7322,8 +11620,12 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
+    // boolean | When true, returns one row per school+sport (the school\'s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. (optional)
+    groupBySchool: true,
+    // boolean | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). (optional)
+    postDetails: true,
   } satisfies GetGamePostSearchesRequest;
 
   try {
@@ -7345,7 +11647,9 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
+| **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7402,7 +11706,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGamePostsRequest;
 
@@ -7425,7 +11729,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7483,7 +11787,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetGamesRequest;
 
@@ -7506,7 +11810,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7526,6 +11830,237 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Games were found |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGamesAvailableContracts
+
+> Array&lt;AvailableGameContract&gt; getGamesAvailableContracts(sportId, homeSchoolId, awaySchoolId)
+
+
+
+List GameContracts compatible with the given sport + school pair, for the Edit Game sheet\&#39;s Contract picker. Matches either direction (home&#x3D;A,away&#x3D;B or home&#x3D;B,away&#x3D;A). Uses &#x60;GameContract.filtered_for_game&#x60;. Capped at 50 rows, ordered by game date descending. Rows are permission-filtered to contracts the caller\&#39;s ability can view. Requires sport_id plus at least one of home_school_id/away_school_id — broader queries return an empty list. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGamesAvailableContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number (optional)
+    sportId: 56,
+    // number (optional)
+    homeSchoolId: 56,
+    // number (optional)
+    awaySchoolId: 56,
+  } satisfies GetGamesAvailableContractsRequest;
+
+  try {
+    const data = await api.getGamesAvailableContracts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **homeSchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **awaySchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**Array&lt;AvailableGameContract&gt;**](AvailableGameContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Compatible contracts |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGuaranteeBenchmarks
+
+> GuaranteeBenchmarkTable getGuaranteeBenchmarks(sportId)
+
+
+
+NCAA guarantee benchmarks for the scheduling sidebar (WINAD-9903, tiers reworked in WINAD-10023). Returns, per basketball conference tier (high_major / upper_mid_major / mid_major / low_major), the median/mean/min/max/count of guarantee-game dollars the tier pays out (home/buyer side) and receives (away/seller side) for one basketball sport over the last three completed seasons. Only guarantee games with a recorded amount are counted (excludes tournament/exhibition/neutral contracts, TBD, and $0/unrecorded amounts). Permission filtered via the caller\&#39;s ability.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGuaranteeBenchmarksRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The sport to benchmark. Required; a missing or unknown sport returns a structured error block instead of tier data.
+    sportId: 56,
+  } satisfies GetGuaranteeBenchmarksRequest;
+
+  try {
+    const data = await api.getGuaranteeBenchmarks(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportId** | `number` | The sport to benchmark. Required; a missing or unknown sport returns a structured error block instead of tier data. | [Defaults to `undefined`] |
+
+### Return type
+
+[**GuaranteeBenchmarkTable**](GuaranteeBenchmarkTable.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Guarantee benchmark table, or a structured error block when sport_id is missing/unknown |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getGuaranteeEconomics
+
+> GuaranteeEconomics getGuaranteeEconomics(schoolId, sportId)
+
+
+
+Per-school guarantee economics for scheduling surfaces (WINAD-10005). For one school and basketball sport, returns the median guarantee the school paid as host and received when traveling over the last three completed seasons, each with its sample size and the gad_searches ransack filters that deep-link the Guarantees tab to the exact games behind the median. Permission-critical — callers without guarantee aggregate access receive host/travel as null, indistinguishable from a school with no qualifying games.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetGuaranteeEconomicsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The school to summarize. Missing or non-integer values return a structured error block.
+    schoolId: 56,
+    // number | The (basketball) sport. Missing, unknown, or non-basketball sports return a structured error block.
+    sportId: 56,
+  } satisfies GetGuaranteeEconomicsRequest;
+
+  try {
+    const data = await api.getGuaranteeEconomics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | The school to summarize. Missing or non-integer values return a structured error block. | [Defaults to `undefined`] |
+| **sportId** | `number` | The (basketball) sport. Missing, unknown, or non-basketball sports return a structured error block. | [Defaults to `undefined`] |
+
+### Return type
+
+[**GuaranteeEconomics**](GuaranteeEconomics.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Guarantee economics for the school/sport, or a structured error block when params are missing/invalid |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -7638,7 +12173,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetIncomeReportsRequest;
 
@@ -7661,7 +12196,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -7760,6 +12295,94 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getJobPostDisagreements
+
+> JobPostDisagreementCollection getJobPostDisagreements(since, schoolId, limit, newPage, stillPendingPage)
+
+List unresolved LLM/ML athletics classification disagreements
+
+Unresolved, non-expired JobPost rows where llm_is_athletics and ml_is_athletics disagree, split into posts created within the since window (\&quot;new\&quot;) and everything else still unresolved (\&quot;still_pending\&quot;). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetJobPostDisagreementsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Duration string (e.g. \"24h\", \"7d\") bounding the \"new\" section. (optional)
+    since: since_example,
+    // number | Filter to one school\'s winad_id. (optional)
+    schoolId: 789,
+    // number | Max number of disagreement rows returned per section, per page. (optional)
+    limit: 56,
+    // number | Page number for the \"new\" section (1-indexed, Kaminari-paginated independently of still_pending_page). (optional)
+    newPage: 56,
+    // number | Page number for the \"still_pending\" section (1-indexed, Kaminari-paginated independently of new_page). (optional)
+    stillPendingPage: 56,
+  } satisfies GetJobPostDisagreementsRequest;
+
+  try {
+    const data = await api.getJobPostDisagreements(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **since** | `string` | Duration string (e.g. \&quot;24h\&quot;, \&quot;7d\&quot;) bounding the \&quot;new\&quot; section. | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` | Filter to one school\&#39;s winad_id. | [Optional] [Defaults to `undefined`] |
+| **limit** | `number` | Max number of disagreement rows returned per section, per page. | [Optional] [Defaults to `200`] |
+| **newPage** | `number` | Page number for the \&quot;new\&quot; section (1-indexed, Kaminari-paginated independently of still_pending_page). | [Optional] [Defaults to `1`] |
+| **stillPendingPage** | `number` | Page number for the \&quot;still_pending\&quot; section (1-indexed, Kaminari-paginated independently of new_page). | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**JobPostDisagreementCollection**](JobPostDisagreementCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Unresolved disagreements were found |  -  |
+| **400** | since could not be parsed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Token is missing the cj_read scope |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getJobPosts
 
 > JobPostCollection getJobPosts(page, perPage, q)
@@ -7792,7 +12415,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetJobPostsRequest;
 
@@ -7815,7 +12438,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8013,7 +12636,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetNcaaFinancialReportStatusesRequest;
 
@@ -8036,7 +12659,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8057,6 +12680,73 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Ncaa financial report statuses were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getNewAccountUser
+
+> NewAccountUserResponse getNewAccountUser()
+
+
+
+Retrieve form metadata for creating a new account user including available role options based on subscription, schedulable sports, and email domain
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetNewAccountUserRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getNewAccountUser();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**NewAccountUserResponse**](NewAccountUserResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New account user form data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -8130,6 +12820,83 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | News Feed was found |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getNote
+
+> Note getNote(notableType, notableId)
+
+
+
+Retrieve the current user\&#39;s note for a given notable object. Returns null if no note exists.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | The model type (e.g. \"Coach\")
+    notableType: notableType_example,
+    // number | The ID of the notable record
+    notableId: 56,
+  } satisfies GetNoteRequest;
+
+  try {
+    const data = await api.getNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **notableType** | `string` | The model type (e.g. \&quot;Coach\&quot;) | [Defaults to `undefined`] |
+| **notableId** | `number` | The ID of the notable record | [Defaults to `undefined`] |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The user\&#39;s note or null |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -8242,7 +13009,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetPositionsRequest;
 
@@ -8265,7 +13032,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8397,7 +13164,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetRawContractsRequest;
 
@@ -8420,7 +13187,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8521,6 +13288,162 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getRequestedItemReviewContext
+
+> RequestedItemReviewContext getRequestedItemReviewContext(requestedItemId, ifNoneMatch)
+
+
+
+Retrieve the canonical review context for a requested item, including its display title and type, current note text, parent FOIA request with the legacy admin URL, and any single unambiguous existing document the caller is authorized to see.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRequestedItemReviewContextRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose review context should be retrieved
+    requestedItemId: 56,
+    // string | ETag from a previous response; when it still matches, the server responds 304 Not Modified instead of re-sending the payload. (optional)
+    ifNoneMatch: ifNoneMatch_example,
+  } satisfies GetRequestedItemReviewContextRequest;
+
+  try {
+    const data = await api.getRequestedItemReviewContext(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose review context should be retrieved | [Defaults to `undefined`] |
+| **ifNoneMatch** | `string` | ETag from a previous response; when it still matches, the server responds 304 Not Modified instead of re-sending the payload. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**RequestedItemReviewContext**](RequestedItemReviewContext.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item review context was found |  * ETag - Entity tag for the current review context; send it back via If-None-Match for conditional requests. <br>  |
+| **304** | Not Modified — the review context matching the ETag supplied in If-None-Match is still current; no body is returned. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRequestedItemRiNote
+
+> RequestedItemNoteResponse getRequestedItemRiNote(requestedItemId)
+
+
+
+Retrieve the note attached to a requested item
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRequestedItemRiNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of requested item whose note should be retrieved
+    requestedItemId: 56,
+  } satisfies GetRequestedItemRiNoteRequest;
+
+  try {
+    const data = await api.getRequestedItemRiNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of requested item whose note should be retrieved | [Defaults to `undefined`] |
+
+### Return type
+
+[**RequestedItemNoteResponse**](RequestedItemNoteResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requested item note lookup completed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getRequestedItems
 
 > RequestedItemCollection getRequestedItems(page, perPage, q)
@@ -8553,7 +13476,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetRequestedItemsRequest;
 
@@ -8576,7 +13499,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -8597,6 +13520,595 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Requested items were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRevenueSearch
+
+> SchoolFinancialDetail getRevenueSearch(revenueSearchId, schoolId, year)
+
+
+
+Get revenue/expense line item detail with sport breakdown
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRevenueSearchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    revenueSearchId: 56,
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies GetRevenueSearchRequest;
+
+  try {
+    const data = await api.getRevenueSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **revenueSearchId** | `number` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolFinancialDetail**](SchoolFinancialDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Financial line item detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRevenueSearches
+
+> SchoolFinancialSummary getRevenueSearches(schoolId, year)
+
+
+
+Get school financial summary with revenue/expense breakdown by sport
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRevenueSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    schoolId: 56,
+    // number (optional)
+    year: 56,
+  } satisfies GetRevenueSearchesRequest;
+
+  try {
+    const data = await api.getRevenueSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolFinancialSummary**](SchoolFinancialSummary.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School financial summary |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getScheduleGrid
+
+> ScheduleGridView getScheduleGrid(sportName, schoolIds, year)
+
+
+
+Retrieve the schedule grid for a sport — season window, schools (with scheduling contacts), games, private ScheduleIntent availability markers, private ScheduleTournament multi-team event (MTE) placeholders, and empty-schedule onboarding state for up to twelve selected schools.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetScheduleGridRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
+    sportName: sportName_example,
+    // Array<number> | School IDs to include on the grid (max 12, ordering is preserved) (optional)
+    schoolIds: ...,
+    // number | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. (optional)
+    year: 2026,
+  } satisfies GetScheduleGridRequest;
+
+  try {
+    const data = await api.getScheduleGrid(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
+| **schoolIds** | `Array<number>` | School IDs to include on the grid (max 12, ordering is preserved) | [Optional] |
+| **year** | `number` | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ScheduleGridView**](ScheduleGridView.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Schedule grid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Sport not found |  -  |
+| **422** | year is malformed or outside the supported range |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getScheduleGridAvailableSchools
+
+> ScheduleGridAvailableSchools getScheduleGridAvailableSchools(sportName, targetDate, windowDays, includeNoConflict, matchTournaments, dealTypes, qualityTier, netRankingTier, torvikRankingTier, maxDistanceMiles, userSchoolId, excludeSchoolIds)
+
+
+
+Find schools that are available to play around a target date, with optional filters for window size, deal type, quality tier, NET ranking tier, T-Rank tier, and distance. Omit target_date for an \&quot;Any date\&quot; market browse (no window). Set match_tournaments&#x3D;true to match schools advertising a ScheduleTournament (MTE) instead of a deal-type post.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetScheduleGridAvailableSchoolsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
+    sportName: sportName_example,
+    // Date | Target date in ISO format (YYYY-MM-DD). Omit (blank) for an \"Any date\" market browse that ignores the window and surfaces signals across all dates. A present-but-malformed value is rejected with 400. (optional)
+    targetDate: 2013-10-20,
+    // number | Number of days on either side of target_date to include (default 1). Ignored in \"Any date\" mode. (optional)
+    windowDays: 56,
+    // boolean | When true (default), include assumed-eligible schools that have no marked conflict (no availability signal). Set false to drop them. Only meaningful in Specific-date mode. (optional)
+    includeNoConflict: true,
+    // boolean | When true (the MTE intent), match only schools advertising a ScheduleTournament for the sport rather than a deal-type availability post; deal_types and assumed-eligible rows are ignored. (optional)
+    matchTournaments: true,
+    // Array<string> | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) (optional)
+    dealTypes: ...,
+    // string | Restrict to one or more subdivision tiers (power_4, mid_major, smaller). Accepts a single tier or a comma-separated list for multi-select (e.g. `power_4,mid_major`); the listed tiers are OR\'d together. Omit the param (or pass every tier) for \"Any\" — no constraint. Unrecognized tiers are ignored. (optional)
+    qualityTier: power_4,mid_major,
+    // string | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as `custom_<min>_<max>`, where either bound may be blank for an open-ended range (e.g. `custom_50_` => 50 and up, `custom__120` => up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. (optional)
+    netRankingTier: top_50,
+    // string | Restrict to a T-Rank (Bart Torvik) band, mirroring net_ranking_tier (latest non-null 3-year T-Rank average for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as `custom_<min>_<max>`, where either bound may be blank for an open-ended range (e.g. `custom_50_` => 50 and up, `custom__120` => up to 120). Schools without a T-Rank are excluded from every tier. T-Rank is basketball-only, so this filter is ignored for non-basketball sports. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. (optional)
+    torvikRankingTier: top_50,
+    // number | Maximum distance (miles) from the user\'s school. Requires user_school_id to resolve a coordinate origin. (optional)
+    maxDistanceMiles: 56,
+    // number | Requesting user\'s school. Used as the origin for distance filtering and is always excluded from results. (optional)
+    userSchoolId: 56,
+    // Array<number> | Additional school IDs to exclude from results (e.g. schools already on the grid) (optional)
+    excludeSchoolIds: ...,
+  } satisfies GetScheduleGridAvailableSchoolsRequest;
+
+  try {
+    const data = await api.getScheduleGridAvailableSchools(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
+| **targetDate** | `Date` | Target date in ISO format (YYYY-MM-DD). Omit (blank) for an \&quot;Any date\&quot; market browse that ignores the window and surfaces signals across all dates. A present-but-malformed value is rejected with 400. | [Optional] [Defaults to `undefined`] |
+| **windowDays** | `number` | Number of days on either side of target_date to include (default 1). Ignored in \&quot;Any date\&quot; mode. | [Optional] [Defaults to `1`] |
+| **includeNoConflict** | `boolean` | When true (default), include assumed-eligible schools that have no marked conflict (no availability signal). Set false to drop them. Only meaningful in Specific-date mode. | [Optional] [Defaults to `true`] |
+| **matchTournaments** | `boolean` | When true (the MTE intent), match only schools advertising a ScheduleTournament for the sport rather than a deal-type availability post; deal_types and assumed-eligible rows are ignored. | [Optional] [Defaults to `false`] |
+| **dealTypes** | `Array<string>` | Filter by one or more GameType names (e.g. HomeAndHome, GuaranteeOffered) | [Optional] |
+| **qualityTier** | `string` | Restrict to one or more subdivision tiers (power_4, mid_major, smaller). Accepts a single tier or a comma-separated list for multi-select (e.g. &#x60;power_4,mid_major&#x60;); the listed tiers are OR\&#39;d together. Omit the param (or pass every tier) for \&quot;Any\&quot; — no constraint. Unrecognized tiers are ignored. | [Optional] [Defaults to `undefined`] |
+| **netRankingTier** | `string` | Restrict to a NET ranking band (latest non-null NET rank for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a NET rank are excluded from every tier. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
+| **torvikRankingTier** | `string` | Restrict to a T-Rank (Bart Torvik) band, mirroring net_ranking_tier (latest non-null 3-year T-Rank average for the requested sport). Accepts a named tier (top_50, 51_100, 101_200, 201_plus) or a custom inclusive range encoded as &#x60;custom_&lt;min&gt;_&lt;max&gt;&#x60;, where either bound may be blank for an open-ended range (e.g. &#x60;custom_50_&#x60; &#x3D;&gt; 50 and up, &#x60;custom__120&#x60; &#x3D;&gt; up to 120). Schools without a T-Rank are excluded from every tier. T-Rank is basketball-only, so this filter is ignored for non-basketball sports. Unrecognized or invalid values are ignored (treated as no filter); omit the param to leave results unfiltered. | [Optional] [Defaults to `undefined`] |
+| **maxDistanceMiles** | `number` | Maximum distance (miles) from the user\&#39;s school. Requires user_school_id to resolve a coordinate origin. | [Optional] [Defaults to `undefined`] |
+| **userSchoolId** | `number` | Requesting user\&#39;s school. Used as the origin for distance filtering and is always excluded from results. | [Optional] [Defaults to `undefined`] |
+| **excludeSchoolIds** | `Array<number>` | Additional school IDs to exclude from results (e.g. schools already on the grid) | [Optional] |
+
+### Return type
+
+[**ScheduleGridAvailableSchools**](ScheduleGridAvailableSchools.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Available schools |  -  |
+| **400** | target_date present but not a valid ISO date |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Sport not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getScheduleGridCompleted
+
+> ScheduleGridView getScheduleGridCompleted(sportName, schoolIds, year)
+
+
+
+Retrieve the completed-games schedule grid for a past season — season window, schools, and final results for up to twelve selected schools. ScheduleIntent and ScheduleTournament markers are not returned for completed seasons (both keys are emitted as empty objects).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetScheduleGridCompletedRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
+    sportName: sportName_example,
+    // Array<number> | School IDs to include on the grid (max 12, ordering is preserved) (optional)
+    schoolIds: ...,
+    // number | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. (optional)
+    year: 2024,
+  } satisfies GetScheduleGridCompletedRequest;
+
+  try {
+    const data = await api.getScheduleGridCompleted(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
+| **schoolIds** | `Array<number>` | School IDs to include on the grid (max 12, ordering is preserved) | [Optional] |
+| **year** | `number` | Four-digit season year. Defaults to the current schedule season year when omitted. Must fall within the supported range (current season year - 4 through current season year + 1); malformed or out-of-range values return 422. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ScheduleGridView**](ScheduleGridView.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Completed schedule grid. The season window runs from the first Monday of November of &#x60;year - 1&#x60; through December 31 of &#x60;year - 1&#x60;, and both &#x60;schedule_intents&#x60; and &#x60;schedule_tournaments&#x60; are always empty objects. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Sport not found |  -  |
+| **422** | year is malformed or outside the supported range |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getScheduleUpdates
+
+> ScheduleUpdateCollection getScheduleUpdates(sportName, limit)
+
+
+
+Recently Updated dashboard sidebar module (WINAD-9930). Returns the schools whose schedules changed most recently for a sport — games added, availabilities added / adjusted / removed (a filled date), and MTE slots — one row per school keyed by its latest update, newest first. Each row\&#39;s change summary aggregates that school\&#39;s edits in the 24h window ending at its latest update.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetScheduleUpdatesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. FOOTBALL, BASKETBALL_M)
+    sportName: sportName_example,
+    // number | Max rows to return (default 8, capped at 25). (optional)
+    limit: 8,
+  } satisfies GetScheduleUpdatesRequest;
+
+  try {
+    const data = await api.getScheduleUpdates(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. FOOTBALL, BASKETBALL_M) | [Defaults to `undefined`] |
+| **limit** | `number` | Max rows to return (default 8, capped at 25). | [Optional] [Defaults to `8`] |
+
+### Return type
+
+[**ScheduleUpdateCollection**](ScheduleUpdateCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Recently-updated schools for the sport, newest first |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Sport not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchedulingContacts
+
+> SchedulingContactsResponse getSchedulingContacts(sport)
+
+
+
+WINAD-10119 — the Scheduling Contacts directory. One primary scheduling contact per school for the given sport, enriched with distance from the viewer\&#39;s school and open Games Wanted post count. verified/verified_at reflect the admin-set verification on the contact (WINAD-10122).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchedulingContactsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Scheduling sport name, e.g. BASKETBALL_M. (optional)
+    sport: sport_example,
+  } satisfies GetSchedulingContactsRequest;
+
+  try {
+    const data = await api.getSchedulingContacts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sport** | `string` | Scheduling sport name, e.g. BASKETBALL_M. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchedulingContactsResponse**](SchedulingContactsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Scheduling contacts directory |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -8747,6 +14259,474 @@ example().catch(console.error);
 | **200** | Alternate names were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | School not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentAdministrators
+
+> SchoolDepartmentAdministrators getSchoolDepartmentAdministrators(schoolId, year)
+
+
+
+Department Administrators tab — the leader roster deduped to people with comp and departments, comp stats, the AD\&#39;s office with tenure, recent moves, and the support-staff-payroll-vs-Cup-place scorecard; private schools degrade to the 990 officer lines (mode private_990) and comp everywhere respects the administrator_compensation ability
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentAdministratorsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Season year; defaults to the latest season with roster rows (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentAdministratorsRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentAdministrators(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Season year; defaults to the latest season with roster rows | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentAdministrators**](SchoolDepartmentAdministrators.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department administrators roster |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentCoaches
+
+> SchoolDepartmentCoaches getSchoolDepartmentCoaches(schoolId, year)
+
+
+
+Department Coaches tab — every head-coach seat with comp and its conference pay rank, results by the sport\&#39;s rank lens, pay-vs-impact quadrant points, verdict buckets, portfolio-shape counts, and contract clocks; private schools degrade to 990-basis comp with pay ranks withheld (mode private_990)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentCoachesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Season year; defaults to the latest season with head-coach seats (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentCoachesRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentCoaches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Season year; defaults to the latest season with head-coach seats | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentCoaches**](SchoolDepartmentCoaches.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department coaches portfolio |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentFinancials
+
+> SchoolDepartmentFinancials getSchoolDepartmentFinancials(schoolId, year)
+
+
+
+Department-level FRS financials for a school — conference spend-vs-revenue quadrant, per-line conference ranks, revenue/expense ledgers, and the five-year trend
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentFinancialsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentFinancialsRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentFinancials(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentFinancials**](SchoolDepartmentFinancials.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department financials |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — private school or no financials permission |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentGuarantees
+
+> SchoolDepartmentGuarantees getSchoolDepartmentGuarantees(schoolId, year)
+
+
+
+Department-level guarantee-game market for a school — FRS bought-vs-sold quadrant, current-season committed slate with per-sport agreement ledgers, filed-line reconciliation, market medians, and the three-season trend
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentGuaranteesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year for the FRS modules; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentGuaranteesRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentGuarantees(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year for the FRS modules; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentGuarantees**](SchoolDepartmentGuarantees.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department guarantees |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no guarantees permission for this school |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolDepartmentOverview
+
+> SchoolDepartmentOverview getSchoolDepartmentOverview(schoolId, year)
+
+
+
+Department landing-page summary for a school — headline spend/revenue/coaching stats with conference ranks and the adjacent peer, the earns/spends/keeps flow, top revenue and expense lines, expense shares, filing provenance, and any missing results lens
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolDepartmentOverviewRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Fiscal year; defaults to the school\'s latest filed year (optional)
+    year: 56,
+  } satisfies GetSchoolDepartmentOverviewRequest;
+
+  try {
+    const data = await api.getSchoolDepartmentOverview(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Fiscal year; defaults to the school\&#39;s latest filed year | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolDepartmentOverview**](SchoolDepartmentOverview.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Department overview |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — private school or no financials permission |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolGameContracts
+
+> SchoolGameContractsResponse getSchoolGameContracts(schoolId)
+
+
+
+Retrieve game contracts for a school grouped by sport
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolGameContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+  } satisfies GetSchoolGameContractsRequest;
+
+  try {
+    const data = await api.getSchoolGameContracts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolGameContractsResponse**](SchoolGameContractsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School game contracts |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -9300,9 +15280,141 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSchoolGroups
+
+> Array&lt;SchoolGroupShow&gt; getSchoolGroups()
+
+
+
+Retrieve the current user\&#39;s custom school groups with their schools
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolGroupsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSchoolGroups();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;SchoolGroupShow&gt;**](SchoolGroupShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School groups retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolGroupsAvailableSchools
+
+> Array&lt;IdName&gt; getSchoolGroupsAvailableSchools()
+
+
+
+Retrieve D1 and D2 schools available for custom school group selection
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolGroupsAvailableSchoolsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSchoolGroupsAvailableSchools();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;IdName&gt;**](IdName.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Available schools retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSchools
 
-> SchoolCollection getSchools(page, perPage, q)
+> SchoolCollection getSchools(page, perPage, q, sportName)
 
 
 
@@ -9332,8 +15444,10 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
+    // string | A sport\'s internal name (e.g. `BASKETBALL_M`, `BASKETBALL_W`, `FOOTBALL`). When supplied, each returned school includes a `rank` field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. (optional)
+    sportName: BASKETBALL_M,
   } satisfies GetSchoolsRequest;
 
   try {
@@ -9355,7 +15469,8 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **sportName** | `string` | A sport\&#39;s internal name (e.g. &#x60;BASKETBALL_M&#x60;, &#x60;BASKETBALL_W&#x60;, &#x60;FOOTBALL&#x60;). When supplied, each returned school includes a &#x60;rank&#x60; field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -9441,6 +15556,72 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Schools retrieved |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolsCount
+
+> GetSchoolsCount200Response getSchoolsCount()
+
+
+
+Return the total number of Division I schools. Intended for the scheduling search surface (empty-state count on the Add School panel). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolsCountRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSchoolsCount();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetSchoolsCount200Response**](GetSchoolsCount200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Count returned |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -9553,7 +15734,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSeasonsRequest;
 
@@ -9576,7 +15757,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -9632,7 +15813,7 @@ async function example() {
   const body = {
     // number | ID of coach to retrieve
     coachId: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // number | results page to retrieve. (optional)
     page: 56,
@@ -9658,7 +15839,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` | ID of coach to retrieve | [Defaults to `undefined`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 
@@ -9792,7 +15973,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSportsRequest;
 
@@ -9815,7 +15996,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10421,7 +16602,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSubdivisionsRequest;
 
@@ -10444,7 +16625,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10545,6 +16726,80 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSubscriptionAcceptance
+
+> SubscriptionAcceptance getSubscriptionAcceptance(subscriptionAcceptanceId, acceptanceToken)
+
+
+
+Retrieve token-scoped subscription order details
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSubscriptionAcceptanceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // string | ID or slug of the Subscription
+    subscriptionAcceptanceId: subscriptionAcceptanceId_example,
+    // string | Token from the subscription order email
+    acceptanceToken: acceptanceToken_example,
+  } satisfies GetSubscriptionAcceptanceRequest;
+
+  try {
+    const data = await api.getSubscriptionAcceptance(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionAcceptanceId** | `string` | ID or slug of the Subscription | [Defaults to `undefined`] |
+| **acceptanceToken** | `string` | Token from the subscription order email | [Defaults to `undefined`] |
+
+### Return type
+
+[**SubscriptionAcceptance**](SubscriptionAcceptance.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Subscription order details were found |  -  |
+| **400** | Acceptance token is missing |  -  |
+| **404** | Subscription was not found |  -  |
+| **422** | Acceptance token is invalid |  -  |
+| **500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSubscriptions
 
 > SubscriptionCollection getSubscriptions(page, perPage, q)
@@ -10577,7 +16832,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetSubscriptionsRequest;
 
@@ -10600,7 +16855,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -10687,6 +16942,1009 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | System settings were found |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetail
+
+> TeamScheduleDetail getTeamScheduleDetail(sportName, schoolId, performanceYear)
+
+
+
+Get detailed team schedule info including school overview, season stats, contacts, and games for the scouting report tab.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Sport name (e.g. BASKETBALL_M)
+    sportName: sportName_example,
+    // number | School ID
+    schoolId: 56,
+    // number | Performance year to load games for (defaults to current season year) (optional)
+    performanceYear: 56,
+  } satisfies GetTeamScheduleDetailRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` | Sport name (e.g. BASKETBALL_M) | [Defaults to `undefined`] |
+| **schoolId** | `number` | School ID | [Defaults to `undefined`] |
+| **performanceYear** | `number` | Performance year to load games for (defaults to current season year) | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleDetail**](TeamScheduleDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team schedule detail |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found, or (WINAD-10097) the school is not D1/D2 and has no supported schedule profile. In the latter case the response body is the JSON object {\&quot;error\&quot;:\&quot;schedule_profile_unsupported\&quot;}. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailCoaches
+
+> TeamScheduleCoaches getTeamScheduleDetailCoaches(sportName, schoolId, performanceYear)
+
+
+
+Get coaches and performance data for a team across recent seasons.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailCoachesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+    // number | Year to load coach roster for (optional)
+    performanceYear: 56,
+  } satisfies GetTeamScheduleDetailCoachesRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailCoaches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **performanceYear** | `number` | Year to load coach roster for | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleCoaches**](TeamScheduleCoaches.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coaches and performance data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailGamePosts
+
+> TeamScheduleGamePosts getTeamScheduleDetailGamePosts(sportName, schoolId)
+
+
+
+Get games wanted posts for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailGamePostsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+  } satisfies GetTeamScheduleDetailGamePostsRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailGamePosts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleGamePosts**](TeamScheduleGamePosts.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game posts list |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailPlayerData
+
+> TeamSchedulePlayerData getTeamScheduleDetailPlayerData(sportName, schoolId)
+
+
+
+Get player data for a team (Men\&#39;s Basketball only).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailPlayerDataRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+  } satisfies GetTeamScheduleDetailPlayerDataRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailPlayerData(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamSchedulePlayerData**](TeamSchedulePlayerData.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Player data |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailSchedule
+
+> TeamScheduleSchedule getTeamScheduleDetailSchedule(sportName, schoolId, year)
+
+
+
+Get the full game schedule list for a team and season year.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailScheduleRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+    // number | Season year (defaults to current schedule season year) (optional)
+    year: 56,
+  } satisfies GetTeamScheduleDetailScheduleRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailSchedule(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` | Season year (defaults to current schedule season year) | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleSchedule**](TeamScheduleSchedule.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Schedule games list |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleDetailScheduleOverlap
+
+> TeamScheduleOverlap getTeamScheduleDetailScheduleOverlap(sportName, schoolId)
+
+
+
+Check schedule overlap between a team and the current user\&#39;s team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleDetailScheduleOverlapRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    sportName: sportName_example,
+    // number
+    schoolId: 56,
+  } satisfies GetTeamScheduleDetailScheduleOverlapRequest;
+
+  try {
+    const data = await api.getTeamScheduleDetailScheduleOverlap(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sportName** | `string` |  | [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleOverlap**](TeamScheduleOverlap.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Schedule overlap data |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleFavorites
+
+> Array&lt;GetTeamScheduleFavorites200ResponseInner&gt; getTeamScheduleFavorites(detailed)
+
+
+
+Retrieve the current user\&#39;s FilTeam favorites. Returns favoritable_id as a string to avoid JavaScript precision loss with large numeric IDs.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleFavoritesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // '1' | When set to \"1\", includes category and favoritable name (optional)
+    detailed: detailed_example,
+  } satisfies GetTeamScheduleFavoritesRequest;
+
+  try {
+    const data = await api.getTeamScheduleFavorites(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **detailed** | `1` | When set to \&quot;1\&quot;, includes category and favoritable name | [Optional] [Defaults to `undefined`] [Enum: 1] |
+
+### Return type
+
+[**Array&lt;GetTeamScheduleFavorites200ResponseInner&gt;**](GetTeamScheduleFavorites200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of FilTeam favorites |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleNote
+
+> TeamScheduleNote getTeamScheduleNote(filTeamId)
+
+
+
+Get the current user\&#39;s note for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleNoteRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | FilTeam ID
+    filTeamId: filTeamId_example,
+  } satisfies GetTeamScheduleNoteRequest;
+
+  try {
+    const data = await api.getTeamScheduleNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filTeamId** | `string` | FilTeam ID | [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamScheduleNote**](TeamScheduleNote.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note (id/content may be null if no note exists) |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTeamScheduleSearches
+
+> TeamScheduleSearchResultCollection getTeamScheduleSearches(page, perPage, q, sportName, excludeAlreadyScheduled, excludeConference)
+
+
+
+Search team schedules with enriched data including contacts, RPI, returning percentages, and guarantee contract info. Guarantee contract data (home_contracts/away_contracts) is permission-filtered to contracts the caller\&#39;s ability can view; for users without guarantee access the home_contracts/away_contracts objects are omitted entirely, and the avg_guarantee_paid_cents/avg_guarantee_received_cents aggregate fields are null unless the caller can view aggregate guarantee amounts.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamScheduleSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+    // string | Sport name filter (e.g. BASKETBALL_M) (optional)
+    sportName: sportName_example,
+    // '1' | Exclude schools already on the user\'s schedule (optional)
+    excludeAlreadyScheduled: excludeAlreadyScheduled_example,
+    // '1' | Exclude schools in the user\'s conference (optional)
+    excludeConference: excludeConference_example,
+  } satisfies GetTeamScheduleSearchesRequest;
+
+  try {
+    const data = await api.getTeamScheduleSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **sportName** | `string` | Sport name filter (e.g. BASKETBALL_M) | [Optional] [Defaults to `undefined`] |
+| **excludeAlreadyScheduled** | `1` | Exclude schools already on the user\&#39;s schedule | [Optional] [Defaults to `undefined`] [Enum: 1] |
+| **excludeConference** | `1` | Exclude schools in the user\&#39;s conference | [Optional] [Defaults to `undefined`] [Enum: 1] |
+
+### Return type
+
+[**TeamScheduleSearchResultCollection**](TeamScheduleSearchResultCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team schedule search results |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTimeZones
+
+> GetTimeZones200Response getTimeZones()
+
+
+
+Retrieve all available time zones grouped by US priority zones and other zones
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTimeZonesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getTimeZones();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetTimeZones200Response**](GetTimeZones200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Time zones retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUpload
+
+> UploadDetail getUpload(uploadId)
+
+
+
+Retrieve a single upload with its metadata
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the upload
+    uploadId: 56,
+  } satisfies GetUploadRequest;
+
+  try {
+    const data = await api.getUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uploadId** | `number` | ID of the upload | [Defaults to `undefined`] |
+
+### Return type
+
+[**UploadDetail**](UploadDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Upload found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUploadFile
+
+> getUploadFile(uploadId)
+
+
+
+Redirect to the uploaded file for viewing/downloading
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the upload
+    uploadId: 56,
+  } satisfies GetUploadFileRequest;
+
+  try {
+    const data = await api.getUploadFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uploadId** | `number` | ID of the upload | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **302** | Redirect to file URL |  -  |
+| **404** | File not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getUploads
+
+> UploadsResponse getUploads(page)
+
+
+
+Retrieve paginated list of uploaded contracts for the current account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetUploadsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+  } satisfies GetUploadsRequest;
+
+  try {
+    const data = await api.getUploads(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**UploadsResponse**](UploadsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Uploads retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10798,7 +18056,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetUserActivitySummariesRequest;
 
@@ -10821,7 +18079,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11029,7 +18287,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetUserRequestsRequest;
 
@@ -11052,7 +18310,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11110,7 +18368,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetUsersRequest;
 
@@ -11133,7 +18391,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11265,7 +18523,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetVendorsRequest;
 
@@ -11288,7 +18546,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -11346,7 +18604,7 @@ async function example() {
     page: 56,
     // number | number of results per page. (optional)
     perPage: 56,
-    // object | Ransack query (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
     // number | Filter by coach ID (optional)
     qCoachIdEq: 56,
@@ -11375,7 +18633,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
-| **q** | `object` | Ransack query | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **qCoachIdEq** | `number` | Filter by coach ID | [Optional] [Defaults to `undefined`] |
 | **qSchoolIdEq** | `number` | Filter by school ID | [Optional] [Defaults to `undefined`] |
 | **qSportIdEq** | `number` | Filter by sport ID | [Optional] [Defaults to `undefined`] |
@@ -11403,13 +18661,303 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listNotes
+
+> Array&lt;ListNotes200ResponseInner&gt; listNotes()
+
+
+
+Retrieve all of the current user\&#39;s notes, ordered by most recent first. Includes the notable record\&#39;s name.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListNotesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listNotes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;ListNotes200ResponseInner&gt;**](ListNotes200ResponseInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of all user notes |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## regenerateRawContractPdf
+
+> RegenerateRawContractPdf200Response regenerateRawContractPdf(rawContractId)
+
+
+
+Regenerate the PDF for a raw contract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RegenerateRawContractPdfRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies RegenerateRawContractPdfRequest;
+
+  try {
+    const data = await api.regenerateRawContractPdf(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF regeneration started |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## resolveFrsExport
+
+> FrsResolvedPopulation resolveFrsExport(frsResolveRequest)
+
+
+
+Resolve an FRS export scope into the selected/in-scope/included school population
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ResolveFrsExportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // FrsResolveRequest
+    frsResolveRequest: ...,
+  } satisfies ResolveFrsExportRequest;
+
+  try {
+    const data = await api.resolveFrsExport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **frsResolveRequest** | [FrsResolveRequest](FrsResolveRequest.md) |  | |
+
+### Return type
+
+[**FrsResolvedPopulation**](FrsResolvedPopulation.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Resolved population |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## retryFrsExport
+
+> FrsExport retryFrsExport(frsExportId)
+
+
+
+Re-enqueue a failed FRS export
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RetryFrsExportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    frsExportId: 56,
+  } satisfies RetryFrsExportRequest;
+
+  try {
+    const data = await api.retryFrsExport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **frsExportId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**FrsExport**](FrsExport.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FRS export re-queued |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Only failed exports can be retried |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## searchCoaches
 
 > CoachCollection searchCoaches(filters)
 
 
 
-Search Coaches by priority_ids
+Search coaches by priority_ids and Ransack filters
 
 ### Example
 
@@ -11472,7 +19020,301 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Coaches were found |  -  |
+| **400** | Invalid parameters |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## sendOtpCode
+
+> CreatePasswordReset200Response sendOtpCode()
+
+
+
+Send an OTP verification code to the authenticated user\&#39;s email
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { SendOtpCodeRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.sendOtpCode();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CreatePasswordReset200Response**](CreatePasswordReset200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OTP code sent successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | OTP not required for this user |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## unstractRawContractPdfText
+
+> RegenerateRawContractPdf200Response unstractRawContractPdfText(rawContractId, unstractRawContractPdfTextRequest)
+
+
+
+Extract text from a raw contract PDF
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UnstractRawContractPdfTextOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+    // UnstractRawContractPdfTextRequest (optional)
+    unstractRawContractPdfTextRequest: ...,
+  } satisfies UnstractRawContractPdfTextOperationRequest;
+
+  try {
+    const data = await api.unstractRawContractPdfText(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+| **unstractRawContractPdfTextRequest** | [UnstractRawContractPdfTextRequest](UnstractRawContractPdfTextRequest.md) |  | [Optional] |
+
+### Return type
+
+[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Text extraction started |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAccountUser
+
+> DeleteAccountUser200Response updateAccountUser(accountUserId, updateAccountUserRequest)
+
+
+
+Update an account user\&#39;s roles and sport access
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAccountUserOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the user to update
+    accountUserId: 56,
+    // UpdateAccountUserRequest
+    updateAccountUserRequest: ...,
+  } satisfies UpdateAccountUserOperationRequest;
+
+  try {
+    const data = await api.updateAccountUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountUserId** | `number` | ID of the user to update | [Defaults to `undefined`] |
+| **updateAccountUserRequest** | [UpdateAccountUserRequest](UpdateAccountUserRequest.md) |  | |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - requires account admin role |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAccountUserActivation
+
+> UpdateAccountUserActivation200Response updateAccountUserActivation(updateAccountUserActivationRequest)
+
+
+
+Set password and activate the account for an invited user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAccountUserActivationOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // UpdateAccountUserActivationRequest
+    updateAccountUserActivationRequest: ...,
+  } satisfies UpdateAccountUserActivationOperationRequest;
+
+  try {
+    const data = await api.updateAccountUserActivation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateAccountUserActivationRequest** | [UpdateAccountUserActivationRequest](UpdateAccountUserActivationRequest.md) |  | |
+
+### Return type
+
+[**UpdateAccountUserActivation200Response**](UpdateAccountUserActivation200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account activated |  -  |
+| **400** | Missing required parameters |  -  |
+| **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -11872,7 +19714,7 @@ example().catch(console.error);
 
 ## updateFavorite
 
-> CreateFavorite201Response updateFavorite(id, updateFavoriteRequest)
+> UpdateFavorite200Response updateFavorite(id, updateFavoriteRequest)
 
 
 
@@ -11926,7 +19768,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**CreateFavorite201Response**](CreateFavorite201Response.md)
+[**UpdateFavorite200Response**](UpdateFavorite200Response.md)
 
 ### Authorization
 
@@ -12180,6 +20022,285 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateGame
+
+> GameDetail updateGame(gameId, createGameRequest)
+
+
+
+Update a game
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateGameRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of game to update
+    gameId: 56,
+    // CreateGameRequest
+    createGameRequest: ...,
+  } satisfies UpdateGameRequest;
+
+  try {
+    const data = await api.updateGame(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameId** | `number` | ID of game to update | [Defaults to `undefined`] |
+| **createGameRequest** | [CreateGameRequest](CreateGameRequest.md) |  | |
+
+### Return type
+
+[**GameDetail**](GameDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateGameContract
+
+> DeleteAccountUser200Response updateGameContract(gameContractId, gameContractHomeSchoolId, gameContractAwaySchoolId, gameContractSportId, gameContractGameType, gameContractGameDate, gameContractGameDateTbd, gameContractOffSiteLocation, gameContractCompDollars, gameContractCompTbd, gameContractVariable, gameContractCancelFeeDollars, gameContractCancelled, gameContractVerified, gameContractSignedOn, rawContractFile)
+
+
+
+Update a GameContract
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateGameContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the GameContract
+    gameContractId: 56,
+    // number (optional)
+    gameContractHomeSchoolId: 56,
+    // number (optional)
+    gameContractAwaySchoolId: 56,
+    // number (optional)
+    gameContractSportId: 56,
+    // string (optional)
+    gameContractGameType: gameContractGameType_example,
+    // string (optional)
+    gameContractGameDate: gameContractGameDate_example,
+    // string (optional)
+    gameContractGameDateTbd: gameContractGameDateTbd_example,
+    // string (optional)
+    gameContractOffSiteLocation: gameContractOffSiteLocation_example,
+    // string (optional)
+    gameContractCompDollars: gameContractCompDollars_example,
+    // string (optional)
+    gameContractCompTbd: gameContractCompTbd_example,
+    // string (optional)
+    gameContractVariable: gameContractVariable_example,
+    // string (optional)
+    gameContractCancelFeeDollars: gameContractCancelFeeDollars_example,
+    // string (optional)
+    gameContractCancelled: gameContractCancelled_example,
+    // string (optional)
+    gameContractVerified: gameContractVerified_example,
+    // string (optional)
+    gameContractSignedOn: gameContractSignedOn_example,
+    // Blob (optional)
+    rawContractFile: BINARY_DATA_HERE,
+  } satisfies UpdateGameContractRequest;
+
+  try {
+    const data = await api.updateGameContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gameContractId** | `number` | ID of the GameContract | [Defaults to `undefined`] |
+| **gameContractHomeSchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractAwaySchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractSportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractGameType** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractGameDate** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractGameDateTbd** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractOffSiteLocation** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCompDollars** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCompTbd** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractVariable** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCancelFeeDollars** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractCancelled** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractVerified** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gameContractSignedOn** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **rawContractFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**DeleteAccountUser200Response**](DeleteAccountUser200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game Contract was updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateGamePostSearch
+
+> GamePostDetail updateGamePostSearch(gamePostSearchId, updateGamePostSearchRequest)
+
+
+
+Update a game post. Accepts status/expires_on for expire/renew, or full form fields for editing.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateGamePostSearchOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    gamePostSearchId: 56,
+    // UpdateGamePostSearchRequest (optional)
+    updateGamePostSearchRequest: ...,
+  } satisfies UpdateGamePostSearchOperationRequest;
+
+  try {
+    const data = await api.updateGamePostSearch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gamePostSearchId** | `number` |  | [Defaults to `undefined`] |
+| **updateGamePostSearchRequest** | [UpdateGamePostSearchRequest](UpdateGamePostSearchRequest.md) |  | [Optional] |
+
+### Return type
+
+[**GamePostDetail**](GamePostDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Game post updated |  -  |
+| **422** | Validation error |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateJobPost
 
 > JobPost updateJobPost(jobPostId, jobPost)
@@ -12253,6 +20374,232 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Job post was updated |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateJobPostHumanOverride
+
+> HumanOverrideResult updateJobPostHumanOverride(jobPostId, humanOverrideRequest)
+
+Set the human_override_is_athletics value for one job post
+
+Sets human_override_is_athletics directly — the general job post update endpoint never permits this field. Skips, rather than overwrites, a post that was already resolved since the caller last fetched it. When expected_source_fingerprint is supplied, blocks the write if the reviewed source or classifier data changed. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateJobPostHumanOverrideRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of job post to override
+    jobPostId: 789,
+    // HumanOverrideRequest (optional)
+    humanOverrideRequest: ...,
+  } satisfies UpdateJobPostHumanOverrideRequest;
+
+  try {
+    const data = await api.updateJobPostHumanOverride(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobPostId** | `number` | ID of job post to override | [Defaults to `undefined`] |
+| **humanOverrideRequest** | [HumanOverrideRequest](HumanOverrideRequest.md) |  | [Optional] |
+
+### Return type
+
+[**HumanOverrideResult**](HumanOverrideResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Override applied, or skipped because it was already resolved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Token is missing the cj_write scope |  -  |
+| **404** | Job post not found |  -  |
+| **422** | The override could not be saved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateNote
+
+> Note updateNote(id, updateNoteRequest)
+
+
+
+Update a note\&#39;s content
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+    // UpdateNoteRequest
+    updateNoteRequest: ...,
+  } satisfies UpdateNoteOperationRequest;
+
+  try {
+    const data = await api.updateNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+| **updateNoteRequest** | [UpdateNoteRequest](UpdateNoteRequest.md) |  | |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note updated |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updatePasswordReset
+
+> UpdatePasswordReset200Response updatePasswordReset(updatePasswordResetRequest)
+
+
+
+Reset password using the token from the reset email
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdatePasswordResetOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // UpdatePasswordResetRequest
+    updatePasswordResetRequest: ...,
+  } satisfies UpdatePasswordResetOperationRequest;
+
+  try {
+    const data = await api.updatePasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updatePasswordResetRequest** | [UpdatePasswordResetRequest](UpdatePasswordResetRequest.md) |  | |
+
+### Return type
+
+[**UpdatePasswordReset200Response**](UpdatePasswordReset200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Password reset successfully |  -  |
+| **400** | Missing required parameters |  -  |
+| **422** | Validation errors (invalid token, password mismatch, etc.) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12414,6 +20761,164 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateScheduleIntent
+
+> ScheduleIntentDetail updateScheduleIntent(scheduleIntentId, updateScheduleIntentRequest)
+
+
+
+Update a private /schedules grid marker (replace its game-type designations).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateScheduleIntentOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    scheduleIntentId: 56,
+    // UpdateScheduleIntentRequest (optional)
+    updateScheduleIntentRequest: ...,
+  } satisfies UpdateScheduleIntentOperationRequest;
+
+  try {
+    const data = await api.updateScheduleIntent(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **scheduleIntentId** | `number` |  | [Defaults to `undefined`] |
+| **updateScheduleIntentRequest** | [UpdateScheduleIntentRequest](UpdateScheduleIntentRequest.md) |  | [Optional] |
+
+### Return type
+
+[**ScheduleIntentDetail**](ScheduleIntentDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Schedule intent updated |  -  |
+| **422** | Validation error |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateSchoolGroup
+
+> SchoolGroupShow updateSchoolGroup(schoolGroupId, updateSchoolGroupRequest)
+
+
+
+Update an existing custom school group
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateSchoolGroupOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School Group
+    schoolGroupId: 56,
+    // UpdateSchoolGroupRequest
+    updateSchoolGroupRequest: ...,
+  } satisfies UpdateSchoolGroupOperationRequest;
+
+  try {
+    const data = await api.updateSchoolGroup(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolGroupId** | `number` | ID of the School Group | [Defaults to `undefined`] |
+| **updateSchoolGroupRequest** | [UpdateSchoolGroupRequest](UpdateSchoolGroupRequest.md) |  | |
+
+### Return type
+
+[**SchoolGroupShow**](SchoolGroupShow.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | School group updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateSeason
 
 > Season updateSeason(seasonId, season)
@@ -12493,6 +20998,318 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateSubscriptionAcceptance
+
+> SubscriptionAcceptance updateSubscriptionAcceptance(subscriptionAcceptanceId, acceptanceToken, updateSubscriptionAcceptanceRequest)
+
+
+
+Accept a token-scoped subscription order
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateSubscriptionAcceptanceOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // string | ID or slug of the Subscription
+    subscriptionAcceptanceId: subscriptionAcceptanceId_example,
+    // string | Token from the subscription order email
+    acceptanceToken: acceptanceToken_example,
+    // UpdateSubscriptionAcceptanceRequest
+    updateSubscriptionAcceptanceRequest: ...,
+  } satisfies UpdateSubscriptionAcceptanceOperationRequest;
+
+  try {
+    const data = await api.updateSubscriptionAcceptance(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionAcceptanceId** | `string` | ID or slug of the Subscription | [Defaults to `undefined`] |
+| **acceptanceToken** | `string` | Token from the subscription order email | [Defaults to `undefined`] |
+| **updateSubscriptionAcceptanceRequest** | [UpdateSubscriptionAcceptanceRequest](UpdateSubscriptionAcceptanceRequest.md) |  | |
+
+### Return type
+
+[**SubscriptionAcceptance**](SubscriptionAcceptance.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Subscription order was accepted or already accepted |  -  |
+| **400** | Required parameters are missing |  -  |
+| **404** | Subscription was not found |  -  |
+| **422** | Acceptance token is invalid or validation failed |  -  |
+| **500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateTeamScheduleFavorite
+
+> CreateTeamScheduleFavorite201Response updateTeamScheduleFavorite(id, updateTeamScheduleFavoriteRequest)
+
+
+
+Update a FilTeam favorite\&#39;s category
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateTeamScheduleFavoriteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | The favorite record ID
+    id: 56,
+    // UpdateTeamScheduleFavoriteRequest
+    updateTeamScheduleFavoriteRequest: ...,
+  } satisfies UpdateTeamScheduleFavoriteOperationRequest;
+
+  try {
+    const data = await api.updateTeamScheduleFavorite(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` | The favorite record ID | [Defaults to `undefined`] |
+| **updateTeamScheduleFavoriteRequest** | [UpdateTeamScheduleFavoriteRequest](UpdateTeamScheduleFavoriteRequest.md) |  | |
+
+### Return type
+
+[**CreateTeamScheduleFavorite201Response**](CreateTeamScheduleFavorite201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Favorite updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateUser
+
+> User updateUser(userId, updateUserRequest)
+
+
+
+Update the current user\&#39;s profile
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateUserOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of user to update
+    userId: 56,
+    // UpdateUserRequest
+    updateUserRequest: ...,
+  } satisfies UpdateUserOperationRequest;
+
+  try {
+    const data = await api.updateUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | `number` | ID of user to update | [Defaults to `undefined`] |
+| **updateUserRequest** | [UpdateUserRequest](UpdateUserRequest.md) |  | |
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User was updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - can only update own profile |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## upsertTeamScheduleNote
+
+> TeamScheduleNote upsertTeamScheduleNote(filTeamId, upsertTeamScheduleNoteRequest)
+
+
+
+Create or update the current user\&#39;s note for a team.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpsertTeamScheduleNoteOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    filTeamId: filTeamId_example,
+    // UpsertTeamScheduleNoteRequest
+    upsertTeamScheduleNoteRequest: ...,
+  } satisfies UpsertTeamScheduleNoteOperationRequest;
+
+  try {
+    const data = await api.upsertTeamScheduleNote(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **filTeamId** | `string` |  | [Defaults to `undefined`] |
+| **upsertTeamScheduleNoteRequest** | [UpsertTeamScheduleNoteRequest](UpsertTeamScheduleNoteRequest.md) |  | |
+
+### Return type
+
+[**TeamScheduleNote**](TeamScheduleNote.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Note saved |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## userMe
 
 > User userMe()
@@ -12556,6 +21373,81 @@ This endpoint does not need any parameter.
 | **200** | User was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## verifyOtpCode
+
+> VerifyOtpCode200Response verifyOtpCode(verifyOtpCodeRequest)
+
+
+
+Verify an OTP code for the authenticated user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { VerifyOtpCodeOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // VerifyOtpCodeRequest
+    verifyOtpCodeRequest: ...,
+  } satisfies VerifyOtpCodeOperationRequest;
+
+  try {
+    const data = await api.verifyOtpCode(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **verifyOtpCodeRequest** | [VerifyOtpCodeRequest](VerifyOtpCodeRequest.md) |  | |
+
+### Return type
+
+[**VerifyOtpCode200Response**](VerifyOtpCode200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OTP verified successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | Invalid or expired OTP code |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12631,6 +21523,234 @@ example().catch(console.error);
 | **200** | Successful response with the access granted status |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | User Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## viewInvoiceFile
+
+> Blob viewInvoiceFile(subscriptionId, invoiceId)
+
+
+
+Stream the generated invoice PDF for inline viewing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ViewInvoiceFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Subscription
+    subscriptionId: 56,
+    // number | ID of the Invoice
+    invoiceId: 56,
+  } satisfies ViewInvoiceFileRequest;
+
+  try {
+    const data = await api.viewInvoiceFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionId** | `number` | ID of the Subscription | [Defaults to `undefined`] |
+| **invoiceId** | `number` | ID of the Invoice | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF file stream |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## viewRawContractFile
+
+> Blob viewRawContractFile(rawContractId)
+
+
+
+Stream the raw contract PDF for inline viewing (no watermark)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ViewRawContractFileRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies ViewRawContractFileRequest;
+
+  try {
+    const data = await api.viewRawContractFile(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF file stream |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## viewSubscriptionAcceptanceContract
+
+> Blob viewSubscriptionAcceptanceContract(subscriptionAcceptanceId, acceptanceToken)
+
+
+
+Retrieve the token-scoped subscription contract PDF for inline viewing
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ViewSubscriptionAcceptanceContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const api = new DefaultApi();
+
+  const body = {
+    // string | ID or slug of the Subscription
+    subscriptionAcceptanceId: subscriptionAcceptanceId_example,
+    // string | Token from the subscription order email
+    acceptanceToken: acceptanceToken_example,
+  } satisfies ViewSubscriptionAcceptanceContractRequest;
+
+  try {
+    const data = await api.viewSubscriptionAcceptanceContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionAcceptanceId** | `string` | ID or slug of the Subscription | [Defaults to `undefined`] |
+| **acceptanceToken** | `string` | Token from the subscription order email | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/pdf`, `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | PDF file stream |  -  |
+| **400** | Acceptance token is missing |  -  |
+| **404** | Contract or subscription was not found |  -  |
+| **422** | Acceptance token is invalid |  -  |
+| **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

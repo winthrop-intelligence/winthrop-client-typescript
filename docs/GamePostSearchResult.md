@@ -1,43 +1,40 @@
 
 # GamePostSearchResult
 
-Enriched game post search result with school, location, and RPI data
+Enriched game post search result with school, location, and ranking data
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`gamePostId` | number
 `id` | number
+`publishGroupId` | string
 `schoolId` | number
 `schoolName` | string
+`scheduleProfileEligible` | boolean
 `sportId` | number
 `sportName` | string
 `startDate` | Date
-`endDate` | Date
 `endDateDisplay` | Date
 `description` | string
-`status` | string
-`expiresOn` | Date
 `createdAt` | Date
-`updatedAt` | Date
 `city` | string
 `stateName` | string
-`conferenceId` | number
-`conferenceName` | string
-`divisionId` | number
-`divisionName` | string
 `lastRpi` | number
 `distance` | number
-`avgGuaranteePaid` | number
-`avgGuaranteeReceived` | number
 `gameTypesDisplay` | string
 `createdByName` | string
-`avgRpi` | number
+`createdBySchedulingPhone` | string
+`createdBySchedulingPhoneDial` | string
+`avgNetRank` | number
 `schoolLogoUrl` | string
-`latitude` | number
-`longitude` | number
-`canManage` | boolean
+`posts` | [Array&lt;GamePostSearchResultPostsInner&gt;](GamePostSearchResultPostsInner.md)
+`games` | [Array&lt;GamePostSearchResultGamesInner&gt;](GamePostSearchResultGamesInner.md)
+`scheduleIntents` | [Array&lt;GamePostSearchResultScheduleIntentsInner&gt;](GamePostSearchResultScheduleIntentsInner.md)
+`overlap` | [GamePostSearchResultOverlap](GamePostSearchResultOverlap.md)
+`contact` | [GamePostSearchResultContact](GamePostSearchResultContact.md)
+`guarantee` | [GamePostSearchResultGuarantee](GamePostSearchResultGuarantee.md)
+`contacts` | [Array&lt;GamePostSearchResultContactsInner&gt;](GamePostSearchResultContactsInner.md)
 
 ## Example
 
@@ -46,37 +43,34 @@ import type { GamePostSearchResult } from '@winthrop-intelligence/winthrop-clien
 
 // TODO: Update the object below with actual values
 const example = {
-  "gamePostId": null,
   "id": null,
+  "publishGroupId": null,
   "schoolId": null,
   "schoolName": null,
+  "scheduleProfileEligible": null,
   "sportId": null,
   "sportName": null,
   "startDate": null,
-  "endDate": null,
   "endDateDisplay": null,
   "description": null,
-  "status": null,
-  "expiresOn": null,
   "createdAt": null,
-  "updatedAt": null,
   "city": null,
   "stateName": null,
-  "conferenceId": null,
-  "conferenceName": null,
-  "divisionId": null,
-  "divisionName": null,
   "lastRpi": null,
   "distance": null,
-  "avgGuaranteePaid": null,
-  "avgGuaranteeReceived": null,
   "gameTypesDisplay": null,
   "createdByName": null,
-  "avgRpi": null,
+  "createdBySchedulingPhone": null,
+  "createdBySchedulingPhoneDial": null,
+  "avgNetRank": null,
   "schoolLogoUrl": null,
-  "latitude": null,
-  "longitude": null,
-  "canManage": null,
+  "posts": null,
+  "games": null,
+  "scheduleIntents": null,
+  "overlap": null,
+  "contact": null,
+  "guarantee": null,
+  "contacts": null,
 } satisfies GamePostSearchResult
 
 console.log(example)

@@ -8,8 +8,12 @@ Name | Type
 ------------ | -------------
 `isFootball` | boolean
 `years` | Array&lt;number&gt;
+`netYears` | Array&lt;number&gt;
+`apYears` | Array&lt;number&gt;
 `schools` | [Array&lt;SportCompensationRankingsSchoolsInner&gt;](SportCompensationRankingsSchoolsInner.md)
 `conferenceAvgs` | { [key: string]: number | null; }
+`netConferenceAvgs` | { [key: string]: number | null; }
+`apConferenceAvgs` | { [key: string]: number | null; }
 
 ## Example
 
@@ -20,8 +24,12 @@ import type { SportCompensationRankings } from '@winthrop-intelligence/winthrop-
 const example = {
   "isFootball": null,
   "years": null,
+  "netYears": null,
+  "apYears": null,
   "schools": null,
   "conferenceAvgs": null,
+  "netConferenceAvgs": null,
+  "apConferenceAvgs": null,
 } satisfies SportCompensationRankings
 
 console.log(example)

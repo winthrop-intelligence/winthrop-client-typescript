@@ -9,6 +9,7 @@ Name | Type
 `name` | string
 `type` | string
 `description` | string
+`required` | boolean
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "name": season_year,
   "type": integer,
   "description": The year of the season to scrape,
+  "required": false,
 } satisfies ScraperArgDef
 
 console.log(example)

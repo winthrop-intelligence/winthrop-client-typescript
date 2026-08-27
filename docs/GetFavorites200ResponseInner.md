@@ -11,6 +11,10 @@ Name | Type
 `favoritesCategoryId` | number
 `categoryName` | string
 `name` | string
+`schoolId` | number
+`sportName` | string
+`avatarUrl` | string
+`leader` | boolean
 
 ## Example
 
@@ -24,6 +28,10 @@ const example = {
   "favoritesCategoryId": null,
   "categoryName": null,
   "name": null,
+  "schoolId": null,
+  "sportName": null,
+  "avatarUrl": null,
+  "leader": null,
 } satisfies GetFavorites200ResponseInner
 
 console.log(example)

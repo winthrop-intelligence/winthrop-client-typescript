@@ -37,6 +37,21 @@ Name | Type
 `homeLosses` | number
 `homeWinPercent` | number
 `asr` | number
+`awayWins` | number
+`awayLosses` | number
+`neutralWins` | number
+`neutralLosses` | number
+`nonDivisionWins` | number
+`nonDivisionLosses` | number
+`netRank` | number
+`prevNetRank` | number
+`apRank` | number
+`prevApRank` | number
+`cfpRank` | number
+`torvikRank` | number
+`nonConferenceSosRanking` | number
+`conferenceSosRanking` | number
+`rankingThroughDate` | Date
 `headCoach` | [Coach](Coach.md)
 `assistantCoaches` | [Array&lt;Coach&gt;](Coach.md)
 
@@ -78,6 +93,21 @@ const example = {
   "homeLosses": null,
   "homeWinPercent": null,
   "asr": null,
+  "awayWins": null,
+  "awayLosses": null,
+  "neutralWins": null,
+  "neutralLosses": null,
+  "nonDivisionWins": null,
+  "nonDivisionLosses": null,
+  "netRank": null,
+  "prevNetRank": null,
+  "apRank": null,
+  "prevApRank": null,
+  "cfpRank": null,
+  "torvikRank": null,
+  "nonConferenceSosRanking": null,
+  "conferenceSosRanking": null,
+  "rankingThroughDate": null,
   "headCoach": null,
   "assistantCoaches": null,
 } satisfies Season

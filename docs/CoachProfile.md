@@ -12,10 +12,11 @@ Name | Type
 `email` | string
 `phone` | string
 `leader` | boolean
+`visible` | boolean
 `hometownCity` | string
 `hometownState` | string
 `almaMaterName` | string
-`almaMaterYear` | number
+`almaMaterYear` | string
 `twitterHandle` | string
 `twitterVerified` | boolean
 `linkedin` | string
@@ -28,11 +29,15 @@ Name | Type
 `currentSchoolName` | string
 `currentSchoolId` | number
 `currentSportName` | string
+`currentPositionTitle` | string
 `currentPositionTypes` | Array&lt;string&gt;
+`headerPositionSeasonYearStr` | string
+`headerPositionHistorical` | boolean
 `avatarUrl` | string
 `canSeeCompensation` | boolean
 `canSeeVideos` | boolean
 `canSeeCoworkerHistory` | boolean
+`canSeeRecruiting` | boolean
 `isSportSpecific` | boolean
 
 ## Example
@@ -48,6 +53,7 @@ const example = {
   "email": null,
   "phone": null,
   "leader": null,
+  "visible": true,
   "hometownCity": null,
   "hometownState": null,
   "almaMaterName": null,
@@ -64,11 +70,15 @@ const example = {
   "currentSchoolName": null,
   "currentSchoolId": null,
   "currentSportName": null,
+  "currentPositionTitle": null,
   "currentPositionTypes": null,
+  "headerPositionSeasonYearStr": null,
+  "headerPositionHistorical": null,
   "avatarUrl": null,
   "canSeeCompensation": null,
   "canSeeVideos": null,
   "canSeeCoworkerHistory": null,
+  "canSeeRecruiting": null,
   "isSportSpecific": null,
 } satisfies CoachProfile
 

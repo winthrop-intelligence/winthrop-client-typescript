@@ -10,6 +10,7 @@ Name | Type
 `nameId` | string
 `name` | string
 `shortName` | string
+`reportLabel` | string
 `sports` | [Array&lt;CashflowSportStat&gt;](CashflowSportStat.md)
 
 ## Example
@@ -23,6 +24,7 @@ const example = {
   "nameId": null,
   "name": null,
   "shortName": null,
+  "reportLabel": null,
   "sports": null,
 } satisfies CashflowGroupStats
 

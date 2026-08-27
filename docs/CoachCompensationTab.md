@@ -8,10 +8,11 @@ Name | Type
 ------------ | -------------
 `canSeeCompensation` | boolean
 `chartData` | [CoachCompensationTabChartData](CoachCompensationTabChartData.md)
-`compensations` | [Array&lt;CoachCompensationTabCompensationsInner&gt;](CoachCompensationTabCompensationsInner.md)
+`compensations` | [Array&lt;CoachCompensationEntry&gt;](CoachCompensationEntry.md)
 `totalCompensations` | number
 `comparisons` | [CoachCompensationTabComparisons](CoachCompensationTabComparisons.md)
 `sidebar` | [CoachCompensationTabSidebar](CoachCompensationTabSidebar.md)
+`quartiles` | [CoachCompensationTabQuartiles](CoachCompensationTabQuartiles.md)
 
 ## Example
 
@@ -26,6 +27,7 @@ const example = {
   "totalCompensations": null,
   "comparisons": null,
   "sidebar": null,
+  "quartiles": null,
 } satisfies CoachCompensationTab
 
 console.log(example)

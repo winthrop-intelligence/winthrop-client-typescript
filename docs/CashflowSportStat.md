@@ -13,6 +13,7 @@ Name | Type
 `low` | number
 `median` | number
 `count` | number
+`entries` | [Array&lt;CashflowEntry&gt;](CashflowEntry.md)
 
 ## Example
 
@@ -28,6 +29,7 @@ const example = {
   "low": null,
   "median": null,
   "count": null,
+  "entries": null,
 } satisfies CashflowSportStat
 
 console.log(example)

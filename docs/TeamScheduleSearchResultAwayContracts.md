@@ -1,0 +1,37 @@
+
+# TeamScheduleSearchResultAwayContracts
+
+Guarantee contracts where the school is the away/receiving side, limited to contracts the caller can view.
+
+## Properties
+
+Name | Type
+------------ | -------------
+`avgReceivedCents` | number
+`recent` | [Array&lt;TeamScheduleRecentContract&gt;](TeamScheduleRecentContract.md)
+
+## Example
+
+```typescript
+import type { TeamScheduleSearchResultAwayContracts } from '@winthrop-intelligence/winthrop-client-typescript'
+
+// TODO: Update the object below with actual values
+const example = {
+  "avgReceivedCents": null,
+  "recent": null,
+} satisfies TeamScheduleSearchResultAwayContracts
+
+console.log(example)
+
+// Convert the instance to a JSON string
+const exampleJSON: string = JSON.stringify(example)
+console.log(exampleJSON)
+
+// Parse the JSON string back to an object
+const exampleParsed = JSON.parse(exampleJSON) as TeamScheduleSearchResultAwayContracts
+console.log(exampleParsed)
+```
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+

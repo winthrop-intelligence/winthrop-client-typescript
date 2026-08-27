@@ -13,6 +13,8 @@ Name | Type
 `positionSport` | string
 `record` | string
 `rpi` | string
+`netRank` | string
+`apRank` | string
 `aprAsr` | string
 `coachApr` | number
 `departing` | boolean
@@ -31,6 +33,8 @@ const example = {
   "positionSport": null,
   "record": null,
   "rpi": null,
+  "netRank": null,
+  "apRank": null,
   "aprAsr": null,
   "coachApr": null,
   "departing": null,

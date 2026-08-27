@@ -12,6 +12,8 @@ Name | Type
 `jobUrl` | string
 `postedAt` | Date
 `createdAt` | Date
+`remoteId` | number
+`expired` | boolean
 `school` | [JobSchool](JobSchool.md)
 `departments` | [Array&lt;JobDepartment&gt;](JobDepartment.md)
 `sports` | [Array&lt;JobSport&gt;](JobSport.md)
@@ -30,6 +32,8 @@ const example = {
   "jobUrl": https://job-url.com,
   "postedAt": 2019-01-01T00:00Z,
   "createdAt": 2019-01-01T00:00Z,
+  "remoteId": 12345,
+  "expired": false,
   "school": null,
   "departments": null,
   "sports": null,

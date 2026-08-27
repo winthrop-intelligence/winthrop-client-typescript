@@ -6,11 +6,16 @@
 
 Name | Type
 ------------ | -------------
+`adStatus` | string
 `adName` | string
 `adCoachId` | number
 `adSalaryCents` | number
+`financialsReported` | boolean
 `revenueCents` | number
 `expenseCents` | number
+`budgetRank` | number
+`budgetRankOf` | number
+`budgetRankConferenceName` | string
 `deals` | [Array&lt;DepartmentSearchResultDepartmentDealsInner&gt;](DepartmentSearchResultDepartmentDealsInner.md)
 
 ## Example
@@ -20,11 +25,16 @@ import type { DepartmentSearchResultDepartment } from '@winthrop-intelligence/wi
 
 // TODO: Update the object below with actual values
 const example = {
+  "adStatus": null,
   "adName": null,
   "adCoachId": null,
   "adSalaryCents": null,
+  "financialsReported": null,
   "revenueCents": null,
   "expenseCents": null,
+  "budgetRank": null,
+  "budgetRankOf": null,
+  "budgetRankConferenceName": null,
   "deals": null,
 } satisfies DepartmentSearchResultDepartment
 

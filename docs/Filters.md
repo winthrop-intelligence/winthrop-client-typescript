@@ -1,12 +1,16 @@
 
 # Filters
 
+Request body for the legacy coach search endpoint.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`filters` | object
+`priorityIds` | Array&lt;number&gt;
+`page` | number
+`perPage` | number
+`q` | { [key: string]: any; }
 
 ## Example
 
@@ -15,7 +19,10 @@ import type { Filters } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "filters": {"priority_ids":[1,2],"page":1,"per_page":100,"q":{}},
+  "priorityIds": null,
+  "page": null,
+  "perPage": null,
+  "q": null,
 } satisfies Filters
 
 console.log(example)
