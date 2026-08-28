@@ -135,6 +135,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDeskRequests**](DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
+| [**getEadaFinancialSearches**](DefaultApi.md#geteadafinancialsearches) | **GET** /api/v1/eada_financial_searches |  |
+| [**getEadaMetrics**](DefaultApi.md#geteadametrics) | **GET** /api/v1/eada_metrics |  |
 | [**getEditAccountUser**](DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
 | [**getFavoritesCategories**](DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories |  |
@@ -149,6 +151,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFilterOptionsStates**](DefaultApi.md#getfilteroptionsstates) | **GET** /api/v1/filter_options/states |  |
 | [**getFilterOptionsSubdivisions**](DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions |  |
 | [**getFilterOptionsVendors**](DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors |  |
+| [**getFinancialComparisons**](DefaultApi.md#getfinancialcomparisons) | **GET** /api/v1/financial_comparisons |  |
 | [**getFinancialSearches**](DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches |  |
 | [**getFoiaLabel**](DefaultApi.md#getfoialabel) | **GET** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**getFoiaLabels**](DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels |  |
@@ -205,6 +208,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
 | [**getSchoolDepartmentGuarantees**](DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees |  |
 | [**getSchoolDepartmentOverview**](DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview |  |
+| [**getSchoolEadaFinancials**](DefaultApi.md#getschooleadafinancials) | **GET** /api/v1/schools/{schoolId}/eada_financials |  |
+| [**getSchoolFinancialSelection**](DefaultApi.md#getschoolfinancialselection) | **GET** /api/v1/schools/{schoolId}/financial_selection |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
@@ -261,7 +266,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
 | [**needsInfoAdminDeskRequest**](DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
-| [**rawContractPreviewUrl**](DefaultApi.md#rawcontractpreviewurl) | **GET** /api/v1/raw_contracts/{raw_contractId}/preview_url |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
 | [**restoreAdminDeskReport**](DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore |  |
@@ -10374,6 +10378,199 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getEadaFinancialSearches
+
+> EadaFinancialSearchResponse getEadaFinancialSearches(year, page, perPage, q, grain, sportCode, family, gender, metric, include)
+
+
+
+WINAD-10370 — paginated cross-school EADA cohort search for one exact reporting year and grain (institution or sport). Scoped to schools the viewer holds see_eada_financials on, including private schools with an EADA-only grant.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEadaFinancialSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | Exact reporting year. Required.
+    year: 56,
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+    // 'institution' | 'sport' (optional)
+    grain: grain_example,
+    // string (optional)
+    sportCode: sportCode_example,
+    // string (optional)
+    family: family_example,
+    // string (optional)
+    gender: gender_example,
+    // string (optional)
+    metric: metric_example,
+    // string | Comma-separated inclusions. `source_payload` requires a data admin/super admin viewer (403 otherwise). (optional)
+    include: include_example,
+  } satisfies GetEadaFinancialSearchesRequest;
+
+  try {
+    const data = await api.getEadaFinancialSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **year** | `number` | Exact reporting year. Required. | [Defaults to `undefined`] |
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **grain** | `institution`, `sport` |  | [Optional] [Defaults to `&#39;institution&#39;`] [Enum: institution, sport] |
+| **sportCode** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **family** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gender** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **include** | `string` | Comma-separated inclusions. &#x60;source_payload&#x60; requires a data admin/super admin viewer (403 otherwise). | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**EadaFinancialSearchResponse**](EadaFinancialSearchResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Cohort search results |  -  |
+| **400** | Bad Request — year missing, or grain invalid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no see_eada_financials grant, or include&#x3D;source_payload requested without the required admin tier |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEadaMetrics
+
+> EadaMetricCatalogResponse getEadaMetrics(page, perPage, reportType, canonicalOnly, comparabilityState, search)
+
+
+
+WINAD-10370 — serves the WINAD-10371 metric/source-field catalog so API consumers can retrieve field definitions (label, description, unit, grain, comparability metadata) without hardcoding them. Reference data; returns the full filtered set (no see_eada_financials gate).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEadaMetricsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // 'institution' | 'sport' (optional)
+    reportType: reportType_example,
+    // boolean | When true, only entries that already carry a canonical_metric_id. (optional)
+    canonicalOnly: true,
+    // 'mergeable' | 'comparison_only' | 'not_comparable' | 'source_only' (optional)
+    comparabilityState: comparabilityState_example,
+    // string | Case-insensitive substring match against source_key, label, or canonical_metric_id. (optional)
+    search: search_example,
+  } satisfies GetEadaMetricsRequest;
+
+  try {
+    const data = await api.getEadaMetrics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **reportType** | `institution`, `sport` |  | [Optional] [Defaults to `undefined`] [Enum: institution, sport] |
+| **canonicalOnly** | `boolean` | When true, only entries that already carry a canonical_metric_id. | [Optional] [Defaults to `undefined`] |
+| **comparabilityState** | `mergeable`, `comparison_only`, `not_comparable`, `source_only` |  | [Optional] [Defaults to `undefined`] [Enum: mergeable, comparison_only, not_comparable, source_only] |
+| **search** | `string` | Case-insensitive substring match against source_key, label, or canonical_metric_id. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**EadaMetricCatalogResponse**](EadaMetricCatalogResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Catalog entries |  -  |
+| **400** | Bad Request — invalid report_type |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getEditAccountUser
 
 > EditAccountUserResponse getEditAccountUser(accountUserId)
@@ -11364,6 +11561,97 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Vendors retrieved |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFinancialComparisons
+
+> FinancialComparisonResponse getFinancialComparisons(schoolIds, source, grain, sportName, year, metric)
+
+
+
+WINAD-10369 — cohort-level source-aware financial comparison (e.g. one conference plus a couple of out-of-conference peers). Runs Financials::SourceSelection independently per school (never merges line items across schools\&#39; reports) and, when metric is given, adds Financials::Comparison\&#39;s mixed-source ranking on top — a catalog-approved (comparability_state mergeable) canonical metric gets one blended ranking across sources; every other metric gets per-source rankings only, kept visibly separate. A school id the viewer holds neither see_financials nor see_eada_financials on for is silently dropped from the cohort rather than 403ing the whole request.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFinancialComparisonsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<number> | One or more School ids to compare. Required.
+    schoolIds: ...,
+    // 'eada' | 'ncaa_frs' | 'best_available' | 'both' (optional)
+    source: source_example,
+    // 'institution' | 'sport' (optional)
+    grain: grain_example,
+    // string | Required when grain is sport. (optional)
+    sportName: sportName_example,
+    // number | Exact reporting year. Omit for each source\'s own latest, resolved independently per school and per source. (optional)
+    year: 56,
+    // string | Canonical (or source-native) metric id to compare. Required to receive a comparison ranking — omitted, the response still returns each school\'s full per-source results with comparison null. (optional)
+    metric: metric_example,
+  } satisfies GetFinancialComparisonsRequest;
+
+  try {
+    const data = await api.getFinancialComparisons(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolIds** | `Array<number>` | One or more School ids to compare. Required. | |
+| **source** | `eada`, `ncaa_frs`, `best_available`, `both` |  | [Optional] [Defaults to `&#39;best_available&#39;`] [Enum: eada, ncaa_frs, best_available, both] |
+| **grain** | `institution`, `sport` |  | [Optional] [Defaults to `&#39;institution&#39;`] [Enum: institution, sport] |
+| **sportName** | `string` | Required when grain is sport. | [Optional] [Defaults to `undefined`] |
+| **year** | `number` | Exact reporting year. Omit for each source\&#39;s own latest, resolved independently per school and per source. | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` | Canonical (or source-native) metric id to compare. Required to receive a comparison ranking — omitted, the response still returns each school\&#39;s full per-source results with comparison null. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FinancialComparisonResponse**](FinancialComparisonResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Per-school source-aware results, plus a cross-school ranking when metric is given |  -  |
+| **400** | Bad Request — school_ids missing, source/grain invalid, or sport_name missing when grain is sport |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — viewer holds neither see_financials nor see_eada_financials at all |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -15750,6 +16038,196 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSchoolEadaFinancials
+
+> SchoolEadaFinancials getSchoolEadaFinancials(schoolId, year, grain, sportCode, family, gender, metric, include)
+
+
+
+WINAD-10370 — normalized EADA institution and sport financials for a school at an exact reporting year. Never substitutes a different year when the requested one is missing — institution.found/sports.found are explicit instead. Requires the see_eada_financials capability (exposed via GET /users/me as can_see_eada_financials).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolEadaFinancialsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Exact reporting year to look up. Required — there is no \"latest year\" default, and a missing year is never substituted with another one.
+    year: 56,
+    // 'institution' | 'sport' | Restrict the response to one grain. Omit for both institution and sports. (optional)
+    grain: grain_example,
+    // string | Restrict sport-grain results to one EADA source sport code. (optional)
+    sportCode: sportCode_example,
+    // string | Restrict metrics to one family (e.g. coaching, student_aid, recruiting_expense, operating_expense, revenue_expense, participation). (optional)
+    family: family_example,
+    // string | Restrict metrics to one gender dimension (men, women, coed, all_genders). (optional)
+    gender: gender_example,
+    // string | Restrict to one metric, matched case-insensitively against its canonical metric id, column name, or raw source field. (optional)
+    metric: metric_example,
+    // string | Comma-separated list of optional inclusions. `source_payload` returns each report\'s full raw imported row; requires a data admin or super admin viewer, and is explicitly forbidden (403) rather than silently dropped when requested by anyone else. (optional)
+    include: include_example,
+  } satisfies GetSchoolEadaFinancialsRequest;
+
+  try {
+    const data = await api.getSchoolEadaFinancials(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Exact reporting year to look up. Required — there is no \&quot;latest year\&quot; default, and a missing year is never substituted with another one. | [Defaults to `undefined`] |
+| **grain** | `institution`, `sport` | Restrict the response to one grain. Omit for both institution and sports. | [Optional] [Defaults to `undefined`] [Enum: institution, sport] |
+| **sportCode** | `string` | Restrict sport-grain results to one EADA source sport code. | [Optional] [Defaults to `undefined`] |
+| **family** | `string` | Restrict metrics to one family (e.g. coaching, student_aid, recruiting_expense, operating_expense, revenue_expense, participation). | [Optional] [Defaults to `undefined`] |
+| **gender** | `string` | Restrict metrics to one gender dimension (men, women, coed, all_genders). | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` | Restrict to one metric, matched case-insensitively against its canonical metric id, column name, or raw source field. | [Optional] [Defaults to `undefined`] |
+| **include** | `string` | Comma-separated list of optional inclusions. &#x60;source_payload&#x60; returns each report\&#39;s full raw imported row; requires a data admin or super admin viewer, and is explicitly forbidden (403) rather than silently dropped when requested by anyone else. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolEadaFinancials**](SchoolEadaFinancials.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Normalized EADA financials for the school and exact year |  -  |
+| **400** | Bad Request — year missing, or grain invalid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no see_eada_financials grant for this school, or include&#x3D;source_payload requested without the required admin tier |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolFinancialSelection
+
+> FinancialSelection getSchoolFinancialSelection(schoolId, source, grain, sportName, year, metric)
+
+
+
+WINAD-10369 — one school\&#39;s source-aware financial selection (eada | ncaa_frs | best_available | both) at institution or sport grain, layered on WINAD-10370\&#39;s EADA API and the existing NCAA/FRS CashflowSum/Cashflow data via Financials::SourceSelection. best_available never 403s for a partial grant — it silently narrows to whichever source(s) the viewer can see for this school; requesting a single source (eada or ncaa_frs) the viewer cannot see for this school is a 403.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolFinancialSelectionRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // 'eada' | 'ncaa_frs' | 'best_available' | 'both' (optional)
+    source: source_example,
+    // 'institution' | 'sport' (optional)
+    grain: grain_example,
+    // string | Required when grain is sport. (optional)
+    sportName: sportName_example,
+    // number | Exact reporting year. Omit for each source\'s own latest report, resolved independently per source. (optional)
+    year: 56,
+    // string | Restrict to one canonical (or source-native) metric id. (optional)
+    metric: metric_example,
+  } satisfies GetSchoolFinancialSelectionRequest;
+
+  try {
+    const data = await api.getSchoolFinancialSelection(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **source** | `eada`, `ncaa_frs`, `best_available`, `both` |  | [Optional] [Defaults to `&#39;best_available&#39;`] [Enum: eada, ncaa_frs, best_available, both] |
+| **grain** | `institution`, `sport` |  | [Optional] [Defaults to `&#39;institution&#39;`] [Enum: institution, sport] |
+| **sportName** | `string` | Required when grain is sport. | [Optional] [Defaults to `undefined`] |
+| **year** | `number` | Exact reporting year. Omit for each source\&#39;s own latest report, resolved independently per source. | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` | Restrict to one canonical (or source-native) metric id. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FinancialSelection**](FinancialSelection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Source-aware financial selection for the school |  -  |
+| **400** | Bad Request — source/grain invalid, or sport_name missing when grain is sport |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no see_financials/see_eada_financials grant for this school covering the requested source |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSchoolGameContracts
 
 > SchoolGameContractsResponse getSchoolGameContracts(schoolId)
@@ -20061,81 +20539,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## rawContractPreviewUrl
-
-> RawContractPreviewUrl200Response rawContractPreviewUrl(rawContractId)
-
-
-
-Return the short-lived presigned storage URL for the raw contract PDF as JSON, for viewers that range-load the file directly from object storage.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { RawContractPreviewUrlRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | ID of the RawContract
-    rawContractId: 56,
-  } satisfies RawContractPreviewUrlRequest;
-
-  try {
-    const data = await api.rawContractPreviewUrl(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
-
-### Return type
-
-[**RawContractPreviewUrl200Response**](RawContractPreviewUrl200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Presigned storage URL for the PDF |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## regenerateRawContractPdf
 
 > RegenerateRawContractPdf200Response regenerateRawContractPdf(rawContractId)
@@ -23333,11 +23736,11 @@ example().catch(console.error);
 
 ## viewRawContractFile
 
-> viewRawContractFile(rawContractId)
+> Blob viewRawContractFile(rawContractId)
 
 
 
-Redirect to a short-lived presigned storage URL for the raw contract PDF (no watermark), so the client can range-load it directly from object storage. Clients that only need the URL itself should call preview_url instead of following this redirect.
+Stream the raw contract PDF for inline viewing (no watermark)
 
 ### Example
 
@@ -23384,7 +23787,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+**Blob**
 
 ### Authorization
 
@@ -23393,13 +23796,13 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/pdf`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **302** | Redirect to the presigned storage URL for the PDF |  * Location - Presigned storage URL, valid for 6 hours <br>  |
+| **200** | PDF file stream |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
