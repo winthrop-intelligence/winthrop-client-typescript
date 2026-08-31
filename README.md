@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.54.0
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.33193261412
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -67,11 +67,16 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**bulkUpdateGamePostSearches**](docs/DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update | 
 *DefaultApi* | [**compareColi**](docs/DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli | 
 *DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
+*DefaultApi* | [**createAdminDeskReport**](docs/DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports | 
+*DefaultApi* | [**createAdminDeskReportArtifact**](docs/DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts | 
 *DefaultApi* | [**createCashflow**](docs/DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows | 
 *DefaultApi* | [**createCoach**](docs/DefaultApi.md#createcoach) | **POST** /api/v1/coaches | 
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
 *DefaultApi* | [**createConferenceship**](docs/DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships | 
 *DefaultApi* | [**createContactSearch**](docs/DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches | 
+*DefaultApi* | [**createDeskReportArchive**](docs/DefaultApi.md#createdeskreportarchive) | **POST** /api/v1/desk_reports/{uuid}/archive | 
+*DefaultApi* | [**createDeskReportOpened**](docs/DefaultApi.md#createdeskreportopened) | **POST** /api/v1/desk_reports/{uuid}/opened | 
+*DefaultApi* | [**createDeskRequest**](docs/DefaultApi.md#createdeskrequestoperation) | **POST** /api/v1/desk_requests | 
 *DefaultApi* | [**createFavorite**](docs/DefaultApi.md#createfavoriteoperation) | **POST** /api/v1/favorites | 
 *DefaultApi* | [**createFavoritesCategory**](docs/DefaultApi.md#createfavoritescategoryoperation) | **POST** /api/v1/favorites_categories | 
 *DefaultApi* | [**createFoiaLabel**](docs/DefaultApi.md#createfoialabel) | **POST** /api/v1/foia_labels | 
@@ -95,10 +100,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**createUpload**](docs/DefaultApi.md#createupload) | **POST** /api/v1/uploads | 
 *DefaultApi* | [**deleteAccountUser**](docs/DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} | 
+*DefaultApi* | [**deleteAdminDeskReportArtifact**](docs/DefaultApi.md#deleteadmindeskreportartifact) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts/{id} | 
 *DefaultApi* | [**deleteCashflow**](docs/DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**deleteContactSearch**](docs/DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} | 
+*DefaultApi* | [**deleteDeskReportArchive**](docs/DefaultApi.md#deletedeskreportarchive) | **DELETE** /api/v1/desk_reports/{uuid}/archive | 
 *DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
 *DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
@@ -124,6 +131,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
+*DefaultApi* | [**getAdminDeskReport**](docs/DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} | 
+*DefaultApi* | [**getAdminDeskReports**](docs/DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports | 
+*DefaultApi* | [**getAdminDeskRequests**](docs/DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
 *DefaultApi* | [**getAdministratorSearches**](docs/DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches | 
 *DefaultApi* | [**getAdministrators**](docs/DefaultApi.md#getadministrators) | **GET** /api/v1/administrators | 
@@ -172,8 +182,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDealStatuses**](docs/DefaultApi.md#getdealstatuses) | **GET** /api/v1/deal_statuses | 
 *DefaultApi* | [**getDeals**](docs/DefaultApi.md#getdeals) | **GET** /api/v1/deals | 
 *DefaultApi* | [**getDepartmentSearches**](docs/DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches | 
+*DefaultApi* | [**getDeskReport**](docs/DefaultApi.md#getdeskreport) | **GET** /api/v1/desk_reports/{uuid} | 
+*DefaultApi* | [**getDeskReportDownloadsZip**](docs/DefaultApi.md#getdeskreportdownloadszip) | **GET** /api/v1/desk_reports/{uuid}/downloads.zip | 
+*DefaultApi* | [**getDeskReports**](docs/DefaultApi.md#getdeskreports) | **GET** /api/v1/desk_reports | 
+*DefaultApi* | [**getDeskRequests**](docs/DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests | 
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
+*DefaultApi* | [**getEadaFinancialSearches**](docs/DefaultApi.md#geteadafinancialsearches) | **GET** /api/v1/eada_financial_searches | 
+*DefaultApi* | [**getEadaMetrics**](docs/DefaultApi.md#geteadametrics) | **GET** /api/v1/eada_metrics | 
 *DefaultApi* | [**getEditAccountUser**](docs/DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit | 
 *DefaultApi* | [**getFavorites**](docs/DefaultApi.md#getfavorites) | **GET** /api/v1/favorites | 
 *DefaultApi* | [**getFavoritesCategories**](docs/DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories | 
@@ -188,6 +204,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getFilterOptionsStates**](docs/DefaultApi.md#getfilteroptionsstates) | **GET** /api/v1/filter_options/states | 
 *DefaultApi* | [**getFilterOptionsSubdivisions**](docs/DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions | 
 *DefaultApi* | [**getFilterOptionsVendors**](docs/DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors | 
+*DefaultApi* | [**getFinancialComparisons**](docs/DefaultApi.md#getfinancialcomparisons) | **GET** /api/v1/financial_comparisons | 
 *DefaultApi* | [**getFinancialSearches**](docs/DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches | 
 *DefaultApi* | [**getFoiaLabel**](docs/DefaultApi.md#getfoialabel) | **GET** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**getFoiaLabels**](docs/DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels | 
@@ -244,6 +261,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchoolDepartmentFinancials**](docs/DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials | 
 *DefaultApi* | [**getSchoolDepartmentGuarantees**](docs/DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees | 
 *DefaultApi* | [**getSchoolDepartmentOverview**](docs/DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview | 
+*DefaultApi* | [**getSchoolEadaFinancials**](docs/DefaultApi.md#getschooleadafinancials) | **GET** /api/v1/schools/{schoolId}/eada_financials | 
+*DefaultApi* | [**getSchoolFinancialSelection**](docs/DefaultApi.md#getschoolfinancialselection) | **GET** /api/v1/schools/{schoolId}/financial_selection | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
 *DefaultApi* | [**getSchoolGroup**](docs/DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**getSchoolGroupAdminCompensation**](docs/DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation | 
@@ -296,15 +315,21 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getVendor**](docs/DefaultApi.md#getvendor) | **GET** /api/v1/vendors/{vendorId} | 
 *DefaultApi* | [**getVendors**](docs/DefaultApi.md#getvendors) | **GET** /api/v1/vendors | 
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
+*DefaultApi* | [**hideAdminDeskReport**](docs/DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide | 
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
+*DefaultApi* | [**needsInfoAdminDeskRequest**](docs/DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info | 
+*DefaultApi* | [**publishAdminDeskReport**](docs/DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
+*DefaultApi* | [**restoreAdminDeskReport**](docs/DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore | 
 *DefaultApi* | [**retryFrsExport**](docs/DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry | 
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
 *DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
 *DefaultApi* | [**updateAccountUser**](docs/DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**updateAccountUserActivation**](docs/DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation | 
+*DefaultApi* | [**updateAdminDeskReport**](docs/DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} | 
+*DefaultApi* | [**updateAdminDeskRequest**](docs/DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} | 
 *DefaultApi* | [**updateCashflow**](docs/DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**updateCoach**](docs/DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} | 
 *DefaultApi* | [**updateCompensation**](docs/DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
@@ -331,6 +356,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
+*DefaultApi* | [**validateAdminDeskReport**](docs/DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
 *DefaultApi* | [**verifyUserIntercollegiateAccess**](docs/DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access | 
 *DefaultApi* | [**viewInvoiceFile**](docs/DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file | 
@@ -533,8 +559,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateAccountUser422Response](docs/CreateAccountUser422Response.md)
 - [CreateAccountUserRequest](docs/CreateAccountUserRequest.md)
 - [CreateAccountUserRequestUser](docs/CreateAccountUserRequestUser.md)
+- [CreateAdminDeskReportArtifact201Response](docs/CreateAdminDeskReportArtifact201Response.md)
 - [CreateContactSearchRequest](docs/CreateContactSearchRequest.md)
 - [CreateContactSearchRequestContact](docs/CreateContactSearchRequestContact.md)
+- [CreateDeskRequest201Response](docs/CreateDeskRequest201Response.md)
+- [CreateDeskRequestRequest](docs/CreateDeskRequestRequest.md)
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
@@ -656,18 +685,71 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentSearchResultSportsInner](docs/DepartmentSearchResultSportsInner.md)
 - [DepartmentStaffMember](docs/DepartmentStaffMember.md)
 - [DepartmentStaffSchool](docs/DepartmentStaffSchool.md)
+- [DeskAdminAccount](docs/DeskAdminAccount.md)
+- [DeskAdminArtifact](docs/DeskAdminArtifact.md)
+- [DeskAdminCover](docs/DeskAdminCover.md)
+- [DeskAdminErrorsResponse](docs/DeskAdminErrorsResponse.md)
+- [DeskAdminErrorsResponseErrorsInner](docs/DeskAdminErrorsResponseErrorsInner.md)
+- [DeskAdminPublishResponse](docs/DeskAdminPublishResponse.md)
+- [DeskAdminPublishResponseData](docs/DeskAdminPublishResponseData.md)
+- [DeskAdminPublishResponseDataReport](docs/DeskAdminPublishResponseDataReport.md)
+- [DeskAdminQueueResponse](docs/DeskAdminQueueResponse.md)
+- [DeskAdminQueueResponseMeta](docs/DeskAdminQueueResponseMeta.md)
+- [DeskAdminQueueRow](docs/DeskAdminQueueRow.md)
+- [DeskAdminReport](docs/DeskAdminReport.md)
+- [DeskAdminReportCover](docs/DeskAdminReportCover.md)
+- [DeskAdminReportCreate](docs/DeskAdminReportCreate.md)
+- [DeskAdminReportRequest](docs/DeskAdminReportRequest.md)
+- [DeskAdminReportResponse](docs/DeskAdminReportResponse.md)
+- [DeskAdminReportUpdate](docs/DeskAdminReportUpdate.md)
+- [DeskAdminReportsResponse](docs/DeskAdminReportsResponse.md)
+- [DeskAdminReportsResponseMeta](docs/DeskAdminReportsResponseMeta.md)
+- [DeskAdminVersion](docs/DeskAdminVersion.md)
+- [DeskFinding](docs/DeskFinding.md)
+- [DeskHeadlineStat](docs/DeskHeadlineStat.md)
+- [DeskReportArchiveResponse](docs/DeskReportArchiveResponse.md)
+- [DeskReportArchiveResponseData](docs/DeskReportArchiveResponseData.md)
+- [DeskReportArtifact](docs/DeskReportArtifact.md)
+- [DeskReportFull](docs/DeskReportFull.md)
+- [DeskReportFullAllOfSections](docs/DeskReportFullAllOfSections.md)
+- [DeskReportOpenedResponse](docs/DeskReportOpenedResponse.md)
+- [DeskReportOpenedResponseData](docs/DeskReportOpenedResponseData.md)
+- [DeskReportResponse](docs/DeskReportResponse.md)
+- [DeskReportSummary](docs/DeskReportSummary.md)
+- [DeskReportSummaryCover](docs/DeskReportSummaryCover.md)
+- [DeskReportVersion](docs/DeskReportVersion.md)
+- [DeskReportsResponse](docs/DeskReportsResponse.md)
+- [DeskReportsResponseMeta](docs/DeskReportsResponseMeta.md)
+- [DeskRequest](docs/DeskRequest.md)
+- [DeskRequestContext](docs/DeskRequestContext.md)
+- [DeskRequestsResponse](docs/DeskRequestsResponse.md)
 - [DirectorsCupSchool](docs/DirectorsCupSchool.md)
 - [Division](docs/Division.md)
 - [DivisionCollection](docs/DivisionCollection.md)
 - [DossierReportResponse](docs/DossierReportResponse.md)
+- [EadaDerivedMetric](docs/EadaDerivedMetric.md)
+- [EadaFinancialSearchResponse](docs/EadaFinancialSearchResponse.md)
+- [EadaFinancialSearchResultRow](docs/EadaFinancialSearchResultRow.md)
+- [EadaInstitutionResult](docs/EadaInstitutionResult.md)
+- [EadaMetricCatalogEntry](docs/EadaMetricCatalogEntry.md)
+- [EadaMetricCatalogResponse](docs/EadaMetricCatalogResponse.md)
+- [EadaNormalizedMetric](docs/EadaNormalizedMetric.md)
+- [EadaSportResultItem](docs/EadaSportResultItem.md)
 - [EditAccountUser](docs/EditAccountUser.md)
 - [EditAccountUserResponse](docs/EditAccountUserResponse.md)
 - [EnrichGamePostSearchesRequest](docs/EnrichGamePostSearchesRequest.md)
 - [FilterPositionType](docs/FilterPositionType.md)
 - [Filters](docs/Filters.md)
+- [FinancialComparison](docs/FinancialComparison.md)
+- [FinancialComparisonRankedRow](docs/FinancialComparisonRankedRow.md)
+- [FinancialComparisonResponse](docs/FinancialComparisonResponse.md)
+- [FinancialComparisonSchoolEntry](docs/FinancialComparisonSchoolEntry.md)
 - [FinancialQc](docs/FinancialQc.md)
 - [FinancialSearchResult](docs/FinancialSearchResult.md)
 - [FinancialSearchResultCollection](docs/FinancialSearchResultCollection.md)
+- [FinancialSelection](docs/FinancialSelection.md)
+- [FinancialSelectionMetric](docs/FinancialSelectionMetric.md)
+- [FinancialSelectionResult](docs/FinancialSelectionResult.md)
 - [FoiaFollowUpContact](docs/FoiaFollowUpContact.md)
 - [FoiaFollowUpGmailSearchHints](docs/FoiaFollowUpGmailSearchHints.md)
 - [FoiaFollowUpNote](docs/FoiaFollowUpNote.md)
@@ -797,6 +879,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [HTTPValidationError](docs/HTTPValidationError.md)
 - [HealthCheckFailure](docs/HealthCheckFailure.md)
 - [HealthCheckSuccess](docs/HealthCheckSuccess.md)
+- [HideAdminDeskReportRequest](docs/HideAdminDeskReportRequest.md)
 - [HumanOverrideRequest](docs/HumanOverrideRequest.md)
 - [HumanOverrideRequestJobPost](docs/HumanOverrideRequestJobPost.md)
 - [HumanOverrideResult](docs/HumanOverrideResult.md)
@@ -836,6 +919,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Logo](docs/Logo.md)
 - [McpEvent](docs/McpEvent.md)
 - [Meta](docs/Meta.md)
+- [Meta1](docs/Meta1.md)
 - [NcaaFinancialParticipationSummary](docs/NcaaFinancialParticipationSummary.md)
 - [NcaaFinancialReportItemGroup](docs/NcaaFinancialReportItemGroup.md)
 - [NcaaFinancialReportItemValue](docs/NcaaFinancialReportItemValue.md)
@@ -843,6 +927,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NcaaFinancialReportStatusCollection](docs/NcaaFinancialReportStatusCollection.md)
 - [NcaaFinancialSourceAggregate](docs/NcaaFinancialSourceAggregate.md)
 - [NcaaFinancialStat](docs/NcaaFinancialStat.md)
+- [NeedsInfoAdminDeskRequest200Response](docs/NeedsInfoAdminDeskRequest200Response.md)
+- [NeedsInfoAdminDeskRequest200ResponseData](docs/NeedsInfoAdminDeskRequest200ResponseData.md)
+- [NeedsInfoAdminDeskRequestRequest](docs/NeedsInfoAdminDeskRequestRequest.md)
 - [NewAccountUserResponse](docs/NewAccountUserResponse.md)
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
@@ -860,6 +947,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PredictBody](docs/PredictBody.md)
 - [PredictFailure](docs/PredictFailure.md)
 - [PredictSuccess](docs/PredictSuccess.md)
+- [PublishAdminDeskReportRequest](docs/PublishAdminDeskReportRequest.md)
 - [QuadrantUnplottedSchool](docs/QuadrantUnplottedSchool.md)
 - [RawContract](docs/RawContract.md)
 - [RawContractBackTo](docs/RawContractBackTo.md)
@@ -917,6 +1005,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SchoolDepartmentOverview](docs/SchoolDepartmentOverview.md)
 - [SchoolDepartmentOverviewConference](docs/SchoolDepartmentOverviewConference.md)
 - [SchoolDepartmentOverviewSchool](docs/SchoolDepartmentOverviewSchool.md)
+- [SchoolEadaFinancials](docs/SchoolEadaFinancials.md)
+- [SchoolEadaFinancialsSports](docs/SchoolEadaFinancialsSports.md)
 - [SchoolFinancialDetail](docs/SchoolFinancialDetail.md)
 - [SchoolFinancialDetailGroup](docs/SchoolFinancialDetailGroup.md)
 - [SchoolFinancialDetailSibling](docs/SchoolFinancialDetailSibling.md)
@@ -991,6 +1081,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateAccountUserActivationRequestUser](docs/UpdateAccountUserActivationRequestUser.md)
 - [UpdateAccountUserRequest](docs/UpdateAccountUserRequest.md)
 - [UpdateAccountUserRequestUser](docs/UpdateAccountUserRequestUser.md)
+- [UpdateAdminDeskRequest200Response](docs/UpdateAdminDeskRequest200Response.md)
+- [UpdateAdminDeskRequest200ResponseData](docs/UpdateAdminDeskRequest200ResponseData.md)
+- [UpdateAdminDeskRequestRequest](docs/UpdateAdminDeskRequestRequest.md)
 - [UpdateFavorite200Response](docs/UpdateFavorite200Response.md)
 - [UpdateFavoriteRequest](docs/UpdateFavoriteRequest.md)
 - [UpdateFavoritesCategoryRequest](docs/UpdateFavoritesCategoryRequest.md)
@@ -1020,6 +1113,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UserRequest](docs/UserRequest.md)
 - [UserRequestCollection](docs/UserRequestCollection.md)
 - [UserScheduleSportsInner](docs/UserScheduleSportsInner.md)
+- [ValidateAdminDeskReport200Response](docs/ValidateAdminDeskReport200Response.md)
+- [ValidateAdminDeskReportRequest](docs/ValidateAdminDeskReportRequest.md)
 - [ValidationError](docs/ValidationError.md)
 - [Vendor](docs/Vendor.md)
 - [VendorCollection](docs/VendorCollection.md)
@@ -1057,8 +1152,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.54.0`
-- Package version: `1.54.0`
+- API version: `0.0.0-dev.33193261412`
+- Package version: `0.0.0-dev.33193261412`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
