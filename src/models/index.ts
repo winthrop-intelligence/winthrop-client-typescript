@@ -484,6 +484,7 @@ export * from './PositionCollection';
 export * from './PositionEntry';
 export * from './PositionSportStat';
 export * from './PositionType';
+export * from './PositionTypeCollection';
 export * from './PositionTypeGroup';
 export * from './PredictBody';
 export * from './PredictFailure';

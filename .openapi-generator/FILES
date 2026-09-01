@@ -492,6 +492,7 @@ docs/PositionCollection.md
 docs/PositionEntry.md
 docs/PositionSportStat.md
 docs/PositionType.md
+docs/PositionTypeCollection.md
 docs/PositionTypeGroup.md
 docs/PredictBody.md
 docs/PredictFailure.md
@@ -1166,6 +1167,7 @@ src/models/PositionCollection.ts
 src/models/PositionEntry.ts
 src/models/PositionSportStat.ts
 src/models/PositionType.ts
+src/models/PositionTypeCollection.ts
 src/models/PositionTypeGroup.ts
 src/models/PredictBody.ts
 src/models/PredictFailure.ts

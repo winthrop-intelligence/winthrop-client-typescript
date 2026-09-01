@@ -15,6 +15,7 @@ Name | Type
 `positionTypeGroup` | [PositionTypeGroup](PositionTypeGroup.md)
 `forceDisplayTitle` | boolean
 `intercollegiateOnly` | boolean
+`visible` | boolean
 
 ## Example
 
@@ -32,6 +33,7 @@ const example = {
   "positionTypeGroup": null,
   "forceDisplayTitle": false,
   "intercollegiateOnly": false,
+  "visible": true,
 } satisfies PositionType
 
 console.log(example)
