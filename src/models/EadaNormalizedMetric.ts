@@ -81,10 +81,10 @@ export interface EadaNormalizedMetric {
     definition?: string | null;
     /**
      * Raw typed-column value (whole dollars for usd fields — not cents)
-     * @type {any}
+     * @type {number}
      * @memberof EadaNormalizedMetric
      */
-    value: any | null;
+    value: number | null;
     /**
      * 
      * @type {string}

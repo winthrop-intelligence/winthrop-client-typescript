@@ -17,7 +17,7 @@ Name | Type
 `sourceField` | string
 `label` | string
 `definition` | string
-`value` | any
+`value` | number
 `unit` | string
 `gender` | string
 `comparabilityState` | string

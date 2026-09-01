@@ -57,10 +57,10 @@ export interface FinancialSelectionMetric {
     label?: string | null;
     /**
      * Raw typed value (whole dollars for usd fields — not cents)
-     * @type {any}
+     * @type {number}
      * @memberof FinancialSelectionMetric
      */
-    value?: any | null;
+    value?: number | null;
     /**
      * 
      * @type {string}

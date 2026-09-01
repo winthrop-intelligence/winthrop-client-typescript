@@ -52,7 +52,7 @@ export interface FinancialSelectionResult {
      */
     available: boolean;
     /**
-     * sport_not_mapped_to_eada marks a WinAD sport with no EADA crosswalk row at all (a mapping gap, not a missing filing); source_not_permitted_for_viewer also covers best_available/both requests where the viewer holds neither source ability for this school.
+     * sport_not_mapped_to_eada marks a WinAD sport with no EADA crosswalk row at all (a mapping gap, not a missing filing); source_not_permitted_for_viewer also covers best_available/both requests where the viewer holds neither source ability for this school. ncaa_frs_suppressed_private_school marks the NCAA FRS result for a private school — suppressed by policy for every viewer, whatever legacy data exists; the three *_used_eada reasons distinguish WHY best_available is showing EADA (no filing / viewer permission / private-school policy) so the UI never claims a filing gap when the truth is suppression.
      * @type {string}
      * @memberof FinancialSelectionResult
      */
@@ -96,6 +96,9 @@ export type FinancialSelectionResultGrainEnum = typeof FinancialSelectionResultG
  */
 export const FinancialSelectionResultFallbackReasonEnum = {
     NcaaFrsUnavailableUsedEada: 'ncaa_frs_unavailable_used_eada',
+    NcaaFrsNotPermittedUsedEada: 'ncaa_frs_not_permitted_used_eada',
+    NcaaFrsPrivateSchoolUsedEada: 'ncaa_frs_private_school_used_eada',
+    NcaaFrsSuppressedPrivateSchool: 'ncaa_frs_suppressed_private_school',
     NoReportAvailableForAnySource: 'no_report_available_for_any_source',
     SourceNotPermittedForViewer: 'source_not_permitted_for_viewer',
     SportNotMappedToEada: 'sport_not_mapped_to_eada'

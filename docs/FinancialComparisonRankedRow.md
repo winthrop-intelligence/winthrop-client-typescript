@@ -12,7 +12,7 @@ Name | Type
 `source` | string
 `year` | number
 `fallbackReason` | string
-`value` | any
+`value` | number
 `comparabilityState` | string
 
 ## Example

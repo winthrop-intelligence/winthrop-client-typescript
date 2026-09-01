@@ -13,7 +13,7 @@ Name | Type
 `canonicalMetricId` | string
 `nativeMetricId` | string
 `label` | string
-`value` | any
+`value` | number
 `unit` | string
 `comparabilityState` | string
 `counterpartNote` | string

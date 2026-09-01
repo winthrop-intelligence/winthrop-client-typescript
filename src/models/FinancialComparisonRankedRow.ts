@@ -57,10 +57,10 @@ export interface FinancialComparisonRankedRow {
     fallbackReason?: string | null;
     /**
      * The metric's raw typed value for this school/source
-     * @type {any}
+     * @type {number}
      * @memberof FinancialComparisonRankedRow
      */
-    value: any | null;
+    value: number;
     /**
      * 
      * @type {string}
