@@ -26,6 +26,7 @@ Name | Type
 `canShowGameContract` | boolean
 `canSeeCoaches` | boolean
 `canSeeAdministrators` | boolean
+`canSeeEadaFinancials` | boolean
 `canShowFinancials` | boolean
 `canShowDeals` | boolean
 `canShowBenchmark` | boolean
@@ -34,6 +35,7 @@ Name | Type
 `canShowGamePost` | boolean
 `canSeeSchoolGroups` | boolean
 `canReadAccount` | boolean
+`canShowDesk` | boolean
 `canLaunchIntercollegiate` | boolean
 `intercollegiateUrl` | string
 `isSportSpecific` | boolean
@@ -83,6 +85,7 @@ const example = {
   "canShowGameContract": null,
   "canSeeCoaches": null,
   "canSeeAdministrators": null,
+  "canSeeEadaFinancials": null,
   "canShowFinancials": null,
   "canShowDeals": null,
   "canShowBenchmark": null,
@@ -91,6 +94,7 @@ const example = {
   "canShowGamePost": null,
   "canSeeSchoolGroups": null,
   "canReadAccount": null,
+  "canShowDesk": null,
   "canLaunchIntercollegiate": null,
   "intercollegiateUrl": null,
   "isSportSpecific": null,

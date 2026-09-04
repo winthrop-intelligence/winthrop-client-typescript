@@ -1,6 +1,7 @@
 
 # GameDetailAllOfGameContract
 
+Contract-level facts (comp_cents, cancel_fee_cents, signed_on, off_site_location, file_url/has_file) are withheld — null / false / absent — unless the caller can view the game contract, the same permission that gates the contract link. id and game_type are always present.
 
 ## Properties
 

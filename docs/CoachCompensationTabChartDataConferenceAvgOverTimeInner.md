@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `year` | number
+`conferenceName` | string
 `avgCents` | number
 
 ## Example
@@ -17,6 +18,7 @@ import type { CoachCompensationTabChartDataConferenceAvgOverTimeInner } from '@w
 // TODO: Update the object below with actual values
 const example = {
   "year": null,
+  "conferenceName": null,
   "avgCents": null,
 } satisfies CoachCompensationTabChartDataConferenceAvgOverTimeInner
 
