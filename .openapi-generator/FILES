@@ -364,12 +364,15 @@ docs/GadSummaryError.md
 docs/Game.md
 docs/GameCollection.md
 docs/GameContract.md
+docs/GameContractApplyCapabilities.md
 docs/GameContractApplyResponse.md
 docs/GameContractApplyResponseActionsValue.md
 docs/GameContractApplyResponseActor.md
 docs/GameContractApplyResponsePdfProcessing.md
 docs/GameContractApplyResponseSourceDocument.md
 docs/GameContractCollection.md
+docs/GameContractHistory.md
+docs/GameContractHistoryEntry.md
 docs/GameContractSeriesEntry.md
 docs/GameContractSeriesResponse.md
 docs/GameContractsApi.md
@@ -404,6 +407,7 @@ docs/GamePostSearchResultPostsInner.md
 docs/GamePostSearchResultPostsInnerCreatedBy.md
 docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
+docs/GamesApi.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
 docs/GetCompensationComparisons400Response.md
@@ -676,6 +680,7 @@ src/apis/DefaultApi.ts
 src/apis/DossierApi.ts
 src/apis/FoiaInboxApi.ts
 src/apis/GameContractsApi.ts
+src/apis/GamesApi.ts
 src/apis/IntercollegiateApi.ts
 src/apis/MlAthleticApi.ts
 src/apis/ReportingApi.ts
@@ -1042,12 +1047,15 @@ src/models/GadSummaryError.ts
 src/models/Game.ts
 src/models/GameCollection.ts
 src/models/GameContract.ts
+src/models/GameContractApplyCapabilities.ts
 src/models/GameContractApplyResponse.ts
 src/models/GameContractApplyResponseActionsValue.ts
 src/models/GameContractApplyResponseActor.ts
 src/models/GameContractApplyResponsePdfProcessing.ts
 src/models/GameContractApplyResponseSourceDocument.ts
 src/models/GameContractCollection.ts
+src/models/GameContractHistory.ts
+src/models/GameContractHistoryEntry.ts
 src/models/GameContractSeriesEntry.ts
 src/models/GameContractSeriesResponse.ts
 src/models/GameDetail.ts
