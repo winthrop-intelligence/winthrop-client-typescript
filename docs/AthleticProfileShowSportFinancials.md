@@ -9,6 +9,7 @@ Name | Type
 ------------ | -------------
 `seasonYear` | number
 `conferenceName` | string
+`availableFiscalYears` | Array&lt;number&gt;
 `quadrant` | [AthleticProfileShowSportFinancialsQuadrant](AthleticProfileShowSportFinancialsQuadrant.md)
 `frsSplit` | [AthleticProfileShowSportFinancialsFrsSplit](AthleticProfileShowSportFinancialsFrsSplit.md)
 `costBuild` | [AthleticProfileShowSportFinancialsCostBuild](AthleticProfileShowSportFinancialsCostBuild.md)
@@ -25,6 +26,7 @@ import type { AthleticProfileShowSportFinancials } from '@winthrop-intelligence/
 const example = {
   "seasonYear": null,
   "conferenceName": null,
+  "availableFiscalYears": null,
   "quadrant": null,
   "frsSplit": null,
   "costBuild": null,
