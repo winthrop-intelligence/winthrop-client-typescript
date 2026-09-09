@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `data` | [Array&lt;Category&gt;](Category.md)
-`meta` | [Meta](Meta.md)
+`meta` | [Meta1](Meta1.md)
 
 ## Example
 
