@@ -9,6 +9,7 @@ Name | Type
 `benchCents` | number
 `wins` | number
 `perWinCents` | number
+`compBasis` | string
 `cohortMedianPerWinCents` | number
 `cohortSize` | number
 `cheapest` | [AthleticProfileShowSportFinancialsCostPerWinCheapest](AthleticProfileShowSportFinancialsCostPerWinCheapest.md)
@@ -23,6 +24,7 @@ const example = {
   "benchCents": null,
   "wins": null,
   "perWinCents": null,
+  "compBasis": null,
   "cohortMedianPerWinCents": null,
   "cohortSize": null,
   "cheapest": null,

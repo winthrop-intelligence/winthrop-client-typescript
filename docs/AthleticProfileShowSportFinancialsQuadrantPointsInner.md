@@ -13,6 +13,8 @@ Name | Type
 `isSubject` | boolean
 `spendCents` | number
 `revenueCents` | number
+`basis` | string
+`basisYear` | number
 
 ## Example
 
@@ -28,6 +30,8 @@ const example = {
   "isSubject": null,
   "spendCents": null,
   "revenueCents": null,
+  "basis": null,
+  "basisYear": null,
 } satisfies AthleticProfileShowSportFinancialsQuadrantPointsInner
 
 console.log(example)
