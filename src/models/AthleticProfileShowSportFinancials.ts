@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AthleticProfileShowSportFinancialsProgramCostPerWin } from './AthleticProfileShowSportFinancialsProgramCostPerWin';
+import {
+    AthleticProfileShowSportFinancialsProgramCostPerWinFromJSON,
+    AthleticProfileShowSportFinancialsProgramCostPerWinFromJSONTyped,
+    AthleticProfileShowSportFinancialsProgramCostPerWinToJSON,
+    AthleticProfileShowSportFinancialsProgramCostPerWinToJSONTyped,
+} from './AthleticProfileShowSportFinancialsProgramCostPerWin';
 import type { AthleticProfileShowSportFinancialsDeptLine } from './AthleticProfileShowSportFinancialsDeptLine';
 import {
     AthleticProfileShowSportFinancialsDeptLineFromJSON,
@@ -20,6 +27,13 @@ import {
     AthleticProfileShowSportFinancialsDeptLineToJSON,
     AthleticProfileShowSportFinancialsDeptLineToJSONTyped,
 } from './AthleticProfileShowSportFinancialsDeptLine';
+import type { AthleticProfileShowSportFinancialsEadaSportLine } from './AthleticProfileShowSportFinancialsEadaSportLine';
+import {
+    AthleticProfileShowSportFinancialsEadaSportLineFromJSON,
+    AthleticProfileShowSportFinancialsEadaSportLineFromJSONTyped,
+    AthleticProfileShowSportFinancialsEadaSportLineToJSON,
+    AthleticProfileShowSportFinancialsEadaSportLineToJSONTyped,
+} from './AthleticProfileShowSportFinancialsEadaSportLine';
 import type { AthleticProfileShowSportFinancialsCostBuild } from './AthleticProfileShowSportFinancialsCostBuild';
 import {
     AthleticProfileShowSportFinancialsCostBuildFromJSON,
@@ -87,6 +101,12 @@ export interface AthleticProfileShowSportFinancials {
     frsSplit?: AthleticProfileShowSportFinancialsFrsSplit;
     /**
      * 
+     * @type {AthleticProfileShowSportFinancialsEadaSportLine}
+     * @memberof AthleticProfileShowSportFinancials
+     */
+    eadaSportLine?: AthleticProfileShowSportFinancialsEadaSportLine | null;
+    /**
+     * 
      * @type {AthleticProfileShowSportFinancialsCostBuild}
      * @memberof AthleticProfileShowSportFinancials
      */
@@ -97,6 +117,12 @@ export interface AthleticProfileShowSportFinancials {
      * @memberof AthleticProfileShowSportFinancials
      */
     costPerWin?: AthleticProfileShowSportFinancialsCostPerWin | null;
+    /**
+     * 
+     * @type {AthleticProfileShowSportFinancialsProgramCostPerWin}
+     * @memberof AthleticProfileShowSportFinancials
+     */
+    programCostPerWin?: AthleticProfileShowSportFinancialsProgramCostPerWin | null;
     /**
      * 
      * @type {AthleticProfileShowSportFinancialsDeptLine}
@@ -133,8 +159,10 @@ export function AthleticProfileShowSportFinancialsFromJSONTyped(json: any, ignor
         'availableFiscalYears': json['available_fiscal_years'] == null ? undefined : json['available_fiscal_years'],
         'quadrant': json['quadrant'] == null ? undefined : AthleticProfileShowSportFinancialsQuadrantFromJSON(json['quadrant']),
         'frsSplit': json['frs_split'] == null ? undefined : AthleticProfileShowSportFinancialsFrsSplitFromJSON(json['frs_split']),
+        'eadaSportLine': json['eada_sport_line'] == null ? undefined : AthleticProfileShowSportFinancialsEadaSportLineFromJSON(json['eada_sport_line']),
         'costBuild': json['cost_build'] == null ? undefined : AthleticProfileShowSportFinancialsCostBuildFromJSON(json['cost_build']),
         'costPerWin': json['cost_per_win'] == null ? undefined : AthleticProfileShowSportFinancialsCostPerWinFromJSON(json['cost_per_win']),
+        'programCostPerWin': json['program_cost_per_win'] == null ? undefined : AthleticProfileShowSportFinancialsProgramCostPerWinFromJSON(json['program_cost_per_win']),
         'deptLine': json['dept_line'] == null ? undefined : AthleticProfileShowSportFinancialsDeptLineFromJSON(json['dept_line']),
         'asOf': json['as_of'] == null ? undefined : (new Date(json['as_of'])),
     };
@@ -156,8 +184,10 @@ export function AthleticProfileShowSportFinancialsToJSONTyped(value?: AthleticPr
         'available_fiscal_years': value['availableFiscalYears'],
         'quadrant': AthleticProfileShowSportFinancialsQuadrantToJSON(value['quadrant']),
         'frs_split': AthleticProfileShowSportFinancialsFrsSplitToJSON(value['frsSplit']),
+        'eada_sport_line': AthleticProfileShowSportFinancialsEadaSportLineToJSON(value['eadaSportLine']),
         'cost_build': AthleticProfileShowSportFinancialsCostBuildToJSON(value['costBuild']),
         'cost_per_win': AthleticProfileShowSportFinancialsCostPerWinToJSON(value['costPerWin']),
+        'program_cost_per_win': AthleticProfileShowSportFinancialsProgramCostPerWinToJSON(value['programCostPerWin']),
         'dept_line': AthleticProfileShowSportFinancialsDeptLineToJSON(value['deptLine']),
         'as_of': value['asOf'] == null ? value['asOf'] : value['asOf'].toISOString().substring(0,10),
     };

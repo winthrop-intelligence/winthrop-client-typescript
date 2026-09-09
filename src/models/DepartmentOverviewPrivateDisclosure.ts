@@ -22,7 +22,7 @@ import {
 } from './DepartmentOverviewPrivateDisclosureLine';
 
 /**
- * 
+ * Dead since WINAD-10390, which replaced the disclosure lists with the coaching-pay and department-snapshot cards. Always null; the key survives only because the pinned client still requires it.
  * @export
  * @interface DepartmentOverviewPrivateDisclosure
  */

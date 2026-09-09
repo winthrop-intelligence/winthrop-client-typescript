@@ -1,28 +1,28 @@
 
-# AthleticProfileShowSportFinancialsDeptLine
+# DepartmentOverviewPrivateCoachingPayRow
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`fiscalYear` | number
-`deptCoachingCents` | number
-`benchCents` | number
-`basis` | string
+`key` | string
+`label` | string
+`coachCount` | number
+`amountCents` | number
 
 ## Example
 
 ```typescript
-import type { AthleticProfileShowSportFinancialsDeptLine } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DepartmentOverviewPrivateCoachingPayRow } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "fiscalYear": null,
-  "deptCoachingCents": null,
-  "benchCents": null,
-  "basis": null,
-} satisfies AthleticProfileShowSportFinancialsDeptLine
+  "key": null,
+  "label": null,
+  "coachCount": null,
+  "amountCents": null,
+} satisfies DepartmentOverviewPrivateCoachingPayRow
 
 console.log(example)
 
@@ -31,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AthleticProfileShowSportFinancialsDeptLine
+const exampleParsed = JSON.parse(exampleJSON) as DepartmentOverviewPrivateCoachingPayRow
 console.log(exampleParsed)
 ```
 

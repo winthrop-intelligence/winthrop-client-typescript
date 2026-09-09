@@ -43,7 +43,30 @@ export interface AthleticProfileShowSportFinancialsCostBuildHeadCoach {
      * @memberof AthleticProfileShowSportFinancialsCostBuildHeadCoach
      */
     onFile?: boolean;
+    /**
+     * Which filing the figure is read from — a contract, or the school's IRS 990 for a private school.
+     * @type {string}
+     * @memberof AthleticProfileShowSportFinancialsCostBuildHeadCoach
+     */
+    compBasis?: AthleticProfileShowSportFinancialsCostBuildHeadCoachCompBasisEnum;
+    /**
+     * The 990's filing year; null for a contract figure.
+     * @type {number}
+     * @memberof AthleticProfileShowSportFinancialsCostBuildHeadCoach
+     */
+    compFiscalYear?: number | null;
 }
+
+
+/**
+ * @export
+ */
+export const AthleticProfileShowSportFinancialsCostBuildHeadCoachCompBasisEnum = {
+    Contract: 'contract',
+    _990: '990'
+} as const;
+export type AthleticProfileShowSportFinancialsCostBuildHeadCoachCompBasisEnum = typeof AthleticProfileShowSportFinancialsCostBuildHeadCoachCompBasisEnum[keyof typeof AthleticProfileShowSportFinancialsCostBuildHeadCoachCompBasisEnum];
+
 
 /**
  * Check if a given object implements the AthleticProfileShowSportFinancialsCostBuildHeadCoach interface.
@@ -66,6 +89,8 @@ export function AthleticProfileShowSportFinancialsCostBuildHeadCoachFromJSONType
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'compCents': json['comp_cents'] == null ? undefined : json['comp_cents'],
         'onFile': json['on_file'] == null ? undefined : json['on_file'],
+        'compBasis': json['comp_basis'] == null ? undefined : json['comp_basis'],
+        'compFiscalYear': json['comp_fiscal_year'] == null ? undefined : json['comp_fiscal_year'],
     };
 }
 
@@ -84,6 +109,8 @@ export function AthleticProfileShowSportFinancialsCostBuildHeadCoachToJSONTyped(
         'last_name': value['lastName'],
         'comp_cents': value['compCents'],
         'on_file': value['onFile'],
+        'comp_basis': value['compBasis'],
+        'comp_fiscal_year': value['compFiscalYear'],
     };
 }
 

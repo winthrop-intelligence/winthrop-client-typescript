@@ -59,13 +59,19 @@ export interface AthleticProfileShowSportCoachStaffHeadCoach {
      */
     compCents?: number | null;
     /**
+     * The IRS 990's own filing year, when this seat's pay was read from one (a private school — see comp_basis). Null on contract basis, where the contract's own dates say when.
+     * @type {number}
+     * @memberof AthleticProfileShowSportCoachStaffHeadCoach
+     */
+    compFiscalYear?: number | null;
+    /**
      * 
      * @type {number}
      * @memberof AthleticProfileShowSportCoachStaffHeadCoach
      */
     baseSalaryCents?: number | null;
     /**
-     * 
+     * Withheld (null) on 990 basis: a 990 total and a contract's guaranteed comp are different quantities, so placing one in the other's order would invent a comparison neither filing supports (WINAD-10406, matching DepartmentCoaches's private_990 rule).
      * @type {number}
      * @memberof AthleticProfileShowSportCoachStaffHeadCoach
      */
@@ -75,7 +81,7 @@ export interface AthleticProfileShowSportCoachStaffHeadCoach {
      * @type {number}
      * @memberof AthleticProfileShowSportCoachStaffHeadCoach
      */
-    compCohortSize?: number;
+    compCohortSize?: number | null;
     /**
      * 
      * @type {number}
@@ -159,6 +165,7 @@ export function AthleticProfileShowSportCoachStaffHeadCoachFromJSONTyped(json: a
         'name': json['name'] == null ? undefined : json['name'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'compCents': json['comp_cents'] == null ? undefined : json['comp_cents'],
+        'compFiscalYear': json['comp_fiscal_year'] == null ? undefined : json['comp_fiscal_year'],
         'baseSalaryCents': json['base_salary_cents'] == null ? undefined : json['base_salary_cents'],
         'compRank': json['comp_rank'] == null ? undefined : json['comp_rank'],
         'compCohortSize': json['comp_cohort_size'] == null ? undefined : json['comp_cohort_size'],
@@ -190,6 +197,7 @@ export function AthleticProfileShowSportCoachStaffHeadCoachToJSONTyped(value?: A
         'name': value['name'],
         'last_name': value['lastName'],
         'comp_cents': value['compCents'],
+        'comp_fiscal_year': value['compFiscalYear'],
         'base_salary_cents': value['baseSalaryCents'],
         'comp_rank': value['compRank'],
         'comp_cohort_size': value['compCohortSize'],

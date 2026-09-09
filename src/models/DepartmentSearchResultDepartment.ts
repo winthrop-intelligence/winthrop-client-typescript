@@ -52,11 +52,23 @@ export interface DepartmentSearchResultDepartment {
      */
     adSalaryCents?: number | null;
     /**
-     * 
+     * Whether this row's own source reported figures: NCAA FRS for a public school, EADA for a private one (WINAD-10383). Not "does any source hold figures" — a public school with no FRS filing is false even where an EADA filing exists, because public rows do not fall back.
      * @type {boolean}
      * @memberof DepartmentSearchResultDepartment
      */
     financialsReported?: boolean;
+    /**
+     * Which report revenue_cents/expense_cents were read from. Public schools report NCAA FRS and never fall back; private schools report EADA, and their FRS figures are suppressed for every viewer. Null when the row's source reported nothing, and also when the viewer's subscription does not carry EADA for that school.
+     * @type {string}
+     * @memberof DepartmentSearchResultDepartment
+     */
+    financialsBasis?: DepartmentSearchResultDepartmentFinancialsBasisEnum | null;
+    /**
+     * The filing year those figures come from: the list's financials_year when the school filed it, otherwise that school's newest filing. An EADA row can therefore report a year the rest of the page is not on.
+     * @type {number}
+     * @memberof DepartmentSearchResultDepartment
+     */
+    financialsBasisYear?: number | null;
     /**
      * 
      * @type {number}
@@ -69,6 +81,18 @@ export interface DepartmentSearchResultDepartment {
      * @memberof DepartmentSearchResultDepartment
      */
     expenseCents?: number | null;
+    /**
+     * EADA sport-split revenue; null on an FRS row.
+     * @type {number}
+     * @memberof DepartmentSearchResultDepartment
+     */
+    footballRevenueCents?: number | null;
+    /**
+     * EADA sport-split revenue; null on an FRS row.
+     * @type {number}
+     * @memberof DepartmentSearchResultDepartment
+     */
+    mensBasketballRevenueCents?: number | null;
     /**
      * 
      * @type {number}
@@ -106,6 +130,15 @@ export const DepartmentSearchResultDepartmentAdStatusEnum = {
 } as const;
 export type DepartmentSearchResultDepartmentAdStatusEnum = typeof DepartmentSearchResultDepartmentAdStatusEnum[keyof typeof DepartmentSearchResultDepartmentAdStatusEnum];
 
+/**
+ * @export
+ */
+export const DepartmentSearchResultDepartmentFinancialsBasisEnum = {
+    Frs: 'frs',
+    Eada: 'eada'
+} as const;
+export type DepartmentSearchResultDepartmentFinancialsBasisEnum = typeof DepartmentSearchResultDepartmentFinancialsBasisEnum[keyof typeof DepartmentSearchResultDepartmentFinancialsBasisEnum];
+
 
 /**
  * Check if a given object implements the DepartmentSearchResultDepartment interface.
@@ -129,8 +162,12 @@ export function DepartmentSearchResultDepartmentFromJSONTyped(json: any, ignoreD
         'adCoachId': json['ad_coach_id'] == null ? undefined : json['ad_coach_id'],
         'adSalaryCents': json['ad_salary_cents'] == null ? undefined : json['ad_salary_cents'],
         'financialsReported': json['financials_reported'] == null ? undefined : json['financials_reported'],
+        'financialsBasis': json['financials_basis'] == null ? undefined : json['financials_basis'],
+        'financialsBasisYear': json['financials_basis_year'] == null ? undefined : json['financials_basis_year'],
         'revenueCents': json['revenue_cents'] == null ? undefined : json['revenue_cents'],
         'expenseCents': json['expense_cents'] == null ? undefined : json['expense_cents'],
+        'footballRevenueCents': json['football_revenue_cents'] == null ? undefined : json['football_revenue_cents'],
+        'mensBasketballRevenueCents': json['mens_basketball_revenue_cents'] == null ? undefined : json['mens_basketball_revenue_cents'],
         'budgetRank': json['budget_rank'] == null ? undefined : json['budget_rank'],
         'budgetRankOf': json['budget_rank_of'] == null ? undefined : json['budget_rank_of'],
         'budgetRankConferenceName': json['budget_rank_conference_name'] == null ? undefined : json['budget_rank_conference_name'],
@@ -154,8 +191,12 @@ export function DepartmentSearchResultDepartmentToJSONTyped(value?: DepartmentSe
         'ad_coach_id': value['adCoachId'],
         'ad_salary_cents': value['adSalaryCents'],
         'financials_reported': value['financialsReported'],
+        'financials_basis': value['financialsBasis'],
+        'financials_basis_year': value['financialsBasisYear'],
         'revenue_cents': value['revenueCents'],
         'expense_cents': value['expenseCents'],
+        'football_revenue_cents': value['footballRevenueCents'],
+        'mens_basketball_revenue_cents': value['mensBasketballRevenueCents'],
         'budget_rank': value['budgetRank'],
         'budget_rank_of': value['budgetRankOf'],
         'budget_rank_conference_name': value['budgetRankConferenceName'],

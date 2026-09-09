@@ -13,6 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AthleticProfileShowSportFinancialsCostBuildGameDayOperating } from './AthleticProfileShowSportFinancialsCostBuildGameDayOperating';
+import {
+    AthleticProfileShowSportFinancialsCostBuildGameDayOperatingFromJSON,
+    AthleticProfileShowSportFinancialsCostBuildGameDayOperatingFromJSONTyped,
+    AthleticProfileShowSportFinancialsCostBuildGameDayOperatingToJSON,
+    AthleticProfileShowSportFinancialsCostBuildGameDayOperatingToJSONTyped,
+} from './AthleticProfileShowSportFinancialsCostBuildGameDayOperating';
+import type { AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed } from './AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed';
+import {
+    AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosedFromJSON,
+    AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosedFromJSONTyped,
+    AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosedToJSON,
+    AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosedToJSONTyped,
+} from './AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed';
 import type { AthleticProfileShowSportFinancialsCostBuildHeadCoach } from './AthleticProfileShowSportFinancialsCostBuildHeadCoach';
 import {
     AthleticProfileShowSportFinancialsCostBuildHeadCoachFromJSON,
@@ -56,10 +70,28 @@ export interface AthleticProfileShowSportFinancialsCostBuild {
     headCoach?: AthleticProfileShowSportFinancialsCostBuildHeadCoach | null;
     /**
      * 
+     * @type {AthleticProfileShowSportFinancialsCostBuildGameDayOperating}
+     * @memberof AthleticProfileShowSportFinancialsCostBuild
+     */
+    gameDayOperating?: AthleticProfileShowSportFinancialsCostBuildGameDayOperating | null;
+    /**
+     * 
      * @type {AthleticProfileShowSportFinancialsCostBuildAssistantPool}
      * @memberof AthleticProfileShowSportFinancialsCostBuild
      */
     assistantPool?: AthleticProfileShowSportFinancialsCostBuildAssistantPool | null;
+    /**
+     * 
+     * @type {AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed}
+     * @memberof AthleticProfileShowSportFinancialsCostBuild
+     */
+    headCoachUndisclosed?: AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed | null;
+    /**
+     * Private schools only — assistant seats the season's roster carries, priced by no filing (the 990 names no assistant). Null for a public school, whose pool is priced in assistant_pool.
+     * @type {number}
+     * @memberof AthleticProfileShowSportFinancialsCostBuild
+     */
+    assistantSeats?: number | null;
     /**
      * 
      * @type {AthleticProfileShowSportFinancialsCostBuildGuaranteesNet}
@@ -98,7 +130,10 @@ export function AthleticProfileShowSportFinancialsCostBuildFromJSONTyped(json: a
     return {
         
         'headCoach': json['head_coach'] == null ? undefined : AthleticProfileShowSportFinancialsCostBuildHeadCoachFromJSON(json['head_coach']),
+        'gameDayOperating': json['game_day_operating'] == null ? undefined : AthleticProfileShowSportFinancialsCostBuildGameDayOperatingFromJSON(json['game_day_operating']),
         'assistantPool': json['assistant_pool'] == null ? undefined : AthleticProfileShowSportFinancialsCostBuildAssistantPoolFromJSON(json['assistant_pool']),
+        'headCoachUndisclosed': json['head_coach_undisclosed'] == null ? undefined : AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosedFromJSON(json['head_coach_undisclosed']),
+        'assistantSeats': json['assistant_seats'] == null ? undefined : json['assistant_seats'],
         'guaranteesNet': json['guarantees_net'] == null ? undefined : AthleticProfileShowSportFinancialsCostBuildGuaranteesNetFromJSON(json['guarantees_net']),
         'supportStaff': json['support_staff'] == null ? undefined : ((json['support_staff'] as Array<any>).map(AthleticProfileShowSportFinancialsCostBuildSupportStaffInnerFromJSON)),
         'totalCents': json['total_cents'] == null ? undefined : json['total_cents'],
@@ -117,7 +152,10 @@ export function AthleticProfileShowSportFinancialsCostBuildToJSONTyped(value?: A
     return {
         
         'head_coach': AthleticProfileShowSportFinancialsCostBuildHeadCoachToJSON(value['headCoach']),
+        'game_day_operating': AthleticProfileShowSportFinancialsCostBuildGameDayOperatingToJSON(value['gameDayOperating']),
         'assistant_pool': AthleticProfileShowSportFinancialsCostBuildAssistantPoolToJSON(value['assistantPool']),
+        'head_coach_undisclosed': AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosedToJSON(value['headCoachUndisclosed']),
+        'assistant_seats': value['assistantSeats'],
         'guarantees_net': AthleticProfileShowSportFinancialsCostBuildGuaranteesNetToJSON(value['guaranteesNet']),
         'support_staff': value['supportStaff'] == null ? undefined : ((value['supportStaff'] as Array<any>).map(AthleticProfileShowSportFinancialsCostBuildSupportStaffInnerToJSON)),
         'total_cents': value['totalCents'],
