@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`schoolId` | number
 `sportId` | number
 `date` | Date
 `gameTypeIds` | Array&lt;number&gt;
@@ -17,6 +18,7 @@ import type { CreateScheduleIntentRequestScheduleIntent } from '@winthrop-intell
 
 // TODO: Update the object below with actual values
 const example = {
+  "schoolId": null,
   "sportId": null,
   "date": null,
   "gameTypeIds": null,

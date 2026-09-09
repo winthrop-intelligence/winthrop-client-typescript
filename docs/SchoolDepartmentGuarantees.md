@@ -19,6 +19,7 @@ Name | Type
 `sports` | [Array&lt;DepartmentGuaranteesSportLedger&gt;](DepartmentGuaranteesSportLedger.md)
 `market` | [DepartmentGuaranteesMarket](DepartmentGuaranteesMarket.md)
 `trend` | [Array&lt;DepartmentGuaranteesTrendEntry&gt;](DepartmentGuaranteesTrendEntry.md)
+`slateCoverage` | [DepartmentGuaranteesSlateCoverage](DepartmentGuaranteesSlateCoverage.md)
 
 ## Example
 
@@ -40,6 +41,7 @@ const example = {
   "sports": null,
   "market": null,
   "trend": null,
+  "slateCoverage": null,
 } satisfies SchoolDepartmentGuarantees
 
 console.log(example)

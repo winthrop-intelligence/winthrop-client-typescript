@@ -12,6 +12,7 @@ Name | Type
 `interim` | boolean
 `firstSeasonYear` | number
 `compCents` | number
+`compFiscalYear` | number
 `compRank` | number
 `compCohortSize` | number
 `compMedianCents` | number
@@ -36,6 +37,7 @@ const example = {
   "interim": null,
   "firstSeasonYear": null,
   "compCents": null,
+  "compFiscalYear": null,
   "compRank": null,
   "compCohortSize": null,
   "compMedianCents": null,

@@ -7,7 +7,10 @@
 Name | Type
 ------------ | -------------
 `headCoach` | [AthleticProfileShowSportFinancialsCostBuildHeadCoach](AthleticProfileShowSportFinancialsCostBuildHeadCoach.md)
+`gameDayOperating` | [AthleticProfileShowSportFinancialsCostBuildGameDayOperating](AthleticProfileShowSportFinancialsCostBuildGameDayOperating.md)
 `assistantPool` | [AthleticProfileShowSportFinancialsCostBuildAssistantPool](AthleticProfileShowSportFinancialsCostBuildAssistantPool.md)
+`headCoachUndisclosed` | [AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed](AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed.md)
+`assistantSeats` | number
 `guaranteesNet` | [AthleticProfileShowSportFinancialsCostBuildGuaranteesNet](AthleticProfileShowSportFinancialsCostBuildGuaranteesNet.md)
 `supportStaff` | [Array&lt;AthleticProfileShowSportFinancialsCostBuildSupportStaffInner&gt;](AthleticProfileShowSportFinancialsCostBuildSupportStaffInner.md)
 `totalCents` | number
@@ -20,7 +23,10 @@ import type { AthleticProfileShowSportFinancialsCostBuild } from '@winthrop-inte
 // TODO: Update the object below with actual values
 const example = {
   "headCoach": null,
+  "gameDayOperating": null,
   "assistantPool": null,
+  "headCoachUndisclosed": null,
+  "assistantSeats": null,
   "guaranteesNet": null,
   "supportStaff": null,
   "totalCents": null,
