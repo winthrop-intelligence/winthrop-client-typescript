@@ -7,6 +7,7 @@ ReportAdmin (tmp/desk/TICKETS.md D-15) — the update screen and compose reopen 
 
 Name | Type
 ------------ | -------------
+`composition` | [DeskComposition](DeskComposition.md)
 `uuid` | string
 `account` | [DeskAdminAccount](DeskAdminAccount.md)
 `audienceUserCount` | number
@@ -42,6 +43,7 @@ import type { DeskAdminReport } from '@winthrop-intelligence/winthrop-client-typ
 
 // TODO: Update the object below with actual values
 const example = {
+  "composition": null,
   "uuid": null,
   "account": null,
   "audienceUserCount": null,
