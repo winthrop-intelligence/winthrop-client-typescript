@@ -14,9 +14,11 @@ Name | Type
 `quadrant` | [DepartmentFinancialsQuadrant](DepartmentFinancialsQuadrant.md)
 `netResult` | [DepartmentFinancialsNetResult](DepartmentFinancialsNetResult.md)
 `ranks` | [Array&lt;DepartmentFinancialsRankLine&gt;](DepartmentFinancialsRankLine.md)
+`ranksFiledCount` | number
 `revenue` | [DepartmentFinancialsLedger](DepartmentFinancialsLedger.md)
 `expenses` | [DepartmentFinancialsLedger](DepartmentFinancialsLedger.md)
 `trend` | [Array&lt;DepartmentFinancialsTrendEntry&gt;](DepartmentFinancialsTrendEntry.md)
+`officers990Count` | number
 `eadaLedger` | [DepartmentFinancialsEadaLedger](DepartmentFinancialsEadaLedger.md)
 `eadaCoaching` | [DepartmentFinancialsEadaCoaching](DepartmentFinancialsEadaCoaching.md)
 
@@ -35,9 +37,11 @@ const example = {
   "quadrant": null,
   "netResult": null,
   "ranks": null,
+  "ranksFiledCount": null,
   "revenue": null,
   "expenses": null,
   "trend": null,
+  "officers990Count": null,
   "eadaLedger": null,
   "eadaCoaching": null,
 } satisfies SchoolDepartmentFinancials

@@ -10,6 +10,7 @@ Name | Type
 `expTotalCents` | number
 `revTotalCents` | number
 `provisional` | boolean
+`basis` | string
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "expTotalCents": null,
   "revTotalCents": null,
   "provisional": null,
+  "basis": null,
 } satisfies DepartmentFinancialsTrendEntry
 
 console.log(example)
