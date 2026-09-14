@@ -20068,7 +20068,7 @@ example().catch(console.error);
 
 
 
-Validate → sanitize → extract → mint the next immutable version → live. A blocked body stores nothing (422 with the finding list). A null/blank body_html republishes the live body as-is (downloads-only update). An ask-born report delivers its ask and stamps the turnaround clause. A first publish emails everyone on the client\&#39;s account; a later version does so only when &#x60;renotify&#x60; is set (06.5). The response reports what was actually queued for delivery (&#x60;notified&#x60;), not what was asked for. 
+Publish a first edition with the existing JSON body, or submit an atomic Update report patch as multipart update JSON plus downloads[pdf], downloads[xlsx] and downloads[pptx]. An update commits details, audience, cover, body, download additions/replacements/removals, and exactly one version together. Failed validation or upload leaves the live report intact. Omitted update fields are preserved, including legacy cover/body text; explicit body_html must pass the report format check. A reader change_note, expected_version_number and a meaningful change are required. The expected version is the version_number the editor loaded; a mismatch returns 409 before any changes or uploads are applied. Hidden reports must be restored first. Ask-linked reports cannot change account, including a change to every school. Email delivery remains paused; notified is always false. 
 
 ### Example
 
@@ -20126,7 +20126,7 @@ example().catch(console.error);
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 
@@ -20134,6 +20134,8 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Published |  -  |
+| **400** | Malformed update or missing/invalid expected_version_number |  -  |
+| **409** | A newer report version is live; reload and review before resubmitting |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -21202,6 +21204,7 @@ example().catch(console.error);
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

@@ -7,6 +7,7 @@ A gallery card (frontend DeskReportSummary)
 
 Name | Type
 ------------ | -------------
+`coverHtml` | string
 `uuid` | string
 `title` | string
 `category` | string
@@ -32,6 +33,7 @@ import type { DeskReportSummary } from '@winthrop-intelligence/winthrop-client-t
 
 // TODO: Update the object below with actual values
 const example = {
+  "coverHtml": null,
   "uuid": null,
   "title": null,
   "category": null,
