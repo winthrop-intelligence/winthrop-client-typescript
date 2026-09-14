@@ -5,6 +5,7 @@ export * from './DefaultApi';
 export * from './DossierApi';
 export * from './FoiaInboxApi';
 export * from './GameContractsApi';
+export * from './GamesApi';
 export * from './IntercollegiateApi';
 export * from './MlAthleticApi';
 export * from './ReportingApi';
