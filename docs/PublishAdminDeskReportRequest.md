@@ -1,6 +1,7 @@
 
 # PublishAdminDeskReportRequest
 
+First publication sends body_html and optional note/change_note/renotify fields. Publishing a new version requires update, a JSON-encoded DeskAdminReportPublishUpdate; top-level publication fields are ignored when update is present. File uploads require multipart/form-data and travel in downloads[pdf], downloads[xlsx] and downloads[pptx]. An update without new files may also send the JSON-encoded update field as application/json. 
 
 ## Properties
 
@@ -10,6 +11,10 @@ Name | Type
 `note` | string
 `changeNote` | string
 `renotify` | boolean
+`update` | string
+`downloadsPdf` | Blob
+`downloadsXlsx` | Blob
+`downloadsPptx` | Blob
 
 ## Example
 
@@ -22,6 +27,10 @@ const example = {
   "note": null,
   "changeNote": null,
   "renotify": null,
+  "update": null,
+  "downloadsPdf": null,
+  "downloadsXlsx": null,
+  "downloadsPptx": null,
 } satisfies PublishAdminDeskReportRequest
 
 console.log(example)

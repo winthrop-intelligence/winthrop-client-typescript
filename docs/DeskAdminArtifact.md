@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`uploadedAt` | Date
 `id` | number
 `kind` | string
 `filename` | string
@@ -19,6 +20,7 @@ import type { DeskAdminArtifact } from '@winthrop-intelligence/winthrop-client-t
 
 // TODO: Update the object below with actual values
 const example = {
+  "uploadedAt": null,
   "id": null,
   "kind": null,
   "filename": null,
