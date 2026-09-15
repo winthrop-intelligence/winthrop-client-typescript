@@ -1,7 +1,7 @@
 
 # DeskAdminQueueRow
 
-One 06.1 queue row (frontend DeskAdminQueueRow, structured facts only). A report row\'s `account` is null when it publishes to every school (WINAD-10415 / D-29); an ask row always names one. 
+One 06.1 queue row (frontend DeskAdminQueueRow, structured facts only). A report row\'s `account` is null only for a legacy admin-only report awaiting school assignment; an ask row always names one. 
 
 ## Properties
 

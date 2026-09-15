@@ -10,13 +10,13 @@ Name | Type
 `category` | string
 `reportType` | string
 `summary` | string
-`headlineStats` | [Array&lt;DeskHeadlineStat&gt;](DeskHeadlineStat.md)
 `coverTreatment` | string
 `coverKicker` | string
 `coverNumeral` | string
 `pageCount` | number
 `pushExample` | string
 `rerunCadence` | string
+`headlineStats` | [Array&lt;DeskHeadlineStat&gt;](DeskHeadlineStat.md)
 
 ## Example
 
@@ -29,13 +29,13 @@ const example = {
   "category": null,
   "reportType": null,
   "summary": null,
-  "headlineStats": null,
   "coverTreatment": null,
   "coverKicker": null,
   "coverNumeral": null,
   "pageCount": null,
   "pushExample": null,
   "rerunCadence": null,
+  "headlineStats": null,
 } satisfies DeskAdminCover
 
 console.log(example)
