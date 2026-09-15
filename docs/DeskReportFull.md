@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`coverHtml` | string
 `uuid` | string
 `title` | string
 `category` | string
@@ -36,6 +37,7 @@ import type { DeskReportFull } from '@winthrop-intelligence/winthrop-client-type
 
 // TODO: Update the object below with actual values
 const example = {
+  "coverHtml": null,
   "uuid": null,
   "title": null,
   "category": null,
