@@ -9,6 +9,7 @@ Name | Type
 `number` | number
 `note` | string
 `changeNote` | string
+`audienceCount` | number
 `publishedAt` | Date
 `publishedBy` | string
 
@@ -22,6 +23,7 @@ const example = {
   "number": null,
   "note": null,
   "changeNote": null,
+  "audienceCount": null,
   "publishedAt": null,
   "publishedBy": null,
 } satisfies DeskAdminVersion
