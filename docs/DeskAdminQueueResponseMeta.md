@@ -9,7 +9,6 @@ Name | Type
 `totalEntries` | number
 `counts` | { [key: string]: number; }
 `accounts` | [Array&lt;DeskAdminAccount&gt;](DeskAdminAccount.md)
-`everySchoolUserCount` | number
 
 ## Example
 
@@ -21,7 +20,6 @@ const example = {
   "totalEntries": null,
   "counts": null,
   "accounts": null,
-  "everySchoolUserCount": null,
 } satisfies DeskAdminQueueResponseMeta
 
 console.log(example)
