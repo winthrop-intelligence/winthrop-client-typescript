@@ -6,6 +6,10 @@
 
 Name | Type
 ------------ | -------------
+`accountName` | string
+`subscriptionTypeName` | string
+`agreementFilename` | string
+`agreementPath` | string
 `id` | number
 `accountableId` | number
 `creatorId` | number
@@ -41,6 +45,10 @@ import type { Subscription } from '@winthrop-intelligence/winthrop-client-typesc
 
 // TODO: Update the object below with actual values
 const example = {
+  "accountName": null,
+  "subscriptionTypeName": null,
+  "agreementFilename": null,
+  "agreementPath": null,
   "id": 335,
   "accountableId": 1,
   "creatorId": 2,

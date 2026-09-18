@@ -17977,7 +17977,7 @@ No authorization required
 
 ## getSubscriptions
 
-> SubscriptionCollection getSubscriptions(page, perPage, q)
+> SubscriptionCollection getSubscriptions(page, perPage, q, estimatedInvoiceDateGteq, estimatedInvoiceDateLteq)
 
 
 
@@ -18009,6 +18009,10 @@ async function example() {
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
+    // string | Legacy estimated invoice date lower bound, normalized to day of year. (optional)
+    estimatedInvoiceDateGteq: estimatedInvoiceDateGteq_example,
+    // string | Legacy estimated invoice date upper bound; preserves existing single-bound behavior. (optional)
+    estimatedInvoiceDateLteq: estimatedInvoiceDateLteq_example,
   } satisfies GetSubscriptionsRequest;
 
   try {
@@ -18031,6 +18035,8 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **estimatedInvoiceDateGteq** | `string` | Legacy estimated invoice date lower bound, normalized to day of year. | [Optional] [Defaults to `undefined`] |
+| **estimatedInvoiceDateLteq** | `string` | Legacy estimated invoice date upper bound; preserves existing single-bound behavior. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -21204,6 +21210,7 @@ example().catch(console.error);
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
