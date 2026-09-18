@@ -628,6 +628,7 @@ export * from './Subscription';
 export * from './SubscriptionAcceptance';
 export * from './SubscriptionAcceptanceErrors';
 export * from './SubscriptionCollection';
+export * from './SubscriptionTypeOption';
 export * from './SystemSetting';
 export * from './Tag';
 export * from './TeamScheduleCoaches';
