@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.54.3
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.35596662664
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -97,6 +97,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createScheduleTournament**](docs/DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments | 
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
+*DefaultApi* | [**createSubscription**](docs/DefaultApi.md#createsubscription) | **POST** /api/v1/subscriptions | 
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**createUpload**](docs/DefaultApi.md#createupload) | **POST** /api/v1/uploads | 
 *DefaultApi* | [**deleteAccountUser**](docs/DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} | 
@@ -131,6 +132,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
+*DefaultApi* | [**getAccounts**](docs/DefaultApi.md#getaccounts) | **GET** /api/v1/accounts | 
 *DefaultApi* | [**getAdminDeskReport**](docs/DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} | 
 *DefaultApi* | [**getAdminDeskReports**](docs/DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports | 
 *DefaultApi* | [**getAdminDeskRequests**](docs/DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests | 
@@ -287,6 +289,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSubdivisions**](docs/DefaultApi.md#getsubdivisions) | **GET** /api/v1/subdivisions | 
 *DefaultApi* | [**getSubscription**](docs/DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} | 
 *DefaultApi* | [**getSubscriptionAcceptance**](docs/DefaultApi.md#getsubscriptionacceptance) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
+*DefaultApi* | [**getSubscriptionTypes**](docs/DefaultApi.md#getsubscriptiontypes) | **GET** /api/v1/subscription_types | 
 *DefaultApi* | [**getSubscriptions**](docs/DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions | 
 *DefaultApi* | [**getSystemSettings**](docs/DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting | 
 *DefaultApi* | [**getTeamScheduleDetail**](docs/DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} | 
@@ -347,6 +350,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateScheduleIntent**](docs/DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} | 
 *DefaultApi* | [**updateSchoolGroup**](docs/DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
+*DefaultApi* | [**updateSubscription**](docs/DefaultApi.md#updatesubscriptionoperation) | **PATCH** /api/v1/subscriptions/{subscriptionId} | 
 *DefaultApi* | [**updateSubscriptionAcceptance**](docs/DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
@@ -399,6 +403,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AccountInfo](docs/AccountInfo.md)
 - [AccountInvoice](docs/AccountInvoice.md)
 - [AccountSubscription](docs/AccountSubscription.md)
+- [AccountSummary](docs/AccountSummary.md)
+- [AccountSummaryCollection](docs/AccountSummaryCollection.md)
 - [AccountUser](docs/AccountUser.md)
 - [AccountUsersResponse](docs/AccountUsersResponse.md)
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)
@@ -582,6 +588,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateScheduleTournamentRequestScheduleTournament](docs/CreateScheduleTournamentRequestScheduleTournament.md)
 - [CreateSchoolGroupRequest](docs/CreateSchoolGroupRequest.md)
 - [CreateSchoolGroupRequestSchoolGroup](docs/CreateSchoolGroupRequestSchoolGroup.md)
+- [CreateSubscriptionRequestSubscription](docs/CreateSubscriptionRequestSubscription.md)
+- [CreateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner](docs/CreateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner.md)
 - [CreateTeamScheduleFavorite201Response](docs/CreateTeamScheduleFavorite201Response.md)
 - [CreateTeamScheduleFavoriteRequest](docs/CreateTeamScheduleFavoriteRequest.md)
 - [CreateUpload201Response](docs/CreateUpload201Response.md)
@@ -1022,6 +1030,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SubscriptionAcceptance](docs/SubscriptionAcceptance.md)
 - [SubscriptionAcceptanceErrors](docs/SubscriptionAcceptanceErrors.md)
 - [SubscriptionCollection](docs/SubscriptionCollection.md)
+- [SubscriptionTypeOption](docs/SubscriptionTypeOption.md)
+- [SubscriptionTypeSummary](docs/SubscriptionTypeSummary.md)
+- [SubscriptionYear](docs/SubscriptionYear.md)
 - [SystemSetting](docs/SystemSetting.md)
 - [Tag](docs/Tag.md)
 - [TeamScheduleCoaches](docs/TeamScheduleCoaches.md)
@@ -1081,6 +1092,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateSchoolGroupRequestSchoolGroup](docs/UpdateSchoolGroupRequestSchoolGroup.md)
 - [UpdateSubscriptionAcceptanceRequest](docs/UpdateSubscriptionAcceptanceRequest.md)
 - [UpdateSubscriptionAcceptanceRequestSubscription](docs/UpdateSubscriptionAcceptanceRequestSubscription.md)
+- [UpdateSubscriptionRequest](docs/UpdateSubscriptionRequest.md)
+- [UpdateSubscriptionRequestSubscription](docs/UpdateSubscriptionRequestSubscription.md)
+- [UpdateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner](docs/UpdateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner.md)
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
 - [UpdateUserRequest](docs/UpdateUserRequest.md)
 - [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
@@ -1134,8 +1148,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.54.3`
-- Package version: `1.54.3`
+- API version: `0.0.0-dev.35596662664`
+- Package version: `0.0.0-dev.35596662664`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
