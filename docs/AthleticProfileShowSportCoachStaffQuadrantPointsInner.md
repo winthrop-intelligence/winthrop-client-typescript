@@ -14,6 +14,8 @@ Name | Type
 `coachName` | string
 `coachLastName` | string
 `compCents` | number
+`compBasis` | string
+`compFiscalYear` | number
 `netRank` | number
 `rpi` | number
 `conferenceWins` | number
@@ -34,6 +36,8 @@ const example = {
   "coachName": null,
   "coachLastName": null,
   "compCents": null,
+  "compBasis": null,
+  "compFiscalYear": null,
   "netRank": null,
   "rpi": null,
   "conferenceWins": null,
