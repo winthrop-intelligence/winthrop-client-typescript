@@ -10,6 +10,7 @@ Name | Type
 `name` | string
 `lastName` | string
 `compCents` | number
+`compFiscalYear` | number
 `baseSalaryCents` | number
 `compRank` | number
 `compCohortSize` | number
@@ -35,6 +36,7 @@ const example = {
   "name": null,
   "lastName": null,
   "compCents": null,
+  "compFiscalYear": null,
   "baseSalaryCents": null,
   "compRank": null,
   "compCohortSize": null,

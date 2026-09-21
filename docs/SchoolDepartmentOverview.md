@@ -22,10 +22,12 @@ Name | Type
 `mode` | string
 `privateSpend` | [DepartmentOverviewPrivateSpend](DepartmentOverviewPrivateSpend.md)
 `privateResults` | [DepartmentOverviewPrivateResults](DepartmentOverviewPrivateResults.md)
-`privateCoverage` | [DepartmentOverviewPrivateCoverage](DepartmentOverviewPrivateCoverage.md)
 `privateDisclosure` | [DepartmentOverviewPrivateDisclosure](DepartmentOverviewPrivateDisclosure.md)
+`privateCoachingPay` | [DepartmentOverviewPrivateCoachingPay](DepartmentOverviewPrivateCoachingPay.md)
+`privateSnapshot` | [DepartmentOverviewPrivateSnapshot](DepartmentOverviewPrivateSnapshot.md)
 `privateAd` | [DepartmentOverviewPrivateAd](DepartmentOverviewPrivateAd.md)
 `privateBasis` | [DepartmentOverviewPrivateBasis](DepartmentOverviewPrivateBasis.md)
+`privateFlagship` | [DepartmentOverviewPrivateFlagship](DepartmentOverviewPrivateFlagship.md)
 
 ## Example
 
@@ -50,10 +52,12 @@ const example = {
   "mode": null,
   "privateSpend": null,
   "privateResults": null,
-  "privateCoverage": null,
   "privateDisclosure": null,
+  "privateCoachingPay": null,
+  "privateSnapshot": null,
   "privateAd": null,
   "privateBasis": null,
+  "privateFlagship": null,
 } satisfies SchoolDepartmentOverview
 
 console.log(example)
