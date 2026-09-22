@@ -170,13 +170,13 @@ export interface CoachSearchResult {
      */
     apRank?: number | null;
     /**
-     * Total compensation in cents (included based on authorization). On a search of the current season this is the latest known salary for the row's assignment (WINAD-10478): the season's own record when it carries a usable total, otherwise the most recent usable record from the same coach, school, sport and position types up to two seasons back. Any other season reports that season's own record. The comp filters, the compensation sort and comp_stats read the same value.
+     * Total compensation in cents (included based on authorization)
      * @type {number}
      * @memberof CoachSearchResult
      */
     compensationCents?: number | null;
     /**
-     * Base salary in cents (included based on authorization), read from the same record as compensation_cents.
+     * Base salary in cents (included based on authorization)
      * @type {number}
      * @memberof CoachSearchResult
      */
@@ -188,7 +188,7 @@ export interface CoachSearchResult {
      */
     coli?: number | null;
     /**
-     * Compensation type (included based on authorization), read from the same record as compensation_cents; so are the compensation_* component fields below.
+     * Compensation type (included based on authorization)
      * @type {string}
      * @memberof CoachSearchResult
      */
@@ -248,29 +248,47 @@ export interface CoachSearchResult {
      */
     compensationMediaLink?: string | null;
     /**
-     * Season end year of the compensation record the figures come from (included based on authorization; null when no record is on file). Equals year unless compensation_is_fallback is true.
-     * @type {number}
-     * @memberof CoachSearchResult
-     */
-    compensationSourceYear?: number | null;
-    /**
-     * True when the figures were carried forward from an earlier season of the same assignment because the current season has no usable record (included based on authorization). Always false outside the current season.
+     * True when the searched season has no usable annual total for this assignment but an earlier season of the same unbroken job (same coach, school, sport and position types in every season between) does, so the latest_known_* fields carry that older record as display-only context (included based on authorization). It never changes compensation_cents, the comp filters, the compensation sort or comp_stats.
      * @type {boolean}
      * @memberof CoachSearchResult
      */
-    compensationIsFallback?: boolean;
+    latestKnownFallback?: boolean;
     /**
-     * The compensation record the figures come from (included based on authorization).
+     * Total of that older record in cents; null unless latest_known_fallback.
      * @type {number}
      * @memberof CoachSearchResult
      */
-    compensationSourceCompensationId?: number | null;
+    latestKnownCompensationCents?: number | null;
     /**
-     * The document behind that record, when one is on file and the viewer may open it. Distinct from raw_contract_id, which stays the current position's contract document.
+     * Base salary of that older record in cents; null unless latest_known_fallback.
      * @type {number}
      * @memberof CoachSearchResult
      */
-    compensationSourceRawContractId?: number | null;
+    latestKnownBaseSalaryCents?: number | null;
+    /**
+     * Compensation type of that older record; null unless latest_known_fallback.
+     * @type {string}
+     * @memberof CoachSearchResult
+     */
+    latestKnownCompensationType?: string | null;
+    /**
+     * Season end year the older record was filed for (2024 means 2023–24); null unless latest_known_fallback. Always earlier than year.
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    latestKnownSourceYear?: number | null;
+    /**
+     * The older compensation record's id; null unless latest_known_fallback.
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    latestKnownSourceCompensationId?: number | null;
+    /**
+     * The document behind the older record, present only when one is on file and the viewer may open it. Distinct from raw_contract_id, which stays the current position's contract document.
+     * @type {number}
+     * @memberof CoachSearchResult
+     */
+    latestKnownSourceRawContractId?: number | null;
     /**
      * 
      * @type {Date}
@@ -358,10 +376,13 @@ export function CoachSearchResultFromJSONTyped(json: any, ignoreDiscriminator: b
         'compensationTalentFee': json['compensation_talent_fee'] == null ? undefined : json['compensation_talent_fee'],
         'compensationCountyClubMembershipPaid': json['compensation_county_club_membership_paid'] == null ? undefined : json['compensation_county_club_membership_paid'],
         'compensationMediaLink': json['compensation_media_link'] == null ? undefined : json['compensation_media_link'],
-        'compensationSourceYear': json['compensation_source_year'] == null ? undefined : json['compensation_source_year'],
-        'compensationIsFallback': json['compensation_is_fallback'] == null ? undefined : json['compensation_is_fallback'],
-        'compensationSourceCompensationId': json['compensation_source_compensation_id'] == null ? undefined : json['compensation_source_compensation_id'],
-        'compensationSourceRawContractId': json['compensation_source_raw_contract_id'] == null ? undefined : json['compensation_source_raw_contract_id'],
+        'latestKnownFallback': json['latest_known_fallback'] == null ? undefined : json['latest_known_fallback'],
+        'latestKnownCompensationCents': json['latest_known_compensation_cents'] == null ? undefined : json['latest_known_compensation_cents'],
+        'latestKnownBaseSalaryCents': json['latest_known_base_salary_cents'] == null ? undefined : json['latest_known_base_salary_cents'],
+        'latestKnownCompensationType': json['latest_known_compensation_type'] == null ? undefined : json['latest_known_compensation_type'],
+        'latestKnownSourceYear': json['latest_known_source_year'] == null ? undefined : json['latest_known_source_year'],
+        'latestKnownSourceCompensationId': json['latest_known_source_compensation_id'] == null ? undefined : json['latest_known_source_compensation_id'],
+        'latestKnownSourceRawContractId': json['latest_known_source_raw_contract_id'] == null ? undefined : json['latest_known_source_raw_contract_id'],
         'contractStartsOn': json['contract_starts_on'] == null ? undefined : (new Date(json['contract_starts_on'])),
         'contractExpiresOn': json['contract_expires_on'] == null ? undefined : (new Date(json['contract_expires_on'])),
         'contractAtWill': json['contract_at_will'] == null ? undefined : json['contract_at_will'],
@@ -419,10 +440,13 @@ export function CoachSearchResultToJSONTyped(value?: CoachSearchResult | null, i
         'compensation_talent_fee': value['compensationTalentFee'],
         'compensation_county_club_membership_paid': value['compensationCountyClubMembershipPaid'],
         'compensation_media_link': value['compensationMediaLink'],
-        'compensation_source_year': value['compensationSourceYear'],
-        'compensation_is_fallback': value['compensationIsFallback'],
-        'compensation_source_compensation_id': value['compensationSourceCompensationId'],
-        'compensation_source_raw_contract_id': value['compensationSourceRawContractId'],
+        'latest_known_fallback': value['latestKnownFallback'],
+        'latest_known_compensation_cents': value['latestKnownCompensationCents'],
+        'latest_known_base_salary_cents': value['latestKnownBaseSalaryCents'],
+        'latest_known_compensation_type': value['latestKnownCompensationType'],
+        'latest_known_source_year': value['latestKnownSourceYear'],
+        'latest_known_source_compensation_id': value['latestKnownSourceCompensationId'],
+        'latest_known_source_raw_contract_id': value['latestKnownSourceRawContractId'],
         'contract_starts_on': value['contractStartsOn'] == null ? value['contractStartsOn'] : value['contractStartsOn'].toISOString().substring(0,10),
         'contract_expires_on': value['contractExpiresOn'] == null ? value['contractExpiresOn'] : value['contractExpiresOn'].toISOString().substring(0,10),
         'contract_at_will': value['contractAtWill'],

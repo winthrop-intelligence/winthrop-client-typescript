@@ -1,7 +1,6 @@
 
 # CoachSnapshot
 
-Compensation resolves for the selected assignment in the system\'s current season, carrying forward at most two seasons within the same continuous job. History stays as reported. The snapshot is null without compensation access or a selected position. season_year_str, performance, income reports and current contract fields retain their assignment context; compensation_source_year identifies the salary\'s actual season. Hourly current records retain their stored values and type; no annualization occurs. 
 
 ## Properties
 
@@ -11,10 +10,6 @@ Name | Type
 `baseCompCents` | number
 `totalCompCents` | number
 `compensationType` | string
-`compensationSourceYear` | number
-`compensationIsFallback` | boolean
-`compensationSourceCompensationId` | number
-`compensationSourceRawContractId` | number
 `buyoutTerms` | string
 `record` | string
 `contractStart` | string
@@ -35,10 +30,6 @@ const example = {
   "baseCompCents": null,
   "totalCompCents": null,
   "compensationType": null,
-  "compensationSourceYear": null,
-  "compensationIsFallback": null,
-  "compensationSourceCompensationId": null,
-  "compensationSourceRawContractId": null,
   "buyoutTerms": null,
   "record": null,
   "contractStart": null,

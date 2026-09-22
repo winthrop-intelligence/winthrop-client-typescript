@@ -44,10 +44,13 @@ Name | Type
 `compensationTalentFee` | number
 `compensationCountyClubMembershipPaid` | boolean
 `compensationMediaLink` | string
-`compensationSourceYear` | number
-`compensationIsFallback` | boolean
-`compensationSourceCompensationId` | number
-`compensationSourceRawContractId` | number
+`latestKnownFallback` | boolean
+`latestKnownCompensationCents` | number
+`latestKnownBaseSalaryCents` | number
+`latestKnownCompensationType` | string
+`latestKnownSourceYear` | number
+`latestKnownSourceCompensationId` | number
+`latestKnownSourceRawContractId` | number
 `contractStartsOn` | Date
 `contractExpiresOn` | Date
 `contractAtWill` | boolean
@@ -99,10 +102,13 @@ const example = {
   "compensationTalentFee": null,
   "compensationCountyClubMembershipPaid": null,
   "compensationMediaLink": null,
-  "compensationSourceYear": null,
-  "compensationIsFallback": null,
-  "compensationSourceCompensationId": null,
-  "compensationSourceRawContractId": null,
+  "latestKnownFallback": null,
+  "latestKnownCompensationCents": null,
+  "latestKnownBaseSalaryCents": null,
+  "latestKnownCompensationType": null,
+  "latestKnownSourceYear": null,
+  "latestKnownSourceCompensationId": null,
+  "latestKnownSourceRawContractId": null,
   "contractStartsOn": null,
   "contractExpiresOn": null,
   "contractAtWill": null,

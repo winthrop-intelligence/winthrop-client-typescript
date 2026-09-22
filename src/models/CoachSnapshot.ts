@@ -22,12 +22,6 @@ import {
 } from './SnapshotIncomeReport';
 
 /**
- * Compensation resolves for the selected assignment in the system's current season,
- * carrying forward at most two seasons within the same continuous job. History stays
- * as reported. The snapshot is null without compensation access or a selected position.
- * season_year_str, performance, income reports and current contract fields retain their
- * assignment context; compensation_source_year identifies the salary's actual season.
- * Hourly current records retain their stored values and type; no annualization occurs.
  * 
  * @export
  * @interface CoachSnapshot
@@ -40,53 +34,29 @@ export interface CoachSnapshot {
      */
     seasonYearStr: string;
     /**
-     * Base from the resolved compensation record, in cents; null when unavailable.
+     * 
      * @type {number}
      * @memberof CoachSnapshot
      */
-    baseCompCents: number | null;
+    baseCompCents?: number | null;
     /**
-     * Guaranteed total from the same resolved record, in cents; null when unavailable.
+     * 
      * @type {number}
      * @memberof CoachSnapshot
      */
-    totalCompCents: number | null;
-    /**
-     * Resolved record's type, or null when compensation is unavailable.
-     * @type {string}
-     * @memberof CoachSnapshot
-     */
-    compensationType: string | null;
-    /**
-     * Salary source season end year; null when unavailable, never inferred from contract dates.
-     * @type {number}
-     * @memberof CoachSnapshot
-     */
-    compensationSourceYear: number | null;
-    /**
-     * True only when salary comes from an earlier eligible season; false when unavailable.
-     * @type {boolean}
-     * @memberof CoachSnapshot
-     */
-    compensationIsFallback: boolean;
-    /**
-     * Resolved compensation id; null when unavailable. Gated with amounts by compensation access.
-     * @type {number}
-     * @memberof CoachSnapshot
-     */
-    compensationSourceCompensationId: number | null;
-    /**
-     * Salary source document id; omitted unless both its contract and document are authorized.
-     * @type {number}
-     * @memberof CoachSnapshot
-     */
-    compensationSourceRawContractId?: number;
+    totalCompCents?: number | null;
     /**
      * 
      * @type {string}
      * @memberof CoachSnapshot
      */
-    buyoutTerms: string | null;
+    compensationType: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachSnapshot
+     */
+    buyoutTerms?: string | null;
     /**
      * 
      * @type {string}
@@ -112,7 +82,7 @@ export interface CoachSnapshot {
      */
     contractAtWill?: boolean | null;
     /**
-     * Selected position's current contract document, never replaced by the salary source document.
+     * 
      * @type {number}
      * @memberof CoachSnapshot
      */
@@ -128,7 +98,7 @@ export interface CoachSnapshot {
      * @type {number}
      * @memberof CoachSnapshot
      */
-    asstCoachPoolCents: number | null;
+    asstCoachPoolCents?: number | null;
 }
 
 /**
@@ -136,14 +106,7 @@ export interface CoachSnapshot {
  */
 export function instanceOfCoachSnapshot(value: object): value is CoachSnapshot {
     if (!('seasonYearStr' in value) || value['seasonYearStr'] === undefined) return false;
-    if (!('baseCompCents' in value) || value['baseCompCents'] === undefined) return false;
-    if (!('totalCompCents' in value) || value['totalCompCents'] === undefined) return false;
     if (!('compensationType' in value) || value['compensationType'] === undefined) return false;
-    if (!('compensationSourceYear' in value) || value['compensationSourceYear'] === undefined) return false;
-    if (!('compensationIsFallback' in value) || value['compensationIsFallback'] === undefined) return false;
-    if (!('compensationSourceCompensationId' in value) || value['compensationSourceCompensationId'] === undefined) return false;
-    if (!('buyoutTerms' in value) || value['buyoutTerms'] === undefined) return false;
-    if (!('asstCoachPoolCents' in value) || value['asstCoachPoolCents'] === undefined) return false;
     return true;
 }
 
@@ -158,21 +121,17 @@ export function CoachSnapshotFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'seasonYearStr': json['season_year_str'],
-        'baseCompCents': json['base_comp_cents'],
-        'totalCompCents': json['total_comp_cents'],
+        'baseCompCents': json['base_comp_cents'] == null ? undefined : json['base_comp_cents'],
+        'totalCompCents': json['total_comp_cents'] == null ? undefined : json['total_comp_cents'],
         'compensationType': json['compensation_type'],
-        'compensationSourceYear': json['compensation_source_year'],
-        'compensationIsFallback': json['compensation_is_fallback'],
-        'compensationSourceCompensationId': json['compensation_source_compensation_id'],
-        'compensationSourceRawContractId': json['compensation_source_raw_contract_id'] == null ? undefined : json['compensation_source_raw_contract_id'],
-        'buyoutTerms': json['buyout_terms'],
+        'buyoutTerms': json['buyout_terms'] == null ? undefined : json['buyout_terms'],
         'record': json['record'] == null ? undefined : json['record'],
         'contractStart': json['contract_start'] == null ? undefined : json['contract_start'],
         'contractEnd': json['contract_end'] == null ? undefined : json['contract_end'],
         'contractAtWill': json['contract_at_will'] == null ? undefined : json['contract_at_will'],
         'rawContractId': json['raw_contract_id'] == null ? undefined : json['raw_contract_id'],
         'incomeReports': json['income_reports'] == null ? undefined : ((json['income_reports'] as Array<any>).map(SnapshotIncomeReportFromJSON)),
-        'asstCoachPoolCents': json['asst_coach_pool_cents'],
+        'asstCoachPoolCents': json['asst_coach_pool_cents'] == null ? undefined : json['asst_coach_pool_cents'],
     };
 }
 
@@ -191,10 +150,6 @@ export function CoachSnapshotToJSONTyped(value?: CoachSnapshot | null, ignoreDis
         'base_comp_cents': value['baseCompCents'],
         'total_comp_cents': value['totalCompCents'],
         'compensation_type': value['compensationType'],
-        'compensation_source_year': value['compensationSourceYear'],
-        'compensation_is_fallback': value['compensationIsFallback'],
-        'compensation_source_compensation_id': value['compensationSourceCompensationId'],
-        'compensation_source_raw_contract_id': value['compensationSourceRawContractId'],
         'buyout_terms': value['buyoutTerms'],
         'record': value['record'],
         'contract_start': value['contractStart'],
