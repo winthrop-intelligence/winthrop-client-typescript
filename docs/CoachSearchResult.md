@@ -17,6 +17,7 @@ Name | Type
 `divisionName` | string
 `divisionId` | number
 `year` | number
+`newerSeason` | [NewerSeasonContext](NewerSeasonContext.md)
 `coachFriendlyId` | string
 `visible` | boolean
 `positionTypes` | Array&lt;string&gt;
@@ -68,6 +69,7 @@ const example = {
   "divisionName": null,
   "divisionId": null,
   "year": null,
+  "newerSeason": null,
   "coachFriendlyId": null,
   "visible": true,
   "positionTypes": null,
