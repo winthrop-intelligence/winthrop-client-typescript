@@ -19,6 +19,7 @@ Name | Type
 `schoolRevenueYear` | number
 `auditedFinancialYear` | number
 `text` | string
+`gsText` | string
 `useFlexpaper` | boolean
 `gameContractsCount` | number
 `driveId` | string
@@ -57,6 +58,7 @@ const example = {
   "schoolRevenueYear": null,
   "auditedFinancialYear": null,
   "text": null,
+  "gsText": null,
   "useFlexpaper": null,
   "gameContractsCount": null,
   "driveId": null,
