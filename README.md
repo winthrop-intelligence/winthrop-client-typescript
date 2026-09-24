@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.54.4
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.36004751551
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -69,6 +69,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createAccountUser**](docs/DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users | 
 *DefaultApi* | [**createAdminDeskReport**](docs/DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports | 
 *DefaultApi* | [**createAdminDeskReportArtifact**](docs/DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts | 
+*DefaultApi* | [**createAdminInvoice**](docs/DefaultApi.md#createadmininvoice) | **POST** /api/v1/admin/invoices | 
 *DefaultApi* | [**createCashflow**](docs/DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows | 
 *DefaultApi* | [**createCoach**](docs/DefaultApi.md#createcoach) | **POST** /api/v1/coaches | 
 *DefaultApi* | [**createConference**](docs/DefaultApi.md#createconference) | **POST** /api/v1/conferences | 
@@ -97,6 +98,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createScheduleTournament**](docs/DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments | 
 *DefaultApi* | [**createSchoolGroup**](docs/DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups | 
 *DefaultApi* | [**createSeason**](docs/DefaultApi.md#createseason) | **POST** /api/v1/seasons | 
+*DefaultApi* | [**createSubscription**](docs/DefaultApi.md#createsubscription) | **POST** /api/v1/subscriptions | 
 *DefaultApi* | [**createTeamScheduleFavorite**](docs/DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**createUpload**](docs/DefaultApi.md#createupload) | **POST** /api/v1/uploads | 
 *DefaultApi* | [**deleteAccountUser**](docs/DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} | 
@@ -131,9 +133,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAccount**](docs/DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} | 
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
+*DefaultApi* | [**getAccounts**](docs/DefaultApi.md#getaccounts) | **GET** /api/v1/accounts | 
 *DefaultApi* | [**getAdminDeskReport**](docs/DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} | 
 *DefaultApi* | [**getAdminDeskReports**](docs/DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports | 
 *DefaultApi* | [**getAdminDeskRequests**](docs/DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests | 
+*DefaultApi* | [**getAdminInvoice**](docs/DefaultApi.md#getadmininvoice) | **GET** /api/v1/admin/invoices/{invoiceId} | 
+*DefaultApi* | [**getAdminInvoices**](docs/DefaultApi.md#getadmininvoices) | **GET** /api/v1/admin/invoices | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
 *DefaultApi* | [**getAdministratorSearches**](docs/DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches | 
 *DefaultApi* | [**getAdministrators**](docs/DefaultApi.md#getadministrators) | **GET** /api/v1/administrators | 
@@ -287,6 +292,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSubdivisions**](docs/DefaultApi.md#getsubdivisions) | **GET** /api/v1/subdivisions | 
 *DefaultApi* | [**getSubscription**](docs/DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} | 
 *DefaultApi* | [**getSubscriptionAcceptance**](docs/DefaultApi.md#getsubscriptionacceptance) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
+*DefaultApi* | [**getSubscriptionTypes**](docs/DefaultApi.md#getsubscriptiontypes) | **GET** /api/v1/subscription_types | 
 *DefaultApi* | [**getSubscriptions**](docs/DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions | 
 *DefaultApi* | [**getSystemSettings**](docs/DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting | 
 *DefaultApi* | [**getTeamScheduleDetail**](docs/DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} | 
@@ -313,19 +319,23 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
 *DefaultApi* | [**hideAdminDeskReport**](docs/DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide | 
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
+*DefaultApi* | [**markPaidAdminInvoice**](docs/DefaultApi.md#markpaidadmininvoice) | **POST** /api/v1/admin/invoices/{invoiceId}/mark_paid | 
 *DefaultApi* | [**needsInfoAdminDeskRequest**](docs/DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info | 
+*DefaultApi* | [**prefillAdminInvoice**](docs/DefaultApi.md#prefilladmininvoice) | **GET** /api/v1/admin/invoices/prefill | 
 *DefaultApi* | [**publishAdminDeskReport**](docs/DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
 *DefaultApi* | [**restoreAdminDeskReport**](docs/DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore | 
 *DefaultApi* | [**retryFrsExport**](docs/DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry | 
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
+*DefaultApi* | [**sendAdminInvoice**](docs/DefaultApi.md#sendadmininvoiceoperation) | **POST** /api/v1/admin/invoices/{invoiceId}/send | 
 *DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
 *DefaultApi* | [**updateAccountUser**](docs/DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**updateAccountUserActivation**](docs/DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation | 
 *DefaultApi* | [**updateAdminDeskReport**](docs/DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} | 
 *DefaultApi* | [**updateAdminDeskRequest**](docs/DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} | 
+*DefaultApi* | [**updateAdminInvoice**](docs/DefaultApi.md#updateadmininvoice) | **PATCH** /api/v1/admin/invoices/{invoiceId} | 
 *DefaultApi* | [**updateCashflow**](docs/DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**updateCoach**](docs/DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} | 
 *DefaultApi* | [**updateCompensation**](docs/DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
@@ -347,6 +357,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateScheduleIntent**](docs/DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} | 
 *DefaultApi* | [**updateSchoolGroup**](docs/DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**updateSeason**](docs/DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} | 
+*DefaultApi* | [**updateSubscription**](docs/DefaultApi.md#updatesubscriptionoperation) | **PATCH** /api/v1/subscriptions/{subscriptionId} | 
 *DefaultApi* | [**updateSubscriptionAcceptance**](docs/DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
@@ -399,9 +410,24 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AccountInfo](docs/AccountInfo.md)
 - [AccountInvoice](docs/AccountInvoice.md)
 - [AccountSubscription](docs/AccountSubscription.md)
+- [AccountSummary](docs/AccountSummary.md)
+- [AccountSummaryCollection](docs/AccountSummaryCollection.md)
 - [AccountUser](docs/AccountUser.md)
 - [AccountUsersResponse](docs/AccountUsersResponse.md)
 - [AdminCompensationSubdivision](docs/AdminCompensationSubdivision.md)
+- [AdminInvoiceForm](docs/AdminInvoiceForm.md)
+- [AdminInvoiceFormAccountContactsInner](docs/AdminInvoiceFormAccountContactsInner.md)
+- [AdminInvoiceFormHints](docs/AdminInvoiceFormHints.md)
+- [AdminInvoiceFormRecipientsInner](docs/AdminInvoiceFormRecipientsInner.md)
+- [AdminInvoiceFormScheduleInner](docs/AdminInvoiceFormScheduleInner.md)
+- [AdminInvoiceFormServicePeriodsInner](docs/AdminInvoiceFormServicePeriodsInner.md)
+- [AdminInvoiceRow](docs/AdminInvoiceRow.md)
+- [AdminInvoiceRowAction](docs/AdminInvoiceRowAction.md)
+- [AdminInvoiceWrite](docs/AdminInvoiceWrite.md)
+- [AdminInvoiceWriteInvoice](docs/AdminInvoiceWriteInvoice.md)
+- [AdminInvoiceWriteInvoiceBillingAddressesAttributesInner](docs/AdminInvoiceWriteInvoiceBillingAddressesAttributesInner.md)
+- [AdminInvoicesResponse](docs/AdminInvoicesResponse.md)
+- [AdminInvoicesResponseMeta](docs/AdminInvoicesResponseMeta.md)
 - [Administrator](docs/Administrator.md)
 - [AdministratorCollection](docs/AdministratorCollection.md)
 - [AdministratorSearchResultCollection](docs/AdministratorSearchResultCollection.md)
@@ -582,6 +608,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateScheduleTournamentRequestScheduleTournament](docs/CreateScheduleTournamentRequestScheduleTournament.md)
 - [CreateSchoolGroupRequest](docs/CreateSchoolGroupRequest.md)
 - [CreateSchoolGroupRequestSchoolGroup](docs/CreateSchoolGroupRequestSchoolGroup.md)
+- [CreateSubscriptionRequestSubscription](docs/CreateSubscriptionRequestSubscription.md)
+- [CreateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner](docs/CreateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner.md)
 - [CreateTeamScheduleFavorite201Response](docs/CreateTeamScheduleFavorite201Response.md)
 - [CreateTeamScheduleFavoriteRequest](docs/CreateTeamScheduleFavoriteRequest.md)
 - [CreateUpload201Response](docs/CreateUpload201Response.md)
@@ -914,6 +942,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NeedsInfoAdminDeskRequest200ResponseData](docs/NeedsInfoAdminDeskRequest200ResponseData.md)
 - [NeedsInfoAdminDeskRequestRequest](docs/NeedsInfoAdminDeskRequestRequest.md)
 - [NewAccountUserResponse](docs/NewAccountUserResponse.md)
+- [NewerSeasonContext](docs/NewerSeasonContext.md)
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Note](docs/Note.md)
@@ -931,6 +960,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PredictBody](docs/PredictBody.md)
 - [PredictFailure](docs/PredictFailure.md)
 - [PredictSuccess](docs/PredictSuccess.md)
+- [PrefillAdminInvoice422Response](docs/PrefillAdminInvoice422Response.md)
 - [PublishAdminDeskReportRequest](docs/PublishAdminDeskReportRequest.md)
 - [QuadrantUnplottedSchool](docs/QuadrantUnplottedSchool.md)
 - [RawContract](docs/RawContract.md)
@@ -1007,6 +1037,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ScraperArgDef](docs/ScraperArgDef.md)
 - [Season](docs/Season.md)
 - [SeasonCollection](docs/SeasonCollection.md)
+- [SendAdminInvoiceRequest](docs/SendAdminInvoiceRequest.md)
 - [SnapshotIncomeReport](docs/SnapshotIncomeReport.md)
 - [Sport](docs/Sport.md)
 - [SportCollection](docs/SportCollection.md)
@@ -1022,6 +1053,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SubscriptionAcceptance](docs/SubscriptionAcceptance.md)
 - [SubscriptionAcceptanceErrors](docs/SubscriptionAcceptanceErrors.md)
 - [SubscriptionCollection](docs/SubscriptionCollection.md)
+- [SubscriptionTypeOption](docs/SubscriptionTypeOption.md)
+- [SubscriptionTypeSummary](docs/SubscriptionTypeSummary.md)
+- [SubscriptionYear](docs/SubscriptionYear.md)
+- [SubscriptionYearInvoicesInner](docs/SubscriptionYearInvoicesInner.md)
 - [SystemSetting](docs/SystemSetting.md)
 - [Tag](docs/Tag.md)
 - [TeamScheduleCoaches](docs/TeamScheduleCoaches.md)
@@ -1081,6 +1116,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateSchoolGroupRequestSchoolGroup](docs/UpdateSchoolGroupRequestSchoolGroup.md)
 - [UpdateSubscriptionAcceptanceRequest](docs/UpdateSubscriptionAcceptanceRequest.md)
 - [UpdateSubscriptionAcceptanceRequestSubscription](docs/UpdateSubscriptionAcceptanceRequestSubscription.md)
+- [UpdateSubscriptionRequest](docs/UpdateSubscriptionRequest.md)
+- [UpdateSubscriptionRequestSubscription](docs/UpdateSubscriptionRequestSubscription.md)
+- [UpdateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner](docs/UpdateSubscriptionRequestSubscriptionSubscriptionYearsAttributesInner.md)
 - [UpdateTeamScheduleFavoriteRequest](docs/UpdateTeamScheduleFavoriteRequest.md)
 - [UpdateUserRequest](docs/UpdateUserRequest.md)
 - [UpdateUserRequestUser](docs/UpdateUserRequestUser.md)
@@ -1134,8 +1172,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.54.4`
-- Package version: `1.54.4`
+- API version: `0.0.0-dev.36004751551`
+- Package version: `0.0.0-dev.36004751551`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
