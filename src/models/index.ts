@@ -520,6 +520,7 @@ export * from './NeedsInfoAdminDeskRequest200Response';
 export * from './NeedsInfoAdminDeskRequest200ResponseData';
 export * from './NeedsInfoAdminDeskRequestRequest';
 export * from './NewAccountUserResponse';
+export * from './NewerSeasonContext';
 export * from './NewsFeed';
 export * from './NewsFeedCollection';
 export * from './Note';
