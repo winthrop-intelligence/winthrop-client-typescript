@@ -6,6 +6,10 @@
 
 Name | Type
 ------------ | -------------
+`accountName` | string
+`subscriptionTypeName` | string
+`agreementFilename` | string
+`agreementPath` | string
 `id` | number
 `accountableId` | number
 `creatorId` | number
@@ -33,6 +37,12 @@ Name | Type
 `standardAgreement` | boolean
 `activeUsersCount` | number
 `hasIntercollegiateAccess` | boolean
+`contractValueCents` | number
+`subscriptionYears` | [Array&lt;SubscriptionYear&gt;](SubscriptionYear.md)
+`yearInvoices` | [Array&lt;SubscriptionYearInvoicesInner&gt;](SubscriptionYearInvoicesInner.md)
+`hasFile` | boolean
+`rawContractFilename` | string
+`pdfPreviewUrl` | string
 
 ## Example
 
@@ -41,6 +51,10 @@ import type { Subscription } from '@winthrop-intelligence/winthrop-client-typesc
 
 // TODO: Update the object below with actual values
 const example = {
+  "accountName": null,
+  "subscriptionTypeName": null,
+  "agreementFilename": null,
+  "agreementPath": null,
   "id": 335,
   "accountableId": 1,
   "creatorId": 2,
@@ -68,6 +82,12 @@ const example = {
   "standardAgreement": true,
   "activeUsersCount": 5,
   "hasIntercollegiateAccess": true,
+  "contractValueCents": 4798500,
+  "subscriptionYears": null,
+  "yearInvoices": null,
+  "hasFile": true,
+  "rawContractFilename": ExampleU_MSA_2026.pdf,
+  "pdfPreviewUrl": https://winad.test/api/v1/raw_contracts/123/view_file,
 } satisfies Subscription
 
 console.log(example)
