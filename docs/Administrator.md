@@ -22,6 +22,7 @@ Name | Type
 `compensationId` | number
 `contractId` | number
 `year` | number
+`newerSeason` | [NewerSeasonContext](NewerSeasonContext.md)
 `positionTitle` | string
 `schoolName` | string
 `schoolShortName` | string
@@ -76,6 +77,7 @@ const example = {
   "compensationId": 1,
   "contractId": 1,
   "year": 2019,
+  "newerSeason": null,
   "positionTitle": This is a position title,
   "schoolName": This is a school name,
   "schoolShortName": This is a school short name,
