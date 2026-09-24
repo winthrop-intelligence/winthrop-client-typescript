@@ -528,6 +528,7 @@ docs/NeedsInfoAdminDeskRequest200Response.md
 docs/NeedsInfoAdminDeskRequest200ResponseData.md
 docs/NeedsInfoAdminDeskRequestRequest.md
 docs/NewAccountUserResponse.md
+docs/NewerSeasonContext.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
@@ -1257,6 +1258,7 @@ src/models/NeedsInfoAdminDeskRequest200Response.ts
 src/models/NeedsInfoAdminDeskRequest200ResponseData.ts
 src/models/NeedsInfoAdminDeskRequestRequest.ts
 src/models/NewAccountUserResponse.ts
+src/models/NewerSeasonContext.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
