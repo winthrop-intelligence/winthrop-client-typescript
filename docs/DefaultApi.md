@@ -187,7 +187,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getPositionTypes**](DefaultApi.md#getpositiontypes) | **GET** /api/v1/position_types |  |
 | [**getPositions**](DefaultApi.md#getpositions) | **GET** /api/v1/positions |  |
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
+| [**getRawContractOcrText**](DefaultApi.md#getrawcontractocrtext) | **GET** /api/v1/raw_contracts/{raw_contractId}/ocr_text |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
+| [**getReconciliationPositions**](DefaultApi.md#getreconciliationpositions) | **GET** /api/v1/reconciliation_positions |  |
 | [**getRequestedItem**](DefaultApi.md#getrequesteditem) | **GET** /api/v1/requested_items/{requestedItemId} |  |
 | [**getRequestedItemReviewContext**](DefaultApi.md#getrequesteditemreviewcontext) | **GET** /api/v1/requested_items/{requestedItemId}/review_context |  |
 | [**getRequestedItemRiNote**](DefaultApi.md#getrequesteditemrinote) | **GET** /api/v1/requested_items/{requestedItemId}/ri_note |  |
@@ -14307,6 +14309,84 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getRawContractOcrText
+
+> GetRawContractOcrText200Response getRawContractOcrText(rawContractId)
+
+
+
+Return the contract\&#39;s Mistral OCR text; if not yet stored, OCR the PDF on demand and return it
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRawContractOcrTextRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies GetRawContractOcrTextRequest;
+
+  try {
+    const data = await api.getRawContractOcrText(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**GetRawContractOcrText200Response**](GetRawContractOcrText200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OCR text (source \&#39;cached\&#39; when already stored, \&#39;fresh\&#39; when just OCR\&#39;d) |  -  |
+| **304** | Not Modified (conditional GET matched the cached text\&#39;s ETag) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (insufficient scope, or a hidden-coach document) |  -  |
+| **404** | Not Found |  -  |
+| **422** | No file attached, or OCR failed to produce text |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getRawContracts
 
 > RawContractCollection getRawContracts(page, perPage, q)
@@ -14384,6 +14464,89 @@ example().catch(console.error);
 | **200** | Raw Contracts were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getReconciliationPositions
+
+> ReconciliationPositionCollection getReconciliationPositions(page, perPage, q)
+
+
+
+Compact read-only position data for reconciliation. Supports the same Ransack filters as positions, including school_id_eq + season_year_eq for rosters, coach_id_in + season_year_gteq for recent history, and coach_id_in without a year bound for full history. Accepts nested or JSON-encoded q. Sorts (or s) may be an array or comma-separated string using id, coach_id, season_id, season_year, school_id, season_sport_id, title or departing, with optional asc/desc directions. Other sort fields or malformed sort input return 400; collection sorting is excluded to prevent duplicate positions. id asc is the default and is appended as a tie-breaker unless an explicit id sort is supplied. As with positions, non-managers cannot read hidden-coach positions or identities; coach-less positions remain readable. Shared entities occur once per page in included and are referenced by ID from data. Biography URLs are retained; biography text, athletic directors, images and compensation are omitted. Use the existing coach detail endpoint only when biography text is needed. Pagination is live, not a frozen snapshot.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetReconciliationPositionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | Positive page size; requests above 100 are clamped to 100. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies GetReconciliationPositionsRequest;
+
+  try {
+    const data = await api.getReconciliationPositions(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Positive page size; requests above 100 are clamped to 100. | [Optional] [Defaults to `100`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ReconciliationPositionCollection**](ReconciliationPositionCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Compact positions and page-local shared entities, including empty results. |  -  |
+| **304** | Unchanged response for the supplied If-None-Match header. |  -  |
+| **400** | Invalid pagination, JSON query encoding, or unsupported sort. |  -  |
+| **401** | Unauthorized. |  -  |
+| **403** | Missing winad_read scope or Position read permission. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
