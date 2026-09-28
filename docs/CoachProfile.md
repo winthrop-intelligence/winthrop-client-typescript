@@ -33,6 +33,7 @@ Name | Type
 `currentPositionTypes` | Array&lt;string&gt;
 `headerPositionSeasonYearStr` | string
 `headerPositionHistorical` | boolean
+`headerAssignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `avatarUrl` | string
 `canSeeCompensation` | boolean
 `canSeeVideos` | boolean
@@ -74,6 +75,7 @@ const example = {
   "currentPositionTypes": null,
   "headerPositionSeasonYearStr": null,
   "headerPositionHistorical": null,
+  "headerAssignments": null,
   "avatarUrl": null,
   "canSeeCompensation": null,
   "canSeeVideos": null,
