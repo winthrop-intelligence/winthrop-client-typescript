@@ -457,8 +457,6 @@ docs/GetFilterOptions200Response.md
 docs/GetGadSearchSeasonFacets200Response.md
 docs/GetLadFilterOptions200Response.md
 docs/GetLadFilterOptions200ResponsePositionTypesInner.md
-docs/GetRawContractOcrText200Response.md
-docs/GetRawContractOcrText422Response.md
 docs/GetSchoolAlternateNames200Response.md
 docs/GetSchoolAlternateNames404Response.md
 docs/GetSchoolsCount200Response.md
@@ -538,6 +536,7 @@ docs/PageView.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
 docs/PerformanceChartRecord.md
+docs/PersonAssignment.md
 docs/Position.md
 docs/PositionCollection.md
 docs/PositionEntry.md
@@ -554,14 +553,6 @@ docs/RawContract.md
 docs/RawContractBackTo.md
 docs/RawContractCollection.md
 docs/RawContractDealInfo.md
-docs/ReconciliationCoach.md
-docs/ReconciliationIncluded.md
-docs/ReconciliationPagination.md
-docs/ReconciliationPosition.md
-docs/ReconciliationPositionCollection.md
-docs/ReconciliationPositionType.md
-docs/ReconciliationSchool.md
-docs/ReconciliationSport.md
 docs/RecordPositionEntry.md
 docs/RecruitingBudgetEntry.md
 docs/RecruitingChartData.md
@@ -1199,8 +1190,6 @@ src/models/GetFilterOptions200Response.ts
 src/models/GetGadSearchSeasonFacets200Response.ts
 src/models/GetLadFilterOptions200Response.ts
 src/models/GetLadFilterOptions200ResponsePositionTypesInner.ts
-src/models/GetRawContractOcrText200Response.ts
-src/models/GetRawContractOcrText422Response.ts
 src/models/GetSchoolAlternateNames200Response.ts
 src/models/GetSchoolAlternateNames404Response.ts
 src/models/GetSchoolsCount200Response.ts
@@ -1278,6 +1267,7 @@ src/models/PageView.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
 src/models/PerformanceChartRecord.ts
+src/models/PersonAssignment.ts
 src/models/Position.ts
 src/models/PositionCollection.ts
 src/models/PositionEntry.ts
@@ -1294,14 +1284,6 @@ src/models/RawContract.ts
 src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts
 src/models/RawContractDealInfo.ts
-src/models/ReconciliationCoach.ts
-src/models/ReconciliationIncluded.ts
-src/models/ReconciliationPagination.ts
-src/models/ReconciliationPosition.ts
-src/models/ReconciliationPositionCollection.ts
-src/models/ReconciliationPositionType.ts
-src/models/ReconciliationSchool.ts
-src/models/ReconciliationSport.ts
 src/models/RecordPositionEntry.ts
 src/models/RecruitingBudgetEntry.ts
 src/models/RecruitingChartData.ts
