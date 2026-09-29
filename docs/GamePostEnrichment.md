@@ -1,12 +1,14 @@
 
 # GamePostEnrichment
 
-WINAD: one row of the deferred per-card blocks returned by POST /game_post_searches/enrichment, keyed by [school_id, sport_id] so the client merges it onto every feed card sharing that pair. Shapes mirror GamePostSearchResult exactly (the feed omits overlap/guarantee/schedule_intents under q[defer_enrichment] and this endpoint fills them in a beat later).
+WINAD: one row of the deferred per-card blocks returned by POST /game_post_searches/enrichment, keyed by [school_id, sport_id, season_year] so the client merges it onto the feed card for that school, sport and season (WINAD-10539). Shapes mirror GamePostSearchResult exactly (the feed omits overlap/guarantee/schedule_intents under q[defer_enrichment] and this endpoint fills them in a beat later).
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`seasonYear` | number
+`posts` | [Array&lt;GamePostEnrichmentPostsInner&gt;](GamePostEnrichmentPostsInner.md)
 `schoolId` | number
 `sportId` | number
 `scheduleIntents` | [Array&lt;GamePostEnrichmentScheduleIntentsInner&gt;](GamePostEnrichmentScheduleIntentsInner.md)
@@ -20,6 +22,8 @@ import type { GamePostEnrichment } from '@winthrop-intelligence/winthrop-client-
 
 // TODO: Update the object below with actual values
 const example = {
+  "seasonYear": null,
+  "posts": null,
   "schoolId": null,
   "sportId": null,
   "scheduleIntents": null,

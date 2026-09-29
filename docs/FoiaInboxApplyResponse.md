@@ -15,7 +15,7 @@ Name | Type
 `decisionSha256` | string
 `requestSha256` | string
 `status` | string
-`result` | [FoiaInboxApplyResponseResult](FoiaInboxApplyResponseResult.md)
+`result` | { [key: string]: any; }
 
 ## Example
 

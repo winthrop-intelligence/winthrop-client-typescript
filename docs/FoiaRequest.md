@@ -12,8 +12,6 @@ Name | Type
 `updatedById` | number
 `state` | string
 `foiaLabelId` | number
-`followUpDate` | Date
-`followUpDateExplicit` | boolean
 `createdAt` | Date
 `updatedAt` | Date
 
@@ -30,8 +28,6 @@ const example = {
   "updatedById": 4,
   "state": null,
   "foiaLabelId": 5,
-  "followUpDate": null,
-  "followUpDateExplicit": null,
   "createdAt": 2019-01-01T00:00Z,
   "updatedAt": 2019-01-01T00:00Z,
 } satisfies FoiaRequest

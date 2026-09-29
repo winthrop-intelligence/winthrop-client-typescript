@@ -16,7 +16,6 @@ Name | Type
 `updatedBySchool` | Date
 `updatedByWi` | Date
 `followUpDate` | Date
-`followUpDateExplicit` | boolean
 `createdAt` | Date
 `updatedAt` | Date
 `foiaNotes` | [Array&lt;FoiaInboxNote&gt;](FoiaInboxNote.md)
@@ -39,7 +38,6 @@ const example = {
   "updatedBySchool": null,
   "updatedByWi": null,
   "followUpDate": null,
-  "followUpDateExplicit": null,
   "createdAt": null,
   "updatedAt": null,
   "foiaNotes": null,

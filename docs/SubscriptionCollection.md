@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `data` | [Array&lt;Subscription&gt;](Subscription.md)
+`subscriptionTypes` | [Array&lt;SubscriptionTypeOption&gt;](SubscriptionTypeOption.md)
 `meta` | [Meta](Meta.md)
 
 ## Example
@@ -17,6 +18,7 @@ import type { SubscriptionCollection } from '@winthrop-intelligence/winthrop-cli
 // TODO: Update the object below with actual values
 const example = {
   "data": null,
+  "subscriptionTypes": null,
   "meta": null,
 } satisfies SubscriptionCollection
 
