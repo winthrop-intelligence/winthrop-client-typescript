@@ -290,7 +290,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The scraper was successfully started |  -  |
+| **200** | The scraper was successfully started |  * X-Job-Name - Exact name of the created Kubernetes Job <br>  |
 | **401** | Unauthorized |  -  |
 | **404** | The specified scraper was not found |  -  |
 | **422** | The specified scraper was found, but the arguments were invalid |  -  |

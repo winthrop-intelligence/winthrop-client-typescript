@@ -11,6 +11,8 @@ Name | Type
 `updatedBySchool` | Date
 `updatedByWi` | Date
 `followUpDate` | Date
+`followUpDateExplicit` | boolean
+`updatedAt` | Date
 
 ## Example
 
@@ -24,6 +26,8 @@ const example = {
   "updatedBySchool": null,
   "updatedByWi": null,
   "followUpDate": null,
+  "followUpDateExplicit": null,
+  "updatedAt": null,
 } satisfies FoiaInboxApplyInputExpectedRequest
 
 console.log(example)

@@ -358,6 +358,8 @@ docs/FoiaInboxApplyInput.md
 docs/FoiaInboxApplyInputExpectedRequest.md
 docs/FoiaInboxApplyRequest.md
 docs/FoiaInboxApplyResponse.md
+docs/FoiaInboxApplyResponseResult.md
+docs/FoiaInboxApplyResponseResultFoiaRequest.md
 docs/FoiaInboxCandidate.md
 docs/FoiaInboxCandidatesMeta.md
 docs/FoiaInboxCandidatesResponse.md
@@ -1101,6 +1103,8 @@ src/models/FoiaInboxApplyInput.ts
 src/models/FoiaInboxApplyInputExpectedRequest.ts
 src/models/FoiaInboxApplyRequest.ts
 src/models/FoiaInboxApplyResponse.ts
+src/models/FoiaInboxApplyResponseResult.ts
+src/models/FoiaInboxApplyResponseResultFoiaRequest.ts
 src/models/FoiaInboxCandidate.ts
 src/models/FoiaInboxCandidatesMeta.ts
 src/models/FoiaInboxCandidatesResponse.ts

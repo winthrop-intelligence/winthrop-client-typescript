@@ -353,6 +353,8 @@ export * from './FoiaInboxApplyInput';
 export * from './FoiaInboxApplyInputExpectedRequest';
 export * from './FoiaInboxApplyRequest';
 export * from './FoiaInboxApplyResponse';
+export * from './FoiaInboxApplyResponseResult';
+export * from './FoiaInboxApplyResponseResultFoiaRequest';
 export * from './FoiaInboxCandidate';
 export * from './FoiaInboxCandidatesMeta';
 export * from './FoiaInboxCandidatesResponse';
