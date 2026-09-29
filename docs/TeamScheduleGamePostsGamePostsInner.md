@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`seasonYear` | number
+`outsideTargetSeason` | boolean
 `id` | number
 `gamePostId` | number
 `publishGroupId` | string
@@ -33,6 +35,8 @@ import type { TeamScheduleGamePostsGamePostsInner } from '@winthrop-intelligence
 
 // TODO: Update the object below with actual values
 const example = {
+  "seasonYear": null,
+  "outsideTargetSeason": null,
   "id": null,
   "gamePostId": null,
   "publishGroupId": null,

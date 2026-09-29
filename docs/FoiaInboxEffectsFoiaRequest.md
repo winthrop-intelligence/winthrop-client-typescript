@@ -9,8 +9,6 @@ Name | Type
 `status` | string
 `updatedBySchool` | Date
 `updatedByWi` | Date
-`followUpDate` | Date
-`resetFollowUpDate` | boolean
 `note` | string
 
 ## Example
@@ -23,8 +21,6 @@ const example = {
   "status": null,
   "updatedBySchool": null,
   "updatedByWi": null,
-  "followUpDate": null,
-  "resetFollowUpDate": null,
   "note": null,
 } satisfies FoiaInboxEffectsFoiaRequest
 

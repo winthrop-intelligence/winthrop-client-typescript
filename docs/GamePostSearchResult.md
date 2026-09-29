@@ -7,6 +7,8 @@ Enriched game post search result with school, location, and ranking data
 
 Name | Type
 ------------ | -------------
+`seasonYear` | number
+`outsideTargetSeason` | boolean
 `id` | number
 `publishGroupId` | string
 `schoolId` | number
@@ -43,6 +45,8 @@ import type { GamePostSearchResult } from '@winthrop-intelligence/winthrop-clien
 
 // TODO: Update the object below with actual values
 const example = {
+  "seasonYear": null,
+  "outsideTargetSeason": null,
   "id": null,
   "publishGroupId": null,
   "schoolId": null,
