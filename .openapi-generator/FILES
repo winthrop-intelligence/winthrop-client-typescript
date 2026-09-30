@@ -157,6 +157,8 @@ docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
 docs/ContractTermOption.md
+docs/ContractVerification.md
+docs/ContractVerificationInput.md
 docs/CoworkerEntry.md
 docs/CoworkerTenure.md
 docs/CreateAccountUser422Response.md
@@ -165,6 +167,7 @@ docs/CreateAccountUserRequestUser.md
 docs/CreateAdminDeskReportArtifact201Response.md
 docs/CreateContactSearchRequest.md
 docs/CreateContactSearchRequestContact.md
+docs/CreateContractVerificationRequest.md
 docs/CreateDeskRequest201Response.md
 docs/CreateDeskRequestRequest.md
 docs/CreateFavorite201Response.md
@@ -453,6 +456,7 @@ docs/GameType.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
 docs/GetCompensationComparisons400Response.md
+docs/GetContractVerifications200Response.md
 docs/GetFavorites200ResponseInner.md
 docs/GetFavoritesCategories200ResponseInner.md
 docs/GetFilterOptions200Response.md
@@ -906,6 +910,8 @@ src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/ContractTermOption.ts
+src/models/ContractVerification.ts
+src/models/ContractVerificationInput.ts
 src/models/CoworkerEntry.ts
 src/models/CoworkerTenure.ts
 src/models/CreateAccountUser422Response.ts
@@ -914,6 +920,7 @@ src/models/CreateAccountUserRequestUser.ts
 src/models/CreateAdminDeskReportArtifact201Response.ts
 src/models/CreateContactSearchRequest.ts
 src/models/CreateContactSearchRequestContact.ts
+src/models/CreateContractVerificationRequest.ts
 src/models/CreateDeskRequest201Response.ts
 src/models/CreateDeskRequestRequest.ts
 src/models/CreateFavorite201Response.ts
@@ -1197,6 +1204,7 @@ src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetAccountUserActivation200Response.ts
 src/models/GetCompensationComparisons400Response.ts
+src/models/GetContractVerifications200Response.ts
 src/models/GetFavorites200ResponseInner.ts
 src/models/GetFavoritesCategories200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts

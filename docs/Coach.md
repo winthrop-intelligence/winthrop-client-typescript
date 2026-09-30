@@ -35,8 +35,6 @@ Name | Type
 `linkedinScrapingDisabled` | boolean
 `twitterScrapingDisabled` | boolean
 `emailScrapingDisabled` | boolean
-`mobilityIndex` | number
-`hasNewJob` | boolean
 `visible` | boolean
 
 ## Example
@@ -75,8 +73,6 @@ const example = {
   "linkedinScrapingDisabled": false,
   "twitterScrapingDisabled": false,
   "emailScrapingDisabled": false,
-  "mobilityIndex": 5,
-  "hasNewJob": false,
   "visible": true,
 } satisfies Coach
 

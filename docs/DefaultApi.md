@@ -21,6 +21,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
 | [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
+| [**createContractVerification**](DefaultApi.md#createcontractverificationoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/verifications | Append a contract verification event |
 | [**createDeskReportArchive**](DefaultApi.md#createdeskreportarchive) | **POST** /api/v1/desk_reports/{uuid}/archive |  |
 | [**createDeskReportOpened**](DefaultApi.md#createdeskreportopened) | **POST** /api/v1/desk_reports/{uuid}/opened |  |
 | [**createDeskRequest**](DefaultApi.md#createdeskrequestoperation) | **POST** /api/v1/desk_requests |  |
@@ -122,6 +123,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getContactSearches**](DefaultApi.md#getcontactsearches) | **GET** /api/v1/contact_searches |  |
 | [**getContacts**](DefaultApi.md#getcontacts) | **GET** /api/v1/contacts |  |
 | [**getContract**](DefaultApi.md#getcontract) | **GET** /api/v1/contracts/{contractId} |  |
+| [**getContractVerifications**](DefaultApi.md#getcontractverifications) | **GET** /api/v1/raw_contracts/{raw_contractId}/verifications | List the contract\&#39;s verification history |
 | [**getContracts**](DefaultApi.md#getcontracts) | **GET** /api/v1/contracts |  |
 | [**getDeal**](DefaultApi.md#getdeal) | **GET** /api/v1/deals/{dealId} |  |
 | [**getDealSearches**](DefaultApi.md#getdealsearches) | **GET** /api/v1/deal_searches |  |
@@ -1638,6 +1640,89 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - requires account admin role |  -  |
 | **422** | Unable to create the Contact |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createContractVerification
+
+> ContractVerification createContractVerification(rawContractId, createContractVerificationRequest)
+
+Append a contract verification event
+
+Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Agent retries use a unique (contract_id, agent_run_id) key: equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateContractVerificationOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    rawContractId: 56,
+    // CreateContractVerificationRequest
+    createContractVerificationRequest: ...,
+  } satisfies CreateContractVerificationOperationRequest;
+
+  try {
+    const data = await api.createContractVerification(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` |  | [Defaults to `undefined`] |
+| **createContractVerificationRequest** | [CreateContractVerificationRequest](CreateContractVerificationRequest.md) |  | |
+
+### Return type
+
+[**ContractVerification**](ContractVerification.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Existing agent event returned for a matching retry |  -  |
+| **201** | Verification event created |  -  |
+| **400** | Missing or malformed request envelope |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_verify token/application scope, persisted resource owner, or parent read permission |  -  |
+| **404** | RawContract not found |  -  |
+| **409** | Agent run was already recorded with a different payload |  -  |
+| **422** | Invalid event or document without a Contract; errors are keyed by field |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -9374,6 +9459,92 @@ example().catch(console.error);
 | **200** | Contract was found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getContractVerifications
+
+> GetContractVerifications200Response getContractVerifications(rawContractId, page, perPage, q)
+
+List the contract\&#39;s verification history
+
+Requires read access to the parent RawContract. Returns events for its Contract, including checks of replaced PDFs, ordered by verified_at DESC and id DESC. Documents without a Contract return an empty collection. Events are deleted with their owning Contract; deleted verifiers and coaches are returned as null references.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetContractVerificationsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    rawContractId: 56,
+    // number (optional)
+    page: 56,
+    // number | Page size, capped at 100; defaults to 35. (optional)
+    perPage: 56,
+    // object | Ransack filters on scalar verification fields only; association traversal and scalar predicates on the seasons array are disabled. Ordering is always by check time and id descending. (optional)
+    q: Object,
+  } satisfies GetContractVerificationsRequest;
+
+  try {
+    const data = await api.getContractVerifications(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` |  | [Defaults to `undefined`] |
+| **page** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **perPage** | `number` | Page size, capped at 100; defaults to 35. | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack filters on scalar verification fields only; association traversal and scalar predicates on the seasons array are disabled. Ordering is always by check time and id descending. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetContractVerifications200Response**](GetContractVerifications200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Verification history |  -  |
+| **304** | History has not changed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_read scope or parent read permission |  -  |
+| **404** | RawContract not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
