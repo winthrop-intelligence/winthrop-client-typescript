@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`seasonYear` | number
+`outsideTargetSeason` | boolean
 `id` | number
 `date` | Date
 `gameTypes` | Array&lt;string&gt;
@@ -27,6 +29,8 @@ import type { GamePostSearchResultPostsInner } from '@winthrop-intelligence/wint
 
 // TODO: Update the object below with actual values
 const example = {
+  "seasonYear": null,
+  "outsideTargetSeason": null,
   "id": null,
   "date": null,
   "gameTypes": null,

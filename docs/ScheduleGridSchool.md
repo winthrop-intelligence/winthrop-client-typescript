@@ -12,6 +12,7 @@ Name | Type
 `shortName` | string
 `logoUrl` | string
 `primaryContactName` | string
+`primaryContactTitle` | string
 `primaryContactEmail` | string
 `primaryContactPhone` | string
 `primaryContactMobilePhone` | string
@@ -32,6 +33,7 @@ const example = {
   "shortName": null,
   "logoUrl": null,
   "primaryContactName": null,
+  "primaryContactTitle": null,
   "primaryContactEmail": null,
   "primaryContactPhone": null,
   "primaryContactMobilePhone": null,
