@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './ContractsApi';
 export * from './CtbApi';
 export * from './DefaultApi';
 export * from './DossierApi';
