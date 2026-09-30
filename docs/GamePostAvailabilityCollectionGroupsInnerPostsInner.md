@@ -11,6 +11,7 @@ Name | Type
 `schoolId` | number
 `schoolName` | string
 `sportName` | string
+`seasonYear` | number
 `date` | Date
 `lastRpi` | number
 `lastNetRank` | number
@@ -30,6 +31,7 @@ const example = {
   "schoolId": null,
   "schoolName": null,
   "sportName": null,
+  "seasonYear": null,
   "date": null,
   "lastRpi": null,
   "lastNetRank": null,
