@@ -13,6 +13,7 @@ Name | Type
 `endOn` | Date
 `atWill` | boolean
 `verified` | boolean
+`pending` | boolean
 `contractableType` | string
 `contractableId` | number
 `rawContractId` | number
@@ -33,6 +34,7 @@ const example = {
   "endOn": Tue Jan 01 00:00:00 UTC 2019,
   "atWill": false,
   "verified": false,
+  "pending": false,
   "contractableType": Coach,
   "contractableId": 1,
   "rawContractId": 1,
