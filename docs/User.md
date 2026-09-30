@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`targetSeasonYear` | number
+`selectableSeasonYears` | Array&lt;number&gt;
 `id` | number
 `email` | string
 `firstName` | string
@@ -64,6 +66,8 @@ import type { User } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
+  "targetSeasonYear": null,
+  "selectableSeasonYears": null,
   "id": 1,
   "email": joe@example.com,
   "firstName": Joe,
