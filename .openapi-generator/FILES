@@ -559,6 +559,12 @@ docs/PredictBody.md
 docs/PredictFailure.md
 docs/PredictSuccess.md
 docs/PublishAdminDeskReportRequest.md
+docs/PublishPendingContractCompensation.md
+docs/PublishPendingContractCompensationBaseSalary.md
+docs/PublishPendingContractCompensationOneTimeBonus.md
+docs/PublishPendingContractRequest.md
+docs/PublishedContract.md
+docs/PublishedContractAllOfCompensations.md
 docs/QuadrantUnplottedSchool.md
 docs/RawContract.md
 docs/RawContractBackTo.md
@@ -1309,6 +1315,12 @@ src/models/PredictBody.ts
 src/models/PredictFailure.ts
 src/models/PredictSuccess.ts
 src/models/PublishAdminDeskReportRequest.ts
+src/models/PublishPendingContractCompensation.ts
+src/models/PublishPendingContractCompensationBaseSalary.ts
+src/models/PublishPendingContractCompensationOneTimeBonus.ts
+src/models/PublishPendingContractRequest.ts
+src/models/PublishedContract.ts
+src/models/PublishedContractAllOfCompensations.ts
 src/models/QuadrantUnplottedSchool.ts
 src/models/RawContract.ts
 src/models/RawContractBackTo.ts

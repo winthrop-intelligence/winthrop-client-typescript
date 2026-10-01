@@ -6,6 +6,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 |------------- | ------------- | -------------|
 | [**createPendingContract**](ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts |  |
 | [**deletePendingContract**](ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} |  |
+| [**publishPendingContract**](ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish |  |
 
 
 
@@ -167,6 +168,86 @@ example().catch(console.error);
 | **403** | Forbidden (missing winad_write scope or not permitted to delete contracts) |  -  |
 | **404** | Not Found |  -  |
 | **422** | The contract is not pending, or its PDF is used by another record. Nothing was deleted. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## publishPendingContract
+
+> PublishedContract publishPendingContract(contractId, publishPendingContractRequest)
+
+
+
+Publish a pending contract (WINAD-10559). In one transaction, under the coach lock, this sets the contract\&#39;s dates, writes one compensation per year (creating the later-year positions the coach needs) and sets pending to false. If anything fails nothing is written and the contract stays pending, so the request can be corrected and retried.  The rules are the CSV compensation uploader\&#39;s: the coach must have a position at each school in the first year listed for it, later years get positions created from it, a school can appear once per coach and year, a yearly or 990 compensation needs a base_salary and an hourly one needs a comment, and a private school\&#39;s compensation must be 990. A compensation that already exists for the coach, school and year is updated and linked to this contract.  Money is in dollars (a number, or a string such as \&quot;$1,234.50\&quot; with either no thousands separators or correctly placed ones; \&quot;500,00\&quot; is refused), converted to cents like the CSV. Flags are JSON booleans. Unknown fields, at the top level or in a row, are refused with 422 rather than ignored. Errors are keyed by attribute for the contract fields (start_on, end_on, at_will, executed_on, compensations) and as compensations[n] (n &#x3D; the row\&#39;s position in the request, from 0) for a row; row messages name fields by their CSV column, for example \&quot;Base Salary\&quot;. Requires the winad_write scope and a manage-level user. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PublishPendingContractOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ContractsApi(config);
+
+  const body = {
+    // number | ID of the pending contract to publish
+    contractId: 56,
+    // PublishPendingContractRequest
+    publishPendingContractRequest: ...,
+  } satisfies PublishPendingContractOperationRequest;
+
+  try {
+    const data = await api.publishPendingContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | `number` | ID of the pending contract to publish | [Defaults to `undefined`] |
+| **publishPendingContractRequest** | [PublishPendingContractRequest](PublishPendingContractRequest.md) |  | |
+
+### Return type
+
+[**PublishedContract**](PublishedContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The contract was published and its compensations written |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (missing winad_write scope or not permitted to update contracts) |  -  |
+| **404** | Not Found |  -  |
+| **422** | The contract is not pending, or the dates or a compensation row were refused. Nothing was written and the contract is still pending. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
