@@ -156,9 +156,11 @@ docs/ContactSearchCollection.md
 docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
+docs/ContractErrorsResponse.md
 docs/ContractTermOption.md
 docs/ContractVerification.md
 docs/ContractVerificationInput.md
+docs/ContractsApi.md
 docs/CoworkerEntry.md
 docs/CoworkerTenure.md
 docs/CreateAccountUser422Response.md
@@ -437,6 +439,7 @@ docs/GamePostEnrichmentCollection.md
 docs/GamePostEnrichmentGuarantee.md
 docs/GamePostEnrichmentOverlap.md
 docs/GamePostEnrichmentOverlapLineUpsInner.md
+docs/GamePostEnrichmentPostsInner.md
 docs/GamePostEnrichmentScheduleIntentsInner.md
 docs/GamePostSearchResult.md
 docs/GamePostSearchResultCollection.md
@@ -541,6 +544,7 @@ docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
 docs/PageView.md
+docs/PendingContractCreated.md
 docs/PerformanceChartCoach.md
 docs/PerformanceChartData.md
 docs/PerformanceChartRecord.md
@@ -742,6 +746,7 @@ docs/WireChange.md
 docs/WireChangeCoach.md
 docs/WireChangeSchool.md
 package.json
+src/apis/ContractsApi.ts
 src/apis/CtbApi.ts
 src/apis/DefaultApi.ts
 src/apis/DossierApi.ts
@@ -909,6 +914,7 @@ src/models/ContactSearchCollection.ts
 src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
+src/models/ContractErrorsResponse.ts
 src/models/ContractTermOption.ts
 src/models/ContractVerification.ts
 src/models/ContractVerificationInput.ts
@@ -1185,6 +1191,7 @@ src/models/GamePostEnrichmentCollection.ts
 src/models/GamePostEnrichmentGuarantee.ts
 src/models/GamePostEnrichmentOverlap.ts
 src/models/GamePostEnrichmentOverlapLineUpsInner.ts
+src/models/GamePostEnrichmentPostsInner.ts
 src/models/GamePostEnrichmentScheduleIntentsInner.ts
 src/models/GamePostSearchResult.ts
 src/models/GamePostSearchResultCollection.ts
@@ -1287,6 +1294,7 @@ src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
 src/models/PageView.ts
+src/models/PendingContractCreated.ts
 src/models/PerformanceChartCoach.ts
 src/models/PerformanceChartData.ts
 src/models/PerformanceChartRecord.ts
