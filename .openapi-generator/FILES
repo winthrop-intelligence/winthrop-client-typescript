@@ -168,6 +168,7 @@ docs/CoworkerTenure.md
 docs/CreateAccountUser422Response.md
 docs/CreateAccountUserRequest.md
 docs/CreateAccountUserRequestUser.md
+docs/CreateAdminDeskReport503Response.md
 docs/CreateAdminDeskReportArtifact201Response.md
 docs/CreateCompensationRequest.md
 docs/CreateContactSearchRequest.md
@@ -339,6 +340,7 @@ docs/DeskReportsResponseMeta.md
 docs/DeskRequest.md
 docs/DeskRequestContext.md
 docs/DeskRequestsResponse.md
+docs/DeskSettings.md
 docs/DirectorsCupSchool.md
 docs/Division.md
 docs/DivisionCollection.md
@@ -713,6 +715,7 @@ docs/UpdateAccountUserRequestUser.md
 docs/UpdateAdminDeskRequest200Response.md
 docs/UpdateAdminDeskRequest200ResponseData.md
 docs/UpdateAdminDeskRequestRequest.md
+docs/UpdateAdminDeskSettings422Response.md
 docs/UpdateFavorite200Response.md
 docs/UpdateFavoriteRequest.md
 docs/UpdateFavoritesCategoryRequest.md
@@ -934,6 +937,7 @@ src/models/CoworkerTenure.ts
 src/models/CreateAccountUser422Response.ts
 src/models/CreateAccountUserRequest.ts
 src/models/CreateAccountUserRequestUser.ts
+src/models/CreateAdminDeskReport503Response.ts
 src/models/CreateAdminDeskReportArtifact201Response.ts
 src/models/CreateCompensationRequest.ts
 src/models/CreateContactSearchRequest.ts
@@ -1103,6 +1107,7 @@ src/models/DeskReportsResponseMeta.ts
 src/models/DeskRequest.ts
 src/models/DeskRequestContext.ts
 src/models/DeskRequestsResponse.ts
+src/models/DeskSettings.ts
 src/models/DirectorsCupSchool.ts
 src/models/Division.ts
 src/models/DivisionCollection.ts
@@ -1469,6 +1474,7 @@ src/models/UpdateAccountUserRequestUser.ts
 src/models/UpdateAdminDeskRequest200Response.ts
 src/models/UpdateAdminDeskRequest200ResponseData.ts
 src/models/UpdateAdminDeskRequestRequest.ts
+src/models/UpdateAdminDeskSettings422Response.ts
 src/models/UpdateFavorite200Response.ts
 src/models/UpdateFavoriteRequest.ts
 src/models/UpdateFavoritesCategoryRequest.ts

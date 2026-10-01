@@ -83,6 +83,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAdminDeskReport**](DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} |  |
 | [**getAdminDeskReports**](DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports |  |
 | [**getAdminDeskRequests**](DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests |  |
+| [**getAdminDeskSettings**](DefaultApi.md#getadmindesksettings) | **GET** /api/v1/admin/desk_settings |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
@@ -278,6 +279,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
 | [**updateAdminDeskReport**](DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} |  |
 | [**updateAdminDeskRequest**](DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} |  |
+| [**updateAdminDeskSettings**](DefaultApi.md#updateadmindesksettings) | **PATCH** /api/v1/admin/desk_settings |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
 | [**updateCoach**](DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} |  |
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
@@ -1115,7 +1117,7 @@ example().catch(console.error);
 
 
 
-Create a draft: the destination account, the cover fields, optionally the staged draft body and the queue ask it answers (desk_request_uuid, same account — the ask moves to building). Mints the public uuid; POST /{uuid}/publish attaches the body. 
+Create a draft: the destination account, the cover fields, optionally the staged draft body and the queue ask it answers (desk_request_uuid, same account — the ask moves to building with winad_write; draft-only tokens leave ask status unchanged). Accepts desk_draft_write or winad_write and requires a persisted super-admin user. Mints the public uuid; publishing requires a separate winad_write token. 
 
 ### Example
 
@@ -1182,6 +1184,7 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Unknown account or ask |  -  |
 | **422** | Validation failed |  -  |
+| **503** | Draft saved, but the work-start email could not be queued. Reuse draft_uuid and mark it in progress to retry. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -1192,7 +1195,7 @@ example().catch(console.error);
 
 
 
-Upload a download (PDF / XLSX / PPTX) to a report in any status. One row per kind — uploading an existing kind replaces its file (06.5 Replace); a kind the report lacks is added (06.5 Add, D-20). On a live report the file is served to the client at once — no version is minted here; the update screen\&#39;s Publish update is what mints one. 
+Upload a download (PDF / XLSX / PPTX) to a report in any status. One row per kind — uploading an existing kind replaces its file (06.5 Replace); a kind the report lacks is added (06.5 Add, D-20). On a live report the file is served to the client at once — no version is minted here; the update screen\&#39;s Publish update is what mints one. With desk_draft_write (without winad_write), only drafts accept uploads; live and hidden reports return 403. Artifact deletion still requires winad_write. 
 
 ### Example
 
@@ -6275,7 +6278,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // 'new-ask' | 'draft' | 'published' | 'hidden' | 'awaiting-client' | 'closed' (optional)
+    // 'new-ask' | 'in-progress' | 'draft' | 'delivered' | 'published' | 'hidden' | 'awaiting-client' | 'closed' (optional)
     status: status_example,
     // string | Case-insensitive account-name substring (optional)
     client: client_example,
@@ -6298,7 +6301,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **status** | `new-ask`, `draft`, `published`, `hidden`, `awaiting-client`, `closed` |  | [Optional] [Defaults to `undefined`] [Enum: new-ask, draft, published, hidden, awaiting-client, closed] |
+| **status** | `new-ask`, `in-progress`, `draft`, `delivered`, `published`, `hidden`, `awaiting-client`, `closed` |  | [Optional] [Defaults to `undefined`] [Enum: new-ask, in-progress, draft, delivered, published, hidden, awaiting-client, closed] |
 | **client** | `string` | Case-insensitive account-name substring | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -6321,6 +6324,73 @@ example().catch(console.error);
 | **200** | Queue retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminDeskSettings
+
+> DeskSettings getAdminDeskSettings()
+
+
+
+Read database-backed Desk notification settings. Requires a persisted super admin.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminDeskSettingsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getAdminDeskSettings();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeskSettings**](DeskSettings.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Saved settings; defaults to disabled with no copy address |  -  |
+| **401** | Authentication required |  -  |
+| **403** | Persisted super admin and read scope required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -20479,7 +20549,7 @@ example().catch(console.error);
 
 
 
-Publish a first edition with the existing JSON body, or submit an atomic Update report patch as multipart update JSON plus downloads[pdf], downloads[xlsx] and downloads[pptx]. An update commits details, audience, cover, body, download additions/replacements/removals, and exactly one version together. Failed validation or upload leaves the live report intact. Omitted update fields are preserved, including legacy cover/body text; explicit body_html must pass the report format check. A reader change_note, expected_version_number and a meaningful change are required. The expected version is the version_number the editor loaded; a mismatch returns 409 before any changes or uploads are applied. Hidden reports must be restored first. Ask-linked reports cannot change account. Reports without a school cannot be published. Publish email is off unless DESK_NOTIFICATIONS_ENABLED is exactly true. When enabled, first editions notify the active audience; updates notify only with renotify true. Notification fields report enqueue results, not completed delivery. 
+Publish a first edition with the existing JSON body, or submit an atomic Update report patch as multipart update JSON plus downloads[pdf], downloads[xlsx] and downloads[pptx]. An update commits details, audience, cover, body, download additions/replacements/removals, and exactly one version together. Failed validation or upload leaves the live report intact. Omitted update fields are preserved, including legacy cover/body text; explicit body_html must pass the report format check. A reader change_note, expected_version_number and a meaningful change are required. The expected version is the version_number the editor loaded; a mismatch returns 409 before any changes or uploads are applied. Hidden reports must be restored first. Ask-linked reports cannot change account. Reports without a school cannot be published. Publish email is controlled by the database-backed notification switch in Admin Desk Settings in every environment. When enabled, it goes to the eligible selected audience, each once. Everyone means all active eligible readers on the account; named selections narrow that audience. A first edition emails the resolved recipients; an update emails only eligible recipients never notified for this report. Legacy renotify is ignored. Notification fields report enqueue results, not completed delivery. 
 
 ### Example
 
@@ -21230,7 +21300,7 @@ No authorization required
 
 
 
-Update the cover fields and/or the staged draft body (blank clears it). Drafts only: a live or hidden report answers 422 — it changes through Publish update (after a restore, for a hidden one), so readers never see a change with no version behind it. 
+Update the cover fields and/or the staged draft body (blank clears it). Drafts only: a live or hidden report answers 422 — it changes through Publish update (after a restore, for a hidden one), so readers never see a change with no version behind it.  &#x60;mark_in_progress: true&#x60; is \&quot;Mark in progress\&quot; on the draft (WINAD-10567), after any edits in the same request are saved. A draft built from an ask marks the ask. A draft Tyler started himself needs an eligible audience in \&quot;Who can see it\&quot; (Everyone or named recipients; 422 if empty); the first time only, and when Desk email is on, they are emailed \&quot;We\&#39;ve begun work on &lt;title&gt;\&quot; and the desk gets one copy. If the email cannot be queued the start is undone and the answer is 503.  &#x60;status: building&#x60; is an alias for mark_in_progress. &#x60;status: delivered&#x60; records work delivery without publishing: status remains draft and admin_status becomes delivered. A linked report delivers its ask instead. Repeating delivery is a no-op; delivered work cannot restart. Both transitions accept desk_draft_write for a persisted super-admin. Other status values are denied (403 for draft-only tokens, otherwise 422). Do not combine delivered with mark_in_progress. Publication remains a separate action. 
 
 ### Example
 
@@ -21299,7 +21369,8 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
-| **422** | Validation failed |  -  |
+| **422** | Validation failed, or mark_in_progress on a draft with no eligible recipients |  -  |
+| **503** | mark_in_progress could not queue its email; the start was undone |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -21310,7 +21381,7 @@ example().catch(console.error);
 
 
 
-Manual ask flip — building, delivered, or closed. needs_info (awaiting_client) is D-16\&#39;s endpoint. &#x60;closed&#x60; is the junk/duplicate exit: the ask leaves the customer\&#39;s rack and Tyler\&#39;s open tabs without a report and without mail. 
+Manual ask flip — building, delivered, or closed. needs_info (awaiting_client) is D-16\&#39;s endpoint. &#x60;closed&#x60; is the junk/duplicate exit: the ask leaves the customer\&#39;s rack and Tyler\&#39;s open tabs without a report and without mail. &#x60;building&#x60; is \&quot;Mark in progress\&quot; (WINAD-10567, shown as In progress): the first time an ask goes in progress, the asker is emailed \&quot;We\&#39;ve begun work on &lt;name&gt;\&quot; and the desk gets one copy, when Desk email is on. Later flips send nothing. If that email cannot be queued, the ask is put back and the answer is 503. A persisted super-admin may use desk_draft_write for building or delivered only. All other statuses require winad_write; the draft scope never grants publishing or needs_info access. 
 
 ### Example
 
@@ -21380,6 +21451,84 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Status outside building/delivered/closed, or a delivered ask being reopened |  -  |
+| **503** | The \&quot;We\&#39;ve begun work\&quot; email could not be queued; the ask was put back |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAdminDeskSettings
+
+> DeskSettings updateAdminDeskSettings(deskSettings)
+
+
+
+Save settings atomically using the lock_version returned by GET. Reject stale saves with 409. Audit the actor and old/new values. No ENV fallback.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAdminDeskSettingsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // DeskSettings
+    deskSettings: ...,
+  } satisfies UpdateAdminDeskSettingsRequest;
+
+  try {
+    const data = await api.updateAdminDeskSettings(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deskSettings** | [DeskSettings](DeskSettings.md) |  | |
+
+### Return type
+
+[**DeskSettings**](DeskSettings.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Settings saved |  -  |
+| **401** | Authentication required |  -  |
+| **403** | Persisted super admin and write scope required |  -  |
+| **409** | Settings changed since this form loaded. Refresh before retrying. |  -  |
+| **422** | Invalid settings; errors keyed by field. Copy email is required when enabled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
