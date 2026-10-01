@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`seasonYear` | number
+`outsideTargetSeason` | boolean
 `id` | number
 `schoolId` | number
 `sportId` | number
@@ -25,6 +27,8 @@ import type { GamePost } from '@winthrop-intelligence/winthrop-client-typescript
 
 // TODO: Update the object below with actual values
 const example = {
+  "seasonYear": null,
+  "outsideTargetSeason": null,
   "id": null,
   "schoolId": null,
   "sportId": null,

@@ -7,6 +7,8 @@ Full game post detail with contacts and creator info
 
 Name | Type
 ------------ | -------------
+`seasonYear` | number
+`outsideTargetSeason` | boolean
 `id` | number
 `schoolId` | number
 `schoolName` | string
@@ -35,6 +37,8 @@ import type { GamePostDetail } from '@winthrop-intelligence/winthrop-client-type
 
 // TODO: Update the object below with actual values
 const example = {
+  "seasonYear": null,
+  "outsideTargetSeason": null,
   "id": null,
   "schoolId": null,
   "schoolName": null,
