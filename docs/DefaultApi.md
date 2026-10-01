@@ -18,6 +18,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createAdminDeskReportArtifact**](DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
 | [**createCoach**](DefaultApi.md#createcoach) | **POST** /api/v1/coaches |  |
+| [**createCompensation**](DefaultApi.md#createcompensationoperation) | **POST** /api/v1/compensations |  |
 | [**createConference**](DefaultApi.md#createconference) | **POST** /api/v1/conferences |  |
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
 | [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
@@ -1414,6 +1415,82 @@ example().catch(console.error);
 | **201** | Coach was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create coach |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createCompensation
+
+> CompensationCreated createCompensation(createCompensationRequest)
+
+
+
+Create the compensation for one coach, school, and year, typically a missing future, contract-covered season. Compensation coach, school, and year are derived from the coach\&#39;s positions, so the positions are resolved first, modeled on the coach contract CSV uploader. If the coach already has positions at school_id in that year they are used and nothing is copied. Otherwise the positions the coach holds at that school in the latest earlier year are copied into the requested year (the same title and position types, creating the season if needed), and the new compensation is linked to them. If the coach has no earlier position at that school there is nothing to copy and the request is refused; create the position first. Positions that already exist in the requested year are used as they are; sports the earlier year has but the requested year lacks are not added. One target year per request, at most 15 years ahead. Fields other than the documented compensation fields are refused rather than ignored (is_car_provided is accepted on creation only; PATCH does not update it). When contract_id is supplied it must be a non-pending contract of the same coach, and unless contract_status_id is sent the compensation is marked complete, as the CSV uploader does; an explicitly sent contract_status_id is kept. Every value is checked as sent. Ids, the year and the cents amounts must be whole numbers (an integer or a string of digits, with no commas, decimals or text, within the 32-bit integer range), booleans must be true or false, dates must be YYYY-MM-DD, and an array or object is refused for a scalar field, each with a field-specific 422; nothing is silently dropped or coerced. The whole request is one transaction, so on any error nothing is saved. If a background job cannot be queued after the row was saved, the compensation is still returned with 201 and the problem is reported to Sentry. Requires a super admin and the winad_write OAuth scope. To change an existing compensation use PATCH /compensations/{compensationId}. API clients in winthrop-clients must be regenerated to expose this operation.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateCompensationOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateCompensationRequest | Compensation to create. coach_id, school_id, and year are required; contract_id and contract_status_id are optional.
+    createCompensationRequest: ...,
+  } satisfies CreateCompensationOperationRequest;
+
+  try {
+    const data = await api.createCompensation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createCompensationRequest** | [CreateCompensationRequest](CreateCompensationRequest.md) | Compensation to create. coach_id, school_id, and year are required; contract_id and contract_status_id are optional. | |
+
+### Return type
+
+[**CompensationCreated**](CompensationCreated.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Compensation was created and linked to every position of the coach at that school in that year. created_positions_count and created_position_ids report the positions that were copied (empty when they already existed). |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not permitted to create compensations. |  -  |
+| **422** | Unable to create the compensation, and nothing is saved. Returned when coach_id, school_id, or year is missing or invalid (year must have four digits and be at most 15 years ahead); the compensation object contains an unknown field; contract_status_id does not exist or the COMPLETE contract status is not configured; the coach or school does not exist; a compensation already exists for that coach, school, and year (the message names its id; update it with PATCH instead); the coach has no earlier position at that school to copy from, or the copy is refused (positions at another school in that year, departing or terminated source positions, several source positions in one sport, source positions without position types); contract_id does not exist, belongs to a different coach, or is a pending contract; or a compensation value is invalid. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

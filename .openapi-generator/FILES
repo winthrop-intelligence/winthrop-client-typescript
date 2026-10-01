@@ -136,6 +136,8 @@ docs/CompensationComparisonResolvedScopeConference.md
 docs/CompensationComparisonResolvedScopeSchoolsInner.md
 docs/CompensationComparisonResult.md
 docs/CompensationComparisonRow.md
+docs/CompensationCreateRequest.md
+docs/CompensationCreated.md
 docs/CompensationRow.md
 docs/Conference.md
 docs/ConferenceAdminCompensationResponse.md
@@ -167,6 +169,7 @@ docs/CreateAccountUser422Response.md
 docs/CreateAccountUserRequest.md
 docs/CreateAccountUserRequestUser.md
 docs/CreateAdminDeskReportArtifact201Response.md
+docs/CreateCompensationRequest.md
 docs/CreateContactSearchRequest.md
 docs/CreateContactSearchRequestContact.md
 docs/CreateContractVerificationRequest.md
@@ -900,6 +903,8 @@ src/models/CompensationComparisonResolvedScopeConference.ts
 src/models/CompensationComparisonResolvedScopeSchoolsInner.ts
 src/models/CompensationComparisonResult.ts
 src/models/CompensationComparisonRow.ts
+src/models/CompensationCreateRequest.ts
+src/models/CompensationCreated.ts
 src/models/CompensationRow.ts
 src/models/Conference.ts
 src/models/ConferenceAdminCompensationResponse.ts
@@ -930,6 +935,7 @@ src/models/CreateAccountUser422Response.ts
 src/models/CreateAccountUserRequest.ts
 src/models/CreateAccountUserRequestUser.ts
 src/models/CreateAdminDeskReportArtifact201Response.ts
+src/models/CreateCompensationRequest.ts
 src/models/CreateContactSearchRequest.ts
 src/models/CreateContactSearchRequestContact.ts
 src/models/CreateContractVerificationRequest.ts
