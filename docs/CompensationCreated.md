@@ -1,0 +1,98 @@
+
+# CompensationCreated
+
+
+## Properties
+
+Name | Type
+------------ | -------------
+`id` | number
+`bonusCompCents` | number
+`deferredCompCents` | number
+`talentFee` | number
+`isCarProvided` | boolean
+`countryClubDuesCents` | number
+`coachId` | number
+`contractId` | number
+`buyoutTerms` | string
+`executedOn` | Date
+`expiresOn` | Date
+`startOn` | Date
+`endOn` | Date
+`averageYearlyCompCents` | number
+`createdAt` | Date
+`updatedAt` | Date
+`outsideIncomeCents` | number
+`oneTimeBonusCents` | number
+`comment` | string
+`countyClubMembershipPaid` | boolean
+`baseSalaryCents` | number
+`bonusHasContingents` | boolean
+`calculatedGuaranteedCompCents` | number
+`contingentBonus` | boolean
+`noncontingentBonusCompCents` | number
+`compensationType` | string
+`mediaLink` | string
+`contractStatusId` | number
+`year` | number
+`schoolId` | number
+`contract` | [Contract](Contract.md)
+`createdPositionsCount` | number
+`createdPositionIds` | Array&lt;number&gt;
+
+## Example
+
+```typescript
+import type { CompensationCreated } from '@winthrop-intelligence/winthrop-client-typescript'
+
+// TODO: Update the object below with actual values
+const example = {
+  "id": 1,
+  "bonusCompCents": 10000,
+  "deferredCompCents": 10000,
+  "talentFee": 10000,
+  "isCarProvided": false,
+  "countryClubDuesCents": 10000,
+  "coachId": 1,
+  "contractId": 275125,
+  "buyoutTerms": This is a buyout term,
+  "executedOn": 2019-01-01T00:00Z,
+  "expiresOn": 2019-01-01T00:00Z,
+  "startOn": 2019-01-01T00:00Z,
+  "endOn": 2019-01-01T00:00Z,
+  "averageYearlyCompCents": 10000,
+  "createdAt": 2019-01-01T00:00Z,
+  "updatedAt": 2019-01-01T00:00Z,
+  "outsideIncomeCents": 10000,
+  "oneTimeBonusCents": 10000,
+  "comment": This is a comment,
+  "countyClubMembershipPaid": false,
+  "baseSalaryCents": 10000,
+  "bonusHasContingents": false,
+  "calculatedGuaranteedCompCents": 10000,
+  "contingentBonus": true,
+  "noncontingentBonusCompCents": 10000,
+  "compensationType": This is a compensation type,
+  "mediaLink": This is a media link,
+  "contractStatusId": 1,
+  "year": 2019,
+  "schoolId": 1,
+  "contract": null,
+  "createdPositionsCount": 1,
+  "createdPositionIds": null,
+} satisfies CompensationCreated
+
+console.log(example)
+
+// Convert the instance to a JSON string
+const exampleJSON: string = JSON.stringify(example)
+console.log(exampleJSON)
+
+// Parse the JSON string back to an object
+const exampleParsed = JSON.parse(exampleJSON) as CompensationCreated
+console.log(exampleParsed)
+```
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+

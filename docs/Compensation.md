@@ -13,6 +13,7 @@ Name | Type
 `isCarProvided` | boolean
 `countryClubDuesCents` | number
 `coachId` | number
+`contractId` | number
 `buyoutTerms` | string
 `executedOn` | Date
 `expiresOn` | Date
@@ -24,7 +25,7 @@ Name | Type
 `outsideIncomeCents` | number
 `oneTimeBonusCents` | number
 `comment` | string
-`countryClubMembershipPaid` | boolean
+`countyClubMembershipPaid` | boolean
 `baseSalaryCents` | number
 `bonusHasContingents` | boolean
 `calculatedGuaranteedCompCents` | number
@@ -51,6 +52,7 @@ const example = {
   "isCarProvided": false,
   "countryClubDuesCents": 10000,
   "coachId": 1,
+  "contractId": 275125,
   "buyoutTerms": This is a buyout term,
   "executedOn": 2019-01-01T00:00Z,
   "expiresOn": 2019-01-01T00:00Z,
@@ -62,7 +64,7 @@ const example = {
   "outsideIncomeCents": 10000,
   "oneTimeBonusCents": 10000,
   "comment": This is a comment,
-  "countryClubMembershipPaid": false,
+  "countyClubMembershipPaid": false,
   "baseSalaryCents": 10000,
   "bonusHasContingents": false,
   "calculatedGuaranteedCompCents": 10000,
