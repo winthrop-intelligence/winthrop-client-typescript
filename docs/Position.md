@@ -17,6 +17,7 @@ Name | Type
 `title` | string
 `nameDisplay` | string
 `departing` | boolean
+`terminated` | boolean
 `departingSetAt` | Date
 `suppressDepartingSetAt` | boolean
 `creationReason` | string
@@ -50,6 +51,7 @@ const example = {
   "title": This is a title,
   "nameDisplay": This is a display name,
   "departing": false,
+  "terminated": false,
   "departingSetAt": 2019-01-01T00:00Z,
   "suppressDepartingSetAt": false,
   "creationReason": null,
