@@ -152,6 +152,7 @@ import type {
   GamePostSearchResultCollection,
   GameType,
   GetAccountUserActivation200Response,
+  GetAdminDeskRequest200Response,
   GetCompensationComparisons400Response,
   GetContractVerifications200Response,
   GetFavorites200ResponseInner,
@@ -553,6 +554,8 @@ import {
     GameTypeToJSON,
     GetAccountUserActivation200ResponseFromJSON,
     GetAccountUserActivation200ResponseToJSON,
+    GetAdminDeskRequest200ResponseFromJSON,
+    GetAdminDeskRequest200ResponseToJSON,
     GetCompensationComparisons400ResponseFromJSON,
     GetCompensationComparisons400ResponseToJSON,
     GetContractVerifications200ResponseFromJSON,
@@ -963,7 +966,7 @@ export interface DefaultApiCreatePasswordResetOperationRequest {
 }
 
 export interface DefaultApiCreatePositionRequest {
-    position: Position;
+    position: Omit<Position, 'terminated'>;
 }
 
 export interface DefaultApiCreateRequestedItemRequest {
@@ -1137,6 +1140,10 @@ export interface DefaultApiGetAdminDeskReportsRequest {
     status?: string;
     limit?: number;
     offset?: number;
+}
+
+export interface DefaultApiGetAdminDeskRequestRequest {
+    uuid: string;
 }
 
 export interface DefaultApiGetAdminDeskRequestsRequest {
@@ -2151,7 +2158,7 @@ export interface DefaultApiUpdatePasswordResetOperationRequest {
 
 export interface DefaultApiUpdatePositionRequest {
     positionId: number;
-    position: Position;
+    position: Omit<Position, 'terminated'>;
 }
 
 export interface DefaultApiUpdateRequestedItemRequest {
@@ -6071,6 +6078,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getAdminDeskReports(requestParameters: DefaultApiGetAdminDeskReportsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeskAdminReportsResponse> {
         const response = await this.getAdminDeskReportsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Read an ask directly, including asks linked to saved reports. Super-admin only.
+     */
+    async getAdminDeskRequestRaw(requestParameters: DefaultApiGetAdminDeskRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAdminDeskRequest200Response>> {
+        if (requestParameters['uuid'] == null) {
+            throw new runtime.RequiredError(
+                'uuid',
+                'Required parameter "uuid" was null or undefined when calling getAdminDeskRequest().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/admin/desk_requests/{uuid}`;
+        urlPath = urlPath.replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters['uuid'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetAdminDeskRequest200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Read an ask directly, including asks linked to saved reports. Super-admin only.
+     */
+    async getAdminDeskRequest(requestParameters: DefaultApiGetAdminDeskRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAdminDeskRequest200Response> {
+        const response = await this.getAdminDeskRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -15092,7 +15145,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * 07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to `building`) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\'s pending card unless an explicit client_note is given.  Sendable from `new`, `building` AND `awaiting_client`: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  `sent_to` reports who the follow-up was QUEUED for — the response used to say \"sent\" for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
+     * 07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to `building`) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\'s pending card unless an explicit client_note is given.  Requires Desk settings `needs_info_emails_enabled`. When disabled, returns 403 without changing the ask or pausing its clock. The mailer rechecks the setting at execution; suppressed jobs complete and are not replayed when re-enabled.  Sendable from `new`, `building` AND `awaiting_client`: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  `sent_to` reports who the follow-up was QUEUED for — the response used to say \"sent\" for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
      */
     async needsInfoAdminDeskRequestRaw(requestParameters: DefaultApiNeedsInfoAdminDeskRequestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NeedsInfoAdminDeskRequest200Response>> {
         if (requestParameters['uuid'] == null) {
@@ -15140,7 +15193,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * 07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to `building`) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\'s pending card unless an explicit client_note is given.  Sendable from `new`, `building` AND `awaiting_client`: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  `sent_to` reports who the follow-up was QUEUED for — the response used to say \"sent\" for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
+     * 07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to `building`) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\'s pending card unless an explicit client_note is given.  Requires Desk settings `needs_info_emails_enabled`. When disabled, returns 403 without changing the ask or pausing its clock. The mailer rechecks the setting at execution; suppressed jobs complete and are not replayed when re-enabled.  Sendable from `new`, `building` AND `awaiting_client`: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  `sent_to` reports who the follow-up was QUEUED for — the response used to say \"sent\" for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
      */
     async needsInfoAdminDeskRequest(requestParameters: DefaultApiNeedsInfoAdminDeskRequestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NeedsInfoAdminDeskRequest200Response> {
         const response = await this.needsInfoAdminDeskRequestRaw(requestParameters, initOverrides);

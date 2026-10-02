@@ -31,6 +31,12 @@ import {
  */
 export interface DeskAdminQueueRow {
     /**
+     * An unsent work-start notification can be retried without changing progress. Reuse the mark-in-progress operation; settings and eligibility are rechecked.
+     * @type {boolean}
+     * @memberof DeskAdminQueueRow
+     */
+    workStartRetryable?: boolean;
+    /**
      * The report's uuid (kind=report) or the request's (kind=ask)
      * @type {string}
      * @memberof DeskAdminQueueRow
@@ -276,6 +282,7 @@ export function DeskAdminQueueRowFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
+        'workStartRetryable': json['work_start_retryable'] == null ? undefined : json['work_start_retryable'],
         'uuid': json['uuid'],
         'kind': json['kind'],
         'status': json['status'],
@@ -311,6 +318,7 @@ export function DeskAdminQueueRowToJSONTyped(value?: DeskAdminQueueRow | null, i
 
     return {
         
+        'work_start_retryable': value['workStartRetryable'],
         'uuid': value['uuid'],
         'kind': value['kind'],
         'status': value['status'],

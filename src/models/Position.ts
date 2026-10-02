@@ -115,6 +115,12 @@ export interface Position {
      */
     departing?: boolean;
     /**
+     * Stored terminated flag of the position. Read-only in this API. null means unknown.
+     * @type {boolean}
+     * @memberof Position
+     */
+    readonly terminated?: boolean | null;
+    /**
      * 
      * @type {Date}
      * @memberof Position
@@ -241,6 +247,7 @@ export function PositionFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'title': json['title'] == null ? undefined : json['title'],
         'nameDisplay': json['name_display'] == null ? undefined : json['name_display'],
         'departing': json['departing'] == null ? undefined : json['departing'],
+        'terminated': json['terminated'] == null ? undefined : json['terminated'],
         'departingSetAt': json['departing_set_at'] == null ? undefined : (new Date(json['departing_set_at'])),
         'suppressDepartingSetAt': json['suppress_departing_set_at'] == null ? undefined : json['suppress_departing_set_at'],
         'creationReason': json['creation_reason'] == null ? undefined : json['creation_reason'],
@@ -262,7 +269,7 @@ export function PositionToJSON(json: any): Position {
     return PositionToJSONTyped(json, false);
 }
 
-export function PositionToJSONTyped(value?: Position | null, ignoreDiscriminator: boolean = false): any {
+export function PositionToJSONTyped(value?: Omit<Position, 'terminated'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -463,6 +463,7 @@ docs/GamePostSearchResultScheduleIntentsInner.md
 docs/GameType.md
 docs/GeoRegion.md
 docs/GetAccountUserActivation200Response.md
+docs/GetAdminDeskRequest200Response.md
 docs/GetCompensationComparisons400Response.md
 docs/GetContractVerifications200Response.md
 docs/GetFavorites200ResponseInner.md
@@ -1227,6 +1228,7 @@ src/models/GamePostSearchResultScheduleIntentsInner.ts
 src/models/GameType.ts
 src/models/GeoRegion.ts
 src/models/GetAccountUserActivation200Response.ts
+src/models/GetAdminDeskRequest200Response.ts
 src/models/GetCompensationComparisons400Response.ts
 src/models/GetContractVerifications200Response.ts
 src/models/GetFavorites200ResponseInner.ts

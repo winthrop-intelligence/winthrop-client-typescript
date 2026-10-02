@@ -82,6 +82,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdminDeskReport**](DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} |  |
 | [**getAdminDeskReports**](DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports |  |
+| [**getAdminDeskRequest**](DefaultApi.md#getadmindeskrequest) | **GET** /api/v1/admin/desk_requests/{uuid} |  |
 | [**getAdminDeskRequests**](DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests |  |
 | [**getAdminDeskSettings**](DefaultApi.md#getadmindesksettings) | **GET** /api/v1/admin/desk_settings |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
@@ -6246,6 +6247,82 @@ example().catch(console.error);
 | **200** | Desk reports retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (not a super admin) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminDeskRequest
+
+> GetAdminDeskRequest200Response getAdminDeskRequest(uuid)
+
+
+
+Read an ask directly, including asks linked to saved reports. Super-admin only.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminDeskRequestRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    uuid: uuid_example,
+  } satisfies GetAdminDeskRequestRequest;
+
+  try {
+    const data = await api.getAdminDeskRequest(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uuid** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**GetAdminDeskRequest200Response**](GetAdminDeskRequest200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ask retrieved with its own lifecycle status, independent of queue membership |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Ask not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -20469,7 +20546,7 @@ This endpoint does not need any parameter.
 
 
 
-07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to &#x60;building&#x60;) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\&#39;s pending card unless an explicit client_note is given.  Sendable from &#x60;new&#x60;, &#x60;building&#x60; AND &#x60;awaiting_client&#x60;: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  &#x60;sent_to&#x60; reports who the follow-up was QUEUED for — the response used to say \&quot;sent\&quot; for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
+07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to &#x60;building&#x60;) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\&#39;s pending card unless an explicit client_note is given.  Requires Desk settings &#x60;needs_info_emails_enabled&#x60;. When disabled, returns 403 without changing the ask or pausing its clock. The mailer rechecks the setting at execution; suppressed jobs complete and are not replayed when re-enabled.  Sendable from &#x60;new&#x60;, &#x60;building&#x60; AND &#x60;awaiting_client&#x60;: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  &#x60;sent_to&#x60; reports who the follow-up was QUEUED for — the response used to say \&quot;sent\&quot; for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
 
 ### Example
 
@@ -20536,7 +20613,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Sent back |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Not authorized, or Needs info emails disabled in Desk settings |  -  |
 | **404** | Not Found |  -  |
 | **422** | Missing follow-up copy, or an ask that cannot be sent back |  -  |
 

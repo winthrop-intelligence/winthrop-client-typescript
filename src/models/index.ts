@@ -456,6 +456,7 @@ export * from './GamePostSearchResultScheduleIntentsInner';
 export * from './GameType';
 export * from './GeoRegion';
 export * from './GetAccountUserActivation200Response';
+export * from './GetAdminDeskRequest200Response';
 export * from './GetCompensationComparisons400Response';
 export * from './GetContractVerifications200Response';
 export * from './GetFavorites200ResponseInner';

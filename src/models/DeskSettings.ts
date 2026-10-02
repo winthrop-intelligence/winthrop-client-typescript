@@ -32,6 +32,12 @@ export interface DeskSettings {
      */
     notificationsEnabled: boolean;
     /**
+     * Independently allows Needs info emails. Checked before pausing an ask and at mail execution.
+     * @type {boolean}
+     * @memberof DeskSettings
+     */
+    needsInfoEmailsEnabled: boolean;
+    /**
      * Separate summary recipient. Required and valid when notifications are enabled.
      * @type {string}
      * @memberof DeskSettings
@@ -45,6 +51,7 @@ export interface DeskSettings {
 export function instanceOfDeskSettings(value: object): value is DeskSettings {
     if (!('lockVersion' in value) || value['lockVersion'] === undefined) return false;
     if (!('notificationsEnabled' in value) || value['notificationsEnabled'] === undefined) return false;
+    if (!('needsInfoEmailsEnabled' in value) || value['needsInfoEmailsEnabled'] === undefined) return false;
     if (!('copyEmail' in value) || value['copyEmail'] === undefined) return false;
     return true;
 }
@@ -61,6 +68,7 @@ export function DeskSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'lockVersion': json['lock_version'],
         'notificationsEnabled': json['notifications_enabled'],
+        'needsInfoEmailsEnabled': json['needs_info_emails_enabled'],
         'copyEmail': json['copy_email'],
     };
 }
@@ -78,6 +86,7 @@ export function DeskSettingsToJSONTyped(value?: DeskSettings | null, ignoreDiscr
         
         'lock_version': value['lockVersion'],
         'notifications_enabled': value['notificationsEnabled'],
+        'needs_info_emails_enabled': value['needsInfoEmailsEnabled'],
         'copy_email': value['copyEmail'],
     };
 }

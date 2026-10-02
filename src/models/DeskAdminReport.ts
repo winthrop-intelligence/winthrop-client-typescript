@@ -70,6 +70,12 @@ import {
  */
 export interface DeskAdminReport {
     /**
+     * An unsent work-start notification can be retried without changing progress. Reuse the mark-in-progress operation; settings and eligibility are rechecked.
+     * @type {boolean}
+     * @memberof DeskAdminReport
+     */
+    workStartRetryable?: boolean;
+    /**
      * 
      * @type {DeskComposition}
      * @memberof DeskAdminReport
@@ -366,6 +372,7 @@ export function DeskAdminReportFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
+        'workStartRetryable': json['work_start_retryable'] == null ? undefined : json['work_start_retryable'],
         'composition': json['composition'] == null ? undefined : DeskCompositionFromJSON(json['composition']),
         'uuid': json['uuid'],
         'account': DeskAdminAccountFromJSON(json['account']),
@@ -408,6 +415,7 @@ export function DeskAdminReportToJSONTyped(value?: DeskAdminReport | null, ignor
 
     return {
         
+        'work_start_retryable': value['workStartRetryable'],
         'composition': DeskCompositionToJSON(value['composition']),
         'uuid': value['uuid'],
         'account': DeskAdminAccountToJSON(value['account']),

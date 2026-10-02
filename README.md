@@ -144,6 +144,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
 *DefaultApi* | [**getAdminDeskReport**](docs/DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} | 
 *DefaultApi* | [**getAdminDeskReports**](docs/DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports | 
+*DefaultApi* | [**getAdminDeskRequest**](docs/DefaultApi.md#getadmindeskrequest) | **GET** /api/v1/admin/desk_requests/{uuid} | 
 *DefaultApi* | [**getAdminDeskRequests**](docs/DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests | 
 *DefaultApi* | [**getAdminDeskSettings**](docs/DefaultApi.md#getadmindesksettings) | **GET** /api/v1/admin/desk_settings | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
@@ -866,6 +867,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
 - [GetAccountUserActivation200Response](docs/GetAccountUserActivation200Response.md)
+- [GetAdminDeskRequest200Response](docs/GetAdminDeskRequest200Response.md)
 - [GetCompensationComparisons400Response](docs/GetCompensationComparisons400Response.md)
 - [GetContractVerifications200Response](docs/GetContractVerifications200Response.md)
 - [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)

@@ -1,28 +1,22 @@
 
-# DeskSettings
+# GetAdminDeskRequest200Response
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`lockVersion` | number
-`notificationsEnabled` | boolean
-`needsInfoEmailsEnabled` | boolean
-`copyEmail` | string
+`data` | [DeskAdminQueueRow](DeskAdminQueueRow.md)
 
 ## Example
 
 ```typescript
-import type { DeskSettings } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { GetAdminDeskRequest200Response } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "lockVersion": null,
-  "notificationsEnabled": null,
-  "needsInfoEmailsEnabled": null,
-  "copyEmail": null,
-} satisfies DeskSettings
+  "data": null,
+} satisfies GetAdminDeskRequest200Response
 
 console.log(example)
 
@@ -31,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DeskSettings
+const exampleParsed = JSON.parse(exampleJSON) as GetAdminDeskRequest200Response
 console.log(exampleParsed)
 ```
 
