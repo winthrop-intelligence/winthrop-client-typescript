@@ -7,6 +7,7 @@ ReportAdmin (tmp/desk/TICKETS.md D-15) — the update screen and compose reopen 
 
 Name | Type
 ------------ | -------------
+`workStartRetryable` | boolean
 `composition` | [DeskComposition](DeskComposition.md)
 `uuid` | string
 `account` | [DeskAdminAccount](DeskAdminAccount.md)
@@ -43,6 +44,7 @@ import type { DeskAdminReport } from '@winthrop-intelligence/winthrop-client-typ
 
 // TODO: Update the object below with actual values
 const example = {
+  "workStartRetryable": null,
   "composition": null,
   "uuid": null,
   "account": null,

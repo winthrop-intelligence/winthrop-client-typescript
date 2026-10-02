@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`billingAddresses` | [Array&lt;AccountBillingAddress&gt;](AccountBillingAddress.md)
 `invoiceDate` | Date
 `description` | string
 `amountCents` | number
@@ -29,6 +30,7 @@ import type { AccountInvoice } from '@winthrop-intelligence/winthrop-client-type
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
+  "billingAddresses": null,
   "invoiceDate": null,
   "description": null,
   "amountCents": null,
