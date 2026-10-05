@@ -72,7 +72,7 @@ const example = {
   "calculatedGuaranteedCompCents": 10000,
   "contingentBonus": true,
   "noncontingentBonusCompCents": 10000,
-  "compensationType": This is a compensation type,
+  "compensationType": yearly,
   "mediaLink": This is a media link,
   "contractStatusId": 1,
   "year": 2019,
