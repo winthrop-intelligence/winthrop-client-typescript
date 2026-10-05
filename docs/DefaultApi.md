@@ -286,6 +286,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
 | [**updateConference**](DefaultApi.md#updateconference) | **PUT** /api/v1/conferences/{conferenceId} |  |
 | [**updateConferenceship**](DefaultApi.md#updateconferenceship) | **PUT** /api/v1/conferenceships/{conferenceshipId} |  |
+| [**updateDeal**](DefaultApi.md#updatedealoperation) | **PATCH** /api/v1/deals/{dealId} |  |
 | [**updateFavorite**](DefaultApi.md#updatefavoriteoperation) | **PATCH** /api/v1/favorites/{id} |  |
 | [**updateFavoritesCategory**](DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} |  |
 | [**updateFoiaLabel**](DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} |  |
@@ -21773,7 +21774,7 @@ example().catch(console.error);
 
 
 
-Update a compensation
+Update a compensation. Requires the winad_write OAuth scope. compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user.
 
 ### Example
 
@@ -21840,8 +21841,9 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope. |  -  |
 | **404** | Not Found |  -  |
-| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. |  -  |
+| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -22000,6 +22002,86 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **422** | Unable to update the Conferenceship |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateDeal
+
+> DealUpdateResult updateDeal(dealId, updateDealRequest)
+
+
+
+Atomically update deal fields and Apparel or Multimedia detail values. At least one field is required. Unknown fields and fields belonging to another deal type return 422 without changes. Changes are audited with the authenticated user. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateDealOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Deal
+    dealId: 56,
+    // UpdateDealRequest
+    updateDealRequest: ...,
+  } satisfies UpdateDealOperationRequest;
+
+  try {
+    const data = await api.updateDeal(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dealId** | `number` | ID of the Deal | [Defaults to `undefined`] |
+| **updateDealRequest** | [UpdateDealRequest](UpdateDealRequest.md) |  | |
+
+### Return type
+
+[**DealUpdateResult**](DealUpdateResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated deal read back from the database, with decimal fields returned as decimal strings. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | A persisted user-backed OAuth token, write scope, and permission to update deals are required. Client-credentials tokens are rejected without saving changes. |  -  |
+| **404** | Deal not found |  -  |
+| **422** | Invalid fields or values; no changes were saved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

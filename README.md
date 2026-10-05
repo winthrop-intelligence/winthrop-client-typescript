@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.3
+# @winthrop-intelligence/winthrop-client-typescript@1.55.4
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -348,6 +348,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateCompensation**](docs/DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
 *DefaultApi* | [**updateConference**](docs/DefaultApi.md#updateconference) | **PUT** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**updateConferenceship**](docs/DefaultApi.md#updateconferenceship) | **PUT** /api/v1/conferenceships/{conferenceshipId} | 
+*DefaultApi* | [**updateDeal**](docs/DefaultApi.md#updatedealoperation) | **PATCH** /api/v1/deals/{dealId} | 
 *DefaultApi* | [**updateFavorite**](docs/DefaultApi.md#updatefavoriteoperation) | **PATCH** /api/v1/favorites/{id} | 
 *DefaultApi* | [**updateFavoritesCategory**](docs/DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**updateFoiaLabel**](docs/DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} | 
@@ -375,7 +376,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**viewInvoiceFile**](docs/DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file | 
 *DefaultApi* | [**viewRawContractFile**](docs/DefaultApi.md#viewrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/view_file | 
 *DefaultApi* | [**viewSubscriptionAcceptanceContract**](docs/DefaultApi.md#viewsubscriptionacceptancecontract) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId}/contract | 
-*DossierApi* | [**universityDossierReportDossierWinadIdGet**](docs/DossierApi.md#universitydossierreportdossierwinadidget) | **GET** /dossier/{winad_id}/ | University Dossier Report
 *FoiaInboxApi* | [**applyFoiaInbox**](docs/FoiaInboxApi.md#applyfoiainbox) | **POST** /api/v1/foia_inbox_apply | 
 *FoiaInboxApi* | [**getFoiaInboxCandidates**](docs/FoiaInboxApi.md#getfoiainboxcandidates) | **GET** /api/v1/foia_inbox_candidates | 
 *GameContractsApi* | [**applyGameContract**](docs/GameContractsApi.md#applygamecontract) | **POST** /api/v1/game_contracts/apply | 
@@ -422,6 +422,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Administrator](docs/Administrator.md)
 - [AdministratorCollection](docs/AdministratorCollection.md)
 - [AdministratorSearchResultCollection](docs/AdministratorSearchResultCollection.md)
+- [ApparelDealUpdate](docs/ApparelDealUpdate.md)
+- [ApparelDealUpdateSportsInner](docs/ApparelDealUpdateSportsInner.md)
 - [AsstCoachEntry](docs/AsstCoachEntry.md)
 - [AsstCoachSchool](docs/AsstCoachSchool.md)
 - [AthleticProfileShow](docs/AthleticProfileShow.md)
@@ -628,6 +630,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DealSearchResultCollection](docs/DealSearchResultCollection.md)
 - [DealStatus](docs/DealStatus.md)
 - [DealStatusCollection](docs/DealStatusCollection.md)
+- [DealUpdateAmount](docs/DealUpdateAmount.md)
+- [DealUpdateDetail](docs/DealUpdateDetail.md)
+- [DealUpdateResult](docs/DealUpdateResult.md)
 - [DeleteAccountUser200Response](docs/DeleteAccountUser200Response.md)
 - [DeleteContactSearch200Response](docs/DeleteContactSearch200Response.md)
 - [DeleteFavorite200Response](docs/DeleteFavorite200Response.md)
@@ -751,7 +756,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DirectorsCupSchool](docs/DirectorsCupSchool.md)
 - [Division](docs/Division.md)
 - [DivisionCollection](docs/DivisionCollection.md)
-- [DossierReportResponse](docs/DossierReportResponse.md)
 - [EditAccountUser](docs/EditAccountUser.md)
 - [EditAccountUserResponse](docs/EditAccountUserResponse.md)
 - [EnrichGamePostSearchesRequest](docs/EnrichGamePostSearchesRequest.md)
@@ -893,7 +897,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GuaranteeEconomicsBatchPair](docs/GuaranteeEconomicsBatchPair.md)
 - [GuaranteeEconomicsError](docs/GuaranteeEconomicsError.md)
 - [GuaranteeEconomicsSide](docs/GuaranteeEconomicsSide.md)
-- [HTTPValidationError](docs/HTTPValidationError.md)
 - [HealthCheckFailure](docs/HealthCheckFailure.md)
 - [HealthCheckSuccess](docs/HealthCheckSuccess.md)
 - [HideAdminDeskReportRequest](docs/HideAdminDeskReportRequest.md)
@@ -932,10 +935,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [LinkCollection](docs/LinkCollection.md)
 - [LinkCollection1](docs/LinkCollection1.md)
 - [ListNotes200ResponseInner](docs/ListNotes200ResponseInner.md)
-- [LocationInner](docs/LocationInner.md)
 - [Logo](docs/Logo.md)
 - [McpEvent](docs/McpEvent.md)
 - [Meta](docs/Meta.md)
+- [MultimediaDealUpdate](docs/MultimediaDealUpdate.md)
+- [MultimediaDealUpdateRevSharePercent](docs/MultimediaDealUpdateRevSharePercent.md)
 - [NcaaFinancialParticipationSummary](docs/NcaaFinancialParticipationSummary.md)
 - [NcaaFinancialReportItemGroup](docs/NcaaFinancialReportItemGroup.md)
 - [NcaaFinancialReportItemValue](docs/NcaaFinancialReportItemValue.md)
@@ -1003,7 +1007,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RequestedItemReviewContextDocument](docs/RequestedItemReviewContextDocument.md)
 - [RequestedItemReviewContextFoiaRequest](docs/RequestedItemReviewContextFoiaRequest.md)
 - [RequestedItemReviewContextRequestedItem](docs/RequestedItemReviewContextRequestedItem.md)
-- [RetryFrsExport422Response](docs/RetryFrsExport422Response.md)
 - [RoleOption](docs/RoleOption.md)
 - [RunningJob](docs/RunningJob.md)
 - [SalarySiteAssociation](docs/SalarySiteAssociation.md)
@@ -1116,6 +1119,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateAdminDeskRequest200ResponseData](docs/UpdateAdminDeskRequest200ResponseData.md)
 - [UpdateAdminDeskRequestRequest](docs/UpdateAdminDeskRequestRequest.md)
 - [UpdateAdminDeskSettings422Response](docs/UpdateAdminDeskSettings422Response.md)
+- [UpdateDeal403Response](docs/UpdateDeal403Response.md)
+- [UpdateDeal422Response](docs/UpdateDeal422Response.md)
+- [UpdateDealRequest](docs/UpdateDealRequest.md)
+- [UpdateDealRequestDeal](docs/UpdateDealRequestDeal.md)
+- [UpdateDealRequestDealDetail](docs/UpdateDealRequestDealDetail.md)
 - [UpdateFavorite200Response](docs/UpdateFavorite200Response.md)
 - [UpdateFavoriteRequest](docs/UpdateFavoriteRequest.md)
 - [UpdateFavoritesCategoryRequest](docs/UpdateFavoritesCategoryRequest.md)
@@ -1147,7 +1155,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UserScheduleSportsInner](docs/UserScheduleSportsInner.md)
 - [ValidateAdminDeskReport200Response](docs/ValidateAdminDeskReport200Response.md)
 - [ValidateAdminDeskReportRequest](docs/ValidateAdminDeskReportRequest.md)
-- [ValidationError](docs/ValidationError.md)
 - [Vendor](docs/Vendor.md)
 - [VendorCollection](docs/VendorCollection.md)
 - [VerifyOtpCode200Response](docs/VerifyOtpCode200Response.md)
@@ -1184,8 +1191,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.3`
-- Package version: `1.55.3`
+- API version: `1.55.4`
+- Package version: `1.55.4`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
