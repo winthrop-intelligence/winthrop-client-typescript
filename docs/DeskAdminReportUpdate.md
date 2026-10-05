@@ -19,6 +19,8 @@ Name | Type
 `headlineStats` | [Array&lt;DeskHeadlineStat&gt;](DeskHeadlineStat.md)
 `composition` | [DeskComposition](DeskComposition.md)
 `draftBodyHtml` | string
+`status` | string
+`markInProgress` | boolean
 `accountId` | number
 
 ## Example
@@ -41,6 +43,8 @@ const example = {
   "headlineStats": null,
   "composition": null,
   "draftBodyHtml": null,
+  "status": null,
+  "markInProgress": null,
   "accountId": null,
 } satisfies DeskAdminReportUpdate
 

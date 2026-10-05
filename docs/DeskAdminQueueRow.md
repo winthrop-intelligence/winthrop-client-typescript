@@ -7,6 +7,7 @@ One 06.1 queue row (frontend DeskAdminQueueRow, structured facts only). A report
 
 Name | Type
 ------------ | -------------
+`workStartRetryable` | boolean
 `uuid` | string
 `kind` | string
 `status` | string
@@ -36,6 +37,7 @@ import type { DeskAdminQueueRow } from '@winthrop-intelligence/winthrop-client-t
 
 // TODO: Update the object below with actual values
 const example = {
+  "workStartRetryable": null,
   "uuid": null,
   "kind": null,
   "status": null,
