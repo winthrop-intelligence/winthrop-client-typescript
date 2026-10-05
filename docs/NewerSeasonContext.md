@@ -13,6 +13,7 @@ Name | Type
 `conferenceName` | string
 `positionTitle` | string
 `compensationCents` | number
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 
 ## Example
 
@@ -28,6 +29,7 @@ const example = {
   "conferenceName": null,
   "positionTitle": null,
   "compensationCents": null,
+  "assignments": null,
 } satisfies NewerSeasonContext
 
 console.log(example)

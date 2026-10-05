@@ -16,6 +16,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
 | [**createAdminDeskReport**](DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports |  |
 | [**createAdminDeskReportArtifact**](DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts |  |
+| [**createAdminInvoice**](DefaultApi.md#createadmininvoice) | **POST** /api/v1/admin/invoices |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
 | [**createCoach**](DefaultApi.md#createcoach) | **POST** /api/v1/coaches |  |
 | [**createCompensation**](DefaultApi.md#createcompensationoperation) | **POST** /api/v1/compensations |  |
@@ -44,8 +45,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createRequestedItemRiNote**](DefaultApi.md#createrequesteditemrinote) | **POST** /api/v1/requested_items/{requestedItemId}/ri_note |  |
 | [**createScheduleIntent**](DefaultApi.md#createscheduleintentoperation) | **POST** /api/v1/schedule_intents |  |
 | [**createScheduleTournament**](DefaultApi.md#createscheduletournamentoperation) | **POST** /api/v1/schedule_tournaments |  |
+| [**createSchedulingMessage**](DefaultApi.md#createschedulingmessage) | **POST** /api/v1/scheduling_messages |  |
 | [**createSchoolGroup**](DefaultApi.md#createschoolgroupoperation) | **POST** /api/v1/school_groups |  |
 | [**createSeason**](DefaultApi.md#createseason) | **POST** /api/v1/seasons |  |
+| [**createSubscription**](DefaultApi.md#createsubscription) | **POST** /api/v1/subscriptions |  |
 | [**createTeamScheduleFavorite**](DefaultApi.md#createteamschedulefavoriteoperation) | **POST** /api/v1/team_schedule_favorites |  |
 | [**createUpload**](DefaultApi.md#createupload) | **POST** /api/v1/uploads |  |
 | [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
@@ -80,11 +83,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
+| [**getAccounts**](DefaultApi.md#getaccounts) | **GET** /api/v1/accounts |  |
 | [**getAdminDeskReport**](DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} |  |
 | [**getAdminDeskReports**](DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports |  |
 | [**getAdminDeskRequest**](DefaultApi.md#getadmindeskrequest) | **GET** /api/v1/admin/desk_requests/{uuid} |  |
 | [**getAdminDeskRequests**](DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests |  |
 | [**getAdminDeskSettings**](DefaultApi.md#getadmindesksettings) | **GET** /api/v1/admin/desk_settings |  |
+| [**getAdminInvoice**](DefaultApi.md#getadmininvoice) | **GET** /api/v1/admin/invoices/{invoiceId} |  |
+| [**getAdminInvoices**](DefaultApi.md#getadmininvoices) | **GET** /api/v1/admin/invoices |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
@@ -241,6 +247,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSubdivisions**](DefaultApi.md#getsubdivisions) | **GET** /api/v1/subdivisions |  |
 | [**getSubscription**](DefaultApi.md#getsubscription) | **GET** /api/v1/subscriptions/{subscriptionId} |  |
 | [**getSubscriptionAcceptance**](DefaultApi.md#getsubscriptionacceptance) | **GET** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
+| [**getSubscriptionTypes**](DefaultApi.md#getsubscriptiontypes) | **GET** /api/v1/subscription_types |  |
 | [**getSubscriptions**](DefaultApi.md#getsubscriptions) | **GET** /api/v1/subscriptions |  |
 | [**getSystemSettings**](DefaultApi.md#getsystemsettings) | **GET** /api/v1/system_setting |  |
 | [**getTeamScheduleDetail**](DefaultApi.md#getteamscheduledetail) | **GET** /api/v1/team_schedule_details/{sport_name}/{school_id} |  |
@@ -267,13 +274,16 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**hideAdminDeskReport**](DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide |  |
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
+| [**markPaidAdminInvoice**](DefaultApi.md#markpaidadmininvoice) | **POST** /api/v1/admin/invoices/{invoiceId}/mark_paid |  |
 | [**needsInfoAdminDeskRequest**](DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info |  |
+| [**prefillAdminInvoice**](DefaultApi.md#prefilladmininvoice) | **GET** /api/v1/admin/invoices/prefill |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
 | [**restoreAdminDeskReport**](DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore |  |
 | [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
+| [**sendAdminInvoice**](DefaultApi.md#sendadmininvoiceoperation) | **POST** /api/v1/admin/invoices/{invoiceId}/send |  |
 | [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
 | [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
 | [**updateAccountUser**](DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} |  |
@@ -281,12 +291,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAdminDeskReport**](DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} |  |
 | [**updateAdminDeskRequest**](DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} |  |
 | [**updateAdminDeskSettings**](DefaultApi.md#updateadmindesksettings) | **PATCH** /api/v1/admin/desk_settings |  |
+| [**updateAdminInvoice**](DefaultApi.md#updateadmininvoice) | **PATCH** /api/v1/admin/invoices/{invoiceId} |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
 | [**updateCoach**](DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} |  |
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
 | [**updateConference**](DefaultApi.md#updateconference) | **PUT** /api/v1/conferences/{conferenceId} |  |
 | [**updateConferenceship**](DefaultApi.md#updateconferenceship) | **PUT** /api/v1/conferenceships/{conferenceshipId} |  |
-| [**updateDeal**](DefaultApi.md#updatedealoperation) | **PATCH** /api/v1/deals/{dealId} |  |
 | [**updateFavorite**](DefaultApi.md#updatefavoriteoperation) | **PATCH** /api/v1/favorites/{id} |  |
 | [**updateFavoritesCategory**](DefaultApi.md#updatefavoritescategoryoperation) | **PATCH** /api/v1/favorites_categories/{id} |  |
 | [**updateFoiaLabel**](DefaultApi.md#updatefoialabel) | **PATCH** /api/v1/foia_labels/{foiaLabelId} |  |
@@ -303,6 +313,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateScheduleIntent**](DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} |  |
 | [**updateSchoolGroup**](DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} |  |
 | [**updateSeason**](DefaultApi.md#updateseason) | **PUT** /api/v1/seasons/{seasonId} |  |
+| [**updateSubscription**](DefaultApi.md#updatesubscriptionoperation) | **PATCH** /api/v1/subscriptions/{subscriptionId} |  |
 | [**updateSubscriptionAcceptance**](DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
 | [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
 | [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
@@ -1270,6 +1281,83 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unknown kind or missing file |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminInvoice
+
+> AdminInvoiceForm createAdminInvoice(adminInvoiceCreate)
+
+
+
+\&quot;Save draft\&quot; for a brand-new invoice — the fields the operator actually typed into the form prefilled by GET .../prefill, not server-generated defaults. Never emails anyone; use POST .../{id}/send for that. The invoice is saved as a draft and gets no reminder emails until it has been sent.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminInvoiceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // AdminInvoiceCreate
+    adminInvoiceCreate: ...,
+  } satisfies CreateAdminInvoiceRequest;
+
+  try {
+    const data = await api.createAdminInvoice(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **adminInvoiceCreate** | [AdminInvoiceCreate](AdminInvoiceCreate.md) |  | |
+
+### Return type
+
+[**AdminInvoiceForm**](AdminInvoiceForm.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Draft invoice created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Unknown subscription_year_id |  -  |
+| **422** | Validation failed (e.g. amount_cents &lt;&#x3D; 0, blank description or due_date), or the annual schedule needs splitting. Split refusals include an errors array and the numeric subscription_id to open for correction. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -3392,6 +3480,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createSchedulingMessage
+
+> SchedulingMessage createSchedulingMessage(schedulingMessageCreate)
+
+
+
+Relay a scheduling message by email and return its persisted delivery record.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateSchedulingMessageRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // SchedulingMessageCreate
+    schedulingMessageCreate: ...,
+  } satisfies CreateSchedulingMessageRequest;
+
+  try {
+    const data = await api.createSchedulingMessage(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schedulingMessageCreate** | [SchedulingMessageCreate](SchedulingMessageCreate.md) |  | |
+
+### Return type
+
+[**SchedulingMessage**](SchedulingMessage.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Scheduling message persisted and queued |  -  |
+| **400** | Required scheduling_message object missing or malformed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | User cannot create scheduling messages |  -  |
+| **422** | Invalid message, missing recipient or school, or daily limit reached |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createSchoolGroup
 
 > SchoolGroupShow createSchoolGroup(createSchoolGroupRequest)
@@ -3538,6 +3703,86 @@ example().catch(console.error);
 | **201** | Season was created |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Unable to create the Season |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createSubscription
+
+> Subscription createSubscription(subscription, rawContractFile)
+
+
+
+Create a Subscription with its per-year payment schedule (subscription_years). Accepts multipart/form-data with a raw_contract_file part for the signed agreement PDF. The subscription is either one application/json part holding the object below, or the same fields as bracketed form fields (subscription[account_id], ...). The schedule must run back to back from start_at to end_at, numbered from 1, with every year between a month and a year long. Uploaded signed agreements are recorded as accepted. Set active to false to record an upcoming renewal while the account\&#39;s current subscription is active.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateSubscriptionRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateSubscriptionRequestSubscription (optional)
+    subscription: ...,
+    // Blob (optional)
+    rawContractFile: BINARY_DATA_HERE,
+  } satisfies CreateSubscriptionRequest;
+
+  try {
+    const data = await api.createSubscription(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscription** | [CreateSubscriptionRequestSubscription](CreateSubscriptionRequestSubscription.md) |  | [Optional] [Defaults to `undefined`] |
+| **rawContractFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**Subscription**](Subscription.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Subscription was created |  -  |
+| **400** | The subscription part is not a JSON object |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | The token has no signed-in user, or the user may not create subscriptions |  -  |
+| **422** | Validation failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -6095,6 +6340,87 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getAccounts
+
+> AccountSummaryCollection getAccounts(page, perPage, q)
+
+
+
+Super_admin-only name-search lookup for accounts (e.g. the subscription account picker). Unlike GET /accounts/{id}, this is not available to account-scoped users.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAccountsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies GetAccountsRequest;
+
+  try {
+    const data = await api.getAccounts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AccountSummaryCollection**](AccountSummaryCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Accounts matching the search |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super_admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getAdminDeskReport
 
 > DeskAdminReportResponse getAdminDeskReport(uuid)
@@ -6469,6 +6795,166 @@ This endpoint does not need any parameter.
 | **200** | Saved settings; defaults to disabled with no copy address |  -  |
 | **401** | Authentication required |  -  |
 | **403** | Persisted super admin and read scope required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminInvoice
+
+> AdminInvoiceForm getAdminInvoice(invoiceId)
+
+
+
+An existing invoice\&#39;s form/detail — draft, sent, or paid all render the same shape.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminInvoiceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Invoice
+    invoiceId: 56,
+  } satisfies GetAdminInvoiceRequest;
+
+  try {
+    const data = await api.getAdminInvoice(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | `number` | ID of the Invoice | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminInvoiceForm**](AdminInvoiceForm.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invoice form data |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminInvoices
+
+> AdminInvoicesResponse getAdminInvoices(status, accountName, page, perPage)
+
+
+
+The Invoices admin list, super-admin only. status&#x3D;not_sent (the default) is synthesized from subscription_years due within 90 days or past due, on an active billable subscription, with no non-draft or paid invoice against them. A queued delivery reserves its year immediately even while sent_at is null. Legacy non-draft invoices also reserve their year when their send date is unknown. status&#x3D;sent lists confirmed sent invoices not yet paid, and status&#x3D;paid lists paid invoices. status&#x3D;all combines these with remaining drafts, pending deliveries and legacy invoices. Every row\&#39;s &#x60;action&#x60; names what the one action button does and the ids it needs — the frontend follows it to the invoice form or the subscription schedule page, all in-app.  Pass format&#x3D;csv (e.g. &#x60;/admin/invoices.csv&#x60;) for a CSV export reflecting the same status/account_name filters. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminInvoicesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | not_sent (default) | sent | paid | all (optional)
+    status: status_example,
+    // string | Case-insensitive contains match on the account name. (optional)
+    accountName: accountName_example,
+    // number (optional)
+    page: 56,
+    // number (optional)
+    perPage: 56,
+  } satisfies GetAdminInvoicesRequest;
+
+  try {
+    const data = await api.getAdminInvoices(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **status** | `string` | not_sent (default) | sent | paid | all | [Optional] [Defaults to `undefined`] |
+| **accountName** | `string` | Case-insensitive contains match on the account name. | [Optional] [Defaults to `undefined`] |
+| **page** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **perPage** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminInvoicesResponse**](AdminInvoicesResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invoice list rows |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (not a super admin) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -18534,9 +19020,75 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSubscriptionTypes
+
+> Array&lt;SubscriptionTypeSummary&gt; getSubscriptionTypes()
+
+
+
+List subscription types (id + display name) for pickers.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSubscriptionTypesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getSubscriptionTypes();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;SubscriptionTypeSummary&gt;**](SubscriptionTypeSummary.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Subscription types |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSubscriptions
 
-> SubscriptionCollection getSubscriptions(page, perPage, q)
+> SubscriptionCollection getSubscriptions(page, perPage, q, estimatedInvoiceDateGteq, estimatedInvoiceDateLteq)
 
 
 
@@ -18568,6 +19120,10 @@ async function example() {
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
+    // string | Legacy estimated invoice date lower bound, normalized to day of year. (optional)
+    estimatedInvoiceDateGteq: estimatedInvoiceDateGteq_example,
+    // string | Legacy estimated invoice date upper bound; preserves existing single-bound behavior. (optional)
+    estimatedInvoiceDateLteq: estimatedInvoiceDateLteq_example,
   } satisfies GetSubscriptionsRequest;
 
   try {
@@ -18590,6 +19146,8 @@ example().catch(console.error);
 | **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **estimatedInvoiceDateGteq** | `string` | Legacy estimated invoice date lower bound, normalized to day of year. | [Optional] [Defaults to `undefined`] |
+| **estimatedInvoiceDateLteq** | `string` | Legacy estimated invoice date upper bound; preserves existing single-bound behavior. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -19536,11 +20094,11 @@ example().catch(console.error);
 
 ## getUploadFile
 
-> getUploadFile(uploadId)
+> Blob getUploadFile(uploadId)
 
 
 
-Redirect to the uploaded file for viewing/downloading
+Redirect to the uploaded PDF; clients following the redirect receive PDF bytes.
 
 ### Example
 
@@ -19587,7 +20145,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+**Blob**
 
 ### Authorization
 
@@ -19596,12 +20154,13 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/pdf`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | PDF bytes after following the storage redirect |  -  |
 | **302** | Redirect to file URL |  -  |
 | **404** | File not found |  -  |
 
@@ -20541,6 +21100,83 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## markPaidAdminInvoice
+
+> AdminInvoiceForm markPaidAdminInvoice(invoiceId)
+
+
+
+Mark a sent invoice paid and stop reminders. The first call sets payment_received; repeated calls preserve the original payment timestamp. An unsent draft or an initial delivery still pending is refused with 422.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { MarkPaidAdminInvoiceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Invoice
+    invoiceId: 56,
+  } satisfies MarkPaidAdminInvoiceRequest;
+
+  try {
+    const data = await api.markPaidAdminInvoice(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | `number` | ID of the Invoice | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminInvoiceForm**](AdminInvoiceForm.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Marked paid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Send the invoice successfully before marking it paid |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## needsInfoAdminDeskRequest
 
 > NeedsInfoAdminDeskRequest200Response needsInfoAdminDeskRequest(uuid, needsInfoAdminDeskRequestRequest)
@@ -20617,6 +21253,83 @@ example().catch(console.error);
 | **403** | Not authorized, or Needs info emails disabled in Desk settings |  -  |
 | **404** | Not Found |  -  |
 | **422** | Missing follow-up copy, or an ask that cannot be sent back |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## prefillAdminInvoice
+
+> AdminInvoiceForm prefillAdminInvoice(subscriptionYearId)
+
+
+
+A new-invoice form prefilled from a subscription year; nothing is persisted. Choosing another Service period re-calls this with a different subscription_year_id from the same subscription (see the response\&#39;s own &#x60;service_periods&#x60;). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PrefillAdminInvoiceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    subscriptionYearId: 56,
+  } satisfies PrefillAdminInvoiceRequest;
+
+  try {
+    const data = await api.prefillAdminInvoice(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionYearId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminInvoiceForm**](AdminInvoiceForm.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Unsaved form data (id is null) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Unknown subscription_year_id |  -  |
+| **422** | Split and save the annual schedule before invoicing. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -21075,6 +21788,87 @@ example().catch(console.error);
 | **200** | Coaches were found |  -  |
 | **400** | Invalid parameters |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## sendAdminInvoice
+
+> AdminInvoiceForm sendAdminInvoice(invoiceId, sendAdminInvoiceRequest)
+
+
+
+Reserve an immutable delivery attempt and enqueue SendInvoicesJob. The reservation immediately protects the schedule year and sets delivery_pending, but sent_at changes only after the job confirms successful email handoff. A second request while delivery is pending is refused with 422. Missing recipients, an unsplit explicit schedule, an implicit repeat send or a resend inside the cooldown are also refused with 422. Queue failure cancels the reservation and returns 503; a failed first send restores the draft. An older worker cannot cancel a later successful delivery. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { SendAdminInvoiceOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Invoice
+    invoiceId: 56,
+    // SendAdminInvoiceRequest (optional)
+    sendAdminInvoiceRequest: ...,
+  } satisfies SendAdminInvoiceOperationRequest;
+
+  try {
+    const data = await api.sendAdminInvoice(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | `number` | ID of the Invoice | [Defaults to `undefined`] |
+| **sendAdminInvoiceRequest** | [SendAdminInvoiceRequest](SendAdminInvoiceRequest.md) |  | [Optional] |
+
+### Return type
+
+[**AdminInvoiceForm**](AdminInvoiceForm.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Delivery queued; inspect delivery_pending and sent_at for its current state |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Delivery pending, already sent without resend, cooldown, missing recipients, or schedule invalid |  -  |
+| **503** | Delivery could not be queued; reservation canceled and retry permitted |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -21611,6 +22405,86 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateAdminInvoice
+
+> AdminInvoiceForm updateAdminInvoice(invoiceId, adminInvoiceWrite)
+
+
+
+\&quot;Save draft\&quot; for an existing invoice — same rule as create: never emails. Editing a sent invoice changes the record; nothing goes out again until POST .../send.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAdminInvoiceRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Invoice
+    invoiceId: 56,
+    // AdminInvoiceWrite
+    adminInvoiceWrite: ...,
+  } satisfies UpdateAdminInvoiceRequest;
+
+  try {
+    const data = await api.updateAdminInvoice(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | `number` | ID of the Invoice | [Defaults to `undefined`] |
+| **adminInvoiceWrite** | [AdminInvoiceWrite](AdminInvoiceWrite.md) |  | |
+
+### Return type
+
+[**AdminInvoiceForm**](AdminInvoiceForm.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateCashflow
 
 > Cashflow updateCashflow(cashflowId, cashflow)
@@ -21774,7 +22648,7 @@ example().catch(console.error);
 
 
 
-Update a compensation. Requires the winad_write OAuth scope. compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user.
+Update a compensation
 
 ### Example
 
@@ -21841,9 +22715,8 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden. The token lacks the winad_write OAuth scope. |  -  |
 | **404** | Not Found |  -  |
-| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. |  -  |
+| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -22002,86 +22875,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **422** | Unable to update the Conferenceship |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateDeal
-
-> DealUpdateResult updateDeal(dealId, updateDealRequest)
-
-
-
-Atomically update deal fields and Apparel or Multimedia detail values. At least one field is required. Unknown fields and fields belonging to another deal type return 422 without changes. Changes are audited with the authenticated user. 
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateDealOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | ID of the Deal
-    dealId: 56,
-    // UpdateDealRequest
-    updateDealRequest: ...,
-  } satisfies UpdateDealOperationRequest;
-
-  try {
-    const data = await api.updateDeal(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **dealId** | `number` | ID of the Deal | [Defaults to `undefined`] |
-| **updateDealRequest** | [UpdateDealRequest](UpdateDealRequest.md) |  | |
-
-### Return type
-
-[**DealUpdateResult**](DealUpdateResult.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Updated deal read back from the database, with decimal fields returned as decimal strings. |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | A persisted user-backed OAuth token, write scope, and permission to update deals are required. Client-credentials tokens are rejected without saving changes. |  -  |
-| **404** | Deal not found |  -  |
-| **422** | Invalid fields or values; no changes were saved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -23368,6 +24161,86 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **422** | Unable to update the Season |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateSubscription
+
+> Subscription updateSubscription(subscriptionId, updateSubscriptionRequest)
+
+
+
+Update a Subscription\&#39;s agreement details and per-year payment schedule. Editing a year that already has a sent invoice updates the schedule only — it never changes the sent invoice. The agreement dates are set on create only: start_at and end_at are ignored here. Moving the subscription to another account is refused once it has a paid invoice.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateSubscriptionOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Subscription
+    subscriptionId: 56,
+    // UpdateSubscriptionRequest (optional)
+    updateSubscriptionRequest: ...,
+  } satisfies UpdateSubscriptionOperationRequest;
+
+  try {
+    const data = await api.updateSubscription(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **subscriptionId** | `number` | ID of the Subscription | [Defaults to `undefined`] |
+| **updateSubscriptionRequest** | [UpdateSubscriptionRequest](UpdateSubscriptionRequest.md) |  | [Optional] |
+
+### Return type
+
+[**Subscription**](Subscription.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Subscription was updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | The token has no signed-in user, or the user may not update subscriptions |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
