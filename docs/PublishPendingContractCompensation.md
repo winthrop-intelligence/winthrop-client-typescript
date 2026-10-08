@@ -19,6 +19,7 @@ Name | Type
 `carProvided` | boolean
 `comment` | string
 `buyoutAmount` | string
+`changeNote` | string
 
 ## Example
 
@@ -40,6 +41,7 @@ const example = {
   "carProvided": null,
   "comment": null,
   "buyoutAmount": null,
+  "changeNote": null,
 } satisfies PublishPendingContractCompensation
 
 console.log(example)

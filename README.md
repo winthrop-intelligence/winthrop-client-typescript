@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.6
+# @winthrop-intelligence/winthrop-client-typescript@1.55.7
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -96,6 +96,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createGame**](docs/DefaultApi.md#creategameoperation) | **POST** /api/v1/games | 
 *DefaultApi* | [**createGamePost**](docs/DefaultApi.md#creategamepost) | **POST** /api/v1/game_posts | 
 *DefaultApi* | [**createGamePostSearch**](docs/DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches | 
+*DefaultApi* | [**createIncomeReport**](docs/DefaultApi.md#createincomereport) | **POST** /api/v1/income_reports | 
 *DefaultApi* | [**createJobPost**](docs/DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post
 *DefaultApi* | [**createMcpEvent**](docs/DefaultApi.md#createmcpeventoperation) | **POST** /api/v1/mcp_events | 
 *DefaultApi* | [**createNote**](docs/DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes | 
@@ -125,6 +126,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteGameContractRawContract**](docs/DefaultApi.md#deletegamecontractrawcontract) | **DELETE** /api/v1/game_contracts/{game_contractId}/delete_raw_contract | 
 *DefaultApi* | [**deleteGamePost**](docs/DefaultApi.md#deletegamepost) | **DELETE** /api/v1/game_posts/{gamePostId} | 
 *DefaultApi* | [**deleteGamePostSearch**](docs/DefaultApi.md#deletegamepostsearch) | **DELETE** /api/v1/game_post_searches/{gamePostSearchId} | 
+*DefaultApi* | [**deleteIncomeReport**](docs/DefaultApi.md#deleteincomereport) | **DELETE** /api/v1/income_reports/{incomeReportId} | 
 *DefaultApi* | [**deleteJobPost**](docs/DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post
 *DefaultApi* | [**deleteNote**](docs/DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} | 
 *DefaultApi* | [**deletePosition**](docs/DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} | 
@@ -356,6 +358,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateGame**](docs/DefaultApi.md#updategame) | **PATCH** /api/v1/games/{gameId} | 
 *DefaultApi* | [**updateGameContract**](docs/DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} | 
 *DefaultApi* | [**updateGamePostSearch**](docs/DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} | 
+*DefaultApi* | [**updateIncomeReport**](docs/DefaultApi.md#updateincomereport) | **PATCH** /api/v1/income_reports/{incomeReportId} | 
 *DefaultApi* | [**updateJobPost**](docs/DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post
 *DefaultApi* | [**updateJobPostHumanOverride**](docs/DefaultApi.md#updatejobposthumanoverride) | **PATCH** /central_jobs/job_posts/{jobPostId}/human_override | Set the human_override_is_athletics value for one job post
 *DefaultApi* | [**updateNote**](docs/DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} | 
@@ -397,6 +400,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *ReportingApi* | [**getFoiaRequestFollowupHistory**](docs/ReportingApi.md#getfoiarequestfollowuphistory) | **GET** /api/v1/reports/foia_request_followup_history | 
 *ReportingApi* | [**getFoiaRequestedItemStatusBreakdown**](docs/ReportingApi.md#getfoiarequesteditemstatusbreakdown) | **GET** /api/v1/reports/foia_requested_item_status_breakdown | 
 *ReportingApi* | [**getFoiaRequestedItemStatusTransitions**](docs/ReportingApi.md#getfoiarequesteditemstatustransitions) | **GET** /api/v1/reports/foia_requested_item_status_transitions | 
+*ReportingApi* | [**getFoiaStatusSummary**](docs/ReportingApi.md#getfoiastatussummary) | **GET** /api/v1/reports/foia_status_summary | 
 *ReportingApi* | [**getGames**](docs/ReportingApi.md#getgames) | **GET** /api/v1/reports/games | 
 *ReportingApi* | [**getInvoices**](docs/ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices | 
 *ReportingApi* | [**getSchoolContractRequests**](docs/ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests | 
@@ -807,6 +811,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [FoiaRequestedItemStatusTransitionRow](docs/FoiaRequestedItemStatusTransitionRow.md)
 - [FoiaRequestedItemStatusTransitionsMeta](docs/FoiaRequestedItemStatusTransitionsMeta.md)
 - [FoiaRequestedItemStatusTransitionsResponse](docs/FoiaRequestedItemStatusTransitionsResponse.md)
+- [FoiaStatusSummaryFilters](docs/FoiaStatusSummaryFilters.md)
+- [FoiaStatusSummaryFlags](docs/FoiaStatusSummaryFlags.md)
+- [FoiaStatusSummaryLabel](docs/FoiaStatusSummaryLabel.md)
+- [FoiaStatusSummaryMeta](docs/FoiaStatusSummaryMeta.md)
+- [FoiaStatusSummaryRequest](docs/FoiaStatusSummaryRequest.md)
+- [FoiaStatusSummaryRequestedItem](docs/FoiaStatusSummaryRequestedItem.md)
+- [FoiaStatusSummaryResponse](docs/FoiaStatusSummaryResponse.md)
+- [FoiaStatusSummaryTotals](docs/FoiaStatusSummaryTotals.md)
 - [FrsExport](docs/FrsExport.md)
 - [FrsExportConfig](docs/FrsExportConfig.md)
 - [FrsExportsResponse](docs/FrsExportsResponse.md)
@@ -906,6 +918,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [IdName](docs/IdName.md)
 - [IncomeReport](docs/IncomeReport.md)
 - [IncomeReportCollection](docs/IncomeReportCollection.md)
+- [IncomeReportCreate](docs/IncomeReportCreate.md)
+- [IncomeReportInput](docs/IncomeReportInput.md)
 - [InvoiceReportAccount](docs/InvoiceReportAccount.md)
 - [InvoiceReportResult](docs/InvoiceReportResult.md)
 - [InvoiceReportRow](docs/InvoiceReportRow.md)
@@ -1191,8 +1205,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.6`
-- Package version: `1.55.6`
+- API version: `1.55.7`
+- Package version: `1.55.7`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

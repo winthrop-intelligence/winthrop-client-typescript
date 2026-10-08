@@ -12,6 +12,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFoiaRequestFollowupHistory**](ReportingApi.md#getfoiarequestfollowuphistory) | **GET** /api/v1/reports/foia_request_followup_history |  |
 | [**getFoiaRequestedItemStatusBreakdown**](ReportingApi.md#getfoiarequesteditemstatusbreakdown) | **GET** /api/v1/reports/foia_requested_item_status_breakdown |  |
 | [**getFoiaRequestedItemStatusTransitions**](ReportingApi.md#getfoiarequesteditemstatustransitions) | **GET** /api/v1/reports/foia_requested_item_status_transitions |  |
+| [**getFoiaStatusSummary**](ReportingApi.md#getfoiastatussummary) | **GET** /api/v1/reports/foia_status_summary |  |
 | [**getGames**](ReportingApi.md#getgames) | **GET** /api/v1/reports/games |  |
 | [**getInvoices**](ReportingApi.md#getinvoices) | **GET** /api/v1/reports/invoices |  |
 | [**getSchoolContractRequests**](ReportingApi.md#getschoolcontractrequests) | **GET** /api/v1/reports/school_contract_requests |  |
@@ -709,6 +710,89 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Requested-item status transitions were found |  -  |
 | **400** | Invalid report parameters |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getFoiaStatusSummary
+
+> FoiaStatusSummaryResponse getFoiaStatusSummary(page, perPage, foiaLabelId)
+
+
+
+Retrieve a read-only, traceable FOIA status snapshot grouped by unarchived label. Rows are ordered by foia_label_id then id. Totals and label summaries describe the entire filtered population of active and closed requests in unarchived labels regardless of page. The three attention lists overlap and must not be summed as distinct requests. Summaries and request ID lists are repeated on every page. A page beyond the last returns 200 with empty data. An archived label filter returns 400 and an unknown label returns 404, each with body {errors: [message]}. Under the latest-note-overall hold rule, a request is held only when its single most recent note is exactly \&#39;FOIA hold: &lt;reason&gt;\&#39; from the closed vocabulary; any later note ends the hold.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ReportingApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFoiaStatusSummaryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ReportingApi(config);
+
+  const body = {
+    // number | Detailed request-row page to retrieve. Summary counts always cover the full filtered population. (optional)
+    page: 56,
+    // number | Maximum 200. Larger values are accepted and capped to 200; meta.per_page reports the effective size. (optional)
+    perPage: 56,
+    // number | Limit the snapshot to one active FOIA label. (optional)
+    foiaLabelId: 56,
+  } satisfies GetFoiaStatusSummaryRequest;
+
+  try {
+    const data = await api.getFoiaStatusSummary(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | Detailed request-row page to retrieve. Summary counts always cover the full filtered population. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | Maximum 200. Larger values are accepted and capped to 200; meta.per_page reports the effective size. | [Optional] [Defaults to `100`] |
+| **foiaLabelId** | `number` | Limit the snapshot to one active FOIA label. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FoiaStatusSummaryResponse**](FoiaStatusSummaryResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | FOIA status summary was found |  -  |
+| **400** | Invalid report parameters |  -  |
+| **404** | The selected FOIA label was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 

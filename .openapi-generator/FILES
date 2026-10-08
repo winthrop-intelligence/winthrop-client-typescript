@@ -401,6 +401,14 @@ docs/FoiaRequestedItemStatusBreakdownRow.md
 docs/FoiaRequestedItemStatusTransitionRow.md
 docs/FoiaRequestedItemStatusTransitionsMeta.md
 docs/FoiaRequestedItemStatusTransitionsResponse.md
+docs/FoiaStatusSummaryFilters.md
+docs/FoiaStatusSummaryFlags.md
+docs/FoiaStatusSummaryLabel.md
+docs/FoiaStatusSummaryMeta.md
+docs/FoiaStatusSummaryRequest.md
+docs/FoiaStatusSummaryRequestedItem.md
+docs/FoiaStatusSummaryResponse.md
+docs/FoiaStatusSummaryTotals.md
 docs/FrsExport.md
 docs/FrsExportConfig.md
 docs/FrsExportsResponse.md
@@ -501,6 +509,8 @@ docs/HumanOverrideResult.md
 docs/IdName.md
 docs/IncomeReport.md
 docs/IncomeReportCollection.md
+docs/IncomeReportCreate.md
+docs/IncomeReportInput.md
 docs/IntercollegiateApi.md
 docs/InvoiceReportAccount.md
 docs/InvoiceReportResult.md
@@ -1173,6 +1183,14 @@ src/models/FoiaRequestedItemStatusBreakdownRow.ts
 src/models/FoiaRequestedItemStatusTransitionRow.ts
 src/models/FoiaRequestedItemStatusTransitionsMeta.ts
 src/models/FoiaRequestedItemStatusTransitionsResponse.ts
+src/models/FoiaStatusSummaryFilters.ts
+src/models/FoiaStatusSummaryFlags.ts
+src/models/FoiaStatusSummaryLabel.ts
+src/models/FoiaStatusSummaryMeta.ts
+src/models/FoiaStatusSummaryRequest.ts
+src/models/FoiaStatusSummaryRequestedItem.ts
+src/models/FoiaStatusSummaryResponse.ts
+src/models/FoiaStatusSummaryTotals.ts
 src/models/FrsExport.ts
 src/models/FrsExportConfig.ts
 src/models/FrsExportsResponse.ts
@@ -1272,6 +1290,8 @@ src/models/HumanOverrideResult.ts
 src/models/IdName.ts
 src/models/IncomeReport.ts
 src/models/IncomeReportCollection.ts
+src/models/IncomeReportCreate.ts
+src/models/IncomeReportInput.ts
 src/models/InvoiceReportAccount.ts
 src/models/InvoiceReportResult.ts
 src/models/InvoiceReportRow.ts
