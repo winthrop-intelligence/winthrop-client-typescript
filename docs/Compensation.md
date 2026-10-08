@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`changeNote` | string
 `id` | number
 `bonusCompCents` | number
 `deferredCompCents` | number
@@ -45,6 +46,7 @@ import type { Compensation } from '@winthrop-intelligence/winthrop-client-typesc
 
 // TODO: Update the object below with actual values
 const example = {
+  "changeNote": null,
   "id": 1,
   "bonusCompCents": 10000,
   "deferredCompCents": 10000,

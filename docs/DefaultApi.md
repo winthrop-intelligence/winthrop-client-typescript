@@ -34,6 +34,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createGame**](DefaultApi.md#creategameoperation) | **POST** /api/v1/games |  |
 | [**createGamePost**](DefaultApi.md#creategamepost) | **POST** /api/v1/game_posts |  |
 | [**createGamePostSearch**](DefaultApi.md#creategamepostsearchoperation) | **POST** /api/v1/game_post_searches |  |
+| [**createIncomeReport**](DefaultApi.md#createincomereport) | **POST** /api/v1/income_reports |  |
 | [**createJobPost**](DefaultApi.md#createjobpost) | **POST** /central_jobs/job_posts | Create a job post |
 | [**createMcpEvent**](DefaultApi.md#createmcpeventoperation) | **POST** /api/v1/mcp_events |  |
 | [**createNote**](DefaultApi.md#createnoteoperation) | **POST** /api/v1/notes |  |
@@ -63,6 +64,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteGameContractRawContract**](DefaultApi.md#deletegamecontractrawcontract) | **DELETE** /api/v1/game_contracts/{game_contractId}/delete_raw_contract |  |
 | [**deleteGamePost**](DefaultApi.md#deletegamepost) | **DELETE** /api/v1/game_posts/{gamePostId} |  |
 | [**deleteGamePostSearch**](DefaultApi.md#deletegamepostsearch) | **DELETE** /api/v1/game_post_searches/{gamePostSearchId} |  |
+| [**deleteIncomeReport**](DefaultApi.md#deleteincomereport) | **DELETE** /api/v1/income_reports/{incomeReportId} |  |
 | [**deleteJobPost**](DefaultApi.md#deletejobpost) | **DELETE** /central_jobs/job_posts/{jobPostId} | Delete a job post |
 | [**deleteNote**](DefaultApi.md#deletenote) | **DELETE** /api/v1/notes/{id} |  |
 | [**deletePosition**](DefaultApi.md#deleteposition) | **DELETE** /api/v1/positions/{positionId} |  |
@@ -294,6 +296,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateGame**](DefaultApi.md#updategame) | **PATCH** /api/v1/games/{gameId} |  |
 | [**updateGameContract**](DefaultApi.md#updategamecontract) | **PATCH** /api/v1/game_contracts/{game_contractId} |  |
 | [**updateGamePostSearch**](DefaultApi.md#updategamepostsearchoperation) | **PATCH** /api/v1/game_post_searches/{gamePostSearchId} |  |
+| [**updateIncomeReport**](DefaultApi.md#updateincomereport) | **PATCH** /api/v1/income_reports/{incomeReportId} |  |
 | [**updateJobPost**](DefaultApi.md#updatejobpost) | **PATCH** /central_jobs/job_posts/{jobPostId} | Update a job post |
 | [**updateJobPostHumanOverride**](DefaultApi.md#updatejobposthumanoverride) | **PATCH** /central_jobs/job_posts/{jobPostId}/human_override | Set the human_override_is_athletics value for one job post |
 | [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
@@ -2639,6 +2642,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## createIncomeReport
+
+> IncomeReport createIncomeReport(incomeReportCreate)
+
+
+
+Create an income report (outside-income report) for a coach. Requires the winad_write OAuth scope and an admin user (super admin or a user-less service token); other users get 403. The new report is recorded in its audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. Attaching a document (raw_contract_id) marks the report\&#39;s contract status complete.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateIncomeReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // IncomeReportCreate | Income report to create, with an optional top-level change_note beside it
+    incomeReportCreate: ...,
+  } satisfies CreateIncomeReportRequest;
+
+  try {
+    const data = await api.createIncomeReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **incomeReportCreate** | [IncomeReportCreate](IncomeReportCreate.md) | Income report to create, with an optional top-level change_note beside it | |
+
+### Return type
+
+[**IncomeReport**](IncomeReport.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Income report was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **422** | Unable to create income report. Returned when coach_id is missing or names no coach; year is missing, not an integer, or outside 1900-2100; contract_status_id or raw_contract_id names a record that does not exist; raw_contract_id is already attached to another income report; an id or year is not a whole number as sent (for example \&quot;12abc\&quot; or 2011.5); a field is sent as an array or object; notes is longer than 255 characters; or change_note is not a string. Errors are keyed by attribute (errors.coach, errors.coach_id, errors.year, errors.contract_status, errors.raw_contract, errors.notes, errors.change_note). |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createJobPost
 
 > JobPost createJobPost(jobPost)
@@ -4820,6 +4899,86 @@ example().catch(console.error);
 | **200** | Game post deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteIncomeReport
+
+> deleteIncomeReport(incomeReportId, changeNote)
+
+
+
+Delete an income report. Requires the winad_write OAuth scope and an admin user; other users get 403. The attached document is kept, but the FOIA requested items that track this report (and their notes) are deleted with it; to keep them, detach the document with PATCH raw_contract_id null instead. The deletion is recorded in the report\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional change_note query parameter as the reason.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteIncomeReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of income report to delete
+    incomeReportId: 56,
+    // string | Why the report is being deleted, stored in its audit history and never returned. (optional)
+    changeNote: changeNote_example,
+  } satisfies DeleteIncomeReportRequest;
+
+  try {
+    const data = await api.deleteIncomeReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **incomeReportId** | `number` | ID of income report to delete | [Defaults to `undefined`] |
+| **changeNote** | `string` | Why the report is being deleted, stored in its audit history and never returned. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Income report was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **404** | Not Found |  -  |
+| **422** | change_note is not a string (errors.change_note) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -21774,7 +21933,7 @@ example().catch(console.error);
 
 
 
-Update a compensation. Requires the winad_write OAuth scope. compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user.
+Update a compensation. Requires the winad_write OAuth scope. compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A non-string change_note is refused with 422 (errors.change_note).
 
 ### Example
 
@@ -22671,6 +22830,86 @@ example().catch(console.error);
 | **422** | Validation error |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateIncomeReport
+
+> IncomeReport updateIncomeReport(incomeReportId, incomeReportInput)
+
+
+
+Update an income report, for example to move it to the season it covers (year) or detach a document that is not an outside-income report (raw_contract_id null). Requires the winad_write OAuth scope and an admin user; other users get 403. Changes are recorded in the report\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. Attaching a document marks the contract status complete; detaching one does not change it, so send contract_status_id in the same request if it should change too.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateIncomeReportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of income report to update
+    incomeReportId: 56,
+    // IncomeReportInput | Income report fields to change, with an optional top-level change_note beside them
+    incomeReportInput: ...,
+  } satisfies UpdateIncomeReportRequest;
+
+  try {
+    const data = await api.updateIncomeReport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **incomeReportId** | `number` | ID of income report to update | [Defaults to `undefined`] |
+| **incomeReportInput** | [IncomeReportInput](IncomeReportInput.md) | Income report fields to change, with an optional top-level change_note beside them | |
+
+### Return type
+
+[**IncomeReport**](IncomeReport.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Income report was updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to update income report; nothing is saved. Returned when a changed coach_id names no coach; a changed year is blank or outside 1900-2100; a changed contract_status_id or raw_contract_id names a record that does not exist; a changed raw_contract_id is already attached to another income report; an id or year is not a whole number as sent; a field is sent as an array or object; notes is longer than 255 characters; or change_note is not a string. Errors are keyed by attribute. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `compensation` | [CompensationCreateRequest](CompensationCreateRequest.md)
+`changeNote` | string
 
 ## Example
 
@@ -16,6 +17,7 @@ import type { CreateCompensationRequest } from '@winthrop-intelligence/winthrop-
 // TODO: Update the object below with actual values
 const example = {
   "compensation": null,
+  "changeNote": null,
 } satisfies CreateCompensationRequest
 
 console.log(example)
