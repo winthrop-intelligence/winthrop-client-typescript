@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`meta` | [Meta](Meta.md)
+`meta` | [GetContractVerifications200ResponseMeta](GetContractVerifications200ResponseMeta.md)
 `data` | [Array&lt;ContractVerification&gt;](ContractVerification.md)
 
 ## Example

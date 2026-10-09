@@ -7,12 +7,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createPendingContract**](ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts |  |
 | [**deletePendingContract**](ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} |  |
 | [**publishPendingContract**](ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish |  |
+| [**updateContract**](ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} |  |
 
 
 
 ## createPendingContract
 
-> PendingContractCreated createPendingContract(coachId, file, driveId, text)
+> PendingContractCreated createPendingContract(coachId, file, driveId, text, contractTerms)
 
 
 
@@ -46,6 +47,8 @@ async function example() {
     driveId: driveId_example,
     // string | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\"\\\\n\\\\f\\\\n\\\"). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. (optional)
     text: text_example,
+    // string | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. (optional)
+    contractTerms: contractTerms_example,
   } satisfies CreatePendingContractRequest;
 
   try {
@@ -69,6 +72,7 @@ example().catch(console.error);
 | **file** | `Blob` | The contract PDF | [Defaults to `undefined`] |
 | **driveId** | `string` | Optional Google Drive id; must be unique for the coach | [Optional] [Defaults to `undefined`] |
 | **text** | `string` | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\&quot;\\\\n\\\\f\\\\n\\\&quot;). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. | [Optional] [Defaults to `undefined`] |
+| **contractTerms** | `string` | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -90,7 +94,7 @@ example().catch(console.error);
 | **201** | The pending contract was created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope or not permitted to create contracts) |  -  |
-| **422** | The upload was refused (unknown coach, missing or non-PDF file, duplicate drive_id). Nothing was created. |  -  |
+| **422** | The upload was refused (unknown coach, missing or non-PDF file, duplicate drive_id, invalid contract_terms). Nothing was created. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -248,6 +252,86 @@ example().catch(console.error);
 | **403** | Forbidden (missing winad_write scope or not permitted to update contracts) |  -  |
 | **404** | Not Found |  -  |
 | **422** | The contract is not pending, or the dates or a compensation row were refused. Nothing was written and the contract is still pending. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateContract
+
+> Contract updateContract(contractId, updateContractRequest)
+
+
+
+Edit a published contract\&#39;s start_on, end_on and at_will (WINAD-10631). Only supplied fields change; linked compensations are unchanged. Pending contracts are published, not edited (use POST /contracts/{contractId}/publish). Dates must be YYYY-MM-DD. Setting at_will true requires end_on null; send both fields to clear a stored end date. The at-will/end-date rule is checked only when either field is supplied, allowing start-only corrections on legacy rows. Each change creates a PaperTrail version with the authenticated user (whodunnit) and the optional top-level change_note. Identical values are a no-op and create no version, so no note is stored. Requires winad_write and a manage-level user with a user-backed OAuth token. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateContractOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ContractsApi(config);
+
+  const body = {
+    // number | ID of the published contract to update
+    contractId: 56,
+    // UpdateContractRequest
+    updateContractRequest: ...,
+  } satisfies UpdateContractOperationRequest;
+
+  try {
+    const data = await api.updateContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | `number` | ID of the published contract to update | [Defaults to `undefined`] |
+| **updateContractRequest** | [UpdateContractRequest](UpdateContractRequest.md) |  | |
+
+### Return type
+
+[**Contract**](Contract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated contract, re-read from the database |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (missing winad_write scope, not a manage-level user, or a client-credentials token with no user: Updating contracts requires a user-backed OAuth token) |  -  |
+| **404** | Not Found |  -  |
+| **422** | Pending contract, no updatable fields, unknown or mis-typed field, change_note that is not a string (errors.change_note), bad date, at_will with end_on, missing required date, or start after end. Nothing was written. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
