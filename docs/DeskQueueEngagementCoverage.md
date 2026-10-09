@@ -1,26 +1,22 @@
 
-# NeedsInfoAdminDeskRequestRequest
+# DeskQueueEngagementCoverage
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`followUpSubject` | string
-`followUpBody` | string
-`clientNote` | string
+`reasons` | Array&lt;string&gt;
 
 ## Example
 
 ```typescript
-import type { NeedsInfoAdminDeskRequestRequest } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DeskQueueEngagementCoverage } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "followUpSubject": null,
-  "followUpBody": null,
-  "clientNote": null,
-} satisfies NeedsInfoAdminDeskRequestRequest
+  "reasons": null,
+} satisfies DeskQueueEngagementCoverage
 
 console.log(example)
 
@@ -29,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as NeedsInfoAdminDeskRequestRequest
+const exampleParsed = JSON.parse(exampleJSON) as DeskQueueEngagementCoverage
 console.log(exampleParsed)
 ```
 

@@ -18,6 +18,8 @@ Name | Type
 `aprAsr` | string
 `coachApr` | number
 `departing` | boolean
+`headCoach` | boolean
+`assistantCoach` | boolean
 `usNews` | string
 `directorsCup` | string
 
@@ -40,6 +42,8 @@ const example = {
   "aprAsr": null,
   "coachApr": null,
   "departing": null,
+  "headCoach": null,
+  "assistantCoach": null,
   "usNews": null,
   "directorsCup": null,
 } satisfies RecordPositionEntry

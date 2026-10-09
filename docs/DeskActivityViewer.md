@@ -1,32 +1,36 @@
 
-# NeedsInfoAdminDeskRequest200ResponseData
+# DeskActivityViewer
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`uuid` | string
+`userId` | string
+`name` | string
+`email` | string
 `status` | string
-`clientNote` | string
-`clockPaused` | boolean
-`sentTo` | Array&lt;string&gt;
-`sentToCount` | number
+`currentAccess` | boolean
+`opens` | number
+`firstViewedAt` | Date
+`lastViewedAt` | Date
 
 ## Example
 
 ```typescript
-import type { NeedsInfoAdminDeskRequest200ResponseData } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DeskActivityViewer } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "uuid": null,
+  "userId": null,
+  "name": null,
+  "email": null,
   "status": null,
-  "clientNote": null,
-  "clockPaused": null,
-  "sentTo": null,
-  "sentToCount": null,
-} satisfies NeedsInfoAdminDeskRequest200ResponseData
+  "currentAccess": null,
+  "opens": null,
+  "firstViewedAt": null,
+  "lastViewedAt": null,
+} satisfies DeskActivityViewer
 
 console.log(example)
 
@@ -35,7 +39,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as NeedsInfoAdminDeskRequest200ResponseData
+const exampleParsed = JSON.parse(exampleJSON) as DeskActivityViewer
 console.log(exampleParsed)
 ```
 

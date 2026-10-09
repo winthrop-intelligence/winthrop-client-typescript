@@ -1,28 +1,24 @@
 
-# DeskSettings
+# DeskReportActivityError
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`lockVersion` | number
-`notificationsEnabled` | boolean
-`needsInfoEmailsEnabled` | boolean
-`copyEmail` | string
+`code` | string
+`message` | string
 
 ## Example
 
 ```typescript
-import type { DeskSettings } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DeskReportActivityError } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "lockVersion": null,
-  "notificationsEnabled": null,
-  "needsInfoEmailsEnabled": null,
-  "copyEmail": null,
-} satisfies DeskSettings
+  "code": null,
+  "message": null,
+} satisfies DeskReportActivityError
 
 console.log(example)
 
@@ -31,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DeskSettings
+const exampleParsed = JSON.parse(exampleJSON) as DeskReportActivityError
 console.log(exampleParsed)
 ```
 
