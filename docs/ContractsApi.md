@@ -12,7 +12,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 ## createPendingContract
 
-> PendingContractCreated createPendingContract(coachId, file, driveId, text)
+> PendingContractCreated createPendingContract(coachId, file, driveId, text, contractTerms)
 
 
 
@@ -46,6 +46,8 @@ async function example() {
     driveId: driveId_example,
     // string | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\"\\\\n\\\\f\\\\n\\\"). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. (optional)
     text: text_example,
+    // string | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. (optional)
+    contractTerms: contractTerms_example,
   } satisfies CreatePendingContractRequest;
 
   try {
@@ -69,6 +71,7 @@ example().catch(console.error);
 | **file** | `Blob` | The contract PDF | [Defaults to `undefined`] |
 | **driveId** | `string` | Optional Google Drive id; must be unique for the coach | [Optional] [Defaults to `undefined`] |
 | **text** | `string` | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\&quot;\\\\n\\\\f\\\\n\\\&quot;). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. | [Optional] [Defaults to `undefined`] |
+| **contractTerms** | `string` | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -90,7 +93,7 @@ example().catch(console.error);
 | **201** | The pending contract was created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope or not permitted to create contracts) |  -  |
-| **422** | The upload was refused (unknown coach, missing or non-PDF file, duplicate drive_id). Nothing was created. |  -  |
+| **422** | The upload was refused (unknown coach, missing or non-PDF file, duplicate drive_id, invalid contract_terms). Nothing was created. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

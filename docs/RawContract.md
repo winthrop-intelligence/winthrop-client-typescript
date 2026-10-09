@@ -37,6 +37,8 @@ Name | Type
 `backTo` | [RawContractBackTo](RawContractBackTo.md)
 `contractLabel` | string
 `dealInfo` | [RawContractDealInfo](RawContractDealInfo.md)
+`contractTerms` | [ContractTerms](ContractTerms.md)
+`contractTermsStale` | boolean
 
 ## Example
 
@@ -76,6 +78,8 @@ const example = {
   "backTo": null,
   "contractLabel": null,
   "dealInfo": null,
+  "contractTerms": null,
+  "contractTermsStale": null,
 } satisfies RawContract
 
 console.log(example)

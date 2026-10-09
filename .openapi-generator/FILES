@@ -162,6 +162,8 @@ docs/Contract.md
 docs/ContractCollection.md
 docs/ContractErrorsResponse.md
 docs/ContractTermOption.md
+docs/ContractTerms.md
+docs/ContractTermsSource.md
 docs/ContractVerification.md
 docs/ContractVerificationInput.md
 docs/ContractsApi.md
@@ -582,6 +584,7 @@ docs/PublishPendingContractCompensation.md
 docs/PublishPendingContractCompensationBaseSalary.md
 docs/PublishPendingContractCompensationOneTimeBonus.md
 docs/PublishPendingContractRequest.md
+docs/PublishPendingContractRequestContractTerms.md
 docs/PublishedContract.md
 docs/PublishedContractAllOfCompensations.md
 docs/QuadrantUnplottedSchool.md
@@ -589,6 +592,8 @@ docs/RawContract.md
 docs/RawContractBackTo.md
 docs/RawContractCollection.md
 docs/RawContractDealInfo.md
+docs/RawContractTerms.md
+docs/RawContractsApi.md
 docs/ReconciliationCoach.md
 docs/ReconciliationIncluded.md
 docs/ReconciliationPagination.md
@@ -743,6 +748,7 @@ docs/UpdateNoteRequest.md
 docs/UpdatePasswordReset200Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
+docs/UpdateRawContractContractTerms422Response.md
 docs/UpdateScheduleIntentRequest.md
 docs/UpdateScheduleIntentRequestScheduleIntent.md
 docs/UpdateSchoolGroupRequest.md
@@ -782,6 +788,7 @@ src/apis/FoiaInboxApi.ts
 src/apis/GameContractsApi.ts
 src/apis/IntercollegiateApi.ts
 src/apis/MlAthleticApi.ts
+src/apis/RawContractsApi.ts
 src/apis/ReportingApi.ts
 src/apis/SalarySitesApi.ts
 src/apis/ScraperApi.ts
@@ -948,6 +955,8 @@ src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/ContractErrorsResponse.ts
 src/models/ContractTermOption.ts
+src/models/ContractTerms.ts
+src/models/ContractTermsSource.ts
 src/models/ContractVerification.ts
 src/models/ContractVerificationInput.ts
 src/models/CoworkerEntry.ts
@@ -1361,6 +1370,7 @@ src/models/PublishPendingContractCompensation.ts
 src/models/PublishPendingContractCompensationBaseSalary.ts
 src/models/PublishPendingContractCompensationOneTimeBonus.ts
 src/models/PublishPendingContractRequest.ts
+src/models/PublishPendingContractRequestContractTerms.ts
 src/models/PublishedContract.ts
 src/models/PublishedContractAllOfCompensations.ts
 src/models/QuadrantUnplottedSchool.ts
@@ -1368,6 +1378,7 @@ src/models/RawContract.ts
 src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts
 src/models/RawContractDealInfo.ts
+src/models/RawContractTerms.ts
 src/models/ReconciliationCoach.ts
 src/models/ReconciliationIncluded.ts
 src/models/ReconciliationPagination.ts
@@ -1519,6 +1530,7 @@ src/models/UpdateNoteRequest.ts
 src/models/UpdatePasswordReset200Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
+src/models/UpdateRawContractContractTerms422Response.ts
 src/models/UpdateScheduleIntentRequest.ts
 src/models/UpdateScheduleIntentRequestScheduleIntent.ts
 src/models/UpdateSchoolGroupRequest.ts
