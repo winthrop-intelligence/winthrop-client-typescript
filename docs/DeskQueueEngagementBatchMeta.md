@@ -1,22 +1,24 @@
 
-# UpdateAdminDeskSettings422Response
+# DeskQueueEngagementBatchMeta
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`errors` | { [key: string]: Array&lt;string&gt;; }
+`period` | string
+`cacheSeconds` | number
 
 ## Example
 
 ```typescript
-import type { UpdateAdminDeskSettings422Response } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DeskQueueEngagementBatchMeta } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "errors": null,
-} satisfies UpdateAdminDeskSettings422Response
+  "period": null,
+  "cacheSeconds": null,
+} satisfies DeskQueueEngagementBatchMeta
 
 console.log(example)
 
@@ -25,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as UpdateAdminDeskSettings422Response
+const exampleParsed = JSON.parse(exampleJSON) as DeskQueueEngagementBatchMeta
 console.log(exampleParsed)
 ```
 

@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.9
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.37951777127
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -148,10 +148,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAccountUserActivation**](docs/DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation | 
 *DefaultApi* | [**getAccountUsers**](docs/DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users | 
 *DefaultApi* | [**getAdminDeskReport**](docs/DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} | 
+*DefaultApi* | [**getAdminDeskReportActivity**](docs/DefaultApi.md#getadmindeskreportactivity) | **GET** /api/v1/admin/desk_reports/{uuid}/activity | 
+*DefaultApi* | [**getAdminDeskReportActivitySummaries**](docs/DefaultApi.md#getadmindeskreportactivitysummaries) | **GET** /api/v1/admin/desk_reports/activity_summaries | 
 *DefaultApi* | [**getAdminDeskReports**](docs/DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports | 
-*DefaultApi* | [**getAdminDeskRequest**](docs/DefaultApi.md#getadmindeskrequest) | **GET** /api/v1/admin/desk_requests/{uuid} | 
 *DefaultApi* | [**getAdminDeskRequests**](docs/DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests | 
-*DefaultApi* | [**getAdminDeskSettings**](docs/DefaultApi.md#getadmindesksettings) | **GET** /api/v1/admin/desk_settings | 
 *DefaultApi* | [**getAdministrator**](docs/DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} | 
 *DefaultApi* | [**getAdministratorSearches**](docs/DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches | 
 *DefaultApi* | [**getAdministrators**](docs/DefaultApi.md#getadministrators) | **GET** /api/v1/administrators | 
@@ -334,7 +334,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getWireChanges**](docs/DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes | 
 *DefaultApi* | [**hideAdminDeskReport**](docs/DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide | 
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
-*DefaultApi* | [**needsInfoAdminDeskRequest**](docs/DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info | 
 *DefaultApi* | [**publishAdminDeskReport**](docs/DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish | 
 *DefaultApi* | [**regenerateRawContractPdf**](docs/DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf | 
 *DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
@@ -348,7 +347,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateAccountUserActivation**](docs/DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation | 
 *DefaultApi* | [**updateAdminDeskReport**](docs/DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} | 
 *DefaultApi* | [**updateAdminDeskRequest**](docs/DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} | 
-*DefaultApi* | [**updateAdminDeskSettings**](docs/DefaultApi.md#updateadmindesksettings) | **PATCH** /api/v1/admin/desk_settings | 
 *DefaultApi* | [**updateCashflow**](docs/DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} | 
 *DefaultApi* | [**updateCoach**](docs/DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} | 
 *DefaultApi* | [**updateCompensation**](docs/DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} | 
@@ -725,6 +723,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentSearchResultSportsInner](docs/DepartmentSearchResultSportsInner.md)
 - [DepartmentStaffMember](docs/DepartmentStaffMember.md)
 - [DepartmentStaffSchool](docs/DepartmentStaffSchool.md)
+- [DeskActivityDownload](docs/DeskActivityDownload.md)
+- [DeskActivityDownloadSummary](docs/DeskActivityDownloadSummary.md)
+- [DeskActivityMeta](docs/DeskActivityMeta.md)
+- [DeskActivityMetaPeriod](docs/DeskActivityMetaPeriod.md)
+- [DeskActivityMetaSource](docs/DeskActivityMetaSource.md)
+- [DeskActivityMetaSourceCoverage](docs/DeskActivityMetaSourceCoverage.md)
+- [DeskActivitySummary](docs/DeskActivitySummary.md)
+- [DeskActivityViewer](docs/DeskActivityViewer.md)
 - [DeskAdminAccount](docs/DeskAdminAccount.md)
 - [DeskAdminArtifact](docs/DeskAdminArtifact.md)
 - [DeskAdminCover](docs/DeskAdminCover.md)
@@ -750,9 +756,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DeskFinding](docs/DeskFinding.md)
 - [DeskHeadlineStat](docs/DeskHeadlineStat.md)
 - [DeskHtmlFile](docs/DeskHtmlFile.md)
+- [DeskQueueEngagement](docs/DeskQueueEngagement.md)
+- [DeskQueueEngagementBatch](docs/DeskQueueEngagementBatch.md)
+- [DeskQueueEngagementBatchMeta](docs/DeskQueueEngagementBatchMeta.md)
+- [DeskQueueEngagementCoverage](docs/DeskQueueEngagementCoverage.md)
+- [DeskQueueEngagementError](docs/DeskQueueEngagementError.md)
+- [DeskQueueEngagementPeriod](docs/DeskQueueEngagementPeriod.md)
+- [DeskReportActivity](docs/DeskReportActivity.md)
+- [DeskReportActivityError](docs/DeskReportActivityError.md)
+- [DeskReportActivityMeta](docs/DeskReportActivityMeta.md)
 - [DeskReportArchiveResponse](docs/DeskReportArchiveResponse.md)
 - [DeskReportArchiveResponseData](docs/DeskReportArchiveResponseData.md)
 - [DeskReportArtifact](docs/DeskReportArtifact.md)
+- [DeskReportDownloadActivity](docs/DeskReportDownloadActivity.md)
+- [DeskReportDownloadActivityMeta](docs/DeskReportDownloadActivityMeta.md)
 - [DeskReportFull](docs/DeskReportFull.md)
 - [DeskReportFullAllOfSections](docs/DeskReportFullAllOfSections.md)
 - [DeskReportOpenedResponse](docs/DeskReportOpenedResponse.md)
@@ -766,7 +783,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DeskRequest](docs/DeskRequest.md)
 - [DeskRequestContext](docs/DeskRequestContext.md)
 - [DeskRequestsResponse](docs/DeskRequestsResponse.md)
-- [DeskSettings](docs/DeskSettings.md)
 - [DirectorsCupSchool](docs/DirectorsCupSchool.md)
 - [Division](docs/Division.md)
 - [DivisionCollection](docs/DivisionCollection.md)
@@ -893,7 +909,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
 - [GetAccountUserActivation200Response](docs/GetAccountUserActivation200Response.md)
-- [GetAdminDeskRequest200Response](docs/GetAdminDeskRequest200Response.md)
+- [GetAdminDeskReportActivity200Response](docs/GetAdminDeskReportActivity200Response.md)
 - [GetCompensationComparisons400Response](docs/GetCompensationComparisons400Response.md)
 - [GetContractVerifications200Response](docs/GetContractVerifications200Response.md)
 - [GetContractVerifications200ResponseMeta](docs/GetContractVerifications200ResponseMeta.md)
@@ -972,9 +988,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NcaaFinancialReportStatusCollection](docs/NcaaFinancialReportStatusCollection.md)
 - [NcaaFinancialSourceAggregate](docs/NcaaFinancialSourceAggregate.md)
 - [NcaaFinancialStat](docs/NcaaFinancialStat.md)
-- [NeedsInfoAdminDeskRequest200Response](docs/NeedsInfoAdminDeskRequest200Response.md)
-- [NeedsInfoAdminDeskRequest200ResponseData](docs/NeedsInfoAdminDeskRequest200ResponseData.md)
-- [NeedsInfoAdminDeskRequestRequest](docs/NeedsInfoAdminDeskRequestRequest.md)
 - [NewAccountUserResponse](docs/NewAccountUserResponse.md)
 - [NewerSeasonContext](docs/NewerSeasonContext.md)
 - [NewsFeed](docs/NewsFeed.md)
@@ -1147,7 +1160,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateAdminDeskRequest200Response](docs/UpdateAdminDeskRequest200Response.md)
 - [UpdateAdminDeskRequest200ResponseData](docs/UpdateAdminDeskRequest200ResponseData.md)
 - [UpdateAdminDeskRequestRequest](docs/UpdateAdminDeskRequestRequest.md)
-- [UpdateAdminDeskSettings422Response](docs/UpdateAdminDeskSettings422Response.md)
 - [UpdateContractRequest](docs/UpdateContractRequest.md)
 - [UpdateDeal403Response](docs/UpdateDeal403Response.md)
 - [UpdateDeal422Response](docs/UpdateDeal422Response.md)
@@ -1222,8 +1234,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.9`
-- Package version: `1.55.9`
+- API version: `0.0.0-dev.37951777127`
+- Package version: `0.0.0-dev.37951777127`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

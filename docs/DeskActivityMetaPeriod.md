@@ -1,22 +1,34 @@
 
-# NeedsInfoAdminDeskRequest200Response
+# DeskActivityMetaPeriod
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [NeedsInfoAdminDeskRequest200ResponseData](NeedsInfoAdminDeskRequest200ResponseData.md)
+`name` | string
+`requestedFrom` | Date
+`from` | Date
+`to` | Date
+`timezone` | string
+`interval` | string
+`acrossVersions` | boolean
 
 ## Example
 
 ```typescript
-import type { NeedsInfoAdminDeskRequest200Response } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DeskActivityMetaPeriod } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-} satisfies NeedsInfoAdminDeskRequest200Response
+  "name": null,
+  "requestedFrom": null,
+  "from": null,
+  "to": null,
+  "timezone": null,
+  "interval": null,
+  "acrossVersions": null,
+} satisfies DeskActivityMetaPeriod
 
 console.log(example)
 
@@ -25,7 +37,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as NeedsInfoAdminDeskRequest200Response
+const exampleParsed = JSON.parse(exampleJSON) as DeskActivityMetaPeriod
 console.log(exampleParsed)
 ```
 
