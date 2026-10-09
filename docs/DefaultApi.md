@@ -83,10 +83,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAdminDeskReport**](DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} |  |
+| [**getAdminDeskReportActivity**](DefaultApi.md#getadmindeskreportactivity) | **GET** /api/v1/admin/desk_reports/{uuid}/activity |  |
+| [**getAdminDeskReportActivitySummaries**](DefaultApi.md#getadmindeskreportactivitysummaries) | **GET** /api/v1/admin/desk_reports/activity_summaries |  |
 | [**getAdminDeskReports**](DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports |  |
-| [**getAdminDeskRequest**](DefaultApi.md#getadmindeskrequest) | **GET** /api/v1/admin/desk_requests/{uuid} |  |
 | [**getAdminDeskRequests**](DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests |  |
-| [**getAdminDeskSettings**](DefaultApi.md#getadmindesksettings) | **GET** /api/v1/admin/desk_settings |  |
 | [**getAdministrator**](DefaultApi.md#getadministrator) | **GET** /api/v1/administrators/{administratorId} |  |
 | [**getAdministratorSearches**](DefaultApi.md#getadministratorsearches) | **GET** /api/v1/administrator_searches |  |
 | [**getAdministrators**](DefaultApi.md#getadministrators) | **GET** /api/v1/administrators |  |
@@ -269,7 +269,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**hideAdminDeskReport**](DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide |  |
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
-| [**needsInfoAdminDeskRequest**](DefaultApi.md#needsinfoadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid}/needs_info |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
@@ -283,7 +282,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
 | [**updateAdminDeskReport**](DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} |  |
 | [**updateAdminDeskRequest**](DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} |  |
-| [**updateAdminDeskSettings**](DefaultApi.md#updateadmindesksettings) | **PATCH** /api/v1/admin/desk_settings |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
 | [**updateCoach**](DefaultApi.md#updatecoach) | **PATCH** /api/v1/coaches/{coachId} |  |
 | [**updateCompensation**](DefaultApi.md#updatecompensation) | **PATCH** /api/v1/compensations/{compensationId} |  |
@@ -6332,6 +6330,188 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getAdminDeskReportActivity
+
+> GetAdminDeskReportActivity200Response getAdminDeskReportActivity(uuid, kind, period, from, to, page, perPage, userId, userSearch)
+
+
+
+Super Admin with a user-owned winad_read token only. Read-only PostHog activity. kind defaults to views, grouped by stable user ID across report versions. downloads groups by user, artifact/version identity when available, displayed report version and file type. Older filename-only groups are explicitly labelled. download_all groups ZIP handoffs by user across versions; each handoff counts once. Never reads or writes ReportRead counts. Customer context, report UUID, event-time account and configured environment host are enforced on the server; callers cannot select a project.  Views summary contains unique_viewers/total_opens; download summaries contain unique_downloaders/total_downloads/file_groups (Download All groups are users). Summary contains the period\&#39;s matching counts after optional user_id filtering; period_totals contains all customer counts for the selected kind before that filter. Pagination does not change either total. Rows are ordered by last activity descending, then stable user ID and, for individual downloads, the full file group key. All dates and the declared display timezone are UTC, with [from,to) boundaries. Rolling ranges use a 30-second boundary to share the short server cache.  Since-publication starts at publication and is capped by declared schema coverage, source retention and the 365-day query bound; gaps are explicit. An unpublished report returns not_published and zero. Tracking failure or absent current schema returns unavailable with null summaries, never zero. Recent ranges are provisional because ingestion can be delayed. Verified views in the requested interval establish schema presence even when the separate recent health window has no events, including on an empty later page or when an optional viewer filter matches nobody. Removed people stay separate anonymous groups; current identity/status/access are resolved in WinAD, never resurrected from PostHog. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminDeskReportActivityRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Public uuid of the Desk report
+    uuid: uuid_example,
+    // 'views' | 'downloads' | 'download_all' (optional)
+    kind: kind_example,
+    // 'last_30_days' | 'last_24_hours' | 'since_publication' | 'custom' (optional)
+    period: period_example,
+    // Date | Required with custom; ISO 8601 including Z or an explicit offset. (optional)
+    from: 2013-10-20T19:20:30+01:00,
+    // Date | Exclusive custom end; cannot be in the future. Custom maximum is 365 days. (optional)
+    to: 2013-10-20T19:20:30+01:00,
+    // number (optional)
+    page: 56,
+    // number (optional)
+    perPage: 56,
+    // number | Optional stable WinAD user ID; summary follows this filter, period_totals does not. (optional)
+    userId: 56,
+    // string | Case-insensitive literal substring of a current WinAD name or email, or an exact positive user ID. Deleted personal details are never searched. At most 100 characters and 1000 matching current identities; a broader search returns 422 and must be narrowed. Applies before pagination to summary and row totals; period_totals remains unfiltered. Only matching stable IDs are sent to PostHog. Can be combined with user_id.  (optional)
+    userSearch: userSearch_example,
+  } satisfies GetAdminDeskReportActivityRequest;
+
+  try {
+    const data = await api.getAdminDeskReportActivity(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uuid** | `string` | Public uuid of the Desk report | [Defaults to `undefined`] |
+| **kind** | `views`, `downloads`, `download_all` |  | [Optional] [Defaults to `&#39;views&#39;`] [Enum: views, downloads, download_all] |
+| **period** | `last_30_days`, `last_24_hours`, `since_publication`, `custom` |  | [Optional] [Defaults to `&#39;last_30_days&#39;`] [Enum: last_30_days, last_24_hours, since_publication, custom] |
+| **from** | `Date` | Required with custom; ISO 8601 including Z or an explicit offset. | [Optional] [Defaults to `undefined`] |
+| **to** | `Date` | Exclusive custom end; cannot be in the future. Custom maximum is 365 days. | [Optional] [Defaults to `undefined`] |
+| **page** | `number` |  | [Optional] [Defaults to `1`] |
+| **perPage** | `number` |  | [Optional] [Defaults to `25`] |
+| **userId** | `number` | Optional stable WinAD user ID; summary follows this filter, period_totals does not. | [Optional] [Defaults to `undefined`] |
+| **userSearch** | `string` | Case-insensitive literal substring of a current WinAD name or email, or an exact positive user ID. Deleted personal details are never searched. At most 100 characters and 1000 matching current identities; a broader search returns 422 and must be narrowed. Applies before pagination to summary and row totals; period_totals remains unfiltered. Only matching stable IDs are sent to PostHog. Can be combined with user_id.  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetAdminDeskReportActivity200Response**](GetAdminDeskReportActivity200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Observed activity, partial coverage, or an unpublished report. |  -  |
+| **400** | Invalid page or per_page format (shared API pagination guard). |  -  |
+| **401** | Authentication required. |  -  |
+| **403** | Requires a persisted Super Admin and winad_read scope. |  -  |
+| **404** | Unknown report UUID. |  -  |
+| **422** | Invalid period, timestamp, bound, type or unknown filter. |  -  |
+| **503** | Analytics unavailable; safe error code, no credential or query details. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminDeskReportActivitySummaries
+
+> DeskQueueEngagementBatch getAdminDeskReportActivitySummaries(reportUuids, period)
+
+
+
+Super-admin, read-only batch customer Views for the queue (WINAD-10643). Fixed last_30_days, UTC [from,to), all report versions. Accepts 1–50 UUIDs before deduplication. Unknown parameters and malformed inputs return 422. Every requested UUID has an explicit result, independent of response order. Counts are null for unpublished, missing, accountless and unavailable reports; zero means verified coverage or a known empty interval before publication. Report/account pairs, first publication, environment hostname, source coverage, retention and canonical customer predicates constrain one grouped cold-batch query. Names/emails and per-user tables are not queried. Successful source data is cached for 30 seconds per admin, configuration, report identity and interval. Responses always use JSON and private/no-store browser caching. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminDeskReportActivitySummariesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<string>
+    reportUuids: ...,
+    // 'last_30_days' (optional)
+    period: period_example,
+  } satisfies GetAdminDeskReportActivitySummariesRequest;
+
+  try {
+    const data = await api.getAdminDeskReportActivitySummaries(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **reportUuids** | `Array<string>` |  | |
+| **period** | `last_30_days` |  | [Optional] [Defaults to `&#39;last_30_days&#39;`] [Enum: last_30_days] |
+
+### Return type
+
+[**DeskQueueEngagementBatch**](DeskQueueEngagementBatch.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Independent per-report results; source failures do not block the queue list. |  * Cache-Control - private, no-store <br>  |
+| **401** | Authentication required |  -  |
+| **403** | Persisted super-admin and OAuth read scope required; no source query |  -  |
+| **422** | Invalid UUID array |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getAdminDeskReports
 
 > DeskAdminReportsResponse getAdminDeskReports(status, limit, offset)
@@ -6413,89 +6593,13 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getAdminDeskRequest
-
-> GetAdminDeskRequest200Response getAdminDeskRequest(uuid)
-
-
-
-Read an ask directly, including asks linked to saved reports. Super-admin only.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminDeskRequestRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    uuid: uuid_example,
-  } satisfies GetAdminDeskRequestRequest;
-
-  try {
-    const data = await api.getAdminDeskRequest(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **uuid** | `string` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**GetAdminDeskRequest200Response**](GetAdminDeskRequest200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ask retrieved with its own lifecycle status, independent of queue membership |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Ask not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## getAdminDeskRequests
 
 > DeskAdminQueueResponse getAdminDeskRequests(status, client)
 
 
 
-Tyler\&#39;s queue (06.1): every report on every account plus every open ask no report has been started for, one list, newest activity first (the API owns the order). Rows carry structured facts; the sub-line copy derives client-side. meta.counts are per admin status over the unfiltered queue; meta.accounts is the account index for the compose client select. 
+Tyler\&#39;s queue (06.1): every report on every account plus every ask with no report started for it, one list, newest activity first (the API owns the order). Rows carry structured facts; the sub-line copy derives client-side. meta.counts are per admin status over the unfiltered queue; meta.accounts is the account index for the compose client select. meta.notifications_enabled says whether Desk notifications are on: it is the &#x60;DESK_NOTIFICATIONS_ENABLED&#x60; runtime ENV value (WINAD-10635), which no endpoint can change. 
 
 ### Example
 
@@ -6517,7 +6621,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // 'new-ask' | 'in-progress' | 'draft' | 'delivered' | 'published' | 'hidden' | 'awaiting-client' | 'closed' (optional)
+    // 'new-ask' | 'in-progress' | 'draft' | 'delivered' | 'published' | 'hidden' | 'closed' (optional)
     status: status_example,
     // string | Case-insensitive account-name substring (optional)
     client: client_example,
@@ -6540,7 +6644,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **status** | `new-ask`, `in-progress`, `draft`, `delivered`, `published`, `hidden`, `awaiting-client`, `closed` |  | [Optional] [Defaults to `undefined`] [Enum: new-ask, in-progress, draft, delivered, published, hidden, awaiting-client, closed] |
+| **status** | `new-ask`, `in-progress`, `draft`, `delivered`, `published`, `hidden`, `closed` |  | [Optional] [Defaults to `undefined`] [Enum: new-ask, in-progress, draft, delivered, published, hidden, closed] |
 | **client** | `string` | Case-insensitive account-name substring | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -6563,73 +6667,6 @@ example().catch(console.error);
 | **200** | Queue retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminDeskSettings
-
-> DeskSettings getAdminDeskSettings()
-
-
-
-Read database-backed Desk notification settings. Requires a persisted super admin.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminDeskSettingsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminDeskSettings();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**DeskSettings**](DeskSettings.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Saved settings; defaults to disabled with no copy address |  -  |
-| **401** | Authentication required |  -  |
-| **403** | Persisted super admin and read scope required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -20702,93 +20739,13 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## needsInfoAdminDeskRequest
-
-> NeedsInfoAdminDeskRequest200Response needsInfoAdminDeskRequest(uuid, needsInfoAdminDeskRequestRequest)
-
-
-
-07.3 — send the ask back to the client for more information. Stops the turnaround clock (it starts again on the manual flip back to &#x60;building&#x60;) and stores the subject and body Tyler edited on screen, verbatim: the email renders exactly them, and the same body becomes the note on the customer\&#39;s pending card unless an explicit client_note is given.  Requires Desk settings &#x60;needs_info_emails_enabled&#x60;. When disabled, returns 403 without changing the ask or pausing its clock. Accepted follow-ups remain queued and still send if the setting is disabled before the mailer runs.  Sendable from &#x60;new&#x60;, &#x60;building&#x60; AND &#x60;awaiting_client&#x60;: a follow-up can resolve to nobody (a churned account) or simply go unread, and refusing the second send left publishing a report as the only way out of the ask. A re-send never restarts the pause.  &#x60;sent_to&#x60; reports who the follow-up was QUEUED for — the response used to say \&quot;sent\&quot; for a mail that was never addressed, and enqueueing can itself fail after the pause has committed. Empty means nothing was sent, whatever the pause says. 
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { NeedsInfoAdminDeskRequestOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // string
-    uuid: uuid_example,
-    // NeedsInfoAdminDeskRequestRequest
-    needsInfoAdminDeskRequestRequest: ...,
-  } satisfies NeedsInfoAdminDeskRequestOperationRequest;
-
-  try {
-    const data = await api.needsInfoAdminDeskRequest(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **uuid** | `string` |  | [Defaults to `undefined`] |
-| **needsInfoAdminDeskRequestRequest** | [NeedsInfoAdminDeskRequestRequest](NeedsInfoAdminDeskRequestRequest.md) |  | |
-
-### Return type
-
-[**NeedsInfoAdminDeskRequest200Response**](NeedsInfoAdminDeskRequest200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Sent back |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Not authorized, or Needs info emails disabled in Desk settings |  -  |
-| **404** | Not Found |  -  |
-| **422** | Missing follow-up copy, or an ask that cannot be sent back |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## publishAdminDeskReport
 
 > DeskAdminPublishResponse publishAdminDeskReport(uuid, publishAdminDeskReportRequest)
 
 
 
-Publish a first edition with the existing JSON body, or submit an atomic Update report patch as multipart update JSON plus downloads[pdf], downloads[xlsx] and downloads[pptx]. An update commits details, audience, cover, body, download additions/replacements/removals, and exactly one version together. Failed validation or upload leaves the live report intact. Omitted update fields are preserved, including legacy cover/body text; explicit body_html must pass the report format check. A reader change_note, expected_version_number and a meaningful change are required. The expected version is the version_number the editor loaded; a mismatch returns 409 before any changes or uploads are applied. Hidden reports must be restored first. Ask-linked reports cannot change account. Reports without a school cannot be published. Publish email is controlled by the database-backed notification switch in Admin Desk Settings in every environment. When enabled, it goes to the eligible selected audience, each once. Everyone means all active eligible readers on the account; named selections narrow that audience. A first edition emails the resolved recipients; an update emails only eligible recipients never notified for this report. Legacy renotify is ignored. Notification fields report enqueue results, not completed delivery. 
+Publish a first edition with the existing JSON body, or submit an atomic Update report patch as multipart update JSON plus downloads[pdf], downloads[xlsx] and downloads[pptx]. An update commits details, audience, cover, body, download additions/replacements/removals, and exactly one version together. Failed validation or upload leaves the live report intact. Omitted update fields are preserved, including legacy cover/body text; explicit body_html must pass the report format check. A reader change_note, expected_version_number and a meaningful change are required. The expected version is the version_number the editor loaded; a mismatch returns 409 before any changes or uploads are applied. Hidden reports must be restored first. Ask-linked reports cannot change account. Reports without a school cannot be published. Publish email is controlled by the &#x60;DESK_NOTIFICATIONS_ENABLED&#x60; runtime ENV value in every environment (WINAD-10635); nothing is saved. When enabled, it goes to the eligible selected audience, each once. Everyone means all active eligible readers on the account; named selections narrow that audience. A first edition emails the resolved recipients; an update emails only eligible recipients never notified for this report. Legacy renotify is ignored. Notification fields report enqueue results, not completed delivery. 
 
 ### Example
 
@@ -21701,7 +21658,7 @@ example().catch(console.error);
 
 
 
-Manual ask flip — building, delivered, or closed. needs_info (awaiting_client) is D-16\&#39;s endpoint. &#x60;closed&#x60; is the junk/duplicate exit: the ask leaves the customer\&#39;s rack and Tyler\&#39;s open tabs without a report and without mail. &#x60;building&#x60; is \&quot;Mark in progress\&quot; (WINAD-10567, shown as In progress): the first time an ask goes in progress, the asker is emailed \&quot;We\&#39;ve begun work on &lt;name&gt;\&quot; and the desk gets one copy, when Desk email is on. Later flips send nothing. If that email cannot be queued, the ask is put back and the answer is 503. A persisted super-admin may use desk_draft_write for building or delivered only. All other statuses require winad_write; the draft scope never grants publishing or needs_info access. 
+Manual ask flip — building, delivered, or closed. &#x60;closed&#x60; is the junk/duplicate exit: the ask leaves the customer\&#39;s rack and Tyler\&#39;s open tabs without a report and without mail. &#x60;building&#x60; is \&quot;Mark in progress\&quot; (WINAD-10567, shown as In progress): the first time an ask is recorded as started, the asker is emailed \&quot;We\&#39;ve begun work on &lt;name&gt;\&quot; and the desk gets one copy, when Desk email is on. Later flips send nothing. If that email cannot be queued, the ask is put back and the answer is 503. A persisted super-admin may use desk_draft_write for building or delivered only. All other statuses require winad_write; the draft scope never grants publishing or ask-closing access. 
 
 ### Example
 
@@ -21770,85 +21727,8 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
-| **422** | Status outside building/delivered/closed, a closed ask being resumed or delivered, or a delivered ask being reopened |  -  |
+| **422** | Status outside building/delivered/closed, a closed ask being marked in progress or delivered, a delivered ask being reopened, or an In progress ask whose unsent start email has nobody to go to |  -  |
 | **503** | The \&quot;We\&#39;ve begun work\&quot; email could not be queued; the ask was put back |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateAdminDeskSettings
-
-> DeskSettings updateAdminDeskSettings(deskSettings)
-
-
-
-Save settings atomically using the lock_version returned by GET. Reject stale saves with 409. Audit the actor and old/new values. No ENV fallback.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminDeskSettingsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // DeskSettings
-    deskSettings: ...,
-  } satisfies UpdateAdminDeskSettingsRequest;
-
-  try {
-    const data = await api.updateAdminDeskSettings(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **deskSettings** | [DeskSettings](DeskSettings.md) |  | |
-
-### Return type
-
-[**DeskSettings**](DeskSettings.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Settings saved |  -  |
-| **401** | Authentication required |  -  |
-| **403** | Persisted super admin and write scope required |  -  |
-| **409** | Settings changed since this form loaded. Refresh before retrying. |  -  |
-| **422** | Invalid settings; errors keyed by field. Copy email is required when enabled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -22016,7 +21896,7 @@ example().catch(console.error);
 
 
 
-Update a compensation. Requires the winad_write OAuth scope. compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A non-string change_note is refused with 422 (errors.change_note).
+Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A non-string change_note is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\&#39;s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
 
 ### Example
 
@@ -22083,9 +21963,9 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | Forbidden. The token lacks the winad_write OAuth scope. |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not update compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. A client-credentials write is recorded under that system user. |  -  |
 | **404** | Not Found |  -  |
-| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. |  -  |
+| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. Also returned when contract_status_id is null, blank, not a whole number, or does not exist (errors.contract_status_id); contract_id is a pending contract (errors.contract). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
