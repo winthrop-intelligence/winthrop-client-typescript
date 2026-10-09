@@ -14,7 +14,6 @@ Name | Type
 `ctaKey` | string
 `sourceReportTitle` | string
 `receivedAt` | Date
-`clockPaused` | boolean
 
 ## Example
 
@@ -31,7 +30,6 @@ const example = {
   "ctaKey": null,
   "sourceReportTitle": null,
   "receivedAt": null,
-  "clockPaused": null,
 } satisfies DeskAdminReportRequest
 
 console.log(example)

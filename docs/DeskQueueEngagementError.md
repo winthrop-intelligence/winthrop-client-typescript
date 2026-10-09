@@ -1,22 +1,24 @@
 
-# GetAdminDeskRequest200Response
+# DeskQueueEngagementError
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`data` | [DeskAdminQueueRow](DeskAdminQueueRow.md)
+`code` | string
+`message` | string
 
 ## Example
 
 ```typescript
-import type { GetAdminDeskRequest200Response } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DeskQueueEngagementError } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": null,
-} satisfies GetAdminDeskRequest200Response
+  "code": null,
+  "message": null,
+} satisfies DeskQueueEngagementError
 
 console.log(example)
 
@@ -25,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as GetAdminDeskRequest200Response
+const exampleParsed = JSON.parse(exampleJSON) as DeskQueueEngagementError
 console.log(exampleParsed)
 ```
 
