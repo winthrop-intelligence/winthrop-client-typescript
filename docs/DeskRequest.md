@@ -18,7 +18,6 @@ Name | Type
 `deliversLabel` | string
 `sourceReportUuid` | string
 `ctaKey` | string
-`clientNote` | string
 
 ## Example
 
@@ -38,7 +37,6 @@ const example = {
   "deliversLabel": null,
   "sourceReportUuid": null,
   "ctaKey": null,
-  "clientNote": null,
 } satisfies DeskRequest
 
 console.log(example)
