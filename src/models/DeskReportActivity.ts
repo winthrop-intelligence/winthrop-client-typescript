@@ -50,6 +50,12 @@ import {
 export interface DeskReportActivity {
     /**
      * 
+     * @type {string}
+     * @memberof DeskReportActivity
+     */
+    kind: DeskReportActivityKindEnum;
+    /**
+     * 
      * @type {DeskReportActivityMeta}
      * @memberof DeskReportActivity
      */
@@ -80,10 +86,21 @@ export interface DeskReportActivity {
     error: DeskReportActivityError | null;
 }
 
+
+/**
+ * @export
+ */
+export const DeskReportActivityKindEnum = {
+    Views: 'views'
+} as const;
+export type DeskReportActivityKindEnum = typeof DeskReportActivityKindEnum[keyof typeof DeskReportActivityKindEnum];
+
+
 /**
  * Check if a given object implements the DeskReportActivity interface.
  */
 export function instanceOfDeskReportActivity(value: object): value is DeskReportActivity {
+    if (!('kind' in value) || value['kind'] === undefined) return false;
     if (!('meta' in value) || value['meta'] === undefined) return false;
     if (!('data' in value) || value['data'] === undefined) return false;
     if (!('summary' in value) || value['summary'] === undefined) return false;
@@ -102,6 +119,7 @@ export function DeskReportActivityFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
+        'kind': json['kind'],
         'meta': DeskReportActivityMetaFromJSON(json['meta']),
         'data': ((json['data'] as Array<any>).map(DeskActivityViewerFromJSON)),
         'summary': DeskActivitySummaryFromJSON(json['summary']),
@@ -121,6 +139,7 @@ export function DeskReportActivityToJSONTyped(value?: DeskReportActivity | null,
 
     return {
         
+        'kind': value['kind'],
         'meta': DeskReportActivityMetaToJSON(value['meta']),
         'data': ((value['data'] as Array<any>).map(DeskActivityViewerToJSON)),
         'summary': DeskActivitySummaryToJSON(value['summary']),

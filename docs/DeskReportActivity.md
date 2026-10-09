@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`kind` | string
 `meta` | [DeskReportActivityMeta](DeskReportActivityMeta.md)
 `data` | [Array&lt;DeskActivityViewer&gt;](DeskActivityViewer.md)
 `summary` | [DeskActivitySummary](DeskActivitySummary.md)
@@ -19,6 +20,7 @@ import type { DeskReportActivity } from '@winthrop-intelligence/winthrop-client-
 
 // TODO: Update the object below with actual values
 const example = {
+  "kind": null,
   "meta": null,
   "data": null,
   "summary": null,

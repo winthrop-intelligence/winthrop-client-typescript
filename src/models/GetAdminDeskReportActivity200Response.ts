@@ -32,7 +32,7 @@ import {
  * 
  * @export
  */
-export type GetAdminDeskReportActivity200Response = DeskReportActivity | DeskReportDownloadActivity;
+export type GetAdminDeskReportActivity200Response = { kind: 'download_all' } & DeskReportDownloadActivity | { kind: 'downloads' } & DeskReportDownloadActivity | { kind: 'views' } & DeskReportActivity;
 
 export function GetAdminDeskReportActivity200ResponseFromJSON(json: any): GetAdminDeskReportActivity200Response {
     return GetAdminDeskReportActivity200ResponseFromJSONTyped(json, false);
@@ -42,16 +42,16 @@ export function GetAdminDeskReportActivity200ResponseFromJSONTyped(json: any, ig
     if (json == null) {
         return json;
     }
-    if (typeof json !== 'object') {
-        return json;
+    switch (json['kind']) {
+        case 'download_all':
+            return Object.assign({}, DeskReportDownloadActivityFromJSONTyped(json, true), { kind: 'download_all' } as const);
+        case 'downloads':
+            return Object.assign({}, DeskReportDownloadActivityFromJSONTyped(json, true), { kind: 'downloads' } as const);
+        case 'views':
+            return Object.assign({}, DeskReportActivityFromJSONTyped(json, true), { kind: 'views' } as const);
+        default:
+            return json;
     }
-    if (instanceOfDeskReportActivity(json)) {
-        return DeskReportActivityFromJSONTyped(json, true);
-    }
-    if (instanceOfDeskReportDownloadActivity(json)) {
-        return DeskReportDownloadActivityFromJSONTyped(json, true);
-    }
-    return {} as any;
 }
 
 export function GetAdminDeskReportActivity200ResponseToJSON(json: any): any {
@@ -62,15 +62,15 @@ export function GetAdminDeskReportActivity200ResponseToJSONTyped(value?: GetAdmi
     if (value == null) {
         return value;
     }
-    if (typeof value !== 'object') {
-        return value;
+    switch (value['kind']) {
+        case 'download_all':
+            return Object.assign({}, DeskReportDownloadActivityToJSON(value), { kind: 'download_all' } as const);
+        case 'downloads':
+            return Object.assign({}, DeskReportDownloadActivityToJSON(value), { kind: 'downloads' } as const);
+        case 'views':
+            return Object.assign({}, DeskReportActivityToJSON(value), { kind: 'views' } as const);
+        default:
+            return value;
     }
-    if (instanceOfDeskReportActivity(value)) {
-        return DeskReportActivityToJSON(value as DeskReportActivity);
-    }
-    if (instanceOfDeskReportDownloadActivity(value)) {
-        return DeskReportDownloadActivityToJSON(value as DeskReportDownloadActivity);
-    }
-    return {};
 }
 

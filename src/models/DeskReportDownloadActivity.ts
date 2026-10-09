@@ -50,6 +50,12 @@ import {
 export interface DeskReportDownloadActivity {
     /**
      * 
+     * @type {string}
+     * @memberof DeskReportDownloadActivity
+     */
+    kind: DeskReportDownloadActivityKindEnum;
+    /**
+     * 
      * @type {DeskReportDownloadActivityMeta}
      * @memberof DeskReportDownloadActivity
      */
@@ -80,10 +86,22 @@ export interface DeskReportDownloadActivity {
     error: DeskReportActivityError | null;
 }
 
+
+/**
+ * @export
+ */
+export const DeskReportDownloadActivityKindEnum = {
+    Downloads: 'downloads',
+    DownloadAll: 'download_all'
+} as const;
+export type DeskReportDownloadActivityKindEnum = typeof DeskReportDownloadActivityKindEnum[keyof typeof DeskReportDownloadActivityKindEnum];
+
+
 /**
  * Check if a given object implements the DeskReportDownloadActivity interface.
  */
 export function instanceOfDeskReportDownloadActivity(value: object): value is DeskReportDownloadActivity {
+    if (!('kind' in value) || value['kind'] === undefined) return false;
     if (!('meta' in value) || value['meta'] === undefined) return false;
     if (!('data' in value) || value['data'] === undefined) return false;
     if (!('summary' in value) || value['summary'] === undefined) return false;
@@ -102,6 +120,7 @@ export function DeskReportDownloadActivityFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
+        'kind': json['kind'],
         'meta': DeskReportDownloadActivityMetaFromJSON(json['meta']),
         'data': ((json['data'] as Array<any>).map(DeskActivityDownloadFromJSON)),
         'summary': DeskActivityDownloadSummaryFromJSON(json['summary']),
@@ -121,6 +140,7 @@ export function DeskReportDownloadActivityToJSONTyped(value?: DeskReportDownload
 
     return {
         
+        'kind': value['kind'],
         'meta': DeskReportDownloadActivityMetaToJSON(value['meta']),
         'data': ((value['data'] as Array<any>).map(DeskActivityDownloadToJSON)),
         'summary': DeskActivityDownloadSummaryToJSON(value['summary']),
