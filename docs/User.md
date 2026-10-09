@@ -24,6 +24,8 @@ Name | Type
 `roles` | Array&lt;string&gt;
 `isAdmin` | boolean
 `canSeeCompensation` | boolean
+`canSeeCoachCompensation` | boolean
+`canSeeAdministratorCompensation` | boolean
 `canShowScouting` | boolean
 `canShowGameContract` | boolean
 `canSeeCoaches` | boolean
@@ -84,6 +86,8 @@ const example = {
   "roles": null,
   "isAdmin": null,
   "canSeeCompensation": null,
+  "canSeeCoachCompensation": null,
+  "canSeeAdministratorCompensation": null,
   "canShowScouting": null,
   "canShowGameContract": null,
   "canSeeCoaches": null,

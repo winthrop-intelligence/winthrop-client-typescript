@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.7
+# @winthrop-intelligence/winthrop-client-typescript@1.55.8
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -39,6 +39,8 @@ async function example() {
     driveId: driveId_example,
     // string | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\"\\\\n\\\\f\\\\n\\\"). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. (optional)
     text: text_example,
+    // string | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. (optional)
+    contractTerms: contractTerms_example,
   } satisfies CreatePendingContractRequest;
 
   try {
@@ -65,6 +67,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *ContractsApi* | [**createPendingContract**](docs/ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts | 
 *ContractsApi* | [**deletePendingContract**](docs/ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} | 
 *ContractsApi* | [**publishPendingContract**](docs/ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish | 
+*ContractsApi* | [**updateContract**](docs/ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} | 
 *CtbApi* | [**applyCtbCompensation**](docs/CtbApi.md#applyctbcompensation) | **POST** /api/v1/ctb_compensation_apply | 
 *DefaultApi* | [**averageConferenceComp**](docs/DefaultApi.md#averageconferencecomp) | **GET** /api/v1/compensations/average_conference_comp | 
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
@@ -244,7 +247,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getIncomeReport**](docs/DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} | 
 *DefaultApi* | [**getIncomeReports**](docs/DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports | 
 *DefaultApi* | [**getJobPost**](docs/DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post
-*DefaultApi* | [**getJobPostDisagreements**](docs/DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved LLM/ML athletics classification disagreements
+*DefaultApi* | [**getJobPostDisagreements**](docs/DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved Jev/ML athletics classification disagreements
 *DefaultApi* | [**getJobPosts**](docs/DefaultApi.md#getjobposts) | **GET** /central_jobs/job_posts | List all job posts
 *DefaultApi* | [**getLadFilterOptions**](docs/DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options | 
 *DefaultApi* | [**getNcaaFinancialReportStatus**](docs/DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} | 
@@ -337,6 +340,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**resolveFrsExport**](docs/DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve | 
 *DefaultApi* | [**restoreAdminDeskReport**](docs/DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore | 
 *DefaultApi* | [**retryFrsExport**](docs/DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry | 
+*DefaultApi* | [**revokeContractVerification**](docs/DefaultApi.md#revokecontractverification) | **POST** /api/v1/raw_contracts/{raw_contractId}/verifications/revoke | Revoke verified seasons (append a revocation event)
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
 *DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
@@ -364,6 +368,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateNote**](docs/DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} | 
 *DefaultApi* | [**updatePasswordReset**](docs/DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset | 
 *DefaultApi* | [**updatePosition**](docs/DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} | 
+*DefaultApi* | [**updatePositionDeparture**](docs/DefaultApi.md#updatepositiondeparture) | **PATCH** /api/v1/positions/{positionId}/departure | 
 *DefaultApi* | [**updateRequestedItem**](docs/DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} | 
 *DefaultApi* | [**updateScheduleIntent**](docs/DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} | 
 *DefaultApi* | [**updateSchoolGroup**](docs/DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} | 
@@ -392,6 +397,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *IntercollegiateApi* | [**syncJobPost**](docs/IntercollegiateApi.md#syncjobpost) | **PUT** /wi_jobs/job_posts/{jobPostId}/sync | 
 *MlAthleticApi* | [**healthCheck**](docs/MlAthleticApi.md#healthcheck) | **GET** /ml-athletic/health_check | 
 *MlAthleticApi* | [**predict**](docs/MlAthleticApi.md#predict) | **POST** /ml-athletic/predict | 
+*RawContractsApi* | [**getRawContractContractTerms**](docs/RawContractsApi.md#getrawcontractcontractterms) | **GET** /api/v1/raw_contracts/{raw_contractId}/contract_terms | 
+*RawContractsApi* | [**updateRawContractContractTerms**](docs/RawContractsApi.md#updaterawcontractcontractterms) | **PATCH** /api/v1/raw_contracts/{raw_contractId}/contract_terms | 
 *ReportingApi* | [**getCoachContractRequests**](docs/ReportingApi.md#getcoachcontractrequests) | **GET** /api/v1/reports/coach_contract_requests | 
 *ReportingApi* | [**getCoachHistory**](docs/ReportingApi.md#getcoachhistory) | **GET** /api/v1/reports/coach_history | 
 *ReportingApi* | [**getConferenceships**](docs/ReportingApi.md#getconferenceships) | **GET** /api/v1/reports/conferenceships | 
@@ -576,8 +583,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [ContractCollection](docs/ContractCollection.md)
 - [ContractErrorsResponse](docs/ContractErrorsResponse.md)
 - [ContractTermOption](docs/ContractTermOption.md)
+- [ContractTerms](docs/ContractTerms.md)
+- [ContractTermsSource](docs/ContractTermsSource.md)
 - [ContractVerification](docs/ContractVerification.md)
 - [ContractVerificationInput](docs/ContractVerificationInput.md)
+- [ContractVerificationRevocationInput](docs/ContractVerificationRevocationInput.md)
 - [CoworkerEntry](docs/CoworkerEntry.md)
 - [CoworkerTenure](docs/CoworkerTenure.md)
 - [CreateAccountUser422Response](docs/CreateAccountUser422Response.md)
@@ -886,6 +896,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GetAdminDeskRequest200Response](docs/GetAdminDeskRequest200Response.md)
 - [GetCompensationComparisons400Response](docs/GetCompensationComparisons400Response.md)
 - [GetContractVerifications200Response](docs/GetContractVerifications200Response.md)
+- [GetContractVerifications200ResponseMeta](docs/GetContractVerifications200ResponseMeta.md)
 - [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)
 - [GetFavoritesCategories200ResponseInner](docs/GetFavoritesCategories200ResponseInner.md)
 - [GetFilterOptions200Response](docs/GetFilterOptions200Response.md)
@@ -976,6 +987,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
+- [PositionDepartureRequest](docs/PositionDepartureRequest.md)
+- [PositionDepartureResult](docs/PositionDepartureResult.md)
 - [PositionEntry](docs/PositionEntry.md)
 - [PositionSportStat](docs/PositionSportStat.md)
 - [PositionType](docs/PositionType.md)
@@ -989,6 +1002,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PublishPendingContractCompensationBaseSalary](docs/PublishPendingContractCompensationBaseSalary.md)
 - [PublishPendingContractCompensationOneTimeBonus](docs/PublishPendingContractCompensationOneTimeBonus.md)
 - [PublishPendingContractRequest](docs/PublishPendingContractRequest.md)
+- [PublishPendingContractRequestContractTerms](docs/PublishPendingContractRequestContractTerms.md)
 - [PublishedContract](docs/PublishedContract.md)
 - [PublishedContractAllOfCompensations](docs/PublishedContractAllOfCompensations.md)
 - [QuadrantUnplottedSchool](docs/QuadrantUnplottedSchool.md)
@@ -996,6 +1010,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RawContractBackTo](docs/RawContractBackTo.md)
 - [RawContractCollection](docs/RawContractCollection.md)
 - [RawContractDealInfo](docs/RawContractDealInfo.md)
+- [RawContractTerms](docs/RawContractTerms.md)
 - [ReconciliationCoach](docs/ReconciliationCoach.md)
 - [ReconciliationIncluded](docs/ReconciliationIncluded.md)
 - [ReconciliationPagination](docs/ReconciliationPagination.md)
@@ -1133,6 +1148,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateAdminDeskRequest200ResponseData](docs/UpdateAdminDeskRequest200ResponseData.md)
 - [UpdateAdminDeskRequestRequest](docs/UpdateAdminDeskRequestRequest.md)
 - [UpdateAdminDeskSettings422Response](docs/UpdateAdminDeskSettings422Response.md)
+- [UpdateContractRequest](docs/UpdateContractRequest.md)
 - [UpdateDeal403Response](docs/UpdateDeal403Response.md)
 - [UpdateDeal422Response](docs/UpdateDeal422Response.md)
 - [UpdateDealRequest](docs/UpdateDealRequest.md)
@@ -1147,6 +1163,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdatePasswordReset200Response](docs/UpdatePasswordReset200Response.md)
 - [UpdatePasswordResetRequest](docs/UpdatePasswordResetRequest.md)
 - [UpdatePasswordResetRequestUser](docs/UpdatePasswordResetRequestUser.md)
+- [UpdateRawContractContractTerms422Response](docs/UpdateRawContractContractTerms422Response.md)
 - [UpdateScheduleIntentRequest](docs/UpdateScheduleIntentRequest.md)
 - [UpdateScheduleIntentRequestScheduleIntent](docs/UpdateScheduleIntentRequestScheduleIntent.md)
 - [UpdateSchoolGroupRequest](docs/UpdateSchoolGroupRequest.md)
@@ -1205,8 +1222,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.7`
-- Package version: `1.55.7`
+- API version: `1.55.8`
+- Package version: `1.55.8`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

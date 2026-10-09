@@ -182,7 +182,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getIncomeReport**](DefaultApi.md#getincomereport) | **GET** /api/v1/income_reports/{incomeReportId} |  |
 | [**getIncomeReports**](DefaultApi.md#getincomereports) | **GET** /api/v1/income_reports |  |
 | [**getJobPost**](DefaultApi.md#getjobpost) | **GET** /central_jobs/job_posts/{jobPostId} | Get a job post |
-| [**getJobPostDisagreements**](DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved LLM/ML athletics classification disagreements |
+| [**getJobPostDisagreements**](DefaultApi.md#getjobpostdisagreements) | **GET** /central_jobs/job_posts/disagreements | List unresolved Jev/ML athletics classification disagreements |
 | [**getJobPosts**](DefaultApi.md#getjobposts) | **GET** /central_jobs/job_posts | List all job posts |
 | [**getLadFilterOptions**](DefaultApi.md#getladfilteroptions) | **GET** /api/v1/lad_filter_options |  |
 | [**getNcaaFinancialReportStatus**](DefaultApi.md#getncaafinancialreportstatus) | **GET** /api/v1/ncaa_financial_report_statuses/{ncaaFinancialReportStatusId} |  |
@@ -275,6 +275,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
 | [**restoreAdminDeskReport**](DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore |  |
 | [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
+| [**revokeContractVerification**](DefaultApi.md#revokecontractverification) | **POST** /api/v1/raw_contracts/{raw_contractId}/verifications/revoke | Revoke verified seasons (append a revocation event) |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
 | [**sendOtpCode**](DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code |  |
 | [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
@@ -302,6 +303,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateNote**](DefaultApi.md#updatenoteoperation) | **PATCH** /api/v1/notes/{id} |  |
 | [**updatePasswordReset**](DefaultApi.md#updatepasswordresetoperation) | **PUT** /api/v1/password_reset |  |
 | [**updatePosition**](DefaultApi.md#updateposition) | **PATCH** /api/v1/positions/{positionId} |  |
+| [**updatePositionDeparture**](DefaultApi.md#updatepositiondeparture) | **PATCH** /api/v1/positions/{positionId}/departure |  |
 | [**updateRequestedItem**](DefaultApi.md#updaterequesteditem) | **PATCH** /api/v1/requested_items/{requestedItemId} |  |
 | [**updateScheduleIntent**](DefaultApi.md#updatescheduleintentoperation) | **PATCH** /api/v1/schedule_intents/{scheduleIntentId} |  |
 | [**updateSchoolGroup**](DefaultApi.md#updateschoolgroupoperation) | **PATCH** /api/v1/school_groups/{schoolGroupId} |  |
@@ -1735,7 +1737,7 @@ example().catch(console.error);
 
 Append a contract verification event
 
-Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Agent retries use a unique (contract_id, agent_run_id) key: equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
+Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Agent retries use a unique (contract_id, agent_run_id) key: equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. The result \&#39;revoked\&#39; is rejected here; use the revoke endpoint. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
 
 ### Example
 
@@ -13950,7 +13952,7 @@ example().catch(console.error);
 
 > JobPostDisagreementCollection getJobPostDisagreements(since, schoolId, limit, newPage, stillPendingPage)
 
-List unresolved LLM/ML athletics classification disagreements
+List unresolved Jev/ML athletics classification disagreements
 
 Unresolved, non-expired JobPost rows where llm_is_athletics and ml_is_athletics disagree, split into posts created within the since window (\&quot;new\&quot;) and everything else still unresolved (\&quot;still_pending\&quot;). 
 
@@ -21163,6 +21165,87 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## revokeContractVerification
+
+> ContractVerification revokeContractVerification(rawContractId, contractVerificationRevocationInput)
+
+Revoke verified seasons (append a revocation event)
+
+Same gates as create: winad_verify token scope, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required. Appends a result \&#39;revoked\&#39; event; nothing is deleted. The latest event per contract+season (verified_at DESC, id DESC) is authoritative. Only currently verified seasons can be revoked. No verified_at or identity fields are accepted. The body is a flat JSON object. The write also creates a PaperTrail version recording the token user and the optional top-level change_note.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RevokeContractVerificationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    rawContractId: 56,
+    // ContractVerificationRevocationInput
+    contractVerificationRevocationInput: ...,
+  } satisfies RevokeContractVerificationRequest;
+
+  try {
+    const data = await api.revokeContractVerification(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` |  | [Defaults to `undefined`] |
+| **contractVerificationRevocationInput** | [ContractVerificationRevocationInput](ContractVerificationRevocationInput.md) |  | |
+
+### Return type
+
+[**ContractVerification**](ContractVerification.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Revocation event created |  -  |
+| **400** | Malformed request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_verify token/application scope, persisted resource owner, or parent read permission |  -  |
+| **404** | RawContract not found |  -  |
+| **422** | Unknown field, invalid body, change_note that is not a string (errors.change_note), season not currently verified, or document without a Contract. Nothing was written. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## searchCoaches
 
 > CoachCollection searchCoaches(filters)
@@ -23291,7 +23374,87 @@ example().catch(console.error);
 | **200** | Position was updated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
-| **422** | Unable to update position |  -  |
+| **422** | Unable to update position. Also returned (errors.departing) when the request would change departing on a position that has recorded departure details, because that would erase them with no user or position change log; use PATCH /positions/{positionId}/departure for that change. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updatePositionDeparture
+
+> PositionDepartureResult updatePositionDeparture(positionId, positionDepartureRequest)
+
+
+
+Fully replace a position\&#39;s departure details. Setting departing to true requires a date, reason, and public source URL. Setting false clears the date; omitted details become null. Records the user and the optional top-level change_note on the PaperTrail version, and writes the position change log. Identical requests are no-ops: no version is created, so no note is stored.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdatePositionDepartureRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the position to update
+    positionId: 56,
+    // PositionDepartureRequest
+    positionDepartureRequest: ...,
+  } satisfies UpdatePositionDepartureRequest;
+
+  try {
+    const data = await api.updatePositionDeparture(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **positionId** | `number` | ID of the position to update | [Defaults to `undefined`] |
+| **positionDepartureRequest** | [PositionDepartureRequest](PositionDepartureRequest.md) |  | |
+
+### Return type
+
+[**PositionDepartureResult**](PositionDepartureResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated departure read back from the database |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | A persisted user-backed OAuth token, winad_write scope, and permission to update positions are required. Client-credentials tokens are rejected without saving changes. |  -  |
+| **404** | Position not found |  -  |
+| **422** | Invalid fields or values, or a change_note that is not a string (errors.change_note); no changes were saved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

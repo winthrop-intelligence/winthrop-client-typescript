@@ -12,6 +12,8 @@ Name | Type
 `method` | string
 `agentRunId` | string
 `evidenceUrl` | string
+`reason` | string
+`approvalQuote` | string
 `id` | number
 `contractId` | number
 `rawContractId` | number
@@ -32,6 +34,8 @@ const example = {
   "method": null,
   "agentRunId": null,
   "evidenceUrl": null,
+  "reason": null,
+  "approvalQuote": null,
   "id": null,
   "contractId": null,
   "rawContractId": null,
