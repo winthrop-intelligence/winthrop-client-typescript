@@ -11,6 +11,7 @@ Name | Type
 `atWill` | boolean
 `executedOn` | Date
 `compensations` | [Array&lt;PublishPendingContractCompensation&gt;](PublishPendingContractCompensation.md)
+`contractTerms` | [PublishPendingContractRequestContractTerms](PublishPendingContractRequestContractTerms.md)
 
 ## Example
 
@@ -24,6 +25,7 @@ const example = {
   "atWill": null,
   "executedOn": null,
   "compensations": null,
+  "contractTerms": null,
 } satisfies PublishPendingContractRequest
 
 console.log(example)
