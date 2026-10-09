@@ -20,7 +20,6 @@ Name | Type
 `sourceReportTitle` | string
 `askReceivedAt` | Date
 `dueAt` | Date
-`clockPaused` | boolean
 `hasHtml` | boolean
 `artifactKinds` | Array&lt;string&gt;
 `publishedAt` | Date
@@ -50,7 +49,6 @@ const example = {
   "sourceReportTitle": null,
   "askReceivedAt": null,
   "dueAt": null,
-  "clockPaused": null,
   "hasHtml": null,
   "artifactKinds": null,
   "publishedAt": null,
