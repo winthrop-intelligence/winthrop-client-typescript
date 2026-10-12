@@ -1,24 +1,28 @@
 
-# DepartmentOverviewPrivateCoverage
+# DepartmentOverviewPrivateCoachingPayRow
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`percent` | number
-`provisional` | boolean
+`key` | string
+`label` | string
+`coachCount` | number
+`amountCents` | number
 
 ## Example
 
 ```typescript
-import type { DepartmentOverviewPrivateCoverage } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DepartmentOverviewPrivateCoachingPayRow } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "percent": null,
-  "provisional": null,
-} satisfies DepartmentOverviewPrivateCoverage
+  "key": null,
+  "label": null,
+  "coachCount": null,
+  "amountCents": null,
+} satisfies DepartmentOverviewPrivateCoachingPayRow
 
 console.log(example)
 
@@ -27,7 +31,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DepartmentOverviewPrivateCoverage
+const exampleParsed = JSON.parse(exampleJSON) as DepartmentOverviewPrivateCoachingPayRow
 console.log(exampleParsed)
 ```
 
