@@ -75,6 +75,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**deleteTeamSeasonResult**](DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
 | [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
@@ -254,6 +255,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getTeamScheduleFavorites**](DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites |  |
 | [**getTeamScheduleNote**](DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
+| [**getTeamSeasonResults**](DefaultApi.md#getteamseasonresults) | **GET** /api/v1/team_season_results |  |
 | [**getTimeZones**](DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones |  |
 | [**getUpload**](DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} |  |
 | [**getUploadFile**](DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file |  |
@@ -310,6 +312,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
 | [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
 | [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**upsertTeamSeasonResult**](DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
 | [**validateAdminDeskReport**](DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate |  |
 | [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
@@ -5728,6 +5731,86 @@ example().catch(console.error);
 | **204** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteTeamSeasonResult
+
+> TeamSeasonResult deleteTeamSeasonResult(teamSeasonResultId, changeNote)
+
+
+
+Delete a team season result. Requires the winad_write OAuth scope and an admin user; other users get 403. The deletion is recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional change_note query parameter as the reason. Returns the deleted result.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteTeamSeasonResultRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the team season result to delete
+    teamSeasonResultId: 56,
+    // string | Why the result is being deleted, stored in its audit history and never returned. (optional)
+    changeNote: changeNote_example,
+  } satisfies DeleteTeamSeasonResultRequest;
+
+  try {
+    const data = await api.deleteTeamSeasonResult(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **teamSeasonResultId** | `number` | ID of the team season result to delete | [Defaults to `undefined`] |
+| **changeNote** | `string` | Why the result is being deleted, stored in its audit history and never returned. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamSeasonResult**](TeamSeasonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team season result was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **404** | Not Found |  -  |
+| **422** | change_note is not a string (errors.change_note) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -19591,6 +19674,103 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getTeamSeasonResults
+
+> TeamSeasonResultCollection getTeamSeasonResults(seasonId, schoolId, sportId, seasonYear, resultName, page, perPage, q)
+
+
+
+Retrieve team season results, i.e. how a team performed in a season (NCAA stage reached, conference finish, final poll rank, APR, coach awards, ...). A result belongs to a season row (one school\&#39;s sport in one season year), shared by every coach of that team. Filter by season_id, or by school_id (all of a school\&#39;s teams), sport_id and season_year. Requires the winad_read OAuth scope and an admin user (super admin or a user-less service token); other users get 403. Ordered by season year (newest first), then result_name.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamSeasonResultsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | Only results of this season (one team\'s season). (optional)
+    seasonId: 56,
+    // number | Only results of this school\'s teams. (optional)
+    schoolId: 56,
+    // number | Only results of this sport. (optional)
+    sportId: 56,
+    // number | Only results of seasons ending in this year (2023 = the 2022-23 season). APR and GSR rows sit on the season of the academic year the rate measures. (optional)
+    seasonYear: 56,
+    // string | Only results with this name, for example ncaa_stage_reached. (optional)
+    resultName: resultName_example,
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies GetTeamSeasonResultsRequest;
+
+  try {
+    const data = await api.getTeamSeasonResults(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **seasonId** | `number` | Only results of this season (one team\&#39;s season). | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` | Only results of this school\&#39;s teams. | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` | Only results of this sport. | [Optional] [Defaults to `undefined`] |
+| **seasonYear** | `number` | Only results of seasons ending in this year (2023 &#x3D; the 2022-23 season). APR and GSR rows sit on the season of the academic year the rate measures. | [Optional] [Defaults to `undefined`] |
+| **resultName** | `string` | Only results with this name, for example ncaa_stage_reached. | [Optional] [Defaults to `undefined`] |
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamSeasonResultCollection**](TeamSeasonResultCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team season results were found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The user is not an admin. |  -  |
+| **422** | A filter is sent as a list or an object (errors.&lt;filter&gt;, \&quot;must be a single value\&quot;). |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getTimeZones
 
 > GetTimeZones200Response getTimeZones()
@@ -23962,6 +24142,83 @@ example().catch(console.error);
 | **200** | Note saved |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## upsertTeamSeasonResult
+
+> TeamSeasonResult upsertTeamSeasonResult(teamSeasonResultInput)
+
+
+
+Create or replace one team season result, keyed on the season and result_name. Identify the season with season_id, or with school_id, sport_id and season_year (the season row is created when the school has none for that sport and year). Concurrent writes to one team-season are applied one at a time. The payload is the full row as approved; a field left out is stored as null. Writes come only from a payload a person has approved; WinAD stores them and applies no logic. Requires the winad_write OAuth scope and an admin user (super admin or a user-less service token); other users get 403. The write is recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpsertTeamSeasonResultRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // TeamSeasonResultInput | The full result, with the season locator and an optional change_note at the top level
+    teamSeasonResultInput: ...,
+  } satisfies UpsertTeamSeasonResultRequest;
+
+  try {
+    const data = await api.upsertTeamSeasonResult(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **teamSeasonResultInput** | [TeamSeasonResultInput](TeamSeasonResultInput.md) | The full result, with the season locator and an optional change_note at the top level | |
+
+### Return type
+
+[**TeamSeasonResult**](TeamSeasonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The existing result for this season and result_name was replaced |  -  |
+| **201** | The result was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **422** | Nothing was saved. Returned when the season is not given (errors.season), season_id names no season (errors.season), season_id is sent with a school_id, sport_id or season_year that is not that season\&#39;s (errors.season), school_id or sport_id names no record (errors.school, errors.sport), an id or season_year is not a whole number as sent (for example \&quot;12abc\&quot; or 2023.5) or season_year is outside 1900-2100; result_name is missing; verification_method is not one of the listed values; a single-value field is sent as an array or object; details is not an object; result_name or result_value is longer than 255 characters; or change_note is not a string. Errors are keyed by attribute. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

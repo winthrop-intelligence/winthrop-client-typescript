@@ -15,6 +15,9 @@ Name | Type
 `endYear` | number
 `currentPositionTitle` | string
 `currentSchoolName` | string
+`currentSchoolId` | number
+`currentSchoolFullName` | string
+`currentAssignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `salaryCents` | number
 `coachFriendlyId` | string
 
@@ -34,6 +37,9 @@ const example = {
   "endYear": null,
   "currentPositionTitle": null,
   "currentSchoolName": null,
+  "currentSchoolId": null,
+  "currentSchoolFullName": null,
+  "currentAssignments": null,
   "salaryCents": null,
   "coachFriendlyId": null,
 } satisfies CoworkerEntry

@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.10
+# @winthrop-intelligence/winthrop-client-typescript@1.55.10-dev.10522
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -140,6 +140,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**deleteTeamSeasonResult**](docs/DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} | 
 *DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**downloadRawContractFile**](docs/DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download | 
 *DefaultApi* | [**enrichGamePostSearches**](docs/DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment | 
@@ -319,6 +320,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleFavorites**](docs/DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
+*DefaultApi* | [**getTeamSeasonResults**](docs/DefaultApi.md#getteamseasonresults) | **GET** /api/v1/team_season_results | 
 *DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
 *DefaultApi* | [**getUpload**](docs/DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**getUploadFile**](docs/DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file | 
@@ -375,6 +377,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**upsertTeamSeasonResult**](docs/DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
 *DefaultApi* | [**validateAdminDeskReport**](docs/DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
@@ -526,6 +529,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachCompensationTabQuartilesRowsInner](docs/CoachCompensationTabQuartilesRowsInner.md)
 - [CoachCompensationTabSidebar](docs/CoachCompensationTabSidebar.md)
 - [CoachCompensationTabSidebarCoachingStaffInner](docs/CoachCompensationTabSidebarCoachingStaffInner.md)
+- [CoachCompensationTabSidebarCoachingStaffInnerSalarySource](docs/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.md)
 - [CoachCompensationTabSidebarContractsInner](docs/CoachCompensationTabSidebarContractsInner.md)
 - [CoachCompensationTabSidebarIncomeReportsInner](docs/CoachCompensationTabSidebarIncomeReportsInner.md)
 - [CoachCoworkerHistoryTab](docs/CoachCoworkerHistoryTab.md)
@@ -998,6 +1002,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PerformanceChartCoach](docs/PerformanceChartCoach.md)
 - [PerformanceChartData](docs/PerformanceChartData.md)
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)
+- [PersonAssignment](docs/PersonAssignment.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
 - [PositionDepartureRequest](docs/PositionDepartureRequest.md)
@@ -1148,6 +1153,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleSearchResultAwayContracts](docs/TeamScheduleSearchResultAwayContracts.md)
 - [TeamScheduleSearchResultCollection](docs/TeamScheduleSearchResultCollection.md)
 - [TeamScheduleSearchResultHomeContracts](docs/TeamScheduleSearchResultHomeContracts.md)
+- [TeamSeasonResult](docs/TeamSeasonResult.md)
+- [TeamSeasonResultCollection](docs/TeamSeasonResultCollection.md)
+- [TeamSeasonResultInput](docs/TeamSeasonResultInput.md)
 - [TimeZoneOption](docs/TimeZoneOption.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
@@ -1234,8 +1242,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.10`
-- Package version: `1.55.10`
+- API version: `1.55.10-dev.10522`
+- Package version: `1.55.10-dev.10522`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
