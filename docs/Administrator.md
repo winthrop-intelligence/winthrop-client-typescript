@@ -23,6 +23,7 @@ Name | Type
 `contractId` | number
 `year` | number
 `newerSeason` | [NewerSeasonContext](NewerSeasonContext.md)
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `positionTitle` | string
 `schoolName` | string
 `schoolShortName` | string
@@ -78,6 +79,7 @@ const example = {
   "contractId": 1,
   "year": 2019,
   "newerSeason": null,
+  "assignments": null,
   "positionTitle": This is a position title,
   "schoolName": This is a school name,
   "schoolShortName": This is a school short name,

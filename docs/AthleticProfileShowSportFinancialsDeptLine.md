@@ -9,6 +9,7 @@ Name | Type
 `fiscalYear` | number
 `deptCoachingCents` | number
 `benchCents` | number
+`basis` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "fiscalYear": null,
   "deptCoachingCents": null,
   "benchCents": null,
+  "basis": null,
 } satisfies AthleticProfileShowSportFinancialsDeptLine
 
 console.log(example)
