@@ -1,7 +1,7 @@
 
 # UpdateContractRequest
 
-Partial update of a published contract. At least one of start_on, end_on or at_will is required; change_note alone is insufficient. Pending contracts are published, not edited. Setting at_will true requires end_on null. Changes are audited with the authenticated user and the optional change_note. 
+Partial update of a published contract. At least one of the contract fields is required; change_note alone is insufficient. Pending contracts are published, not edited. Setting at_will true requires end_on null. Changes are audited with the authenticated user and the optional change_note. 
 
 ## Properties
 
@@ -10,6 +10,10 @@ Name | Type
 `startOn` | Date
 `endOn` | Date
 `atWill` | boolean
+`executedOn` | Date
+`expiresOn` | Date
+`contingentChange` | boolean
+`coachId` | number
 `changeNote` | string
 
 ## Example
@@ -22,6 +26,10 @@ const example = {
   "startOn": null,
   "endOn": null,
   "atWill": null,
+  "executedOn": null,
+  "expiresOn": null,
+  "contingentChange": null,
+  "coachId": null,
   "changeNote": null,
 } satisfies UpdateContractRequest
 

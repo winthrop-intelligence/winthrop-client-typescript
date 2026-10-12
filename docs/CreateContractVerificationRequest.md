@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `contractVerification` | [ContractVerificationInput](ContractVerificationInput.md)
+`changeNote` | string
 
 ## Example
 
@@ -16,6 +17,7 @@ import type { CreateContractVerificationRequest } from '@winthrop-intelligence/w
 // TODO: Update the object below with actual values
 const example = {
   "contractVerification": null,
+  "changeNote": null,
 } satisfies CreateContractVerificationRequest
 
 console.log(example)
