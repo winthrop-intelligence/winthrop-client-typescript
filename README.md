@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.10
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.38248921699
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -121,6 +121,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**deleteContactSearch**](docs/DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} | 
 *DefaultApi* | [**deleteDeskReportArchive**](docs/DefaultApi.md#deletedeskreportarchive) | **DELETE** /api/v1/desk_reports/{uuid}/archive | 
+*DefaultApi* | [**deleteEarnedIncentive**](docs/DefaultApi.md#deleteearnedincentive) | **DELETE** /api/v1/earned_incentives/{earnedIncentiveId} | 
 *DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
 *DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
@@ -140,6 +141,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**deleteTeamSeasonResult**](docs/DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} | 
 *DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**downloadRawContractFile**](docs/DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download | 
 *DefaultApi* | [**enrichGamePostSearches**](docs/DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment | 
@@ -207,6 +209,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDeskRequests**](docs/DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests | 
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
+*DefaultApi* | [**getEadaFinancialSearches**](docs/DefaultApi.md#geteadafinancialsearches) | **GET** /api/v1/eada_financial_searches | 
+*DefaultApi* | [**getEadaMetrics**](docs/DefaultApi.md#geteadametrics) | **GET** /api/v1/eada_metrics | 
+*DefaultApi* | [**getEarnedIncentives**](docs/DefaultApi.md#getearnedincentives) | **GET** /api/v1/earned_incentives | 
 *DefaultApi* | [**getEditAccountUser**](docs/DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit | 
 *DefaultApi* | [**getFavorites**](docs/DefaultApi.md#getfavorites) | **GET** /api/v1/favorites | 
 *DefaultApi* | [**getFavoritesCategories**](docs/DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories | 
@@ -221,6 +226,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getFilterOptionsStates**](docs/DefaultApi.md#getfilteroptionsstates) | **GET** /api/v1/filter_options/states | 
 *DefaultApi* | [**getFilterOptionsSubdivisions**](docs/DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions | 
 *DefaultApi* | [**getFilterOptionsVendors**](docs/DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors | 
+*DefaultApi* | [**getFinancialComparisons**](docs/DefaultApi.md#getfinancialcomparisons) | **GET** /api/v1/financial_comparisons | 
 *DefaultApi* | [**getFinancialSearches**](docs/DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches | 
 *DefaultApi* | [**getFoiaLabel**](docs/DefaultApi.md#getfoialabel) | **GET** /api/v1/foia_labels/{foiaLabelId} | 
 *DefaultApi* | [**getFoiaLabels**](docs/DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels | 
@@ -280,6 +286,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getSchoolDepartmentFinancials**](docs/DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials | 
 *DefaultApi* | [**getSchoolDepartmentGuarantees**](docs/DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees | 
 *DefaultApi* | [**getSchoolDepartmentOverview**](docs/DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview | 
+*DefaultApi* | [**getSchoolEadaFinancials**](docs/DefaultApi.md#getschooleadafinancials) | **GET** /api/v1/schools/{schoolId}/eada_financials | 
+*DefaultApi* | [**getSchoolFinancialSelection**](docs/DefaultApi.md#getschoolfinancialselection) | **GET** /api/v1/schools/{schoolId}/financial_selection | 
 *DefaultApi* | [**getSchoolGameContracts**](docs/DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts | 
 *DefaultApi* | [**getSchoolGroup**](docs/DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} | 
 *DefaultApi* | [**getSchoolGroupAdminCompensation**](docs/DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation | 
@@ -319,6 +327,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleFavorites**](docs/DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
+*DefaultApi* | [**getTeamSeasonResults**](docs/DefaultApi.md#getteamseasonresults) | **GET** /api/v1/team_season_results | 
 *DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
 *DefaultApi* | [**getUpload**](docs/DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**getUploadFile**](docs/DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file | 
@@ -374,7 +383,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateSubscriptionAcceptance**](docs/DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
+*DefaultApi* | [**upsertEarnedIncentive**](docs/DefaultApi.md#upsertearnedincentive) | **PUT** /api/v1/earned_incentives | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**upsertTeamSeasonResult**](docs/DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
 *DefaultApi* | [**validateAdminDeskReport**](docs/DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
@@ -457,13 +468,18 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AthleticProfileShowSportFinancials](docs/AthleticProfileShowSportFinancials.md)
 - [AthleticProfileShowSportFinancialsCostBuild](docs/AthleticProfileShowSportFinancialsCostBuild.md)
 - [AthleticProfileShowSportFinancialsCostBuildAssistantPool](docs/AthleticProfileShowSportFinancialsCostBuildAssistantPool.md)
+- [AthleticProfileShowSportFinancialsCostBuildGameDayOperating](docs/AthleticProfileShowSportFinancialsCostBuildGameDayOperating.md)
 - [AthleticProfileShowSportFinancialsCostBuildGuaranteesNet](docs/AthleticProfileShowSportFinancialsCostBuildGuaranteesNet.md)
 - [AthleticProfileShowSportFinancialsCostBuildHeadCoach](docs/AthleticProfileShowSportFinancialsCostBuildHeadCoach.md)
+- [AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed](docs/AthleticProfileShowSportFinancialsCostBuildHeadCoachUndisclosed.md)
 - [AthleticProfileShowSportFinancialsCostBuildSupportStaffInner](docs/AthleticProfileShowSportFinancialsCostBuildSupportStaffInner.md)
 - [AthleticProfileShowSportFinancialsCostPerWin](docs/AthleticProfileShowSportFinancialsCostPerWin.md)
 - [AthleticProfileShowSportFinancialsCostPerWinCheapest](docs/AthleticProfileShowSportFinancialsCostPerWinCheapest.md)
 - [AthleticProfileShowSportFinancialsDeptLine](docs/AthleticProfileShowSportFinancialsDeptLine.md)
+- [AthleticProfileShowSportFinancialsEadaSportLine](docs/AthleticProfileShowSportFinancialsEadaSportLine.md)
 - [AthleticProfileShowSportFinancialsFrsSplit](docs/AthleticProfileShowSportFinancialsFrsSplit.md)
+- [AthleticProfileShowSportFinancialsProgramCostPerWin](docs/AthleticProfileShowSportFinancialsProgramCostPerWin.md)
+- [AthleticProfileShowSportFinancialsProgramCostPerWinCheapest](docs/AthleticProfileShowSportFinancialsProgramCostPerWinCheapest.md)
 - [AthleticProfileShowSportFinancialsQuadrant](docs/AthleticProfileShowSportFinancialsQuadrant.md)
 - [AthleticProfileShowSportFinancialsQuadrantPointsInner](docs/AthleticProfileShowSportFinancialsQuadrantPointsInner.md)
 - [AthleticProfileShowSportGuarantees](docs/AthleticProfileShowSportGuarantees.md)
@@ -526,6 +542,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachCompensationTabQuartilesRowsInner](docs/CoachCompensationTabQuartilesRowsInner.md)
 - [CoachCompensationTabSidebar](docs/CoachCompensationTabSidebar.md)
 - [CoachCompensationTabSidebarCoachingStaffInner](docs/CoachCompensationTabSidebarCoachingStaffInner.md)
+- [CoachCompensationTabSidebarCoachingStaffInnerSalarySource](docs/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.md)
 - [CoachCompensationTabSidebarContractsInner](docs/CoachCompensationTabSidebarContractsInner.md)
 - [CoachCompensationTabSidebarIncomeReportsInner](docs/CoachCompensationTabSidebarIncomeReportsInner.md)
 - [CoachCoworkerHistoryTab](docs/CoachCoworkerHistoryTab.md)
@@ -694,6 +711,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentGuaranteesMarketSide](docs/DepartmentGuaranteesMarketSide.md)
 - [DepartmentGuaranteesQuadrant](docs/DepartmentGuaranteesQuadrant.md)
 - [DepartmentGuaranteesQuadrantPoint](docs/DepartmentGuaranteesQuadrantPoint.md)
+- [DepartmentGuaranteesSlateCoverage](docs/DepartmentGuaranteesSlateCoverage.md)
 - [DepartmentGuaranteesSportLedger](docs/DepartmentGuaranteesSportLedger.md)
 - [DepartmentGuaranteesTrendEntry](docs/DepartmentGuaranteesTrendEntry.md)
 - [DepartmentOverviewDollarShares](docs/DepartmentOverviewDollarShares.md)
@@ -704,10 +722,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DepartmentOverviewPrivateAd](docs/DepartmentOverviewPrivateAd.md)
 - [DepartmentOverviewPrivateAdComp](docs/DepartmentOverviewPrivateAdComp.md)
 - [DepartmentOverviewPrivateBasis](docs/DepartmentOverviewPrivateBasis.md)
-- [DepartmentOverviewPrivateCoverage](docs/DepartmentOverviewPrivateCoverage.md)
+- [DepartmentOverviewPrivateCoachingPay](docs/DepartmentOverviewPrivateCoachingPay.md)
+- [DepartmentOverviewPrivateCoachingPayRow](docs/DepartmentOverviewPrivateCoachingPayRow.md)
 - [DepartmentOverviewPrivateDisclosure](docs/DepartmentOverviewPrivateDisclosure.md)
 - [DepartmentOverviewPrivateDisclosureLine](docs/DepartmentOverviewPrivateDisclosureLine.md)
+- [DepartmentOverviewPrivateFlagship](docs/DepartmentOverviewPrivateFlagship.md)
 - [DepartmentOverviewPrivateResults](docs/DepartmentOverviewPrivateResults.md)
+- [DepartmentOverviewPrivateSnapshot](docs/DepartmentOverviewPrivateSnapshot.md)
+- [DepartmentOverviewPrivateSnapshotLine](docs/DepartmentOverviewPrivateSnapshotLine.md)
 - [DepartmentOverviewPrivateSpend](docs/DepartmentOverviewPrivateSpend.md)
 - [DepartmentOverviewProvenance](docs/DepartmentOverviewProvenance.md)
 - [DepartmentOverviewQuadrantPoint](docs/DepartmentOverviewQuadrantPoint.md)
@@ -786,14 +808,34 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DirectorsCupSchool](docs/DirectorsCupSchool.md)
 - [Division](docs/Division.md)
 - [DivisionCollection](docs/DivisionCollection.md)
+- [EadaDerivedMetric](docs/EadaDerivedMetric.md)
+- [EadaFinancialSearchResponse](docs/EadaFinancialSearchResponse.md)
+- [EadaFinancialSearchResultRow](docs/EadaFinancialSearchResultRow.md)
+- [EadaInstitutionResult](docs/EadaInstitutionResult.md)
+- [EadaMetricCatalogEntry](docs/EadaMetricCatalogEntry.md)
+- [EadaMetricCatalogResponse](docs/EadaMetricCatalogResponse.md)
+- [EadaNormalizedMetric](docs/EadaNormalizedMetric.md)
+- [EadaSportResultItem](docs/EadaSportResultItem.md)
+- [EarnedIncentive](docs/EarnedIncentive.md)
+- [EarnedIncentiveCollection](docs/EarnedIncentiveCollection.md)
+- [EarnedIncentiveFields](docs/EarnedIncentiveFields.md)
+- [EarnedIncentiveFieldsTermChange](docs/EarnedIncentiveFieldsTermChange.md)
+- [EarnedIncentiveInput](docs/EarnedIncentiveInput.md)
 - [EditAccountUser](docs/EditAccountUser.md)
 - [EditAccountUserResponse](docs/EditAccountUserResponse.md)
 - [EnrichGamePostSearchesRequest](docs/EnrichGamePostSearchesRequest.md)
 - [FilterPositionType](docs/FilterPositionType.md)
 - [Filters](docs/Filters.md)
+- [FinancialComparison](docs/FinancialComparison.md)
+- [FinancialComparisonRankedRow](docs/FinancialComparisonRankedRow.md)
+- [FinancialComparisonResponse](docs/FinancialComparisonResponse.md)
+- [FinancialComparisonSchoolEntry](docs/FinancialComparisonSchoolEntry.md)
 - [FinancialQc](docs/FinancialQc.md)
 - [FinancialSearchResult](docs/FinancialSearchResult.md)
 - [FinancialSearchResultCollection](docs/FinancialSearchResultCollection.md)
+- [FinancialSelection](docs/FinancialSelection.md)
+- [FinancialSelectionMetric](docs/FinancialSelectionMetric.md)
+- [FinancialSelectionResult](docs/FinancialSelectionResult.md)
 - [FoiaFollowUpContact](docs/FoiaFollowUpContact.md)
 - [FoiaFollowUpGmailSearchHints](docs/FoiaFollowUpGmailSearchHints.md)
 - [FoiaFollowUpNote](docs/FoiaFollowUpNote.md)
@@ -979,6 +1021,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Logo](docs/Logo.md)
 - [McpEvent](docs/McpEvent.md)
 - [Meta](docs/Meta.md)
+- [Meta1](docs/Meta1.md)
 - [MultimediaDealUpdate](docs/MultimediaDealUpdate.md)
 - [MultimediaDealUpdateRevSharePercent](docs/MultimediaDealUpdateRevSharePercent.md)
 - [NcaaFinancialParticipationSummary](docs/NcaaFinancialParticipationSummary.md)
@@ -998,6 +1041,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PerformanceChartCoach](docs/PerformanceChartCoach.md)
 - [PerformanceChartData](docs/PerformanceChartData.md)
 - [PerformanceChartRecord](docs/PerformanceChartRecord.md)
+- [PersonAssignment](docs/PersonAssignment.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
 - [PositionDepartureRequest](docs/PositionDepartureRequest.md)
@@ -1083,6 +1127,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [SchoolDepartmentOverview](docs/SchoolDepartmentOverview.md)
 - [SchoolDepartmentOverviewConference](docs/SchoolDepartmentOverviewConference.md)
 - [SchoolDepartmentOverviewSchool](docs/SchoolDepartmentOverviewSchool.md)
+- [SchoolEadaFinancials](docs/SchoolEadaFinancials.md)
+- [SchoolEadaFinancialsSports](docs/SchoolEadaFinancialsSports.md)
 - [SchoolFinancialDetail](docs/SchoolFinancialDetail.md)
 - [SchoolFinancialDetailGroup](docs/SchoolFinancialDetailGroup.md)
 - [SchoolFinancialDetailSibling](docs/SchoolFinancialDetailSibling.md)
@@ -1148,6 +1194,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleSearchResultAwayContracts](docs/TeamScheduleSearchResultAwayContracts.md)
 - [TeamScheduleSearchResultCollection](docs/TeamScheduleSearchResultCollection.md)
 - [TeamScheduleSearchResultHomeContracts](docs/TeamScheduleSearchResultHomeContracts.md)
+- [TeamSeasonResult](docs/TeamSeasonResult.md)
+- [TeamSeasonResultCollection](docs/TeamSeasonResultCollection.md)
+- [TeamSeasonResultInput](docs/TeamSeasonResultInput.md)
 - [TimeZoneOption](docs/TimeZoneOption.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
@@ -1234,8 +1283,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.10`
-- Package version: `1.55.10`
+- API version: `0.0.0-dev.38248921699`
+- Package version: `0.0.0-dev.38248921699`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
