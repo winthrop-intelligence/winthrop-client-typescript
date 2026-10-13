@@ -7,6 +7,13 @@ Administrator search result. In /administrator_searches responses, compensation 
 
 Name | Type
 ------------ | -------------
+`latestKnownFallback` | boolean
+`latestKnownCompensationCents` | number
+`latestKnownBaseSalaryCents` | number
+`latestKnownCompensationType` | string
+`latestKnownSourceYear` | number
+`latestKnownSourceCompensationId` | number
+`latestKnownSourceRawContractId` | number
 `id` | number
 `coachId` | number
 `coachFirstName` | string
@@ -63,6 +70,13 @@ import type { Administrator } from '@winthrop-intelligence/winthrop-client-types
 
 // TODO: Update the object below with actual values
 const example = {
+  "latestKnownFallback": null,
+  "latestKnownCompensationCents": null,
+  "latestKnownBaseSalaryCents": null,
+  "latestKnownCompensationType": null,
+  "latestKnownSourceYear": null,
+  "latestKnownSourceCompensationId": null,
+  "latestKnownSourceRawContractId": null,
   "id": 1,
   "coachId": 1,
   "coachFirstName": John,

@@ -46,6 +46,12 @@ export interface UpdateDealRequest {
      * @memberof UpdateDealRequest
      */
     dealDetail?: UpdateDealRequestDealDetail;
+    /**
+     * Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates, the records it saves as side effects included, and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write.
+     * @type {string}
+     * @memberof UpdateDealRequest
+     */
+    changeNote?: string | null;
 }
 
 /**
@@ -67,6 +73,7 @@ export function UpdateDealRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'deal': json['deal'] == null ? undefined : UpdateDealRequestDealFromJSON(json['deal']),
         'dealDetail': json['deal_detail'] == null ? undefined : UpdateDealRequestDealDetailFromJSON(json['deal_detail']),
+        'changeNote': json['change_note'] == null ? undefined : json['change_note'],
     };
 }
 
@@ -83,6 +90,7 @@ export function UpdateDealRequestToJSONTyped(value?: UpdateDealRequest | null, i
         
         'deal': UpdateDealRequestDealToJSON(value['deal']),
         'deal_detail': UpdateDealRequestDealDetailToJSON(value['dealDetail']),
+        'change_note': value['changeNote'],
     };
 }
 

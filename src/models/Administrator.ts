@@ -49,6 +49,48 @@ import {
  */
 export interface Administrator {
     /**
+     * True when the row's position has no usable annual total but an earlier season of the same unbroken job (same coach, school, sport and position types in every season between) does, and no season since that record carries an hourly record or conflicting positions, so the latest_known_* fields carry that older record as display-only context. It never changes compensation_cents, the comp filters, the compensation sort or comp_stats, and the latest_compensation_* columns behind it are not accepted as filter or sort inputs. The whole latest_known_* group is absent without compensation access.
+     * @type {boolean}
+     * @memberof Administrator
+     */
+    latestKnownFallback?: boolean;
+    /**
+     * Total of that older record in cents; null unless latest_known_fallback.
+     * @type {number}
+     * @memberof Administrator
+     */
+    latestKnownCompensationCents?: number | null;
+    /**
+     * Base salary of that older record in cents; null unless latest_known_fallback.
+     * @type {number}
+     * @memberof Administrator
+     */
+    latestKnownBaseSalaryCents?: number | null;
+    /**
+     * Compensation type as stored on that older record; null unless latest_known_fallback, and null when the record stores no type (the same raw reading as compensation_type).
+     * @type {string}
+     * @memberof Administrator
+     */
+    latestKnownCompensationType?: string | null;
+    /**
+     * End year of the season the older record's position belongs to (2024 means 2023–24); null unless latest_known_fallback. Always earlier than the target assignment's season.
+     * @type {number}
+     * @memberof Administrator
+     */
+    latestKnownSourceYear?: number | null;
+    /**
+     * The older compensation record's id; null unless latest_known_fallback.
+     * @type {number}
+     * @memberof Administrator
+     */
+    latestKnownSourceCompensationId?: number | null;
+    /**
+     * The document behind the older record, present only when one is on file and the viewer may open it. Distinct from raw_contract_id, which stays the current position's contract document.
+     * @type {number}
+     * @memberof Administrator
+     */
+    latestKnownSourceRawContractId?: number | null;
+    /**
      * 
      * @type {number}
      * @memberof Administrator
@@ -377,6 +419,13 @@ export function AdministratorFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
+        'latestKnownFallback': json['latest_known_fallback'] == null ? undefined : json['latest_known_fallback'],
+        'latestKnownCompensationCents': json['latest_known_compensation_cents'] == null ? undefined : json['latest_known_compensation_cents'],
+        'latestKnownBaseSalaryCents': json['latest_known_base_salary_cents'] == null ? undefined : json['latest_known_base_salary_cents'],
+        'latestKnownCompensationType': json['latest_known_compensation_type'] == null ? undefined : json['latest_known_compensation_type'],
+        'latestKnownSourceYear': json['latest_known_source_year'] == null ? undefined : json['latest_known_source_year'],
+        'latestKnownSourceCompensationId': json['latest_known_source_compensation_id'] == null ? undefined : json['latest_known_source_compensation_id'],
+        'latestKnownSourceRawContractId': json['latest_known_source_raw_contract_id'] == null ? undefined : json['latest_known_source_raw_contract_id'],
         'id': json['id'] == null ? undefined : json['id'],
         'coachId': json['coach_id'] == null ? undefined : json['coach_id'],
         'coachFirstName': json['coach_first_name'] == null ? undefined : json['coach_first_name'],
@@ -439,6 +488,13 @@ export function AdministratorToJSONTyped(value?: Administrator | null, ignoreDis
 
     return {
         
+        'latest_known_fallback': value['latestKnownFallback'],
+        'latest_known_compensation_cents': value['latestKnownCompensationCents'],
+        'latest_known_base_salary_cents': value['latestKnownBaseSalaryCents'],
+        'latest_known_compensation_type': value['latestKnownCompensationType'],
+        'latest_known_source_year': value['latestKnownSourceYear'],
+        'latest_known_source_compensation_id': value['latestKnownSourceCompensationId'],
+        'latest_known_source_raw_contract_id': value['latestKnownSourceRawContractId'],
         'id': value['id'],
         'coach_id': value['coachId'],
         'coach_first_name': value['coachFirstName'],

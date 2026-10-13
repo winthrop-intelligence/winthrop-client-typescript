@@ -47,6 +47,12 @@ export interface PublishedContract {
     expiresOn?: Date;
     /**
      * 
+     * @type {boolean}
+     * @memberof PublishedContract
+     */
+    contingentChange?: boolean;
+    /**
+     * 
      * @type {Date}
      * @memberof PublishedContract
      */
@@ -150,6 +156,7 @@ export function PublishedContractFromJSONTyped(json: any, ignoreDiscriminator: b
         'id': json['id'] == null ? undefined : json['id'],
         'executedOn': json['executed_on'] == null ? undefined : (new Date(json['executed_on'])),
         'expiresOn': json['expires_on'] == null ? undefined : (new Date(json['expires_on'])),
+        'contingentChange': json['contingent_change'] == null ? undefined : json['contingent_change'],
         'startOn': json['start_on'] == null ? undefined : (new Date(json['start_on'])),
         'endOn': json['end_on'] == null ? undefined : (new Date(json['end_on'])),
         'atWill': json['at_will'] == null ? undefined : json['at_will'],
@@ -179,6 +186,7 @@ export function PublishedContractToJSONTyped(value?: PublishedContract | null, i
         'id': value['id'],
         'executed_on': value['executedOn'] == null ? value['executedOn'] : value['executedOn'].toISOString().substring(0,10),
         'expires_on': value['expiresOn'] == null ? value['expiresOn'] : value['expiresOn'].toISOString().substring(0,10),
+        'contingent_change': value['contingentChange'],
         'start_on': value['startOn'] == null ? value['startOn'] : value['startOn'].toISOString().substring(0,10),
         'end_on': value['endOn'] == null ? value['endOn'] : value['endOn'].toISOString().substring(0,10),
         'at_will': value['atWill'],

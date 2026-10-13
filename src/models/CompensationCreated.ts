@@ -28,7 +28,7 @@ import {
  */
 export interface CompensationCreated {
     /**
-     * Write-only, PATCH only. Why this change is being made, for the internal audit history (WINAD-10632). Send it beside the compensation fields; it is stored on the audit version this update creates and is never returned. Blank is the same as omitted; a non-string value is refused with 422 (errors.change_note).
+     * Write-only (PATCH; POST takes it beside `compensation`). Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates, the records it saves as side effects included, and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write.
      * @type {string}
      * @memberof CompensationCreated
      */

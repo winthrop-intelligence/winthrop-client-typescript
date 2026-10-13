@@ -140,6 +140,12 @@ export interface CoachProfile {
      * @type {string}
      * @memberof CoachProfile
      */
+    bioText?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CoachProfile
+     */
     coachFriendlyId?: string | null;
     /**
      * Whether the header's position is departing — the first header_assignments entry when present
@@ -283,6 +289,7 @@ export function CoachProfileFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'instagramHandle': json['instagram_handle'] == null ? undefined : json['instagram_handle'],
         'instagramVerified': json['instagram_verified'],
         'bio': json['bio'] == null ? undefined : json['bio'],
+        'bioText': json['bio_text'] == null ? undefined : json['bio_text'],
         'coachFriendlyId': json['coach_friendly_id'] == null ? undefined : json['coach_friendly_id'],
         'departing': json['departing'] == null ? undefined : json['departing'],
         'currentSchoolName': json['current_school_name'] == null ? undefined : json['current_school_name'],
@@ -331,6 +338,7 @@ export function CoachProfileToJSONTyped(value?: CoachProfile | null, ignoreDiscr
         'instagram_handle': value['instagramHandle'],
         'instagram_verified': value['instagramVerified'],
         'bio': value['bio'],
+        'bio_text': value['bioText'],
         'coach_friendly_id': value['coachFriendlyId'],
         'departing': value['departing'],
         'current_school_name': value['currentSchoolName'],

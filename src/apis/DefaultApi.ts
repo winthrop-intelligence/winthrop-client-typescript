@@ -72,6 +72,7 @@ import type {
   ContactSearchEntry,
   Contract,
   ContractCollection,
+  ContractErrorsResponse,
   ContractVerification,
   ContractVerificationRevocationInput,
   CreateAccountUser422Response,
@@ -126,6 +127,9 @@ import type {
   DeskRequestsResponse,
   Division,
   DivisionCollection,
+  EarnedIncentive,
+  EarnedIncentiveCollection,
+  EarnedIncentiveInput,
   EditAccountUserResponse,
   EnrichGamePostSearchesRequest,
   Filters,
@@ -402,6 +406,8 @@ import {
     ContractToJSON,
     ContractCollectionFromJSON,
     ContractCollectionToJSON,
+    ContractErrorsResponseFromJSON,
+    ContractErrorsResponseToJSON,
     ContractVerificationFromJSON,
     ContractVerificationToJSON,
     ContractVerificationRevocationInputFromJSON,
@@ -510,6 +516,12 @@ import {
     DivisionToJSON,
     DivisionCollectionFromJSON,
     DivisionCollectionToJSON,
+    EarnedIncentiveFromJSON,
+    EarnedIncentiveToJSON,
+    EarnedIncentiveCollectionFromJSON,
+    EarnedIncentiveCollectionToJSON,
+    EarnedIncentiveInputFromJSON,
+    EarnedIncentiveInputToJSON,
     EditAccountUserResponseFromJSON,
     EditAccountUserResponseToJSON,
     EnrichGamePostSearchesRequestFromJSON,
@@ -1043,6 +1055,11 @@ export interface DefaultApiDeleteCashflowRequest {
     cashflowId: number;
 }
 
+export interface DefaultApiDeleteCompensationRequest {
+    compensationId: number;
+    changeNote?: string;
+}
+
 export interface DefaultApiDeleteConferenceRequest {
     conferenceId: number;
 }
@@ -1057,6 +1074,11 @@ export interface DefaultApiDeleteContactSearchRequest {
 
 export interface DefaultApiDeleteDeskReportArchiveRequest {
     uuid: string;
+}
+
+export interface DefaultApiDeleteEarnedIncentiveRequest {
+    earnedIncentiveId: number;
+    changeNote?: string;
 }
 
 export interface DefaultApiDeleteFavoriteRequest {
@@ -1106,6 +1128,7 @@ export interface DefaultApiDeleteNoteRequest {
 
 export interface DefaultApiDeletePositionRequest {
     positionId: number;
+    changeNote?: string;
 }
 
 export interface DefaultApiDeleteRequestedItemRequest {
@@ -1476,6 +1499,17 @@ export interface DefaultApiGetDivisionsRequest {
     page?: number;
     perPage?: number;
     q?: object;
+}
+
+export interface DefaultApiGetEarnedIncentivesRequest {
+    coachId?: number;
+    rawContractId?: number;
+    schoolId?: number;
+    seasonYear?: number;
+    season?: number;
+    seasonId?: number;
+    page?: number;
+    perPage?: number;
 }
 
 export interface DefaultApiGetEditAccountUserRequest {
@@ -2268,6 +2302,10 @@ export interface DefaultApiUpdateTeamScheduleFavoriteOperationRequest {
 export interface DefaultApiUpdateUserOperationRequest {
     userId: number;
     updateUserRequest: UpdateUserRequest;
+}
+
+export interface DefaultApiUpsertEarnedIncentiveRequest {
+    earnedIncentiveInput: EarnedIncentiveInput;
 }
 
 export interface DefaultApiUpsertTeamScheduleNoteOperationRequest {
@@ -4790,6 +4828,55 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a compensation. Requires the winad_write OAuth scope and permission to destroy the compensation. Hidden-coach compensations are 404 for customers, who may not delete anyway (403). The positions that pointed at the compensation are kept and unlinked (compensation_id becomes null; no position version is written), the linked contract is kept, and the compensation\'s FOIA requested items (and their notes) are deleted with it. The coach\'s latest salary is refreshed. Like PATCH, the delete is recorded in the audit history (PaperTrail) attributed to the token\'s user, or for a client-credentials token to the configured system user. The optional change_note query parameter is the reason, stored (stripped, blank is absent) on every version the delete creates and never returned. The destroy version keeps the deleted row, so a client can read it back there. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
+     */
+    async deleteCompensationRaw(requestParameters: DefaultApiDeleteCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['compensationId'] == null) {
+            throw new runtime.RequiredError(
+                'compensationId',
+                'Required parameter "compensationId" was null or undefined when calling deleteCompensation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['changeNote'] != null) {
+            queryParameters['change_note'] = requestParameters['changeNote'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/compensations/{compensationId}`;
+        urlPath = urlPath.replace(`{${"compensationId"}}`, encodeURIComponent(String(requestParameters['compensationId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a compensation. Requires the winad_write OAuth scope and permission to destroy the compensation. Hidden-coach compensations are 404 for customers, who may not delete anyway (403). The positions that pointed at the compensation are kept and unlinked (compensation_id becomes null; no position version is written), the linked contract is kept, and the compensation\'s FOIA requested items (and their notes) are deleted with it. The coach\'s latest salary is refreshed. Like PATCH, the delete is recorded in the audit history (PaperTrail) attributed to the token\'s user, or for a client-credentials token to the configured system user. The optional change_note query parameter is the reason, stored (stripped, blank is absent) on every version the delete creates and never returned. The destroy version keeps the deleted row, so a client can read it back there. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
+     */
+    async deleteCompensation(requestParameters: DefaultApiDeleteCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteCompensationRaw(requestParameters, initOverrides);
+    }
+
+    /**
      * Delete a single Conference
      */
     async deleteConferenceRaw(requestParameters: DefaultApiDeleteConferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -4968,6 +5055,56 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deleteDeskReportArchive(requestParameters: DefaultApiDeleteDeskReportArchiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeskReportArchiveResponse> {
         const response = await this.deleteDeskReportArchiveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete one earned incentive and return it as it was. Requires the winad_write OAuth scope and a super admin user; other users get 403. The deletion is recorded in the row\'s audit history (PaperTrail) with the optional change_note query parameter as the reason.
+     */
+    async deleteEarnedIncentiveRaw(requestParameters: DefaultApiDeleteEarnedIncentiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EarnedIncentive>> {
+        if (requestParameters['earnedIncentiveId'] == null) {
+            throw new runtime.RequiredError(
+                'earnedIncentiveId',
+                'Required parameter "earnedIncentiveId" was null or undefined when calling deleteEarnedIncentive().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['changeNote'] != null) {
+            queryParameters['change_note'] = requestParameters['changeNote'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/earned_incentives/{earnedIncentiveId}`;
+        urlPath = urlPath.replace(`{${"earnedIncentiveId"}}`, encodeURIComponent(String(requestParameters['earnedIncentiveId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EarnedIncentiveFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete one earned incentive and return it as it was. Requires the winad_write OAuth scope and a super admin user; other users get 403. The deletion is recorded in the row\'s audit history (PaperTrail) with the optional change_note query parameter as the reason.
+     */
+    async deleteEarnedIncentive(requestParameters: DefaultApiDeleteEarnedIncentiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EarnedIncentive> {
+        const response = await this.deleteEarnedIncentiveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -5488,6 +5625,10 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['changeNote'] != null) {
+            queryParameters['change_note'] = requestParameters['changeNote'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -9212,6 +9353,76 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getDivisions(requestParameters: DefaultApiGetDivisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DivisionCollection> {
         const response = await this.getDivisionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List earned incentives (WINAD-10637) — per contract incentive item and season, whether the coach earned it under the contract and how much. Values are earned under the contract, not proof of payment. Filters combine; with none, every row is listed. Requires the winad_read OAuth scope and a super admin user; other users get 403.
+     */
+    async getEarnedIncentivesRaw(requestParameters: DefaultApiGetEarnedIncentivesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EarnedIncentiveCollection>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['coachId'] != null) {
+            queryParameters['coach_id'] = requestParameters['coachId'];
+        }
+
+        if (requestParameters['rawContractId'] != null) {
+            queryParameters['raw_contract_id'] = requestParameters['rawContractId'];
+        }
+
+        if (requestParameters['schoolId'] != null) {
+            queryParameters['school_id'] = requestParameters['schoolId'];
+        }
+
+        if (requestParameters['seasonYear'] != null) {
+            queryParameters['season_year'] = requestParameters['seasonYear'];
+        }
+
+        if (requestParameters['season'] != null) {
+            queryParameters['season'] = requestParameters['season'];
+        }
+
+        if (requestParameters['seasonId'] != null) {
+            queryParameters['season_id'] = requestParameters['seasonId'];
+        }
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['perPage'] != null) {
+            queryParameters['per_page'] = requestParameters['perPage'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/earned_incentives`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EarnedIncentiveCollectionFromJSON(jsonValue));
+    }
+
+    /**
+     * List earned incentives (WINAD-10637) — per contract incentive item and season, whether the coach earned it under the contract and how much. Values are earned under the contract, not proof of payment. Filters combine; with none, every row is listed. Requires the winad_read OAuth scope and a super admin user; other users get 403.
+     */
+    async getEarnedIncentives(requestParameters: DefaultApiGetEarnedIncentivesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EarnedIncentiveCollection> {
+        const response = await this.getEarnedIncentivesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -16233,7 +16444,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A non-string change_note is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
+     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
      */
     async updateCompensationRaw(requestParameters: DefaultApiUpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Compensation>> {
         if (requestParameters['compensationId'] == null) {
@@ -16281,7 +16492,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A non-string change_note is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
+     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
      */
     async updateCompensation(requestParameters: DefaultApiUpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
         const response = await this.updateCompensationRaw(requestParameters, initOverrides);
@@ -17657,6 +17868,54 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async updateUser(requestParameters: DefaultApiUpdateUserOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
         const response = await this.updateUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create or replace the earned incentive with the same (coach_id, raw_contract_id, season_id, item_id). The stored row is exactly the payload a person approved (approved_by_id, approved_at); a field left out is cleared. Fields must be sent with their JSON types — ids and cents as integers, dates as \"YYYY-MM-DD\" strings — and are refused rather than converted. Dates and approved_at must fall in the years 1900-2100. WinAD does no calculation. Requires the winad_write OAuth scope and a super admin user; other users get 403. The write is recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason.
+     */
+    async upsertEarnedIncentiveRaw(requestParameters: DefaultApiUpsertEarnedIncentiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EarnedIncentive>> {
+        if (requestParameters['earnedIncentiveInput'] == null) {
+            throw new runtime.RequiredError(
+                'earnedIncentiveInput',
+                'Required parameter "earnedIncentiveInput" was null or undefined when calling upsertEarnedIncentive().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/earned_incentives`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: EarnedIncentiveInputToJSON(requestParameters['earnedIncentiveInput']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EarnedIncentiveFromJSON(jsonValue));
+    }
+
+    /**
+     * Create or replace the earned incentive with the same (coach_id, raw_contract_id, season_id, item_id). The stored row is exactly the payload a person approved (approved_by_id, approved_at); a field left out is cleared. Fields must be sent with their JSON types — ids and cents as integers, dates as \"YYYY-MM-DD\" strings — and are refused rather than converted. Dates and approved_at must fall in the years 1900-2100. WinAD does no calculation. Requires the winad_write OAuth scope and a super admin user; other users get 403. The write is recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason.
+     */
+    async upsertEarnedIncentive(requestParameters: DefaultApiUpsertEarnedIncentiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EarnedIncentive> {
+        const response = await this.upsertEarnedIncentiveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

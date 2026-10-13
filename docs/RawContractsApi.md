@@ -87,11 +87,11 @@ example().catch(console.error);
 
 ## updateRawContractContractTerms
 
-> RawContractTerms updateRawContractContractTerms(rawContractId, contractTerms)
+> RawContractTerms updateRawContractContractTerms(rawContractId, contractTerms, changeNote)
 
 
 
-Replace the whole contract_terms document on a RawContract (WINAD-10633). The body is the document itself: a JSON object with a &#x60;schema&#x60; string (for example \&quot;ticketing-terms-v1\&quot; or \&quot;coach-terms-v1\&quot;) and a &#x60;source&#x60; object (&#x60;rendition_sha256&#x60;, &#x60;run_id&#x60;, &#x60;extracted_at&#x60;, &#x60;method&#x60;). Every other key is a term and is stored as sent; terms are not validated beyond the envelope. &#x60;source.rendition_sha256&#x60; is the SHA-256 (hex) of the OCR text the terms were read from (the &#x60;text&#x60; returned by GET /raw_contracts/{id}/ocr_text); when that text later changes, &#x60;contract_terms_stale&#x60; is true.  Every change is recorded in the audit trail (who, old and new value, when), so this requires the winad_write scope and a user-backed token (client-credentials tokens are refused) with permission to update the RawContract. 
+Replace the whole contract_terms document on a RawContract (WINAD-10633). The body is the document itself: a JSON object with a &#x60;schema&#x60; string (for example \&quot;ticketing-terms-v1\&quot; or \&quot;coach-terms-v1\&quot;) and a &#x60;source&#x60; object (&#x60;rendition_sha256&#x60;, &#x60;run_id&#x60;, &#x60;extracted_at&#x60;, &#x60;method&#x60;). Every other key is a term and is stored as sent; terms are not validated beyond the envelope. &#x60;source.rendition_sha256&#x60; is the SHA-256 (hex) of the OCR text the terms were read from (the &#x60;text&#x60; returned by GET /raw_contracts/{id}/ocr_text); when that text later changes, &#x60;contract_terms_stale&#x60; is true.  Every change is recorded in the audit trail (who, old and new value, when, and the optional change_note query parameter as the reason), so this requires the winad_write scope and a user-backed token (client-credentials tokens are refused) with permission to update the RawContract. 
 
 ### Example
 
@@ -117,6 +117,8 @@ async function example() {
     rawContractId: 56,
     // ContractTerms
     contractTerms: ...,
+    // string | Optional. Why the terms are being written, for the internal audit history; stored on the audit version this write creates (GET /contract_history does not list RawContract versions, so it is not shown there). It is a query parameter because the request body is the terms document: a `change_note` key in the body is stored as a term and never used as the note. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (change_note[]=a, change_note[k]=v, or containing a NUL character) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned. (optional)
+    changeNote: changeNote_example,
   } satisfies UpdateRawContractContractTermsRequest;
 
   try {
@@ -138,6 +140,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
 | **contractTerms** | [ContractTerms](ContractTerms.md) |  | |
+| **changeNote** | `string` | Optional. Why the terms are being written, for the internal audit history; stored on the audit version this write creates (GET /contract_history does not list RawContract versions, so it is not shown there). It is a query parameter because the request body is the terms document: a &#x60;change_note&#x60; key in the body is stored as a term and never used as the note. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (change_note[]&#x3D;a, change_note[k]&#x3D;v, or containing a NUL character) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -160,7 +163,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope, client-credentials token, or not permitted to update the RawContract) |  -  |
 | **404** | Not Found |  -  |
-| **422** | The body is not a JSON object, or &#x60;schema&#x60; or &#x60;source&#x60; is missing or invalid. Nothing was changed. |  -  |
+| **422** | The body is not a JSON object, &#x60;schema&#x60; or &#x60;source&#x60; is missing or invalid, or the change_note query parameter is not text or is longer than 500 characters (errors.change_note). Nothing was changed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
