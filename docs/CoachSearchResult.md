@@ -18,6 +18,7 @@ Name | Type
 `divisionId` | number
 `year` | number
 `newerSeason` | [NewerSeasonContext](NewerSeasonContext.md)
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `coachFriendlyId` | string
 `visible` | boolean
 `positionTypes` | Array&lt;string&gt;
@@ -45,6 +46,13 @@ Name | Type
 `compensationTalentFee` | number
 `compensationCountyClubMembershipPaid` | boolean
 `compensationMediaLink` | string
+`latestKnownFallback` | boolean
+`latestKnownCompensationCents` | number
+`latestKnownBaseSalaryCents` | number
+`latestKnownCompensationType` | string
+`latestKnownSourceYear` | number
+`latestKnownSourceCompensationId` | number
+`latestKnownSourceRawContractId` | number
 `contractStartsOn` | Date
 `contractExpiresOn` | Date
 `contractAtWill` | boolean
@@ -70,6 +78,7 @@ const example = {
   "divisionId": null,
   "year": null,
   "newerSeason": null,
+  "assignments": null,
   "coachFriendlyId": null,
   "visible": true,
   "positionTypes": null,
@@ -97,6 +106,13 @@ const example = {
   "compensationTalentFee": null,
   "compensationCountyClubMembershipPaid": null,
   "compensationMediaLink": null,
+  "latestKnownFallback": null,
+  "latestKnownCompensationCents": null,
+  "latestKnownBaseSalaryCents": null,
+  "latestKnownCompensationType": null,
+  "latestKnownSourceYear": null,
+  "latestKnownSourceCompensationId": null,
+  "latestKnownSourceRawContractId": null,
   "contractStartsOn": null,
   "contractExpiresOn": null,
   "contractAtWill": null,

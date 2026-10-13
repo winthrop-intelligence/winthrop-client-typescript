@@ -11,7 +11,9 @@ Name | Type
 `name` | string
 `initials` | string
 `positionTypes` | Array&lt;string&gt;
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `salaryCents` | number
+`salarySource` | [CoachCompensationTabSidebarCoachingStaffInnerSalarySource](CoachCompensationTabSidebarCoachingStaffInnerSalarySource.md)
 `avatarUrl` | string
 
 ## Example
@@ -26,7 +28,9 @@ const example = {
   "name": null,
   "initials": null,
   "positionTypes": null,
+  "assignments": null,
   "salaryCents": null,
+  "salarySource": null,
   "avatarUrl": null,
 } satisfies CoachCompensationTabSidebarCoachingStaffInner
 
