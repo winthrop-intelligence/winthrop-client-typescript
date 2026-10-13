@@ -107,6 +107,7 @@ docs/CoachCompensationTabQuartiles.md
 docs/CoachCompensationTabQuartilesRowsInner.md
 docs/CoachCompensationTabSidebar.md
 docs/CoachCompensationTabSidebarCoachingStaffInner.md
+docs/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.md
 docs/CoachCompensationTabSidebarContractsInner.md
 docs/CoachCompensationTabSidebarIncomeReportsInner.md
 docs/CoachCoworkerHistoryTab.md
@@ -161,6 +162,12 @@ docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
 docs/ContractErrorsResponse.md
+docs/ContractFileReplaced.md
+docs/ContractHistoryCollection.md
+docs/ContractHistoryEntry.md
+docs/ContractHistoryEntryChangesValue.md
+docs/ContractHistoryEntryOauthApplication.md
+docs/ContractHistoryEntryUser.md
 docs/ContractTermOption.md
 docs/ContractTerms.md
 docs/ContractTermsSource.md
@@ -370,6 +377,11 @@ docs/DeskRequestsResponse.md
 docs/DirectorsCupSchool.md
 docs/Division.md
 docs/DivisionCollection.md
+docs/EarnedIncentive.md
+docs/EarnedIncentiveCollection.md
+docs/EarnedIncentiveFields.md
+docs/EarnedIncentiveFieldsTermChange.md
+docs/EarnedIncentiveInput.md
 docs/EditAccountUser.md
 docs/EditAccountUserResponse.md
 docs/EnrichGamePostSearchesRequest.md
@@ -583,9 +595,7 @@ docs/NewsFeedCollection.md
 docs/Note.md
 docs/PageView.md
 docs/PendingContractCreated.md
-docs/PerformanceChartCoach.md
-docs/PerformanceChartData.md
-docs/PerformanceChartRecord.md
+docs/PersonAssignment.md
 docs/Position.md
 docs/PositionCollection.md
 docs/PositionDepartureRequest.md
@@ -740,6 +750,9 @@ docs/TeamScheduleSearchResult.md
 docs/TeamScheduleSearchResultAwayContracts.md
 docs/TeamScheduleSearchResultCollection.md
 docs/TeamScheduleSearchResultHomeContracts.md
+docs/TeamSeasonResult.md
+docs/TeamSeasonResultCollection.md
+docs/TeamSeasonResultInput.md
 docs/TimeZoneOption.md
 docs/UnauthorizedError.md
 docs/UnprocessableEntity.md
@@ -919,6 +932,7 @@ src/models/CoachCompensationTabQuartiles.ts
 src/models/CoachCompensationTabQuartilesRowsInner.ts
 src/models/CoachCompensationTabSidebar.ts
 src/models/CoachCompensationTabSidebarCoachingStaffInner.ts
+src/models/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.ts
 src/models/CoachCompensationTabSidebarContractsInner.ts
 src/models/CoachCompensationTabSidebarIncomeReportsInner.ts
 src/models/CoachCoworkerHistoryTab.ts
@@ -973,6 +987,12 @@ src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
 src/models/ContractErrorsResponse.ts
+src/models/ContractFileReplaced.ts
+src/models/ContractHistoryCollection.ts
+src/models/ContractHistoryEntry.ts
+src/models/ContractHistoryEntryChangesValue.ts
+src/models/ContractHistoryEntryOauthApplication.ts
+src/models/ContractHistoryEntryUser.ts
 src/models/ContractTermOption.ts
 src/models/ContractTerms.ts
 src/models/ContractTermsSource.ts
@@ -1179,6 +1199,11 @@ src/models/DeskRequestsResponse.ts
 src/models/DirectorsCupSchool.ts
 src/models/Division.ts
 src/models/DivisionCollection.ts
+src/models/EarnedIncentive.ts
+src/models/EarnedIncentiveCollection.ts
+src/models/EarnedIncentiveFields.ts
+src/models/EarnedIncentiveFieldsTermChange.ts
+src/models/EarnedIncentiveInput.ts
 src/models/EditAccountUser.ts
 src/models/EditAccountUserResponse.ts
 src/models/EnrichGamePostSearchesRequest.ts
@@ -1388,9 +1413,7 @@ src/models/NewsFeedCollection.ts
 src/models/Note.ts
 src/models/PageView.ts
 src/models/PendingContractCreated.ts
-src/models/PerformanceChartCoach.ts
-src/models/PerformanceChartData.ts
-src/models/PerformanceChartRecord.ts
+src/models/PersonAssignment.ts
 src/models/Position.ts
 src/models/PositionCollection.ts
 src/models/PositionDepartureRequest.ts
@@ -1541,6 +1564,9 @@ src/models/TeamScheduleSearchResult.ts
 src/models/TeamScheduleSearchResultAwayContracts.ts
 src/models/TeamScheduleSearchResultCollection.ts
 src/models/TeamScheduleSearchResultHomeContracts.ts
+src/models/TeamSeasonResult.ts
+src/models/TeamSeasonResultCollection.ts
+src/models/TeamSeasonResultInput.ts
 src/models/TimeZoneOption.ts
 src/models/UnauthorizedError.ts
 src/models/UnprocessableEntity.ts

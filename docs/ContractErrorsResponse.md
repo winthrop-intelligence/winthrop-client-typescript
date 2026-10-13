@@ -6,6 +6,9 @@
 
 Name | Type
 ------------ | -------------
+`linkedCompensationIds` | Array&lt;number&gt;
+`linkedPositionIds` | Array&lt;number&gt;
+`linkedVerificationIds` | Array&lt;number&gt;
 `errors` | { [key: string]: Array&lt;string&gt;; }
 
 ## Example
@@ -15,6 +18,9 @@ import type { ContractErrorsResponse } from '@winthrop-intelligence/winthrop-cli
 
 // TODO: Update the object below with actual values
 const example = {
+  "linkedCompensationIds": null,
+  "linkedPositionIds": null,
+  "linkedVerificationIds": null,
   "errors": null,
 } satisfies ContractErrorsResponse
 

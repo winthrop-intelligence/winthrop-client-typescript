@@ -1,28 +1,25 @@
 
-# PerformanceChartCoach
+# ContractHistoryEntryUser
 
+Who made the change; null when none was recorded. A user deleted since keeps the id with a null name.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`id` | number
 `name` | string
-`position` | string
-`avatarUrl` | string
-`coachFriendlyId` | string
 
 ## Example
 
 ```typescript
-import type { PerformanceChartCoach } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ContractHistoryEntryUser } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
+  "id": null,
   "name": null,
-  "position": null,
-  "avatarUrl": null,
-  "coachFriendlyId": null,
-} satisfies PerformanceChartCoach
+} satisfies ContractHistoryEntryUser
 
 console.log(example)
 
@@ -31,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as PerformanceChartCoach
+const exampleParsed = JSON.parse(exampleJSON) as ContractHistoryEntryUser
 console.log(exampleParsed)
 ```
 

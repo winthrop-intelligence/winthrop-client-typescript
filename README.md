@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.10
+# @winthrop-intelligence/winthrop-client-typescript@1.55.10-dev.10522
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -41,6 +41,8 @@ async function example() {
     text: text_example,
     // string | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. (optional)
     contractTerms: contractTerms_example,
+    // string | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates, the records it saves as side effects included, and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. (optional)
+    changeNote: changeNote_example,
   } satisfies CreatePendingContractRequest;
 
   try {
@@ -66,7 +68,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | ----- | ------ | ------------ | -------------
 *ContractsApi* | [**createPendingContract**](docs/ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts | 
 *ContractsApi* | [**deletePendingContract**](docs/ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} | 
+*ContractsApi* | [**getContractHistory**](docs/ContractsApi.md#getcontracthistory) | **GET** /api/v1/contract_history | 
 *ContractsApi* | [**publishPendingContract**](docs/ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish | 
+*ContractsApi* | [**replaceContractFile**](docs/ContractsApi.md#replacecontractfile) | **PUT** /api/v1/contracts/{contractId}/file | 
 *ContractsApi* | [**updateContract**](docs/ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} | 
 *CtbApi* | [**applyCtbCompensation**](docs/CtbApi.md#applyctbcompensation) | **POST** /api/v1/ctb_compensation_apply | 
 *DefaultApi* | [**averageConferenceComp**](docs/DefaultApi.md#averageconferencecomp) | **GET** /api/v1/compensations/average_conference_comp | 
@@ -117,10 +121,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteAccountUser**](docs/DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**deleteAdminDeskReportArtifact**](docs/DefaultApi.md#deleteadmindeskreportartifact) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts/{id} | 
 *DefaultApi* | [**deleteCashflow**](docs/DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} | 
+*DefaultApi* | [**deleteCompensation**](docs/DefaultApi.md#deletecompensation) | **DELETE** /api/v1/compensations/{compensationId} | 
 *DefaultApi* | [**deleteConference**](docs/DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} | 
 *DefaultApi* | [**deleteConferenceship**](docs/DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} | 
 *DefaultApi* | [**deleteContactSearch**](docs/DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} | 
 *DefaultApi* | [**deleteDeskReportArchive**](docs/DefaultApi.md#deletedeskreportarchive) | **DELETE** /api/v1/desk_reports/{uuid}/archive | 
+*DefaultApi* | [**deleteEarnedIncentive**](docs/DefaultApi.md#deleteearnedincentive) | **DELETE** /api/v1/earned_incentives/{earnedIncentiveId} | 
 *DefaultApi* | [**deleteFavorite**](docs/DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} | 
 *DefaultApi* | [**deleteFavoritesCategory**](docs/DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} | 
 *DefaultApi* | [**deleteFoiaLabel**](docs/DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} | 
@@ -140,6 +146,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**deleteSeason**](docs/DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} | 
 *DefaultApi* | [**deleteTeamScheduleFavorite**](docs/DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**deleteTeamScheduleNote**](docs/DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**deleteTeamSeasonResult**](docs/DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} | 
 *DefaultApi* | [**deleteUpload**](docs/DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**downloadRawContractFile**](docs/DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download | 
 *DefaultApi* | [**enrichGamePostSearches**](docs/DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment | 
@@ -207,6 +214,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getDeskRequests**](docs/DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests | 
 *DefaultApi* | [**getDivision**](docs/DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} | 
 *DefaultApi* | [**getDivisions**](docs/DefaultApi.md#getdivisions) | **GET** /api/v1/divisions | 
+*DefaultApi* | [**getEarnedIncentives**](docs/DefaultApi.md#getearnedincentives) | **GET** /api/v1/earned_incentives | 
 *DefaultApi* | [**getEditAccountUser**](docs/DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit | 
 *DefaultApi* | [**getFavorites**](docs/DefaultApi.md#getfavorites) | **GET** /api/v1/favorites | 
 *DefaultApi* | [**getFavoritesCategories**](docs/DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories | 
@@ -319,6 +327,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getTeamScheduleFavorites**](docs/DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites | 
 *DefaultApi* | [**getTeamScheduleNote**](docs/DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} | 
 *DefaultApi* | [**getTeamScheduleSearches**](docs/DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches | 
+*DefaultApi* | [**getTeamSeasonResults**](docs/DefaultApi.md#getteamseasonresults) | **GET** /api/v1/team_season_results | 
 *DefaultApi* | [**getTimeZones**](docs/DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones | 
 *DefaultApi* | [**getUpload**](docs/DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} | 
 *DefaultApi* | [**getUploadFile**](docs/DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file | 
@@ -374,7 +383,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateSubscriptionAcceptance**](docs/DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} | 
 *DefaultApi* | [**updateTeamScheduleFavorite**](docs/DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} | 
 *DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} | 
+*DefaultApi* | [**upsertEarnedIncentive**](docs/DefaultApi.md#upsertearnedincentive) | **PUT** /api/v1/earned_incentives | 
 *DefaultApi* | [**upsertTeamScheduleNote**](docs/DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} | 
+*DefaultApi* | [**upsertTeamSeasonResult**](docs/DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results | 
 *DefaultApi* | [**userMe**](docs/DefaultApi.md#userme) | **GET** /api/v1/users/me | 
 *DefaultApi* | [**validateAdminDeskReport**](docs/DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate | 
 *DefaultApi* | [**verifyOtpCode**](docs/DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify | 
@@ -526,6 +537,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CoachCompensationTabQuartilesRowsInner](docs/CoachCompensationTabQuartilesRowsInner.md)
 - [CoachCompensationTabSidebar](docs/CoachCompensationTabSidebar.md)
 - [CoachCompensationTabSidebarCoachingStaffInner](docs/CoachCompensationTabSidebarCoachingStaffInner.md)
+- [CoachCompensationTabSidebarCoachingStaffInnerSalarySource](docs/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.md)
 - [CoachCompensationTabSidebarContractsInner](docs/CoachCompensationTabSidebarContractsInner.md)
 - [CoachCompensationTabSidebarIncomeReportsInner](docs/CoachCompensationTabSidebarIncomeReportsInner.md)
 - [CoachCoworkerHistoryTab](docs/CoachCoworkerHistoryTab.md)
@@ -580,6 +592,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Contract](docs/Contract.md)
 - [ContractCollection](docs/ContractCollection.md)
 - [ContractErrorsResponse](docs/ContractErrorsResponse.md)
+- [ContractFileReplaced](docs/ContractFileReplaced.md)
+- [ContractHistoryCollection](docs/ContractHistoryCollection.md)
+- [ContractHistoryEntry](docs/ContractHistoryEntry.md)
+- [ContractHistoryEntryChangesValue](docs/ContractHistoryEntryChangesValue.md)
+- [ContractHistoryEntryOauthApplication](docs/ContractHistoryEntryOauthApplication.md)
+- [ContractHistoryEntryUser](docs/ContractHistoryEntryUser.md)
 - [ContractTermOption](docs/ContractTermOption.md)
 - [ContractTerms](docs/ContractTerms.md)
 - [ContractTermsSource](docs/ContractTermsSource.md)
@@ -786,6 +804,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DirectorsCupSchool](docs/DirectorsCupSchool.md)
 - [Division](docs/Division.md)
 - [DivisionCollection](docs/DivisionCollection.md)
+- [EarnedIncentive](docs/EarnedIncentive.md)
+- [EarnedIncentiveCollection](docs/EarnedIncentiveCollection.md)
+- [EarnedIncentiveFields](docs/EarnedIncentiveFields.md)
+- [EarnedIncentiveFieldsTermChange](docs/EarnedIncentiveFieldsTermChange.md)
+- [EarnedIncentiveInput](docs/EarnedIncentiveInput.md)
 - [EditAccountUser](docs/EditAccountUser.md)
 - [EditAccountUserResponse](docs/EditAccountUserResponse.md)
 - [EnrichGamePostSearchesRequest](docs/EnrichGamePostSearchesRequest.md)
@@ -995,9 +1018,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Note](docs/Note.md)
 - [PageView](docs/PageView.md)
 - [PendingContractCreated](docs/PendingContractCreated.md)
-- [PerformanceChartCoach](docs/PerformanceChartCoach.md)
-- [PerformanceChartData](docs/PerformanceChartData.md)
-- [PerformanceChartRecord](docs/PerformanceChartRecord.md)
+- [PersonAssignment](docs/PersonAssignment.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
 - [PositionDepartureRequest](docs/PositionDepartureRequest.md)
@@ -1148,6 +1169,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamScheduleSearchResultAwayContracts](docs/TeamScheduleSearchResultAwayContracts.md)
 - [TeamScheduleSearchResultCollection](docs/TeamScheduleSearchResultCollection.md)
 - [TeamScheduleSearchResultHomeContracts](docs/TeamScheduleSearchResultHomeContracts.md)
+- [TeamSeasonResult](docs/TeamSeasonResult.md)
+- [TeamSeasonResultCollection](docs/TeamSeasonResultCollection.md)
+- [TeamSeasonResultInput](docs/TeamSeasonResultInput.md)
 - [TimeZoneOption](docs/TimeZoneOption.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
@@ -1234,8 +1258,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.10`
-- Package version: `1.55.10`
+- API version: `1.55.10-dev.10522`
+- Package version: `1.55.10-dev.10522`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

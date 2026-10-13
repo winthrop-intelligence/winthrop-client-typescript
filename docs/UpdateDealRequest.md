@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `deal` | [UpdateDealRequestDeal](UpdateDealRequestDeal.md)
 `dealDetail` | [UpdateDealRequestDealDetail](UpdateDealRequestDealDetail.md)
+`changeNote` | string
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { UpdateDealRequest } from '@winthrop-intelligence/winthrop-client-t
 const example = {
   "deal": null,
   "dealDetail": null,
+  "changeNote": null,
 } satisfies UpdateDealRequest
 
 console.log(example)

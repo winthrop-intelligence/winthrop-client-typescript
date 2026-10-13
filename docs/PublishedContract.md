@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `executedOn` | Date
 `expiresOn` | Date
+`contingentChange` | boolean
 `startOn` | Date
 `endOn` | Date
 `atWill` | boolean
@@ -32,6 +33,7 @@ const example = {
   "id": 1,
   "executedOn": Tue Jan 01 00:00:00 UTC 2019,
   "expiresOn": Tue Jan 01 00:00:00 UTC 2019,
+  "contingentChange": false,
   "startOn": Tue Jan 01 00:00:00 UTC 2019,
   "endOn": Tue Jan 01 00:00:00 UTC 2019,
   "atWill": false,

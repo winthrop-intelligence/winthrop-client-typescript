@@ -9,6 +9,7 @@ Name | Type
 `sport` | string
 `yearStr` | string
 `schoolName` | string
+`schoolFullName` | string
 `schoolId` | number
 `positionSport` | string
 `record` | string
@@ -18,6 +19,8 @@ Name | Type
 `aprAsr` | string
 `coachApr` | number
 `departing` | boolean
+`headCoach` | boolean
+`assistantCoach` | boolean
 `usNews` | string
 `directorsCup` | string
 
@@ -31,6 +34,7 @@ const example = {
   "sport": null,
   "yearStr": null,
   "schoolName": null,
+  "schoolFullName": null,
   "schoolId": null,
   "positionSport": null,
   "record": null,
@@ -40,6 +44,8 @@ const example = {
   "aprAsr": null,
   "coachApr": null,
   "departing": null,
+  "headCoach": null,
+  "assistantCoach": null,
   "usNews": null,
   "directorsCup": null,
 } satisfies RecordPositionEntry
