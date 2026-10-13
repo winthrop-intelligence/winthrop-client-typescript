@@ -1,26 +1,30 @@
 
-# PerformanceChartData
+# Meta1
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`seasons` | Array&lt;string&gt;
-`records` | [Array&lt;PerformanceChartRecord | null&gt;](PerformanceChartRecord.md)
-`coaches` | [Array&lt;PerformanceChartCoach | null&gt;](PerformanceChartCoach.md)
+`currentPage` | number
+`totalPages` | number
+`totalEntries` | number
+`nextPage` | number
+`previousPage` | number
 
 ## Example
 
 ```typescript
-import type { PerformanceChartData } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { Meta1 } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "seasons": null,
-  "records": null,
-  "coaches": null,
-} satisfies PerformanceChartData
+  "currentPage": 2,
+  "totalPages": 7,
+  "totalEntries": 654,
+  "nextPage": 3,
+  "previousPage": 1,
+} satisfies Meta1
 
 console.log(example)
 
@@ -29,7 +33,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as PerformanceChartData
+const exampleParsed = JSON.parse(exampleJSON) as Meta1
 console.log(exampleParsed)
 ```
 

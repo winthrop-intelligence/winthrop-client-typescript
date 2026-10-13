@@ -1,28 +1,24 @@
 
-# PerformanceChartCoach
+# AthleticProfileShowSportFinancialsProgramCostPerWinCheapest
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`name` | string
-`position` | string
-`avatarUrl` | string
-`coachFriendlyId` | string
+`schoolShortName` | string
+`perWinCents` | number
 
 ## Example
 
 ```typescript
-import type { PerformanceChartCoach } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AthleticProfileShowSportFinancialsProgramCostPerWinCheapest } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "name": null,
-  "position": null,
-  "avatarUrl": null,
-  "coachFriendlyId": null,
-} satisfies PerformanceChartCoach
+  "schoolShortName": null,
+  "perWinCents": null,
+} satisfies AthleticProfileShowSportFinancialsProgramCostPerWinCheapest
 
 console.log(example)
 
@@ -31,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as PerformanceChartCoach
+const exampleParsed = JSON.parse(exampleJSON) as AthleticProfileShowSportFinancialsProgramCostPerWinCheapest
 console.log(exampleParsed)
 ```
 

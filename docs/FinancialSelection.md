@@ -1,26 +1,32 @@
 
-# PerformanceChartRecord
+# FinancialSelection
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`wins` | number
-`losses` | number
-`ties` | number
+`schoolId` | number
+`source` | string
+`grain` | string
+`sportName` | string
+`requestedYear` | number
+`results` | [Array&lt;FinancialSelectionResult&gt;](FinancialSelectionResult.md)
 
 ## Example
 
 ```typescript
-import type { PerformanceChartRecord } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { FinancialSelection } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "wins": null,
-  "losses": null,
-  "ties": null,
-} satisfies PerformanceChartRecord
+  "schoolId": null,
+  "source": null,
+  "grain": null,
+  "sportName": null,
+  "requestedYear": null,
+  "results": null,
+} satisfies FinancialSelection
 
 console.log(example)
 
@@ -29,7 +35,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as PerformanceChartRecord
+const exampleParsed = JSON.parse(exampleJSON) as FinancialSelection
 console.log(exampleParsed)
 ```
 

@@ -30,6 +30,7 @@ Name | Type
 `canShowGameContract` | boolean
 `canSeeCoaches` | boolean
 `canSeeAdministrators` | boolean
+`canSeeEadaFinancials` | boolean
 `canShowFinancials` | boolean
 `canShowDeals` | boolean
 `canShowBenchmark` | boolean
@@ -92,6 +93,7 @@ const example = {
   "canShowGameContract": null,
   "canSeeCoaches": null,
   "canSeeAdministrators": null,
+  "canSeeEadaFinancials": null,
   "canShowFinancials": null,
   "canShowDeals": null,
   "canShowBenchmark": null,

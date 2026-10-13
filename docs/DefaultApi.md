@@ -145,6 +145,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDeskRequests**](DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
+| [**getEadaFinancialSearches**](DefaultApi.md#geteadafinancialsearches) | **GET** /api/v1/eada_financial_searches |  |
+| [**getEadaMetrics**](DefaultApi.md#geteadametrics) | **GET** /api/v1/eada_metrics |  |
 | [**getEarnedIncentives**](DefaultApi.md#getearnedincentives) | **GET** /api/v1/earned_incentives |  |
 | [**getEditAccountUser**](DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
@@ -160,6 +162,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getFilterOptionsStates**](DefaultApi.md#getfilteroptionsstates) | **GET** /api/v1/filter_options/states |  |
 | [**getFilterOptionsSubdivisions**](DefaultApi.md#getfilteroptionssubdivisions) | **GET** /api/v1/filter_options/subdivisions |  |
 | [**getFilterOptionsVendors**](DefaultApi.md#getfilteroptionsvendors) | **GET** /api/v1/filter_options/vendors |  |
+| [**getFinancialComparisons**](DefaultApi.md#getfinancialcomparisons) | **GET** /api/v1/financial_comparisons |  |
 | [**getFinancialSearches**](DefaultApi.md#getfinancialsearches) | **GET** /api/v1/financial_searches |  |
 | [**getFoiaLabel**](DefaultApi.md#getfoialabel) | **GET** /api/v1/foia_labels/{foiaLabelId} |  |
 | [**getFoiaLabels**](DefaultApi.md#getfoialabels) | **GET** /api/v1/foia_labels |  |
@@ -219,6 +222,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getSchoolDepartmentFinancials**](DefaultApi.md#getschooldepartmentfinancials) | **GET** /api/v1/schools/{schoolId}/department_financials |  |
 | [**getSchoolDepartmentGuarantees**](DefaultApi.md#getschooldepartmentguarantees) | **GET** /api/v1/schools/{schoolId}/department_guarantees |  |
 | [**getSchoolDepartmentOverview**](DefaultApi.md#getschooldepartmentoverview) | **GET** /api/v1/schools/{schoolId}/department_overview |  |
+| [**getSchoolEadaFinancials**](DefaultApi.md#getschooleadafinancials) | **GET** /api/v1/schools/{schoolId}/eada_financials |  |
+| [**getSchoolFinancialSelection**](DefaultApi.md#getschoolfinancialselection) | **GET** /api/v1/schools/{schoolId}/financial_selection |  |
 | [**getSchoolGameContracts**](DefaultApi.md#getschoolgamecontracts) | **GET** /api/v1/schools/{schoolId}/game_contracts |  |
 | [**getSchoolGroup**](DefaultApi.md#getschoolgroup) | **GET** /api/v1/school_groups/{schoolGroupId} |  |
 | [**getSchoolGroupAdminCompensation**](DefaultApi.md#getschoolgroupadmincompensation) | **GET** /api/v1/school_groups/{schoolGroupId}/admin_compensation |  |
@@ -4082,7 +4087,7 @@ example().catch(console.error);
 | **204** | Compensation was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not destroy compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. Nothing was deleted. |  -  |
-| **404** | Not Found, or the compensation belongs to a hidden coach and the caller is a customer |  -  |
+| **404** | Not Found, the compensation was already deleted (also by a simultaneous request, which then writes no second audit version), or it belongs to a hidden coach and the caller is a customer |  -  |
 | **422** | change_note is not a string or contains a NUL character (errors.change_note), or the compensation could not be destroyed. Nothing was deleted. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -6458,7 +6463,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
   } satisfies GetAccountUsersRequest;
 
@@ -6479,7 +6484,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 
 ### Return type
 
@@ -7025,9 +7030,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7054,8 +7059,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **favoritesOnly** | `string` | When \&quot;1\&quot; or \&quot;true\&quot;, restrict results to the current user\&#39;s favorited administrators | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; or a date range like \&quot;2025-01-01..2025-12-31\&quot; | [Optional] [Defaults to `undefined`] |
@@ -7111,9 +7116,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7136,8 +7141,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -7438,9 +7443,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7463,8 +7468,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -7659,9 +7664,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7684,8 +7689,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -7740,9 +7745,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7765,8 +7770,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -8577,9 +8582,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -8606,8 +8611,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **positionTypeId** | `number` | Filter by position type (expands to group if position is a group stub) | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; for expired contracts, or a date range in \&quot;YYYY-MM-DD..YYYY-MM-DD\&quot; format. | [Optional] [Defaults to `undefined`] |
@@ -8663,9 +8668,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -8688,8 +8693,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -8921,9 +8926,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -8946,8 +8951,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -9550,9 +9555,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -9575,8 +9580,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -9706,9 +9711,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -9731,8 +9736,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -9929,9 +9934,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -9954,8 +9959,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10010,9 +10015,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10035,8 +10040,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10251,9 +10256,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10276,8 +10281,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10406,9 +10411,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10431,8 +10436,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10561,9 +10566,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10586,8 +10591,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10641,9 +10646,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10666,8 +10671,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10722,7 +10727,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10745,7 +10750,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -11168,9 +11173,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -11193,8 +11198,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -11217,6 +11222,199 @@ example().catch(console.error);
 | **200** | Divisions were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEadaFinancialSearches
+
+> EadaFinancialSearchResponse getEadaFinancialSearches(year, page, perPage, q, grain, sportCode, family, gender, metric, include)
+
+
+
+WINAD-10370 — paginated cross-school EADA cohort search for one exact reporting year and grain (institution or sport). Scoped to schools the viewer holds see_eada_financials on, including private schools with an EADA-only grant.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEadaFinancialSearchesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | Exact reporting year. Required.
+    year: 56,
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+    // 'institution' | 'sport' (optional)
+    grain: grain_example,
+    // string (optional)
+    sportCode: sportCode_example,
+    // string (optional)
+    family: family_example,
+    // string (optional)
+    gender: gender_example,
+    // string (optional)
+    metric: metric_example,
+    // string | Comma-separated inclusions. `source_payload` requires a data admin/super admin viewer (403 otherwise). (optional)
+    include: include_example,
+  } satisfies GetEadaFinancialSearchesRequest;
+
+  try {
+    const data = await api.getEadaFinancialSearches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **year** | `number` | Exact reporting year. Required. | [Defaults to `undefined`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+| **grain** | `institution`, `sport` |  | [Optional] [Defaults to `&#39;institution&#39;`] [Enum: institution, sport] |
+| **sportCode** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **family** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **gender** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **include** | `string` | Comma-separated inclusions. &#x60;source_payload&#x60; requires a data admin/super admin viewer (403 otherwise). | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**EadaFinancialSearchResponse**](EadaFinancialSearchResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Cohort search results |  -  |
+| **400** | Bad Request — year missing or not a 4-digit year, or grain invalid |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no see_eada_financials grant, or include&#x3D;source_payload requested without the required admin tier |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEadaMetrics
+
+> EadaMetricCatalogResponse getEadaMetrics(page, perPage, reportType, canonicalOnly, comparabilityState, search)
+
+
+
+WINAD-10370 — serves the WINAD-10371 metric/source-field catalog so API consumers can retrieve field definitions (label, description, unit, grain, comparability metadata) without hardcoding them. Reference data; returns the full filtered set (no see_eada_financials gate).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEadaMetricsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+    // 'institution' | 'sport' (optional)
+    reportType: reportType_example,
+    // boolean | When true, only entries that already carry a canonical_metric_id. (optional)
+    canonicalOnly: true,
+    // 'mergeable' | 'comparison_only' | 'not_comparable' | 'source_only' (optional)
+    comparabilityState: comparabilityState_example,
+    // string | Case-insensitive substring match against source_key, label, or canonical_metric_id. (optional)
+    search: search_example,
+  } satisfies GetEadaMetricsRequest;
+
+  try {
+    const data = await api.getEadaMetrics(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+| **reportType** | `institution`, `sport` |  | [Optional] [Defaults to `undefined`] [Enum: institution, sport] |
+| **canonicalOnly** | `boolean` | When true, only entries that already carry a canonical_metric_id. | [Optional] [Defaults to `undefined`] |
+| **comparabilityState** | `mergeable`, `comparison_only`, `not_comparable`, `source_only` |  | [Optional] [Defaults to `undefined`] [Enum: mergeable, comparison_only, not_comparable, source_only] |
+| **search** | `string` | Case-insensitive substring match against source_key, label, or canonical_metric_id. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**EadaMetricCatalogResponse**](EadaMetricCatalogResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Catalog entries |  -  |
+| **400** | Bad Request — invalid report_type |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -11261,9 +11459,9 @@ async function example() {
     season: 56,
     // number | One team\'s season row (optional)
     seasonId: 56,
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
   } satisfies GetEarnedIncentivesRequest;
 
@@ -11290,8 +11488,8 @@ example().catch(console.error);
 | **seasonYear** | `number` | The season\&#39;s END year (2026 is the 2025-26 season). &#x60;season&#x60; is accepted as the same filter. | [Optional] [Defaults to `undefined`] |
 | **season** | `number` | Same as season_year | [Optional] [Defaults to `undefined`] |
 | **seasonId** | `number` | One team\&#39;s season row | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 
 ### Return type
 
@@ -12312,6 +12510,97 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getFinancialComparisons
+
+> FinancialComparisonResponse getFinancialComparisons(schoolIds, source, grain, sportName, year, metric)
+
+
+
+WINAD-10369 — cohort-level source-aware financial comparison (e.g. one conference plus a couple of out-of-conference peers). Runs Financials::SourceSelection independently per school (never merges line items across schools\&#39; reports) and, when metric is given, adds Financials::Comparison\&#39;s mixed-source ranking on top — a catalog-approved (comparability_state mergeable) canonical metric gets one blended ranking across sources; every other metric gets per-source rankings only, kept visibly separate. A school id the viewer holds neither see_financials nor see_eada_financials on for is silently dropped from the cohort rather than 403ing the whole request.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetFinancialComparisonsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Array<number> | One or more School ids to compare. Required. More than 40 distinct ids is rejected with a 400.
+    schoolIds: ...,
+    // 'eada' | 'ncaa_frs' | 'best_available' | 'both' (optional)
+    source: source_example,
+    // 'institution' | 'sport' (optional)
+    grain: grain_example,
+    // string | Required when grain is sport. (optional)
+    sportName: sportName_example,
+    // number | Exact reporting year. Omit for each source\'s own latest, resolved independently per school and per source. (optional)
+    year: 56,
+    // string | Canonical (or source-native) metric id to compare. Required to receive a comparison ranking — omitted, the response still returns each school\'s full per-source results with comparison null. (optional)
+    metric: metric_example,
+  } satisfies GetFinancialComparisonsRequest;
+
+  try {
+    const data = await api.getFinancialComparisons(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolIds** | `Array<number>` | One or more School ids to compare. Required. More than 40 distinct ids is rejected with a 400. | |
+| **source** | `eada`, `ncaa_frs`, `best_available`, `both` |  | [Optional] [Defaults to `&#39;best_available&#39;`] [Enum: eada, ncaa_frs, best_available, both] |
+| **grain** | `institution`, `sport` |  | [Optional] [Defaults to `&#39;institution&#39;`] [Enum: institution, sport] |
+| **sportName** | `string` | Required when grain is sport. | [Optional] [Defaults to `undefined`] |
+| **year** | `number` | Exact reporting year. Omit for each source\&#39;s own latest, resolved independently per school and per source. | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` | Canonical (or source-native) metric id to compare. Required to receive a comparison ranking — omitted, the response still returns each school\&#39;s full per-source results with comparison null. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FinancialComparisonResponse**](FinancialComparisonResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Per-school source-aware results, plus a cross-school ranking when metric is given |  -  |
+| **400** | Bad Request — school_ids missing or over the 40-id cap, source/grain invalid, year not a 4-digit year, or sport_name missing when grain is sport |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — viewer holds neither see_financials nor see_eada_financials at all |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getFinancialSearches
 
 > FinancialSearchResultCollection getFinancialSearches(page, perPage, q)
@@ -12340,9 +12629,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -12365,8 +12654,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -12495,9 +12784,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -12520,8 +12809,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -12650,9 +12939,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -12675,8 +12964,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -13025,9 +13314,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13062,8 +13351,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
 | **includeSchoolSummary** | `boolean` | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. | [Optional] [Defaults to `undefined`] |
@@ -13348,9 +13637,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13373,8 +13662,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -13654,9 +13943,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13683,8 +13972,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
 | **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
@@ -13740,9 +14029,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13765,8 +14054,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -13821,9 +14110,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13846,8 +14135,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -14207,9 +14496,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -14232,8 +14521,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -14449,9 +14738,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -14474,8 +14763,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -14670,9 +14959,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -14695,8 +14984,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15043,9 +15332,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15068,8 +15357,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15124,9 +15413,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15149,8 +15438,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15357,9 +15646,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15382,8 +15671,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15438,7 +15727,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
     // number | Positive page size; requests above 100 are clamped to 100. (optional)
     perPage: 56,
@@ -15463,7 +15752,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | Positive page size; requests above 100 are clamped to 100. | [Optional] [Defaults to `100`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
@@ -15752,9 +16041,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15777,8 +16066,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -16936,6 +17225,196 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getSchoolEadaFinancials
+
+> SchoolEadaFinancials getSchoolEadaFinancials(schoolId, year, grain, sportCode, family, gender, metric, include)
+
+
+
+WINAD-10370 — normalized EADA institution and sport financials for a school at an exact reporting year. Never substitutes a different year when the requested one is missing — institution.found/sports.found are explicit instead. Requires the see_eada_financials capability (exposed via GET /users/me as can_see_eada_financials).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolEadaFinancialsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // number | Exact reporting year to look up. Required — there is no \"latest year\" default, and a missing year is never substituted with another one.
+    year: 56,
+    // 'institution' | 'sport' | Restrict the response to one grain. Omit for both institution and sports. (optional)
+    grain: grain_example,
+    // string | Restrict sport-grain results to one EADA source sport code. (optional)
+    sportCode: sportCode_example,
+    // string | Restrict metrics to one family (e.g. coaching, student_aid, recruiting_expense, operating_expense, revenue_expense, participation). operating_expense exists at both grains. An unknown family — including one valid only at a grain the request excludes — is a 400, never a silently empty list. (optional)
+    family: family_example,
+    // string | Restrict metrics to one gender dimension (men, women, coed, all_genders). (optional)
+    gender: gender_example,
+    // string | Restrict to one metric, matched case-insensitively against its canonical metric id, column name, or raw source field. (optional)
+    metric: metric_example,
+    // string | Comma-separated list of optional inclusions. `source_payload` returns each report\'s full raw imported row; requires a data admin or super admin viewer, and is explicitly forbidden (403) rather than silently dropped when requested by anyone else. (optional)
+    include: include_example,
+  } satisfies GetSchoolEadaFinancialsRequest;
+
+  try {
+    const data = await api.getSchoolEadaFinancials(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **year** | `number` | Exact reporting year to look up. Required — there is no \&quot;latest year\&quot; default, and a missing year is never substituted with another one. | [Defaults to `undefined`] |
+| **grain** | `institution`, `sport` | Restrict the response to one grain. Omit for both institution and sports. | [Optional] [Defaults to `undefined`] [Enum: institution, sport] |
+| **sportCode** | `string` | Restrict sport-grain results to one EADA source sport code. | [Optional] [Defaults to `undefined`] |
+| **family** | `string` | Restrict metrics to one family (e.g. coaching, student_aid, recruiting_expense, operating_expense, revenue_expense, participation). operating_expense exists at both grains. An unknown family — including one valid only at a grain the request excludes — is a 400, never a silently empty list. | [Optional] [Defaults to `undefined`] |
+| **gender** | `string` | Restrict metrics to one gender dimension (men, women, coed, all_genders). | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` | Restrict to one metric, matched case-insensitively against its canonical metric id, column name, or raw source field. | [Optional] [Defaults to `undefined`] |
+| **include** | `string` | Comma-separated list of optional inclusions. &#x60;source_payload&#x60; returns each report\&#39;s full raw imported row; requires a data admin or super admin viewer, and is explicitly forbidden (403) rather than silently dropped when requested by anyone else. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**SchoolEadaFinancials**](SchoolEadaFinancials.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Normalized EADA financials for the school and exact year |  -  |
+| **400** | Bad Request — year missing or not a 4-digit year; grain, family, gender, or metric not a known value for the request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no see_eada_financials grant for this school, or include&#x3D;source_payload requested without the required admin tier |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getSchoolFinancialSelection
+
+> FinancialSelection getSchoolFinancialSelection(schoolId, source, grain, sportName, year, metric)
+
+
+
+WINAD-10369 — one school\&#39;s source-aware financial selection (eada | ncaa_frs | best_available | both) at institution or sport grain, layered on WINAD-10370\&#39;s EADA API and the existing NCAA/FRS CashflowSum/Cashflow data via Financials::SourceSelection. best_available never 403s for a partial grant — it silently narrows to whichever source(s) the viewer can see for this school; requesting a single source (eada or ncaa_frs) the viewer cannot see for this school is a 403.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetSchoolFinancialSelectionRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the School
+    schoolId: 56,
+    // 'eada' | 'ncaa_frs' | 'best_available' | 'both' (optional)
+    source: source_example,
+    // 'institution' | 'sport' (optional)
+    grain: grain_example,
+    // string | Required when grain is sport. (optional)
+    sportName: sportName_example,
+    // number | Exact reporting year. Omit for each source\'s own latest report, resolved independently per source. (optional)
+    year: 56,
+    // string | Restrict to one canonical (or source-native) metric id. (optional)
+    metric: metric_example,
+  } satisfies GetSchoolFinancialSelectionRequest;
+
+  try {
+    const data = await api.getSchoolFinancialSelection(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` | ID of the School | [Defaults to `undefined`] |
+| **source** | `eada`, `ncaa_frs`, `best_available`, `both` |  | [Optional] [Defaults to `&#39;best_available&#39;`] [Enum: eada, ncaa_frs, best_available, both] |
+| **grain** | `institution`, `sport` |  | [Optional] [Defaults to `&#39;institution&#39;`] [Enum: institution, sport] |
+| **sportName** | `string` | Required when grain is sport. | [Optional] [Defaults to `undefined`] |
+| **year** | `number` | Exact reporting year. Omit for each source\&#39;s own latest report, resolved independently per source. | [Optional] [Defaults to `undefined`] |
+| **metric** | `string` | Restrict to one canonical (or source-native) metric id. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FinancialSelection**](FinancialSelection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Source-aware financial selection for the school |  -  |
+| **400** | Bad Request — source/grain invalid, year not a 4-digit year, or sport_name missing when grain is sport |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden — no see_financials/see_eada_financials grant for this school covering the requested source |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getSchoolGameContracts
 
 > SchoolGameContractsResponse getSchoolGameContracts(schoolId)
@@ -17720,9 +18199,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -17747,8 +18226,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sportName** | `string` | A sport\&#39;s internal name (e.g. &#x60;BASKETBALL_M&#x60;, &#x60;BASKETBALL_W&#x60;, &#x60;FOOTBALL&#x60;). When supplied, each returned school includes a &#x60;rank&#x60; field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. | [Optional] [Defaults to `undefined`] |
 
@@ -18010,9 +18489,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -18035,8 +18514,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -18095,9 +18574,9 @@ async function example() {
     coachId: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
   } satisfies GetSimilarCoachesRequest;
 
@@ -18120,8 +18599,8 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` | ID of coach to retrieve | [Defaults to `undefined`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 
 ### Return type
 
@@ -18249,9 +18728,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -18274,8 +18753,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -18878,9 +19357,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -18903,8 +19382,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -19108,9 +19587,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -19133,8 +19612,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -19878,9 +20357,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -19909,8 +20388,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sportName** | `string` | Sport name filter (e.g. BASKETBALL_M) | [Optional] [Defaults to `undefined`] |
 | **excludeAlreadyScheduled** | `1` | Exclude schools already on the user\&#39;s schedule | [Optional] [Defaults to `undefined`] [Enum: 1] |
@@ -19977,9 +20456,9 @@ async function example() {
     seasonYear: 56,
     // string | Only results with this name, for example ncaa_stage_reached. (optional)
     resultName: resultName_example,
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20007,8 +20486,8 @@ example().catch(console.error);
 | **sportId** | `number` | Only results of this sport. | [Optional] [Defaults to `undefined`] |
 | **seasonYear** | `number` | Only results of seasons ending in this year (2023 &#x3D; the 2022-23 season). APR and GSR rows sit on the season of the academic year the rate measures. | [Optional] [Defaults to `undefined`] |
 | **resultName** | `string` | Only results with this name, for example ncaa_stage_reached. | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20279,7 +20758,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
   } satisfies GetUploadsRequest;
 
@@ -20300,7 +20779,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 
 ### Return type
 
@@ -20429,9 +20908,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20454,8 +20933,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20660,9 +21139,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20685,8 +21164,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20741,9 +21220,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20766,8 +21245,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20896,9 +21375,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20921,8 +21400,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20977,9 +21456,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -21008,8 +21487,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **qCoachIdEq** | `number` | Filter by coach ID | [Optional] [Defaults to `undefined`] |
 | **qSchoolIdEq** | `number` | Filter by school ID | [Optional] [Defaults to `undefined`] |
@@ -22410,7 +22889,7 @@ example().catch(console.error);
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not update compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. A client-credentials write is recorded under that system user. |  -  |
-| **404** | Not Found |  -  |
+| **404** | Not Found, or the compensation was deleted by another request while this one waited for its locks. Nothing was written. |  -  |
 | **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. Also returned when contract_status_id is null, blank, not a whole number, or does not exist (errors.contract_status_id); contract_id is a pending contract (errors.contract). |  -  |
 | **409** | A contract_id link is written under the locks a move of that contract takes (the coaches, then the contract). The contract kept moving to other coaches while the request waited for them (errors.contract). Nothing was written; retry. |  -  |
 

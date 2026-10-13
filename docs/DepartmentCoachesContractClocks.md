@@ -1,6 +1,7 @@
 
 # DepartmentCoachesContractClocks
 
+Every row is a contract on the clock. Seats and assistants with no contract on file are left out of both lists, and so are contracts that have already ended: the clock is measured from today whatever season is selected, so a historical season keeps only the deals still running now. Either list can be empty.
 
 ## Properties
 
