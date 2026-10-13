@@ -52,10 +52,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteAdminDeskReportArtifact**](DefaultApi.md#deleteadmindeskreportartifact) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts/{id} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
+| [**deleteCompensation**](DefaultApi.md#deletecompensation) | **DELETE** /api/v1/compensations/{compensationId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
 | [**deleteConferenceship**](DefaultApi.md#deleteconferenceship) | **DELETE** /api/v1/conferenceships/{conferenceshipId} |  |
 | [**deleteContactSearch**](DefaultApi.md#deletecontactsearch) | **DELETE** /api/v1/contact_searches/{id} |  |
 | [**deleteDeskReportArchive**](DefaultApi.md#deletedeskreportarchive) | **DELETE** /api/v1/desk_reports/{uuid}/archive |  |
+| [**deleteEarnedIncentive**](DefaultApi.md#deleteearnedincentive) | **DELETE** /api/v1/earned_incentives/{earnedIncentiveId} |  |
 | [**deleteFavorite**](DefaultApi.md#deletefavorite) | **DELETE** /api/v1/favorites/{id} |  |
 | [**deleteFavoritesCategory**](DefaultApi.md#deletefavoritescategory) | **DELETE** /api/v1/favorites_categories/{id} |  |
 | [**deleteFoiaLabel**](DefaultApi.md#deletefoialabel) | **DELETE** /api/v1/foia_labels/{foiaLabelId} |  |
@@ -75,6 +77,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteSeason**](DefaultApi.md#deleteseason) | **DELETE** /api/v1/seasons/{seasonId} |  |
 | [**deleteTeamScheduleFavorite**](DefaultApi.md#deleteteamschedulefavorite) | **DELETE** /api/v1/team_schedule_favorites/{id} |  |
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**deleteTeamSeasonResult**](DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
 | [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
@@ -142,6 +145,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDeskRequests**](DefaultApi.md#getdeskrequests) | **GET** /api/v1/desk_requests |  |
 | [**getDivision**](DefaultApi.md#getdivision) | **GET** /api/v1/divisions/{divisionId} |  |
 | [**getDivisions**](DefaultApi.md#getdivisions) | **GET** /api/v1/divisions |  |
+| [**getEarnedIncentives**](DefaultApi.md#getearnedincentives) | **GET** /api/v1/earned_incentives |  |
 | [**getEditAccountUser**](DefaultApi.md#geteditaccountuser) | **GET** /api/v1/account_users/{accountUserId}/edit |  |
 | [**getFavorites**](DefaultApi.md#getfavorites) | **GET** /api/v1/favorites |  |
 | [**getFavoritesCategories**](DefaultApi.md#getfavoritescategories) | **GET** /api/v1/favorites_categories |  |
@@ -254,6 +258,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getTeamScheduleFavorites**](DefaultApi.md#getteamschedulefavorites) | **GET** /api/v1/team_schedule_favorites |  |
 | [**getTeamScheduleNote**](DefaultApi.md#getteamschedulenote) | **GET** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
+| [**getTeamSeasonResults**](DefaultApi.md#getteamseasonresults) | **GET** /api/v1/team_season_results |  |
 | [**getTimeZones**](DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones |  |
 | [**getUpload**](DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} |  |
 | [**getUploadFile**](DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file |  |
@@ -309,7 +314,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateSubscriptionAcceptance**](DefaultApi.md#updatesubscriptionacceptanceoperation) | **PATCH** /api/v1/subscription_acceptances/{subscriptionAcceptanceId} |  |
 | [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
 | [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
+| [**upsertEarnedIncentive**](DefaultApi.md#upsertearnedincentive) | **PUT** /api/v1/earned_incentives |  |
 | [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
+| [**upsertTeamSeasonResult**](DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
 | [**validateAdminDeskReport**](DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate |  |
 | [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
@@ -1805,9 +1812,9 @@ example().catch(console.error);
 | **400** | Missing or malformed request envelope |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Missing winad_verify token/application scope, persisted resource owner, or parent read permission |  -  |
-| **404** | RawContract not found |  -  |
-| **409** | Agent run was already recorded with a different payload |  -  |
-| **422** | Invalid event or document without a Contract; errors are keyed by field |  -  |
+| **404** | RawContract not found, or its contract was deleted while the request ran |  -  |
+| **409** | Agent run was already recorded with a different payload (errors.agent_run_id), or the contract kept moving to other coaches while the request waited for its locks (errors.contract) and nothing was written |  -  |
+| **422** | Invalid event or document without a Contract, or change_note that is not text or is longer than 500 characters (errors.change_note); errors are keyed by field |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -4001,6 +4008,86 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteCompensation
+
+> deleteCompensation(compensationId, changeNote)
+
+
+
+Delete a compensation. Requires the winad_write OAuth scope and permission to destroy the compensation. Hidden-coach compensations are 404 for customers, who may not delete anyway (403). The positions that pointed at the compensation are kept and unlinked (compensation_id becomes null; no position version is written), the linked contract is kept, and the compensation\&#39;s FOIA requested items (and their notes) are deleted with it. The coach\&#39;s latest salary is refreshed. Like PATCH, the delete is recorded in the audit history (PaperTrail) attributed to the token\&#39;s user, or for a client-credentials token to the configured system user. The optional change_note query parameter is the reason, stored (stripped, blank is absent) on every version the delete creates and never returned. The destroy version keeps the deleted row, so a client can read it back there. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteCompensationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of compensation to delete
+    compensationId: 56,
+    // string | Optional. Why the record is being deleted, for the internal audit history; stored on every audit version the delete creates and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is deleted. Never returned. (optional)
+    changeNote: changeNote_example,
+  } satisfies DeleteCompensationRequest;
+
+  try {
+    const data = await api.deleteCompensation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **compensationId** | `number` | ID of compensation to delete | [Defaults to `undefined`] |
+| **changeNote** | `string` | Optional. Why the record is being deleted, for the internal audit history; stored on every audit version the delete creates and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is deleted. Never returned. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Compensation was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not destroy compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. Nothing was deleted. |  -  |
+| **404** | Not Found, or the compensation belongs to a hidden coach and the caller is a customer |  -  |
+| **422** | change_note is not a string or contains a NUL character (errors.change_note), or the compensation could not be destroyed. Nothing was deleted. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteConference
 
 > deleteConference(conferenceId)
@@ -4299,6 +4386,86 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteEarnedIncentive
+
+> EarnedIncentive deleteEarnedIncentive(earnedIncentiveId, changeNote)
+
+
+
+Delete one earned incentive and return it as it was. Requires the winad_write OAuth scope and a super admin user; other users get 403. The deletion is recorded in the row\&#39;s audit history (PaperTrail) with the optional change_note query parameter as the reason.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteEarnedIncentiveRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the earned incentive to delete
+    earnedIncentiveId: 56,
+    // string | Why the row is being deleted, stored in its audit history and never returned. (optional)
+    changeNote: changeNote_example,
+  } satisfies DeleteEarnedIncentiveRequest;
+
+  try {
+    const data = await api.deleteEarnedIncentive(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **earnedIncentiveId** | `number` | ID of the earned incentive to delete | [Defaults to `undefined`] |
+| **changeNote** | `string` | Why the row is being deleted, stored in its audit history and never returned. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**EarnedIncentive**](EarnedIncentive.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deleted earned incentive |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope, or its user is not a super admin (a token with no user counts as an admin). |  -  |
+| **404** | Not Found |  -  |
+| **422** | change_note is not a string (errors.change_note) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -4933,7 +5100,7 @@ async function example() {
   const body = {
     // number | ID of income report to delete
     incomeReportId: 56,
-    // string | Why the report is being deleted, stored in its audit history and never returned. (optional)
+    // string | Optional. Why the record is being deleted, for the internal audit history; stored on every audit version the delete creates and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is deleted. Never returned. (optional)
     changeNote: changeNote_example,
   } satisfies DeleteIncomeReportRequest;
 
@@ -4955,7 +5122,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **incomeReportId** | `number` | ID of income report to delete | [Defaults to `undefined`] |
-| **changeNote** | `string` | Why the report is being deleted, stored in its audit history and never returned. | [Optional] [Defaults to `undefined`] |
+| **changeNote** | `string` | Optional. Why the record is being deleted, for the internal audit history; stored on every audit version the delete creates and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is deleted. Never returned. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5133,7 +5300,7 @@ example().catch(console.error);
 
 ## deletePosition
 
-> deletePosition(positionId)
+> deletePosition(positionId, changeNote)
 
 
 
@@ -5161,6 +5328,8 @@ async function example() {
   const body = {
     // number | ID of position to delete
     positionId: 56,
+    // string | Optional. Why the record is being deleted, for the internal audit history; stored on every audit version the delete creates and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is deleted. Never returned. (optional)
+    changeNote: changeNote_example,
   } satisfies DeletePositionRequest;
 
   try {
@@ -5181,6 +5350,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **positionId** | `number` | ID of position to delete | [Defaults to `undefined`] |
+| **changeNote** | `string` | Optional. Why the record is being deleted, for the internal audit history; stored on every audit version the delete creates and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is deleted. Never returned. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -5193,7 +5363,7 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
@@ -5202,6 +5372,7 @@ example().catch(console.error);
 | **204** | Position was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **422** | change_note is not text or is longer than 500 characters (errors.change_note). Nothing was deleted. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -5728,6 +5899,86 @@ example().catch(console.error);
 | **204** | Note deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteTeamSeasonResult
+
+> TeamSeasonResult deleteTeamSeasonResult(teamSeasonResultId, changeNote)
+
+
+
+Delete a team season result. Requires the winad_write OAuth scope and an admin user; other users get 403. The deletion is recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional change_note query parameter as the reason. Returns the deleted result.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteTeamSeasonResultRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the team season result to delete
+    teamSeasonResultId: 56,
+    // string | Why the result is being deleted, stored in its audit history and never returned. (optional)
+    changeNote: changeNote_example,
+  } satisfies DeleteTeamSeasonResultRequest;
+
+  try {
+    const data = await api.deleteTeamSeasonResult(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **teamSeasonResultId** | `number` | ID of the team season result to delete | [Defaults to `undefined`] |
+| **changeNote** | `string` | Why the result is being deleted, stored in its audit history and never returned. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamSeasonResult**](TeamSeasonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team season result was deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **404** | Not Found |  -  |
+| **422** | change_note is not a string (errors.change_note) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -10966,6 +11217,103 @@ example().catch(console.error);
 | **200** | Divisions were found |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getEarnedIncentives
+
+> EarnedIncentiveCollection getEarnedIncentives(coachId, rawContractId, schoolId, seasonYear, season, seasonId, page, perPage)
+
+
+
+List earned incentives (WINAD-10637) — per contract incentive item and season, whether the coach earned it under the contract and how much. Values are earned under the contract, not proof of payment. Filters combine; with none, every row is listed. Requires the winad_read OAuth scope and a super admin user; other users get 403.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetEarnedIncentivesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number (optional)
+    coachId: 56,
+    // number | The contract the items come from (optional)
+    rawContractId: 56,
+    // number | Every item whose season belongs to one of this school\'s teams (optional)
+    schoolId: 56,
+    // number | The season\'s END year (2026 is the 2025-26 season). `season` is accepted as the same filter. (optional)
+    seasonYear: 56,
+    // number | Same as season_year (optional)
+    season: 56,
+    // number | One team\'s season row (optional)
+    seasonId: 56,
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+  } satisfies GetEarnedIncentivesRequest;
+
+  try {
+    const data = await api.getEarnedIncentives(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **rawContractId** | `number` | The contract the items come from | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` | Every item whose season belongs to one of this school\&#39;s teams | [Optional] [Defaults to `undefined`] |
+| **seasonYear** | `number` | The season\&#39;s END year (2026 is the 2025-26 season). &#x60;season&#x60; is accepted as the same filter. | [Optional] [Defaults to `undefined`] |
+| **season** | `number` | Same as season_year | [Optional] [Defaults to `undefined`] |
+| **seasonId** | `number` | One team\&#39;s season row | [Optional] [Defaults to `undefined`] |
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+
+### Return type
+
+[**EarnedIncentiveCollection**](EarnedIncentiveCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Earned incentives, ordered by coach, season, contract and item_id. Ransack (q) search and sorting are not supported. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_read OAuth scope, or its user is not a super admin (a token with no user counts as an admin). |  -  |
+| **422** | A filter is not a positive whole number (errors keyed by filter name) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -19591,6 +19939,103 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getTeamSeasonResults
+
+> TeamSeasonResultCollection getTeamSeasonResults(seasonId, schoolId, sportId, seasonYear, resultName, page, perPage, q)
+
+
+
+Retrieve team season results, i.e. how a team performed in a season (NCAA stage reached, conference finish, final poll rank, APR, coach awards, ...). A result belongs to a season row (one school\&#39;s sport in one season year), shared by every coach of that team. Filter by season_id, or by school_id (all of a school\&#39;s teams), sport_id and season_year. Requires the winad_read OAuth scope and an admin user (super admin or a user-less service token); other users get 403. Ordered by season year (newest first), then result_name.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTeamSeasonResultsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | Only results of this season (one team\'s season). (optional)
+    seasonId: 56,
+    // number | Only results of this school\'s teams. (optional)
+    schoolId: 56,
+    // number | Only results of this sport. (optional)
+    sportId: 56,
+    // number | Only results of seasons ending in this year (2023 = the 2022-23 season). APR and GSR rows sit on the season of the academic year the rate measures. (optional)
+    seasonYear: 56,
+    // string | Only results with this name, for example ncaa_stage_reached. (optional)
+    resultName: resultName_example,
+    // number | results page to retrieve. (optional)
+    page: 56,
+    // number | number of results per page. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies GetTeamSeasonResultsRequest;
+
+  try {
+    const data = await api.getTeamSeasonResults(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **seasonId** | `number` | Only results of this season (one team\&#39;s season). | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` | Only results of this school\&#39;s teams. | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` | Only results of this sport. | [Optional] [Defaults to `undefined`] |
+| **seasonYear** | `number` | Only results of seasons ending in this year (2023 &#x3D; the 2022-23 season). APR and GSR rows sit on the season of the academic year the rate measures. | [Optional] [Defaults to `undefined`] |
+| **resultName** | `string` | Only results with this name, for example ncaa_stage_reached. | [Optional] [Defaults to `undefined`] |
+| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TeamSeasonResultCollection**](TeamSeasonResultCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Team season results were found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The user is not an admin. |  -  |
+| **422** | A filter is sent as a list or an object (errors.&lt;filter&gt;, \&quot;must be a single value\&quot;). |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getTimeZones
 
 > GetTimeZones200Response getTimeZones()
@@ -21199,6 +21644,7 @@ example().catch(console.error);
 | **403** | Missing winad_verify token/application scope, persisted resource owner, or parent read permission |  -  |
 | **404** | RawContract not found |  -  |
 | **422** | Unknown field, invalid body, change_note that is not a string (errors.change_note), season not currently verified, or document without a Contract. Nothing was written. |  -  |
+| **409** | The contract kept moving to other coaches while the request waited for its locks (errors.contract). Nothing was written; reload and retry. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -21896,7 +22342,7 @@ example().catch(console.error);
 
 
 
-Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A non-string change_note is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\&#39;s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
+Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\&#39;s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
 
 ### Example
 
@@ -21966,6 +22412,7 @@ example().catch(console.error);
 | **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not update compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. A client-credentials write is recorded under that system user. |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. Also returned when contract_status_id is null, blank, not a whole number, or does not exist (errors.contract_status_id); contract_id is a pending contract (errors.contract). |  -  |
+| **409** | A contract_id link is written under the locks a move of that contract takes (the coaches, then the contract). The contract kept moving to other coaches while the request waited for them (errors.contract). Nothing was written; retry. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -23888,6 +24335,84 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## upsertEarnedIncentive
+
+> EarnedIncentive upsertEarnedIncentive(earnedIncentiveInput)
+
+
+
+Create or replace the earned incentive with the same (coach_id, raw_contract_id, season_id, item_id). The stored row is exactly the payload a person approved (approved_by_id, approved_at); a field left out is cleared. Fields must be sent with their JSON types — ids and cents as integers, dates as \&quot;YYYY-MM-DD\&quot; strings — and are refused rather than converted. Dates and approved_at must fall in the years 1900-2100. WinAD does no calculation. Requires the winad_write OAuth scope and a super admin user; other users get 403. The write is recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpsertEarnedIncentiveRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // EarnedIncentiveInput | The item\'s fields at the top level of the JSON body, with an optional change_note beside them
+    earnedIncentiveInput: ...,
+  } satisfies UpsertEarnedIncentiveRequest;
+
+  try {
+    const data = await api.upsertEarnedIncentive(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **earnedIncentiveInput** | [EarnedIncentiveInput](EarnedIncentiveInput.md) | The item\&#39;s fields at the top level of the JSON body, with an optional change_note beside them | |
+
+### Return type
+
+[**EarnedIncentive**](EarnedIncentive.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The existing row with this key was replaced |  -  |
+| **201** | A new row was created |  -  |
+| **400** | The body is not a JSON object |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope, or its user is not a super admin (a token with no user counts as an admin). |  -  |
+| **422** | Nothing is saved. Returned for an unknown field (errors.base); a field sent with the wrong JSON type; a coach, contract, season or approver that does not exist; a missing required field; invalid UTF-8, a NUL character or an infinite/NaN number (e.g. 1e999) in any value; an item_id over 255 characters; a coach, contract, season or approver deleted while the request was being saved (\&quot;must exist\&quot;); a kind, status, verification_method or coverage outside its values; an amount on an unresolved, superseded or non_cash item, no amount on an earned bonus or raise, or an amount other than 0 on a not_earned one; an unresolved item without missing_fact; effective_through before effective_from; ended_by_contract_id on anything but an earned raise, or without effective_through; term_change on anything but a non_cash item, or not shaped {years_added, optional new_end_date}; result_ids naming a team_season_result that does not exist (the missing ids are listed); coverage without missing_documents (or missing_documents without coverage); approved_at in the future; or a change_note that is not a string. Errors are keyed by attribute. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## upsertTeamScheduleNote
 
 > TeamScheduleNote upsertTeamScheduleNote(filTeamId, upsertTeamScheduleNoteRequest)
@@ -23962,6 +24487,83 @@ example().catch(console.error);
 | **200** | Note saved |  -  |
 | **401** | Unauthorized |  -  |
 | **422** | Validation error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## upsertTeamSeasonResult
+
+> TeamSeasonResult upsertTeamSeasonResult(teamSeasonResultInput)
+
+
+
+Create or replace one team season result, keyed on the season and result_name. Identify the season with season_id, or with school_id, sport_id and season_year (the season row is created when the school has none for that sport and year). Concurrent writes to one team-season are applied one at a time. The payload is the full row as approved; a field left out is stored as null. Writes come only from a payload a person has approved; WinAD stores them and applies no logic. Requires the winad_write OAuth scope and an admin user (super admin or a user-less service token); other users get 403. The write is recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpsertTeamSeasonResultRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // TeamSeasonResultInput | The full result, with the season locator and an optional change_note at the top level
+    teamSeasonResultInput: ...,
+  } satisfies UpsertTeamSeasonResultRequest;
+
+  try {
+    const data = await api.upsertTeamSeasonResult(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **teamSeasonResultInput** | [TeamSeasonResultInput](TeamSeasonResultInput.md) | The full result, with the season locator and an optional change_note at the top level | |
+
+### Return type
+
+[**TeamSeasonResult**](TeamSeasonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The existing result for this season and result_name was replaced |  -  |
+| **201** | The result was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The token lacks the winad_write OAuth scope or the user is not an admin. |  -  |
+| **422** | Nothing was saved. Returned when the season is not given (errors.season), season_id names no season (errors.season), season_id is sent with a school_id, sport_id or season_year that is not that season\&#39;s (errors.season), school_id or sport_id names no record (errors.school, errors.sport), an id or season_year is not a whole number as sent (for example \&quot;12abc\&quot; or 2023.5) or season_year is outside 1900-2100; result_name is missing; verification_method is not one of the listed values; a single-value field is sent as an array or object; details is not an object; result_name or result_value is longer than 255 characters; or change_note is not a string. Errors are keyed by attribute. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
