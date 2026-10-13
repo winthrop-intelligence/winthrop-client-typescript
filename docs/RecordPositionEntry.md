@@ -9,6 +9,7 @@ Name | Type
 `sport` | string
 `yearStr` | string
 `schoolName` | string
+`schoolFullName` | string
 `schoolId` | number
 `positionSport` | string
 `record` | string
@@ -33,6 +34,7 @@ const example = {
   "sport": null,
   "yearStr": null,
   "schoolName": null,
+  "schoolFullName": null,
   "schoolId": null,
   "positionSport": null,
   "record": null,

@@ -38,6 +38,12 @@ export interface RecordPositionEntry {
      */
     schoolName: string;
     /**
+     * Full school name for performance charts and accessible summaries.
+     * @type {string}
+     * @memberof RecordPositionEntry
+     */
+    schoolFullName: string;
+    /**
      * 
      * @type {number}
      * @memberof RecordPositionEntry
@@ -124,6 +130,7 @@ export function instanceOfRecordPositionEntry(value: object): value is RecordPos
     if (!('sport' in value) || value['sport'] === undefined) return false;
     if (!('yearStr' in value) || value['yearStr'] === undefined) return false;
     if (!('schoolName' in value) || value['schoolName'] === undefined) return false;
+    if (!('schoolFullName' in value) || value['schoolFullName'] === undefined) return false;
     if (!('schoolId' in value) || value['schoolId'] === undefined) return false;
     if (!('positionSport' in value) || value['positionSport'] === undefined) return false;
     return true;
@@ -142,6 +149,7 @@ export function RecordPositionEntryFromJSONTyped(json: any, ignoreDiscriminator:
         'sport': json['sport'],
         'yearStr': json['year_str'],
         'schoolName': json['school_name'],
+        'schoolFullName': json['school_full_name'],
         'schoolId': json['school_id'],
         'positionSport': json['position_sport'],
         'record': json['record'] == null ? undefined : json['record'],
@@ -172,6 +180,7 @@ export function RecordPositionEntryToJSONTyped(value?: RecordPositionEntry | nul
         'sport': value['sport'],
         'year_str': value['yearStr'],
         'school_name': value['schoolName'],
+        'school_full_name': value['schoolFullName'],
         'school_id': value['schoolId'],
         'position_sport': value['positionSport'],
         'record': value['record'],
