@@ -1,26 +1,25 @@
 
-# PerformanceChartData
+# EarnedIncentiveFieldsTermChange
 
+non_cash extensions only
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`seasons` | Array&lt;string&gt;
-`records` | [Array&lt;PerformanceChartRecord | null&gt;](PerformanceChartRecord.md)
-`coaches` | [Array&lt;PerformanceChartCoach | null&gt;](PerformanceChartCoach.md)
+`yearsAdded` | number
+`newEndDate` | Date
 
 ## Example
 
 ```typescript
-import type { PerformanceChartData } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { EarnedIncentiveFieldsTermChange } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "seasons": null,
-  "records": null,
-  "coaches": null,
-} satisfies PerformanceChartData
+  "yearsAdded": 1,
+  "newEndDate": Fri Jun 30 00:00:00 UTC 2028,
+} satisfies EarnedIncentiveFieldsTermChange
 
 console.log(example)
 
@@ -29,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as PerformanceChartData
+const exampleParsed = JSON.parse(exampleJSON) as EarnedIncentiveFieldsTermChange
 console.log(exampleParsed)
 ```
 

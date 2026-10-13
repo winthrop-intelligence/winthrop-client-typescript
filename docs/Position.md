@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`changeNote` | string
 `id` | number
 `seasonId` | number
 `coachId` | number
@@ -40,6 +41,7 @@ import type { Position } from '@winthrop-intelligence/winthrop-client-typescript
 
 // TODO: Update the object below with actual values
 const example = {
+  "changeNote": null,
   "id": 1,
   "seasonId": 2,
   "coachId": 3,

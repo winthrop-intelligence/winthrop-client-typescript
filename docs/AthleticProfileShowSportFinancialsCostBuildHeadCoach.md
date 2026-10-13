@@ -10,6 +10,8 @@ Name | Type
 `lastName` | string
 `compCents` | number
 `onFile` | boolean
+`compBasis` | string
+`compFiscalYear` | number
 
 ## Example
 
@@ -22,6 +24,8 @@ const example = {
   "lastName": null,
   "compCents": null,
   "onFile": null,
+  "compBasis": null,
+  "compFiscalYear": null,
 } satisfies AthleticProfileShowSportFinancialsCostBuildHeadCoach
 
 console.log(example)
