@@ -6,10 +6,13 @@
 
 Name | Type
 ------------ | -------------
+`changeNote` | string
 `startOn` | Date
 `endOn` | Date
 `atWill` | boolean
 `executedOn` | Date
+`expiresOn` | Date
+`contingentChange` | boolean
 `compensations` | [Array&lt;PublishPendingContractCompensation&gt;](PublishPendingContractCompensation.md)
 `contractTerms` | [PublishPendingContractRequestContractTerms](PublishPendingContractRequestContractTerms.md)
 
@@ -20,10 +23,13 @@ import type { PublishPendingContractRequest } from '@winthrop-intelligence/winth
 
 // TODO: Update the object below with actual values
 const example = {
+  "changeNote": null,
   "startOn": null,
   "endOn": null,
   "atWill": null,
   "executedOn": null,
+  "expiresOn": null,
+  "contingentChange": null,
   "compensations": null,
   "contractTerms": null,
 } satisfies PublishPendingContractRequest
