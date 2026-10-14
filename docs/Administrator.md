@@ -7,6 +7,13 @@ Administrator search result. In /administrator_searches responses, compensation 
 
 Name | Type
 ------------ | -------------
+`latestKnownFallback` | boolean
+`latestKnownCompensationCents` | number
+`latestKnownBaseSalaryCents` | number
+`latestKnownCompensationType` | string
+`latestKnownSourceYear` | number
+`latestKnownSourceCompensationId` | number
+`latestKnownSourceRawContractId` | number
 `id` | number
 `coachId` | number
 `coachFirstName` | string
@@ -23,6 +30,7 @@ Name | Type
 `contractId` | number
 `year` | number
 `newerSeason` | [NewerSeasonContext](NewerSeasonContext.md)
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `positionTitle` | string
 `schoolName` | string
 `schoolShortName` | string
@@ -62,6 +70,13 @@ import type { Administrator } from '@winthrop-intelligence/winthrop-client-types
 
 // TODO: Update the object below with actual values
 const example = {
+  "latestKnownFallback": null,
+  "latestKnownCompensationCents": null,
+  "latestKnownBaseSalaryCents": null,
+  "latestKnownCompensationType": null,
+  "latestKnownSourceYear": null,
+  "latestKnownSourceCompensationId": null,
+  "latestKnownSourceRawContractId": null,
   "id": 1,
   "coachId": 1,
   "coachFirstName": John,
@@ -78,6 +93,7 @@ const example = {
   "contractId": 1,
   "year": 2019,
   "newerSeason": null,
+  "assignments": null,
   "positionTitle": This is a position title,
   "schoolName": This is a school name,
   "schoolShortName": This is a school short name,
