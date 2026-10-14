@@ -9,6 +9,7 @@ Name | Type
 `linkedCompensationIds` | Array&lt;number&gt;
 `linkedPositionIds` | Array&lt;number&gt;
 `linkedVerificationIds` | Array&lt;number&gt;
+`linkedEarnedIncentiveIds` | Array&lt;number&gt;
 `errors` | { [key: string]: Array&lt;string&gt;; }
 
 ## Example
@@ -21,6 +22,7 @@ const example = {
   "linkedCompensationIds": null,
   "linkedPositionIds": null,
   "linkedVerificationIds": null,
+  "linkedEarnedIncentiveIds": null,
   "errors": null,
 } satisfies ContractErrorsResponse
 

@@ -115,7 +115,7 @@ async function example() {
   const api = new FoiaInboxApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
     // number (optional)
     perPage: 56,
@@ -144,7 +144,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` |  | [Optional] [Defaults to `100`] |
 | **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
 | **foiaRequestId** | `number` |  | [Optional] [Defaults to `undefined`] |
