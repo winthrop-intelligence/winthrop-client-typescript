@@ -20,6 +20,9 @@ Name | Type
 `departing` | boolean
 `terminated` | boolean
 `departingSetAt` | Date
+`departureOn` | Date
+`departureReason` | string
+`departureSourceUrl` | string
 `suppressDepartingSetAt` | boolean
 `creationReason` | string
 `creationReasonUpdatedAt` | Date
@@ -55,6 +58,9 @@ const example = {
   "departing": false,
   "terminated": false,
   "departingSetAt": 2019-01-01T00:00Z,
+  "departureOn": Tue Jan 01 00:00:00 UTC 2019,
+  "departureReason": Fired,
+  "departureSourceUrl": https://example.com/news,
   "suppressDepartingSetAt": false,
   "creationReason": null,
   "creationReasonUpdatedAt": 2019-01-01T00:00Z,
