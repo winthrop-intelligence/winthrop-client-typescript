@@ -11,6 +11,7 @@ Name | Type
 `coachingStaff` | [Array&lt;CoachCompensationTabSidebarCoachingStaffInner&gt;](CoachCompensationTabSidebarCoachingStaffInner.md)
 `staffTitle` | string
 `asstPoolSpendCents` | number
+`asstCoachCount` | number
 `coli` | [ColiData](ColiData.md)
 
 ## Example
@@ -25,6 +26,7 @@ const example = {
   "coachingStaff": null,
   "staffTitle": null,
   "asstPoolSpendCents": null,
+  "asstCoachCount": null,
   "coli": null,
 } satisfies CoachCompensationTabSidebar
 

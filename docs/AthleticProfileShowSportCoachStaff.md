@@ -10,6 +10,7 @@ Name | Type
 `seasonYear` | number
 `conferenceName` | string
 `resultsLens` | string
+`compBasis` | string
 `quadrantPoints` | [Array&lt;AthleticProfileShowSportCoachStaffQuadrantPointsInner&gt;](AthleticProfileShowSportCoachStaffQuadrantPointsInner.md)
 `headCoach` | [AthleticProfileShowSportCoachStaffHeadCoach](AthleticProfileShowSportCoachStaffHeadCoach.md)
 `assistants` | [Array&lt;AthleticProfileShowSportCoachStaffAssistantsInner&gt;](AthleticProfileShowSportCoachStaffAssistantsInner.md)
@@ -27,6 +28,7 @@ const example = {
   "seasonYear": null,
   "conferenceName": null,
   "resultsLens": null,
+  "compBasis": null,
   "quadrantPoints": null,
   "headCoach": null,
   "assistants": null,
