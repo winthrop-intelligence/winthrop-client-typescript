@@ -13,7 +13,17 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
 | [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
+| [**copyAdminCompensationToNextYear**](DefaultApi.md#copyadmincompensationtonextyear) | **POST** /api/v1/admin/compensations/{id}/copy_to_next_year |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
+| [**createAdminCoach**](DefaultApi.md#createadmincoachoperation) | **POST** /api/v1/admin/coaches |  |
+| [**createAdminCoachAprUpload**](DefaultApi.md#createadmincoachaprupload) | **POST** /api/v1/admin/coaches/coach_apr_upload |  |
+| [**createAdminCoachContract**](DefaultApi.md#createadmincoachcontract) | **POST** /api/v1/admin/coach_contracts |  |
+| [**createAdminCoachContractsOutsideIncome**](DefaultApi.md#createadmincoachcontractsoutsideincome) | **POST** /api/v1/admin/coach_contracts/outside_income_upload |  |
+| [**createAdminCoachMassUpdate**](DefaultApi.md#createadmincoachmassupdate) | **POST** /api/v1/admin/coaches/mass_update |  |
+| [**createAdminCoachMergeLog**](DefaultApi.md#createadmincoachmergelogoperation) | **POST** /api/v1/admin/coach_merge_logs |  |
+| [**createAdminCoachProfileMatch**](DefaultApi.md#createadmincoachprofilematch) | **POST** /api/v1/admin/coaches/profile_match |  |
+| [**createAdminCoachUpload**](DefaultApi.md#createadmincoachupload) | **POST** /api/v1/admin/coaches/upload |  |
+| [**createAdminContract**](DefaultApi.md#createadmincontract) | **POST** /api/v1/admin/contracts |  |
 | [**createAdminDeskReport**](DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports |  |
 | [**createAdminDeskReportArtifact**](DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts |  |
 | [**createCashflow**](DefaultApi.md#createcashflow) | **POST** /api/v1/cashflows |  |
@@ -79,12 +89,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteTeamScheduleNote**](DefaultApi.md#deleteteamschedulenote) | **DELETE** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**deleteTeamSeasonResult**](DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
+| [**destroyAdminCoach**](DefaultApi.md#destroyadmincoach) | **DELETE** /api/v1/admin/coaches/{id} |  |
+| [**destroyAdminCompensation**](DefaultApi.md#destroyadmincompensation) | **DELETE** /api/v1/admin/compensations/{id} |  |
+| [**destroyAdminContract**](DefaultApi.md#destroyadmincontract) | **DELETE** /api/v1/admin/contracts/{id} |  |
+| [**downloadAdminCoachContractsCsvTemplate**](DefaultApi.md#downloadadmincoachcontractscsvtemplate) | **GET** /api/v1/admin/coach_contracts/download_csv_template |  |
+| [**downloadAdminCoachContractsOutsideIncomeCsvTemplate**](DefaultApi.md#downloadadmincoachcontractsoutsideincomecsvtemplate) | **GET** /api/v1/admin/coach_contracts/outside_income_csv_template |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
 | [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
 | [**exportRevenueSearches**](DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export |  |
 | [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
+| [**getAdminCoach**](DefaultApi.md#getadmincoach) | **GET** /api/v1/admin/coaches/{id} |  |
+| [**getAdminCoachMergeLog**](DefaultApi.md#getadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/{id} |  |
+| [**getAdminContract**](DefaultApi.md#getadmincontract) | **GET** /api/v1/admin/contracts/{id} |  |
 | [**getAdminDeskReport**](DefaultApi.md#getadmindeskreport) | **GET** /api/v1/admin/desk_reports/{uuid} |  |
 | [**getAdminDeskReportActivity**](DefaultApi.md#getadmindeskreportactivity) | **GET** /api/v1/admin/desk_reports/{uuid}/activity |  |
 | [**getAdminDeskReportActivitySummaries**](DefaultApi.md#getadmindeskreportactivitysummaries) | **GET** /api/v1/admin/desk_reports/activity_summaries |  |
@@ -273,7 +291,20 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**hideAdminDeskReport**](DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide |  |
+| [**listAdminCoachAprUploadJobs**](DefaultApi.md#listadmincoachapruploadjobs) | **GET** /api/v1/admin/coaches/coach_apr_upload |  |
+| [**listAdminCoachContracts**](DefaultApi.md#listadmincoachcontracts) | **GET** /api/v1/admin/coach_contracts |  |
+| [**listAdminCoachContractsOutsideIncome**](DefaultApi.md#listadmincoachcontractsoutsideincome) | **GET** /api/v1/admin/coach_contracts/outside_income |  |
+| [**listAdminCoachContractsQc**](DefaultApi.md#listadmincoachcontractsqc) | **GET** /api/v1/admin/coach_contracts/qc |  |
+| [**listAdminCoachMassUpdateJobs**](DefaultApi.md#listadmincoachmassupdatejobs) | **GET** /api/v1/admin/coaches/mass_update |  |
+| [**listAdminCoachMergeLogs**](DefaultApi.md#listadmincoachmergelogs) | **GET** /api/v1/admin/coach_merge_logs |  |
+| [**listAdminCoachUploadJobs**](DefaultApi.md#listadmincoachuploadjobs) | **GET** /api/v1/admin/coaches/upload |  |
+| [**listAdminCoaches**](DefaultApi.md#listadmincoaches) | **GET** /api/v1/admin/coaches |  |
+| [**listAdminCompensations**](DefaultApi.md#listadmincompensations) | **GET** /api/v1/admin/compensations |  |
+| [**listAdminContracts**](DefaultApi.md#listadmincontracts) | **GET** /api/v1/admin/contracts |  |
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
+| [**massUpdateAdminCompensations**](DefaultApi.md#massupdateadmincompensationsoperation) | **POST** /api/v1/admin/compensations/mass_update |  |
+| [**previewAdminCoachContracts**](DefaultApi.md#previewadmincoachcontracts) | **POST** /api/v1/admin/coach_contracts/preview |  |
+| [**previewAdminCoachMergeLog**](DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**resolveFrsExport**](DefaultApi.md#resolvefrsexport) | **POST** /api/v1/frs_exports/resolve |  |
@@ -285,6 +316,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**unstractRawContractPdfText**](DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text |  |
 | [**updateAccountUser**](DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} |  |
 | [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
+| [**updateAdminCoach**](DefaultApi.md#updateadmincoach) | **PATCH** /api/v1/admin/coaches/{id} |  |
+| [**updateAdminContract**](DefaultApi.md#updateadmincontract) | **PATCH** /api/v1/admin/contracts/{id} |  |
 | [**updateAdminDeskReport**](DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} |  |
 | [**updateAdminDeskRequest**](DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} |  |
 | [**updateCashflow**](DefaultApi.md#updatecashflow) | **PUT** /api/v1/cashflows/{cashflowId} |  |
@@ -1047,6 +1080,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## copyAdminCompensationToNextYear
+
+> CopyAdminCompensationToNextYear201Response copyAdminCompensationToNextYear(id)
+
+
+
+Copy a compensation forward to the next year (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CopyAdminCompensationToNextYearRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies CopyAdminCompensationToNextYearRequest;
+
+  try {
+    const data = await api.copyAdminCompensationToNextYear(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**CopyAdminCompensationToNextYear201Response**](CopyAdminCompensationToNextYear201Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Compensation copied |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to copy compensation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createAccountUser
 
 > AccountUser createAccountUser(createAccountUserRequest)
@@ -1118,6 +1228,703 @@ example().catch(console.error);
 | **201** | User created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - requires account admin role |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoach
+
+> AdminCoach createAdminCoach(createAdminCoachRequest)
+
+
+
+Create a new coach (admin-only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAdminCoachRequest
+    createAdminCoachRequest: ...,
+  } satisfies CreateAdminCoachOperationRequest;
+
+  try {
+    const data = await api.createAdminCoach(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAdminCoachRequest** | [CreateAdminCoachRequest](CreateAdminCoachRequest.md) |  | |
+
+### Return type
+
+[**AdminCoach**](AdminCoach.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Coach created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Unable to create the coach |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachAprUpload
+
+> createAdminCoachAprUpload(importFile)
+
+
+
+Queue a CSV of coach APR data (CoachAprImporter); rejects non-CSV files
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachAprUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Blob (optional)
+    importFile: BINARY_DATA_HERE,
+  } satisfies CreateAdminCoachAprUploadRequest;
+
+  try {
+    const data = await api.createAdminCoachAprUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Queued for processing |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | No file selected or file is not a CSV |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachContract
+
+> RegenerateRawContractPdf200Response createAdminCoachContract(_import)
+
+
+
+Queue an uploaded CSV file for processing via CoachContractImporter (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAdminCoachContractRequestImport
+    _import: ...,
+  } satisfies CreateAdminCoachContractRequest;
+
+  try {
+    const data = await api.createAdminCoachContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **_import** | [CreateAdminCoachContractRequestImport](CreateAdminCoachContractRequestImport.md) |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | CSV queued for processing |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | No file selected |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachContractsOutsideIncome
+
+> RegenerateRawContractPdf200Response createAdminCoachContractsOutsideIncome(_import)
+
+
+
+Queue an uploaded CSV file for processing via CoachOutsideIncomeImporter (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachContractsOutsideIncomeRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAdminCoachContractRequestImport
+    _import: ...,
+  } satisfies CreateAdminCoachContractsOutsideIncomeRequest;
+
+  try {
+    const data = await api.createAdminCoachContractsOutsideIncome(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **_import** | [CreateAdminCoachContractRequestImport](CreateAdminCoachContractRequestImport.md) |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | CSV queued for processing |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | No file selected |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachMassUpdate
+
+> createAdminCoachMassUpdate(importFile, sportId)
+
+
+
+Queue a CSV of coach updates (CoachUpdater), optionally scoped to one sport
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachMassUpdateRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Blob (optional)
+    importFile: BINARY_DATA_HERE,
+    // number (optional)
+    sportId: 56,
+  } satisfies CreateAdminCoachMassUpdateRequest;
+
+  try {
+    const data = await api.createAdminCoachMassUpdate(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Queued for processing |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | No file selected or invalid sport |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachMergeLog
+
+> AdminCoachMergeLog createAdminCoachMergeLog(createAdminCoachMergeLogRequest)
+
+
+
+Merge one coach\&#39;s records into another and log the result (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachMergeLogOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAdminCoachMergeLogRequest
+    createAdminCoachMergeLogRequest: ...,
+  } satisfies CreateAdminCoachMergeLogOperationRequest;
+
+  try {
+    const data = await api.createAdminCoachMergeLog(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAdminCoachMergeLogRequest** | [CreateAdminCoachMergeLogRequest](CreateAdminCoachMergeLogRequest.md) |  | |
+
+### Return type
+
+[**AdminCoachMergeLog**](AdminCoachMergeLog.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Merge queued/applied |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachProfileMatch
+
+> CreateAdminCoachProfileMatch200Response createAdminCoachProfileMatch(createAdminCoachRequest)
+
+
+
+Validate a not-yet-created coach\&#39;s submitted fields and return any existing coaches sharing the same first/last name, so the UI can offer editing a match instead of creating a duplicate (mirrors the old admin new-coach form\&#39;s real submit target)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachProfileMatchRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAdminCoachRequest
+    createAdminCoachRequest: ...,
+  } satisfies CreateAdminCoachProfileMatchRequest;
+
+  try {
+    const data = await api.createAdminCoachProfileMatch(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAdminCoachRequest** | [CreateAdminCoachRequest](CreateAdminCoachRequest.md) |  | |
+
+### Return type
+
+[**CreateAdminCoachProfileMatch200Response**](CreateAdminCoachProfileMatch200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Potential matching coaches found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Submitted coach fields are invalid |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminCoachUpload
+
+> createAdminCoachUpload(importFile, year)
+
+
+
+Queue a CSV of new/updated coaches (CoachImporter), optionally scoped to a season year
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminCoachUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Blob (optional)
+    importFile: BINARY_DATA_HERE,
+    // number (optional)
+    year: 56,
+  } satisfies CreateAdminCoachUploadRequest;
+
+  try {
+    const data = await api.createAdminCoachUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
+| **year** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Queued for processing |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | No file selected |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminContract
+
+> AdminContract createAdminContract(coachId, contract, rawContract)
+
+
+
+Create an employment contract for a coach, optionally attaching a raw contract PDF (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    coachId: 56,
+    // CreateAdminContractRequestContract (optional)
+    contract: ...,
+    // CreateAdminContractRequestRawContract (optional)
+    rawContract: ...,
+  } satisfies CreateAdminContractRequest;
+
+  try {
+    const data = await api.createAdminContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `number` |  | [Defaults to `undefined`] |
+| **contract** | [CreateAdminContractRequestContract](CreateAdminContractRequestContract.md) |  | [Optional] [Defaults to `undefined`] |
+| **rawContract** | [CreateAdminContractRequestRawContract](CreateAdminContractRequestRawContract.md) |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminContract**](AdminContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Contract created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Coach not found |  -  |
 | **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -4082,7 +4889,7 @@ example().catch(console.error);
 | **204** | Compensation was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not destroy compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. Nothing was deleted. |  -  |
-| **404** | Not Found, or the compensation belongs to a hidden coach and the caller is a customer |  -  |
+| **404** | Not Found, the compensation was already deleted (also by a simultaneous request, which then writes no second audit version), or it belongs to a hidden coach and the caller is a customer |  -  |
 | **422** | change_note is not a string or contains a NUL character (errors.change_note), or the compensation could not be destroyed. Nothing was deleted. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -5304,7 +6111,7 @@ example().catch(console.error);
 
 
 
-Delete a single position
+Delete a single position. A position that has a compensation attached (compensation_id is set) is refused with 422 (errors.compensation_id names the compensation) and nothing is written, because deleting the last position of a compensation would delete the compensation (its pay row) with it. The check reads the position under a lock in the same transaction as the delete (the position\&#39;s coach is locked first, then the position row), so a compensation attached after the request was received is still refused. Unlink the compensation (PATCH the position with compensation_id null) or delete it (DELETE /compensations/{compensationId}) first. A position with no compensation is deleted and no compensation is touched. API clients in winthrop-clients must be regenerated to expose this change.
 
 ### Example
 
@@ -5372,7 +6179,8 @@ example().catch(console.error);
 | **204** | Position was deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
-| **422** | change_note is not text or is longer than 500 characters (errors.change_note). Nothing was deleted. |  -  |
+| **409** | The position kept being moved to other coaches by other requests while this one took its locks (errors.position). Nothing was deleted; reload the position and retry. A single move is not an error: the request starts over from the coach that now owns the position. |  -  |
+| **422** | A compensation is attached to the position (errors.compensation_id, the message names the compensation id), or change_note is not text or is longer than 500 characters (errors.change_note). Nothing was deleted. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -6059,6 +6867,394 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## destroyAdminCoach
+
+> destroyAdminCoach(id)
+
+
+
+Delete a coach (admin-only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DestroyAdminCoachRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    id: id_example,
+  } satisfies DestroyAdminCoachRequest;
+
+  try {
+    const data = await api.destroyAdminCoach(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Coach deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## destroyAdminCompensation
+
+> destroyAdminCompensation(id)
+
+
+
+Delete a compensation (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DestroyAdminCompensationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies DestroyAdminCompensationRequest;
+
+  try {
+    const data = await api.destroyAdminCompensation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Compensation deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## destroyAdminContract
+
+> destroyAdminContract(id)
+
+
+
+Delete an employment contract (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DestroyAdminContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies DestroyAdminContractRequest;
+
+  try {
+    const data = await api.destroyAdminContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Contract deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## downloadAdminCoachContractsCsvTemplate
+
+> Blob downloadAdminCoachContractsCsvTemplate(schoolId, year, includeOnlyNoCompensation)
+
+
+
+Download the per-school/year Coach Compensation CSV template (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DownloadAdminCoachContractsCsvTemplateRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    schoolId: 56,
+    // number
+    year: 56,
+    // boolean (optional)
+    includeOnlyNoCompensation: true,
+  } satisfies DownloadAdminCoachContractsCsvTemplateRequest;
+
+  try {
+    const data = await api.downloadAdminCoachContractsCsvTemplate(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Defaults to `undefined`] |
+| **includeOnlyNoCompensation** | `boolean` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/csv`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | CSV template file |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | School not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## downloadAdminCoachContractsOutsideIncomeCsvTemplate
+
+> Blob downloadAdminCoachContractsOutsideIncomeCsvTemplate(schoolId, year)
+
+
+
+Download the per-school/year Outside Income CSV template (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DownloadAdminCoachContractsOutsideIncomeCsvTemplateRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    schoolId: 56,
+    // number
+    year: 56,
+  } satisfies DownloadAdminCoachContractsOutsideIncomeCsvTemplateRequest;
+
+  try {
+    const data = await api.downloadAdminCoachContractsOutsideIncomeCsvTemplate(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Defaults to `undefined`] |
+| **year** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/csv`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | CSV template file |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## downloadRawContractFile
 
 > Blob downloadRawContractFile(rawContractId)
@@ -6458,7 +7654,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
   } satisfies GetAccountUsersRequest;
 
@@ -6479,7 +7675,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 
 ### Return type
 
@@ -6501,6 +7697,234 @@ example().catch(console.error);
 | **200** | Account users retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - requires account admin role |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminCoach
+
+> AdminCoach getAdminCoach(id)
+
+
+
+Retrieve a single coach (admin-only), resolving by id or FriendlyId slug
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminCoachRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    id: id_example,
+  } satisfies GetAdminCoachRequest;
+
+  try {
+    const data = await api.getAdminCoach(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCoach**](AdminCoach.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminCoachMergeLog
+
+> AdminCoachMergeLogDetail getAdminCoachMergeLog(id)
+
+
+
+Retrieve a single coach merge log\&#39;s full detail (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminCoachMergeLogRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies GetAdminCoachMergeLogRequest;
+
+  try {
+    const data = await api.getAdminCoachMergeLog(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCoachMergeLogDetail**](AdminCoachMergeLogDetail.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach merge log found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminContract
+
+> AdminContract getAdminContract(id)
+
+
+
+Retrieve an employment contract (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies GetAdminContractRequest;
+
+  try {
+    const data = await api.getAdminContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminContract**](AdminContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contract found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -7025,9 +8449,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7054,8 +8478,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **favoritesOnly** | `string` | When \&quot;1\&quot; or \&quot;true\&quot;, restrict results to the current user\&#39;s favorited administrators | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; or a date range like \&quot;2025-01-01..2025-12-31\&quot; | [Optional] [Defaults to `undefined`] |
@@ -7111,9 +8535,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7136,8 +8560,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -7438,9 +8862,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7463,8 +8887,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -7659,9 +9083,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7684,8 +9108,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -7740,9 +9164,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -7765,8 +9189,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -8577,9 +10001,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -8606,8 +10030,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **positionTypeId** | `number` | Filter by position type (expands to group if position is a group stub) | [Optional] [Defaults to `undefined`] |
 | **contractExpiresOn** | `string` | Filter by contract expiration. Use \&quot;expired\&quot; for expired contracts, or a date range in \&quot;YYYY-MM-DD..YYYY-MM-DD\&quot; format. | [Optional] [Defaults to `undefined`] |
@@ -8663,9 +10087,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -8688,8 +10112,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -8921,9 +10345,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -8946,8 +10370,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -9550,9 +10974,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -9575,8 +10999,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -9706,9 +11130,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -9731,8 +11155,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -9929,9 +11353,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -9954,8 +11378,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10010,9 +11434,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10035,8 +11459,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10251,9 +11675,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10276,8 +11700,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10406,9 +11830,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10431,8 +11855,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10561,9 +11985,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10586,8 +12010,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10641,9 +12065,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10666,8 +12090,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -10722,7 +12146,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -10745,7 +12169,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -11168,9 +12592,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -11193,8 +12617,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -11223,7 +12647,7 @@ example().catch(console.error);
 
 ## getEarnedIncentives
 
-> EarnedIncentiveCollection getEarnedIncentives(coachId, rawContractId, schoolId, seasonYear, season, seasonId, page, perPage)
+> EarnedIncentiveCollection getEarnedIncentives(coachId, rawContractId, endedByContractId, schoolId, seasonYear, season, seasonId, page, perPage)
 
 
 
@@ -11253,6 +12677,8 @@ async function example() {
     coachId: 56,
     // number | The contract the items come from (optional)
     rawContractId: 56,
+    // number | Only the items whose ending amendment is this raw contract (an earned raise ended by an amendment). Unlike raw_contract_id, it never matches the contract an item comes from. Items with no ending amendment are never listed by it. (optional)
+    endedByContractId: 56,
     // number | Every item whose season belongs to one of this school\'s teams (optional)
     schoolId: 56,
     // number | The season\'s END year (2026 is the 2025-26 season). `season` is accepted as the same filter. (optional)
@@ -11261,9 +12687,9 @@ async function example() {
     season: 56,
     // number | One team\'s season row (optional)
     seasonId: 56,
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
   } satisfies GetEarnedIncentivesRequest;
 
@@ -11286,12 +12712,13 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` |  | [Optional] [Defaults to `undefined`] |
 | **rawContractId** | `number` | The contract the items come from | [Optional] [Defaults to `undefined`] |
+| **endedByContractId** | `number` | Only the items whose ending amendment is this raw contract (an earned raise ended by an amendment). Unlike raw_contract_id, it never matches the contract an item comes from. Items with no ending amendment are never listed by it. | [Optional] [Defaults to `undefined`] |
 | **schoolId** | `number` | Every item whose season belongs to one of this school\&#39;s teams | [Optional] [Defaults to `undefined`] |
 | **seasonYear** | `number` | The season\&#39;s END year (2026 is the 2025-26 season). &#x60;season&#x60; is accepted as the same filter. | [Optional] [Defaults to `undefined`] |
 | **season** | `number` | Same as season_year | [Optional] [Defaults to `undefined`] |
 | **seasonId** | `number` | One team\&#39;s season row | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 
 ### Return type
 
@@ -11313,7 +12740,7 @@ example().catch(console.error);
 | **200** | Earned incentives, ordered by coach, season, contract and item_id. Ransack (q) search and sorting are not supported. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The token lacks the winad_read OAuth scope, or its user is not a super admin (a token with no user counts as an admin). |  -  |
-| **422** | A filter is not a positive whole number (errors keyed by filter name) |  -  |
+| **422** | A filter, ended_by_contract_id included, is not a positive whole number (errors keyed by filter name) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12340,9 +13767,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -12365,8 +13792,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -12495,9 +13922,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -12520,8 +13947,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -12650,9 +14077,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -12675,8 +14102,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -13025,9 +14452,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13062,8 +14489,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **distanceSchoolType** | `home`, `away` | Top-level distance side (paired with q[distance_lt]). Only honored when the caller\&#39;s account is tied to a school. | [Optional] [Defaults to `undefined`] [Enum: home, away] |
 | **includeSchoolSummary** | `boolean` | When true, also compute a per-school median paid_out / received block. Requires q[sport_id_eq] and a school filter (home_school_id_eq, away_school_id_eq, or home_school_id_or_away_school_id_eq). Mutually exclusive with include_cohort_summary. | [Optional] [Defaults to `undefined`] |
@@ -13348,9 +14775,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13373,8 +14800,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -13654,9 +15081,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13683,8 +15110,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **groupBySchool** | `boolean` | When true, returns one row per school+sport (the school\&#39;s newest post as the representative, newest school first) and pagination counts schools. When false/absent, returns the per-post listing. | [Optional] [Defaults to `undefined`] |
 | **postDetails** | `boolean` | When true, each posts[] entry is enriched with the per-post detail fields (status, start_date, end_date, description, game_types_display, expires_on, created_at, can_manage, created_by) and the result carries the shared school+sport contacts[]. Used by the school+sport show page. When false/absent, posts[] stays lean (id, date, game_types only). | [Optional] [Defaults to `undefined`] |
@@ -13740,9 +15167,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13765,8 +15192,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -13821,9 +15248,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -13846,8 +15273,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -14207,9 +15634,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -14232,8 +15659,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -14449,9 +15876,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -14474,8 +15901,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -14670,9 +16097,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -14695,8 +16122,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15043,9 +16470,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15068,8 +16495,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15124,9 +16551,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15149,8 +16576,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15357,9 +16784,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15382,8 +16809,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -15438,7 +16865,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
     // number | Positive page size; requests above 100 are clamped to 100. (optional)
     perPage: 56,
@@ -15463,7 +16890,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 | **perPage** | `number` | Positive page size; requests above 100 are clamped to 100. | [Optional] [Defaults to `100`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
@@ -15752,9 +17179,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -15777,8 +17204,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -17720,9 +19147,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -17747,8 +19174,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sportName** | `string` | A sport\&#39;s internal name (e.g. &#x60;BASKETBALL_M&#x60;, &#x60;BASKETBALL_W&#x60;, &#x60;FOOTBALL&#x60;). When supplied, each returned school includes a &#x60;rank&#x60; field with its latest sport-appropriate ranking (NET/AP/RPI) for that sport. Unknown values are ignored and simply yield no rank. | [Optional] [Defaults to `undefined`] |
 
@@ -18010,9 +19437,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -18035,8 +19462,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -18095,9 +19522,9 @@ async function example() {
     coachId: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
   } satisfies GetSimilarCoachesRequest;
 
@@ -18120,8 +19547,8 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` | ID of coach to retrieve | [Defaults to `undefined`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 
 ### Return type
 
@@ -18249,9 +19676,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -18274,8 +19701,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -18878,9 +20305,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -18903,8 +20330,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -19108,9 +20535,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -19133,8 +20560,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -19878,9 +21305,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -19909,8 +21336,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sportName** | `string` | Sport name filter (e.g. BASKETBALL_M) | [Optional] [Defaults to `undefined`] |
 | **excludeAlreadyScheduled** | `1` | Exclude schools already on the user\&#39;s schedule | [Optional] [Defaults to `undefined`] [Enum: 1] |
@@ -19977,9 +21404,9 @@ async function example() {
     seasonYear: 56,
     // string | Only results with this name, for example ncaa_stage_reached. (optional)
     resultName: resultName_example,
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20007,8 +21434,8 @@ example().catch(console.error);
 | **sportId** | `number` | Only results of this sport. | [Optional] [Defaults to `undefined`] |
 | **seasonYear** | `number` | Only results of seasons ending in this year (2023 &#x3D; the 2022-23 season). APR and GSR rows sit on the season of the academic year the rate measures. | [Optional] [Defaults to `undefined`] |
 | **resultName** | `string` | Only results with this name, for example ncaa_stage_reached. | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20279,7 +21706,7 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
   } satisfies GetUploadsRequest;
 
@@ -20300,7 +21727,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
 
 ### Return type
 
@@ -20429,9 +21856,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20454,8 +21881,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20660,9 +22087,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20685,8 +22112,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20741,9 +22168,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20766,8 +22193,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20896,9 +22323,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -20921,8 +22348,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -20977,9 +22404,9 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // number | results page to retrieve. (optional)
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // number | number of results per page. (optional)
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
     perPage: 56,
     // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
@@ -21008,8 +22435,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. | [Optional] [Defaults to `20`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **qCoachIdEq** | `number` | Filter by coach ID | [Optional] [Defaults to `undefined`] |
 | **qSchoolIdEq** | `number` | Filter by school ID | [Optional] [Defaults to `undefined`] |
@@ -21118,6 +22545,724 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listAdminCoachAprUploadJobs
+
+> listAdminCoachAprUploadJobs()
+
+
+
+Current CoachAprImporter sidekiq job status and required/optional CSV headers (coach APR CSV upload page)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachAprUploadJobsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminCoachAprUploadJobs();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Job status and upload requirements retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoachContracts
+
+> AdminCoachContractsUploadIndex listAdminCoachContracts()
+
+
+
+Upload Coach Compensation page — required/optional CSV headers plus current Sidekiq job status for the coach_contract_importer (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminCoachContracts();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminCoachContractsUploadIndex**](AdminCoachContractsUploadIndex.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach compensation upload page data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoachContractsOutsideIncome
+
+> AdminCoachOutsideIncomeUploadIndex listAdminCoachContractsOutsideIncome()
+
+
+
+Upload Outside Income page — current Sidekiq job status for the coach_outside_income_importer (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachContractsOutsideIncomeRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminCoachContractsOutsideIncome();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminCoachOutsideIncomeUploadIndex**](AdminCoachOutsideIncomeUploadIndex.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach outside income upload page data retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoachContractsQc
+
+> AdminCoachContractsQcList listAdminCoachContractsQc()
+
+
+
+Coach Contracts QC report — every Contract with contractable_type Coach, ransack-filterable (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachContractsQcRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminCoachContractsQc();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminCoachContractsQcList**](AdminCoachContractsQcList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach contracts QC list retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoachMassUpdateJobs
+
+> listAdminCoachMassUpdateJobs()
+
+
+
+Current CoachUpdater sidekiq job status (coach mass-update CSV upload page)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachMassUpdateJobsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminCoachMassUpdateJobs();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Job status retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoachMergeLogs
+
+> AdminCoachMergeLogList listAdminCoachMergeLogs(page, q)
+
+
+
+List coach merge log runs (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachMergeLogsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies ListAdminCoachMergeLogsRequest;
+
+  try {
+    const data = await api.listAdminCoachMergeLogs(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCoachMergeLogList**](AdminCoachMergeLogList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach merge logs retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoachUploadJobs
+
+> listAdminCoachUploadJobs()
+
+
+
+Current CoachImporter sidekiq job status, required/optional CSV headers, and the default upload year (coach CSV upload page)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachUploadJobsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminCoachUploadJobs();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Job status and upload requirements retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCoaches
+
+> AdminCoachesList listAdminCoaches(page, perPage, q)
+
+
+
+Retrieve a paginated, ransack-filterable list of coaches (admin-only), sorted by last then first name
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCoachesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies ListAdminCoachesRequest;
+
+  try {
+    const data = await api.listAdminCoaches(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCoachesList**](AdminCoachesList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coaches retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCompensations
+
+> AdminCompensationList listAdminCompensations(coachId)
+
+
+
+List a coach\&#39;s compensation rows, including synthetic in-memory rows for positions without one yet (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCompensationsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number (optional)
+    coachId: 56,
+  } satisfies ListAdminCompensationsRequest;
+
+  try {
+    const data = await api.listAdminCompensations(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCompensationList**](AdminCompensationList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Compensations retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminContracts
+
+> AdminContractList listAdminContracts(coachId, page, perPage)
+
+
+
+List a coach\&#39;s employment contracts (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    coachId: 56,
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+  } satisfies ListAdminContractsRequest;
+
+  try {
+    const data = await api.listAdminContracts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `number` |  | [Defaults to `undefined`] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+
+### Return type
+
+[**AdminContractList**](AdminContractList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contracts retrieved |  -  |
+| **400** | Missing required coach_id parameter |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## listNotes
 
 > Array&lt;ListNotes200ResponseInner&gt; listNotes()
@@ -21180,6 +23325,238 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | List of all user notes |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## massUpdateAdminCompensations
+
+> MassUpdateAdminCompensations200Response massUpdateAdminCompensations(massUpdateAdminCompensationsRequest)
+
+
+
+Upsert multiple compensation rows for a coach in one request (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { MassUpdateAdminCompensationsOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // MassUpdateAdminCompensationsRequest
+    massUpdateAdminCompensationsRequest: ...,
+  } satisfies MassUpdateAdminCompensationsOperationRequest;
+
+  try {
+    const data = await api.massUpdateAdminCompensations(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **massUpdateAdminCompensationsRequest** | [MassUpdateAdminCompensationsRequest](MassUpdateAdminCompensationsRequest.md) |  | |
+
+### Return type
+
+[**MassUpdateAdminCompensations200Response**](MassUpdateAdminCompensations200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Compensations updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## previewAdminCoachContracts
+
+> AdminCoachContractsPreview previewAdminCoachContracts(_import)
+
+
+
+Parse a posted CSV and return its headers/rows without persisting anything (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PreviewAdminCoachContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // PreviewAdminCoachContractsRequestImport (optional)
+    _import: ...,
+  } satisfies PreviewAdminCoachContractsRequest;
+
+  try {
+    const data = await api.previewAdminCoachContracts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **_import** | [PreviewAdminCoachContractsRequestImport](PreviewAdminCoachContractsRequestImport.md) |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCoachContractsPreview**](AdminCoachContractsPreview.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Parsed CSV headers/rows |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Invalid file format or no file given |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## previewAdminCoachMergeLog
+
+> AdminCoachMergeLogPreview previewAdminCoachMergeLog(primaryCoachId, duplicateCoachId)
+
+
+
+Preview what a coach merge would affect before committing (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PreviewAdminCoachMergeLogRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    primaryCoachId: 56,
+    // number
+    duplicateCoachId: 56,
+  } satisfies PreviewAdminCoachMergeLogRequest;
+
+  try {
+    const data = await api.previewAdminCoachMergeLog(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **primaryCoachId** | `number` |  | [Defaults to `undefined`] |
+| **duplicateCoachId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCoachMergeLogPreview**](AdminCoachMergeLogPreview.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Merge preview retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -22017,6 +24394,169 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateAdminCoach
+
+> AdminCoach updateAdminCoach(id, createAdminCoachRequest)
+
+
+
+Update a coach\&#39;s editable fields (admin-only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAdminCoachRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    id: id_example,
+    // CreateAdminCoachRequest
+    createAdminCoachRequest: ...,
+  } satisfies UpdateAdminCoachRequest;
+
+  try {
+    const data = await api.updateAdminCoach(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` |  | [Defaults to `undefined`] |
+| **createAdminCoachRequest** | [CreateAdminCoachRequest](CreateAdminCoachRequest.md) |  | |
+
+### Return type
+
+[**AdminCoach**](AdminCoach.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Coach updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unable to update the coach |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAdminContract
+
+> AdminContract updateAdminContract(id, contract, rawContract)
+
+
+
+Update an employment contract, optionally replacing its attached raw contract PDF (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAdminContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+    // CreateAdminContractRequestContract (optional)
+    contract: ...,
+    // CreateAdminContractRequestRawContract (optional)
+    rawContract: ...,
+  } satisfies UpdateAdminContractRequest;
+
+  try {
+    const data = await api.updateAdminContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+| **contract** | [CreateAdminContractRequestContract](CreateAdminContractRequestContract.md) |  | [Optional] [Defaults to `undefined`] |
+| **rawContract** | [CreateAdminContractRequestRawContract](CreateAdminContractRequestRawContract.md) |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminContract**](AdminContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Contract updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateAdminDeskReport
 
 > DeskAdminReportResponse updateAdminDeskReport(uuid, deskAdminReportUpdate)
@@ -22410,7 +24950,7 @@ example().catch(console.error);
 | **200** | Compensation was updated |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not update compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. A client-credentials write is recorded under that system user. |  -  |
-| **404** | Not Found |  -  |
+| **404** | Not Found, or the compensation was deleted by another request while this one waited for its locks. Nothing was written. |  -  |
 | **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. Also returned when contract_status_id is null, blank, not a whole number, or does not exist (errors.contract_status_id); contract_id is a pending contract (errors.contract). |  -  |
 | **409** | A contract_id link is written under the locks a move of that contract takes (the coaches, then the contract). The contract kept moving to other coaches while the request waited for them (errors.contract). Nothing was written; retry. |  -  |
 
@@ -23701,6 +26241,7 @@ example().catch(console.error);
 | **200** | Position was updated |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **409** | The position kept being moved to other coaches by other requests while this one took its locks (errors.position). Nothing was saved; reload the position and retry. A single move is not an error: the update is applied to the position under the coach that now owns it. |  -  |
 | **422** | Unable to update position. Also returned (errors.departing) when the request would change departing on a position that has recorded departure details, because that would erase them with no user or position change log; use PATCH /positions/{positionId}/departure for that change. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -23781,6 +26322,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | A persisted user-backed OAuth token, winad_write scope, and permission to update positions are required. Client-credentials tokens are rejected without saving changes. |  -  |
 | **404** | Position not found |  -  |
+| **409** | The position kept being moved to other coaches by other requests while this one took its locks (errors.position). Nothing was saved; reload the position and retry. A single move is not an error: the update is applied to the position under the coach that now owns it. |  -  |
 | **422** | Invalid fields or values, or a change_note that is not a string (errors.change_note); no changes were saved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
