@@ -10,6 +10,7 @@ Name | Type
 `itemId` | number
 `event` | string
 `changes` | [{ [key: string]: ContractHistoryEntryChangesValue; }](ContractHistoryEntryChangesValue.md)
+`changesUnreadable` | boolean
 `user` | [ContractHistoryEntryUser](ContractHistoryEntryUser.md)
 `oauthApplication` | [ContractHistoryEntryOauthApplication](ContractHistoryEntryOauthApplication.md)
 `createdAt` | Date
@@ -26,6 +27,7 @@ const example = {
   "itemId": null,
   "event": null,
   "changes": {"end_on":{"old":"2028-06-30","new":"2029-06-30"}},
+  "changesUnreadable": null,
   "user": null,
   "oauthApplication": null,
   "createdAt": null,
