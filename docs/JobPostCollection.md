@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `data` | [Array&lt;JobPost&gt;](JobPost.md)
-`meta` | [Meta](Meta.md)
+`meta` | [Meta1](Meta1.md)
 
 ## Example
 

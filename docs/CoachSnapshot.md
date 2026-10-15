@@ -1,11 +1,19 @@
 
 # CoachSnapshot
 
+Target-assignment snapshot. Own pay and contract fields describe that assignment only. Separate latest_known_* fields provide authorized earlier pay with its original year, using the same consecutive-job rule as search. Older 990 base and total are display context; they do not replace current fields, record, income reports or assistant pool.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`latestKnownFallback` | boolean
+`latestKnownCompensationCents` | number
+`latestKnownBaseSalaryCents` | number
+`latestKnownCompensationType` | string
+`latestKnownSourceYear` | number
+`latestKnownSourceCompensationId` | number
+`latestKnownSourceRawContractId` | number
 `seasonYearStr` | string
 `baseCompCents` | number
 `totalCompCents` | number
@@ -26,6 +34,13 @@ import type { CoachSnapshot } from '@winthrop-intelligence/winthrop-client-types
 
 // TODO: Update the object below with actual values
 const example = {
+  "latestKnownFallback": null,
+  "latestKnownCompensationCents": null,
+  "latestKnownBaseSalaryCents": null,
+  "latestKnownCompensationType": null,
+  "latestKnownSourceYear": null,
+  "latestKnownSourceCompensationId": null,
+  "latestKnownSourceRawContractId": null,
   "seasonYearStr": null,
   "baseCompCents": null,
   "totalCompCents": null,
