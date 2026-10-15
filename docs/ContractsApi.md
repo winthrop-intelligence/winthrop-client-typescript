@@ -15,11 +15,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 ## createPendingContract
 
-> PendingContractCreated createPendingContract(coachId, file, driveId, text, contractTerms, changeNote)
+> PendingContractCreated createPendingContract(coachId, file, sourceDriveFileId, expectedSha256, driveId, text, contractTerms, changeNote)
 
 
 
-Upload a PDF to a coach as a pending contract. Creates a RawContract with the file attached and a Contract with pending true (no dates) in one transaction; nothing is created if the request is refused. Requires the winad_write scope and a manage-level user. The file must really be a PDF (its bytes are checked, not its name).
+File a PDF on a coach as a pending contract. Creates a RawContract with the PDF attached and a Contract with pending true (no dates) in one transaction; nothing is created if the request is refused. Requires the winad_write scope and a manage-level user. The PDF must really be a PDF (its bytes are checked, not its name).  Send the PDF by EXACTLY ONE of two inputs (WINAD-10673). A request with neither or with both is refused with 422 (errors.file and errors.source_drive_file_id, code invalid_input) before anything is read or downloaded.  1. &#x60;file&#x60;: a multipart upload of the PDF, as before. Larger bodies than the API gateway\&#39;s request limit (1 MiB by default) cannot take this route. 2. &#x60;source_drive_file_id&#x60; plus &#x60;expected_sha256&#x60;: the server downloads the PDF from Google Drive with its own credentials, so the bytes never pass through the gateway. &#x60;source_drive_file_id&#x60; is a bare Drive file id (letters, digits, \&quot;-\&quot; and \&quot;_\&quot;, 10 to 200 characters), never a URL. &#x60;expected_sha256&#x60; (the 64 hexadecimal characters of the SHA-256 of the reviewed PDF, any case) is required with it and refused with a direct file: if the Drive file\&#39;s bytes hash differently the request is refused (checksum_mismatch), so changed content never replaces reviewed bytes. The file must be a stored PDF the service account can read (a Google Docs document is refused) and at most 25 MiB; the download must finish within 60 seconds (10 seconds to connect, 30 per read).  &#x60;drive_id&#x60; keeps its meaning and is independent of &#x60;source_drive_file_id&#x60;: it is the ORIGINAL source identity, unique per coach (a second request with the same drive_id for the coach is refused with 422 errors.drive_id, whichever Drive file or upload it carries). They may differ, for example when the final composed PDF is a different Drive file from the original. The schema treats a field that is present as sent: leave out the inputs you do not use rather than sending them empty (the server itself tolerates an empty optional field as \&quot;not sent\&quot;). Only &#x60;drive_id&#x60; deduplicates: a Drive-source request without drive_id is not deduplicated, exactly like a direct upload without drive_id.  The request stays synchronous. Order of work: authorization, change_note, coach and input checks, then the Drive download, hash and PDF check (no database lock is held meanwhile), then the same transaction, locks, uniqueness and stored-file cleanup as a direct upload. Nothing is created and no file is left behind by any refusal. The response and the pending visibility are the same for both inputs; &#x60;filename&#x60; is the Drive file\&#39;s name for a Drive source.  Refusals of the Drive source carry a stable machine-readable &#x60;code&#x60; next to &#x60;errors&#x60;: invalid_input (422, a malformed param or the wrong number of inputs), source_unavailable (422, the Drive file does not exist or is not shared with the service account), source_too_large (422), invalid_pdf (422, the bytes are not a PDF or the Drive file is a Google document), checksum_mismatch (422, the message names the hash the Drive file really has), source_timeout and source_error (503 with a Retry-After header: Drive was slow, down or throttling, refused the download, cut the connection before the whole file arrived, or the service credentials failed; the same request may be repeated unchanged, nothing was created). 
 
 ### Example
 
@@ -43,9 +43,13 @@ async function example() {
   const body = {
     // number | The coach the contract is filed on
     coachId: 56,
-    // Blob | The contract PDF
+    // Blob | The contract PDF as a multipart upload. Exactly one of file and source_drive_file_id is required. (optional)
     file: BINARY_DATA_HERE,
-    // string | Optional Google Drive id; must be unique for the coach (optional)
+    // string | Google Drive file id of the PDF to download (not a URL; an id with a slash, a dot or a scheme is refused). Exactly one of file and source_drive_file_id is required, and expected_sha256 goes with it. NOT the deduplication id, see drive_id. (optional)
+    sourceDriveFileId: sourceDriveFileId_example,
+    // string | SHA-256 (64 hexadecimal characters, any case) of the PDF that was reviewed. Required with source_drive_file_id, refused with file. The request is refused with checksum_mismatch when the downloaded bytes hash differently. (optional)
+    expectedSha256: expectedSha256_example,
+    // string | Optional original Google Drive id of the source document, the contract\\\'s deduplication identity; must be unique for the coach. Independent of source_drive_file_id, which may be a different (final) Drive file. (optional)
     driveId: driveId_example,
     // string | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\"\\\\n\\\\f\\\\n\\\"). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. (optional)
     text: text_example,
@@ -73,8 +77,10 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` | The coach the contract is filed on | [Defaults to `undefined`] |
-| **file** | `Blob` | The contract PDF | [Defaults to `undefined`] |
-| **driveId** | `string` | Optional Google Drive id; must be unique for the coach | [Optional] [Defaults to `undefined`] |
+| **file** | `Blob` | The contract PDF as a multipart upload. Exactly one of file and source_drive_file_id is required. | [Optional] [Defaults to `undefined`] |
+| **sourceDriveFileId** | `string` | Google Drive file id of the PDF to download (not a URL; an id with a slash, a dot or a scheme is refused). Exactly one of file and source_drive_file_id is required, and expected_sha256 goes with it. NOT the deduplication id, see drive_id. | [Optional] [Defaults to `undefined`] |
+| **expectedSha256** | `string` | SHA-256 (64 hexadecimal characters, any case) of the PDF that was reviewed. Required with source_drive_file_id, refused with file. The request is refused with checksum_mismatch when the downloaded bytes hash differently. | [Optional] [Defaults to `undefined`] |
+| **driveId** | `string` | Optional original Google Drive id of the source document, the contract\\\&#39;s deduplication identity; must be unique for the coach. Independent of source_drive_file_id, which may be a different (final) Drive file. | [Optional] [Defaults to `undefined`] |
 | **text** | `string` | Optional Mistral markdown already produced for this PDF, pages separated by a form feed line (\\\&quot;\\\\n\\\\f\\\\n\\\&quot;). When present it is stored as the contract text and no automatic OCR is queued; when absent one automatic OCR job is queued. | [Optional] [Defaults to `undefined`] |
 | **contractTerms** | `string` | Optional structured terms read from the contract, as a JSON-encoded ContractTerms object (see PATCH /raw_contracts/{id}/contract_terms). Stored on the RawContract in the same transaction; an invalid document refuses the upload with errors keyed contract_terms, contract_terms.schema, contract_terms.source.run_id, and so on. Accepted from service (client-credentials) tokens like the rest of the upload; the audit version then records no person. | [Optional] [Defaults to `undefined`] |
 | **changeNote** | `string` | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates, the records it saves as side effects included, and read back through GET /contract_history. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. | [Optional] [Defaults to `undefined`] |
@@ -99,7 +105,8 @@ example().catch(console.error);
 | **201** | The pending contract was created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope or not permitted to create contracts) |  -  |
-| **422** | The upload was refused (unknown coach, missing or non-PDF file, duplicate drive_id, invalid contract_terms). Nothing was created. |  -  |
+| **422** | The upload was refused (unknown coach, neither or both of file and source_drive_file_id, malformed source_drive_file_id or expected_sha256, non-PDF file, duplicate drive_id, invalid contract_terms, or a Drive file that is missing, too large, not a PDF or does not match expected_sha256). Drive-source refusals carry a &#x60;code&#x60;. Nothing was created. |  -  |
+| **503** | The Drive source could not be read right now (code source_timeout or source_error). Retry the same request after the number of seconds in the Retry-After header. Nothing was created. |  * Retry-After - Seconds to wait before repeating the request <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
