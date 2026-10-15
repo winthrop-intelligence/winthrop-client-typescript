@@ -24,6 +24,7 @@ Name | Type
 `instagramHandle` | string
 `instagramVerified` | boolean
 `bio` | string
+`bioText` | string
 `coachFriendlyId` | string
 `departing` | boolean
 `currentSchoolName` | string
@@ -33,6 +34,7 @@ Name | Type
 `currentPositionTypes` | Array&lt;string&gt;
 `headerPositionSeasonYearStr` | string
 `headerPositionHistorical` | boolean
+`headerAssignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `avatarUrl` | string
 `canSeeCompensation` | boolean
 `canSeeVideos` | boolean
@@ -65,6 +67,7 @@ const example = {
   "instagramHandle": null,
   "instagramVerified": null,
   "bio": null,
+  "bioText": null,
   "coachFriendlyId": null,
   "departing": null,
   "currentSchoolName": null,
@@ -74,6 +77,7 @@ const example = {
   "currentPositionTypes": null,
   "headerPositionSeasonYearStr": null,
   "headerPositionHistorical": null,
+  "headerAssignments": null,
   "avatarUrl": null,
   "canSeeCompensation": null,
   "canSeeVideos": null,

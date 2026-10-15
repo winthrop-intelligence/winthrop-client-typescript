@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `name` | string
 `title` | string
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `coachId` | number
 `photoUrl` | string
 
@@ -20,6 +21,7 @@ import type { SchedulingContactPerson } from '@winthrop-intelligence/winthrop-cl
 const example = {
   "name": null,
   "title": null,
+  "assignments": null,
   "coachId": null,
   "photoUrl": null,
 } satisfies SchedulingContactPerson
