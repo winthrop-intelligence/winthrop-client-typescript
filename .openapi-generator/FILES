@@ -142,6 +142,7 @@ docs/CoachCompensationTabQuartiles.md
 docs/CoachCompensationTabQuartilesRowsInner.md
 docs/CoachCompensationTabSidebar.md
 docs/CoachCompensationTabSidebarCoachingStaffInner.md
+docs/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.md
 docs/CoachCompensationTabSidebarContractsInner.md
 docs/CoachCompensationTabSidebarIncomeReportsInner.md
 docs/CoachCoworkerHistoryTab.md
@@ -640,9 +641,7 @@ docs/NewsFeedCollection.md
 docs/Note.md
 docs/PageView.md
 docs/PendingContractCreated.md
-docs/PerformanceChartCoach.md
-docs/PerformanceChartData.md
-docs/PerformanceChartRecord.md
+docs/PersonAssignment.md
 docs/Position.md
 docs/PositionCollection.md
 docs/PositionDepartureRequest.md
@@ -1015,6 +1014,7 @@ src/models/CoachCompensationTabQuartiles.ts
 src/models/CoachCompensationTabQuartilesRowsInner.ts
 src/models/CoachCompensationTabSidebar.ts
 src/models/CoachCompensationTabSidebarCoachingStaffInner.ts
+src/models/CoachCompensationTabSidebarCoachingStaffInnerSalarySource.ts
 src/models/CoachCompensationTabSidebarContractsInner.ts
 src/models/CoachCompensationTabSidebarIncomeReportsInner.ts
 src/models/CoachCoworkerHistoryTab.ts
@@ -1506,9 +1506,7 @@ src/models/NewsFeedCollection.ts
 src/models/Note.ts
 src/models/PageView.ts
 src/models/PendingContractCreated.ts
-src/models/PerformanceChartCoach.ts
-src/models/PerformanceChartData.ts
-src/models/PerformanceChartRecord.ts
+src/models/PersonAssignment.ts
 src/models/Position.ts
 src/models/PositionCollection.ts
 src/models/PositionDepartureRequest.ts

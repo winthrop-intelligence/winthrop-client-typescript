@@ -9,6 +9,7 @@ Name | Type
 `yearStr` | string
 `schoolName` | string
 `schoolId` | number
+`assignments` | [Array&lt;PersonAssignment&gt;](PersonAssignment.md)
 `positionSport` | string
 `totalCents` | number
 `baseSalaryCents` | number
@@ -35,6 +36,7 @@ const example = {
   "yearStr": null,
   "schoolName": null,
   "schoolId": null,
+  "assignments": null,
   "positionSport": null,
   "totalCents": null,
   "baseSalaryCents": null,
