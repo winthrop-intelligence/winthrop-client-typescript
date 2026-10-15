@@ -21659,7 +21659,7 @@ example().catch(console.error);
 
 
 
-Search coaches by priority_ids and Ransack filters
+Search coaches by priority_ids and Ransack filters. A search that filters or sorts on pay returns only people whose latest_salary the caller may see. Pay is any pay-like column (latest_salary, latest_salary_year, positions.compensation_id, ...) and any condition or sort whose association path passes through a pay table (compensations, contracts, raw_contracts, income_reports, termination_agreements), whatever the final column. A column directly on the person\&#39;s own pay records (compensations_&lt;column&gt;, contracts_&lt;column&gt;, income_reports_&lt;column&gt;, termination_agreements_&lt;column&gt;, positions_compensation_&lt;column&gt;, current_position_compensation_&lt;column&gt;, next_position_compensation_&lt;column&gt;) also leaves the person out if any of those records is hidden from the caller. Any other path to pay, including one that continues past those records (e.g. compensations_contract_status_name_eq, contracts_raw_contract_text_cont, or co-workers\&#39; pay through positions_season_positions_compensation_*), is unsupported: it returns no results unless the caller is a super admin or service connection, even with both pay roles. Searches that do not touch pay are unaffected.
 
 ### Example
 
