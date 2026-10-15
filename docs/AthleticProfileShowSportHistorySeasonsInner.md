@@ -18,6 +18,7 @@ Name | Type
 `conferenceWins` | number
 `postseason` | string
 `spendCents` | number
+`spendBasis` | string
 
 ## Example
 
@@ -38,6 +39,7 @@ const example = {
   "conferenceWins": null,
   "postseason": null,
   "spendCents": null,
+  "spendBasis": null,
 } satisfies AthleticProfileShowSportHistorySeasonsInner
 
 console.log(example)
