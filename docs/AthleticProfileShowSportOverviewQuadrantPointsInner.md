@@ -13,6 +13,7 @@ Name | Type
 `isSubject` | boolean
 `spendCents` | number
 `spendYear` | number
+`spendBasis` | string
 `netRank` | number
 `rpi` | number
 `conferenceWins` | number
@@ -33,6 +34,7 @@ const example = {
   "isSubject": null,
   "spendCents": null,
   "spendYear": null,
+  "spendBasis": null,
   "netRank": null,
   "rpi": null,
   "conferenceWins": null,
