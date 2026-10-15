@@ -1,7 +1,7 @@
 
 # AthleticProfileShowSportCoachStaffStaffPool
 
-Assistant pool vs the cohort; null when compensation is not permitted.
+Assistant pool vs the cohort. Null when compensation is not permitted, and null when the school has no complete pool — a pool is a total only when every assistant on the roster carries a filed salary for the season (WINAD-10443).
 
 ## Properties
 

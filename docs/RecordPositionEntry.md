@@ -16,8 +16,11 @@ Name | Type
 `netRank` | string
 `apRank` | string
 `aprAsr` | string
+`academicMetric` | string
 `coachApr` | number
 `departing` | boolean
+`headCoach` | boolean
+`assistantCoach` | boolean
 `usNews` | string
 `directorsCup` | string
 
@@ -38,8 +41,11 @@ const example = {
   "netRank": null,
   "apRank": null,
   "aprAsr": null,
+  "academicMetric": null,
   "coachApr": null,
   "departing": null,
+  "headCoach": null,
+  "assistantCoach": null,
   "usNews": null,
   "directorsCup": null,
 } satisfies RecordPositionEntry

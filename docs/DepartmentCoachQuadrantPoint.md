@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`spendBasis` | string
 `spendPercentile` | number
 `resultPercentile` | number
 `resultLabel` | string
@@ -17,6 +18,7 @@ import type { DepartmentCoachQuadrantPoint } from '@winthrop-intelligence/winthr
 
 // TODO: Update the object below with actual values
 const example = {
+  "spendBasis": null,
   "spendPercentile": null,
   "resultPercentile": null,
   "resultLabel": null,
