@@ -9,7 +9,6 @@ Name | Type
 `sport` | string
 `yearStr` | string
 `schoolName` | string
-`schoolFullName` | string
 `schoolId` | number
 `positionSport` | string
 `record` | string
@@ -17,6 +16,7 @@ Name | Type
 `netRank` | string
 `apRank` | string
 `aprAsr` | string
+`academicMetric` | string
 `coachApr` | number
 `departing` | boolean
 `headCoach` | boolean
@@ -34,7 +34,6 @@ const example = {
   "sport": null,
   "yearStr": null,
   "schoolName": null,
-  "schoolFullName": null,
   "schoolId": null,
   "positionSport": null,
   "record": null,
@@ -42,6 +41,7 @@ const example = {
   "netRank": null,
   "apRank": null,
   "aprAsr": null,
+  "academicMetric": null,
   "coachApr": null,
   "departing": null,
   "headCoach": null,

@@ -38,12 +38,6 @@ export interface RecordPositionEntry {
      */
     schoolName: string;
     /**
-     * Full school name for performance charts and accessible summaries.
-     * @type {string}
-     * @memberof RecordPositionEntry
-     */
-    schoolFullName: string;
-    /**
      * 
      * @type {number}
      * @memberof RecordPositionEntry
@@ -86,6 +80,12 @@ export interface RecordPositionEntry {
      */
     aprAsr?: string | null;
     /**
+     * The measure in apr_asr, selected using the same school division rule; null for administrator rows.
+     * @type {string}
+     * @memberof RecordPositionEntry
+     */
+    academicMetric: RecordPositionEntryAcademicMetricEnum | null;
+    /**
      * 
      * @type {number}
      * @memberof RecordPositionEntry
@@ -98,13 +98,13 @@ export interface RecordPositionEntry {
      */
     departing?: boolean | null;
     /**
-     * True when the position includes the Head Coach position type (interim head coach is not included).
+     * True when the position includes Head Coach or Interim Head Coach.
      * @type {boolean}
      * @memberof RecordPositionEntry
      */
     headCoach?: boolean;
     /**
-     * True when the position includes a coaching type in the Assistant Coaches group, excluding Offensive, Defensive and Special Teams Analysts. A season can be neither head coach nor assistant, e.g. an interim head coach, analyst or operations role.
+     * True when the position includes a coaching type in the Assistant Coaches group, excluding Offensive, Defensive and Special Teams Analysts. A season can be neither head coach nor assistant, e.g. an analyst or operations role.
      * @type {boolean}
      * @memberof RecordPositionEntry
      */
@@ -123,6 +123,17 @@ export interface RecordPositionEntry {
     directorsCup?: string | null;
 }
 
+
+/**
+ * @export
+ */
+export const RecordPositionEntryAcademicMetricEnum = {
+    Apr: 'APR',
+    Asr: 'ASR'
+} as const;
+export type RecordPositionEntryAcademicMetricEnum = typeof RecordPositionEntryAcademicMetricEnum[keyof typeof RecordPositionEntryAcademicMetricEnum];
+
+
 /**
  * Check if a given object implements the RecordPositionEntry interface.
  */
@@ -130,9 +141,9 @@ export function instanceOfRecordPositionEntry(value: object): value is RecordPos
     if (!('sport' in value) || value['sport'] === undefined) return false;
     if (!('yearStr' in value) || value['yearStr'] === undefined) return false;
     if (!('schoolName' in value) || value['schoolName'] === undefined) return false;
-    if (!('schoolFullName' in value) || value['schoolFullName'] === undefined) return false;
     if (!('schoolId' in value) || value['schoolId'] === undefined) return false;
     if (!('positionSport' in value) || value['positionSport'] === undefined) return false;
+    if (!('academicMetric' in value) || value['academicMetric'] === undefined) return false;
     return true;
 }
 
@@ -149,7 +160,6 @@ export function RecordPositionEntryFromJSONTyped(json: any, ignoreDiscriminator:
         'sport': json['sport'],
         'yearStr': json['year_str'],
         'schoolName': json['school_name'],
-        'schoolFullName': json['school_full_name'],
         'schoolId': json['school_id'],
         'positionSport': json['position_sport'],
         'record': json['record'] == null ? undefined : json['record'],
@@ -157,6 +167,7 @@ export function RecordPositionEntryFromJSONTyped(json: any, ignoreDiscriminator:
         'netRank': json['net_rank'] == null ? undefined : json['net_rank'],
         'apRank': json['ap_rank'] == null ? undefined : json['ap_rank'],
         'aprAsr': json['apr_asr'] == null ? undefined : json['apr_asr'],
+        'academicMetric': json['academic_metric'],
         'coachApr': json['coach_apr'] == null ? undefined : json['coach_apr'],
         'departing': json['departing'] == null ? undefined : json['departing'],
         'headCoach': json['head_coach'] == null ? undefined : json['head_coach'],
@@ -180,7 +191,6 @@ export function RecordPositionEntryToJSONTyped(value?: RecordPositionEntry | nul
         'sport': value['sport'],
         'year_str': value['yearStr'],
         'school_name': value['schoolName'],
-        'school_full_name': value['schoolFullName'],
         'school_id': value['schoolId'],
         'position_sport': value['positionSport'],
         'record': value['record'],
@@ -188,6 +198,7 @@ export function RecordPositionEntryToJSONTyped(value?: RecordPositionEntry | nul
         'net_rank': value['netRank'],
         'ap_rank': value['apRank'],
         'apr_asr': value['aprAsr'],
+        'academic_metric': value['academicMetric'],
         'coach_apr': value['coachApr'],
         'departing': value['departing'],
         'head_coach': value['headCoach'],

@@ -68,7 +68,7 @@ export interface GetFavorites200ResponseInner {
      */
     avatarUrl?: string | null;
     /**
-     * True when the favorited coach is an administrator. Administrators are Coach records carrying the leader flag, so they share favoritable_type "Coach" with coaches and this is what tells the two apart. Present for Coach favorites when detailed=1, and absent for every other favoritable type.
+     * True when the favorited person reads as an administrator: every position they hold in their header season (the latest season up to the current one) is in the ADMIN sport. Administrators are Coach records, so they share favoritable_type "Coach" with coaches and this is what tells the two apart. Present for Coach favorites when detailed=1, and absent for every other favoritable type.
      * @type {boolean}
      * @memberof GetFavorites200ResponseInner
      */

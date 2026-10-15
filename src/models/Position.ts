@@ -133,6 +133,24 @@ export interface Position {
      */
     departingSetAt?: Date;
     /**
+     * Date the person left the position (YYYY-MM-DD), as recorded through PATCH /positions/{positionId}/departure or the admin departing form. null when none is recorded, as on every departure that was only ticked before this field existed. Unlike departing_set_at, which is when the box was ticked, this is when the person actually left. Returned to every caller who can read positions. Read-only here.
+     * @type {Date}
+     * @memberof Position
+     */
+    readonly departureOn?: Date | null;
+    /**
+     * Recorded reason for the departure. null when none is recorded. Staff only. The key is absent (not null) in responses to callers who may not update positions, such as customers. Read-only here.
+     * @type {string}
+     * @memberof Position
+     */
+    readonly departureReason?: string | null;
+    /**
+     * Public source URL for the departure. null when none is recorded. Staff only. The key is absent (not null) in responses to callers who may not update positions, such as customers. Read-only here.
+     * @type {string}
+     * @memberof Position
+     */
+    readonly departureSourceUrl?: string | null;
+    /**
      * Write-only control flag for trusted automation. When true and departing is set to true, WinAD does not stamp departing_set_at, so historical/catch-up departures are not published as current wire events. Ignored on responses.
      * @type {boolean}
      * @memberof Position
@@ -256,6 +274,9 @@ export function PositionFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'departing': json['departing'] == null ? undefined : json['departing'],
         'terminated': json['terminated'] == null ? undefined : json['terminated'],
         'departingSetAt': json['departing_set_at'] == null ? undefined : (new Date(json['departing_set_at'])),
+        'departureOn': json['departure_on'] == null ? undefined : (new Date(json['departure_on'])),
+        'departureReason': json['departure_reason'] == null ? undefined : json['departure_reason'],
+        'departureSourceUrl': json['departure_source_url'] == null ? undefined : json['departure_source_url'],
         'suppressDepartingSetAt': json['suppress_departing_set_at'] == null ? undefined : json['suppress_departing_set_at'],
         'creationReason': json['creation_reason'] == null ? undefined : json['creation_reason'],
         'creationReasonUpdatedAt': json['creation_reason_updated_at'] == null ? undefined : (new Date(json['creation_reason_updated_at'])),
@@ -276,7 +297,7 @@ export function PositionToJSON(json: any): Position {
     return PositionToJSONTyped(json, false);
 }
 
-export function PositionToJSONTyped(value?: Omit<Position, 'terminated'> | null, ignoreDiscriminator: boolean = false): any {
+export function PositionToJSONTyped(value?: Omit<Position, 'terminated'|'departure_on'|'departure_reason'|'departure_source_url'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

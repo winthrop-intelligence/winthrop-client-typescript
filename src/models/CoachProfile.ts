@@ -58,7 +58,7 @@ export interface CoachProfile {
      */
     phone?: string | null;
     /**
-     * 
+     * True when the profile reads as an administrator's: every position the person holds in their header season (the latest season up to the current one) is in the ADMIN sport.
      * @type {boolean}
      * @memberof CoachProfile
      */

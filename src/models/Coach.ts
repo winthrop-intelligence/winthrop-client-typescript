@@ -64,11 +64,11 @@ export interface Coach {
      */
     phone?: string;
     /**
-     * 
+     * True when the person reads as an administrator: every position they hold in their header season (the latest season up to the current one) is in the ADMIN sport. Derived from positions; it cannot be set.
      * @type {boolean}
      * @memberof Coach
      */
-    leader?: boolean;
+    readonly leader?: boolean;
     /**
      * 
      * @type {string}
@@ -166,13 +166,13 @@ export interface Coach {
      */
     avatarScrapingDisabled?: boolean;
     /**
-     * Only included when the user has coach_compensation permission for this coach. For leader/administrator coaches, this requires administrator_compensation access.
+     * Only included when the user may see this person's pay. Pay follows each side the person is on: someone with only ADMIN-sport positions needs administrator_compensation access, someone with coaching positions (or none) needs coach_compensation access, and someone with both is reachable through either. Each pay side also needs its matching profile access.
      * @type {number}
      * @memberof Coach
      */
     latestSalary?: number;
     /**
-     * Only included when the user has coach_compensation permission for this coach. For leader/administrator coaches, this requires administrator_compensation access.
+     * Only included when the user may see this person's pay. Pay follows each side the person is on: someone with only ADMIN-sport positions needs administrator_compensation access, someone with coaching positions (or none) needs coach_compensation access, and someone with both is reachable through either. Each pay side also needs its matching profile access.
      * @type {number}
      * @memberof Coach
      */
@@ -270,7 +270,7 @@ export function CoachToJSON(json: any): Coach {
     return CoachToJSONTyped(json, false);
 }
 
-export function CoachToJSONTyped(value?: Coach | null, ignoreDiscriminator: boolean = false): any {
+export function CoachToJSONTyped(value?: Omit<Coach, 'leader'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -283,7 +283,6 @@ export function CoachToJSONTyped(value?: Coach | null, ignoreDiscriminator: bool
         'last_name': value['lastName'],
         'email': value['email'],
         'phone': value['phone'],
-        'leader': value['leader'],
         'bio': value['bio'],
         'bio_text': value['bioText'],
         'dob': value['dob'] == null ? value['dob'] : value['dob'].toISOString().substring(0,10),

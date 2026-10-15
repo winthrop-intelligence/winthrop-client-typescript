@@ -35,7 +35,7 @@ import {
  */
 export interface CoachRecordTab {
     /**
-     * 
+     * Same as CoachProfile.leader (the profile reads as an administrator's).
      * @type {boolean}
      * @memberof CoachRecordTab
      */
