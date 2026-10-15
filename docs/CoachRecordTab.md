@@ -10,7 +10,6 @@ Name | Type
 `showCoachApr` | boolean
 `positions` | [Array&lt;RecordPositionEntry&gt;](RecordPositionEntry.md)
 `conferencePositions` | [Array&lt;ConferencePositionEntry&gt;](ConferencePositionEntry.md)
-`performanceChart` | [PerformanceChartData](PerformanceChartData.md)
 
 ## Example
 
@@ -23,7 +22,6 @@ const example = {
   "showCoachApr": null,
   "positions": null,
   "conferencePositions": null,
-  "performanceChart": null,
 } satisfies CoachRecordTab
 
 console.log(example)
