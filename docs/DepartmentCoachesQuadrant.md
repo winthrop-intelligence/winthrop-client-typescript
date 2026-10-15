@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`eadaFallbackCount` | number
+`spendBasis` | string
 `spendFiscalYear` | number
 `spendCohort` | string
 `plottedCount` | number
@@ -18,6 +20,8 @@ import type { DepartmentCoachesQuadrant } from '@winthrop-intelligence/winthrop-
 
 // TODO: Update the object below with actual values
 const example = {
+  "eadaFallbackCount": null,
+  "spendBasis": null,
   "spendFiscalYear": null,
   "spendCohort": null,
   "plottedCount": null,
