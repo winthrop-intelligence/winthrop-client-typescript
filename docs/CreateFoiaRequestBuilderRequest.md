@@ -1,24 +1,22 @@
 
-# DepartmentOverviewPrivateCoverage
+# CreateFoiaRequestBuilderRequest
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`percent` | number
-`provisional` | boolean
+`foiaRequestBuilder` | [CreateFoiaRequestBuilderRequestFoiaRequestBuilder](CreateFoiaRequestBuilderRequestFoiaRequestBuilder.md)
 
 ## Example
 
 ```typescript
-import type { DepartmentOverviewPrivateCoverage } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { CreateFoiaRequestBuilderRequest } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "percent": null,
-  "provisional": null,
-} satisfies DepartmentOverviewPrivateCoverage
+  "foiaRequestBuilder": null,
+} satisfies CreateFoiaRequestBuilderRequest
 
 console.log(example)
 
@@ -27,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DepartmentOverviewPrivateCoverage
+const exampleParsed = JSON.parse(exampleJSON) as CreateFoiaRequestBuilderRequest
 console.log(exampleParsed)
 ```
 
