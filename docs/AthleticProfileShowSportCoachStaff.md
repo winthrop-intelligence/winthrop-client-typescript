@@ -10,10 +10,12 @@ Name | Type
 `seasonYear` | number
 `conferenceName` | string
 `resultsLens` | string
+`compBasis` | string
 `quadrantPoints` | [Array&lt;AthleticProfileShowSportCoachStaffQuadrantPointsInner&gt;](AthleticProfileShowSportCoachStaffQuadrantPointsInner.md)
 `headCoach` | [AthleticProfileShowSportCoachStaffHeadCoach](AthleticProfileShowSportCoachStaffHeadCoach.md)
 `assistants` | [Array&lt;AthleticProfileShowSportCoachStaffAssistantsInner&gt;](AthleticProfileShowSportCoachStaffAssistantsInner.md)
 `staffPool` | [AthleticProfileShowSportCoachStaffStaffPool](AthleticProfileShowSportCoachStaffStaffPool.md)
+`rosterPoolCents` | number
 `supportStaff` | [Array&lt;AthleticProfileShowSportCoachStaffSupportStaffInner&gt;](AthleticProfileShowSportCoachStaffSupportStaffInner.md)
 `asOf` | Date
 
@@ -27,10 +29,12 @@ const example = {
   "seasonYear": null,
   "conferenceName": null,
   "resultsLens": null,
+  "compBasis": null,
   "quadrantPoints": null,
   "headCoach": null,
   "assistants": null,
   "staffPool": null,
+  "rosterPoolCents": null,
   "supportStaff": null,
   "asOf": null,
 } satisfies AthleticProfileShowSportCoachStaff

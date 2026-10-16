@@ -1,13 +1,15 @@
 
 # AthleticProfileShowSportCoachStaffStaffPool
 
-Assistant pool vs the cohort; null when compensation is not permitted.
+Assistant pool vs the conference cohort, on one basis for every school. FRS assistant coaching totals (EXP_ASSISTANT_COACHES plus third party) when the subject and every cohort school filed them for the season; otherwise complete contract pools (every assistant priced, WINAD-10443) when every school has one. Null when no basis covers every school — the comparison is never shown over partial or mixed pools (WINAD-10444) — and for a private school.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
 `poolCents` | number
+`basis` | string
+`fiscalYear` | number
 `cohortSize` | number
 `cohortRank` | number
 `medianCents` | number
@@ -20,6 +22,8 @@ import type { AthleticProfileShowSportCoachStaffStaffPool } from '@winthrop-inte
 // TODO: Update the object below with actual values
 const example = {
   "poolCents": null,
+  "basis": null,
+  "fiscalYear": null,
   "cohortSize": null,
   "cohortRank": null,
   "medianCents": null,
