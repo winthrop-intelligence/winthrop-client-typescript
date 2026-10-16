@@ -1,12 +1,13 @@
 
 # DepartmentAdministratorsScorecard
 
-The administrators\' scorecard. The x-axis is the FRS support-staff payroll for the filing year; the y-axis is the Directors\' Cup season the cohort actually has on file, which may be labelled by the following year, so both are reported
+The administrators\' scorecard uses FRS support-staff payroll for public subjects and EADA expense not allocated by team for private subjects. Money reads the fiscal year before the selected season; only the current season may fall back one year. Cup standings read only the selected season. Missing standings produce a gap, including for the current season; the financial-year fallback never applies to results.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`spendBasis` | string
 `spendFiscalYear` | number
 `resultsYear` | number
 `spendLine` | string
@@ -22,6 +23,7 @@ import type { DepartmentAdministratorsScorecard } from '@winthrop-intelligence/w
 
 // TODO: Update the object below with actual values
 const example = {
+  "spendBasis": null,
   "spendFiscalYear": null,
   "resultsYear": null,
   "spendLine": null,

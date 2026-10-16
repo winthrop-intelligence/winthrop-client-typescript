@@ -9,10 +9,13 @@ Name | Type
 ------------ | -------------
 `seasonYear` | number
 `conferenceName` | string
+`availableFiscalYears` | Array&lt;number&gt;
 `quadrant` | [AthleticProfileShowSportFinancialsQuadrant](AthleticProfileShowSportFinancialsQuadrant.md)
 `frsSplit` | [AthleticProfileShowSportFinancialsFrsSplit](AthleticProfileShowSportFinancialsFrsSplit.md)
+`eadaSportLine` | [AthleticProfileShowSportFinancialsEadaSportLine](AthleticProfileShowSportFinancialsEadaSportLine.md)
 `costBuild` | [AthleticProfileShowSportFinancialsCostBuild](AthleticProfileShowSportFinancialsCostBuild.md)
 `costPerWin` | [AthleticProfileShowSportFinancialsCostPerWin](AthleticProfileShowSportFinancialsCostPerWin.md)
+`programCostPerWin` | [AthleticProfileShowSportFinancialsProgramCostPerWin](AthleticProfileShowSportFinancialsProgramCostPerWin.md)
 `deptLine` | [AthleticProfileShowSportFinancialsDeptLine](AthleticProfileShowSportFinancialsDeptLine.md)
 `asOf` | Date
 
@@ -25,10 +28,13 @@ import type { AthleticProfileShowSportFinancials } from '@winthrop-intelligence/
 const example = {
   "seasonYear": null,
   "conferenceName": null,
+  "availableFiscalYears": null,
   "quadrant": null,
   "frsSplit": null,
+  "eadaSportLine": null,
   "costBuild": null,
   "costPerWin": null,
+  "programCostPerWin": null,
   "deptLine": null,
   "asOf": null,
 } satisfies AthleticProfileShowSportFinancials
