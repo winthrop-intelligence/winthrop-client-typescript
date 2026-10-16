@@ -11,8 +11,12 @@ Name | Type
 `adCoachId` | number
 `adSalaryCents` | number
 `financialsReported` | boolean
+`financialsBasis` | string
+`financialsBasisYear` | number
 `revenueCents` | number
 `expenseCents` | number
+`footballRevenueCents` | number
+`mensBasketballRevenueCents` | number
 `budgetRank` | number
 `budgetRankOf` | number
 `budgetRankConferenceName` | string
@@ -30,8 +34,12 @@ const example = {
   "adCoachId": null,
   "adSalaryCents": null,
   "financialsReported": null,
+  "financialsBasis": null,
+  "financialsBasisYear": null,
   "revenueCents": null,
   "expenseCents": null,
+  "footballRevenueCents": null,
+  "mensBasketballRevenueCents": null,
   "budgetRank": null,
   "budgetRankOf": null,
   "budgetRankConferenceName": null,

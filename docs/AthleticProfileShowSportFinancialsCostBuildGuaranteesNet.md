@@ -1,6 +1,7 @@
 
 # AthleticProfileShowSportFinancialsCostBuildGuaranteesNet
 
+Private schools only — guarantee agreements on record (paid out and received in). Null for a public school, whose guarantees are read from the FRS filing (report_lines, guarantees_received).
 
 ## Properties
 

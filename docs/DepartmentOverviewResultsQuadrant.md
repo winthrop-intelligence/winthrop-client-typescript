@@ -1,12 +1,14 @@
 
 # DepartmentOverviewResultsQuadrant
 
-Spend against results. The x-axis is the selected filing year; the y-axis is the Directors\' Cup season the cohort actually has on file, which may be labelled by the following year, so both are reported
+One fiscal year of spending against the selected Directors\' Cup season. Fiscal year is season ending year minus one; only the current season may fall back one year. Private subjects use EADA for all peers; public subjects prefer FRS per dot.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`eadaFallbackCount` | number
+`basis` | string
 `spendYear` | number
 `resultsYear` | number
 `metric` | string
@@ -21,6 +23,8 @@ import type { DepartmentOverviewResultsQuadrant } from '@winthrop-intelligence/w
 
 // TODO: Update the object below with actual values
 const example = {
+  "eadaFallbackCount": null,
+  "basis": null,
   "spendYear": null,
   "resultsYear": null,
   "metric": null,
