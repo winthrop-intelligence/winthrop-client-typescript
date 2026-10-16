@@ -1,7 +1,7 @@
 
 # DepartmentCoachesResultWindow
 
-Season-year bounds the results lens may read from — the client renders the results-axis label from these instead of recreating the window policy
+Both bounds equal the selected season ending year. Each sport result, conference finish and national result percentile reads that season only.
 
 ## Properties
 

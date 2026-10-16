@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`basis` | string
 `schoolId` | number
 `name` | string
 `isSubject` | boolean
@@ -20,6 +21,7 @@ import type { DepartmentOverviewQuadrantPoint } from '@winthrop-intelligence/win
 
 // TODO: Update the object below with actual values
 const example = {
+  "basis": null,
   "schoolId": null,
   "name": null,
   "isSubject": null,
