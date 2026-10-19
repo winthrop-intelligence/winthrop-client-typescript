@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.16
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.39244052759
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -77,6 +77,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *ContractsApi* | [**replaceContractFile**](docs/ContractsApi.md#replacecontractfile) | **PUT** /api/v1/contracts/{contractId}/file | 
 *ContractsApi* | [**updateContract**](docs/ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} | 
 *CtbApi* | [**applyCtbCompensation**](docs/CtbApi.md#applyctbcompensation) | **POST** /api/v1/ctb_compensation_apply | 
+*DefaultApi* | [**archiveAdminFoiaLabels**](docs/DefaultApi.md#archiveadminfoialabels) | **POST** /api/v1/admin/foia_labels/{id}/archive | 
 *DefaultApi* | [**averageConferenceComp**](docs/DefaultApi.md#averageconferencecomp) | **GET** /api/v1/compensations/average_conference_comp | 
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
 *DefaultApi* | [**averageSchoolComp**](docs/DefaultApi.md#averageschoolcomp) | **GET** /api/v1/compensations/average_school_comp | 
@@ -100,6 +101,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createAdminContract**](docs/DefaultApi.md#createadmincontract) | **POST** /api/v1/admin/contracts | 
 *DefaultApi* | [**createAdminDeskReport**](docs/DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports | 
 *DefaultApi* | [**createAdminDeskReportArtifact**](docs/DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts | 
+*DefaultApi* | [**createAdminFoiaContacts**](docs/DefaultApi.md#createadminfoiacontacts) | **POST** /api/v1/admin/foia_contacts | 
+*DefaultApi* | [**createAdminFoiaLabels**](docs/DefaultApi.md#createadminfoialabels) | **POST** /api/v1/admin/foia_labels | 
+*DefaultApi* | [**createAdminFoiaRequestBuilder**](docs/DefaultApi.md#createadminfoiarequestbuilder) | **POST** /api/v1/admin/foia_request_builder | 
+*DefaultApi* | [**createAdminFoiaRequestBulkQuickActions**](docs/DefaultApi.md#createadminfoiarequestbulkquickactionsoperation) | **POST** /api/v1/admin/foia_requests/{id}/bulk_quick_actions | 
+*DefaultApi* | [**createAdminFoiaRequests**](docs/DefaultApi.md#createadminfoiarequests) | **POST** /api/v1/admin/foia_requests | 
 *DefaultApi* | [**createAdminIncomeReport**](docs/DefaultApi.md#createadminincomereport) | **POST** /api/v1/admin/income_reports | 
 *DefaultApi* | [**createAdminInvoice**](docs/DefaultApi.md#createadmininvoice) | **POST** /api/v1/admin/invoices | 
 *DefaultApi* | [**createAdminRequestedItemRiNote**](docs/DefaultApi.md#createadminrequesteditemrinote) | **POST** /api/v1/admin/requested_items/{requested_item_id}/ri_note | 
@@ -174,6 +180,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**destroyAdminCompensation**](docs/DefaultApi.md#destroyadmincompensation) | **DELETE** /api/v1/admin/compensations/{id} | 
 *DefaultApi* | [**destroyAdminContact**](docs/DefaultApi.md#destroyadmincontact) | **DELETE** /api/v1/admin/contacts/{id} | 
 *DefaultApi* | [**destroyAdminContract**](docs/DefaultApi.md#destroyadmincontract) | **DELETE** /api/v1/admin/contracts/{id} | 
+*DefaultApi* | [**destroyAdminFoiaContacts**](docs/DefaultApi.md#destroyadminfoiacontacts) | **DELETE** /api/v1/admin/foia_contacts/{id} | 
+*DefaultApi* | [**destroyAdminFoiaLabels**](docs/DefaultApi.md#destroyadminfoialabels) | **DELETE** /api/v1/admin/foia_labels/{id} | 
+*DefaultApi* | [**destroyAdminFoiaRequests**](docs/DefaultApi.md#destroyadminfoiarequests) | **DELETE** /api/v1/admin/foia_requests/{id} | 
 *DefaultApi* | [**destroyAdminIncomeReport**](docs/DefaultApi.md#destroyadminincomereport) | **DELETE** /api/v1/admin/income_reports/{id} | 
 *DefaultApi* | [**destroyAdminRawContract**](docs/DefaultApi.md#destroyadminrawcontract) | **DELETE** /api/v1/admin/raw_contracts/{id} | 
 *DefaultApi* | [**destroyAdminRequestedItem**](docs/DefaultApi.md#destroyadminrequesteditem) | **DELETE** /api/v1/admin/requested_items/{id} | 
@@ -199,6 +208,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**getAdminDeskReportActivitySummaries**](docs/DefaultApi.md#getadmindeskreportactivitysummaries) | **GET** /api/v1/admin/desk_reports/activity_summaries | 
 *DefaultApi* | [**getAdminDeskReports**](docs/DefaultApi.md#getadmindeskreports) | **GET** /api/v1/admin/desk_reports | 
 *DefaultApi* | [**getAdminDeskRequests**](docs/DefaultApi.md#getadmindeskrequests) | **GET** /api/v1/admin/desk_requests | 
+*DefaultApi* | [**getAdminFoiaLabels**](docs/DefaultApi.md#getadminfoialabels) | **GET** /api/v1/admin/foia_labels/{id} | 
+*DefaultApi* | [**getAdminFoiaRequestBuilderFormOptions**](docs/DefaultApi.md#getadminfoiarequestbuilderformoptions) | **GET** /api/v1/admin/foia_request_builder/form_options | 
+*DefaultApi* | [**getAdminFoiaRequestBuilderLog**](docs/DefaultApi.md#getadminfoiarequestbuilderlog) | **GET** /api/v1/admin/foia_request_builder_logs/{id} | 
+*DefaultApi* | [**getAdminFoiaRequestCoaches**](docs/DefaultApi.md#getadminfoiarequestcoaches) | **GET** /api/v1/admin/foia_requests/{id}/coaches | 
+*DefaultApi* | [**getAdminFoiaRequestFinancials**](docs/DefaultApi.md#getadminfoiarequestfinancials) | **GET** /api/v1/admin/foia_requests/{id}/financials | 
+*DefaultApi* | [**getAdminFoiaRequestGames**](docs/DefaultApi.md#getadminfoiarequestgames) | **GET** /api/v1/admin/foia_requests/{id}/games | 
+*DefaultApi* | [**getAdminFoiaRequestText**](docs/DefaultApi.md#getadminfoiarequesttext) | **GET** /api/v1/admin/foia_requests/{id}/text | 
+*DefaultApi* | [**getAdminFoiaRequests**](docs/DefaultApi.md#getadminfoiarequests) | **GET** /api/v1/admin/foia_requests/{id} | 
 *DefaultApi* | [**getAdminIncomeReport**](docs/DefaultApi.md#getadminincomereport) | **GET** /api/v1/admin/income_reports/{id} | 
 *DefaultApi* | [**getAdminInvoice**](docs/DefaultApi.md#getadmininvoice) | **GET** /api/v1/admin/invoices/{invoiceId} | 
 *DefaultApi* | [**getAdminInvoices**](docs/DefaultApi.md#getadmininvoices) | **GET** /api/v1/admin/invoices | 
@@ -403,12 +420,22 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**listAdminContacts**](docs/DefaultApi.md#listadmincontacts) | **GET** /api/v1/admin/contacts | 
 *DefaultApi* | [**listAdminContractRequestSearches**](docs/DefaultApi.md#listadmincontractrequestsearches) | **GET** /api/v1/admin/contract_request_searches | 
 *DefaultApi* | [**listAdminContracts**](docs/DefaultApi.md#listadmincontracts) | **GET** /api/v1/admin/contracts | 
+*DefaultApi* | [**listAdminFoiaContacts**](docs/DefaultApi.md#listadminfoiacontacts) | **GET** /api/v1/admin/foia_contacts | 
+*DefaultApi* | [**listAdminFoiaContactsAvailableSchools**](docs/DefaultApi.md#listadminfoiacontactsavailableschools) | **GET** /api/v1/admin/foia_contacts/available_schools | 
+*DefaultApi* | [**listAdminFoiaLabels**](docs/DefaultApi.md#listadminfoialabels) | **GET** /api/v1/admin/foia_labels | 
+*DefaultApi* | [**listAdminFoiaRequestBuilderJobs**](docs/DefaultApi.md#listadminfoiarequestbuilderjobs) | **GET** /api/v1/admin/foia_request_builder/jobs | 
+*DefaultApi* | [**listAdminFoiaRequestBuilderLogs**](docs/DefaultApi.md#listadminfoiarequestbuilderlogs) | **GET** /api/v1/admin/foia_request_builder_logs | 
+*DefaultApi* | [**listAdminFoiaRequestDetails**](docs/DefaultApi.md#listadminfoiarequestdetails) | **GET** /api/v1/admin/foia_requests/details | 
+*DefaultApi* | [**listAdminFoiaRequestFollowUpReport**](docs/DefaultApi.md#listadminfoiarequestfollowupreport) | **GET** /api/v1/admin/foia_requests/follow_up_report | 
+*DefaultApi* | [**listAdminFoiaRequestSchools**](docs/DefaultApi.md#listadminfoiarequestschools) | **GET** /api/v1/admin/foia_requests/schools | 
+*DefaultApi* | [**listAdminFoiaRequests**](docs/DefaultApi.md#listadminfoiarequests) | **GET** /api/v1/admin/foia_requests | 
 *DefaultApi* | [**listAdminIncomeReports**](docs/DefaultApi.md#listadminincomereports) | **GET** /api/v1/admin/income_reports | 
 *DefaultApi* | [**listAdminRawContractsBetweenSchools**](docs/DefaultApi.md#listadminrawcontractsbetweenschools) | **GET** /api/v1/admin/raw_contracts/game_contracts_between_schools | 
 *DefaultApi* | [**listAdminRequestedItems**](docs/DefaultApi.md#listadminrequesteditems) | **GET** /api/v1/admin/requested_items | 
 *DefaultApi* | [**listAdminTerminationAgreements**](docs/DefaultApi.md#listadminterminationagreements) | **GET** /api/v1/admin/termination_agreements | 
 *DefaultApi* | [**listAdminYoutubeVideos**](docs/DefaultApi.md#listadminyoutubevideos) | **GET** /api/v1/admin/youtube_videos | 
 *DefaultApi* | [**listNotes**](docs/DefaultApi.md#listnotes) | **GET** /api/v1/notes/list | 
+*DefaultApi* | [**markAdminFoiaRequestProcessedFollowup**](docs/DefaultApi.md#markadminfoiarequestprocessedfollowup) | **PATCH** /api/v1/admin/foia_requests/{id}/mark_processed_followup | 
 *DefaultApi* | [**markPaidAdminInvoice**](docs/DefaultApi.md#markpaidadmininvoice) | **POST** /api/v1/admin/invoices/{invoiceId}/mark_paid | 
 *DefaultApi* | [**massUpdateAdminCompensations**](docs/DefaultApi.md#massupdateadmincompensationsoperation) | **POST** /api/v1/admin/compensations/mass_update | 
 *DefaultApi* | [**massUpdateAdminRequestedItems**](docs/DefaultApi.md#massupdateadminrequesteditemsoperation) | **PATCH** /api/v1/admin/requested_items/mass_update | 
@@ -424,6 +451,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**searchCoaches**](docs/DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search | 
 *DefaultApi* | [**sendAdminInvoice**](docs/DefaultApi.md#sendadmininvoiceoperation) | **POST** /api/v1/admin/invoices/{invoiceId}/send | 
 *DefaultApi* | [**sendOtpCode**](docs/DefaultApi.md#sendotpcode) | **POST** /api/v1/otp/send_code | 
+*DefaultApi* | [**unarchiveAdminFoiaLabels**](docs/DefaultApi.md#unarchiveadminfoialabels) | **POST** /api/v1/admin/foia_labels/{id}/unarchive | 
 *DefaultApi* | [**unstractRawContractPdfText**](docs/DefaultApi.md#unstractrawcontractpdftextoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/unstract_pdf_text | 
 *DefaultApi* | [**updateAccountUser**](docs/DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} | 
 *DefaultApi* | [**updateAccountUserActivation**](docs/DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation | 
@@ -432,6 +460,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**updateAdminContract**](docs/DefaultApi.md#updateadmincontract) | **PATCH** /api/v1/admin/contracts/{id} | 
 *DefaultApi* | [**updateAdminDeskReport**](docs/DefaultApi.md#updateadmindeskreport) | **PATCH** /api/v1/admin/desk_reports/{uuid} | 
 *DefaultApi* | [**updateAdminDeskRequest**](docs/DefaultApi.md#updateadmindeskrequestoperation) | **PATCH** /api/v1/admin/desk_requests/{uuid} | 
+*DefaultApi* | [**updateAdminFoiaContacts**](docs/DefaultApi.md#updateadminfoiacontacts) | **PATCH** /api/v1/admin/foia_contacts/{id} | 
+*DefaultApi* | [**updateAdminFoiaLabels**](docs/DefaultApi.md#updateadminfoialabels) | **PATCH** /api/v1/admin/foia_labels/{id} | 
+*DefaultApi* | [**updateAdminFoiaRequestBuilderCompensations**](docs/DefaultApi.md#updateadminfoiarequestbuildercompensations) | **POST** /api/v1/admin/foia_request_builder/update_compensations_to_requested | 
+*DefaultApi* | [**updateAdminFoiaRequestBuilderSentDates**](docs/DefaultApi.md#updateadminfoiarequestbuildersentdates) | **POST** /api/v1/admin/foia_request_builder/update_sent_dates | 
+*DefaultApi* | [**updateAdminFoiaRequestCoaches**](docs/DefaultApi.md#updateadminfoiarequestcoachesoperation) | **PATCH** /api/v1/admin/foia_requests/{id}/coaches | 
+*DefaultApi* | [**updateAdminFoiaRequestFinancials**](docs/DefaultApi.md#updateadminfoiarequestfinancialsoperation) | **PATCH** /api/v1/admin/foia_requests/{id}/financials | 
+*DefaultApi* | [**updateAdminFoiaRequestGames**](docs/DefaultApi.md#updateadminfoiarequestgamesoperation) | **PATCH** /api/v1/admin/foia_requests/{id}/games | 
+*DefaultApi* | [**updateAdminFoiaRequests**](docs/DefaultApi.md#updateadminfoiarequests) | **PATCH** /api/v1/admin/foia_requests/{id} | 
 *DefaultApi* | [**updateAdminIncomeReport**](docs/DefaultApi.md#updateadminincomereport) | **PATCH** /api/v1/admin/income_reports/{id} | 
 *DefaultApi* | [**updateAdminInvoice**](docs/DefaultApi.md#updateadmininvoice) | **PATCH** /api/v1/admin/invoices/{invoiceId} | 
 *DefaultApi* | [**updateAdminRequestedItem**](docs/DefaultApi.md#updateadminrequesteditemoperation) | **PATCH** /api/v1/admin/requested_items/{id} | 
@@ -566,6 +602,26 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdminContractRequestSearchesList](docs/AdminContractRequestSearchesList.md)
 - [AdminContractRequestSearchesOptions](docs/AdminContractRequestSearchesOptions.md)
 - [AdminEligibleCoachOption](docs/AdminEligibleCoachOption.md)
+- [AdminFoiaContact](docs/AdminFoiaContact.md)
+- [AdminFoiaContactsList](docs/AdminFoiaContactsList.md)
+- [AdminFoiaLabel](docs/AdminFoiaLabel.md)
+- [AdminFoiaLabelsList](docs/AdminFoiaLabelsList.md)
+- [AdminFoiaRequest](docs/AdminFoiaRequest.md)
+- [AdminFoiaRequestBuilderFormOptions](docs/AdminFoiaRequestBuilderFormOptions.md)
+- [AdminFoiaRequestBuilderJob](docs/AdminFoiaRequestBuilderJob.md)
+- [AdminFoiaRequestBuilderLog](docs/AdminFoiaRequestBuilderLog.md)
+- [AdminFoiaRequestBuilderLogList](docs/AdminFoiaRequestBuilderLogList.md)
+- [AdminFoiaRequestCoach](docs/AdminFoiaRequestCoach.md)
+- [AdminFoiaRequestCoachContract](docs/AdminFoiaRequestCoachContract.md)
+- [AdminFoiaRequestCoachesList](docs/AdminFoiaRequestCoachesList.md)
+- [AdminFoiaRequestFinancialYear](docs/AdminFoiaRequestFinancialYear.md)
+- [AdminFoiaRequestFinancialsList](docs/AdminFoiaRequestFinancialsList.md)
+- [AdminFoiaRequestGame](docs/AdminFoiaRequestGame.md)
+- [AdminFoiaRequestGamesList](docs/AdminFoiaRequestGamesList.md)
+- [AdminFoiaRequestLetter](docs/AdminFoiaRequestLetter.md)
+- [AdminFoiaRequestLetterSectionsInner](docs/AdminFoiaRequestLetterSectionsInner.md)
+- [AdminFoiaRequestNote](docs/AdminFoiaRequestNote.md)
+- [AdminFoiaRequestsList](docs/AdminFoiaRequestsList.md)
 - [AdminIncomeReport](docs/AdminIncomeReport.md)
 - [AdminIncomeReportCoachSummary](docs/AdminIncomeReportCoachSummary.md)
 - [AdminIncomeReportContractStatusSummary](docs/AdminIncomeReportContractStatusSummary.md)
@@ -793,6 +849,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateAdminContractRequestRawContract](docs/CreateAdminContractRequestRawContract.md)
 - [CreateAdminDeskReport503Response](docs/CreateAdminDeskReport503Response.md)
 - [CreateAdminDeskReportArtifact201Response](docs/CreateAdminDeskReportArtifact201Response.md)
+- [CreateAdminFoiaContactRequest](docs/CreateAdminFoiaContactRequest.md)
+- [CreateAdminFoiaContactRequestFoiaContact](docs/CreateAdminFoiaContactRequestFoiaContact.md)
+- [CreateAdminFoiaLabelRequest](docs/CreateAdminFoiaLabelRequest.md)
+- [CreateAdminFoiaLabelRequestFoiaLabel](docs/CreateAdminFoiaLabelRequestFoiaLabel.md)
+- [CreateAdminFoiaRequestBulkQuickActionsRequest](docs/CreateAdminFoiaRequestBulkQuickActionsRequest.md)
+- [CreateAdminFoiaRequestBulkQuickActionsRequestBulkQuickActions](docs/CreateAdminFoiaRequestBulkQuickActionsRequestBulkQuickActions.md)
 - [CreateAdminIncomeReportRequestIncomeReport](docs/CreateAdminIncomeReportRequestIncomeReport.md)
 - [CreateCompensationRequest](docs/CreateCompensationRequest.md)
 - [CreateContactRequest](docs/CreateContactRequest.md)
@@ -805,6 +867,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateFavorite201Response](docs/CreateFavorite201Response.md)
 - [CreateFavoriteRequest](docs/CreateFavoriteRequest.md)
 - [CreateFavoritesCategoryRequest](docs/CreateFavoritesCategoryRequest.md)
+- [CreateFoiaRequestBuilderRequest](docs/CreateFoiaRequestBuilderRequest.md)
+- [CreateFoiaRequestBuilderRequestFoiaRequestBuilder](docs/CreateFoiaRequestBuilderRequestFoiaRequestBuilder.md)
+- [CreateFoiaRequestRequest](docs/CreateFoiaRequestRequest.md)
+- [CreateFoiaRequestRequestFoiaRequest](docs/CreateFoiaRequestRequestFoiaRequest.md)
 - [CreateFrsExport422Response](docs/CreateFrsExport422Response.md)
 - [CreateFrsExportRequest](docs/CreateFrsExportRequest.md)
 - [CreateGamePostSearchRequest](docs/CreateGamePostSearchRequest.md)
@@ -1394,6 +1460,16 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateAdminDeskRequest200Response](docs/UpdateAdminDeskRequest200Response.md)
 - [UpdateAdminDeskRequest200ResponseData](docs/UpdateAdminDeskRequest200ResponseData.md)
 - [UpdateAdminDeskRequestRequest](docs/UpdateAdminDeskRequestRequest.md)
+- [UpdateAdminFoiaContactRequest](docs/UpdateAdminFoiaContactRequest.md)
+- [UpdateAdminFoiaContactRequestFoiaContact](docs/UpdateAdminFoiaContactRequestFoiaContact.md)
+- [UpdateAdminFoiaLabelRequest](docs/UpdateAdminFoiaLabelRequest.md)
+- [UpdateAdminFoiaLabelRequestFoiaLabel](docs/UpdateAdminFoiaLabelRequestFoiaLabel.md)
+- [UpdateAdminFoiaRequestCoachesRequest](docs/UpdateAdminFoiaRequestCoachesRequest.md)
+- [UpdateAdminFoiaRequestCoachesRequestFoiaRequest](docs/UpdateAdminFoiaRequestCoachesRequestFoiaRequest.md)
+- [UpdateAdminFoiaRequestFinancialsRequest](docs/UpdateAdminFoiaRequestFinancialsRequest.md)
+- [UpdateAdminFoiaRequestFinancialsRequestFoiaRequest](docs/UpdateAdminFoiaRequestFinancialsRequestFoiaRequest.md)
+- [UpdateAdminFoiaRequestGamesRequest](docs/UpdateAdminFoiaRequestGamesRequest.md)
+- [UpdateAdminFoiaRequestGamesRequestFoiaRequest](docs/UpdateAdminFoiaRequestGamesRequestFoiaRequest.md)
 - [UpdateAdminRequestedItemRequest](docs/UpdateAdminRequestedItemRequest.md)
 - [UpdateAdminRequestedItemRequestRequestedItem](docs/UpdateAdminRequestedItemRequestRequestedItem.md)
 - [UpdateContactVerificationRequest](docs/UpdateContactVerificationRequest.md)
@@ -1407,6 +1483,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateFavorite200Response](docs/UpdateFavorite200Response.md)
 - [UpdateFavoriteRequest](docs/UpdateFavoriteRequest.md)
 - [UpdateFavoritesCategoryRequest](docs/UpdateFavoritesCategoryRequest.md)
+- [UpdateFoiaRequestRequest](docs/UpdateFoiaRequestRequest.md)
+- [UpdateFoiaRequestRequestFoiaRequest](docs/UpdateFoiaRequestRequestFoiaRequest.md)
+- [UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner](docs/UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner.md)
 - [UpdateGamePostSearchRequest](docs/UpdateGamePostSearchRequest.md)
 - [UpdateGamePostSearchRequestGamePost](docs/UpdateGamePostSearchRequestGamePost.md)
 - [UpdateNoteRequest](docs/UpdateNoteRequest.md)
@@ -1475,8 +1554,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.16`
-- Package version: `1.55.16`
+- API version: `0.0.0-dev.39244052759`
+- Package version: `0.0.0-dev.39244052759`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
