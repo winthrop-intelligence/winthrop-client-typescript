@@ -25,6 +25,7 @@ Name | Type
 `statusPercentage` | number
 `dealStatusIds` | Array&lt;number&gt;
 `foiaNotes` | [Array&lt;AdminFoiaRequestNote&gt;](AdminFoiaRequestNote.md)
+`vendorOptions` | [Array&lt;AdminFoiaVendorOption&gt;](AdminFoiaVendorOption.md)
 
 ## Example
 
@@ -52,6 +53,7 @@ const example = {
   "statusPercentage": null,
   "dealStatusIds": null,
   "foiaNotes": null,
+  "vendorOptions": null,
 } satisfies AdminFoiaRequest
 
 console.log(example)
