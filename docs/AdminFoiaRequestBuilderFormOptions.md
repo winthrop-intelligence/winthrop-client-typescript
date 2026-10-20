@@ -9,6 +9,7 @@ Name | Type
 ------------ | -------------
 `schools` | [Array&lt;IdName&gt;](IdName.md)
 `sports` | [Array&lt;IdName&gt;](IdName.md)
+`reportFilters` | [AdminFoiaRequestBuilderFormOptionsReportFilters](AdminFoiaRequestBuilderFormOptionsReportFilters.md)
 
 ## Example
 
@@ -19,6 +20,7 @@ import type { AdminFoiaRequestBuilderFormOptions } from '@winthrop-intelligence/
 const example = {
   "schools": null,
   "sports": null,
+  "reportFilters": null,
 } satisfies AdminFoiaRequestBuilderFormOptions
 
 console.log(example)

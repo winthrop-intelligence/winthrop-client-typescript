@@ -10913,7 +10913,7 @@ async function example() {
     id: 56,
     // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
     page: 56,
-    // { [key: string]: any; } | Ransack filters including sport_id_eq and season_year_eq (optional)
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
     q: Object,
   } satisfies GetAdminFoiaRequestGamesRequest;
 
@@ -10936,7 +10936,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **id** | `number` |  | [Defaults to `undefined`] |
 | **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **q** | `{ [key: string]: any; }` | Ransack filters including sport_id_eq and season_year_eq | [Optional] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -27415,7 +27415,7 @@ example().catch(console.error);
 
 ## listAdminFoiaRequestFollowUpReport
 
-> listAdminFoiaRequestFollowUpReport(page, perPage, q, sortBy, sendEmail)
+> AdminFoiaFollowUpReport listAdminFoiaRequestFollowUpReport(page, perPage, q, sortBy, sendEmail)
 
 
 
@@ -27478,7 +27478,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**AdminFoiaFollowUpReport**](AdminFoiaFollowUpReport.md)
 
 ### Authorization
 
@@ -27487,7 +27487,7 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
