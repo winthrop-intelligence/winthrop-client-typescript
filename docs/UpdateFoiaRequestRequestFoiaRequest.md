@@ -16,6 +16,8 @@ Name | Type
 `updatedBySchool` | Date
 `dealStatusIds` | Array&lt;number&gt;
 `foiaNotesAttributes` | [Array&lt;UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner&gt;](UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner.md)
+`vendorDealTypeIds` | Array&lt;number&gt;
+`schoolFoiaNotesAttributes` | [Array&lt;UpdateFoiaRequestRequestFoiaRequestSchoolFoiaNotesAttributesInner&gt;](UpdateFoiaRequestRequestFoiaRequestSchoolFoiaNotesAttributesInner.md)
 
 ## Example
 
@@ -34,6 +36,8 @@ const example = {
   "updatedBySchool": null,
   "dealStatusIds": null,
   "foiaNotesAttributes": null,
+  "vendorDealTypeIds": null,
+  "schoolFoiaNotesAttributes": null,
 } satisfies UpdateFoiaRequestRequestFoiaRequest
 
 console.log(example)

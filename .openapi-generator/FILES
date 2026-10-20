@@ -55,10 +55,15 @@ docs/AdminContractRequestSearchesOptions.md
 docs/AdminEligibleCoachOption.md
 docs/AdminFoiaContact.md
 docs/AdminFoiaContactsList.md
+docs/AdminFoiaFilterOption.md
+docs/AdminFoiaFollowUpReport.md
+docs/AdminFoiaFollowUpReportDataInner.md
+docs/AdminFoiaFollowUpReportMeta.md
 docs/AdminFoiaLabel.md
 docs/AdminFoiaLabelsList.md
 docs/AdminFoiaRequest.md
 docs/AdminFoiaRequestBuilderFormOptions.md
+docs/AdminFoiaRequestBuilderFormOptionsReportFilters.md
 docs/AdminFoiaRequestBuilderJob.md
 docs/AdminFoiaRequestBuilderLog.md
 docs/AdminFoiaRequestBuilderLogList.md
@@ -73,6 +78,8 @@ docs/AdminFoiaRequestLetter.md
 docs/AdminFoiaRequestLetterSectionsInner.md
 docs/AdminFoiaRequestNote.md
 docs/AdminFoiaRequestsList.md
+docs/AdminFoiaVendorOption.md
+docs/AdminFoiaVendorOptionDealsInner.md
 docs/AdminIncomeReport.md
 docs/AdminIncomeReportCoachSummary.md
 docs/AdminIncomeReportContractStatusSummary.md
@@ -948,6 +955,7 @@ docs/UpdateFavoritesCategoryRequest.md
 docs/UpdateFoiaRequestRequest.md
 docs/UpdateFoiaRequestRequestFoiaRequest.md
 docs/UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner.md
+docs/UpdateFoiaRequestRequestFoiaRequestSchoolFoiaNotesAttributesInner.md
 docs/UpdateGamePostSearchRequest.md
 docs/UpdateGamePostSearchRequestGamePost.md
 docs/UpdateNoteRequest.md
@@ -1057,10 +1065,15 @@ src/models/AdminContractRequestSearchesOptions.ts
 src/models/AdminEligibleCoachOption.ts
 src/models/AdminFoiaContact.ts
 src/models/AdminFoiaContactsList.ts
+src/models/AdminFoiaFilterOption.ts
+src/models/AdminFoiaFollowUpReport.ts
+src/models/AdminFoiaFollowUpReportDataInner.ts
+src/models/AdminFoiaFollowUpReportMeta.ts
 src/models/AdminFoiaLabel.ts
 src/models/AdminFoiaLabelsList.ts
 src/models/AdminFoiaRequest.ts
 src/models/AdminFoiaRequestBuilderFormOptions.ts
+src/models/AdminFoiaRequestBuilderFormOptionsReportFilters.ts
 src/models/AdminFoiaRequestBuilderJob.ts
 src/models/AdminFoiaRequestBuilderLog.ts
 src/models/AdminFoiaRequestBuilderLogList.ts
@@ -1075,6 +1088,8 @@ src/models/AdminFoiaRequestLetter.ts
 src/models/AdminFoiaRequestLetterSectionsInner.ts
 src/models/AdminFoiaRequestNote.ts
 src/models/AdminFoiaRequestsList.ts
+src/models/AdminFoiaVendorOption.ts
+src/models/AdminFoiaVendorOptionDealsInner.ts
 src/models/AdminIncomeReport.ts
 src/models/AdminIncomeReportCoachSummary.ts
 src/models/AdminIncomeReportContractStatusSummary.ts
@@ -1939,6 +1954,7 @@ src/models/UpdateFavoritesCategoryRequest.ts
 src/models/UpdateFoiaRequestRequest.ts
 src/models/UpdateFoiaRequestRequestFoiaRequest.ts
 src/models/UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner.ts
+src/models/UpdateFoiaRequestRequestFoiaRequestSchoolFoiaNotesAttributesInner.ts
 src/models/UpdateGamePostSearchRequest.ts
 src/models/UpdateGamePostSearchRequestGamePost.ts
 src/models/UpdateNoteRequest.ts
