@@ -10,6 +10,7 @@ Name | Type
 `foiaRequestId` | number
 `requestableId` | number
 `requestableType` | string
+`coach` | string
 `coachId` | number
 `status` | string
 `createdAt` | Date
@@ -34,6 +35,7 @@ const example = {
   "foiaRequestId": null,
   "requestableId": null,
   "requestableType": null,
+  "coach": null,
   "coachId": null,
   "status": null,
   "createdAt": null,

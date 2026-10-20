@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.17
+# @winthrop-intelligence/winthrop-client-typescript@1.55.18
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -72,7 +72,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | ----- | ------ | ------------ | -------------
 *ContractsApi* | [**createPendingContract**](docs/ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts | 
 *ContractsApi* | [**deletePendingContract**](docs/ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} | 
+*ContractsApi* | [**getCompensationVerificationStatus**](docs/ContractsApi.md#getcompensationverificationstatus) | **GET** /api/v1/compensation_verification_status | Verification status of every compensation row of some schools in one season
 *ContractsApi* | [**getContractHistory**](docs/ContractsApi.md#getcontracthistory) | **GET** /api/v1/contract_history | 
+*ContractsApi* | [**listContractVerifications**](docs/ContractsApi.md#listcontractverifications) | **GET** /api/v1/contract_verifications | List verification events across contracts
 *ContractsApi* | [**publishPendingContract**](docs/ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish | 
 *ContractsApi* | [**replaceContractFile**](docs/ContractsApi.md#replacecontractfile) | **PUT** /api/v1/contracts/{contractId}/file | 
 *ContractsApi* | [**updateContract**](docs/ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} | 
@@ -526,6 +528,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *MlAthleticApi* | [**healthCheck**](docs/MlAthleticApi.md#healthcheck) | **GET** /ml-athletic/health_check | 
 *MlAthleticApi* | [**predict**](docs/MlAthleticApi.md#predict) | **POST** /ml-athletic/predict | 
 *RawContractsApi* | [**getRawContractContractTerms**](docs/RawContractsApi.md#getrawcontractcontractterms) | **GET** /api/v1/raw_contracts/{raw_contractId}/contract_terms | 
+*RawContractsApi* | [**regenerateRawContractOcrText**](docs/RawContractsApi.md#regeneraterawcontractocrtext) | **POST** /api/v1/raw_contracts/{raw_contractId}/ocr_text/regenerate | 
+*RawContractsApi* | [**replaceRawContractFile**](docs/RawContractsApi.md#replacerawcontractfile) | **PUT** /api/v1/raw_contracts/{raw_contractId}/file | 
 *RawContractsApi* | [**updateRawContractContractTerms**](docs/RawContractsApi.md#updaterawcontractcontractterms) | **PATCH** /api/v1/raw_contracts/{raw_contractId}/contract_terms | 
 *ReportingApi* | [**getCoachContractRequests**](docs/ReportingApi.md#getcoachcontractrequests) | **GET** /api/v1/reports/coach_contract_requests | 
 *ReportingApi* | [**getCoachHistory**](docs/ReportingApi.md#getcoachhistory) | **GET** /api/v1/reports/coach_history | 
@@ -604,10 +608,15 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdminEligibleCoachOption](docs/AdminEligibleCoachOption.md)
 - [AdminFoiaContact](docs/AdminFoiaContact.md)
 - [AdminFoiaContactsList](docs/AdminFoiaContactsList.md)
+- [AdminFoiaFilterOption](docs/AdminFoiaFilterOption.md)
+- [AdminFoiaFollowUpReport](docs/AdminFoiaFollowUpReport.md)
+- [AdminFoiaFollowUpReportDataInner](docs/AdminFoiaFollowUpReportDataInner.md)
+- [AdminFoiaFollowUpReportMeta](docs/AdminFoiaFollowUpReportMeta.md)
 - [AdminFoiaLabel](docs/AdminFoiaLabel.md)
 - [AdminFoiaLabelsList](docs/AdminFoiaLabelsList.md)
 - [AdminFoiaRequest](docs/AdminFoiaRequest.md)
 - [AdminFoiaRequestBuilderFormOptions](docs/AdminFoiaRequestBuilderFormOptions.md)
+- [AdminFoiaRequestBuilderFormOptionsReportFilters](docs/AdminFoiaRequestBuilderFormOptionsReportFilters.md)
 - [AdminFoiaRequestBuilderJob](docs/AdminFoiaRequestBuilderJob.md)
 - [AdminFoiaRequestBuilderLog](docs/AdminFoiaRequestBuilderLog.md)
 - [AdminFoiaRequestBuilderLogList](docs/AdminFoiaRequestBuilderLogList.md)
@@ -622,6 +631,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdminFoiaRequestLetterSectionsInner](docs/AdminFoiaRequestLetterSectionsInner.md)
 - [AdminFoiaRequestNote](docs/AdminFoiaRequestNote.md)
 - [AdminFoiaRequestsList](docs/AdminFoiaRequestsList.md)
+- [AdminFoiaVendorOption](docs/AdminFoiaVendorOption.md)
+- [AdminFoiaVendorOptionDealsInner](docs/AdminFoiaVendorOptionDealsInner.md)
 - [AdminIncomeReport](docs/AdminIncomeReport.md)
 - [AdminIncomeReportCoachSummary](docs/AdminIncomeReportCoachSummary.md)
 - [AdminIncomeReportContractStatusSummary](docs/AdminIncomeReportContractStatusSummary.md)
@@ -802,6 +813,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CompensationCreateRequest](docs/CompensationCreateRequest.md)
 - [CompensationCreated](docs/CompensationCreated.md)
 - [CompensationRow](docs/CompensationRow.md)
+- [CompensationVerificationChange](docs/CompensationVerificationChange.md)
+- [CompensationVerificationChangeUser](docs/CompensationVerificationChangeUser.md)
+- [CompensationVerificationStatusMeta](docs/CompensationVerificationStatusMeta.md)
+- [CompensationVerificationStatusMetaCountsByStatus](docs/CompensationVerificationStatusMetaCountsByStatus.md)
+- [CompensationVerificationStatusRow](docs/CompensationVerificationStatusRow.md)
+- [CompensationVerificationStatusValue](docs/CompensationVerificationStatusValue.md)
 - [Conference](docs/Conference.md)
 - [ConferenceAdminCompensationResponse](docs/ConferenceAdminCompensationResponse.md)
 - [ConferenceCashflowStatsResponse](docs/ConferenceCashflowStatsResponse.md)
@@ -1189,9 +1206,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [GameType](docs/GameType.md)
 - [GeoRegion](docs/GeoRegion.md)
 - [GetAccountUserActivation200Response](docs/GetAccountUserActivation200Response.md)
+- [GetAccounts400Response](docs/GetAccounts400Response.md)
+- [GetAccounts400ResponseOneOf](docs/GetAccounts400ResponseOneOf.md)
 - [GetAdminDeskReportActivity200Response](docs/GetAdminDeskReportActivity200Response.md)
 - [GetAdminInvoices422Response](docs/GetAdminInvoices422Response.md)
 - [GetCompensationComparisons400Response](docs/GetCompensationComparisons400Response.md)
+- [GetCompensationVerificationStatus200Response](docs/GetCompensationVerificationStatus200Response.md)
 - [GetContractVerifications200Response](docs/GetContractVerifications200Response.md)
 - [GetContractVerifications200ResponseMeta](docs/GetContractVerifications200ResponseMeta.md)
 - [GetFavorites200ResponseInner](docs/GetFavorites200ResponseInner.md)
@@ -1257,6 +1277,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [LinkCollection](docs/LinkCollection.md)
 - [LinkCollection1](docs/LinkCollection1.md)
 - [ListAdminRawContractsBetweenSchools200Response](docs/ListAdminRawContractsBetweenSchools200Response.md)
+- [ListContractVerifications200Response](docs/ListContractVerifications200Response.md)
+- [ListContractVerifications422Response](docs/ListContractVerifications422Response.md)
+- [ListContractVerificationsQParameter](docs/ListContractVerificationsQParameter.md)
 - [ListNotes200ResponseInner](docs/ListNotes200ResponseInner.md)
 - [Logo](docs/Logo.md)
 - [MassUpdateAdminCompensations200Response](docs/MassUpdateAdminCompensations200Response.md)
@@ -1323,6 +1346,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [RecruitingChartData](docs/RecruitingChartData.md)
 - [RecruitingConferenceEntry](docs/RecruitingConferenceEntry.md)
 - [RecruitingPositionEntry](docs/RecruitingPositionEntry.md)
+- [RegenerateRawContractOcrText200Response](docs/RegenerateRawContractOcrText200Response.md)
 - [RegenerateRawContractPdf200Response](docs/RegenerateRawContractPdf200Response.md)
 - [RemoteJobPost](docs/RemoteJobPost.md)
 - [RequestedItem](docs/RequestedItem.md)
@@ -1450,6 +1474,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamSeasonResultInput](docs/TeamSeasonResultInput.md)
 - [TimeZoneOption](docs/TimeZoneOption.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
+- [UnknownRansackConditionError](docs/UnknownRansackConditionError.md)
+- [UnknownRansackConditionErrorErrors](docs/UnknownRansackConditionErrorErrors.md)
 - [UnprocessableEntity](docs/UnprocessableEntity.md)
 - [UnstractRawContractPdfTextRequest](docs/UnstractRawContractPdfTextRequest.md)
 - [UpdateAccountUserActivation200Response](docs/UpdateAccountUserActivation200Response.md)
@@ -1486,6 +1512,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [UpdateFoiaRequestRequest](docs/UpdateFoiaRequestRequest.md)
 - [UpdateFoiaRequestRequestFoiaRequest](docs/UpdateFoiaRequestRequestFoiaRequest.md)
 - [UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner](docs/UpdateFoiaRequestRequestFoiaRequestFoiaNotesAttributesInner.md)
+- [UpdateFoiaRequestRequestFoiaRequestSchoolFoiaNotesAttributesInner](docs/UpdateFoiaRequestRequestFoiaRequestSchoolFoiaNotesAttributesInner.md)
 - [UpdateGamePostSearchRequest](docs/UpdateGamePostSearchRequest.md)
 - [UpdateGamePostSearchRequestGamePost](docs/UpdateGamePostSearchRequestGamePost.md)
 - [UpdateNoteRequest](docs/UpdateNoteRequest.md)
@@ -1554,8 +1581,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.17`
-- Package version: `1.55.17`
+- API version: `1.55.18`
+- Package version: `1.55.18`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

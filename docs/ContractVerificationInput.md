@@ -12,6 +12,8 @@ Name | Type
 `method` | string
 `agentRunId` | string
 `evidenceUrl` | string
+`batchId` | string
+`codeVersion` | string
 
 ## Example
 
@@ -26,6 +28,8 @@ const example = {
   "method": null,
   "agentRunId": null,
   "evidenceUrl": null,
+  "batchId": null,
+  "codeVersion": null,
 } satisfies ContractVerificationInput
 
 console.log(example)

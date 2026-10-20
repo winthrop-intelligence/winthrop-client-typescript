@@ -10,6 +10,7 @@ Name | Type
 `endAt` | string
 `autorenew` | boolean
 `verified` | boolean
+`archived` | boolean
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "endAt": null,
   "autorenew": null,
   "verified": null,
+  "archived": null,
 } satisfies UpdateDealRequestDeal
 
 console.log(example)

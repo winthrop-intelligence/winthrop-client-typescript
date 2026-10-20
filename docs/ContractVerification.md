@@ -14,6 +14,8 @@ Name | Type
 `evidenceUrl` | string
 `reason` | string
 `approvalQuote` | string
+`batchId` | string
+`codeVersion` | string
 `id` | number
 `contractId` | number
 `rawContractId` | number
@@ -36,6 +38,8 @@ const example = {
   "evidenceUrl": null,
   "reason": null,
   "approvalQuote": null,
+  "batchId": null,
+  "codeVersion": null,
   "id": null,
   "contractId": null,
   "rawContractId": null,
