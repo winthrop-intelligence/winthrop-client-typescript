@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `errors` | object
+`errorMessages` | Array&lt;string&gt;
 
 ## Example
 
@@ -16,6 +17,7 @@ import type { UnprocessableEntity } from '@winthrop-intelligence/winthrop-client
 // TODO: Update the object below with actual values
 const example = {
   "errors": {"name":["can't be blank"]},
+  "errorMessages": null,
 } satisfies UnprocessableEntity
 
 console.log(example)
