@@ -612,6 +612,10 @@ docs/DeskActivityViewer.md
 docs/DeskAdminAccount.md
 docs/DeskAdminArtifact.md
 docs/DeskAdminCover.md
+docs/DeskAdminCoverImage.md
+docs/DeskAdminCoverImageResponse.md
+docs/DeskAdminCoverImageResponseData.md
+docs/DeskAdminCoverImages.md
 docs/DeskAdminErrorsResponse.md
 docs/DeskAdminErrorsResponseErrorsInner.md
 docs/DeskAdminPublishResponse.md
@@ -1817,6 +1821,10 @@ src/models/DeskActivityViewer.ts
 src/models/DeskAdminAccount.ts
 src/models/DeskAdminArtifact.ts
 src/models/DeskAdminCover.ts
+src/models/DeskAdminCoverImage.ts
+src/models/DeskAdminCoverImageResponse.ts
+src/models/DeskAdminCoverImageResponseData.ts
+src/models/DeskAdminCoverImages.ts
 src/models/DeskAdminErrorsResponse.ts
 src/models/DeskAdminErrorsResponseErrorsInner.ts
 src/models/DeskAdminPublishResponse.ts

@@ -35,6 +35,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createAdminDealStatuses**](DefaultApi.md#createadmindealstatusesoperation) | **POST** /api/v1/admin/deal_statuses |  |
 | [**createAdminDeskReport**](DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports |  |
 | [**createAdminDeskReportArtifact**](DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts |  |
+| [**createAdminDeskReportCoverImage**](DefaultApi.md#createadmindeskreportcoverimage) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/cover_images |  |
 | [**createAdminFoiaContacts**](DefaultApi.md#createadminfoiacontacts) | **POST** /api/v1/admin/foia_contacts |  |
 | [**createAdminFoiaLabels**](DefaultApi.md#createadminfoialabels) | **POST** /api/v1/admin/foia_labels |  |
 | [**createAdminFoiaRequestBuilder**](DefaultApi.md#createadminfoiarequestbuilder) | **POST** /api/v1/admin/foia_request_builder |  |
@@ -96,6 +97,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createUpload**](DefaultApi.md#createupload) | **POST** /api/v1/uploads |  |
 | [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteAdminDeskReportArtifact**](DefaultApi.md#deleteadmindeskreportartifact) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts/{id} |  |
+| [**deleteAdminDeskReportCoverImage**](DefaultApi.md#deleteadmindeskreportcoverimage) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/cover_images/{slot} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteCompensation**](DefaultApi.md#deletecompensation) | **DELETE** /api/v1/compensations/{compensationId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
@@ -2983,6 +2985,89 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unknown kind or missing file |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminDeskReportCoverImage
+
+> DeskAdminCoverImageResponse createAdminDeskReportCoverImage(deskReportUuid, slot, file)
+
+
+
+Upload a draft\&#39;s optional cover image (WINAD-10725). &#x60;card&#x60; is the library card\&#39;s image; &#x60;banner&#x60; is the art-only reader header, which falls back to &#x60;card&#x60; when empty. Uploading a slot that already has an image replaces it. WebP, PNG or JPEG up to 2 MB. Drafts only: a published report\&#39;s images change through Publish update, which mints a version. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminDeskReportCoverImageRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    deskReportUuid: deskReportUuid_example,
+    // string
+    slot: slot_example,
+    // Blob
+    file: BINARY_DATA_HERE,
+  } satisfies CreateAdminDeskReportCoverImageRequest;
+
+  try {
+    const data = await api.createAdminDeskReportCoverImage(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deskReportUuid** | `string` |  | [Defaults to `undefined`] |
+| **slot** | `card`, `banner` |  | [Defaults to `undefined`] [Enum: card, banner] |
+| **file** | `Blob` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeskAdminCoverImageResponse**](DeskAdminCoverImageResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Attached |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unknown slot, missing or invalid file, or a report that is not a draft |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -7654,6 +7739,86 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteAdminDeskReportCoverImage
+
+> DeskAdminCoverImageResponse deleteAdminDeskReportCoverImage(deskReportUuid, slot)
+
+
+
+Remove a draft\&#39;s cover image. Drafts only.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteAdminDeskReportCoverImageRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    deskReportUuid: deskReportUuid_example,
+    // 'card' | 'banner'
+    slot: slot_example,
+  } satisfies DeleteAdminDeskReportCoverImageRequest;
+
+  try {
+    const data = await api.deleteAdminDeskReportCoverImage(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deskReportUuid** | `string` |  | [Defaults to `undefined`] |
+| **slot** | `card`, `banner` |  | [Defaults to `undefined`] [Enum: card, banner] |
+
+### Return type
+
+[**DeskAdminCoverImageResponse**](DeskAdminCoverImageResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Removed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unknown slot or a report that is not a draft |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

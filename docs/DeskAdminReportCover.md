@@ -9,6 +9,7 @@ Name | Type
 `treatment` | string
 `kicker` | string
 `numeral` | string
+`images` | [DeskAdminCoverImages](DeskAdminCoverImages.md)
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "treatment": null,
   "kicker": null,
   "numeral": null,
+  "images": null,
 } satisfies DeskAdminReportCover
 
 console.log(example)
