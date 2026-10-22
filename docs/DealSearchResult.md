@@ -20,6 +20,8 @@ Name | Type
 `endYear` | number
 `startAt` | Date
 `endAt` | Date
+`startOn` | Date
+`endOn` | Date
 `createdAt` | Date
 `summary` | string
 `autorenew` | boolean
@@ -50,6 +52,8 @@ const example = {
   "endYear": null,
   "startAt": null,
   "endAt": null,
+  "startOn": Tue Jul 01 00:00:00 UTC 2025,
+  "endOn": Tue Jul 01 00:00:00 UTC 2025,
   "createdAt": null,
   "summary": null,
   "autorenew": null,

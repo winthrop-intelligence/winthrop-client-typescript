@@ -15,6 +15,8 @@ Name | Type
 `downloadsPdf` | Blob
 `downloadsXlsx` | Blob
 `downloadsPptx` | Blob
+`coverImagesCard` | Blob
+`coverImagesBanner` | Blob
 
 ## Example
 
@@ -31,6 +33,8 @@ const example = {
   "downloadsPdf": null,
   "downloadsXlsx": null,
   "downloadsPptx": null,
+  "coverImagesCard": null,
+  "coverImagesBanner": null,
 } satisfies PublishAdminDeskReportRequest
 
 console.log(example)
