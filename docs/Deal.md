@@ -11,6 +11,8 @@ Name | Type
 `vendorId` | number
 `startAt` | Date
 `endAt` | Date
+`startOn` | Date
+`endOn` | Date
 `signed` | Date
 `createdAt` | Date
 `updatedAt` | Date
@@ -33,6 +35,8 @@ const example = {
   "vendorId": null,
   "startAt": 2019-01-01T00:00Z,
   "endAt": 2019-01-01T00:00Z,
+  "startOn": Tue Jul 01 00:00:00 UTC 2025,
+  "endOn": Tue Jul 01 00:00:00 UTC 2025,
   "signed": 2019-01-01T00:00Z,
   "createdAt": 2019-01-01T00:00Z,
   "updatedAt": 2019-01-01T00:00Z,
