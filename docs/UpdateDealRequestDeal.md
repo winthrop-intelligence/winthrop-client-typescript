@@ -8,6 +8,8 @@ Name | Type
 ------------ | -------------
 `startAt` | string
 `endAt` | string
+`startOn` | Date
+`endOn` | Date
 `autorenew` | boolean
 `verified` | boolean
 `archived` | boolean
@@ -21,6 +23,8 @@ import type { UpdateDealRequestDeal } from '@winthrop-intelligence/winthrop-clie
 const example = {
   "startAt": null,
   "endAt": null,
+  "startOn": Tue Jul 01 00:00:00 UTC 2025,
+  "endOn": Wed Jun 30 00:00:00 UTC 2027,
   "autorenew": null,
   "verified": null,
   "archived": null,
