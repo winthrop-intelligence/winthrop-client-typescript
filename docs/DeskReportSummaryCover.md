@@ -9,6 +9,8 @@ Name | Type
 `treatment` | string
 `kicker` | string
 `numeral` | string
+`imageUrl` | string
+`bannerImageUrl` | string
 
 ## Example
 
@@ -20,6 +22,8 @@ const example = {
   "treatment": null,
   "kicker": null,
   "numeral": null,
+  "imageUrl": null,
+  "bannerImageUrl": null,
 } satisfies DeskReportSummaryCover
 
 console.log(example)
