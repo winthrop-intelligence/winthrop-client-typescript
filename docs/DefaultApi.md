@@ -35,6 +35,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createAdminDealStatuses**](DefaultApi.md#createadmindealstatusesoperation) | **POST** /api/v1/admin/deal_statuses |  |
 | [**createAdminDeskReport**](DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports |  |
 | [**createAdminDeskReportArtifact**](DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts |  |
+| [**createAdminDeskReportCoverImage**](DefaultApi.md#createadmindeskreportcoverimage) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/cover_images |  |
 | [**createAdminFoiaContacts**](DefaultApi.md#createadminfoiacontacts) | **POST** /api/v1/admin/foia_contacts |  |
 | [**createAdminFoiaLabels**](DefaultApi.md#createadminfoialabels) | **POST** /api/v1/admin/foia_labels |  |
 | [**createAdminFoiaRequestBuilder**](DefaultApi.md#createadminfoiarequestbuilder) | **POST** /api/v1/admin/foia_request_builder |  |
@@ -96,6 +97,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createUpload**](DefaultApi.md#createupload) | **POST** /api/v1/uploads |  |
 | [**deleteAccountUser**](DefaultApi.md#deleteaccountuser) | **DELETE** /api/v1/account_users/{accountUserId} |  |
 | [**deleteAdminDeskReportArtifact**](DefaultApi.md#deleteadmindeskreportartifact) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts/{id} |  |
+| [**deleteAdminDeskReportCoverImage**](DefaultApi.md#deleteadmindeskreportcoverimage) | **DELETE** /api/v1/admin/desk_reports/{desk_report_uuid}/cover_images/{slot} |  |
 | [**deleteCashflow**](DefaultApi.md#deletecashflow) | **DELETE** /api/v1/cashflows/{cashflowId} |  |
 | [**deleteCompensation**](DefaultApi.md#deletecompensation) | **DELETE** /api/v1/compensations/{compensationId} |  |
 | [**deleteConference**](DefaultApi.md#deleteconference) | **DELETE** /api/v1/conferences/{conferenceId} |  |
@@ -149,9 +151,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**destroyAdminSchoolGroups**](DefaultApi.md#destroyadminschoolgroups) | **DELETE** /api/v1/admin/school_groups/{id} |  |
 | [**destroyAdminSchoolNames**](DefaultApi.md#destroyadminschoolnames) | **DELETE** /api/v1/admin/school_names/{id} |  |
 | [**destroyAdminSchoolRevenueYear**](DefaultApi.md#destroyadminschoolrevenueyear) | **DELETE** /api/v1/admin/schools/{schoolId}/revenue/destroy_school_financial_data |  |
+| [**destroyAdminScraperJob**](DefaultApi.md#destroyadminscraperjob) | **DELETE** /api/v1/admin/scrapers/jobs/{job_name} |  |
 | [**destroyAdminSport**](DefaultApi.md#destroyadminsport) | **DELETE** /api/v1/admin/sports/{id} |  |
 | [**destroyAdminSubdivisionMembership**](DefaultApi.md#destroyadminsubdivisionmembership) | **DELETE** /api/v1/admin/subdivision_memberships/{id} |  |
+| [**destroyAdminSystemSettingLicenseAgreement**](DefaultApi.md#destroyadminsystemsettinglicenseagreement) | **DELETE** /api/v1/admin/system_setting/license_agreement |  |
 | [**destroyAdminTerminationAgreement**](DefaultApi.md#destroyadminterminationagreement) | **DELETE** /api/v1/admin/termination_agreements/{id} |  |
+| [**destroyAdminUpload**](DefaultApi.md#destroyadminupload) | **DELETE** /api/v1/admin/uploads/{id} |  |
 | [**destroyAdminUser**](DefaultApi.md#destroyadminuser) | **DELETE** /api/v1/admin/users/{id} |  |
 | [**destroyAdminVendorDeal**](DefaultApi.md#destroyadminvendordeal) | **DELETE** /api/v1/admin/vendors/{vendor_id}/deals/{id} |  |
 | [**destroyAdminVendors**](DefaultApi.md#destroyadminvendors) | **DELETE** /api/v1/admin/vendors/{id} |  |
@@ -160,6 +165,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**downloadAdminCoachContractsCsvTemplate**](DefaultApi.md#downloadadmincoachcontractscsvtemplate) | **GET** /api/v1/admin/coach_contracts/download_csv_template |  |
 | [**downloadAdminCoachContractsOutsideIncomeCsvTemplate**](DefaultApi.md#downloadadmincoachcontractsoutsideincomecsvtemplate) | **GET** /api/v1/admin/coach_contracts/outside_income_csv_template |  |
 | [**downloadAdminFinancialStatsCsvTemplate**](DefaultApi.md#downloadadminfinancialstatscsvtemplate) | **GET** /api/v1/admin/financial_stats/download_csv_template |  |
+| [**downloadAdminUploads**](DefaultApi.md#downloadadminuploads) | **POST** /api/v1/admin/uploads/download |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
 | [**editAdminPositionTypes**](DefaultApi.md#editadminpositiontypes) | **GET** /api/v1/admin/position_types/{id}/edit |  |
 | [**editAdminSport**](DefaultApi.md#editadminsport) | **GET** /api/v1/admin/sports/{id}/edit |  |
@@ -205,6 +211,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAdminSchoolRevenue**](DefaultApi.md#getadminschoolrevenue) | **GET** /api/v1/admin/schools/{schoolId}/revenue |  |
 | [**getAdminSchools**](DefaultApi.md#getadminschools) | **GET** /api/v1/admin/schools/{id} |  |
 | [**getAdminSport**](DefaultApi.md#getadminsport) | **GET** /api/v1/admin/sports/{id} |  |
+| [**getAdminSystemSetting**](DefaultApi.md#getadminsystemsetting) | **GET** /api/v1/admin/system_setting |  |
 | [**getAdminTerminationAgreement**](DefaultApi.md#getadminterminationagreement) | **GET** /api/v1/admin/termination_agreements/{id} |  |
 | [**getAdminUser**](DefaultApi.md#getadminuser) | **GET** /api/v1/admin/users/{id} |  |
 | [**getAdminVendors**](DefaultApi.md#getadminvendors) | **GET** /api/v1/admin/vendors/{id} |  |
@@ -442,11 +449,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminSchoolNamesAvailableSchools**](DefaultApi.md#listadminschoolnamesavailableschools) | **GET** /api/v1/admin/school_names/available_schools |  |
 | [**listAdminSchoolUploads**](DefaultApi.md#listadminschooluploads) | **GET** /api/v1/admin/school_uploads |  |
 | [**listAdminSchools**](DefaultApi.md#listadminschools) | **GET** /api/v1/admin/schools |  |
+| [**listAdminScraperJobs**](DefaultApi.md#listadminscraperjobs) | **GET** /api/v1/admin/scrapers/jobs |  |
+| [**listAdminScrapers**](DefaultApi.md#listadminscrapers) | **GET** /api/v1/admin/scrapers |  |
 | [**listAdminSportCashflows**](DefaultApi.md#listadminsportcashflows) | **GET** /api/v1/admin/sports/{id}/cashflows |  |
 | [**listAdminSportPositions**](DefaultApi.md#listadminsportpositions) | **GET** /api/v1/admin/sports/{id}/positions |  |
 | [**listAdminSports**](DefaultApi.md#listadminsports) | **GET** /api/v1/admin/sports |  |
 | [**listAdminSubdivisionMemberships**](DefaultApi.md#listadminsubdivisionmemberships) | **GET** /api/v1/admin/subdivision_memberships |  |
 | [**listAdminTerminationAgreements**](DefaultApi.md#listadminterminationagreements) | **GET** /api/v1/admin/termination_agreements |  |
+| [**listAdminUploads**](DefaultApi.md#listadminuploads) | **GET** /api/v1/admin/uploads |  |
 | [**listAdminUserAccountOptions**](DefaultApi.md#listadminuseraccountoptions) | **GET** /api/v1/admin/users/account_options |  |
 | [**listAdminUserCoachOptions**](DefaultApi.md#listadminusercoachoptions) | **GET** /api/v1/admin/users/coach_options |  |
 | [**listAdminUserRoleOptions**](DefaultApi.md#listadminuserroleoptions) | **GET** /api/v1/admin/users/role_options |  |
@@ -472,6 +482,8 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**previewAdminCoachContracts**](DefaultApi.md#previewadmincoachcontracts) | **POST** /api/v1/admin/coach_contracts/preview |  |
 | [**previewAdminCoachMergeLog**](DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
+| [**recalculateAdminSystemSettingLatestSalaries**](DefaultApi.md#recalculateadminsystemsettinglatestsalaries) | **POST** /api/v1/admin/system_setting/latest_salary_recalculation |  |
+| [**refreshAdminSystemSettingSeasonCache**](DefaultApi.md#refreshadminsystemsettingseasoncache) | **POST** /api/v1/admin/system_setting/season_cache_refresh |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
 | [**removeAdminConferenceSchool**](DefaultApi.md#removeadminconferenceschool) | **DELETE** /api/v1/admin/conferences/{id}/remove_school |  |
 | [**removeAdminUserIntercollegiateAuthorization**](DefaultApi.md#removeadminuserintercollegiateauthorization) | **DELETE** /api/v1/admin/users/{id}/remove_intercollegiate_authorization |  |
@@ -479,6 +491,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**restoreAdminDeskReport**](DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore |  |
 | [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
 | [**revokeContractVerification**](DefaultApi.md#revokecontractverification) | **POST** /api/v1/raw_contracts/{raw_contractId}/verifications/revoke | Revoke verified seasons (append a revocation event) |
+| [**runAdminScraper**](DefaultApi.md#runadminscraperoperation) | **POST** /api/v1/admin/scrapers/{id}/run |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
 | [**sendAdminInvoice**](DefaultApi.md#sendadmininvoiceoperation) | **POST** /api/v1/admin/invoices/{invoiceId}/send |  |
 | [**sendConfirmEmailAdminUser**](DefaultApi.md#sendconfirmemailadminuser) | **POST** /api/v1/admin/users/{id}/send_confirm_email |  |
@@ -524,7 +537,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAdminSchoolNames**](DefaultApi.md#updateadminschoolnamesoperation) | **PATCH** /api/v1/admin/school_names/{id} |  |
 | [**updateAdminSchools**](DefaultApi.md#updateadminschools) | **PATCH** /api/v1/admin/schools/{id} |  |
 | [**updateAdminSport**](DefaultApi.md#updateadminsport) | **PATCH** /api/v1/admin/sports/{id} |  |
+| [**updateAdminSystemSetting**](DefaultApi.md#updateadminsystemsettingoperation) | **PATCH** /api/v1/admin/system_setting |  |
 | [**updateAdminTerminationAgreement**](DefaultApi.md#updateadminterminationagreement) | **PATCH** /api/v1/admin/termination_agreements/{id} |  |
+| [**updateAdminUpload**](DefaultApi.md#updateadminuploadoperation) | **PATCH** /api/v1/admin/uploads/{id} |  |
 | [**updateAdminUser**](DefaultApi.md#updateadminuseroperation) | **PATCH** /api/v1/admin/users/{id} |  |
 | [**updateAdminVendorDeal**](DefaultApi.md#updateadminvendordeal) | **PATCH** /api/v1/admin/vendors/{vendor_id}/deals/{id} |  |
 | [**updateAdminVendors**](DefaultApi.md#updateadminvendorsoperation) | **PATCH** /api/v1/admin/vendors/{id} |  |
@@ -2983,6 +2998,89 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unknown kind or missing file |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminDeskReportCoverImage
+
+> DeskAdminCoverImageResponse createAdminDeskReportCoverImage(deskReportUuid, slot, file)
+
+
+
+Upload a draft\&#39;s optional cover image (WINAD-10725). &#x60;card&#x60; is the library card\&#39;s image; &#x60;banner&#x60; is the art-only reader header, which falls back to &#x60;card&#x60; when empty. Uploading a slot that already has an image replaces it. WebP, PNG or JPEG up to 2 MB. Drafts only: a published report\&#39;s images change through Publish update, which mints a version. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminDeskReportCoverImageRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    deskReportUuid: deskReportUuid_example,
+    // string
+    slot: slot_example,
+    // Blob
+    file: BINARY_DATA_HERE,
+  } satisfies CreateAdminDeskReportCoverImageRequest;
+
+  try {
+    const data = await api.createAdminDeskReportCoverImage(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deskReportUuid** | `string` |  | [Defaults to `undefined`] |
+| **slot** | `card`, `banner` |  | [Defaults to `undefined`] [Enum: card, banner] |
+| **file** | `Blob` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**DeskAdminCoverImageResponse**](DeskAdminCoverImageResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Attached |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unknown slot, missing or invalid file, or a report that is not a draft |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -7658,6 +7756,86 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteAdminDeskReportCoverImage
+
+> DeskAdminCoverImageResponse deleteAdminDeskReportCoverImage(deskReportUuid, slot)
+
+
+
+Remove a draft\&#39;s cover image. Drafts only.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DeleteAdminDeskReportCoverImageRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    deskReportUuid: deskReportUuid_example,
+    // 'card' | 'banner'
+    slot: slot_example,
+  } satisfies DeleteAdminDeskReportCoverImageRequest;
+
+  try {
+    const data = await api.deleteAdminDeskReportCoverImage(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deskReportUuid** | `string` |  | [Defaults to `undefined`] |
+| **slot** | `card`, `banner` |  | [Defaults to `undefined`] [Enum: card, banner] |
+
+### Return type
+
+[**DeskAdminCoverImageResponse**](DeskAdminCoverImageResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Removed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unknown slot or a report that is not a draft |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## deleteCashflow
 
 > deleteCashflow(cashflowId)
@@ -11693,6 +11871,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## destroyAdminScraperJob
+
+> destroyAdminScraperJob(jobName)
+
+
+
+Delete a running scraper job (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DestroyAdminScraperJobRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    jobName: jobName_example,
+  } satisfies DestroyAdminScraperJobRequest;
+
+  try {
+    const data = await api.destroyAdminScraperJob(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **jobName** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Job deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Scraper service error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## destroyAdminSport
 
 > destroyAdminSport(id)
@@ -11845,6 +12099,75 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## destroyAdminSystemSettingLicenseAgreement
+
+> AdminSystemSetting destroyAdminSystemSettingLicenseAgreement()
+
+
+
+Delete the standard license agreement (admin, super-admin only); an attached subscription is marked as not accepted
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DestroyAdminSystemSettingLicenseAgreementRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.destroyAdminSystemSettingLicenseAgreement();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminSystemSetting**](AdminSystemSetting.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | License agreement deleted; the updated system setting |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | There is no standard license agreement |  -  |
+| **422** | The license agreement could not be deleted |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## destroyAdminTerminationAgreement
 
 > destroyAdminTerminationAgreement(id)
@@ -11916,6 +12239,83 @@ example().catch(console.error);
 | **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## destroyAdminUpload
+
+> destroyAdminUpload(id)
+
+
+
+Delete an upload (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DestroyAdminUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies DestroyAdminUploadRequest;
+
+  try {
+    const data = await api.destroyAdminUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Upload deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Upload could not be deleted |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -12545,13 +12945,80 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## downloadAdminUploads
+
+> DownloadAdminUploads202Response downloadAdminUploads()
+
+
+
+Enqueue the \&quot;Download &amp; Archive\&quot; job that emails the signed-in super admin an archive of the uploaded contracts (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { DownloadAdminUploadsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.downloadAdminUploads();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DownloadAdminUploads202Response**](DownloadAdminUploads202Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Archive job enqueued |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## downloadRawContractFile
 
 > Blob downloadRawContractFile(rawContractId)
 
 
 
-Download the raw contract PDF with a provenance watermark (attachment disposition)
+Download the PDF the raw contract currently holds with a provenance watermark (attachment disposition). Named and typed from the stored file itself, not from the legacy asset_* columns. The stamp carries the reader and the time, so the response is &#x60;Cache-Control: private, no-store&#x60; and has no validator (WINAD-10686).
 
 ### Example
 
@@ -15978,6 +16445,73 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminSystemSetting
+
+> AdminSystemSetting getAdminSystemSetting()
+
+
+
+The singleton system setting (season years, login note, projected churn, prices and the standard license agreement), admin, super-admin only
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminSystemSettingRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.getAdminSystemSetting();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminSystemSetting**](AdminSystemSetting.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | System setting retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -34523,6 +35057,153 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listAdminScraperJobs
+
+> AdminScraperJobsList listAdminScraperJobs(page, perPage)
+
+
+
+List the running scraper jobs, proxied from the scraper service (admin, super-admin only). The order is fixed: &#x60;start_time&#x60; descending, jobs without a &#x60;start_time&#x60; last, ties by name ascending. 35 rows per page unless &#x60;per_page&#x60; is given.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminScraperJobsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+  } satisfies ListAdminScraperJobsRequest;
+
+  try {
+    const data = await api.listAdminScraperJobs(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+
+### Return type
+
+[**AdminScraperJobsList**](AdminScraperJobsList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Running jobs retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Scraper service error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminScrapers
+
+> AdminScrapersList listAdminScrapers()
+
+
+
+List the runnable scrapers with their argument definitions, proxied from the scraper service (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminScrapersRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminScrapers();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminScrapersList**](AdminScrapersList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Scrapers retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Scraper service error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## listAdminSportCashflows
 
 > AdminSportCashflowsList listAdminSportCashflows(id, page, perPage)
@@ -34929,6 +35610,88 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Termination agreements retrieved |  -  |
+| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminUploads
+
+> AdminUploadsList listAdminUploads(page, perPage, q)
+
+
+
+List user-uploaded contract files with their account and user (admin, super-admin only). Filter with &#x60;q[archived_eq]&#x60; (true &#x3D; Archived, false &#x3D; New) and &#x60;q[account_id_eq]&#x60;. Sort with &#x60;q[s]&#x60;: &#x60;account_name&#x60;, &#x60;filename&#x60; (the displayed file name) or &#x60;created_at&#x60;, each followed by &#x60;asc&#x60; or &#x60;desc&#x60;; the default is &#x60;created_at desc&#x60;. 35 rows per page unless &#x60;per_page&#x60; is given.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminUploadsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies ListAdminUploadsRequest;
+
+  try {
+    const data = await api.listAdminUploads(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminUploadsList**](AdminUploadsList.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Uploads retrieved |  -  |
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
@@ -36880,6 +37643,143 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## recalculateAdminSystemSettingLatestSalaries
+
+> RecalculateAdminSystemSettingLatestSalaries202Response recalculateAdminSystemSettingLatestSalaries()
+
+
+
+Queue the latest-salary cleanup job now and the recalculation job three minutes later (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RecalculateAdminSystemSettingLatestSalariesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.recalculateAdminSystemSettingLatestSalaries();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RecalculateAdminSystemSettingLatestSalaries202Response**](RecalculateAdminSystemSettingLatestSalaries202Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Salary update jobs queued |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **500** | The jobs could not be queued |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## refreshAdminSystemSettingSeasonCache
+
+> AdminSystemSettingMessage refreshAdminSystemSettingSeasonCache()
+
+
+
+Clear the cached season year so the app reflects the saved season immediately (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RefreshAdminSystemSettingSeasonCacheRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.refreshAdminSystemSettingSeasonCache();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AdminSystemSettingMessage**](AdminSystemSettingMessage.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Season caches refreshed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **500** | The refresh failed |  -  |
+| **503** | The cache clear could not be confirmed (the cache store may be unavailable) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## regenerateRawContractPdf
 
 > RegenerateRawContractPdf200Response regenerateRawContractPdf(rawContractId)
@@ -37414,6 +38314,86 @@ example().catch(console.error);
 | **404** | RawContract not found |  -  |
 | **422** | Unknown field, invalid body, change_note that is not a string (errors.change_note), season not currently verified, or document without a Contract. Nothing was written. |  -  |
 | **409** | The contract kept moving to other coaches while the request waited for its locks (errors.contract). Nothing was written; reload and retry. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## runAdminScraper
+
+> DownloadAdminUploads202Response runAdminScraper(id, runAdminScraperRequest)
+
+
+
+Start a scraper (admin, super-admin only). Only the arguments the scraper declares are forwarded; any other key in &#x60;scraper&#x60; is dropped.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RunAdminScraperOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string | Scraper name; may contain dots, e.g. `directory_scraper.dev_testing`
+    id: id_example,
+    // RunAdminScraperRequest (optional)
+    runAdminScraperRequest: ...,
+  } satisfies RunAdminScraperOperationRequest;
+
+  try {
+    const data = await api.runAdminScraper(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Scraper name; may contain dots, e.g. &#x60;directory_scraper.dev_testing&#x60; | [Defaults to `undefined`] |
+| **runAdminScraperRequest** | [RunAdminScraperRequest](RunAdminScraperRequest.md) |  | [Optional] |
+
+### Return type
+
+[**DownloadAdminUploads202Response**](DownloadAdminUploads202Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Scraper started |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Unknown scraper |  -  |
+| **422** | Scraper service error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -40953,6 +41933,82 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateAdminSystemSetting
+
+> AdminSystemSetting updateAdminSystemSetting(updateAdminSystemSettingRequest)
+
+
+
+Update the system setting (admin, super-admin only). Send JSON, or multipart/form-data with bracketed &#x60;system_setting[...]&#x60; fields when uploading a license agreement. A &#x60;license_agreement&#x60; file must really be a PDF (the bytes are checked, not the declared content type); it becomes the new standard license agreement. A refused file saves nothing, not even the other fields of the request.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAdminSystemSettingOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // UpdateAdminSystemSettingRequest
+    updateAdminSystemSettingRequest: ...,
+  } satisfies UpdateAdminSystemSettingOperationRequest;
+
+  try {
+    const data = await api.updateAdminSystemSetting(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateAdminSystemSettingRequest** | [UpdateAdminSystemSettingRequest](UpdateAdminSystemSettingRequest.md) |  | |
+
+### Return type
+
+[**AdminSystemSetting**](AdminSystemSetting.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | System setting updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **422** | Validation errors, keyed by field (&#x60;license_agreement&#x60; when the file is not a PDF) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateAdminTerminationAgreement
 
 > AdminTerminationAgreement updateAdminTerminationAgreement(id, rawContract)
@@ -41028,6 +42084,86 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **422** | Unprocessable Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateAdminUpload
+
+> AdminUpload updateAdminUpload(id, updateAdminUploadRequest)
+
+
+
+Archive or unarchive an upload (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateAdminUploadOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+    // UpdateAdminUploadRequest
+    updateAdminUploadRequest: ...,
+  } satisfies UpdateAdminUploadOperationRequest;
+
+  try {
+    const data = await api.updateAdminUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+| **updateAdminUploadRequest** | [UpdateAdminUploadRequest](UpdateAdminUploadRequest.md) |  | |
+
+### Return type
+
+[**AdminUpload**](AdminUpload.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Upload updated |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Validation errors |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -44283,11 +45419,11 @@ example().catch(console.error);
 
 ## viewRawContractFile
 
-> Blob viewRawContractFile(rawContractId)
+> Blob viewRawContractFile(rawContractId, ifNoneMatch)
 
 
 
-Stream the raw contract PDF for inline viewing (no watermark)
+Stream the PDF the raw contract currently holds, for inline viewing (no watermark). The file is named (Content-Disposition filename) and typed from the stored file itself, never from the legacy asset_* columns, and the response carries a strong ETag of that file with &#x60;Cache-Control: private, max-age&#x3D;0, must-revalidate&#x60;: replacing the file changes the ETag, so a client or proxy holding the old PDF revalidates and receives the new one (WINAD-10686).
 
 ### Example
 
@@ -44311,6 +45447,8 @@ async function example() {
   const body = {
     // number | ID of the RawContract
     rawContractId: 56,
+    // string | ETag of a copy the client already holds; answered with 304 while the file is unchanged (optional)
+    ifNoneMatch: ifNoneMatch_example,
   } satisfies ViewRawContractFileRequest;
 
   try {
@@ -44331,6 +45469,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+| **ifNoneMatch** | `string` | ETag of a copy the client already holds; answered with 304 while the file is unchanged | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -44349,7 +45488,8 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | PDF file stream |  -  |
+| **200** | PDF file stream |  * ETag - Strong validator of the stored file (changes whenever the file is replaced) <br>  |
+| **304** | The client\&#39;s copy (If-None-Match) is still the current file |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 
