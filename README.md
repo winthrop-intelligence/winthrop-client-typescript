@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.21
+# @winthrop-intelligence/winthrop-client-typescript@0.0.0-dev.39955814356
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -111,6 +111,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**createAdminDeskReport**](docs/DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports | 
 *DefaultApi* | [**createAdminDeskReportArtifact**](docs/DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts | 
 *DefaultApi* | [**createAdminDeskReportCoverImage**](docs/DefaultApi.md#createadmindeskreportcoverimage) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/cover_images | 
+*DefaultApi* | [**createAdminFoiaAction**](docs/DefaultApi.md#createadminfoiaactionoperation) | **POST** /api/v1/admin/foia_actions | 
 *DefaultApi* | [**createAdminFoiaContacts**](docs/DefaultApi.md#createadminfoiacontacts) | **POST** /api/v1/admin/foia_contacts | 
 *DefaultApi* | [**createAdminFoiaLabels**](docs/DefaultApi.md#createadminfoialabels) | **POST** /api/v1/admin/foia_labels | 
 *DefaultApi* | [**createAdminFoiaRequestBuilder**](docs/DefaultApi.md#createadminfoiarequestbuilder) | **POST** /api/v1/admin/foia_request_builder | 
@@ -500,6 +501,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**listAdminFavorites**](docs/DefaultApi.md#listadminfavorites) | **GET** /api/v1/admin/favorites | 
 *DefaultApi* | [**listAdminFinancialStats**](docs/DefaultApi.md#listadminfinancialstats) | **GET** /api/v1/admin/financial_stats | 
 *DefaultApi* | [**listAdminFinancialsQc**](docs/DefaultApi.md#listadminfinancialsqc) | **GET** /api/v1/admin/financials_qc | 
+*DefaultApi* | [**listAdminFoiaActions**](docs/DefaultApi.md#listadminfoiaactions) | **GET** /api/v1/admin/foia_actions | 
 *DefaultApi* | [**listAdminFoiaContacts**](docs/DefaultApi.md#listadminfoiacontacts) | **GET** /api/v1/admin/foia_contacts | 
 *DefaultApi* | [**listAdminFoiaContactsAvailableSchools**](docs/DefaultApi.md#listadminfoiacontactsavailableschools) | **GET** /api/v1/admin/foia_contacts/available_schools | 
 *DefaultApi* | [**listAdminFoiaLabels**](docs/DefaultApi.md#listadminfoialabels) | **GET** /api/v1/admin/foia_labels | 
@@ -556,6 +558,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *DefaultApi* | [**prefillAdminInvoice**](docs/DefaultApi.md#prefilladmininvoice) | **GET** /api/v1/admin/invoices/prefill | 
 *DefaultApi* | [**previewAdminCoachContracts**](docs/DefaultApi.md#previewadmincoachcontracts) | **POST** /api/v1/admin/coach_contracts/preview | 
 *DefaultApi* | [**previewAdminCoachMergeLog**](docs/DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview | 
+*DefaultApi* | [**previewAdminFoiaAction**](docs/DefaultApi.md#previewadminfoiaaction) | **GET** /api/v1/admin/foia_actions/preview | 
 *DefaultApi* | [**publishAdminDeskReport**](docs/DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish | 
 *DefaultApi* | [**recalculateAdminSystemSettingLatestSalaries**](docs/DefaultApi.md#recalculateadminsystemsettinglatestsalaries) | **POST** /api/v1/admin/system_setting/latest_salary_recalculation | 
 *DefaultApi* | [**refreshAdminSystemSettingSeasonCache**](docs/DefaultApi.md#refreshadminsystemsettingseasoncache) | **POST** /api/v1/admin/system_setting/season_cache_refresh | 
@@ -783,6 +786,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdminFinancialsQcListMetaAllOfFilterOptions](docs/AdminFinancialsQcListMetaAllOfFilterOptions.md)
 - [AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner](docs/AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner.md)
 - [AdminFinancialsQcRow](docs/AdminFinancialsQcRow.md)
+- [AdminFoiaActionResult](docs/AdminFoiaActionResult.md)
 - [AdminFoiaContact](docs/AdminFoiaContact.md)
 - [AdminFoiaContactsList](docs/AdminFoiaContactsList.md)
 - [AdminFoiaFilterOption](docs/AdminFoiaFilterOption.md)
@@ -791,6 +795,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdminFoiaFollowUpReportMeta](docs/AdminFoiaFollowUpReportMeta.md)
 - [AdminFoiaLabel](docs/AdminFoiaLabel.md)
 - [AdminFoiaLabelsList](docs/AdminFoiaLabelsList.md)
+- [AdminFoiaQuickActionRolesValue](docs/AdminFoiaQuickActionRolesValue.md)
 - [AdminFoiaRequest](docs/AdminFoiaRequest.md)
 - [AdminFoiaRequestBuilderFormOptions](docs/AdminFoiaRequestBuilderFormOptions.md)
 - [AdminFoiaRequestBuilderFormOptionsReportFilters](docs/AdminFoiaRequestBuilderFormOptionsReportFilters.md)
@@ -863,6 +868,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [AdminRequestedItemList](docs/AdminRequestedItemList.md)
 - [AdminRequestedItemListMeta](docs/AdminRequestedItemListMeta.md)
 - [AdminRequestedItemListMetaAllOfFilterOptions](docs/AdminRequestedItemListMetaAllOfFilterOptions.md)
+- [AdminRequestedItemQuickActions](docs/AdminRequestedItemQuickActions.md)
 - [AdminRiNote](docs/AdminRiNote.md)
 - [AdminRiNoteInput](docs/AdminRiNoteInput.md)
 - [AdminRiNoteInputRiNote](docs/AdminRiNoteInputRiNote.md)
@@ -1139,6 +1145,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CreateAdminDealStatusesRequestDealStatus](docs/CreateAdminDealStatusesRequestDealStatus.md)
 - [CreateAdminDeskReport503Response](docs/CreateAdminDeskReport503Response.md)
 - [CreateAdminDeskReportArtifact201Response](docs/CreateAdminDeskReportArtifact201Response.md)
+- [CreateAdminFoiaActionRequest](docs/CreateAdminFoiaActionRequest.md)
 - [CreateAdminFoiaContactRequest](docs/CreateAdminFoiaContactRequest.md)
 - [CreateAdminFoiaContactRequestFoiaContact](docs/CreateAdminFoiaContactRequestFoiaContact.md)
 - [CreateAdminFoiaLabelRequest](docs/CreateAdminFoiaLabelRequest.md)
@@ -1580,6 +1587,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Link](docs/Link.md)
 - [LinkCollection](docs/LinkCollection.md)
 - [LinkCollection1](docs/LinkCollection1.md)
+- [ListAdminFoiaActions200Response](docs/ListAdminFoiaActions200Response.md)
 - [ListAdminRawContractsBetweenSchools200Response](docs/ListAdminRawContractsBetweenSchools200Response.md)
 - [ListAdminUserCoachOptions200ResponseInner](docs/ListAdminUserCoachOptions200ResponseInner.md)
 - [ListAdminUserSportOptions200Response](docs/ListAdminUserSportOptions200Response.md)
@@ -1641,6 +1649,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PredictSuccess](docs/PredictSuccess.md)
 - [PrefillAdminInvoice422Response](docs/PrefillAdminInvoice422Response.md)
 - [PreviewAdminCoachContractsRequestImport](docs/PreviewAdminCoachContractsRequestImport.md)
+- [PreviewAdminFoiaAction200Response](docs/PreviewAdminFoiaAction200Response.md)
 - [PublishAdminDeskReportRequest](docs/PublishAdminDeskReportRequest.md)
 - [PublishPendingContractCompensation](docs/PublishPendingContractCompensation.md)
 - [PublishPendingContractCompensationBaseSalary](docs/PublishPendingContractCompensationBaseSalary.md)
@@ -1933,8 +1942,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.21`
-- Package version: `1.55.21`
+- API version: `0.0.0-dev.39955814356`
+- Package version: `0.0.0-dev.39955814356`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

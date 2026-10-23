@@ -6,6 +6,10 @@
 
 Name | Type
 ------------ | -------------
+`quickActionsTriggered` | boolean
+`quickActionsTriggeredBy` | string
+`quickActionsRunAt` | Date
+`quickActions` | [AdminRequestedItemQuickActions](AdminRequestedItemQuickActions.md)
 `id` | number
 `foiaRequestId` | number
 `requestableId` | number
@@ -31,6 +35,10 @@ import type { AdminRequestedItem } from '@winthrop-intelligence/winthrop-client-
 
 // TODO: Update the object below with actual values
 const example = {
+  "quickActionsTriggered": null,
+  "quickActionsTriggeredBy": null,
+  "quickActionsRunAt": null,
+  "quickActions": null,
   "id": null,
   "foiaRequestId": null,
   "requestableId": null,
