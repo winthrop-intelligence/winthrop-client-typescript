@@ -15,6 +15,7 @@ docs/AdminCoach.md
 docs/AdminCoachAvatar.md
 docs/AdminCoachBlockedSections.md
 docs/AdminCoachBlockedSectionsCompensations.md
+docs/AdminCoachContactsInner.md
 docs/AdminCoachContractJob.md
 docs/AdminCoachContractQc.md
 docs/AdminCoachContractsPreview.md
@@ -25,6 +26,10 @@ docs/AdminCoachContractsUploadIndexMeta.md
 docs/AdminCoachCurrentPosition.md
 docs/AdminCoachCurrentSchool.md
 docs/AdminCoachCurrentSport.md
+docs/AdminCoachHistory.md
+docs/AdminCoachHistoryDataInner.md
+docs/AdminCoachHistoryDataInnerChangesInner.md
+docs/AdminCoachHistoryMeta.md
 docs/AdminCoachHometownState.md
 docs/AdminCoachMergeLog.md
 docs/AdminCoachMergeLogDetail.md
@@ -150,8 +155,12 @@ docs/AdminNotesListMetaFilterOptions.md
 docs/AdminNotesListMetaFilterOptionsNotableItemsInner.md
 docs/AdminNotesListMetaFilterOptionsNotableItemsInnerId.md
 docs/AdminPosition.md
+docs/AdminPositionCoachApr.md
 docs/AdminPositionCoachSummary.md
 docs/AdminPositionCompensationSummary.md
+docs/AdminPositionFormOption.md
+docs/AdminPositionFormOptions.md
+docs/AdminPositionFormOptionsCreationReasonsInner.md
 docs/AdminPositionSchoolSummary.md
 docs/AdminPositionSeasonSummary.md
 docs/AdminPositionSportSummary.md
@@ -1248,6 +1257,7 @@ src/models/AdminCoach.ts
 src/models/AdminCoachAvatar.ts
 src/models/AdminCoachBlockedSections.ts
 src/models/AdminCoachBlockedSectionsCompensations.ts
+src/models/AdminCoachContactsInner.ts
 src/models/AdminCoachContractJob.ts
 src/models/AdminCoachContractQc.ts
 src/models/AdminCoachContractsPreview.ts
@@ -1258,6 +1268,10 @@ src/models/AdminCoachContractsUploadIndexMeta.ts
 src/models/AdminCoachCurrentPosition.ts
 src/models/AdminCoachCurrentSchool.ts
 src/models/AdminCoachCurrentSport.ts
+src/models/AdminCoachHistory.ts
+src/models/AdminCoachHistoryDataInner.ts
+src/models/AdminCoachHistoryDataInnerChangesInner.ts
+src/models/AdminCoachHistoryMeta.ts
 src/models/AdminCoachHometownState.ts
 src/models/AdminCoachMergeLog.ts
 src/models/AdminCoachMergeLogDetail.ts
@@ -1383,8 +1397,12 @@ src/models/AdminNotesListMetaFilterOptions.ts
 src/models/AdminNotesListMetaFilterOptionsNotableItemsInner.ts
 src/models/AdminNotesListMetaFilterOptionsNotableItemsInnerId.ts
 src/models/AdminPosition.ts
+src/models/AdminPositionCoachApr.ts
 src/models/AdminPositionCoachSummary.ts
 src/models/AdminPositionCompensationSummary.ts
+src/models/AdminPositionFormOption.ts
+src/models/AdminPositionFormOptions.ts
+src/models/AdminPositionFormOptionsCreationReasonsInner.ts
 src/models/AdminPositionSchoolSummary.ts
 src/models/AdminPositionSeasonSummary.ts
 src/models/AdminPositionSportSummary.ts

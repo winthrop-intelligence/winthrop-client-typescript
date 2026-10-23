@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`image` | Blob
+`executeValidation` | boolean
 `seasonId` | number
 `coachId` | number
 `title` | string
@@ -26,6 +28,8 @@ import type { CreateAdminPositionRequestPosition } from '@winthrop-intelligence/
 
 // TODO: Update the object below with actual values
 const example = {
+  "image": null,
+  "executeValidation": null,
   "seasonId": null,
   "coachId": null,
   "title": null,
