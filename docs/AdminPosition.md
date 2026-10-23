@@ -7,6 +7,17 @@ A per-coach, per-season position assignment
 
 Name | Type
 ------------ | -------------
+`titleDisplay` | string
+`yearLabel` | string
+`record` | string
+`rankingLabel` | string
+`ranking` | string
+`apr` | string
+`imageUrl` | string
+`coachApr` | [AdminPositionCoachApr](AdminPositionCoachApr.md)
+`usNews` | [AdminPositionCoachApr](AdminPositionCoachApr.md)
+`directorsCup` | [AdminPositionCoachApr](AdminPositionCoachApr.md)
+`administrator` | boolean
 `id` | number
 `seasonId` | number
 `coachId` | number
@@ -40,6 +51,17 @@ import type { AdminPosition } from '@winthrop-intelligence/winthrop-client-types
 
 // TODO: Update the object below with actual values
 const example = {
+  "titleDisplay": null,
+  "yearLabel": null,
+  "record": null,
+  "rankingLabel": null,
+  "ranking": null,
+  "apr": null,
+  "imageUrl": null,
+  "coachApr": null,
+  "usNews": null,
+  "directorsCup": null,
+  "administrator": null,
   "id": null,
   "seasonId": null,
   "coachId": null,

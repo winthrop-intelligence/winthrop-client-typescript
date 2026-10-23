@@ -6,6 +6,9 @@
 
 Name | Type
 ------------ | -------------
+`administratorProfile` | boolean
+`headCoachExp` | boolean
+`contacts` | [Array&lt;AdminCoachContactsInner&gt;](AdminCoachContactsInner.md)
 `visible` | boolean
 `id` | number
 `firstName` | string
@@ -53,6 +56,9 @@ import type { AdminCoach } from '@winthrop-intelligence/winthrop-client-typescri
 
 // TODO: Update the object below with actual values
 const example = {
+  "administratorProfile": null,
+  "headCoachExp": null,
+  "contacts": null,
   "visible": null,
   "id": null,
   "firstName": null,

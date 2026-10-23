@@ -177,6 +177,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAccounts**](DefaultApi.md#getaccounts) | **GET** /api/v1/accounts |  |
 | [**getAdminCoach**](DefaultApi.md#getadmincoach) | **GET** /api/v1/admin/coaches/{id} |  |
+| [**getAdminCoachChangeHistory**](DefaultApi.md#getadmincoachchangehistory) | **GET** /api/v1/admin/coaches/{coach_id}/change_history |  |
 | [**getAdminCoachMergeLog**](DefaultApi.md#getadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/{id} |  |
 | [**getAdminConferences**](DefaultApi.md#getadminconferences) | **GET** /api/v1/admin/conferences/{id} |  |
 | [**getAdminConferenceships**](DefaultApi.md#getadminconferenceships) | **GET** /api/v1/admin/conferenceships/{id} |  |
@@ -205,6 +206,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAdminInvoices**](DefaultApi.md#getadmininvoices) | **GET** /api/v1/admin/invoices |  |
 | [**getAdminPosition**](DefaultApi.md#getadminposition) | **GET** /api/v1/admin/positions/{id} |  |
 | [**getAdminPositionCopyOptions**](DefaultApi.md#getadminpositioncopyoptions) | **GET** /api/v1/admin/positions/copy_for_year |  |
+| [**getAdminPositionFormOptions**](DefaultApi.md#getadminpositionformoptions) | **GET** /api/v1/admin/positions/form_options |  |
 | [**getAdminRawContractText**](DefaultApi.md#getadminrawcontracttext) | **GET** /api/v1/admin/raw_contracts/{id}/text |  |
 | [**getAdminRequestedItemRiNote**](DefaultApi.md#getadminrequesteditemrinote) | **GET** /api/v1/admin/requested_items/{requested_item_id}/ri_note |  |
 | [**getAdminSchoolNames**](DefaultApi.md#getadminschoolnames) | **GET** /api/v1/admin/school_names/{id} |  |
@@ -3764,7 +3766,7 @@ example().catch(console.error);
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 
@@ -11240,12 +11242,13 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **422** | Position is linked to compensation (including a dangling id), or deletion was refused. Nothing is deleted. |  -  |
 | **204** | Position deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
@@ -13844,6 +13847,89 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getAdminCoachChangeHistory
+
+> AdminCoachHistory getAdminCoachChangeHistory(coachId, kind, page)
+
+
+
+Read coach, position or compensation PaperTrail history, including deleted child records. Super admins only.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminCoachChangeHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // string
+    coachId: coachId_example,
+    // 'coach' | 'position' | 'compensation'
+    kind: kind_example,
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+  } satisfies GetAdminCoachChangeHistoryRequest;
+
+  try {
+    const data = await api.getAdminCoachChangeHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `string` |  | [Defaults to `undefined`] |
+| **kind** | `coach`, `position`, `compensation` |  | [Defaults to `undefined`] [Enum: coach, position, compensation] |
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+
+### Return type
+
+[**AdminCoachHistory**](AdminCoachHistory.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Newest history first, 25 entries per page |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Coach not found |  -  |
+| **422** | Invalid history kind |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getAdminCoachMergeLog
 
 > AdminCoachMergeLogDetail getAdminCoachMergeLog(id)
@@ -15990,6 +16076,84 @@ This endpoint does not need any parameter.
 | **200** | Copy form options |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getAdminPositionFormOptions
+
+> AdminPositionFormOptions getAdminPositionFormOptions(schoolId, sportId)
+
+
+
+Rails position form choices. Seasons are scoped to school and sport; the year default comes from SystemSetting.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetAdminPositionFormOptionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number (optional)
+    schoolId: 56,
+    // number (optional)
+    sportId: 56,
+  } satisfies GetAdminPositionFormOptionsRequest;
+
+  try {
+    const data = await api.getAdminPositionFormOptions(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminPositionFormOptions**](AdminPositionFormOptions.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Form choices |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -39010,11 +39174,11 @@ example().catch(console.error);
 
 ## toggleDepartingAdminPosition
 
-> AdminPosition toggleDepartingAdminPosition(id)
+> AdminPosition toggleDepartingAdminPosition(id, departing)
 
 
 
-Flip a single position\&#39;s departing flag (admin-only)
+Set a position\&#39;s departing flag when a target is supplied, otherwise flip it (admin-only)
 
 ### Example
 
@@ -39038,6 +39202,8 @@ async function example() {
   const body = {
     // number | ID of the position
     id: 56,
+    // boolean | Intended state; an unchanged target preserves departure details and writes no audit event (optional)
+    departing: true,
   } satisfies ToggleDepartingAdminPositionRequest;
 
   try {
@@ -39058,6 +39224,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `number` | ID of the position | [Defaults to `undefined`] |
+| **departing** | `boolean` | Intended state; an unchanged target preserves departure details and writes no audit event | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -41274,7 +41441,7 @@ example().catch(console.error);
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 
