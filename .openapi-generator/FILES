@@ -86,6 +86,7 @@ docs/AdminFinancialsQcListMeta.md
 docs/AdminFinancialsQcListMetaAllOfFilterOptions.md
 docs/AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner.md
 docs/AdminFinancialsQcRow.md
+docs/AdminFoiaActionResult.md
 docs/AdminFoiaContact.md
 docs/AdminFoiaContactsList.md
 docs/AdminFoiaFilterOption.md
@@ -94,6 +95,7 @@ docs/AdminFoiaFollowUpReportDataInner.md
 docs/AdminFoiaFollowUpReportMeta.md
 docs/AdminFoiaLabel.md
 docs/AdminFoiaLabelsList.md
+docs/AdminFoiaQuickActionRolesValue.md
 docs/AdminFoiaRequest.md
 docs/AdminFoiaRequestBuilderFormOptions.md
 docs/AdminFoiaRequestBuilderFormOptionsReportFilters.md
@@ -166,6 +168,7 @@ docs/AdminRequestedItemFilterOption.md
 docs/AdminRequestedItemList.md
 docs/AdminRequestedItemListMeta.md
 docs/AdminRequestedItemListMetaAllOfFilterOptions.md
+docs/AdminRequestedItemQuickActions.md
 docs/AdminRiNote.md
 docs/AdminRiNoteInput.md
 docs/AdminRiNoteInputRiNote.md
@@ -443,6 +446,7 @@ docs/CreateAdminDealStatusesRequest.md
 docs/CreateAdminDealStatusesRequestDealStatus.md
 docs/CreateAdminDeskReport503Response.md
 docs/CreateAdminDeskReportArtifact201Response.md
+docs/CreateAdminFoiaActionRequest.md
 docs/CreateAdminFoiaContactRequest.md
 docs/CreateAdminFoiaContactRequestFoiaContact.md
 docs/CreateAdminFoiaLabelRequest.md
@@ -889,6 +893,7 @@ docs/JobSport.md
 docs/Link.md
 docs/LinkCollection.md
 docs/LinkCollection1.md
+docs/ListAdminFoiaActions200Response.md
 docs/ListAdminRawContractsBetweenSchools200Response.md
 docs/ListAdminUserCoachOptions200ResponseInner.md
 docs/ListAdminUserSportOptions200Response.md
@@ -951,6 +956,7 @@ docs/PredictFailure.md
 docs/PredictSuccess.md
 docs/PrefillAdminInvoice422Response.md
 docs/PreviewAdminCoachContractsRequestImport.md
+docs/PreviewAdminFoiaAction200Response.md
 docs/PublishAdminDeskReportRequest.md
 docs/PublishPendingContractCompensation.md
 docs/PublishPendingContractCompensationBaseSalary.md
@@ -1319,6 +1325,7 @@ src/models/AdminFinancialsQcListMeta.ts
 src/models/AdminFinancialsQcListMetaAllOfFilterOptions.ts
 src/models/AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner.ts
 src/models/AdminFinancialsQcRow.ts
+src/models/AdminFoiaActionResult.ts
 src/models/AdminFoiaContact.ts
 src/models/AdminFoiaContactsList.ts
 src/models/AdminFoiaFilterOption.ts
@@ -1327,6 +1334,7 @@ src/models/AdminFoiaFollowUpReportDataInner.ts
 src/models/AdminFoiaFollowUpReportMeta.ts
 src/models/AdminFoiaLabel.ts
 src/models/AdminFoiaLabelsList.ts
+src/models/AdminFoiaQuickActionRolesValue.ts
 src/models/AdminFoiaRequest.ts
 src/models/AdminFoiaRequestBuilderFormOptions.ts
 src/models/AdminFoiaRequestBuilderFormOptionsReportFilters.ts
@@ -1399,6 +1407,7 @@ src/models/AdminRequestedItemFilterOption.ts
 src/models/AdminRequestedItemList.ts
 src/models/AdminRequestedItemListMeta.ts
 src/models/AdminRequestedItemListMetaAllOfFilterOptions.ts
+src/models/AdminRequestedItemQuickActions.ts
 src/models/AdminRiNote.ts
 src/models/AdminRiNoteInput.ts
 src/models/AdminRiNoteInputRiNote.ts
@@ -1675,6 +1684,7 @@ src/models/CreateAdminDealStatusesRequest.ts
 src/models/CreateAdminDealStatusesRequestDealStatus.ts
 src/models/CreateAdminDeskReport503Response.ts
 src/models/CreateAdminDeskReportArtifact201Response.ts
+src/models/CreateAdminFoiaActionRequest.ts
 src/models/CreateAdminFoiaContactRequest.ts
 src/models/CreateAdminFoiaContactRequestFoiaContact.ts
 src/models/CreateAdminFoiaLabelRequest.ts
@@ -2116,6 +2126,7 @@ src/models/JobSport.ts
 src/models/Link.ts
 src/models/LinkCollection.ts
 src/models/LinkCollection1.ts
+src/models/ListAdminFoiaActions200Response.ts
 src/models/ListAdminRawContractsBetweenSchools200Response.ts
 src/models/ListAdminUserCoachOptions200ResponseInner.ts
 src/models/ListAdminUserSportOptions200Response.ts
@@ -2177,6 +2188,7 @@ src/models/PredictFailure.ts
 src/models/PredictSuccess.ts
 src/models/PrefillAdminInvoice422Response.ts
 src/models/PreviewAdminCoachContractsRequestImport.ts
+src/models/PreviewAdminFoiaAction200Response.ts
 src/models/PublishAdminDeskReportRequest.ts
 src/models/PublishPendingContractCompensation.ts
 src/models/PublishPendingContractCompensationBaseSalary.ts

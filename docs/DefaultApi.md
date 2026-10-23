@@ -36,6 +36,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createAdminDeskReport**](DefaultApi.md#createadmindeskreport) | **POST** /api/v1/admin/desk_reports |  |
 | [**createAdminDeskReportArtifact**](DefaultApi.md#createadmindeskreportartifact) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/artifacts |  |
 | [**createAdminDeskReportCoverImage**](DefaultApi.md#createadmindeskreportcoverimage) | **POST** /api/v1/admin/desk_reports/{desk_report_uuid}/cover_images |  |
+| [**createAdminFoiaAction**](DefaultApi.md#createadminfoiaactionoperation) | **POST** /api/v1/admin/foia_actions |  |
 | [**createAdminFoiaContacts**](DefaultApi.md#createadminfoiacontacts) | **POST** /api/v1/admin/foia_contacts |  |
 | [**createAdminFoiaLabels**](DefaultApi.md#createadminfoialabels) | **POST** /api/v1/admin/foia_labels |  |
 | [**createAdminFoiaRequestBuilder**](DefaultApi.md#createadminfoiarequestbuilder) | **POST** /api/v1/admin/foia_request_builder |  |
@@ -425,6 +426,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminFavorites**](DefaultApi.md#listadminfavorites) | **GET** /api/v1/admin/favorites |  |
 | [**listAdminFinancialStats**](DefaultApi.md#listadminfinancialstats) | **GET** /api/v1/admin/financial_stats |  |
 | [**listAdminFinancialsQc**](DefaultApi.md#listadminfinancialsqc) | **GET** /api/v1/admin/financials_qc |  |
+| [**listAdminFoiaActions**](DefaultApi.md#listadminfoiaactions) | **GET** /api/v1/admin/foia_actions |  |
 | [**listAdminFoiaContacts**](DefaultApi.md#listadminfoiacontacts) | **GET** /api/v1/admin/foia_contacts |  |
 | [**listAdminFoiaContactsAvailableSchools**](DefaultApi.md#listadminfoiacontactsavailableschools) | **GET** /api/v1/admin/foia_contacts/available_schools |  |
 | [**listAdminFoiaLabels**](DefaultApi.md#listadminfoialabels) | **GET** /api/v1/admin/foia_labels |  |
@@ -481,6 +483,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**prefillAdminInvoice**](DefaultApi.md#prefilladmininvoice) | **GET** /api/v1/admin/invoices/prefill |  |
 | [**previewAdminCoachContracts**](DefaultApi.md#previewadmincoachcontracts) | **POST** /api/v1/admin/coach_contracts/preview |  |
 | [**previewAdminCoachMergeLog**](DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview |  |
+| [**previewAdminFoiaAction**](DefaultApi.md#previewadminfoiaaction) | **GET** /api/v1/admin/foia_actions/preview |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
 | [**recalculateAdminSystemSettingLatestSalaries**](DefaultApi.md#recalculateadminsystemsettinglatestsalaries) | **POST** /api/v1/admin/system_setting/latest_salary_recalculation |  |
 | [**refreshAdminSystemSettingSeasonCache**](DefaultApi.md#refreshadminsystemsettingseasoncache) | **POST** /api/v1/admin/system_setting/season_cache_refresh |  |
@@ -3081,6 +3084,83 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unknown slot, missing or invalid file, or a report that is not a draft |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createAdminFoiaAction
+
+> AdminFoiaActionResult createAdminFoiaAction(createAdminFoiaActionRequest)
+
+
+
+Submit a signed preview after explicit confirmation using the existing Rails jobs and services. Single drafts are created synchronously; bulk actions and reports are queued.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminFoiaActionOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // CreateAdminFoiaActionRequest
+    createAdminFoiaActionRequest: ...,
+  } satisfies CreateAdminFoiaActionOperationRequest;
+
+  try {
+    const data = await api.createAdminFoiaAction(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAdminFoiaActionRequest** | [CreateAdminFoiaActionRequest](CreateAdminFoiaActionRequest.md) |  | |
+
+### Return type
+
+[**AdminFoiaActionResult**](AdminFoiaActionResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Single draft created |  -  |
+| **202** | Background work queued |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Requires a user-backed super-admin token |  -  |
+| **422** | Invalid or expired confirmation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -33065,6 +33145,73 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listAdminFoiaActions
+
+> ListAdminFoiaActions200Response listAdminFoiaActions()
+
+
+
+Gmail account connection status. Never returns tokens.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminFoiaActionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  try {
+    const data = await api.listAdminFoiaActions();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListAdminFoiaActions200Response**](ListAdminFoiaActions200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Account connection status |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Requires a user-backed super-admin token |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## listAdminFoiaContacts
 
 > AdminFoiaContactsList listAdminFoiaContacts(page, qSchoolDivisionIdEq, qSchoolSubdivisionsIdEq, qSchoolConferencesIdEq, qSchoolIdEq, qTypeEq, qFirstNameStart, qLastNameStart, qEmailStart, qPhonePresent, qMailingAddressPresent, qContactPageUrlPresent, qPositionPresent)
@@ -33566,7 +33713,7 @@ example().catch(console.error);
 
 
 
-The FOIA follow-up worklist, sortable by follow_up_date etc; send_email&#x3D;true triggers the same admin notifier email the old page\&#39;s button sent. q[show_processed_today] (true/false) is read by the report itself and is not a Ransack condition
+Read-only FOIA follow-up worklist. Email requires an explicit confirmed POST to admin/foia_actions. q[show_processed_today] accepts true, false or all.
 
 ### Example
 
@@ -33596,7 +33743,7 @@ async function example() {
     q: Object,
     // string (optional)
     sortBy: sortBy_example,
-    // boolean (optional)
+    // boolean | Ignored. GET never sends email; use the confirmed FOIA action POST. (optional)
     sendEmail: true,
   } satisfies ListAdminFoiaRequestFollowUpReportRequest;
 
@@ -33621,7 +33768,7 @@ example().catch(console.error);
 | **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **sendEmail** | `boolean` |  | [Optional] [Defaults to `undefined`] |
+| **sendEmail** | `boolean` | Ignored. GET never sends email; use the confirmed FOIA action POST. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -33729,7 +33876,7 @@ example().catch(console.error);
 
 ## listAdminFoiaRequests
 
-> AdminFoiaRequestsList listAdminFoiaRequests(page, perPage, q, withRequestType, schoolHasSalarySite)
+> AdminFoiaRequestsList listAdminFoiaRequests(page, perPage, q, withRequestType, schoolHasSalarySite, includeArchivedLabels)
 
 
 
@@ -33765,6 +33912,8 @@ async function example() {
     withRequestType: withRequestType_example,
     // 'true' | 'false' (optional)
     schoolHasSalarySite: schoolHasSalarySite_example,
+    // boolean | Include archived-label and unlabeled requests for school history. Defaults to false. (optional)
+    includeArchivedLabels: true,
   } satisfies ListAdminFoiaRequestsRequest;
 
   try {
@@ -33789,6 +33938,7 @@ example().catch(console.error);
 | **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
 | **withRequestType** | `string` |  | [Optional] [Defaults to `undefined`] |
 | **schoolHasSalarySite** | `true`, `false` |  | [Optional] [Defaults to `undefined`] [Enum: true, false] |
+| **includeArchivedLabels** | `boolean` | Include archived-label and unlabeled requests for school history. Defaults to false. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -37557,6 +37707,93 @@ example().catch(console.error);
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 | **422** | Validation errors |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## previewAdminFoiaAction
+
+> PreviewAdminFoiaAction200Response previewAdminFoiaAction(kind, requestId, schoolHasSalarySite, q)
+
+
+
+Read-only confirmation snapshot, valid for fifteen minutes and bound to the administrator. Drafts include only active requests with active labels; send_drafts covers the entire mailbox. Report counts cover all filtered pages. Empty scopes cannot be submitted.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PreviewAdminFoiaActionRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // 'drafts' | 'single_draft' | 'send_drafts' | 'follow_up_email' | 'requested_items_export'
+    kind: kind_example,
+    // number (optional)
+    requestId: 56,
+    // 'true' | 'false' (optional)
+    schoolHasSalarySite: schoolHasSalarySite_example,
+    // object | Ransack query. A value whose key ends in `_in` is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. `q[primary_conference_division_name_in]=DI,DII`. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. (optional)
+    q: Object,
+  } satisfies PreviewAdminFoiaActionRequest;
+
+  try {
+    const data = await api.previewAdminFoiaAction(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kind** | `drafts`, `single_draft`, `send_drafts`, `follow_up_email`, `requested_items_export` |  | [Defaults to `undefined`] [Enum: drafts, single_draft, send_drafts, follow_up_email, requested_items_export] |
+| **requestId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolHasSalarySite** | `true`, `false` |  | [Optional] [Defaults to `undefined`] [Enum: true, false] |
+| **q** | `object` | Ransack query. A value whose key ends in &#x60;_in&#x60; is split on commas into a list, so a multi-value predicate travels as one parameter — e.g. &#x60;q[primary_conference_division_name_in]&#x3D;DI,DII&#x60;. A blank value yields an empty list, which Ransack drops: the predicate then does not filter at all, rather than matching nothing. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**PreviewAdminFoiaAction200Response**](PreviewAdminFoiaAction200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Preview; nothing has been queued |  -  |
+| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Requires a user-backed super-admin token |  -  |
+| **404** | Request unavailable |  -  |
+| **422** | Invalid action |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

@@ -11,6 +11,7 @@ Name | Type
 `totalEntries` | number
 `nextPage` | number
 `previousPage` | number
+`quickActionRoles` | [{ [key: string]: AdminFoiaQuickActionRolesValue; }](AdminFoiaQuickActionRolesValue.md)
 `filterOptions` | [AdminRequestedItemListMetaAllOfFilterOptions](AdminRequestedItemListMetaAllOfFilterOptions.md)
 
 ## Example
@@ -25,6 +26,7 @@ const example = {
   "totalEntries": 654,
   "nextPage": 3,
   "previousPage": 1,
+  "quickActionRoles": null,
   "filterOptions": null,
 } satisfies AdminRequestedItemListMeta
 

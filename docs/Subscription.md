@@ -29,6 +29,7 @@ Name | Type
 `contractAcceptedIpAddress` | string
 `renewal` | boolean
 `renewing` | boolean
+`scheduledForActivation` | boolean
 `invoicing` | boolean
 `notes` | string
 `sendRenewal` | boolean
@@ -73,6 +74,7 @@ const example = {
   "contractAcceptedIpAddress": 233.34.24.28,
   "renewal": false,
   "renewing": false,
+  "scheduledForActivation": false,
   "invoicing": true,
   "notes": This is a note,
   "sendRenewal": true,
