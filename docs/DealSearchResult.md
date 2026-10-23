@@ -26,6 +26,7 @@ Name | Type
 `summary` | string
 `autorenew` | boolean
 `archived` | boolean
+`pending` | boolean
 `vendors` | [Array&lt;DealDetailVendor&gt;](DealDetailVendor.md)
 `dealDetail` | [DealDetail](DealDetail.md)
 `rawContractId` | number
@@ -58,6 +59,7 @@ const example = {
   "summary": null,
   "autorenew": null,
   "archived": null,
+  "pending": null,
   "vendors": null,
   "dealDetail": null,
   "rawContractId": null,

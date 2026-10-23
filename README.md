@@ -1,4 +1,4 @@
-# @winthrop-intelligence/winthrop-client-typescript@1.55.21
+# @winthrop-intelligence/winthrop-client-typescript@1.55.22
 
 A TypeScript SDK client for the api-gateway.default.svc.cluster.local API.
 
@@ -79,6 +79,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 *ContractsApi* | [**replaceContractFile**](docs/ContractsApi.md#replacecontractfile) | **PUT** /api/v1/contracts/{contractId}/file | 
 *ContractsApi* | [**updateContract**](docs/ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} | 
 *CtbApi* | [**applyCtbCompensation**](docs/CtbApi.md#applyctbcompensation) | **POST** /api/v1/ctb_compensation_apply | 
+*DealsApi* | [**createPendingDeal**](docs/DealsApi.md#creatependingdeal) | **POST** /api/v1/deals | 
+*DealsApi* | [**deletePendingDeal**](docs/DealsApi.md#deletependingdeal) | **DELETE** /api/v1/deals/{dealId} | 
+*DealsApi* | [**publishPendingDeal**](docs/DealsApi.md#publishpendingdealoperation) | **POST** /api/v1/deals/{dealId}/publish | 
 *DefaultApi* | [**archiveAdminFoiaLabels**](docs/DefaultApi.md#archiveadminfoialabels) | **POST** /api/v1/admin/foia_labels/{id}/archive | 
 *DefaultApi* | [**averageConferenceComp**](docs/DefaultApi.md#averageconferencecomp) | **GET** /api/v1/compensations/average_conference_comp | 
 *DefaultApi* | [**averageDivisionComp**](docs/DefaultApi.md#averagedivisioncomp) | **GET** /api/v1/compensations/average_division_comp | 
@@ -1003,6 +1006,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Avatar](docs/Avatar.md)
 - [AverageCompensation](docs/AverageCompensation.md)
 - [BatchGuaranteeEconomicsRequest](docs/BatchGuaranteeEconomicsRequest.md)
+- [BookstoreDealUpdate](docs/BookstoreDealUpdate.md)
 - [BulkCreateGamePostSearchesRequest](docs/BulkCreateGamePostSearchesRequest.md)
 - [BulkCreateGamePostSearchesRequestIntentsInner](docs/BulkCreateGamePostSearchesRequestIntentsInner.md)
 - [BulkCreateGamePostSearchesRequestPostsInner](docs/BulkCreateGamePostSearchesRequestPostsInner.md)
@@ -1080,6 +1084,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [CompensationVerificationStatusMetaCountsByStatus](docs/CompensationVerificationStatusMetaCountsByStatus.md)
 - [CompensationVerificationStatusRow](docs/CompensationVerificationStatusRow.md)
 - [CompensationVerificationStatusValue](docs/CompensationVerificationStatusValue.md)
+- [ConcessionDealUpdate](docs/ConcessionDealUpdate.md)
 - [Conference](docs/Conference.md)
 - [ConferenceAdminCompensationResponse](docs/ConferenceAdminCompensationResponse.md)
 - [ConferenceCashflowStatsResponse](docs/ConferenceCashflowStatsResponse.md)
@@ -1224,12 +1229,15 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [DealCollection](docs/DealCollection.md)
 - [DealDetail](docs/DealDetail.md)
 - [DealDetailVendor](docs/DealDetailVendor.md)
+- [DealErrorsResponse](docs/DealErrorsResponse.md)
 - [DealSearchResult](docs/DealSearchResult.md)
 - [DealSearchResultCollection](docs/DealSearchResultCollection.md)
 - [DealStatus](docs/DealStatus.md)
 - [DealStatusCollection](docs/DealStatusCollection.md)
 - [DealUpdateAmount](docs/DealUpdateAmount.md)
 - [DealUpdateDetail](docs/DealUpdateDetail.md)
+- [DealUpdatePartner](docs/DealUpdatePartner.md)
+- [DealUpdatePercent](docs/DealUpdatePercent.md)
 - [DealUpdateResult](docs/DealUpdateResult.md)
 - [DeleteAccountUser200Response](docs/DeleteAccountUser200Response.md)
 - [DeleteContactSearch200Response](docs/DeleteContactSearch200Response.md)
@@ -1607,6 +1615,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [Meta](docs/Meta.md)
 - [MultimediaDealUpdate](docs/MultimediaDealUpdate.md)
 - [MultimediaDealUpdateRevSharePercent](docs/MultimediaDealUpdateRevSharePercent.md)
+- [NameImageLikenessDealUpdate](docs/NameImageLikenessDealUpdate.md)
 - [NcaaFinancialParticipationSummary](docs/NcaaFinancialParticipationSummary.md)
 - [NcaaFinancialReportItemGroup](docs/NcaaFinancialReportItemGroup.md)
 - [NcaaFinancialReportItemValue](docs/NcaaFinancialReportItemValue.md)
@@ -1621,8 +1630,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [NewsFeed](docs/NewsFeed.md)
 - [NewsFeedCollection](docs/NewsFeedCollection.md)
 - [Note](docs/Note.md)
+- [OutTicketingDealUpdate](docs/OutTicketingDealUpdate.md)
 - [PageView](docs/PageView.md)
 - [PendingContractCreated](docs/PendingContractCreated.md)
+- [PendingDealCreated](docs/PendingDealCreated.md)
 - [PersonAssignment](docs/PersonAssignment.md)
 - [Position](docs/Position.md)
 - [PositionCollection](docs/PositionCollection.md)
@@ -1636,6 +1647,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PositionTypeGroupOption](docs/PositionTypeGroupOption.md)
 - [PositionTypesForGroupsAdminSports200Response](docs/PositionTypesForGroupsAdminSports200Response.md)
 - [PositionTypesForGroupsAdminSportsRequest](docs/PositionTypesForGroupsAdminSportsRequest.md)
+- [PouringDealUpdate](docs/PouringDealUpdate.md)
 - [PredictBody](docs/PredictBody.md)
 - [PredictFailure](docs/PredictFailure.md)
 - [PredictSuccess](docs/PredictSuccess.md)
@@ -1647,6 +1659,9 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [PublishPendingContractCompensationOneTimeBonus](docs/PublishPendingContractCompensationOneTimeBonus.md)
 - [PublishPendingContractRequest](docs/PublishPendingContractRequest.md)
 - [PublishPendingContractRequestContractTerms](docs/PublishPendingContractRequestContractTerms.md)
+- [PublishPendingDealRequest](docs/PublishPendingDealRequest.md)
+- [PublishPendingDealRequestDeal](docs/PublishPendingDealRequestDeal.md)
+- [PublishPendingDealRequestDealDetail](docs/PublishPendingDealRequestDealDetail.md)
 - [PublishedContract](docs/PublishedContract.md)
 - [PublishedContractAllOfCompensations](docs/PublishedContractAllOfCompensations.md)
 - [QuadrantUnplottedSchool](docs/QuadrantUnplottedSchool.md)
@@ -1796,8 +1811,10 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [TeamSeasonResult](docs/TeamSeasonResult.md)
 - [TeamSeasonResultCollection](docs/TeamSeasonResultCollection.md)
 - [TeamSeasonResultInput](docs/TeamSeasonResultInput.md)
+- [TicketingDealUpdate](docs/TicketingDealUpdate.md)
 - [TimeOfYearOption](docs/TimeOfYearOption.md)
 - [TimeZoneOption](docs/TimeZoneOption.md)
+- [TrademarkDealUpdate](docs/TrademarkDealUpdate.md)
 - [UnauthorizedError](docs/UnauthorizedError.md)
 - [UnknownRansackConditionError](docs/UnknownRansackConditionError.md)
 - [UnknownRansackConditionErrorErrors](docs/UnknownRansackConditionErrorErrors.md)
@@ -1902,6 +1919,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 - [VerifyOtpCode200Response](docs/VerifyOtpCode200Response.md)
 - [VerifyOtpCodeRequest](docs/VerifyOtpCodeRequest.md)
 - [VerifyUserIntercollegiateAccess200Response](docs/VerifyUserIntercollegiateAccess200Response.md)
+- [VideoDealUpdate](docs/VideoDealUpdate.md)
 - [VideoEntry](docs/VideoEntry.md)
 - [WireChange](docs/WireChange.md)
 - [WireChangeCoach](docs/WireChangeCoach.md)
@@ -1933,8 +1951,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.55.21`
-- Package version: `1.55.21`
+- API version: `1.55.22`
+- Package version: `1.55.22`
 - Generator version: `7.19.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 
