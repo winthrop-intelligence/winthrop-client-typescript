@@ -30,6 +30,7 @@ Name | Type
 `dealDetail` | [DealUpdateDetail](DealUpdateDetail.md)
 `rawContractId` | number
 `verified` | boolean
+`pending` | boolean
 
 ## Example
 
@@ -62,6 +63,7 @@ const example = {
   "dealDetail": null,
   "rawContractId": null,
   "verified": null,
+  "pending": null,
 } satisfies DealUpdateResult
 
 console.log(example)

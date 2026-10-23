@@ -306,6 +306,7 @@ docs/AvailableGameContract.md
 docs/Avatar.md
 docs/AverageCompensation.md
 docs/BatchGuaranteeEconomicsRequest.md
+docs/BookstoreDealUpdate.md
 docs/BulkCreateGamePostSearchesRequest.md
 docs/BulkCreateGamePostSearchesRequestIntentsInner.md
 docs/BulkCreateGamePostSearchesRequestPostsInner.md
@@ -383,6 +384,7 @@ docs/CompensationVerificationStatusMeta.md
 docs/CompensationVerificationStatusMetaCountsByStatus.md
 docs/CompensationVerificationStatusRow.md
 docs/CompensationVerificationStatusValue.md
+docs/ConcessionDealUpdate.md
 docs/Conference.md
 docs/ConferenceAdminCompensationResponse.md
 docs/ConferenceCashflowStatsResponse.md
@@ -529,13 +531,17 @@ docs/Deal.md
 docs/DealCollection.md
 docs/DealDetail.md
 docs/DealDetailVendor.md
+docs/DealErrorsResponse.md
 docs/DealSearchResult.md
 docs/DealSearchResultCollection.md
 docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DealUpdateAmount.md
 docs/DealUpdateDetail.md
+docs/DealUpdatePartner.md
+docs/DealUpdatePercent.md
 docs/DealUpdateResult.md
+docs/DealsApi.md
 docs/DefaultApi.md
 docs/DeleteAccountUser200Response.md
 docs/DeleteContactSearch200Response.md
@@ -917,6 +923,7 @@ docs/Meta.md
 docs/MlAthleticApi.md
 docs/MultimediaDealUpdate.md
 docs/MultimediaDealUpdateRevSharePercent.md
+docs/NameImageLikenessDealUpdate.md
 docs/NcaaFinancialParticipationSummary.md
 docs/NcaaFinancialReportItemGroup.md
 docs/NcaaFinancialReportItemValue.md
@@ -931,8 +938,10 @@ docs/NewerSeasonContext.md
 docs/NewsFeed.md
 docs/NewsFeedCollection.md
 docs/Note.md
+docs/OutTicketingDealUpdate.md
 docs/PageView.md
 docs/PendingContractCreated.md
+docs/PendingDealCreated.md
 docs/PersonAssignment.md
 docs/Position.md
 docs/PositionCollection.md
@@ -946,6 +955,7 @@ docs/PositionTypeGroup.md
 docs/PositionTypeGroupOption.md
 docs/PositionTypesForGroupsAdminSports200Response.md
 docs/PositionTypesForGroupsAdminSportsRequest.md
+docs/PouringDealUpdate.md
 docs/PredictBody.md
 docs/PredictFailure.md
 docs/PredictSuccess.md
@@ -957,6 +967,9 @@ docs/PublishPendingContractCompensationBaseSalary.md
 docs/PublishPendingContractCompensationOneTimeBonus.md
 docs/PublishPendingContractRequest.md
 docs/PublishPendingContractRequestContractTerms.md
+docs/PublishPendingDealRequest.md
+docs/PublishPendingDealRequestDeal.md
+docs/PublishPendingDealRequestDealDetail.md
 docs/PublishedContract.md
 docs/PublishedContractAllOfCompensations.md
 docs/QuadrantUnplottedSchool.md
@@ -1110,8 +1123,10 @@ docs/TeamScheduleSearchResultHomeContracts.md
 docs/TeamSeasonResult.md
 docs/TeamSeasonResultCollection.md
 docs/TeamSeasonResultInput.md
+docs/TicketingDealUpdate.md
 docs/TimeOfYearOption.md
 docs/TimeZoneOption.md
+docs/TrademarkDealUpdate.md
 docs/UnauthorizedError.md
 docs/UnknownRansackConditionError.md
 docs/UnknownRansackConditionErrorErrors.md
@@ -1216,6 +1231,7 @@ docs/VendorCollection.md
 docs/VerifyOtpCode200Response.md
 docs/VerifyOtpCodeRequest.md
 docs/VerifyUserIntercollegiateAccess200Response.md
+docs/VideoDealUpdate.md
 docs/VideoEntry.md
 docs/WireChange.md
 docs/WireChangeCoach.md
@@ -1223,6 +1239,7 @@ docs/WireChangeSchool.md
 package.json
 src/apis/ContractsApi.ts
 src/apis/CtbApi.ts
+src/apis/DealsApi.ts
 src/apis/DefaultApi.ts
 src/apis/FoiaInboxApi.ts
 src/apis/GameContractsApi.ts
@@ -1539,6 +1556,7 @@ src/models/AvailableGameContract.ts
 src/models/Avatar.ts
 src/models/AverageCompensation.ts
 src/models/BatchGuaranteeEconomicsRequest.ts
+src/models/BookstoreDealUpdate.ts
 src/models/BulkCreateGamePostSearchesRequest.ts
 src/models/BulkCreateGamePostSearchesRequestIntentsInner.ts
 src/models/BulkCreateGamePostSearchesRequestPostsInner.ts
@@ -1616,6 +1634,7 @@ src/models/CompensationVerificationStatusMeta.ts
 src/models/CompensationVerificationStatusMetaCountsByStatus.ts
 src/models/CompensationVerificationStatusRow.ts
 src/models/CompensationVerificationStatusValue.ts
+src/models/ConcessionDealUpdate.ts
 src/models/Conference.ts
 src/models/ConferenceAdminCompensationResponse.ts
 src/models/ConferenceCashflowStatsResponse.ts
@@ -1760,12 +1779,15 @@ src/models/Deal.ts
 src/models/DealCollection.ts
 src/models/DealDetail.ts
 src/models/DealDetailVendor.ts
+src/models/DealErrorsResponse.ts
 src/models/DealSearchResult.ts
 src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
 src/models/DealUpdateAmount.ts
 src/models/DealUpdateDetail.ts
+src/models/DealUpdatePartner.ts
+src/models/DealUpdatePercent.ts
 src/models/DealUpdateResult.ts
 src/models/DeleteAccountUser200Response.ts
 src/models/DeleteContactSearch200Response.ts
@@ -2143,6 +2165,7 @@ src/models/McpEvent.ts
 src/models/Meta.ts
 src/models/MultimediaDealUpdate.ts
 src/models/MultimediaDealUpdateRevSharePercent.ts
+src/models/NameImageLikenessDealUpdate.ts
 src/models/NcaaFinancialParticipationSummary.ts
 src/models/NcaaFinancialReportItemGroup.ts
 src/models/NcaaFinancialReportItemValue.ts
@@ -2157,8 +2180,10 @@ src/models/NewerSeasonContext.ts
 src/models/NewsFeed.ts
 src/models/NewsFeedCollection.ts
 src/models/Note.ts
+src/models/OutTicketingDealUpdate.ts
 src/models/PageView.ts
 src/models/PendingContractCreated.ts
+src/models/PendingDealCreated.ts
 src/models/PersonAssignment.ts
 src/models/Position.ts
 src/models/PositionCollection.ts
@@ -2172,6 +2197,7 @@ src/models/PositionTypeGroup.ts
 src/models/PositionTypeGroupOption.ts
 src/models/PositionTypesForGroupsAdminSports200Response.ts
 src/models/PositionTypesForGroupsAdminSportsRequest.ts
+src/models/PouringDealUpdate.ts
 src/models/PredictBody.ts
 src/models/PredictFailure.ts
 src/models/PredictSuccess.ts
@@ -2183,6 +2209,9 @@ src/models/PublishPendingContractCompensationBaseSalary.ts
 src/models/PublishPendingContractCompensationOneTimeBonus.ts
 src/models/PublishPendingContractRequest.ts
 src/models/PublishPendingContractRequestContractTerms.ts
+src/models/PublishPendingDealRequest.ts
+src/models/PublishPendingDealRequestDeal.ts
+src/models/PublishPendingDealRequestDealDetail.ts
 src/models/PublishedContract.ts
 src/models/PublishedContractAllOfCompensations.ts
 src/models/QuadrantUnplottedSchool.ts
@@ -2332,8 +2361,10 @@ src/models/TeamScheduleSearchResultHomeContracts.ts
 src/models/TeamSeasonResult.ts
 src/models/TeamSeasonResultCollection.ts
 src/models/TeamSeasonResultInput.ts
+src/models/TicketingDealUpdate.ts
 src/models/TimeOfYearOption.ts
 src/models/TimeZoneOption.ts
+src/models/TrademarkDealUpdate.ts
 src/models/UnauthorizedError.ts
 src/models/UnknownRansackConditionError.ts
 src/models/UnknownRansackConditionErrorErrors.ts
@@ -2438,6 +2469,7 @@ src/models/VendorCollection.ts
 src/models/VerifyOtpCode200Response.ts
 src/models/VerifyOtpCodeRequest.ts
 src/models/VerifyUserIntercollegiateAccess200Response.ts
+src/models/VideoDealUpdate.ts
 src/models/VideoEntry.ts
 src/models/WireChange.ts
 src/models/WireChangeCoach.ts

@@ -21,6 +21,8 @@ Name | Type
 `dealTypeId` | number
 `archived` | boolean
 `verified` | boolean
+`pending` | boolean
+`rawContractId` | number
 `rawContract` | [RawContractTerms](RawContractTerms.md)
 
 ## Example
@@ -45,6 +47,8 @@ const example = {
   "dealTypeId": null,
   "archived": null,
   "verified": null,
+  "pending": null,
+  "rawContractId": null,
   "rawContract": null,
 } satisfies Deal
 
