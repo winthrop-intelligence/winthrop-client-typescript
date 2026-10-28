@@ -134,7 +134,8 @@ export type ContractVerificationResultEnum = typeof ContractVerificationResultEn
  */
 export const ContractVerificationMethodEnum = {
     Agent: 'agent',
-    Manual: 'manual'
+    Manual: 'manual',
+    AgentConcur: 'agent_concur'
 } as const;
 export type ContractVerificationMethodEnum = typeof ContractVerificationMethodEnum[keyof typeof ContractVerificationMethodEnum];
 

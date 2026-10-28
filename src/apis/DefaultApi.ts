@@ -234,6 +234,7 @@ import type {
   CreateScheduleTournamentRequest,
   CreateSchedulingMessage422Response,
   CreateSchoolGroupRequest,
+  CreateSeasonRequest,
   CreateSportRequest,
   CreateSubscriptionRequestSubscription,
   CreateTeamScheduleFavorite201Response,
@@ -351,6 +352,8 @@ import type {
   MassUpdatePositionsRequest,
   MassUpdatePositionsResponse,
   McpEvent,
+  MergeCoach200Response,
+  MergeCoachRequest,
   NcaaFinancialReportStatus,
   NcaaFinancialReportStatusCollection,
   NewAccountUserResponse,
@@ -927,6 +930,8 @@ import {
     CreateSchedulingMessage422ResponseToJSON,
     CreateSchoolGroupRequestFromJSON,
     CreateSchoolGroupRequestToJSON,
+    CreateSeasonRequestFromJSON,
+    CreateSeasonRequestToJSON,
     CreateSportRequestFromJSON,
     CreateSportRequestToJSON,
     CreateSubscriptionRequestSubscriptionFromJSON,
@@ -1161,6 +1166,10 @@ import {
     MassUpdatePositionsResponseToJSON,
     McpEventFromJSON,
     McpEventToJSON,
+    MergeCoach200ResponseFromJSON,
+    MergeCoach200ResponseToJSON,
+    MergeCoachRequestFromJSON,
+    MergeCoachRequestToJSON,
     NcaaFinancialReportStatusFromJSON,
     NcaaFinancialReportStatusToJSON,
     NcaaFinancialReportStatusCollectionFromJSON,
@@ -1820,8 +1829,8 @@ export interface DefaultApiCreateSchoolGroupOperationRequest {
     createSchoolGroupRequest: CreateSchoolGroupRequest;
 }
 
-export interface DefaultApiCreateSeasonRequest {
-    season?: Omit<Season, 'cfp_rank'|'torvik_rank'>;
+export interface DefaultApiCreateSeasonOperationRequest {
+    createSeasonRequest: CreateSeasonRequest;
 }
 
 export interface DefaultApiCreateSubscriptionRequest {
@@ -1928,6 +1937,11 @@ export interface DefaultApiDeleteNoteRequest {
 
 export interface DefaultApiDeletePositionRequest {
     positionId: number;
+    changeNote?: string;
+}
+
+export interface DefaultApiDeleteRawContractRequest {
+    rawContractId: number;
     changeNote?: string;
 }
 
@@ -3580,6 +3594,11 @@ export interface DefaultApiMassUpdateAdminPositionsRequest {
 
 export interface DefaultApiMassUpdateAdminRequestedItemsOperationRequest {
     massUpdateAdminRequestedItemsRequest: MassUpdateAdminRequestedItemsRequest;
+}
+
+export interface DefaultApiMergeCoachOperationRequest {
+    coachId: number;
+    mergeCoachRequest: MergeCoachRequest;
 }
 
 export interface DefaultApiPositionTypesForGroupsAdminSportsOperationRequest {
@@ -7497,7 +7516,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Agent retries use a unique (contract_id, agent_run_id) key: equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. The result \'revoked\' is rejected here; use the revoke endpoint. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
+     * Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Retries of an agent or agent_concur run are keyed by (contract_id, method, agent_run_id): equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. The result \'revoked\' is rejected here; use the revoke endpoint. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
      * Append a contract verification event
      */
     async createContractVerificationRaw(requestParameters: DefaultApiCreateContractVerificationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContractVerification>> {
@@ -7546,7 +7565,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Agent retries use a unique (contract_id, agent_run_id) key: equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. The result \'revoked\' is rejected here; use the revoke endpoint. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
+     * Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the parent RawContract. winad_write is not required and does not grant this action. The document must belong to a Contract. Identity fields are server-derived. Retries of an agent or agent_concur run are keyed by (contract_id, method, agent_run_id): equivalent normalized payloads return the original event; changed payloads, documents, or verifiers conflict. An omitted verified_at on retry retains the original check time. The result \'revoked\' is rejected here; use the revoke endpoint. Manual checks are never deduplicated. This API provides no endpoints to edit or delete events.
      * Append a contract verification event
      */
     async createContractVerification(requestParameters: DefaultApiCreateContractVerificationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContractVerification> {
@@ -8697,9 +8716,16 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create a new Season
+     * Create the Season for a school, sport and year that has none. If a Season already exists for that triple it is returned unchanged with 200 and nothing is created. The optional top-level change_note is stored on the audit version of the create.
      */
-    async createSeasonRaw(requestParameters: DefaultApiCreateSeasonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
+    async createSeasonRaw(requestParameters: DefaultApiCreateSeasonOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Season>> {
+        if (requestParameters['createSeasonRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createSeasonRequest',
+                'Required parameter "createSeasonRequest" was null or undefined when calling createSeason().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8723,16 +8749,16 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SeasonToJSON(requestParameters['season']),
+            body: CreateSeasonRequestToJSON(requestParameters['createSeasonRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SeasonFromJSON(jsonValue));
     }
 
     /**
-     * Create a new Season
+     * Create the Season for a school, sport and year that has none. If a Season already exists for that triple it is returned unchanged with 200 and nothing is created. The optional top-level change_note is stored on the audit version of the create.
      */
-    async createSeason(requestParameters: DefaultApiCreateSeasonRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
+    async createSeason(requestParameters: DefaultApiCreateSeasonOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Season> {
         const response = await this.createSeasonRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9940,6 +9966,55 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async deletePosition(requestParameters: DefaultApiDeletePositionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deletePositionRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retire a duplicate RawContract and its stored files. Requires the winad_write OAuth scope and permission to destroy the RawContract. Links are moved first (re-point the income report, pay rows and verification events to the document that stays), then it is retired. While a pay row (compensation of its Contract), an income report, an earned incentive (as its document or as the amendment that ends it) or a verification event still links to it, or its Contract has pay rows or verification events of its own, nothing is deleted and the answer is 409 with errors.blockers, an object of id lists under pay_rows, contracts, income_reports, earned_incentives and verification_events (only the non-empty ones). A Contract with no links of its own is deleted with the RawContract. The delete is an audit version (PaperTrail) with the optional change_note. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
+     */
+    async deleteRawContractRaw(requestParameters: DefaultApiDeleteRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['rawContractId'] == null) {
+            throw new runtime.RequiredError(
+                'rawContractId',
+                'Required parameter "rawContractId" was null or undefined when calling deleteRawContract().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['changeNote'] != null) {
+            queryParameters['change_note'] = requestParameters['changeNote'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/raw_contracts/{raw_contractId}`;
+        urlPath = urlPath.replace(`{${"raw_contractId"}}`, encodeURIComponent(String(requestParameters['rawContractId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Retire a duplicate RawContract and its stored files. Requires the winad_write OAuth scope and permission to destroy the RawContract. Links are moved first (re-point the income report, pay rows and verification events to the document that stays), then it is retired. While a pay row (compensation of its Contract), an income report, an earned incentive (as its document or as the amendment that ends it) or a verification event still links to it, or its Contract has pay rows or verification events of its own, nothing is deleted and the answer is 409 with errors.blockers, an object of id lists under pay_rows, contracts, income_reports, earned_incentives and verification_events (only the non-empty ones). A Contract with no links of its own is deleted with the RawContract. The delete is an audit version (PaperTrail) with the optional change_note. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
+     */
+    async deleteRawContract(requestParameters: DefaultApiDeleteRawContractRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteRawContractRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -27395,6 +27470,62 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Merge the coach in from_coach_id into this coach (super admin only). Moves its contracts, copies positions, pay and income reports the coach does not have, fills blank profile fields, and writes a coach merge log.
+     */
+    async mergeCoachRaw(requestParameters: DefaultApiMergeCoachOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MergeCoach200Response>> {
+        if (requestParameters['coachId'] == null) {
+            throw new runtime.RequiredError(
+                'coachId',
+                'Required parameter "coachId" was null or undefined when calling mergeCoach().'
+            );
+        }
+
+        if (requestParameters['mergeCoachRequest'] == null) {
+            throw new runtime.RequiredError(
+                'mergeCoachRequest',
+                'Required parameter "mergeCoachRequest" was null or undefined when calling mergeCoach().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        if (this.configuration && this.configuration.accessToken) {
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("Oauth2", []);
+        }
+
+
+        let urlPath = `/api/v1/coaches/{coachId}/merge`;
+        urlPath = urlPath.replace(`{${"coachId"}}`, encodeURIComponent(String(requestParameters['coachId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: MergeCoachRequestToJSON(requestParameters['mergeCoachRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MergeCoach200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Merge the coach in from_coach_id into this coach (super admin only). Moves its contracts, copies positions, pay and income reports the coach does not have, fills blank profile fields, and writes a coach merge log.
+     */
+    async mergeCoach(requestParameters: DefaultApiMergeCoachOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MergeCoach200Response> {
+        const response = await this.mergeCoachRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Retrieve the suggested order number and the selectable Position Type Groups, for the \"New Position Type\" admin form
      */
     async newAdminPositionTypeRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NewAdminPositionType>> {
@@ -31135,7 +31266,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
+     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). A body with only a non-blank change_note (no compensation, or an empty one) records the note on a new version without changing any value (WINAD-10718). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
      */
     async updateCompensationRaw(requestParameters: DefaultApiUpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Compensation>> {
         if (requestParameters['compensationId'] == null) {
@@ -31183,7 +31314,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
+     * Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \"yearly\", \"hourly\", or \"990\" and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \'Hourly rate not provided\') and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \"990\". Changes are recorded in the row\'s audit history (PaperTrail), attributed to the token\'s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). A body with only a non-blank change_note (no compensation, or an empty one) records the note on a new version without changing any value (WINAD-10718). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\'s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
      */
     async updateCompensation(requestParameters: DefaultApiUpdateCompensationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Compensation> {
         const response = await this.updateCompensationRaw(requestParameters, initOverrides);
@@ -31303,7 +31434,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Atomically update deal fields and the deal\'s own detail values. Detail updates are accepted for Apparel, Multimedia, Concessions, Pouring Rights, Ticketing, Outsourced Ticketing, Trademark, Bookstore, NIL and Video Mgmt deals (WINAD-10685); Travel, Athletics Software and Executive Search deals have no detail fields. At least one field is required. Unknown fields and fields belonging to another deal type return 422 (naming the fields the type allows) without changes. Changes are audited with the authenticated user. 
+     * Atomically update deal fields and the deal\'s own detail values. Detail updates are accepted for Apparel, Multimedia, Concessions, Pouring Rights, Ticketing, Outsourced Ticketing, Trademark, Bookstore, NIL, Video Mgmt, Athletics Software and Travel deals (WINAD-10685); Executive Search deals have no detail fields. At least one field is required. Unknown fields and fields belonging to another deal type return 422 (naming the fields the type allows) without changes. Changes are audited with the authenticated user. 
      */
     async updateDealRaw(requestParameters: DefaultApiUpdateDealOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DealUpdateResult>> {
         if (requestParameters['dealId'] == null) {
@@ -31351,7 +31482,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Atomically update deal fields and the deal\'s own detail values. Detail updates are accepted for Apparel, Multimedia, Concessions, Pouring Rights, Ticketing, Outsourced Ticketing, Trademark, Bookstore, NIL and Video Mgmt deals (WINAD-10685); Travel, Athletics Software and Executive Search deals have no detail fields. At least one field is required. Unknown fields and fields belonging to another deal type return 422 (naming the fields the type allows) without changes. Changes are audited with the authenticated user. 
+     * Atomically update deal fields and the deal\'s own detail values. Detail updates are accepted for Apparel, Multimedia, Concessions, Pouring Rights, Ticketing, Outsourced Ticketing, Trademark, Bookstore, NIL, Video Mgmt, Athletics Software and Travel deals (WINAD-10685); Executive Search deals have no detail fields. At least one field is required. Unknown fields and fields belonging to another deal type return 422 (naming the fields the type allows) without changes. Changes are audited with the authenticated user. 
      */
     async updateDeal(requestParameters: DefaultApiUpdateDealOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DealUpdateResult> {
         const response = await this.updateDealRaw(requestParameters, initOverrides);

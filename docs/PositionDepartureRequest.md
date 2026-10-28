@@ -12,6 +12,7 @@ Name | Type
 `departureReason` | string
 `departureSourceUrl` | string
 `approvalQuote` | string
+`suppressDepartingSetAt` | boolean
 `changeNote` | string
 
 ## Example
@@ -26,6 +27,7 @@ const example = {
   "departureReason": null,
   "departureSourceUrl": null,
   "approvalQuote": null,
+  "suppressDepartingSetAt": null,
   "changeNote": null,
 } satisfies PositionDepartureRequest
 

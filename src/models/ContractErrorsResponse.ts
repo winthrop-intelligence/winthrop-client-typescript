@@ -32,7 +32,7 @@ export interface ContractErrorsResponse {
      */
     linkedPositionIds?: Array<number>;
     /**
-     * Only on a refused coach move. The verification events recorded for the contract.
+     * Only on a refused coach move. The verification events still in force for the contract (WINAD-10703): for each season the newest event decides, and a season whose newest event is a revocation no longer blocks. A contract whose seasons are all revoked has none and can move; its events stay unchanged as history, each with the coach it was verified for.
      * @type {Array<number>}
      * @memberof ContractErrorsResponse
      */

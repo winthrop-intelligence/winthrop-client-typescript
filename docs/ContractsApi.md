@@ -4,6 +4,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**createContractDirectUpload**](ContractsApi.md#createcontractdirectuploadoperation) | **POST** /api/v1/contracts/direct_uploads |  |
 | [**createPendingContract**](ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts |  |
 | [**deletePendingContract**](ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} |  |
 | [**getCompensationVerificationStatus**](ContractsApi.md#getcompensationverificationstatus) | **GET** /api/v1/compensation_verification_status | Verification status of every compensation row of some schools in one season |
@@ -11,17 +12,94 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listContractVerifications**](ContractsApi.md#listcontractverifications) | **GET** /api/v1/contract_verifications | List verification events across contracts |
 | [**publishPendingContract**](ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish |  |
 | [**replaceContractFile**](ContractsApi.md#replacecontractfile) | **PUT** /api/v1/contracts/{contractId}/file |  |
+| [**swapContractRawContracts**](ContractsApi.md#swapcontractrawcontractsoperation) | **POST** /api/v1/contracts/swap_raw_contracts |  |
 | [**updateContract**](ContractsApi.md#updatecontractoperation) | **PATCH** /api/v1/contracts/{contractId} |  |
 
 
 
+## createContractDirectUpload
+
+> CreateContractDirectUpload200Response createContractDirectUpload(createContractDirectUploadRequest)
+
+
+
+WINAD-10744: step 1 of filing a pending contract PDF over the gateway\&#39;s 1 MiB body limit. Creates the storage blob and returns the URL and headers to PUT the PDF bytes to, plus &#x60;signed_id&#x60; to send as &#x60;file_signed_id&#x60; to POST /contracts. Same payload as Active Storage\&#39;s direct upload, behind the OAuth token. &#x60;winad_write&#x60; scope. Only application/pdf is accepted (422 otherwise), and byte_size must be 1 to 26214400 (25 MiB, the same limit as the Drive source). The returned &#x60;signed_id&#x60; is single-purpose and expires after 2 hours; filing it later is refused with 422 (errors.file_signed_id). When the contract is filed the stored bytes are checked against the declared byte_size and checksum (422, code checksum_mismatch) and then as a PDF (422, code invalid_pdf). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateContractDirectUploadOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ContractsApi(config);
+
+  const body = {
+    // CreateContractDirectUploadRequest
+    createContractDirectUploadRequest: ...,
+  } satisfies CreateContractDirectUploadOperationRequest;
+
+  try {
+    const data = await api.createContractDirectUpload(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createContractDirectUploadRequest** | [CreateContractDirectUploadRequest](CreateContractDirectUploadRequest.md) |  | |
+
+### Return type
+
+[**CreateContractDirectUpload200Response**](CreateContractDirectUpload200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Blob created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Not a PDF or invalid blob |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createPendingContract
 
-> PendingContractCreated createPendingContract(coachId, file, sourceDriveFileId, expectedSha256, driveId, text, contractTerms, changeNote)
+> PendingContractCreated createPendingContract(coachId, fileSignedId, file, sourceDriveFileId, expectedSha256, driveId, text, contractTerms, changeNote)
 
 
 
-File a PDF on a coach as a pending contract. Creates a RawContract with the PDF attached and a Contract with pending true (no dates) in one transaction; nothing is created if the request is refused. Requires the winad_write scope and a manage-level user. The PDF must really be a PDF (its bytes are checked, not its name).  Send the PDF by EXACTLY ONE of two inputs (WINAD-10673). A request with neither or with both is refused with 422 (errors.file and errors.source_drive_file_id, code invalid_input) before anything is read or downloaded.  1. &#x60;file&#x60;: a multipart upload of the PDF, as before. Larger bodies than the API gateway\&#39;s request limit (1 MiB by default) cannot take this route. 2. &#x60;source_drive_file_id&#x60; plus &#x60;expected_sha256&#x60;: the server downloads the PDF from Google Drive with its own credentials, so the bytes never pass through the gateway. &#x60;source_drive_file_id&#x60; is a bare Drive file id (letters, digits, \&quot;-\&quot; and \&quot;_\&quot;, 10 to 200 characters), never a URL. &#x60;expected_sha256&#x60; (the 64 hexadecimal characters of the SHA-256 of the reviewed PDF, any case) is required with it and refused with a direct file: if the Drive file\&#39;s bytes hash differently the request is refused (checksum_mismatch), so changed content never replaces reviewed bytes. The file must be a stored PDF the service account can read (a Google Docs document is refused) and at most 25 MiB; the download must finish within 60 seconds (10 seconds to connect, 30 per read).  &#x60;drive_id&#x60; keeps its meaning and is independent of &#x60;source_drive_file_id&#x60;: it is the ORIGINAL source identity, unique per coach (a second request with the same drive_id for the coach is refused with 422 errors.drive_id, whichever Drive file or upload it carries). They may differ, for example when the final composed PDF is a different Drive file from the original. The schema treats a field that is present as sent: leave out the inputs you do not use rather than sending them empty (the server itself tolerates an empty optional field as \&quot;not sent\&quot;). Only &#x60;drive_id&#x60; deduplicates: a Drive-source request without drive_id is not deduplicated, exactly like a direct upload without drive_id.  The request stays synchronous. Order of work: authorization, change_note, coach and input checks, then the Drive download, hash and PDF check (no database lock is held meanwhile), then the same transaction, locks, uniqueness and stored-file cleanup as a direct upload. Nothing is created and no file is left behind by any refusal. The response and the pending visibility are the same for both inputs; &#x60;filename&#x60; is the Drive file\&#39;s name for a Drive source.  Refusals of the Drive source carry a stable machine-readable &#x60;code&#x60; next to &#x60;errors&#x60;: invalid_input (422, a malformed param or the wrong number of inputs), source_unavailable (422, the Drive file does not exist or is not shared with the service account), source_too_large (422), invalid_pdf (422, the bytes are not a PDF or the Drive file is a Google document), checksum_mismatch (422, the message names the hash the Drive file really has), source_timeout and source_error (503 with a Retry-After header: Drive was slow, down or throttling, refused the download, cut the connection before the whole file arrived, or the service credentials failed; the same request may be repeated unchanged, nothing was created). 
+File a PDF on a coach as a pending contract. Creates a RawContract with the PDF attached and a Contract with pending true (no dates) in one transaction; nothing is created if the request is refused. Requires the winad_write scope and a manage-level user. The PDF must really be a PDF (its bytes are checked, not its name).  WINAD-10744: a third input, &#x60;file_signed_id&#x60;, is the signed id of a PDF the client sent straight to storage with POST /contracts/direct_uploads (no gateway body limit); it is read back, checked as a PDF and attached. A blob that is unknown, was never uploaded, is already in use, is not a PDF or fails its checksum is refused with 422 (errors.file_signed_id; code invalid_input or invalid_pdf), and a non-PDF blob is purged.  Send the PDF by EXACTLY ONE of the inputs (WINAD-10673). A request with neither or with both is refused with 422 (errors.file and errors.source_drive_file_id, code invalid_input) before anything is read or downloaded.  1. &#x60;file&#x60;: a multipart upload of the PDF, as before. Larger bodies than the API gateway\&#39;s request limit (1 MiB by default) cannot take this route. 2. &#x60;source_drive_file_id&#x60; plus &#x60;expected_sha256&#x60;: the server downloads the PDF from Google Drive with its own credentials, so the bytes never pass through the gateway. &#x60;source_drive_file_id&#x60; is a bare Drive file id (letters, digits, \&quot;-\&quot; and \&quot;_\&quot;, 10 to 200 characters), never a URL. &#x60;expected_sha256&#x60; (the 64 hexadecimal characters of the SHA-256 of the reviewed PDF, any case) is required with it and refused with a direct file: if the Drive file\&#39;s bytes hash differently the request is refused (checksum_mismatch), so changed content never replaces reviewed bytes. The file must be a stored PDF the service account can read (a Google Docs document is refused) and at most 25 MiB; the download must finish within 60 seconds (10 seconds to connect, 30 per read).  &#x60;drive_id&#x60; keeps its meaning and is independent of &#x60;source_drive_file_id&#x60;: it is the ORIGINAL source identity, unique per coach (a second request with the same drive_id for the coach is refused with 422 errors.drive_id, whichever Drive file or upload it carries). They may differ, for example when the final composed PDF is a different Drive file from the original. The schema treats a field that is present as sent: leave out the inputs you do not use rather than sending them empty (the server itself tolerates an empty optional field as \&quot;not sent\&quot;). Only &#x60;drive_id&#x60; deduplicates: a Drive-source request without drive_id is not deduplicated, exactly like a direct upload without drive_id.  The request stays synchronous. Order of work: authorization, change_note, coach and input checks, then the Drive download, hash and PDF check (no database lock is held meanwhile), then the same transaction, locks, uniqueness and stored-file cleanup as a direct upload. Nothing is created and no file is left behind by any refusal. The response and the pending visibility are the same for both inputs; &#x60;filename&#x60; is the Drive file\&#39;s name for a Drive source.  Refusals of the Drive source carry a stable machine-readable &#x60;code&#x60; next to &#x60;errors&#x60;: invalid_input (422, a malformed param or the wrong number of inputs), source_unavailable (422, the Drive file does not exist or is not shared with the service account), source_too_large (422), invalid_pdf (422, the bytes are not a PDF or the Drive file is a Google document), checksum_mismatch (422, the message names the hash the Drive file really has), source_timeout and source_error (503 with a Retry-After header: Drive was slow, down or throttling, refused the download, cut the connection before the whole file arrived, or the service credentials failed; the same request may be repeated unchanged, nothing was created). 
 
 ### Example
 
@@ -45,6 +123,8 @@ async function example() {
   const body = {
     // number | The coach the contract is filed on
     coachId: 56,
+    // string | Signed id returned by POST /contracts/direct_uploads after the PDF bytes were PUT to the returned URL. Exactly one of file, source_drive_file_id and file_signed_id is required. (optional)
+    fileSignedId: fileSignedId_example,
     // Blob | The contract PDF as a multipart upload. Exactly one of file and source_drive_file_id is required. (optional)
     file: BINARY_DATA_HERE,
     // string | Google Drive file id of the PDF to download (not a URL; an id with a slash, a dot or a scheme is refused). Exactly one of file and source_drive_file_id is required, and expected_sha256 goes with it. NOT the deduplication id, see drive_id. (optional)
@@ -79,6 +159,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **coachId** | `number` | The coach the contract is filed on | [Defaults to `undefined`] |
+| **fileSignedId** | `string` | Signed id returned by POST /contracts/direct_uploads after the PDF bytes were PUT to the returned URL. Exactly one of file, source_drive_file_id and file_signed_id is required. | [Optional] [Defaults to `undefined`] |
 | **file** | `Blob` | The contract PDF as a multipart upload. Exactly one of file and source_drive_file_id is required. | [Optional] [Defaults to `undefined`] |
 | **sourceDriveFileId** | `string` | Google Drive file id of the PDF to download (not a URL; an id with a slash, a dot or a scheme is refused). Exactly one of file and source_drive_file_id is required, and expected_sha256 goes with it. NOT the deduplication id, see drive_id. | [Optional] [Defaults to `undefined`] |
 | **expectedSha256** | `string` | SHA-256 (64 hexadecimal characters, any case) of the PDF that was reviewed. Required with source_drive_file_id, refused with file. The request is refused with checksum_mismatch when the downloaded bytes hash differently. | [Optional] [Defaults to `undefined`] |
@@ -624,13 +705,91 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## swapContractRawContracts
+
+> SwapContractRawContracts200Response swapContractRawContracts(swapContractRawContractsRequest)
+
+
+
+Exchange the RawContracts (PDFs) of two published coach contracts in one transaction (WINAD-10727), for documents filed crossed: each contract\&#39;s pay rows are right and each holds the other\&#39;s PDF. Afterwards each contract holds the other\&#39;s former RawContract. Same refusals as PATCH /contracts/{contractId} raw_contract_id: 422 (errors keyed by contract_ids or contract_&lt;id&gt;) when contract_ids is not two different positive integers, a contract is pending, or a document is a vendor deal\&#39;s or not a COACH contract document; any refusal leaves both contracts unchanged. Verification events and pay rows are not touched. The optional top-level change_note is stored on both contracts\&#39; versions. Requires winad_write and a manage-level user with a user-backed OAuth token. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { SwapContractRawContractsOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ContractsApi(config);
+
+  const body = {
+    // SwapContractRawContractsRequest
+    swapContractRawContractsRequest: ...,
+  } satisfies SwapContractRawContractsOperationRequest;
+
+  try {
+    const data = await api.swapContractRawContracts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **swapContractRawContractsRequest** | [SwapContractRawContractsRequest](SwapContractRawContractsRequest.md) |  | |
+
+### Return type
+
+[**SwapContractRawContracts200Response**](SwapContractRawContracts200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The contracts and the RawContract each holds now |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (missing winad_write scope, not a manage-level user, or a token with no user) |  -  |
+| **404** | A contract was not found |  -  |
+| **409** | A contract was moved to another coach again and again while the request waited for its locks. Nothing was written. |  -  |
+| **422** | Refused (see the description). Nothing was written. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateContract
 
 > Contract updateContract(contractId, updateContractRequest)
 
 
 
-Edit a published contract\&#39;s start_on, end_on, executed_on, expires_on, at_will, contingent_change and coach_id (WINAD-10631, WINAD-10639). Only supplied fields change; linked compensations are unchanged. Pending contracts are published, not edited (use POST /contracts/{contractId}/publish). Dates must be YYYY-MM-DD and flags JSON true or false (the same rules as publish). Setting at_will true requires end_on null; send both fields to clear a stored end date. The at-will/end-date rule is checked only when either field is supplied, allowing start-only corrections on legacy rows. end_on, executed_on and expires_on can be cleared with null. coach_id moves the contract to another coach, in the same transaction as the other fields. A move is refused with 422 (errors.coach_id) when the coach does not exist or is not visible to the caller, or while any compensation, any position of those compensations, any verification event or any earned incentive still links to the contract (an earned incentive links through its raw_contract_id or its ended_by_contract_id being the contract\&#39;s RawContract): the body then also lists linked_compensation_ids, linked_position_ids, linked_verification_ids and linked_earned_incentive_ids, and nothing is written. Never move those rows from the API; a person unlinks or moves them first. Sending the coach it already has is a no-op. A move also files the contract\&#39;s PDF under the new coach\&#39;s current school (raw_contracts.school_id, the school the pending upload sets, null when the new coach has no current position), in the same transaction. A PDF that another record also uses (another contract, a game contract, a deal and so on) or a financial report is left unchanged, and so is the school when the move is refused or the coach is unchanged. The school change is a RawContract entry in GET /contract_history, under the new coach, with the change_note and the user, and the response body is unchanged. Each change creates a PaperTrail version with the authenticated user (whodunnit) and the optional top-level change_note (at most 500 characters). Identical values are a no-op and create no version, so no note is stored. Requires winad_write and a manage-level user with a user-backed OAuth token. Every edit takes the locks of a coach move (the contract\&#39;s coach, the coach it moves to, then the contract), so it never overlaps a move or a verification being recorded for the contract. A request that waits for them sees the contract as the other write left it. Only a contract that keeps moving while the locks are taken is refused with 409. 
+Edit a published contract\&#39;s start_on, end_on, executed_on, expires_on, at_will, contingent_change, coach_id and raw_contract_id (WINAD-10631, WINAD-10639, WINAD-10727). Only supplied fields change; linked compensations are unchanged. Pending contracts are published, not edited (use POST /contracts/{contractId}/publish); the only fields a pending contract accepts are the owner fields coach_id, contractable_id and contractable_type (WINAD-10739), so a contract saved without a contractable_type can be repaired before it is published. Dates must be YYYY-MM-DD and flags JSON true or false (the same rules as publish). Setting at_will true requires end_on null; send both fields to clear a stored end date. The at-will/end-date rule is checked only when either field is supplied, allowing start-only corrections on legacy rows. end_on, executed_on and expires_on can be cleared with null. coach_id moves the contract to another coach, in the same transaction as the other fields. A move is refused with 422 (errors.coach_id) when the coach does not exist or is not visible to the caller, or while any compensation, any position of those compensations, any verification event still in force (the newest event of a season is not a revocation; a contract whose seasons are all revoked can move and keeps its events unchanged) or any earned incentive still links to the contract (an earned incentive links through its raw_contract_id or its ended_by_contract_id being the contract\&#39;s RawContract): the body then also lists linked_compensation_ids, linked_position_ids, linked_verification_ids and linked_earned_incentive_ids, and nothing is written. Never move those rows from the API; a person unlinks or moves them first. Sending the coach it already has is a no-op. A move also files the contract\&#39;s PDF under the new coach\&#39;s current school (raw_contracts.school_id, the school the pending upload sets, null when the new coach has no current position), in the same transaction. A PDF that another record also uses (another contract, a game contract, a deal and so on) or a financial report is left unchanged, and so is the school when the move is refused or the coach is unchanged. The school change is a RawContract entry in GET /contract_history, under the new coach, with the change_note and the user, and the response body is unchanged. raw_contract_id changes which RawContract (PDF) the contract holds (WINAD-10727), for a document filed on the wrong contract; linked pay rows and verification events are not touched (events stay recorded against the coach and RawContract they were made for). It is refused with 422 (errors.raw_contract_id) when the RawContract does not exist, is a vendor deal\&#39;s document (deal_id set), is not of the COACH contract type, or is already held by another contract (the message names it; use POST /contracts/swap_raw_contracts to exchange two). It is also refused when the document it replaces belongs to a hidden coach and no other record would hold it afterwards (it would become readable by customers). The contract itself must not be pending. Sending the RawContract it already holds is a no-op. Each change creates a PaperTrail version with the authenticated user (whodunnit) and the optional top-level change_note (at most 500 characters). Identical values are a no-op and create no version, so no note is stored. Requires winad_write and a manage-level user with a user-backed OAuth token. Every edit takes the locks of a coach move (the contract\&#39;s coach, the coach it moves to, then the contract), so it never overlaps a move or a verification being recorded for the contract. A request that waits for them sees the contract as the other write left it. Only a contract that keeps moving while the locks are taken is refused with 409. 
 
 ### Example
 

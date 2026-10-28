@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { DealUpdateOnsiteAgents } from './DealUpdateOnsiteAgents';
+import {
+    DealUpdateOnsiteAgentsFromJSON,
+    DealUpdateOnsiteAgentsFromJSONTyped,
+    DealUpdateOnsiteAgentsToJSON,
+    DealUpdateOnsiteAgentsToJSONTyped,
+} from './DealUpdateOnsiteAgents';
 import type { DealUpdatePartner } from './DealUpdatePartner';
 import {
     DealUpdatePartnerFromJSON,
@@ -20,6 +27,13 @@ import {
     DealUpdatePartnerToJSON,
     DealUpdatePartnerToJSONTyped,
 } from './DealUpdatePartner';
+import type { TravelDealUpdate } from './TravelDealUpdate';
+import {
+    TravelDealUpdateFromJSON,
+    TravelDealUpdateFromJSONTyped,
+    TravelDealUpdateToJSON,
+    TravelDealUpdateToJSONTyped,
+} from './TravelDealUpdate';
 import type { ConcessionDealUpdate } from './ConcessionDealUpdate';
 import {
     ConcessionDealUpdateFromJSON,
@@ -34,6 +48,13 @@ import {
     VideoDealUpdateToJSON,
     VideoDealUpdateToJSONTyped,
 } from './VideoDealUpdate';
+import type { AthleticsSoftwareDealUpdate } from './AthleticsSoftwareDealUpdate';
+import {
+    AthleticsSoftwareDealUpdateFromJSON,
+    AthleticsSoftwareDealUpdateFromJSONTyped,
+    AthleticsSoftwareDealUpdateToJSON,
+    AthleticsSoftwareDealUpdateToJSONTyped,
+} from './AthleticsSoftwareDealUpdate';
 import type { DealUpdateAmount } from './DealUpdateAmount';
 import {
     DealUpdateAmountFromJSON,
@@ -97,6 +118,13 @@ import {
     BookstoreDealUpdateToJSON,
     BookstoreDealUpdateToJSONTyped,
 } from './BookstoreDealUpdate';
+import type { DealUpdateCount } from './DealUpdateCount';
+import {
+    DealUpdateCountFromJSON,
+    DealUpdateCountFromJSONTyped,
+    DealUpdateCountToJSON,
+    DealUpdateCountToJSONTyped,
+} from './DealUpdateCount';
 import type { OutTicketingDealUpdate } from './OutTicketingDealUpdate';
 import {
     OutTicketingDealUpdateFromJSON,
@@ -156,7 +184,7 @@ export interface UpdateDealRequestDealDetail {
      */
     contingentBonus?: boolean;
     /**
-     * Sport IDs or case-insensitive display names; an empty array clears all sports.
+     * Teams covered. Sport IDs or case-insensitive display names; an empty array clears all sports. Leave empty and set all_sports for department-wide deals.
      * @type {Array<ApparelDealUpdateSportsInner>}
      * @memberof UpdateDealRequestDealDetail
      */
@@ -353,7 +381,131 @@ export interface UpdateDealRequestDealDetail {
      * @memberof UpdateDealRequestDealDetail
      */
     annualHostFee?: DealUpdateAmount;
+    /**
+     * Vendor products, modules or packages bought, e.g. "Hub, ARMS, INFLCR". Blank clears.
+     * @type {string}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    products?: string | null;
+    /**
+     * True only when the contract says department-wide or all teams. Null restores not stated.
+     * @type {boolean}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    allSports?: boolean | null;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    finalYearFee?: DealUpdateAmount;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    implementationFee?: DealUpdateAmount;
+    /**
+     * Kind of travel deal. Required when the detail is saved.
+     * @type {string}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    travelSubtype?: UpdateDealRequestDealDetailTravelSubtypeEnum;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    managementFee?: DealUpdateAmount;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    agentTicketFee?: DealUpdateAmount;
+    /**
+     * 
+     * @type {DealUpdateCount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    includedTransactions?: DealUpdateCount;
+    /**
+     * 
+     * @type {DealUpdateOnsiteAgents}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    onsiteAgents?: DealUpdateOnsiteAgents;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    afterHoursFee?: DealUpdateAmount;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    ratePerMile?: DealUpdateAmount;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    dailyRate?: DealUpdateAmount;
+    /**
+     * Bus Charter. How the daily rate is billed. Null clears.
+     * @type {string}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    dailyRateRule?: UpdateDealRequestDealDetailDailyRateRuleEnum | null;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    driverOvernight?: DealUpdateAmount;
+    /**
+     * 
+     * @type {DealUpdateAmount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    pricePerRoundTrip?: DealUpdateAmount;
+    /**
+     * Air Charter. Aircraft type, e.g. A320. Blank clears.
+     * @type {string}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    aircraft?: string | null;
+    /**
+     * 
+     * @type {DealUpdateCount}
+     * @memberof UpdateDealRequestDealDetail
+     */
+    roundTrips?: DealUpdateCount;
 }
+
+
+/**
+ * @export
+ */
+export const UpdateDealRequestDealDetailTravelSubtypeEnum = {
+    Agency: 'Agency',
+    BusCharter: 'Bus Charter',
+    AirCharter: 'Air Charter'
+} as const;
+export type UpdateDealRequestDealDetailTravelSubtypeEnum = typeof UpdateDealRequestDealDetailTravelSubtypeEnum[keyof typeof UpdateDealRequestDealDetailTravelSubtypeEnum];
+
+/**
+ * @export
+ */
+export const UpdateDealRequestDealDetailDailyRateRuleEnum = {
+    DayRate: 'Day rate',
+    DailyMinimum: 'Daily minimum',
+    HigherOf: 'Higher of'
+} as const;
+export type UpdateDealRequestDealDetailDailyRateRuleEnum = typeof UpdateDealRequestDealDetailDailyRateRuleEnum[keyof typeof UpdateDealRequestDealDetailDailyRateRuleEnum];
+
 
 /**
  * Check if a given object implements the UpdateDealRequestDealDetail interface.
@@ -410,6 +562,23 @@ export function UpdateDealRequestDealDetailFromJSONTyped(json: any, ignoreDiscri
         'guaranteedAmtYearOne': json['guaranteed_amt_year_one'] == null ? undefined : DealUpdateAmountFromJSON(json['guaranteed_amt_year_one']),
         'capitalImprovement': json['capital_improvement'] == null ? undefined : DealUpdateAmountFromJSON(json['capital_improvement']),
         'annualHostFee': json['annual_host_fee'] == null ? undefined : DealUpdateAmountFromJSON(json['annual_host_fee']),
+        'products': json['products'] == null ? undefined : json['products'],
+        'allSports': json['all_sports'] == null ? undefined : json['all_sports'],
+        'finalYearFee': json['final_year_fee'] == null ? undefined : DealUpdateAmountFromJSON(json['final_year_fee']),
+        'implementationFee': json['implementation_fee'] == null ? undefined : DealUpdateAmountFromJSON(json['implementation_fee']),
+        'travelSubtype': json['travel_subtype'] == null ? undefined : json['travel_subtype'],
+        'managementFee': json['management_fee'] == null ? undefined : DealUpdateAmountFromJSON(json['management_fee']),
+        'agentTicketFee': json['agent_ticket_fee'] == null ? undefined : DealUpdateAmountFromJSON(json['agent_ticket_fee']),
+        'includedTransactions': json['included_transactions'] == null ? undefined : DealUpdateCountFromJSON(json['included_transactions']),
+        'onsiteAgents': json['onsite_agents'] == null ? undefined : DealUpdateOnsiteAgentsFromJSON(json['onsite_agents']),
+        'afterHoursFee': json['after_hours_fee'] == null ? undefined : DealUpdateAmountFromJSON(json['after_hours_fee']),
+        'ratePerMile': json['rate_per_mile'] == null ? undefined : DealUpdateAmountFromJSON(json['rate_per_mile']),
+        'dailyRate': json['daily_rate'] == null ? undefined : DealUpdateAmountFromJSON(json['daily_rate']),
+        'dailyRateRule': json['daily_rate_rule'] == null ? undefined : json['daily_rate_rule'],
+        'driverOvernight': json['driver_overnight'] == null ? undefined : DealUpdateAmountFromJSON(json['driver_overnight']),
+        'pricePerRoundTrip': json['price_per_round_trip'] == null ? undefined : DealUpdateAmountFromJSON(json['price_per_round_trip']),
+        'aircraft': json['aircraft'] == null ? undefined : json['aircraft'],
+        'roundTrips': json['round_trips'] == null ? undefined : DealUpdateCountFromJSON(json['round_trips']),
     };
 }
 
@@ -462,6 +631,23 @@ export function UpdateDealRequestDealDetailToJSONTyped(value?: UpdateDealRequest
         'guaranteed_amt_year_one': DealUpdateAmountToJSON(value['guaranteedAmtYearOne']),
         'capital_improvement': DealUpdateAmountToJSON(value['capitalImprovement']),
         'annual_host_fee': DealUpdateAmountToJSON(value['annualHostFee']),
+        'products': value['products'],
+        'all_sports': value['allSports'],
+        'final_year_fee': DealUpdateAmountToJSON(value['finalYearFee']),
+        'implementation_fee': DealUpdateAmountToJSON(value['implementationFee']),
+        'travel_subtype': value['travelSubtype'],
+        'management_fee': DealUpdateAmountToJSON(value['managementFee']),
+        'agent_ticket_fee': DealUpdateAmountToJSON(value['agentTicketFee']),
+        'included_transactions': DealUpdateCountToJSON(value['includedTransactions']),
+        'onsite_agents': DealUpdateOnsiteAgentsToJSON(value['onsiteAgents']),
+        'after_hours_fee': DealUpdateAmountToJSON(value['afterHoursFee']),
+        'rate_per_mile': DealUpdateAmountToJSON(value['ratePerMile']),
+        'daily_rate': DealUpdateAmountToJSON(value['dailyRate']),
+        'daily_rate_rule': value['dailyRateRule'],
+        'driver_overnight': DealUpdateAmountToJSON(value['driverOvernight']),
+        'price_per_round_trip': DealUpdateAmountToJSON(value['pricePerRoundTrip']),
+        'aircraft': value['aircraft'],
+        'round_trips': DealUpdateCountToJSON(value['roundTrips']),
     };
 }
 

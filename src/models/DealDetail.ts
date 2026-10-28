@@ -165,10 +165,112 @@ export interface DealDetail {
     annualHostFee?: number | null;
     /**
      * 
+     * @type {string}
+     * @memberof DealDetail
+     */
+    travelSubtype?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    managementFee?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    agentTicketFee?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    includedTransactions?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    onsiteAgents?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    afterHoursFee?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    ratePerMile?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    dailyRate?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DealDetail
+     */
+    dailyRateRule?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    driverOvernight?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    pricePerRoundTrip?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DealDetail
+     */
+    aircraft?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    roundTrips?: number | null;
+    /**
+     * 
      * @type {number}
      * @memberof DealDetail
      */
     guaranteedAmtYearOne?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DealDetail
+     */
+    products?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DealDetail
+     */
+    allSports?: boolean | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    finalYearFee?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof DealDetail
+     */
+    implementationFee?: number | null;
     /**
      * 
      * @type {number}
@@ -296,7 +398,24 @@ export function DealDetailFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'renewalRevPercent': json['renewal_rev_percent'] == null ? undefined : json['renewal_rev_percent'],
         'annualFee': json['annual_fee'] == null ? undefined : json['annual_fee'],
         'annualHostFee': json['annual_host_fee'] == null ? undefined : json['annual_host_fee'],
+        'travelSubtype': json['travel_subtype'] == null ? undefined : json['travel_subtype'],
+        'managementFee': json['management_fee'] == null ? undefined : json['management_fee'],
+        'agentTicketFee': json['agent_ticket_fee'] == null ? undefined : json['agent_ticket_fee'],
+        'includedTransactions': json['included_transactions'] == null ? undefined : json['included_transactions'],
+        'onsiteAgents': json['onsite_agents'] == null ? undefined : json['onsite_agents'],
+        'afterHoursFee': json['after_hours_fee'] == null ? undefined : json['after_hours_fee'],
+        'ratePerMile': json['rate_per_mile'] == null ? undefined : json['rate_per_mile'],
+        'dailyRate': json['daily_rate'] == null ? undefined : json['daily_rate'],
+        'dailyRateRule': json['daily_rate_rule'] == null ? undefined : json['daily_rate_rule'],
+        'driverOvernight': json['driver_overnight'] == null ? undefined : json['driver_overnight'],
+        'pricePerRoundTrip': json['price_per_round_trip'] == null ? undefined : json['price_per_round_trip'],
+        'aircraft': json['aircraft'] == null ? undefined : json['aircraft'],
+        'roundTrips': json['round_trips'] == null ? undefined : json['round_trips'],
         'guaranteedAmtYearOne': json['guaranteed_amt_year_one'] == null ? undefined : json['guaranteed_amt_year_one'],
+        'products': json['products'] == null ? undefined : json['products'],
+        'allSports': json['all_sports'] == null ? undefined : json['all_sports'],
+        'finalYearFee': json['final_year_fee'] == null ? undefined : json['final_year_fee'],
+        'implementationFee': json['implementation_fee'] == null ? undefined : json['implementation_fee'],
         'capitalImprovement': json['capital_improvement'] == null ? undefined : json['capital_improvement'],
         'threshold1': json['threshold_1'] == null ? undefined : json['threshold_1'],
         'allocPercent1': json['alloc_percent_1'] == null ? undefined : json['alloc_percent_1'],
@@ -349,7 +468,24 @@ export function DealDetailToJSONTyped(value?: DealDetail | null, ignoreDiscrimin
         'renewal_rev_percent': value['renewalRevPercent'],
         'annual_fee': value['annualFee'],
         'annual_host_fee': value['annualHostFee'],
+        'travel_subtype': value['travelSubtype'],
+        'management_fee': value['managementFee'],
+        'agent_ticket_fee': value['agentTicketFee'],
+        'included_transactions': value['includedTransactions'],
+        'onsite_agents': value['onsiteAgents'],
+        'after_hours_fee': value['afterHoursFee'],
+        'rate_per_mile': value['ratePerMile'],
+        'daily_rate': value['dailyRate'],
+        'daily_rate_rule': value['dailyRateRule'],
+        'driver_overnight': value['driverOvernight'],
+        'price_per_round_trip': value['pricePerRoundTrip'],
+        'aircraft': value['aircraft'],
+        'round_trips': value['roundTrips'],
         'guaranteed_amt_year_one': value['guaranteedAmtYearOne'],
+        'products': value['products'],
+        'all_sports': value['allSports'],
+        'final_year_fee': value['finalYearFee'],
+        'implementation_fee': value['implementationFee'],
         'capital_improvement': value['capitalImprovement'],
         'threshold_1': value['threshold1'],
         'alloc_percent_1': value['allocPercent1'],

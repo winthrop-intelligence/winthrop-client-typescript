@@ -45,6 +45,23 @@ Name | Type
 `guaranteedAmtYearOne` | [DealUpdateAmount](DealUpdateAmount.md)
 `capitalImprovement` | [DealUpdateAmount](DealUpdateAmount.md)
 `annualHostFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`products` | string
+`allSports` | boolean
+`finalYearFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`implementationFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`travelSubtype` | string
+`managementFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`agentTicketFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`includedTransactions` | [DealUpdateCount](DealUpdateCount.md)
+`onsiteAgents` | [DealUpdateOnsiteAgents](DealUpdateOnsiteAgents.md)
+`afterHoursFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`ratePerMile` | [DealUpdateAmount](DealUpdateAmount.md)
+`dailyRate` | [DealUpdateAmount](DealUpdateAmount.md)
+`dailyRateRule` | string
+`driverOvernight` | [DealUpdateAmount](DealUpdateAmount.md)
+`pricePerRoundTrip` | [DealUpdateAmount](DealUpdateAmount.md)
+`aircraft` | string
+`roundTrips` | [DealUpdateCount](DealUpdateCount.md)
 
 ## Example
 
@@ -91,6 +108,23 @@ const example = {
   "guaranteedAmtYearOne": null,
   "capitalImprovement": null,
   "annualHostFee": null,
+  "products": null,
+  "allSports": null,
+  "finalYearFee": null,
+  "implementationFee": null,
+  "travelSubtype": null,
+  "managementFee": null,
+  "agentTicketFee": null,
+  "includedTransactions": null,
+  "onsiteAgents": null,
+  "afterHoursFee": null,
+  "ratePerMile": null,
+  "dailyRate": null,
+  "dailyRateRule": null,
+  "driverOvernight": null,
+  "pricePerRoundTrip": null,
+  "aircraft": null,
+  "roundTrips": null,
 } satisfies PublishPendingDealRequestDealDetail
 
 console.log(example)

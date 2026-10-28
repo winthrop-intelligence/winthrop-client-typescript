@@ -300,6 +300,7 @@ docs/AthleticProfileShowSportOverviewQuadrantPointsInner.md
 docs/AthleticProfileShowSportOverviewSeasonsInner.md
 docs/AthleticProfileShowSportsOverviewInner.md
 docs/AthleticProfileShowTabSportsInner.md
+docs/AthleticsSoftwareDealUpdate.md
 docs/AuditedFinancialReportStatus.md
 docs/AuditedFinancialReportStatusCollection.md
 docs/AvailableGameContract.md
@@ -474,6 +475,10 @@ docs/CreateContactRequest.md
 docs/CreateContactRequestContact.md
 docs/CreateContactSearchRequest.md
 docs/CreateContactSearchRequestContact.md
+docs/CreateContractDirectUpload200Response.md
+docs/CreateContractDirectUpload200ResponseDirectUpload.md
+docs/CreateContractDirectUploadRequest.md
+docs/CreateContractDirectUploadRequestBlob.md
 docs/CreateContractVerificationRequest.md
 docs/CreateDeskRequest201Response.md
 docs/CreateDeskRequestRequest.md
@@ -506,6 +511,7 @@ docs/CreateScheduleTournamentRequestScheduleTournament.md
 docs/CreateSchedulingMessage422Response.md
 docs/CreateSchoolGroupRequest.md
 docs/CreateSchoolGroupRequestSchoolGroup.md
+docs/CreateSeasonRequest.md
 docs/CreateSportRequest.md
 docs/CreateSportRequestSport.md
 docs/CreateSubscriptionRequestSubscription.md
@@ -537,7 +543,9 @@ docs/DealSearchResultCollection.md
 docs/DealStatus.md
 docs/DealStatusCollection.md
 docs/DealUpdateAmount.md
+docs/DealUpdateCount.md
 docs/DealUpdateDetail.md
+docs/DealUpdateOnsiteAgents.md
 docs/DealUpdatePartner.md
 docs/DealUpdatePercent.md
 docs/DealUpdateResult.md
@@ -919,6 +927,8 @@ docs/MassUpdatePositionRow.md
 docs/MassUpdatePositionsRequest.md
 docs/MassUpdatePositionsResponse.md
 docs/McpEvent.md
+docs/MergeCoach200Response.md
+docs/MergeCoachRequest.md
 docs/Meta.md
 docs/MlAthleticApi.md
 docs/MultimediaDealUpdate.md
@@ -978,6 +988,7 @@ docs/RawContractBackTo.md
 docs/RawContractCollection.md
 docs/RawContractDealInfo.md
 docs/RawContractTerms.md
+docs/RawContractUploaded.md
 docs/RawContractsApi.md
 docs/RecalculateAdminSystemSettingLatestSalaries202Response.md
 docs/ReconciliationCoach.md
@@ -1088,6 +1099,9 @@ docs/SubscriptionCollection.md
 docs/SubscriptionTypeSummary.md
 docs/SubscriptionYear.md
 docs/SubscriptionYearInvoicesInner.md
+docs/SwapContractRawContracts200Response.md
+docs/SwapContractRawContracts200ResponseContractsInner.md
+docs/SwapContractRawContractsRequest.md
 docs/SystemSetting.md
 docs/Tag.md
 docs/TeamScheduleCoaches.md
@@ -1127,6 +1141,7 @@ docs/TicketingDealUpdate.md
 docs/TimeOfYearOption.md
 docs/TimeZoneOption.md
 docs/TrademarkDealUpdate.md
+docs/TravelDealUpdate.md
 docs/UnauthorizedError.md
 docs/UnknownRansackConditionError.md
 docs/UnknownRansackConditionErrorErrors.md
@@ -1550,6 +1565,7 @@ src/models/AthleticProfileShowSportOverviewQuadrantPointsInner.ts
 src/models/AthleticProfileShowSportOverviewSeasonsInner.ts
 src/models/AthleticProfileShowSportsOverviewInner.ts
 src/models/AthleticProfileShowTabSportsInner.ts
+src/models/AthleticsSoftwareDealUpdate.ts
 src/models/AuditedFinancialReportStatus.ts
 src/models/AuditedFinancialReportStatusCollection.ts
 src/models/AvailableGameContract.ts
@@ -1723,6 +1739,10 @@ src/models/CreateContactRequest.ts
 src/models/CreateContactRequestContact.ts
 src/models/CreateContactSearchRequest.ts
 src/models/CreateContactSearchRequestContact.ts
+src/models/CreateContractDirectUpload200Response.ts
+src/models/CreateContractDirectUpload200ResponseDirectUpload.ts
+src/models/CreateContractDirectUploadRequest.ts
+src/models/CreateContractDirectUploadRequestBlob.ts
 src/models/CreateContractVerificationRequest.ts
 src/models/CreateDeskRequest201Response.ts
 src/models/CreateDeskRequestRequest.ts
@@ -1755,6 +1775,7 @@ src/models/CreateScheduleTournamentRequestScheduleTournament.ts
 src/models/CreateSchedulingMessage422Response.ts
 src/models/CreateSchoolGroupRequest.ts
 src/models/CreateSchoolGroupRequestSchoolGroup.ts
+src/models/CreateSeasonRequest.ts
 src/models/CreateSportRequest.ts
 src/models/CreateSportRequestSport.ts
 src/models/CreateSubscriptionRequestSubscription.ts
@@ -1785,7 +1806,9 @@ src/models/DealSearchResultCollection.ts
 src/models/DealStatus.ts
 src/models/DealStatusCollection.ts
 src/models/DealUpdateAmount.ts
+src/models/DealUpdateCount.ts
 src/models/DealUpdateDetail.ts
+src/models/DealUpdateOnsiteAgents.ts
 src/models/DealUpdatePartner.ts
 src/models/DealUpdatePercent.ts
 src/models/DealUpdateResult.ts
@@ -2162,6 +2185,8 @@ src/models/MassUpdatePositionRow.ts
 src/models/MassUpdatePositionsRequest.ts
 src/models/MassUpdatePositionsResponse.ts
 src/models/McpEvent.ts
+src/models/MergeCoach200Response.ts
+src/models/MergeCoachRequest.ts
 src/models/Meta.ts
 src/models/MultimediaDealUpdate.ts
 src/models/MultimediaDealUpdateRevSharePercent.ts
@@ -2220,6 +2245,7 @@ src/models/RawContractBackTo.ts
 src/models/RawContractCollection.ts
 src/models/RawContractDealInfo.ts
 src/models/RawContractTerms.ts
+src/models/RawContractUploaded.ts
 src/models/RecalculateAdminSystemSettingLatestSalaries202Response.ts
 src/models/ReconciliationCoach.ts
 src/models/ReconciliationIncluded.ts
@@ -2326,6 +2352,9 @@ src/models/SubscriptionCollection.ts
 src/models/SubscriptionTypeSummary.ts
 src/models/SubscriptionYear.ts
 src/models/SubscriptionYearInvoicesInner.ts
+src/models/SwapContractRawContracts200Response.ts
+src/models/SwapContractRawContracts200ResponseContractsInner.ts
+src/models/SwapContractRawContractsRequest.ts
 src/models/SystemSetting.ts
 src/models/Tag.ts
 src/models/TeamScheduleCoaches.ts
@@ -2365,6 +2394,7 @@ src/models/TicketingDealUpdate.ts
 src/models/TimeOfYearOption.ts
 src/models/TimeZoneOption.ts
 src/models/TrademarkDealUpdate.ts
+src/models/TravelDealUpdate.ts
 src/models/UnauthorizedError.ts
 src/models/UnknownRansackConditionError.ts
 src/models/UnknownRansackConditionErrorErrors.ts
