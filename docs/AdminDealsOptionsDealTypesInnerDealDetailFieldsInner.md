@@ -10,6 +10,7 @@ Name | Type
 `label` | string
 `kind` | string
 `options` | Array&lt;string&gt;
+`appliesTo` | string
 `help` | string
 
 ## Example
@@ -23,6 +24,7 @@ const example = {
   "label": null,
   "kind": null,
   "options": null,
+  "appliesTo": null,
   "help": null,
 } satisfies AdminDealsOptionsDealTypesInnerDealDetailFieldsInner
 

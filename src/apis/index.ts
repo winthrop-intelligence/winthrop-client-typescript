@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from './ContractsApi';
 export * from './CtbApi';
+export * from './DealsApi';
 export * from './DefaultApi';
 export * from './FoiaInboxApi';
 export * from './GameContractsApi';

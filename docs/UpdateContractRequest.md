@@ -7,6 +7,7 @@ Partial update of a published contract. At least one of the contract fields is r
 
 Name | Type
 ------------ | -------------
+`rawContractId` | number
 `startOn` | Date
 `endOn` | Date
 `atWill` | boolean
@@ -14,6 +15,8 @@ Name | Type
 `expiresOn` | Date
 `contingentChange` | boolean
 `coachId` | number
+`contractableId` | number
+`contractableType` | string
 `changeNote` | string
 
 ## Example
@@ -23,6 +26,7 @@ import type { UpdateContractRequest } from '@winthrop-intelligence/winthrop-clie
 
 // TODO: Update the object below with actual values
 const example = {
+  "rawContractId": null,
   "startOn": null,
   "endOn": null,
   "atWill": null,
@@ -30,6 +34,8 @@ const example = {
   "expiresOn": null,
   "contingentChange": null,
   "coachId": null,
+  "contractableId": null,
+  "contractableType": null,
   "changeNote": null,
 } satisfies UpdateContractRequest
 

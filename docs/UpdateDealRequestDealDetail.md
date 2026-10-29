@@ -1,7 +1,7 @@
 
 # UpdateDealRequestDealDetail
 
-Fields must belong to the existing deal type.
+Fields must belong to the existing deal type (see the schema of that type). Money fields take at most two decimals up to 999,999,999.99; percent fields 0 through 100.
 
 ## Properties
 
@@ -17,6 +17,51 @@ Name | Type
 `bha` | [DealUpdateAmount](DealUpdateAmount.md)
 `additionalRev` | [DealUpdateAmount](DealUpdateAmount.md)
 `revSharePercent` | [MultimediaDealUpdateRevSharePercent](MultimediaDealUpdateRevSharePercent.md)
+`totalGuar` | [DealUpdateAmount](DealUpdateAmount.md)
+`annualGuar` | [DealUpdateAmount](DealUpdateAmount.md)
+`partner` | [DealUpdatePartner](DealUpdatePartner.md)
+`srf` | [DealUpdateAmount](DealUpdateAmount.md)
+`avgAnnualProd` | [DealUpdateAmount](DealUpdateAmount.md)
+`sla` | [DealUpdateAmount](DealUpdateAmount.md)
+`license` | [DealUpdateAmount](DealUpdateAmount.md)
+`maintenance` | [DealUpdateAmount](DealUpdateAmount.md)
+`acctMgr` | [DealUpdateAmount](DealUpdateAmount.md)
+`totalRevPercent` | [DealUpdatePercent](DealUpdatePercent.md)
+`newRevPercent` | [DealUpdatePercent](DealUpdatePercent.md)
+`renewalRevPercent` | [DealUpdatePercent](DealUpdatePercent.md)
+`annualFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`threshold1` | [DealUpdateAmount](DealUpdateAmount.md)
+`allocPercent1` | [DealUpdatePercent](DealUpdatePercent.md)
+`threshold2` | [DealUpdateAmount](DealUpdateAmount.md)
+`allocPercent2` | [DealUpdatePercent](DealUpdatePercent.md)
+`threshold3` | [DealUpdateAmount](DealUpdateAmount.md)
+`allocPercent3` | [DealUpdatePercent](DealUpdatePercent.md)
+`threshold4` | [DealUpdateAmount](DealUpdateAmount.md)
+`allocPercent4` | [DealUpdatePercent](DealUpdatePercent.md)
+`threshold5` | [DealUpdateAmount](DealUpdateAmount.md)
+`allocPercent5` | [DealUpdatePercent](DealUpdatePercent.md)
+`threshold6` | [DealUpdateAmount](DealUpdateAmount.md)
+`allocPercent6` | [DealUpdatePercent](DealUpdatePercent.md)
+`guaranteedAmtYearOne` | [DealUpdateAmount](DealUpdateAmount.md)
+`capitalImprovement` | [DealUpdateAmount](DealUpdateAmount.md)
+`annualHostFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`products` | string
+`allSports` | boolean
+`finalYearFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`implementationFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`travelSubtype` | string
+`managementFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`agentTicketFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`includedTransactions` | [DealUpdateCount](DealUpdateCount.md)
+`onsiteAgents` | [DealUpdateOnsiteAgents](DealUpdateOnsiteAgents.md)
+`afterHoursFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`ratePerMile` | [DealUpdateAmount](DealUpdateAmount.md)
+`dailyRate` | [DealUpdateAmount](DealUpdateAmount.md)
+`dailyRateRule` | string
+`driverOvernight` | [DealUpdateAmount](DealUpdateAmount.md)
+`pricePerRoundTrip` | [DealUpdateAmount](DealUpdateAmount.md)
+`aircraft` | string
+`roundTrips` | [DealUpdateCount](DealUpdateCount.md)
 
 ## Example
 
@@ -35,6 +80,51 @@ const example = {
   "bha": null,
   "additionalRev": null,
   "revSharePercent": null,
+  "totalGuar": null,
+  "annualGuar": null,
+  "partner": null,
+  "srf": null,
+  "avgAnnualProd": null,
+  "sla": null,
+  "license": null,
+  "maintenance": null,
+  "acctMgr": null,
+  "totalRevPercent": null,
+  "newRevPercent": null,
+  "renewalRevPercent": null,
+  "annualFee": null,
+  "threshold1": null,
+  "allocPercent1": null,
+  "threshold2": null,
+  "allocPercent2": null,
+  "threshold3": null,
+  "allocPercent3": null,
+  "threshold4": null,
+  "allocPercent4": null,
+  "threshold5": null,
+  "allocPercent5": null,
+  "threshold6": null,
+  "allocPercent6": null,
+  "guaranteedAmtYearOne": null,
+  "capitalImprovement": null,
+  "annualHostFee": null,
+  "products": null,
+  "allSports": null,
+  "finalYearFee": null,
+  "implementationFee": null,
+  "travelSubtype": null,
+  "managementFee": null,
+  "agentTicketFee": null,
+  "includedTransactions": null,
+  "onsiteAgents": null,
+  "afterHoursFee": null,
+  "ratePerMile": null,
+  "dailyRate": null,
+  "dailyRateRule": null,
+  "driverOvernight": null,
+  "pricePerRoundTrip": null,
+  "aircraft": null,
+  "roundTrips": null,
 } satisfies UpdateDealRequestDealDetail
 
 console.log(example)

@@ -30,7 +30,24 @@ Name | Type
 `renewalRevPercent` | number
 `annualFee` | number
 `annualHostFee` | number
+`travelSubtype` | string
+`managementFee` | number
+`agentTicketFee` | number
+`includedTransactions` | number
+`onsiteAgents` | number
+`afterHoursFee` | number
+`ratePerMile` | number
+`dailyRate` | number
+`dailyRateRule` | string
+`driverOvernight` | number
+`pricePerRoundTrip` | number
+`aircraft` | string
+`roundTrips` | number
 `guaranteedAmtYearOne` | number
+`products` | string
+`allSports` | boolean
+`finalYearFee` | number
+`implementationFee` | number
 `capitalImprovement` | number
 `threshold1` | number
 `allocPercent1` | number
@@ -77,7 +94,24 @@ const example = {
   "renewalRevPercent": null,
   "annualFee": null,
   "annualHostFee": null,
+  "travelSubtype": null,
+  "managementFee": null,
+  "agentTicketFee": null,
+  "includedTransactions": null,
+  "onsiteAgents": null,
+  "afterHoursFee": null,
+  "ratePerMile": null,
+  "dailyRate": null,
+  "dailyRateRule": null,
+  "driverOvernight": null,
+  "pricePerRoundTrip": null,
+  "aircraft": null,
+  "roundTrips": null,
   "guaranteedAmtYearOne": null,
+  "products": null,
+  "allSports": null,
+  "finalYearFee": null,
+  "implementationFee": null,
   "capitalImprovement": null,
   "threshold1": null,
   "allocPercent1": null,
