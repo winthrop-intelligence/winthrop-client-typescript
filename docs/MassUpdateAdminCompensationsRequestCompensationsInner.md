@@ -11,6 +11,8 @@ Name | Type
 `schoolId` | number
 `baseSalaryDollars` | string
 `oneTimeBonusDollars` | string
+`relocationDollars` | string
+`relocationTaxable` | boolean
 `talentFeeDollars` | string
 `outsideIncomeDollars` | string
 `deferredCompDollars` | string
@@ -36,6 +38,8 @@ const example = {
   "schoolId": null,
   "baseSalaryDollars": null,
   "oneTimeBonusDollars": null,
+  "relocationDollars": null,
+  "relocationTaxable": null,
   "talentFeeDollars": null,
   "outsideIncomeDollars": null,
   "deferredCompDollars": null,

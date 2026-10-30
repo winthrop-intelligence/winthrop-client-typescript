@@ -5,10 +5,15 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createRawContract**](RawContractsApi.md#createrawcontract) | **POST** /api/v1/raw_contracts |  |
+| [**getRawContractBuyoutInputRevision**](RawContractsApi.md#getrawcontractbuyoutinputrevision) | **GET** /api/v1/raw_contracts/{raw_contractId}/buyout_inputs/revisions/{revisionId} |  |
+| [**getRawContractBuyoutInputs**](RawContractsApi.md#getrawcontractbuyoutinputs) | **GET** /api/v1/raw_contracts/{raw_contractId}/buyout_inputs |  |
 | [**getRawContractContractTerms**](RawContractsApi.md#getrawcontractcontractterms) | **GET** /api/v1/raw_contracts/{raw_contractId}/contract_terms |  |
+| [**listRawContractBuyoutInputRevisions**](RawContractsApi.md#listrawcontractbuyoutinputrevisions) | **GET** /api/v1/raw_contracts/{raw_contractId}/buyout_inputs/revisions |  |
 | [**regenerateRawContractOcrText**](RawContractsApi.md#regeneraterawcontractocrtext) | **POST** /api/v1/raw_contracts/{raw_contractId}/ocr_text/regenerate |  |
 | [**replaceRawContractFile**](RawContractsApi.md#replacerawcontractfile) | **PUT** /api/v1/raw_contracts/{raw_contractId}/file |  |
+| [**updateRawContractBuyoutInputs**](RawContractsApi.md#updaterawcontractbuyoutinputs) | **PATCH** /api/v1/raw_contracts/{raw_contractId}/buyout_inputs |  |
 | [**updateRawContractContractTerms**](RawContractsApi.md#updaterawcontractcontractterms) | **PATCH** /api/v1/raw_contracts/{raw_contractId}/contract_terms |  |
+| [**updateRawContractSchool**](RawContractsApi.md#updaterawcontractschooloperation) | **PATCH** /api/v1/raw_contracts/{raw_contractId} |  |
 
 
 
@@ -103,6 +108,161 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getRawContractBuyoutInputRevision
+
+> RawContractBuyoutInputRevision getRawContractBuyoutInputRevision(rawContractId, revisionId)
+
+
+
+Return one revision of the RawContract\&#39;s buyout inputs (WINAD-10717), exactly as it was written. Revisions are never changed.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RawContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRawContractBuyoutInputRevisionRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new RawContractsApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+    // number | ID of the revision (from the revisions list)
+    revisionId: 56,
+  } satisfies GetRawContractBuyoutInputRevisionRequest;
+
+  try {
+    const data = await api.getRawContractBuyoutInputRevision(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+| **revisionId** | `number` | ID of the revision (from the revisions list) | [Defaults to `undefined`] |
+
+### Return type
+
+[**RawContractBuyoutInputRevision**](RawContractBuyoutInputRevision.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The revision |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found (no such RawContract, or the revision belongs to another one) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getRawContractBuyoutInputs
+
+> RawContractBuyoutInputs getRawContractBuyoutInputs(rawContractId)
+
+
+
+Return the checked buyout inputs (schema buyout-inputs-v1) stored on a RawContract (WINAD-10717), when they were stored, and whether they are stale. Stale means that after the newest revision the contract\&#39;s OCR text was redone (&#x60;ocr_text_changed&#x60;) and/or its contract_terms changed (&#x60;contract_terms_changed&#x60;); the document is kept, only flagged.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RawContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetRawContractBuyoutInputsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new RawContractsApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies GetRawContractBuyoutInputsRequest;
+
+  try {
+    const data = await api.getRawContractBuyoutInputs(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**RawContractBuyoutInputs**](RawContractBuyoutInputs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The stored inputs (buyout_inputs is null when none have been stored) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (insufficient scope, or a document the user cannot read) |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getRawContractContractTerms
 
 > RawContractTerms getRawContractContractTerms(rawContractId)
@@ -174,6 +334,82 @@ example().catch(console.error);
 | **200** | The stored terms (contract_terms is null when none have been stored) |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (insufficient scope, or a document the user cannot read) |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listRawContractBuyoutInputRevisions
+
+> ListRawContractBuyoutInputRevisions200Response listRawContractBuyoutInputRevisions(rawContractId)
+
+
+
+List every revision of the RawContract\&#39;s buyout inputs, newest first (WINAD-10717). Requires permission to update the RawContract, because revisions name the person who made each write.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RawContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListRawContractBuyoutInputRevisionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new RawContractsApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+  } satisfies ListRawContractBuyoutInputRevisionsRequest;
+
+  try {
+    const data = await api.listRawContractBuyoutInputRevisions(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+
+### Return type
+
+[**ListRawContractBuyoutInputRevisions200Response**](ListRawContractBuyoutInputRevisions200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The revisions |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -339,6 +575,89 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateRawContractBuyoutInputs
+
+> RawContractBuyoutInputs updateRawContractBuyoutInputs(rawContractId, buyoutInputs, changeNote)
+
+
+
+Replace the whole buyout_inputs document on a RawContract (WINAD-10717) and add an immutable revision (who, when, change_note, document; see GET .../buyout_inputs/revisions). The body is the document itself: a JSON object with &#x60;schema&#x60; equal to \&quot;buyout-inputs-v1\&quot;, &#x60;rc&#x60; equal to the RawContract id in the path, and &#x60;as_of&#x60; (YYYY-MM-DD). Nothing deeper is checked here (the JSON Schema lives in the data-quality repo); every other key is stored as sent.  Requires the winad_write scope and a user-backed token (client-credentials tokens are refused) with permission to update the RawContract. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RawContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateRawContractBuyoutInputsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new RawContractsApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+    // BuyoutInputs
+    buyoutInputs: ...,
+    // string | Optional. Why the inputs are being written; stored on the revision and on the audit version this write creates. It is a query parameter because the request body is the document: a `change_note` key in the body is stored as part of the document and never used as the note. At most 500 characters after trimming; blank is the same as omitted; a value that is not text or is longer is refused with 422 (errors.change_note) before anything is written. Never returned. (optional)
+    changeNote: changeNote_example,
+  } satisfies UpdateRawContractBuyoutInputsRequest;
+
+  try {
+    const data = await api.updateRawContractBuyoutInputs(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+| **buyoutInputs** | [BuyoutInputs](BuyoutInputs.md) |  | |
+| **changeNote** | `string` | Optional. Why the inputs are being written; stored on the revision and on the audit version this write creates. It is a query parameter because the request body is the document: a &#x60;change_note&#x60; key in the body is stored as part of the document and never used as the note. At most 500 characters after trimming; blank is the same as omitted; a value that is not text or is longer is refused with 422 (errors.change_note) before anything is written. Never returned. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**RawContractBuyoutInputs**](RawContractBuyoutInputs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The inputs were stored and a revision was added |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (missing winad_write scope, client-credentials token, or not permitted to update the RawContract) |  -  |
+| **404** | Not Found |  -  |
+| **422** | The body is not a JSON object, &#x60;schema&#x60; is not \&quot;buyout-inputs-v1\&quot;, &#x60;rc&#x60; is missing or not the RawContract id, &#x60;as_of&#x60; is missing or not a date, or the change_note query parameter is not text or is longer than 500 characters (errors.change_note). Nothing was changed. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## updateRawContractContractTerms
 
 > RawContractTerms updateRawContractContractTerms(rawContractId, contractTerms, changeNote)
@@ -418,6 +737,87 @@ example().catch(console.error);
 | **403** | Forbidden (missing winad_write scope, client-credentials token, or not permitted to update the RawContract) |  -  |
 | **404** | Not Found |  -  |
 | **422** | The body is not a JSON object, &#x60;schema&#x60; or &#x60;source&#x60; is missing or invalid, or the change_note query parameter is not text or is longer than 500 characters (errors.change_note). Nothing was changed. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateRawContractSchool
+
+> RawContract updateRawContractSchool(rawContractId, updateRawContractSchoolRequest)
+
+
+
+Set the school of a RawContract (WINAD-10719). A contract relink is refused with \&quot;Destination Contract employer is unknown\&quot; when the destination RawContract has no school; this sets it. Only &#x60;school_id&#x60; (and an optional &#x60;change_note&#x60;) is read; no other attribute is changed. An unknown, malformed or missing &#x60;school_id&#x60; is refused with 422 (errors.school_id) and nothing changes. The response is the RawContract as by GET /raw_contracts/{raw_contractId}, with the new &#x60;school_id&#x60; and &#x60;school_name&#x60;.  The change is recorded as a PaperTrail version of the RawContract (&#x60;school_id&#x60; old and new, the acting user, the API client and the change_note). When the RawContract belongs to a contract, the version is linked to it and GET /contract_history lists it. Requires winad_write and a user-backed OAuth token (client-credentials tokens are refused) with permission to update the RawContract. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RawContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { UpdateRawContractSchoolOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new RawContractsApi(config);
+
+  const body = {
+    // number | ID of the RawContract
+    rawContractId: 56,
+    // UpdateRawContractSchoolRequest
+    updateRawContractSchoolRequest: ...,
+  } satisfies UpdateRawContractSchoolOperationRequest;
+
+  try {
+    const data = await api.updateRawContractSchool(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rawContractId** | `number` | ID of the RawContract | [Defaults to `undefined`] |
+| **updateRawContractSchoolRequest** | [UpdateRawContractSchoolRequest](UpdateRawContractSchoolRequest.md) |  | |
+
+### Return type
+
+[**RawContract**](RawContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The school was set. The RawContract is returned as by GET /raw_contracts/{raw_contractId}. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden (missing winad_write scope, a client-credentials token with no user, or not permitted to update the RawContract) |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unknown, malformed or missing school_id (errors.school_id), or an invalid change_note (errors.change_note). Nothing is changed. |  -  |
+| **409** | The contracts using the document kept changing while it was being locked (errors.raw_contract names the document). Nothing is changed; reload and try again. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

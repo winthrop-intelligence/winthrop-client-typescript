@@ -14,6 +14,8 @@ Name | Type
 `updatedAt` | Date
 `notes` | string
 `contractStatusId` | number
+`outsideIncomeCents` | number
+`reportedPeriod` | string
 
 ## Example
 
@@ -30,6 +32,8 @@ const example = {
   "updatedAt": 2019-01-01T00:00Z,
   "notes": This is a note,
   "contractStatusId": 5,
+  "outsideIncomeCents": 5250000,
+  "reportedPeriod": July 1, 2022 - June 30, 2023,
 } satisfies IncomeReport
 
 console.log(example)

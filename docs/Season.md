@@ -52,6 +52,14 @@ Name | Type
 `nonConferenceSosRanking` | number
 `conferenceSosRanking` | number
 `rankingThroughDate` | Date
+`regularSeasonWins` | number
+`regularSeasonLosses` | number
+`regularSeasonTies` | number
+`postseasonWins` | number
+`postseasonLosses` | number
+`conferenceRegularSeasonChampion` | boolean
+`conferenceTournamentChampion` | boolean
+`postseasonResult` | [PostseasonResult](PostseasonResult.md)
 `headCoach` | [Coach](Coach.md)
 `assistantCoaches` | [Array&lt;Coach&gt;](Coach.md)
 
@@ -108,6 +116,14 @@ const example = {
   "nonConferenceSosRanking": null,
   "conferenceSosRanking": null,
   "rankingThroughDate": null,
+  "regularSeasonWins": null,
+  "regularSeasonLosses": null,
+  "regularSeasonTies": null,
+  "postseasonWins": null,
+  "postseasonLosses": null,
+  "conferenceRegularSeasonChampion": null,
+  "conferenceTournamentChampion": null,
+  "postseasonResult": null,
   "headCoach": null,
   "assistantCoaches": null,
 } satisfies Season

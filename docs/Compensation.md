@@ -25,6 +25,8 @@ Name | Type
 `updatedAt` | Date
 `outsideIncomeCents` | number
 `oneTimeBonusCents` | number
+`relocationCents` | number
+`relocationTaxable` | boolean
 `comment` | string
 `countyClubMembershipPaid` | boolean
 `baseSalaryCents` | number
@@ -65,6 +67,8 @@ const example = {
   "updatedAt": 2019-01-01T00:00Z,
   "outsideIncomeCents": 10000,
   "oneTimeBonusCents": 10000,
+  "relocationCents": 500000,
+  "relocationTaxable": true,
   "comment": This is a comment,
   "countyClubMembershipPaid": false,
   "baseSalaryCents": 10000,

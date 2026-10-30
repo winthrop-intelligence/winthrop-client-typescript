@@ -39,6 +39,12 @@ Name | Type
 `dealInfo` | [RawContractDealInfo](RawContractDealInfo.md)
 `contractTerms` | [ContractTerms](ContractTerms.md)
 `contractTermsStale` | boolean
+`buyoutInputs` | [BuyoutInputs](BuyoutInputs.md)
+`buyoutInputsUpdatedAt` | Date
+`buyoutInputsStale` | boolean
+`buyoutInputsStaleReasons` | Array&lt;string&gt;
+`asOf` | Date
+`coachId` | number
 
 ## Example
 
@@ -80,6 +86,12 @@ const example = {
   "dealInfo": null,
   "contractTerms": null,
   "contractTermsStale": null,
+  "buyoutInputs": null,
+  "buyoutInputsUpdatedAt": null,
+  "buyoutInputsStale": null,
+  "buyoutInputsStaleReasons": null,
+  "asOf": null,
+  "coachId": null,
 } satisfies RawContract
 
 console.log(example)

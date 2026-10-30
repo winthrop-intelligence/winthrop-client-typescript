@@ -308,6 +308,8 @@ docs/Avatar.md
 docs/AverageCompensation.md
 docs/BatchGuaranteeEconomicsRequest.md
 docs/BookstoreDealUpdate.md
+docs/BowlGame.md
+docs/BowlGameCollection.md
 docs/BulkCreateGamePostSearchesRequest.md
 docs/BulkCreateGamePostSearchesRequestIntentsInner.md
 docs/BulkCreateGamePostSearchesRequestPostsInner.md
@@ -320,6 +322,7 @@ docs/BulkGamePostSearchResult.md
 docs/BulkUpdateAdminContractRequestSearchesRequest.md
 docs/BulkUpdateGamePostSearchesRequest.md
 docs/BulkUpdateGamePostSearchesRequestPostsInner.md
+docs/BuyoutInputs.md
 docs/COLIAdjusted.md
 docs/Cashflow.md
 docs/CashflowCollection.md
@@ -405,6 +408,7 @@ docs/ContactSearchCollection.md
 docs/ContactSearchEntry.md
 docs/Contract.md
 docs/ContractCollection.md
+docs/ContractCreateOnRawContract.md
 docs/ContractErrorsResponse.md
 docs/ContractFileReplaced.md
 docs/ContractHistoryCollection.md
@@ -480,6 +484,7 @@ docs/CreateContractDirectUpload200ResponseDirectUpload.md
 docs/CreateContractDirectUploadRequest.md
 docs/CreateContractDirectUploadRequestBlob.md
 docs/CreateContractVerificationRequest.md
+docs/CreateDealVerificationRequest.md
 docs/CreateDeskRequest201Response.md
 docs/CreateDeskRequestRequest.md
 docs/CreateFavorite201Response.md
@@ -502,6 +507,7 @@ docs/CreatePageViewRequest.md
 docs/CreatePasswordReset200Response.md
 docs/CreatePasswordResetRequest.md
 docs/CreatePasswordResetRequestUser.md
+docs/CreatePendingContract201Response.md
 docs/CreatePositionTypeRequest.md
 docs/CreatePositionTypeRequestPositionType.md
 docs/CreateScheduleIntentRequest.md
@@ -536,6 +542,7 @@ docs/CtbVolunteerCompensationApplyInput.md
 docs/Deal.md
 docs/DealCollection.md
 docs/DealDetail.md
+docs/DealDetailPosition.md
 docs/DealDetailVendor.md
 docs/DealErrorsResponse.md
 docs/DealSearchResult.md
@@ -545,10 +552,14 @@ docs/DealStatusCollection.md
 docs/DealUpdateAmount.md
 docs/DealUpdateCount.md
 docs/DealUpdateDetail.md
+docs/DealUpdateMonths.md
 docs/DealUpdateOnsiteAgents.md
 docs/DealUpdatePartner.md
 docs/DealUpdatePercent.md
 docs/DealUpdateResult.md
+docs/DealVerification.md
+docs/DealVerificationInput.md
+docs/DealVerificationRevocationInput.md
 docs/DealsApi.md
 docs/DefaultApi.md
 docs/DeleteAccountUser200Response.md
@@ -708,6 +719,7 @@ docs/EditAccountUserResponse.md
 docs/EditAdminPositionType.md
 docs/EditAdminSport.md
 docs/EnrichGamePostSearchesRequest.md
+docs/ExecutiveSearchDealUpdate.md
 docs/FilterPositionType.md
 docs/Filters.md
 docs/FinancialQc.md
@@ -840,6 +852,8 @@ docs/GetCompensationComparisons400Response.md
 docs/GetCompensationVerificationStatus200Response.md
 docs/GetContractVerifications200Response.md
 docs/GetContractVerifications200ResponseMeta.md
+docs/GetDealVerifications200Response.md
+docs/GetDealVerifications200ResponseMeta.md
 docs/GetFavorites200ResponseInner.md
 docs/GetFavoritesCategories200ResponseInner.md
 docs/GetFilterOptions200Response.md
@@ -909,7 +923,9 @@ docs/ListAdminUserSportOptions200Response.md
 docs/ListContractVerifications200Response.md
 docs/ListContractVerifications422Response.md
 docs/ListContractVerificationsQParameter.md
+docs/ListDealVerifications200Response.md
 docs/ListNotes200ResponseInner.md
+docs/ListRawContractBuyoutInputRevisions200Response.md
 docs/Logo.md
 docs/MassCopyPositionsRequest.md
 docs/MassCopyPositionsResponse.md
@@ -965,6 +981,9 @@ docs/PositionTypeGroup.md
 docs/PositionTypeGroupOption.md
 docs/PositionTypesForGroupsAdminSports200Response.md
 docs/PositionTypesForGroupsAdminSportsRequest.md
+docs/PostseasonResult.md
+docs/PostseasonResultCollection.md
+docs/PostseasonResultInput.md
 docs/PouringDealUpdate.md
 docs/PredictBody.md
 docs/PredictFailure.md
@@ -985,6 +1004,8 @@ docs/PublishedContractAllOfCompensations.md
 docs/QuadrantUnplottedSchool.md
 docs/RawContract.md
 docs/RawContractBackTo.md
+docs/RawContractBuyoutInputRevision.md
+docs/RawContractBuyoutInputs.md
 docs/RawContractCollection.md
 docs/RawContractDealInfo.md
 docs/RawContractTerms.md
@@ -1076,6 +1097,7 @@ docs/ScraperApi.md
 docs/ScraperArgDef.md
 docs/Season.md
 docs/SeasonCollection.md
+docs/SeasonRecordUpdate.md
 docs/SendAdminInvoiceRequest.md
 docs/SnapshotIncomeReport.md
 docs/Sport.md
@@ -1140,6 +1162,8 @@ docs/TeamSeasonResultInput.md
 docs/TicketingDealUpdate.md
 docs/TimeOfYearOption.md
 docs/TimeZoneOption.md
+docs/TournamentRound.md
+docs/TournamentRoundCollection.md
 docs/TrademarkDealUpdate.md
 docs/TravelDealUpdate.md
 docs/UnauthorizedError.md
@@ -1213,7 +1237,9 @@ docs/UpdateNoteRequest.md
 docs/UpdatePasswordReset200Response.md
 docs/UpdatePasswordResetRequest.md
 docs/UpdatePasswordResetRequestUser.md
+docs/UpdateRawContractBuyoutInputs422Response.md
 docs/UpdateRawContractContractTerms422Response.md
+docs/UpdateRawContractSchoolRequest.md
 docs/UpdateScheduleIntentRequest.md
 docs/UpdateScheduleIntentRequestScheduleIntent.md
 docs/UpdateSchoolGroupRequest.md
@@ -1573,6 +1599,8 @@ src/models/Avatar.ts
 src/models/AverageCompensation.ts
 src/models/BatchGuaranteeEconomicsRequest.ts
 src/models/BookstoreDealUpdate.ts
+src/models/BowlGame.ts
+src/models/BowlGameCollection.ts
 src/models/BulkCreateGamePostSearchesRequest.ts
 src/models/BulkCreateGamePostSearchesRequestIntentsInner.ts
 src/models/BulkCreateGamePostSearchesRequestPostsInner.ts
@@ -1585,6 +1613,7 @@ src/models/BulkGamePostSearchResult.ts
 src/models/BulkUpdateAdminContractRequestSearchesRequest.ts
 src/models/BulkUpdateGamePostSearchesRequest.ts
 src/models/BulkUpdateGamePostSearchesRequestPostsInner.ts
+src/models/BuyoutInputs.ts
 src/models/COLIAdjusted.ts
 src/models/Cashflow.ts
 src/models/CashflowCollection.ts
@@ -1670,6 +1699,7 @@ src/models/ContactSearchCollection.ts
 src/models/ContactSearchEntry.ts
 src/models/Contract.ts
 src/models/ContractCollection.ts
+src/models/ContractCreateOnRawContract.ts
 src/models/ContractErrorsResponse.ts
 src/models/ContractFileReplaced.ts
 src/models/ContractHistoryCollection.ts
@@ -1744,6 +1774,7 @@ src/models/CreateContractDirectUpload200ResponseDirectUpload.ts
 src/models/CreateContractDirectUploadRequest.ts
 src/models/CreateContractDirectUploadRequestBlob.ts
 src/models/CreateContractVerificationRequest.ts
+src/models/CreateDealVerificationRequest.ts
 src/models/CreateDeskRequest201Response.ts
 src/models/CreateDeskRequestRequest.ts
 src/models/CreateFavorite201Response.ts
@@ -1766,6 +1797,7 @@ src/models/CreatePageViewRequest.ts
 src/models/CreatePasswordReset200Response.ts
 src/models/CreatePasswordResetRequest.ts
 src/models/CreatePasswordResetRequestUser.ts
+src/models/CreatePendingContract201Response.ts
 src/models/CreatePositionTypeRequest.ts
 src/models/CreatePositionTypeRequestPositionType.ts
 src/models/CreateScheduleIntentRequest.ts
@@ -1799,6 +1831,7 @@ src/models/CtbVolunteerCompensationApplyInput.ts
 src/models/Deal.ts
 src/models/DealCollection.ts
 src/models/DealDetail.ts
+src/models/DealDetailPosition.ts
 src/models/DealDetailVendor.ts
 src/models/DealErrorsResponse.ts
 src/models/DealSearchResult.ts
@@ -1808,10 +1841,14 @@ src/models/DealStatusCollection.ts
 src/models/DealUpdateAmount.ts
 src/models/DealUpdateCount.ts
 src/models/DealUpdateDetail.ts
+src/models/DealUpdateMonths.ts
 src/models/DealUpdateOnsiteAgents.ts
 src/models/DealUpdatePartner.ts
 src/models/DealUpdatePercent.ts
 src/models/DealUpdateResult.ts
+src/models/DealVerification.ts
+src/models/DealVerificationInput.ts
+src/models/DealVerificationRevocationInput.ts
 src/models/DeleteAccountUser200Response.ts
 src/models/DeleteContactSearch200Response.ts
 src/models/DeleteFavorite200Response.ts
@@ -1969,6 +2006,7 @@ src/models/EditAccountUserResponse.ts
 src/models/EditAdminPositionType.ts
 src/models/EditAdminSport.ts
 src/models/EnrichGamePostSearchesRequest.ts
+src/models/ExecutiveSearchDealUpdate.ts
 src/models/FilterPositionType.ts
 src/models/Filters.ts
 src/models/FinancialQc.ts
@@ -2099,6 +2137,8 @@ src/models/GetCompensationComparisons400Response.ts
 src/models/GetCompensationVerificationStatus200Response.ts
 src/models/GetContractVerifications200Response.ts
 src/models/GetContractVerifications200ResponseMeta.ts
+src/models/GetDealVerifications200Response.ts
+src/models/GetDealVerifications200ResponseMeta.ts
 src/models/GetFavorites200ResponseInner.ts
 src/models/GetFavoritesCategories200ResponseInner.ts
 src/models/GetFilterOptions200Response.ts
@@ -2167,7 +2207,9 @@ src/models/ListAdminUserSportOptions200Response.ts
 src/models/ListContractVerifications200Response.ts
 src/models/ListContractVerifications422Response.ts
 src/models/ListContractVerificationsQParameter.ts
+src/models/ListDealVerifications200Response.ts
 src/models/ListNotes200ResponseInner.ts
+src/models/ListRawContractBuyoutInputRevisions200Response.ts
 src/models/Logo.ts
 src/models/MassCopyPositionsRequest.ts
 src/models/MassCopyPositionsResponse.ts
@@ -2222,6 +2264,9 @@ src/models/PositionTypeGroup.ts
 src/models/PositionTypeGroupOption.ts
 src/models/PositionTypesForGroupsAdminSports200Response.ts
 src/models/PositionTypesForGroupsAdminSportsRequest.ts
+src/models/PostseasonResult.ts
+src/models/PostseasonResultCollection.ts
+src/models/PostseasonResultInput.ts
 src/models/PouringDealUpdate.ts
 src/models/PredictBody.ts
 src/models/PredictFailure.ts
@@ -2242,6 +2287,8 @@ src/models/PublishedContractAllOfCompensations.ts
 src/models/QuadrantUnplottedSchool.ts
 src/models/RawContract.ts
 src/models/RawContractBackTo.ts
+src/models/RawContractBuyoutInputRevision.ts
+src/models/RawContractBuyoutInputs.ts
 src/models/RawContractCollection.ts
 src/models/RawContractDealInfo.ts
 src/models/RawContractTerms.ts
@@ -2329,6 +2376,7 @@ src/models/Scraper.ts
 src/models/ScraperArgDef.ts
 src/models/Season.ts
 src/models/SeasonCollection.ts
+src/models/SeasonRecordUpdate.ts
 src/models/SendAdminInvoiceRequest.ts
 src/models/SnapshotIncomeReport.ts
 src/models/Sport.ts
@@ -2393,6 +2441,8 @@ src/models/TeamSeasonResultInput.ts
 src/models/TicketingDealUpdate.ts
 src/models/TimeOfYearOption.ts
 src/models/TimeZoneOption.ts
+src/models/TournamentRound.ts
+src/models/TournamentRoundCollection.ts
 src/models/TrademarkDealUpdate.ts
 src/models/TravelDealUpdate.ts
 src/models/UnauthorizedError.ts
@@ -2466,7 +2516,9 @@ src/models/UpdateNoteRequest.ts
 src/models/UpdatePasswordReset200Response.ts
 src/models/UpdatePasswordResetRequest.ts
 src/models/UpdatePasswordResetRequestUser.ts
+src/models/UpdateRawContractBuyoutInputs422Response.ts
 src/models/UpdateRawContractContractTerms422Response.ts
+src/models/UpdateRawContractSchoolRequest.ts
 src/models/UpdateScheduleIntentRequest.ts
 src/models/UpdateScheduleIntentRequestScheduleIntent.ts
 src/models/UpdateSchoolGroupRequest.ts

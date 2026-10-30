@@ -67,6 +67,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createConferenceship**](DefaultApi.md#createconferenceship) | **POST** /api/v1/conferenceships |  |
 | [**createContactSearch**](DefaultApi.md#createcontactsearchoperation) | **POST** /api/v1/contact_searches |  |
 | [**createContractVerification**](DefaultApi.md#createcontractverificationoperation) | **POST** /api/v1/raw_contracts/{raw_contractId}/verifications | Append a contract verification event |
+| [**createDealVerification**](DefaultApi.md#createdealverificationoperation) | **POST** /api/v1/deals/{dealId}/verifications | Append a deal verification event |
 | [**createDeskReportArchive**](DefaultApi.md#createdeskreportarchive) | **POST** /api/v1/desk_reports/{uuid}/archive |  |
 | [**createDeskReportOpened**](DefaultApi.md#createdeskreportopened) | **POST** /api/v1/desk_reports/{uuid}/opened |  |
 | [**createDeskRequest**](DefaultApi.md#createdeskrequestoperation) | **POST** /api/v1/desk_requests |  |
@@ -224,6 +225,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAthleticProfileSearch**](DefaultApi.md#getathleticprofilesearch) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId} |  |
 | [**getAuditedFinancialReportStatus**](DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} |  |
 | [**getAuditedFinancialReportStatuses**](DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses |  |
+| [**getBowlGames**](DefaultApi.md#getbowlgames) | **GET** /api/v1/bowl_games |  |
 | [**getCashflow**](DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} |  |
 | [**getCashflowGroups**](DefaultApi.md#getcashflowgroups) | **GET** /api/v1/cashflow_groups |  |
 | [**getCashflows**](DefaultApi.md#getcashflows) | **GET** /api/v1/cashflows |  |
@@ -264,6 +266,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getDealSearches**](DefaultApi.md#getdealsearches) | **GET** /api/v1/deal_searches |  |
 | [**getDealStatus**](DefaultApi.md#getdealstatus) | **GET** /api/v1/deal_statuses/{dealStatusId} |  |
 | [**getDealStatuses**](DefaultApi.md#getdealstatuses) | **GET** /api/v1/deal_statuses |  |
+| [**getDealVerifications**](DefaultApi.md#getdealverifications) | **GET** /api/v1/deals/{dealId}/verifications | List the deal\&#39;s verification history |
 | [**getDeals**](DefaultApi.md#getdeals) | **GET** /api/v1/deals |  |
 | [**getDepartmentSearches**](DefaultApi.md#getdepartmentsearches) | **GET** /api/v1/department_searches |  |
 | [**getDeskReport**](DefaultApi.md#getdeskreport) | **GET** /api/v1/desk_reports/{uuid} |  |
@@ -324,6 +327,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getPosition**](DefaultApi.md#getposition) | **GET** /api/v1/positions/{positionId} |  |
 | [**getPositionTypes**](DefaultApi.md#getpositiontypes) | **GET** /api/v1/position_types |  |
 | [**getPositions**](DefaultApi.md#getpositions) | **GET** /api/v1/positions |  |
+| [**getPostseasonResults**](DefaultApi.md#getpostseasonresults) | **GET** /api/v1/postseason_results |  |
 | [**getRawContract**](DefaultApi.md#getrawcontract) | **GET** /api/v1/raw_contracts/{raw_contractId} |  |
 | [**getRawContractOcrText**](DefaultApi.md#getrawcontractocrtext) | **GET** /api/v1/raw_contracts/{raw_contractId}/ocr_text |  |
 | [**getRawContracts**](DefaultApi.md#getrawcontracts) | **GET** /api/v1/raw_contracts |  |
@@ -389,6 +393,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getTeamScheduleSearches**](DefaultApi.md#getteamschedulesearches) | **GET** /api/v1/team_schedule_searches |  |
 | [**getTeamSeasonResults**](DefaultApi.md#getteamseasonresults) | **GET** /api/v1/team_season_results |  |
 | [**getTimeZones**](DefaultApi.md#gettimezones) | **GET** /api/v1/time_zones |  |
+| [**getTournamentRounds**](DefaultApi.md#gettournamentrounds) | **GET** /api/v1/tournament_rounds |  |
 | [**getUpload**](DefaultApi.md#getupload) | **GET** /api/v1/uploads/{uploadId} |  |
 | [**getUploadFile**](DefaultApi.md#getuploadfile) | **GET** /api/v1/uploads/{uploadId}/file |  |
 | [**getUploads**](DefaultApi.md#getuploads) | **GET** /api/v1/uploads |  |
@@ -467,6 +472,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminVendorDeals**](DefaultApi.md#listadminvendordeals) | **GET** /api/v1/admin/vendors/{vendor_id}/deals |  |
 | [**listAdminVendors**](DefaultApi.md#listadminvendors) | **GET** /api/v1/admin/vendors |  |
 | [**listAdminYoutubeVideos**](DefaultApi.md#listadminyoutubevideos) | **GET** /api/v1/admin/youtube_videos |  |
+| [**listDealVerifications**](DefaultApi.md#listdealverifications) | **GET** /api/v1/deal_verifications | List verification events across deals |
 | [**listNotes**](DefaultApi.md#listnotes) | **GET** /api/v1/notes/list |  |
 | [**markAdminFoiaRequestProcessedFollowup**](DefaultApi.md#markadminfoiarequestprocessedfollowup) | **PATCH** /api/v1/admin/foia_requests/{id}/mark_processed_followup |  |
 | [**markPaidAdminInvoice**](DefaultApi.md#markpaidadmininvoice) | **POST** /api/v1/admin/invoices/{invoiceId}/mark_paid |  |
@@ -479,11 +485,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**mergeCoach**](DefaultApi.md#mergecoachoperation) | **POST** /api/v1/coaches/{coachId}/merge |  |
 | [**newAdminPositionType**](DefaultApi.md#newadminpositiontype) | **GET** /api/v1/admin/position_types/new |  |
 | [**newAdminSport**](DefaultApi.md#newadminsport) | **GET** /api/v1/admin/sports/new |  |
+| [**patchSeason**](DefaultApi.md#patchseason) | **PATCH** /api/v1/seasons/{seasonId} |  |
 | [**positionTypesForGroupsAdminSports**](DefaultApi.md#positiontypesforgroupsadminsportsoperation) | **POST** /api/v1/admin/sports/position_types_for_groups |  |
 | [**prefillAdminInvoice**](DefaultApi.md#prefilladmininvoice) | **GET** /api/v1/admin/invoices/prefill |  |
 | [**previewAdminCoachContracts**](DefaultApi.md#previewadmincoachcontracts) | **POST** /api/v1/admin/coach_contracts/preview |  |
 | [**previewAdminCoachMergeLog**](DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
+| [**putPostseasonResult**](DefaultApi.md#putpostseasonresult) | **PUT** /api/v1/postseason_results |  |
 | [**recalculateAdminSystemSettingLatestSalaries**](DefaultApi.md#recalculateadminsystemsettinglatestsalaries) | **POST** /api/v1/admin/system_setting/latest_salary_recalculation |  |
 | [**refreshAdminSystemSettingSeasonCache**](DefaultApi.md#refreshadminsystemsettingseasoncache) | **POST** /api/v1/admin/system_setting/season_cache_refresh |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
@@ -493,6 +501,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**restoreAdminDeskReport**](DefaultApi.md#restoreadmindeskreport) | **POST** /api/v1/admin/desk_reports/{uuid}/restore |  |
 | [**retryFrsExport**](DefaultApi.md#retryfrsexport) | **POST** /api/v1/frs_exports/{frsExportId}/retry |  |
 | [**revokeContractVerification**](DefaultApi.md#revokecontractverification) | **POST** /api/v1/raw_contracts/{raw_contractId}/verifications/revoke | Revoke verified seasons (append a revocation event) |
+| [**revokeDealVerification**](DefaultApi.md#revokedealverification) | **POST** /api/v1/deals/{dealId}/verifications/revoke | Revoke a deal\&#39;s verification (append a revocation event) |
 | [**runAdminScraper**](DefaultApi.md#runadminscraperoperation) | **POST** /api/v1/admin/scrapers/{id}/run |  |
 | [**searchCoaches**](DefaultApi.md#searchcoaches) | **POST** /api/v1/coaches/search |  |
 | [**sendAdminInvoice**](DefaultApi.md#sendadmininvoiceoperation) | **POST** /api/v1/admin/invoices/{invoiceId}/send |  |
@@ -5108,7 +5117,7 @@ example().catch(console.error);
 
 
 
-Create the compensation for one coach, school, and year, typically a missing future, contract-covered season. Compensation coach, school, and year are derived from the coach\&#39;s positions, so the positions are resolved first, modeled on the coach contract CSV uploader. If the coach already has positions at school_id in that year they are used and nothing is copied. Otherwise the positions the coach holds at that school in the latest earlier year are copied into the requested year (the same title and position types, creating the season if needed), and the new compensation is linked to them. If the coach has no earlier position at that school there is nothing to copy and the request is refused; create the position first. Positions that already exist in the requested year are used as they are; sports the earlier year has but the requested year lacks are not added. One target year per request, at most 15 years ahead. Fields other than the documented compensation fields are refused rather than ignored (is_car_provided is accepted on creation only; PATCH does not update it). When contract_id is supplied it must be a non-pending contract of the same coach, and unless contract_status_id is sent the compensation is marked complete, as the CSV uploader does; an explicitly sent contract_status_id is kept. Every value is checked as sent. Ids, the year and the cents amounts must be whole numbers (an integer or a string of digits, with no commas, decimals or text, within the 32-bit integer range), booleans must be true or false, dates must be YYYY-MM-DD, and an array or object is refused for a scalar field, each with a field-specific 422; nothing is silently dropped or coerced. The whole request is one transaction, so on any error nothing is saved. If a background job cannot be queued after the row was saved, the compensation is still returned with 201 and the problem is reported to Sentry. Requires a super admin and the winad_write OAuth scope. To change an existing compensation use PATCH /compensations/{compensationId}. API clients in winthrop-clients must be regenerated to expose this operation.
+Create the compensation for one coach, school, and year, typically a missing future, contract-covered season. Compensation coach, school, and year are derived from the coach\&#39;s positions, so the positions are resolved first, modeled on the coach contract CSV uploader. If the coach already has positions at school_id in that year they are used and nothing is copied. Otherwise the positions the coach holds at that school in the latest earlier year are copied into the requested year (the same title and position types, creating the season if needed), and the new compensation is linked to them. If the coach has no earlier position at that school there is nothing to copy and the request is refused; create the position first. Positions that already exist in the requested year are used as they are; sports the earlier year has but the requested year lacks are not added. One target year per request, at most 15 years ahead. Fields other than the documented compensation fields are refused rather than ignored. When contract_id is supplied it must be a non-pending contract of the same coach, and unless contract_status_id is sent the compensation is marked complete, as the CSV uploader does; an explicitly sent contract_status_id is kept. Every value is checked as sent. Ids, the year and the cents amounts must be whole numbers (an integer or a string of digits, with no commas, decimals or text, within the 32-bit integer range), booleans must be true or false, dates must be YYYY-MM-DD, and an array or object is refused for a scalar field, each with a field-specific 422; nothing is silently dropped or coerced. The whole request is one transaction, so on any error nothing is saved. If a background job cannot be queued after the row was saved, the compensation is still returned with 201 and the problem is reported to Sentry. Requires a super admin and the winad_write OAuth scope. To change an existing compensation use PATCH /compensations/{compensationId}. API clients in winthrop-clients must be regenerated to expose this operation.
 
 ### Example
 
@@ -5483,6 +5492,89 @@ example().catch(console.error);
 | **404** | RawContract not found, or its contract was deleted while the request ran |  -  |
 | **409** | Agent run was already recorded with a different payload (errors.agent_run_id), or the contract kept moving to other coaches while the request waited for its locks (errors.contract) and nothing was written |  -  |
 | **422** | Invalid event or document without a Contract, or change_note that is not text or is longer than 500 characters (errors.change_note); errors are keyed by field |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createDealVerification
+
+> DealVerification createDealVerification(dealId, createDealVerificationRequest)
+
+Append a deal verification event
+
+Requires winad_verify, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the deal. winad_write is not required and does not grant this action. A verification means we agree with the whole deal row, so there are no seasons. Identity fields are server-derived. Agent retries use a unique (deal_id, agent_run_id) key: an equivalent payload returns the original event, a changed payload conflicts. An omitted verified_at on retry retains the original check time. The result \&#39;revoked\&#39; is rejected here; use the revoke endpoint. Manual checks are never deduplicated. There are no endpoints to edit or delete events, and deals.verified is not touched.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateDealVerificationOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    dealId: 56,
+    // CreateDealVerificationRequest
+    createDealVerificationRequest: ...,
+  } satisfies CreateDealVerificationOperationRequest;
+
+  try {
+    const data = await api.createDealVerification(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dealId** | `number` |  | [Defaults to `undefined`] |
+| **createDealVerificationRequest** | [CreateDealVerificationRequest](CreateDealVerificationRequest.md) |  | |
+
+### Return type
+
+[**DealVerification**](DealVerification.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Existing agent event returned for a matching retry |  -  |
+| **201** | Verification event created |  -  |
+| **400** | Missing or malformed request envelope |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_verify token/application scope, persisted resource owner, or deal read permission |  -  |
+| **404** | Deal not found |  -  |
+| **409** | Agent run was already recorded with a different payload (errors.agent_run_id) |  -  |
+| **422** | Invalid event, or change_note that is not text or is longer than 500 characters (errors.change_note); errors are keyed by field |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -9291,7 +9383,7 @@ example().catch(console.error);
 
 
 
-Retire a duplicate RawContract and its stored files. Requires the winad_write OAuth scope and permission to destroy the RawContract. Links are moved first (re-point the income report, pay rows and verification events to the document that stays), then it is retired. While a pay row (compensation of its Contract), an income report, an earned incentive (as its document or as the amendment that ends it) or a verification event still links to it, or its Contract has pay rows or verification events of its own, nothing is deleted and the answer is 409 with errors.blockers, an object of id lists under pay_rows, contracts, income_reports, earned_incentives and verification_events (only the non-empty ones). A Contract with no links of its own is deleted with the RawContract. The delete is an audit version (PaperTrail) with the optional change_note. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
+Retire a duplicate RawContract and its stored files. Requires the winad_write OAuth scope and permission to destroy the RawContract. Links are moved first (re-point the income report, pay rows and verification events to the document that stays), then it is retired. While a pay row (compensation of its Contract), an income report, an earned incentive (as its document or as the amendment that ends it), a verification event or a buyout inputs revision still links to it, or its Contract has pay rows or verification events of its own, nothing is deleted and the answer is 409 with errors.blockers, an object of id lists under pay_rows, contracts, income_reports, earned_incentives, verification_events and buyout_input_revisions (only the non-empty ones). A Contract with no links of its own is deleted with the RawContract. The delete is an audit version (PaperTrail) with the optional change_note. Returns 204 with no body. API clients in winthrop-clients must be regenerated to expose this change.
 
 ### Example
 
@@ -17467,6 +17559,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getBowlGames
+
+> BowlGameCollection getBowlGames(page, perPage)
+
+
+
+Retrieve the bowl games, to find the bowl_game_id of a postseason result
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+  } satisfies GetBowlGamesRequest;
+
+  try {
+    const data = await api.getBowlGames(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+
+### Return type
+
+[**BowlGameCollection**](BowlGameCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Bowl games were found |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getCashflow
 
 > Cashflow getCashflow(cashflowId)
@@ -20598,6 +20767,93 @@ example().catch(console.error);
 | **200** | Deal statuses were found |  -  |
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getDealVerifications
+
+> GetDealVerifications200Response getDealVerifications(dealId, page, perPage, q)
+
+List the deal\&#39;s verification history
+
+Requires read access to the deal. Events are add-only, belong to the deal itself (so they survive replacing its RawContract PDF) and are ordered by verified_at DESC and id DESC. &#x60;meta.verified&#x60; is true while the latest event is passed. The legacy deals.verified boolean is unrelated and unchanged.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetDealVerificationsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    dealId: 56,
+    // number (optional)
+    page: 56,
+    // number | Page size, capped at 100; defaults to 35. (optional)
+    perPage: 56,
+    // object | Ransack filters on scalar verification fields only. (optional)
+    q: Object,
+  } satisfies GetDealVerificationsRequest;
+
+  try {
+    const data = await api.getDealVerifications(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dealId** | `number` |  | [Defaults to `undefined`] |
+| **page** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **perPage** | `number` | Page size, capped at 100; defaults to 35. | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack filters on scalar verification fields only. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetDealVerifications200Response**](GetDealVerifications200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Verification history |  -  |
+| **304** | History has not changed |  -  |
+| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_read scope or read permission on the deal |  -  |
+| **404** | Deal not found, or pending and not readable by the caller |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -25184,6 +25440,96 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## getPostseasonResults
+
+> PostseasonResultCollection getPostseasonResults(page, perPage, seasonId, schoolId, sportId, seasonYear)
+
+
+
+Retrieve postseason results, the furthest stage each season reached (a bowl game or a tournament round, and whether it was won). Filter by season_id, or by school_id, sport_id and season_year.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetPostseasonResultsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+    // number (optional)
+    seasonId: 56,
+    // number (optional)
+    schoolId: 56,
+    // number (optional)
+    sportId: 56,
+    // number | Season year (2023 = the 2022-23 season) (optional)
+    seasonYear: 56,
+  } satisfies GetPostseasonResultsRequest;
+
+  try {
+    const data = await api.getPostseasonResults(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+| **seasonId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **sportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **seasonYear** | `number` | Season year (2023 &#x3D; the 2022-23 season) | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**PostseasonResultCollection**](PostseasonResultCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Postseason results were found |  -  |
+| **401** | Unauthorized |  -  |
+| **422** | A filter is sent as a list or an object (errors.&lt;filter&gt;) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## getRawContract
 
 > RawContract getRawContract(rawContractId)
@@ -25265,7 +25611,7 @@ example().catch(console.error);
 
 
 
-Return the contract\&#39;s Mistral OCR text; if not yet stored, OCR the PDF on demand and return it
+Return the contract\&#39;s stored text; if not yet stored, extract it on demand (the PDF\&#39;s own text layer when it covers the pages, else Mistral OCR) and return it
 
 ### Example
 
@@ -25343,7 +25689,7 @@ example().catch(console.error);
 
 
 
-Retrieve some or all raw_contracts
+Retrieve some or all raw_contracts. &#x60;q[buyout_inputs_present]&#x3D;true&#x60; (WINAD-10717) keeps only those with checked buyout inputs; each row then carries id, coach_id, buyout_inputs_updated_at and as_of (false is not applied).
 
 ### Example
 
@@ -27999,7 +28345,7 @@ example().catch(console.error);
 
 
 
-Retrieve some or all seasons
+Retrieve some or all seasons. Besides the season columns, q takes school_division_id_eq and school_subdivision_id_eq (the division / subdivision of the season\&#39;s school), and the _null predicates (q[wins_null]&#x3D;1, conference_wins_null, conference_position_null) list seasons with no record yet, for example the empty D1 seasons of a sport and year: q[year_eq]&#x3D;2025&amp;q[sport_id_eq]&#x3D;7&amp;q[school_division_id_eq]&#x3D;1&amp;q[wins_null]&#x3D;1.
 
 ### Example
 
@@ -30271,6 +30617,89 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Time zones retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getTournamentRounds
+
+> TournamentRoundCollection getTournamentRounds(page, perPage, sportId, tournamentId)
+
+
+
+Retrieve the tournament rounds with their tournament and sport, to find the tournament_round_id of a postseason result
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetTournamentRoundsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
+    page: 56,
+    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
+    perPage: 56,
+    // number (optional)
+    sportId: 56,
+    // number (optional)
+    tournamentId: 56,
+  } satisfies GetTournamentRoundsRequest;
+
+  try {
+    const data = await api.getTournamentRounds(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
+| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
+| **sportId** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **tournamentId** | `number` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**TournamentRoundCollection**](TournamentRoundCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Tournament rounds were found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -36529,6 +36958,90 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listDealVerifications
+
+> ListDealVerifications200Response listDealVerifications(page, perPage, q)
+
+List verification events across deals
+
+The verification events of many vendor deals in one request (WINAD-10737), for progress counts. Read-only. Each row is what GET /deals/{dealId}/verifications returns for the same event (the DealVerification schema). Ordered verified_at DESC, id DESC, so pages never overlap or skip; &#x60;per_page&#x60; defaults to 100, capped at 500. Ransack filters on id, deal_id, verified_by_id, verified_at, result, method, agent_run_id, evidence_url, created_at, batch_id and code_version, plus two filters that exist only here: &#x60;q[deal_type_id_eq]&#x60; / &#x60;q[deal_type_id_in][]&#x60; and &#x60;q[school_id_eq]&#x60; / &#x60;q[school_id_in][]&#x60; keep the events of deals of that deal type / school. A filter outside the allowlist, or an attribute without a predicate, is a 400 naming it. A caller sees the events of the deals they may read (pending deals are internal-only). 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListDealVerificationsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number (optional)
+    page: 56,
+    // number | Page size, capped at 500; defaults to 100. (optional)
+    perPage: 56,
+    // object | Ransack filters, e.g. q[deal_type_id_eq]=3&q[school_id_in][]=1&q[school_id_in][]=2. (optional)
+    q: Object,
+  } satisfies ListDealVerificationsRequest;
+
+  try {
+    const data = await api.listDealVerifications(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | `number` |  | [Optional] [Defaults to `undefined`] |
+| **perPage** | `number` | Page size, capped at 500; defaults to 100. | [Optional] [Defaults to `undefined`] |
+| **q** | `object` | Ransack filters, e.g. q[deal_type_id_eq]&#x3D;3&amp;q[school_id_in][]&#x3D;1&amp;q[school_id_in][]&#x3D;2. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ListDealVerifications200Response**](ListDealVerifications200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Verification events |  -  |
+| **304** | Events have not changed |  -  |
+| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_read scope or not permitted to read deals |  -  |
+| **422** | A list filter has more than 1000 values (errors.q) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## listNotes
 
 > Array&lt;ListNotes200ResponseInner&gt; listNotes()
@@ -37418,6 +37931,86 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## patchSeason
+
+> Season patchSeason(seasonId, seasonRecordUpdate)
+
+
+
+Write the record fields of a Season (the fields of the admin season stats editor, the regular-season / postseason split and the conference championship flags). Only the fields in the body change; an explicit null clears a field. An optional top-level change_note is stored on the audit version. Requires the winad_write scope and an admin user.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PatchSeasonRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Season
+    seasonId: 56,
+    // SeasonRecordUpdate | Season record fields to change
+    seasonRecordUpdate: ...,
+  } satisfies PatchSeasonRequest;
+
+  try {
+    const data = await api.patchSeason(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **seasonId** | `number` | ID of the Season | [Defaults to `undefined`] |
+| **seasonRecordUpdate** | [SeasonRecordUpdate](SeasonRecordUpdate.md) | Season record fields to change | |
+
+### Return type
+
+[**Season**](Season.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Season was updated; the full Season, as GET returns it |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The user is not an admin or the token lacks winad_write. |  -  |
+| **422** | A field is not a whole number, a date or a boolean, conference_position is larger than conference_num_positions, or the regular-season plus postseason figures do not add up to the totals (errors.&lt;field&gt;). |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## positionTypesForGroupsAdminSports
 
 > PositionTypesForGroupsAdminSports200Response positionTypesForGroupsAdminSports(positionTypesForGroupsAdminSportsRequest)
@@ -37804,6 +38397,83 @@ example().catch(console.error);
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Blocked by the format check (errors &#x3D; DeskFinding[]) or the cover cannot go live (errors &#x3D; string[]) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## putPostseasonResult
+
+> PostseasonResult putPostseasonResult(postseasonResultInput)
+
+
+
+Upsert the one postseason result of a season (replaces the row). Requires the winad_write scope and an admin user. An optional change_note is stored on the audit version.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { PutPostseasonResultRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // PostseasonResultInput
+    postseasonResultInput: ...,
+  } satisfies PutPostseasonResultRequest;
+
+  try {
+    const data = await api.putPostseasonResult(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **postseasonResultInput** | [PostseasonResultInput](PostseasonResultInput.md) |  | |
+
+### Return type
+
+[**PostseasonResult**](PostseasonResult.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The season\&#39;s postseason result was replaced |  -  |
+| **201** | The season\&#39;s postseason result was created |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden. The user is not an admin or the token lacks winad_write. |  -  |
+| **422** | Both or neither stage given, won missing, an unknown id, or a tournament round of another sport than the season (errors.&lt;field&gt;) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -38479,6 +39149,87 @@ example().catch(console.error);
 | **404** | RawContract not found |  -  |
 | **422** | Unknown field, invalid body, change_note that is not a string (errors.change_note), season not currently verified, or document without a Contract. Nothing was written. |  -  |
 | **409** | The contract kept moving to other coaches while the request waited for its locks (errors.contract). Nothing was written; reload and retry. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## revokeDealVerification
+
+> DealVerification revokeDealVerification(dealId, dealVerificationRevocationInput)
+
+Revoke a deal\&#39;s verification (append a revocation event)
+
+Same gates as create: winad_verify token scope, an application explicitly allowing winad_verify, a persisted token resource owner, and read access to the deal. Appends a result \&#39;revoked\&#39; event; nothing is deleted. The latest event (verified_at DESC, id DESC) is authoritative. Only a currently verified deal can be revoked. No verified_at or identity fields are accepted. The body is a flat JSON object with reason, approval_quote and an optional change_note.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { RevokeDealVerificationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    dealId: 56,
+    // DealVerificationRevocationInput
+    dealVerificationRevocationInput: ...,
+  } satisfies RevokeDealVerificationRequest;
+
+  try {
+    const data = await api.revokeDealVerification(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dealId** | `number` |  | [Defaults to `undefined`] |
+| **dealVerificationRevocationInput** | [DealVerificationRevocationInput](DealVerificationRevocationInput.md) |  | |
+
+### Return type
+
+[**DealVerification**](DealVerification.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Revocation event created |  -  |
+| **400** | Malformed request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_verify token/application scope, persisted resource owner, or deal read permission |  -  |
+| **404** | Deal not found |  -  |
+| **422** | Unknown field, invalid body, change_note that is not a string (errors.change_note), or deal not currently verified (errors.deal). Nothing was written. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -42819,7 +43570,7 @@ example().catch(console.error);
 
 
 
-Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). A body with only a non-blank change_note (no compensation, or an empty one) records the note on a new version without changing any value (WINAD-10718). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\&#39;s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
+Update a compensation. Requires the winad_write OAuth scope and permission to update the compensation. Only the request body is read, so compensation[...] in the query string is ignored and every value that is applied is the value that was validated (a request with no compensation in the body is a 400). compensation_type may be changed to \&quot;yearly\&quot;, \&quot;hourly\&quot;, or \&quot;990\&quot; and is validated exactly as in the admin form. Hourly rows require a non-blank comment holding the hourly rate (or \&#39;Hourly rate not provided\&#39;) and every amount field in Compensation::COMPENSATION_AMOUNT_FIELDS must be blank or zero. Send the type and zeroed/blank amounts together in one request; validation and saving are atomic. Private-school compensations must be \&quot;990\&quot;. Changes are recorded in the row\&#39;s audit history (PaperTrail), attributed to the token\&#39;s user, with the optional top-level change_note as the reason. A change_note that is not a string, or contains a NUL character, is refused with 422 (errors.change_note). A body with only a non-blank change_note (no compensation, or an empty one) records the note on a new version without changing any value (WINAD-10718). contract_status_id may be set to any existing Contract Status (No Contract, Requested, Complete, Extended, Not Available) on its own without touching contract_id, or together with contract_id. When contract_id is set, the explicit status is kept; if none is sent, the row\&#39;s current status is kept. The server no longer forces Complete/Extended on PATCH; the admin form and POST are unchanged. relocation_cents and relocation_taxable (WINAD-10700) are written together. An amount needs a true/false flag, and the flag must be null when the amount is null (422 keyed relocation_taxable otherwise). A taxable amount is added to calculated_guaranteed_comp_cents, a non-taxable one is not. Null, blank, non-integer, and nonexistent status ids are refused. Status changes are recorded in audit history. API clients in winthrop-clients must be regenerated to expose this change.
 
 ### Example
 
@@ -42888,7 +43639,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The token lacks the winad_write OAuth scope, the token\&#39;s user may not update compensations, or the token has no user (client credentials) and no system user is configured to record as the actor. A client-credentials write is recorded under that system user. |  -  |
 | **404** | Not Found, or the compensation was deleted by another request while this one waited for its locks. Nothing was written. |  -  |
-| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. Also returned when contract_status_id is null, blank, not a whole number, or does not exist (errors.contract_status_id); contract_id is a pending contract (errors.contract). |  -  |
+| **422** | Unable to update compensation. Returned when coach_id, school_id, or year is included with a value that differs from the compensation\&#39;s current identity. These fields are derived from the linked position and cannot be changed directly; move the position instead. Also returned for unknown, blank, or non-string compensation_type; hourly rows with nonzero amounts or a blank comment; or non-990 types on private-school compensations. Errors are keyed by attribute, including errors.base for hourly amounts, errors.comment for a blank hourly comment, and errors.compensation_type for invalid pay types. Also returned when contract_status_id is null, blank, not a whole number, or does not exist (errors.contract_status_id); contract_id is a pending contract (errors.contract). Also returned when is_car_provided is not a boolean (errors.is_car_provided); nothing is written, including other fields in the same request. |  -  |
 | **409** | A contract_id link is written under the locks a move of that contract takes (the coaches, then the contract). The contract kept moving to other coaches while the request waited for them (errors.contract). Nothing was written; retry. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -44503,11 +45254,11 @@ example().catch(console.error);
 
 ## updateSeason
 
-> Season updateSeason(seasonId, season)
+> Season updateSeason(seasonId, seasonRecordUpdate)
 
 
 
-Update a single Season
+Same as PATCH (only the fields in the body change)
 
 ### Example
 
@@ -44531,8 +45282,8 @@ async function example() {
   const body = {
     // number | ID of the Season
     seasonId: 56,
-    // Season | Season attributes to update
-    season: ...,
+    // SeasonRecordUpdate | Season record fields to change
+    seasonRecordUpdate: ...,
   } satisfies UpdateSeasonRequest;
 
   try {
@@ -44553,7 +45304,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **seasonId** | `number` | ID of the Season | [Defaults to `undefined`] |
-| **season** | [Season](Season.md) | Season attributes to update | |
+| **seasonRecordUpdate** | [SeasonRecordUpdate](SeasonRecordUpdate.md) | Season record fields to change | |
 
 ### Return type
 
@@ -44572,9 +45323,10 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Season was updated |  -  |
+| **200** | Season was updated; the full Season, as GET returns it |  -  |
 | **401** | Unauthorized |  -  |
-| **422** | Unable to update the Season |  -  |
+| **403** | Forbidden. The user is not an admin or the token lacks winad_write. |  -  |
+| **422** | A field is not a whole number, a date or a boolean, conference_position is larger than conference_num_positions, or the regular-season plus postseason figures do not add up to the totals (errors.&lt;field&gt;). |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
