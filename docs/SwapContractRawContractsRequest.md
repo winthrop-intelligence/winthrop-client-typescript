@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `contractIds` | Array&lt;number&gt;
+`expectedRawContractIds` | { [key: string]: number; }
 `changeNote` | string
 
 ## Example
@@ -17,6 +18,7 @@ import type { SwapContractRawContractsRequest } from '@winthrop-intelligence/win
 // TODO: Update the object below with actual values
 const example = {
   "contractIds": null,
+  "expectedRawContractIds": {266199=414148, 266258=414207},
   "changeNote": null,
 } satisfies SwapContractRawContractsRequest
 
