@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`code` | string
 `errors` | { [key: string]: Array&lt;string&gt;; }
 
 ## Example
@@ -15,6 +16,7 @@ import type { DealErrorsResponse } from '@winthrop-intelligence/winthrop-client-
 
 // TODO: Update the object below with actual values
 const example = {
+  "code": null,
   "errors": null,
 } satisfies DealErrorsResponse
 
