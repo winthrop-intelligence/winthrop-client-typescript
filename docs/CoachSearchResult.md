@@ -40,6 +40,8 @@ Name | Type
 `compensationContingentBonus` | boolean
 `compensationDeferredCompCents` | number
 `compensationOneTimeBonusCents` | number
+`compensationRelocationCents` | number
+`compensationRelocationTaxable` | boolean
 `compensationBuyoutTerms` | string
 `compensationIsCarProvided` | boolean
 `compensationOutsideIncomeCents` | number
@@ -100,6 +102,8 @@ const example = {
   "compensationContingentBonus": null,
   "compensationDeferredCompCents": null,
   "compensationOneTimeBonusCents": null,
+  "compensationRelocationCents": null,
+  "compensationRelocationTaxable": null,
   "compensationBuyoutTerms": null,
   "compensationIsCarProvided": null,
   "compensationOutsideIncomeCents": null,
