@@ -12,6 +12,9 @@ Name | Type
 `startAt` | Date
 `endAt` | Date
 `autorenew` | boolean
+`text` | string
+`vendorIds` | Array&lt;number&gt;
+`schoolId` | number
 
 ## Example
 
@@ -26,6 +29,9 @@ const example = {
   "startAt": null,
   "endAt": null,
   "autorenew": null,
+  "text": null,
+  "vendorIds": null,
+  "schoolId": null,
 } satisfies PublishPendingDealRequestDeal
 
 console.log(example)

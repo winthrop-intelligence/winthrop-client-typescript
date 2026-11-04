@@ -19,6 +19,8 @@ Name | Type
 `mediaLink` | string
 `rawContractId` | number
 `oneTimeBonusCents` | number
+`relocationCents` | number
+`relocationTaxable` | boolean
 `outsideIncomeCents` | number
 `contingentBonus` | boolean
 `buyoutTerms` | string
@@ -46,6 +48,8 @@ const example = {
   "mediaLink": null,
   "rawContractId": null,
   "oneTimeBonusCents": null,
+  "relocationCents": null,
+  "relocationTaxable": null,
   "outsideIncomeCents": null,
   "contingentBonus": null,
   "buyoutTerms": null,

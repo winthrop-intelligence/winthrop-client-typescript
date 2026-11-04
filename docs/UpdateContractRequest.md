@@ -16,7 +16,7 @@ Name | Type
 `contingentChange` | boolean
 `coachId` | number
 `contractableId` | number
-`contractableType` | string
+`contractableType` | [UpdateContractRequestContractableTypeEnum](UpdateContractRequestContractableTypeEnum.md)
 `changeNote` | string
 
 ## Example
