@@ -1,22 +1,24 @@
 
-# DownloadAdminUploads202Response
+# ListDealVerifications200Response
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`message` | string
+`meta` | [Meta](Meta.md)
+`data` | [Array&lt;DealVerification&gt;](DealVerification.md)
 
 ## Example
 
 ```typescript
-import type { DownloadAdminUploads202Response } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { ListDealVerifications200Response } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "message": null,
-} satisfies DownloadAdminUploads202Response
+  "meta": null,
+  "data": null,
+} satisfies ListDealVerifications200Response
 
 console.log(example)
 
@@ -25,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DownloadAdminUploads202Response
+const exampleParsed = JSON.parse(exampleJSON) as ListDealVerifications200Response
 console.log(exampleParsed)
 ```
 
