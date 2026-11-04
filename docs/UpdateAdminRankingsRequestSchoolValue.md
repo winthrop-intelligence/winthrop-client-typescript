@@ -1,24 +1,24 @@
 
-# AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner
+# UpdateAdminRankingsRequestSchoolValue
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`year` | number
-`label` | string
+`directorsCupRanking` | string
+`usnwrRanking` | string
 
 ## Example
 
 ```typescript
-import type { AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { UpdateAdminRankingsRequestSchoolValue } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "year": null,
-  "label": null,
-} satisfies AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner
+  "directorsCupRanking": null,
+  "usnwrRanking": null,
+} satisfies UpdateAdminRankingsRequestSchoolValue
 
 console.log(example)
 
@@ -27,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner
+const exampleParsed = JSON.parse(exampleJSON) as UpdateAdminRankingsRequestSchoolValue
 console.log(exampleParsed)
 ```
 
