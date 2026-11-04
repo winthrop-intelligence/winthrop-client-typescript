@@ -12,11 +12,11 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 ## createPendingDeal
 
-> PendingDealCreated createPendingDeal(schoolId, dealType, file, vendorId, driveId, changeNote)
+> PendingDealCreated createPendingDeal(schoolId, dealType, vendorId, file, sourceDriveFileId, sourceFilename, expectedSha256, driveId, changeNote)
 
 
 
-File a vendor deal PDF as a PENDING deal (WINAD-10698), the vendor counterpart of POST /contracts. In one transaction this creates a Deal with pending true (no dates, verified false, the optional vendor attached) and its RawContract (a vendor DEAL document linked to the deal and filed under the school, with the PDF attached); nothing is created and no file is left behind if the request is refused. The PDF must really be a PDF (its bytes are checked, not its name) and its file name at most 255 characters. The automatic OCR runs once after the upload; read the text with GET /raw_contracts/{raw_contractId}/ocr_text (Mistral on the first call, cached afterwards).  A pending deal is internal-only: it is not returned to customers by any search, list, show, export or MCP tool, and its PDF cannot be read by them. Staff list the pending deals with GET /deals?q[pending_eq]&#x3D;true (or GET /deal_searches?q[pending_eq]&#x3D;true) and delete one with DELETE /deals/{dealId}. Publishing is a separate operation. A pending deal does not change the school\&#39;s deal status.  &#x60;deal_type&#x60; is one of Apparel, MMR (multimedia rights), Pouring, Concessions, Ticketing, Outsourced Ticketing, Trademark, Bookstore, Athletics Software (also &#x60;software&#x60;) or Travel (case, spaces and underscores do not matter), or the exact DealType name such as ApparelDealType. &#x60;drive_id&#x60; is the original Google Drive id of the source document, stored on the RawContract; a second request with the same drive_id for a deal of the same school is refused with 422 errors.drive_id. Requires the winad_write scope and a manage-level user (client-credentials service tokens included). 
+File a vendor deal PDF as a PENDING deal (WINAD-10698), the vendor counterpart of POST /contracts. In one transaction this creates a Deal with pending true (no dates, verified false, the optional vendor attached) and its RawContract (a vendor DEAL document linked to the deal and filed under the school, with the PDF attached); nothing is created and no file is left behind if the request is refused. The PDF must really be a PDF (its bytes are checked, not its name) and its file name at most 255 characters. The automatic OCR runs once after the upload; read the text with GET /raw_contracts/{raw_contractId}/ocr_text (Mistral on the first call, cached afterwards).  A pending deal is internal-only: it is not returned to customers by any search, list, show, export or MCP tool, and its PDF cannot be read by them. Staff list the pending deals with GET /deals?q[pending_eq]&#x3D;true (or GET /deal_searches?q[pending_eq]&#x3D;true) and delete one with DELETE /deals/{dealId}. Publishing is a separate operation. A pending deal does not change the school\&#39;s deal status.  &#x60;deal_type&#x60; is one of Apparel, MMR (multimedia rights), Pouring, Concessions, Ticketing, Outsourced Ticketing, Trademark, Bookstore, Athletics Software (also &#x60;software&#x60;) or Travel (case, spaces and underscores do not matter), or the exact DealType name such as ApparelDealType. &#x60;drive_id&#x60; is the original Google Drive id of the source document, stored on the RawContract; a second request with the same drive_id for a deal of the same school is refused with 422 errors.drive_id. Requires the winad_write scope and a manage-level user (client-credentials service tokens included). Send either the PDF file or the final PDF\&#39;s source_drive_file_id and expected_sha256. WinAD downloads the latter from Drive (100 MiB maximum) and verifies the exact bytes before storing anything. drive_id remains the duplicate guard and can differ from the final PDF\&#39;s ID. 
 
 ### Example
 
@@ -42,10 +42,16 @@ async function example() {
     schoolId: 56,
     // string | Apparel, MMR, Pouring, Concessions, Ticketing, Outsourced Ticketing, Trademark, Bookstore, Athletics Software or Travel (or the DealType name).
     dealType: dealType_example,
-    // Blob | The contract PDF as a multipart upload.
-    file: BINARY_DATA_HERE,
     // number | Optional. An existing vendor, attached to the deal. (optional)
     vendorId: 56,
+    // Blob | The contract PDF as a multipart upload. (optional)
+    file: BINARY_DATA_HERE,
+    // string | ID of the final PDF shared with WinAD\\\'s Drive service account. (optional)
+    sourceDriveFileId: sourceDriveFileId_example,
+    // string | Optional reviewed name for the stored PDF. Drive input only. Defaults to the Drive title. (optional)
+    sourceFilename: sourceFilename_example,
+    // string | SHA-256 of the reviewed final PDF. Required only for Drive input. (optional)
+    expectedSha256: expectedSha256_example,
     // string | Optional original Google Drive id of the source document; unique per school among deals. (optional)
     driveId: driveId_example,
     // string | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates, the records it saves as side effects included. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. (optional)
@@ -71,8 +77,11 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **schoolId** | `number` | The school the deal is filed under | [Defaults to `undefined`] |
 | **dealType** | `string` | Apparel, MMR, Pouring, Concessions, Ticketing, Outsourced Ticketing, Trademark, Bookstore, Athletics Software or Travel (or the DealType name). | [Defaults to `undefined`] |
-| **file** | `Blob` | The contract PDF as a multipart upload. | [Defaults to `undefined`] |
 | **vendorId** | `number` | Optional. An existing vendor, attached to the deal. | [Optional] [Defaults to `undefined`] |
+| **file** | `Blob` | The contract PDF as a multipart upload. | [Optional] [Defaults to `undefined`] |
+| **sourceDriveFileId** | `string` | ID of the final PDF shared with WinAD\\\&#39;s Drive service account. | [Optional] [Defaults to `undefined`] |
+| **sourceFilename** | `string` | Optional reviewed name for the stored PDF. Drive input only. Defaults to the Drive title. | [Optional] [Defaults to `undefined`] |
+| **expectedSha256** | `string` | SHA-256 of the reviewed final PDF. Required only for Drive input. | [Optional] [Defaults to `undefined`] |
 | **driveId** | `string` | Optional original Google Drive id of the source document; unique per school among deals. | [Optional] [Defaults to `undefined`] |
 | **changeNote** | `string` | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates, the records it saves as side effects included. At most 500 characters after trimming; blank is the same as omitted; a value that is not text (a NUL character included) or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. | [Optional] [Defaults to `undefined`] |
 
@@ -97,6 +106,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope or not permitted to create deals) |  -  |
 | **422** | The upload was refused (unknown school or vendor, unsupported deal type, missing or non-PDF file, a file name over 255 characters, with a NUL character or bytes that are not UTF-8, duplicate drive_id, invalid change_note). Nothing was created. |  -  |
+| **503** | Temporary failure reading from Drive. No pending deal was created. |  * Retry-After -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
