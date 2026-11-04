@@ -9,6 +9,8 @@ Name | Type
 `coachId` | number
 `year` | number
 `contractStatusId` | number
+`outsideIncomeCents` | number
+`reportedPeriod` | string
 `incomeReportText` | string
 
 ## Example
@@ -21,6 +23,8 @@ const example = {
   "coachId": null,
   "year": null,
   "contractStatusId": null,
+  "outsideIncomeCents": null,
+  "reportedPeriod": null,
   "incomeReportText": null,
 } satisfies CreateAdminIncomeReportRequestIncomeReport
 
