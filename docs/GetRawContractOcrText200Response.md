@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `text` | string
 `source` | string
+`textSource` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "id": null,
   "text": null,
   "source": null,
+  "textSource": null,
 } satisfies GetRawContractOcrText200Response
 
 console.log(example)

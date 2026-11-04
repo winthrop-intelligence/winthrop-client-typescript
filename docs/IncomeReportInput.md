@@ -12,6 +12,8 @@ Name | Type
 `year` | number
 `notes` | string
 `contractStatusId` | number
+`outsideIncomeCents` | number
+`reportedPeriod` | string
 `changeNote` | string
 
 ## Example
@@ -26,6 +28,8 @@ const example = {
   "year": 2011,
   "notes": null,
   "contractStatusId": 5,
+  "outsideIncomeCents": 5250000,
+  "reportedPeriod": July 1, 2022 - June 30, 2023,
   "changeNote": null,
 } satisfies IncomeReportInput
 

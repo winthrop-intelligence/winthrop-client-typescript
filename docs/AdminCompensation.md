@@ -13,6 +13,8 @@ Name | Type
 `compensationType` | string
 `baseSalaryDollars` | string
 `oneTimeBonusDollars` | string
+`relocationDollars` | string
+`relocationTaxable` | boolean
 `talentFeeDollars` | string
 `outsideIncomeDollars` | string
 `deferredCompDollars` | string
@@ -47,6 +49,8 @@ const example = {
   "compensationType": null,
   "baseSalaryDollars": null,
   "oneTimeBonusDollars": null,
+  "relocationDollars": null,
+  "relocationTaxable": null,
   "talentFeeDollars": null,
   "outsideIncomeDollars": null,
   "deferredCompDollars": null,

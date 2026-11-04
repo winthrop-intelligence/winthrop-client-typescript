@@ -13,6 +13,8 @@ Name | Type
 `contractStatusId` | number
 `rawContractId` | number
 `notes` | string
+`outsideIncomeCents` | number
+`reportedPeriod` | string
 `label` | string
 `createdAt` | Date
 `updatedAt` | Date
@@ -33,6 +35,8 @@ const example = {
   "contractStatusId": null,
   "rawContractId": null,
   "notes": null,
+  "outsideIncomeCents": null,
+  "reportedPeriod": null,
   "label": null,
   "createdAt": null,
   "updatedAt": null,
