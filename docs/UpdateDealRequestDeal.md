@@ -13,6 +13,9 @@ Name | Type
 `autorenew` | boolean
 `verified` | boolean
 `archived` | boolean
+`text` | string
+`vendorIds` | Array&lt;number&gt;
+`schoolId` | number
 
 ## Example
 
@@ -28,6 +31,9 @@ const example = {
   "autorenew": null,
   "verified": null,
   "archived": null,
+  "text": null,
+  "vendorIds": null,
+  "schoolId": null,
 } satisfies UpdateDealRequestDeal
 
 console.log(example)

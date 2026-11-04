@@ -24,6 +24,7 @@ Name | Type
 `endOn` | Date
 `createdAt` | Date
 `summary` | string
+`text` | string
 `autorenew` | boolean
 `archived` | boolean
 `vendors` | [Array&lt;DealDetailVendor&gt;](DealDetailVendor.md)
@@ -57,6 +58,7 @@ const example = {
   "endOn": Tue Jul 01 00:00:00 UTC 2025,
   "createdAt": null,
   "summary": null,
+  "text": null,
   "autorenew": null,
   "archived": null,
   "vendors": null,

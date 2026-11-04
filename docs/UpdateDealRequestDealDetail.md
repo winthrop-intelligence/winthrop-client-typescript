@@ -45,6 +45,14 @@ Name | Type
 `guaranteedAmtYearOne` | [DealUpdateAmount](DealUpdateAmount.md)
 `capitalImprovement` | [DealUpdateAmount](DealUpdateAmount.md)
 `annualHostFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`positionId` | number
+`searchScope` | string
+`searchFee` | [DealUpdateAmount](DealUpdateAmount.md)
+`feeBasis` | string
+`feePercent` | [DealUpdatePercent](DealUpdatePercent.md)
+`guaranteeMonths` | [DealUpdateMonths](DealUpdateMonths.md)
+`expenseTerms` | string
+`annualRetainer` | [DealUpdateAmount](DealUpdateAmount.md)
 `products` | string
 `allSports` | boolean
 `finalYearFee` | [DealUpdateAmount](DealUpdateAmount.md)
@@ -108,6 +116,14 @@ const example = {
   "guaranteedAmtYearOne": null,
   "capitalImprovement": null,
   "annualHostFee": null,
+  "positionId": null,
+  "searchScope": null,
+  "searchFee": null,
+  "feeBasis": null,
+  "feePercent": null,
+  "guaranteeMonths": null,
+  "expenseTerms": null,
+  "annualRetainer": null,
   "products": null,
   "allSports": null,
   "finalYearFee": null,

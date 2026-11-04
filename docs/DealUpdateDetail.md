@@ -61,6 +61,15 @@ Name | Type
 `allocPercent5` | string
 `threshold6` | string
 `allocPercent6` | string
+`positionId` | number
+`searchScope` | string
+`searchFee` | string
+`feeBasis` | string
+`feePercent` | string
+`guaranteeMonths` | string
+`expenseTerms` | string
+`annualRetainer` | string
+`position` | [DealDetailPosition](DealDetailPosition.md)
 `sports` | Array&lt;string&gt;
 
 ## Example
@@ -125,6 +134,15 @@ const example = {
   "allocPercent5": null,
   "threshold6": null,
   "allocPercent6": null,
+  "positionId": null,
+  "searchScope": null,
+  "searchFee": null,
+  "feeBasis": null,
+  "feePercent": null,
+  "guaranteeMonths": null,
+  "expenseTerms": null,
+  "annualRetainer": null,
+  "position": null,
   "sports": null,
 } satisfies DealUpdateDetail
 
