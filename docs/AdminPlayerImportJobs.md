@@ -1,22 +1,22 @@
 
-# CreateAdminGamesUpload200Response
+# AdminPlayerImportJobs
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`message` | string
+`jobs` | [Array&lt;AdminPlayerImportJobsJobsInner&gt;](AdminPlayerImportJobsJobsInner.md)
 
 ## Example
 
 ```typescript
-import type { CreateAdminGamesUpload200Response } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AdminPlayerImportJobs } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "message": null,
-} satisfies CreateAdminGamesUpload200Response
+  "jobs": null,
+} satisfies AdminPlayerImportJobs
 
 console.log(example)
 
@@ -25,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateAdminGamesUpload200Response
+const exampleParsed = JSON.parse(exampleJSON) as AdminPlayerImportJobs
 console.log(exampleParsed)
 ```
 
