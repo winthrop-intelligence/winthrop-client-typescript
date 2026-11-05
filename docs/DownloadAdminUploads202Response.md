@@ -1,24 +1,22 @@
 
-# AdminGamesUploadStatus
+# DownloadAdminUploads202Response
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`meta` | [AdminGamesUploadStatusMeta](AdminGamesUploadStatusMeta.md)
-`data` | Array&lt;any&gt;
+`message` | string
 
 ## Example
 
 ```typescript
-import type { AdminGamesUploadStatus } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { DownloadAdminUploads202Response } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "meta": null,
-  "data": null,
-} satisfies AdminGamesUploadStatus
+  "message": null,
+} satisfies DownloadAdminUploads202Response
 
 console.log(example)
 
@@ -27,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdminGamesUploadStatus
+const exampleParsed = JSON.parse(exampleJSON) as DownloadAdminUploads202Response
 console.log(exampleParsed)
 ```
 

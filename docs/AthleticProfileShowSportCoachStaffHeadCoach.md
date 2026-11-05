@@ -11,8 +11,6 @@ Name | Type
 `lastName` | string
 `compCents` | number
 `baseSalaryCents` | number
-`relocationCents` | number
-`relocationTaxable` | boolean
 `compRank` | number
 `compCohortSize` | number
 `compMedianCents` | number
@@ -38,8 +36,6 @@ const example = {
   "lastName": null,
   "compCents": null,
   "baseSalaryCents": null,
-  "relocationCents": null,
-  "relocationTaxable": null,
   "compRank": null,
   "compCohortSize": null,
   "compMedianCents": null,

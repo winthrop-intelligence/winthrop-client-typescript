@@ -1,22 +1,22 @@
 
-# CreateAdminBowlGamesRequest
+# AdminCompensationChangeHistory
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`bowlGame` | [CreateAdminBowlGamesRequestBowlGame](CreateAdminBowlGamesRequestBowlGame.md)
+`data` | [Array&lt;AdminCompensationChangeHistoryDataInner&gt;](AdminCompensationChangeHistoryDataInner.md)
 
 ## Example
 
 ```typescript
-import type { CreateAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AdminCompensationChangeHistory } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "bowlGame": null,
-} satisfies CreateAdminBowlGamesRequest
+  "data": null,
+} satisfies AdminCompensationChangeHistory
 
 console.log(example)
 
@@ -25,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateAdminBowlGamesRequest
+const exampleParsed = JSON.parse(exampleJSON) as AdminCompensationChangeHistory
 console.log(exampleParsed)
 ```
 

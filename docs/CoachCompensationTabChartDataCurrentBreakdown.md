@@ -10,8 +10,6 @@ Name | Type
 `talentFeeCents` | number
 `deferredCompCents` | number
 `totalCents` | number
-`relocationCents` | number
-`relocationTaxable` | boolean
 `yearStr` | string
 
 ## Example
@@ -25,8 +23,6 @@ const example = {
   "talentFeeCents": null,
   "deferredCompCents": null,
   "totalCents": null,
-  "relocationCents": null,
-  "relocationTaxable": null,
   "yearStr": null,
 } satisfies CoachCompensationTabChartDataCurrentBreakdown
 

@@ -26,8 +26,6 @@ Name | Type
 `baseSalaryCents` | number
 `talentFeeCents` | number
 `oneTimeBonusCents` | number
-`relocationCents` | number
-`relocationTaxable` | boolean
 `outsideIncomeCents` | number
 `deferredCompCents` | number
 `compensationType` | string
@@ -61,8 +59,6 @@ const example = {
   "baseSalaryCents": null,
   "talentFeeCents": null,
   "oneTimeBonusCents": null,
-  "relocationCents": null,
-  "relocationTaxable": null,
   "outsideIncomeCents": null,
   "deferredCompCents": null,
   "compensationType": null,

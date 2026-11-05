@@ -14,8 +14,6 @@ Name | Type
 `outsideIncome` | [PublishPendingContractCompensationOneTimeBonus](PublishPendingContractCompensationOneTimeBonus.md)
 `deferredCompensation` | [PublishPendingContractCompensationOneTimeBonus](PublishPendingContractCompensationOneTimeBonus.md)
 `personalServices` | [PublishPendingContractCompensationOneTimeBonus](PublishPendingContractCompensationOneTimeBonus.md)
-`relocationCents` | number
-`relocationTaxable` | boolean
 `contingentBonus` | boolean
 `countryClubMembership` | boolean
 `carProvided` | boolean
@@ -38,8 +36,6 @@ const example = {
   "outsideIncome": null,
   "deferredCompensation": null,
   "personalServices": null,
-  "relocationCents": null,
-  "relocationTaxable": null,
   "contingentBonus": null,
   "countryClubMembership": null,
   "carProvided": null,

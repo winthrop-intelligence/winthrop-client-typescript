@@ -1,24 +1,32 @@
 
-# AdminGameContractsUploaderListMetaSeasonYearsInner
+# AdminCompensationListMetaContractsInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`value` | [AdminGameContractsUploaderListMetaSeasonYearsInnerValue](AdminGameContractsUploaderListMetaSeasonYearsInnerValue.md)
+`id` | number
 `label` | string
+`pending` | boolean
+`verified` | boolean
+`verifiedBy` | string
+`rawContractId` | number
 
 ## Example
 
 ```typescript
-import type { AdminGameContractsUploaderListMetaSeasonYearsInner } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AdminCompensationListMetaContractsInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "value": null,
+  "id": null,
   "label": null,
-} satisfies AdminGameContractsUploaderListMetaSeasonYearsInner
+  "pending": null,
+  "verified": null,
+  "verifiedBy": null,
+  "rawContractId": null,
+} satisfies AdminCompensationListMetaContractsInner
 
 console.log(example)
 
@@ -27,7 +35,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdminGameContractsUploaderListMetaSeasonYearsInner
+const exampleParsed = JSON.parse(exampleJSON) as AdminCompensationListMetaContractsInner
 console.log(exampleParsed)
 ```
 

@@ -1,5 +1,5 @@
 
-# AdminBowlGameDetail
+# AdminCompensationListMetaIncomeReportsInner
 
 
 ## Properties
@@ -7,24 +7,20 @@
 Name | Type
 ------------ | -------------
 `id` | number
-`name` | string
-`createdAt` | Date
-`updatedAt` | Date
-`postseasonResults` | [Array&lt;AdminBowlGamePostseasonResult&gt;](AdminBowlGamePostseasonResult.md)
+`label` | string
+`rawContractId` | number
 
 ## Example
 
 ```typescript
-import type { AdminBowlGameDetail } from '@winthrop-intelligence/winthrop-client-typescript'
+import type { AdminCompensationListMetaIncomeReportsInner } from '@winthrop-intelligence/winthrop-client-typescript'
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
-  "name": null,
-  "createdAt": null,
-  "updatedAt": null,
-  "postseasonResults": null,
-} satisfies AdminBowlGameDetail
+  "label": null,
+  "rawContractId": null,
+} satisfies AdminCompensationListMetaIncomeReportsInner
 
 console.log(example)
 
@@ -33,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as AdminBowlGameDetail
+const exampleParsed = JSON.parse(exampleJSON) as AdminCompensationListMetaIncomeReportsInner
 console.log(exampleParsed)
 ```
 
