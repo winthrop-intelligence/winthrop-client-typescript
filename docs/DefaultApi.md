@@ -13,14 +13,13 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**bulkCreateGamePostSearches**](DefaultApi.md#bulkcreategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_create |  |
 | [**bulkCreateGames**](DefaultApi.md#bulkcreategamesoperation) | **POST** /api/v1/games/bulk |  |
 | [**bulkUpdateAdminContractRequestSearches**](DefaultApi.md#bulkupdateadmincontractrequestsearchesoperation) | **POST** /api/v1/admin/contract_request_searches/bulk_update |  |
-| [**bulkUpdateAdminSeasonStatsEditor**](DefaultApi.md#bulkupdateadminseasonstatseditoroperation) | **PATCH** /api/v1/admin/season_stats_editor/bulk_update |  |
 | [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**confirmEmailAdminUser**](DefaultApi.md#confirmemailadminuser) | **POST** /api/v1/admin/users/{id}/confirm_email |  |
+| [**copyAdminCompensationToNextYear**](DefaultApi.md#copyadmincompensationtonextyear) | **POST** /api/v1/admin/compensations/{id}/copy_to_next_year |  |
 | [**copyForYearAdminPositions**](DefaultApi.md#copyforyearadminpositions) | **POST** /api/v1/admin/positions/copy_for_year |  |
 | [**copyToNextYearAdminPosition**](DefaultApi.md#copytonextyearadminposition) | **POST** /api/v1/admin/positions/{id}/copy_to_next_year |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
-| [**createAdminBowlGames**](DefaultApi.md#createadminbowlgamesoperation) | **POST** /api/v1/admin/bowl_games |  |
 | [**createAdminCoach**](DefaultApi.md#createadmincoachoperation) | **POST** /api/v1/admin/coaches |  |
 | [**createAdminCoachAprUpload**](DefaultApi.md#createadmincoachaprupload) | **POST** /api/v1/admin/coaches/coach_apr_upload |  |
 | [**createAdminCoachContract**](DefaultApi.md#createadmincoachcontract) | **POST** /api/v1/admin/coach_contracts |  |
@@ -43,26 +42,18 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createAdminFoiaRequestBuilder**](DefaultApi.md#createadminfoiarequestbuilder) | **POST** /api/v1/admin/foia_request_builder |  |
 | [**createAdminFoiaRequestBulkQuickActions**](DefaultApi.md#createadminfoiarequestbulkquickactionsoperation) | **POST** /api/v1/admin/foia_requests/{id}/bulk_quick_actions |  |
 | [**createAdminFoiaRequests**](DefaultApi.md#createadminfoiarequests) | **POST** /api/v1/admin/foia_requests |  |
-| [**createAdminGameContractsUploader**](DefaultApi.md#createadmingamecontractsuploader) | **POST** /api/v1/admin/game_contracts_uploader |  |
-| [**createAdminGamesMassUpdate**](DefaultApi.md#createadmingamesmassupdate) | **POST** /api/v1/admin/games/mass_update |  |
-| [**createAdminGamesUpload**](DefaultApi.md#createadmingamesupload) | **POST** /api/v1/admin/games/upload |  |
 | [**createAdminImpersonations**](DefaultApi.md#createadminimpersonationsoperation) | **POST** /api/v1/admin/impersonations |  |
 | [**createAdminIncomeReport**](DefaultApi.md#createadminincomereport) | **POST** /api/v1/admin/income_reports |  |
 | [**createAdminInvoice**](DefaultApi.md#createadmininvoice) | **POST** /api/v1/admin/invoices |  |
-| [**createAdminPlayer**](DefaultApi.md#createadminplayer) | **POST** /api/v1/admin/players |  |
-| [**createAdminPlayerStats**](DefaultApi.md#createadminplayerstats) | **POST** /api/v1/admin/player_stats |  |
 | [**createAdminPosition**](DefaultApi.md#createadminpositionoperation) | **POST** /api/v1/admin/positions |  |
 | [**createAdminPositionTypes**](DefaultApi.md#createadminpositiontypes) | **POST** /api/v1/admin/position_types |  |
-| [**createAdminRankingsUpload**](DefaultApi.md#createadminrankingsupload) | **POST** /api/v1/admin/rankings/upload |  |
 | [**createAdminRequestedItemRiNote**](DefaultApi.md#createadminrequesteditemrinote) | **POST** /api/v1/admin/requested_items/{requested_item_id}/ri_note |  |
 | [**createAdminSchoolDeal**](DefaultApi.md#createadminschooldealoperation) | **POST** /api/v1/admin/schools/{school_id}/deals |  |
-| [**createAdminSchoolGame**](DefaultApi.md#createadminschoolgameoperation) | **POST** /api/v1/admin/schools/{school_id}/games |  |
 | [**createAdminSchoolNames**](DefaultApi.md#createadminschoolnamesoperation) | **POST** /api/v1/admin/school_names |  |
 | [**createAdminSchoolRevenue**](DefaultApi.md#createadminschoolrevenue) | **POST** /api/v1/admin/schools/{schoolId}/revenue |  |
 | [**createAdminSchoolRevenueCombinedUpload**](DefaultApi.md#createadminschoolrevenuecombinedupload) | **POST** /api/v1/admin/schools/{schoolId}/revenue/combined_upload |  |
 | [**createAdminSchoolUpload**](DefaultApi.md#createadminschoolupload) | **POST** /api/v1/admin/school_uploads |  |
 | [**createAdminSchools**](DefaultApi.md#createadminschools) | **POST** /api/v1/admin/schools |  |
-| [**createAdminSeasonStatsImport**](DefaultApi.md#createadminseasonstatsimport) | **POST** /api/v1/admin/season_stats_imports |  |
 | [**createAdminSport**](DefaultApi.md#createadminsport) | **POST** /api/v1/admin/sports |  |
 | [**createAdminSubdivisionMembership**](DefaultApi.md#createadminsubdivisionmembershipoperation) | **POST** /api/v1/admin/subdivision_memberships |  |
 | [**createAdminTerminationAgreement**](DefaultApi.md#createadminterminationagreement) | **POST** /api/v1/admin/termination_agreements |  |
@@ -139,7 +130,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteTeamSeasonResult**](DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**destroyAdminAvatars**](DefaultApi.md#destroyadminavatars) | **DELETE** /api/v1/admin/avatars/{id} |  |
-| [**destroyAdminBowlGames**](DefaultApi.md#destroyadminbowlgames) | **DELETE** /api/v1/admin/bowl_games/{id} |  |
 | [**destroyAdminCoach**](DefaultApi.md#destroyadmincoach) | **DELETE** /api/v1/admin/coaches/{id} |  |
 | [**destroyAdminCompensation**](DefaultApi.md#destroyadmincompensation) | **DELETE** /api/v1/admin/compensations/{id} |  |
 | [**destroyAdminConferences**](DefaultApi.md#destroyadminconferences) | **DELETE** /api/v1/admin/conferences/{id} |  |
@@ -152,19 +142,15 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**destroyAdminFoiaContacts**](DefaultApi.md#destroyadminfoiacontacts) | **DELETE** /api/v1/admin/foia_contacts/{id} |  |
 | [**destroyAdminFoiaLabels**](DefaultApi.md#destroyadminfoialabels) | **DELETE** /api/v1/admin/foia_labels/{id} |  |
 | [**destroyAdminFoiaRequests**](DefaultApi.md#destroyadminfoiarequests) | **DELETE** /api/v1/admin/foia_requests/{id} |  |
-| [**destroyAdminGameContract**](DefaultApi.md#destroyadmingamecontract) | **DELETE** /api/v1/admin/game_contracts/{id} |  |
 | [**destroyAdminImpersonations**](DefaultApi.md#destroyadminimpersonations) | **DELETE** /api/v1/admin/impersonations |  |
 | [**destroyAdminIncomeReport**](DefaultApi.md#destroyadminincomereport) | **DELETE** /api/v1/admin/income_reports/{id} |  |
 | [**destroyAdminNote**](DefaultApi.md#destroyadminnote) | **DELETE** /api/v1/admin/notes/{id} |  |
-| [**destroyAdminPlayer**](DefaultApi.md#destroyadminplayer) | **DELETE** /api/v1/admin/players/{id} |  |
-| [**destroyAdminPlayerStats**](DefaultApi.md#destroyadminplayerstats) | **DELETE** /api/v1/admin/player_stats/{id} |  |
 | [**destroyAdminPosition**](DefaultApi.md#destroyadminposition) | **DELETE** /api/v1/admin/positions/{id} |  |
 | [**destroyAdminPositionTypes**](DefaultApi.md#destroyadminpositiontypes) | **DELETE** /api/v1/admin/position_types/{id} |  |
 | [**destroyAdminRawContract**](DefaultApi.md#destroyadminrawcontract) | **DELETE** /api/v1/admin/raw_contracts/{id} |  |
 | [**destroyAdminRequestedItem**](DefaultApi.md#destroyadminrequesteditem) | **DELETE** /api/v1/admin/requested_items/{id} |  |
 | [**destroyAdminRequestedItemRiNote**](DefaultApi.md#destroyadminrequesteditemrinote) | **DELETE** /api/v1/admin/requested_items/{requested_item_id}/ri_note |  |
 | [**destroyAdminSchoolDeal**](DefaultApi.md#destroyadminschooldeal) | **DELETE** /api/v1/admin/schools/{school_id}/deals/{id} |  |
-| [**destroyAdminSchoolGame**](DefaultApi.md#destroyadminschoolgame) | **DELETE** /api/v1/admin/schools/{school_id}/games/{id} |  |
 | [**destroyAdminSchoolGroups**](DefaultApi.md#destroyadminschoolgroups) | **DELETE** /api/v1/admin/school_groups/{id} |  |
 | [**destroyAdminSchoolNames**](DefaultApi.md#destroyadminschoolnames) | **DELETE** /api/v1/admin/school_names/{id} |  |
 | [**destroyAdminSchoolRevenueYear**](DefaultApi.md#destroyadminschoolrevenueyear) | **DELETE** /api/v1/admin/schools/{schoolId}/revenue/destroy_school_financial_data |  |
@@ -182,22 +168,17 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**downloadAdminCoachContractsCsvTemplate**](DefaultApi.md#downloadadmincoachcontractscsvtemplate) | **GET** /api/v1/admin/coach_contracts/download_csv_template |  |
 | [**downloadAdminCoachContractsOutsideIncomeCsvTemplate**](DefaultApi.md#downloadadmincoachcontractsoutsideincomecsvtemplate) | **GET** /api/v1/admin/coach_contracts/outside_income_csv_template |  |
 | [**downloadAdminFinancialStatsCsvTemplate**](DefaultApi.md#downloadadminfinancialstatscsvtemplate) | **GET** /api/v1/admin/financial_stats/download_csv_template |  |
-| [**downloadAdminGameContractsUploaderCsvTemplate**](DefaultApi.md#downloadadmingamecontractsuploadercsvtemplate) | **GET** /api/v1/admin/game_contracts_uploader/download_csv_template |  |
 | [**downloadAdminUploads**](DefaultApi.md#downloadadminuploads) | **POST** /api/v1/admin/uploads/download |  |
 | [**downloadRawContractFile**](DefaultApi.md#downloadrawcontractfile) | **GET** /api/v1/raw_contracts/{raw_contractId}/download |  |
-| [**editAdminPlayerStats**](DefaultApi.md#editadminplayerstats) | **GET** /api/v1/admin/player_stats/{id}/edit |  |
 | [**editAdminPositionTypes**](DefaultApi.md#editadminpositiontypes) | **GET** /api/v1/admin/position_types/{id}/edit |  |
 | [**editAdminSport**](DefaultApi.md#editadminsport) | **GET** /api/v1/admin/sports/{id}/edit |  |
 | [**enrichGamePostSearches**](DefaultApi.md#enrichgamepostsearchesoperation) | **POST** /api/v1/game_post_searches/enrichment |  |
 | [**exportAdminContractRequestSearchesCoaches**](DefaultApi.md#exportadmincontractrequestsearchescoaches) | **POST** /api/v1/admin/contract_request_searches/export_coaches |  |
-| [**exportAdminSchoolGames**](DefaultApi.md#exportadminschoolgames) | **POST** /api/v1/admin/schools/{school_id}/games/export |  |
 | [**exportRevenueSearches**](DefaultApi.md#exportrevenuesearches) | **GET** /api/v1/revenue_searches/export |  |
-| [**filterOptionsAdminPlayerStats**](DefaultApi.md#filteroptionsadminplayerstats) | **GET** /api/v1/admin/player_stats/filter_options |  |
 | [**getAccount**](DefaultApi.md#getaccount) | **GET** /api/v1/accounts/{id} |  |
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAccounts**](DefaultApi.md#getaccounts) | **GET** /api/v1/accounts |  |
-| [**getAdminBowlGames**](DefaultApi.md#getadminbowlgames) | **GET** /api/v1/admin/bowl_games/{id} |  |
 | [**getAdminCoach**](DefaultApi.md#getadmincoach) | **GET** /api/v1/admin/coaches/{id} |  |
 | [**getAdminCoachMergeLog**](DefaultApi.md#getadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/{id} |  |
 | [**getAdminConferences**](DefaultApi.md#getadminconferences) | **GET** /api/v1/admin/conferences/{id} |  |
@@ -222,27 +203,16 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAdminFoiaRequestGames**](DefaultApi.md#getadminfoiarequestgames) | **GET** /api/v1/admin/foia_requests/{id}/games |  |
 | [**getAdminFoiaRequestText**](DefaultApi.md#getadminfoiarequesttext) | **GET** /api/v1/admin/foia_requests/{id}/text |  |
 | [**getAdminFoiaRequests**](DefaultApi.md#getadminfoiarequests) | **GET** /api/v1/admin/foia_requests/{id} |  |
-| [**getAdminGameContract**](DefaultApi.md#getadmingamecontract) | **GET** /api/v1/admin/game_contracts/{id} |  |
-| [**getAdminGameContractSeries**](DefaultApi.md#getadmingamecontractseries) | **GET** /api/v1/admin/game_contracts/{id}/series |  |
-| [**getAdminGameContractsUploader**](DefaultApi.md#getadmingamecontractsuploader) | **GET** /api/v1/admin/game_contracts_uploader |  |
-| [**getAdminGamesMassUpdateStatus**](DefaultApi.md#getadmingamesmassupdatestatus) | **GET** /api/v1/admin/games/mass_update |  |
-| [**getAdminGamesUploadStatus**](DefaultApi.md#getadmingamesuploadstatus) | **GET** /api/v1/admin/games/upload |  |
 | [**getAdminIncomeReport**](DefaultApi.md#getadminincomereport) | **GET** /api/v1/admin/income_reports/{id} |  |
 | [**getAdminInvoice**](DefaultApi.md#getadmininvoice) | **GET** /api/v1/admin/invoices/{invoiceId} |  |
 | [**getAdminInvoices**](DefaultApi.md#getadmininvoices) | **GET** /api/v1/admin/invoices |  |
-| [**getAdminPlayer**](DefaultApi.md#getadminplayer) | **GET** /api/v1/admin/players/{id} |  |
-| [**getAdminPlayerFormOptions**](DefaultApi.md#getadminplayerformoptions) | **GET** /api/v1/admin/players/form_options |  |
-| [**getAdminPlayersUploadStatus**](DefaultApi.md#getadminplayersuploadstatus) | **GET** /api/v1/admin/players/upload |  |
 | [**getAdminPosition**](DefaultApi.md#getadminposition) | **GET** /api/v1/admin/positions/{id} |  |
 | [**getAdminPositionCopyOptions**](DefaultApi.md#getadminpositioncopyoptions) | **GET** /api/v1/admin/positions/copy_for_year |  |
-| [**getAdminRankingsUploadInfo**](DefaultApi.md#getadminrankingsuploadinfo) | **GET** /api/v1/admin/rankings/upload |  |
 | [**getAdminRawContractText**](DefaultApi.md#getadminrawcontracttext) | **GET** /api/v1/admin/raw_contracts/{id}/text |  |
 | [**getAdminRequestedItemRiNote**](DefaultApi.md#getadminrequesteditemrinote) | **GET** /api/v1/admin/requested_items/{requested_item_id}/ri_note |  |
-| [**getAdminSchoolGame**](DefaultApi.md#getadminschoolgame) | **GET** /api/v1/admin/schools/{school_id}/games/{id} |  |
 | [**getAdminSchoolNames**](DefaultApi.md#getadminschoolnames) | **GET** /api/v1/admin/school_names/{id} |  |
 | [**getAdminSchoolRevenue**](DefaultApi.md#getadminschoolrevenue) | **GET** /api/v1/admin/schools/{schoolId}/revenue |  |
 | [**getAdminSchools**](DefaultApi.md#getadminschools) | **GET** /api/v1/admin/schools/{id} |  |
-| [**getAdminSeasonStatsImports**](DefaultApi.md#getadminseasonstatsimports) | **GET** /api/v1/admin/season_stats_imports |  |
 | [**getAdminSport**](DefaultApi.md#getadminsport) | **GET** /api/v1/admin/sports/{id} |  |
 | [**getAdminSystemSetting**](DefaultApi.md#getadminsystemsetting) | **GET** /api/v1/admin/system_setting |  |
 | [**getAdminTerminationAgreement**](DefaultApi.md#getadminterminationagreement) | **GET** /api/v1/admin/termination_agreements/{id} |  |
@@ -438,7 +408,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**hideAdminDeskReport**](DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide |  |
-| [**listAdminBowlGames**](DefaultApi.md#listadminbowlgames) | **GET** /api/v1/admin/bowl_games |  |
 | [**listAdminCoachAprUploadJobs**](DefaultApi.md#listadmincoachapruploadjobs) | **GET** /api/v1/admin/coaches/coach_apr_upload |  |
 | [**listAdminCoachContracts**](DefaultApi.md#listadmincoachcontracts) | **GET** /api/v1/admin/coach_contracts |  |
 | [**listAdminCoachContractsOutsideIncome**](DefaultApi.md#listadmincoachcontractsoutsideincome) | **GET** /api/v1/admin/coach_contracts/outside_income |  |
@@ -447,6 +416,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminCoachMergeLogs**](DefaultApi.md#listadmincoachmergelogs) | **GET** /api/v1/admin/coach_merge_logs |  |
 | [**listAdminCoachUploadJobs**](DefaultApi.md#listadmincoachuploadjobs) | **GET** /api/v1/admin/coaches/upload |  |
 | [**listAdminCoaches**](DefaultApi.md#listadmincoaches) | **GET** /api/v1/admin/coaches |  |
+| [**listAdminCompensationChangeHistory**](DefaultApi.md#listadmincompensationchangehistory) | **GET** /api/v1/admin/compensations/change_history |  |
 | [**listAdminCompensations**](DefaultApi.md#listadmincompensations) | **GET** /api/v1/admin/compensations |  |
 | [**listAdminConferenceSchoolsDirectory**](DefaultApi.md#listadminconferenceschoolsdirectory) | **GET** /api/v1/admin/conferences/schools |  |
 | [**listAdminConferences**](DefaultApi.md#listadminconferences) | **GET** /api/v1/admin/conferences |  |
@@ -461,7 +431,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminDealStatuses**](DefaultApi.md#listadmindealstatuses) | **GET** /api/v1/admin/deal_statuses |  |
 | [**listAdminDeals**](DefaultApi.md#listadmindeals) | **GET** /api/v1/admin/deals |  |
 | [**listAdminFavorites**](DefaultApi.md#listadminfavorites) | **GET** /api/v1/admin/favorites |  |
-| [**listAdminFilteredGameContracts**](DefaultApi.md#listadminfilteredgamecontracts) | **GET** /api/v1/admin/schools/{school_id}/games/filtered_game_contracts |  |
 | [**listAdminFinancialStats**](DefaultApi.md#listadminfinancialstats) | **GET** /api/v1/admin/financial_stats |  |
 | [**listAdminFinancialsQc**](DefaultApi.md#listadminfinancialsqc) | **GET** /api/v1/admin/financials_qc |  |
 | [**listAdminFoiaContacts**](DefaultApi.md#listadminfoiacontacts) | **GET** /api/v1/admin/foia_contacts |  |
@@ -473,19 +442,14 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminFoiaRequestFollowUpReport**](DefaultApi.md#listadminfoiarequestfollowupreport) | **GET** /api/v1/admin/foia_requests/follow_up_report |  |
 | [**listAdminFoiaRequestSchools**](DefaultApi.md#listadminfoiarequestschools) | **GET** /api/v1/admin/foia_requests/schools |  |
 | [**listAdminFoiaRequests**](DefaultApi.md#listadminfoiarequests) | **GET** /api/v1/admin/foia_requests |  |
-| [**listAdminGameContracts**](DefaultApi.md#listadmingamecontracts) | **GET** /api/v1/admin/game_contracts |  |
 | [**listAdminIncomeReports**](DefaultApi.md#listadminincomereports) | **GET** /api/v1/admin/income_reports |  |
 | [**listAdminNotes**](DefaultApi.md#listadminnotes) | **GET** /api/v1/admin/notes |  |
-| [**listAdminPlayerStats**](DefaultApi.md#listadminplayerstats) | **GET** /api/v1/admin/player_stats |  |
-| [**listAdminPlayers**](DefaultApi.md#listadminplayers) | **GET** /api/v1/admin/players |  |
 | [**listAdminPositionTypes**](DefaultApi.md#listadminpositiontypes) | **GET** /api/v1/admin/position_types |  |
 | [**listAdminPositions**](DefaultApi.md#listadminpositions) | **GET** /api/v1/admin/positions |  |
-| [**listAdminRankings**](DefaultApi.md#listadminrankings) | **GET** /api/v1/admin/rankings |  |
 | [**listAdminRawContractsBetweenSchools**](DefaultApi.md#listadminrawcontractsbetweenschools) | **GET** /api/v1/admin/raw_contracts/game_contracts_between_schools |  |
 | [**listAdminRequestedItems**](DefaultApi.md#listadminrequesteditems) | **GET** /api/v1/admin/requested_items |  |
 | [**listAdminSchoolDeals**](DefaultApi.md#listadminschooldeals) | **GET** /api/v1/admin/schools/{school_id}/deals |  |
 | [**listAdminSchoolGameCounts**](DefaultApi.md#listadminschoolgamecounts) | **GET** /api/v1/admin/schools/game_counts |  |
-| [**listAdminSchoolGames**](DefaultApi.md#listadminschoolgames) | **GET** /api/v1/admin/schools/{school_id}/games |  |
 | [**listAdminSchoolGroups**](DefaultApi.md#listadminschoolgroups) | **GET** /api/v1/admin/school_groups |  |
 | [**listAdminSchoolGroupsAvailableSchools**](DefaultApi.md#listadminschoolgroupsavailableschools) | **GET** /api/v1/admin/school_groups/available_schools |  |
 | [**listAdminSchoolLogosQc**](DefaultApi.md#listadminschoollogosqc) | **GET** /api/v1/admin/schools/school_logos_qc |  |
@@ -495,7 +459,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminSchools**](DefaultApi.md#listadminschools) | **GET** /api/v1/admin/schools |  |
 | [**listAdminScraperJobs**](DefaultApi.md#listadminscraperjobs) | **GET** /api/v1/admin/scrapers/jobs |  |
 | [**listAdminScrapers**](DefaultApi.md#listadminscrapers) | **GET** /api/v1/admin/scrapers |  |
-| [**listAdminSeasonStatsEditor**](DefaultApi.md#listadminseasonstatseditor) | **GET** /api/v1/admin/season_stats_editor |  |
 | [**listAdminSportCashflows**](DefaultApi.md#listadminsportcashflows) | **GET** /api/v1/admin/sports/{id}/cashflows |  |
 | [**listAdminSportPositions**](DefaultApi.md#listadminsportpositions) | **GET** /api/v1/admin/sports/{id}/positions |  |
 | [**listAdminSports**](DefaultApi.md#listadminsports) | **GET** /api/v1/admin/sports |  |
@@ -522,7 +485,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**massUpdateAdminPositions**](DefaultApi.md#massupdateadminpositions) | **POST** /api/v1/admin/positions/mass_update |  |
 | [**massUpdateAdminRequestedItems**](DefaultApi.md#massupdateadminrequesteditemsoperation) | **PATCH** /api/v1/admin/requested_items/mass_update |  |
 | [**mergeCoach**](DefaultApi.md#mergecoachoperation) | **POST** /api/v1/coaches/{coachId}/merge |  |
-| [**newAdminPlayerStats**](DefaultApi.md#newadminplayerstats) | **GET** /api/v1/admin/player_stats/new |  |
 | [**newAdminPositionType**](DefaultApi.md#newadminpositiontype) | **GET** /api/v1/admin/position_types/new |  |
 | [**newAdminSport**](DefaultApi.md#newadminsport) | **GET** /api/v1/admin/sports/new |  |
 | [**patchSeason**](DefaultApi.md#patchseason) | **PATCH** /api/v1/seasons/{seasonId} |  |
@@ -532,7 +494,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**previewAdminCoachMergeLog**](DefaultApi.md#previewadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/preview |  |
 | [**publishAdminDeskReport**](DefaultApi.md#publishadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/publish |  |
 | [**putPostseasonResult**](DefaultApi.md#putpostseasonresult) | **PUT** /api/v1/postseason_results |  |
-| [**queueAdminPlayerStatsExport**](DefaultApi.md#queueadminplayerstatsexport) | **POST** /api/v1/admin/player_stats/export |  |
 | [**recalculateAdminSystemSettingLatestSalaries**](DefaultApi.md#recalculateadminsystemsettinglatestsalaries) | **POST** /api/v1/admin/system_setting/latest_salary_recalculation |  |
 | [**refreshAdminSystemSettingSeasonCache**](DefaultApi.md#refreshadminsystemsettingseasoncache) | **POST** /api/v1/admin/system_setting/season_cache_refresh |  |
 | [**regenerateRawContractPdf**](DefaultApi.md#regeneraterawcontractpdf) | **POST** /api/v1/raw_contracts/{raw_contractId}/regenerate_pdf |  |
@@ -559,7 +520,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAccountUser**](DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} |  |
 | [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
 | [**updateAdminAvatars**](DefaultApi.md#updateadminavatars) | **PATCH** /api/v1/admin/avatars/{id} |  |
-| [**updateAdminBowlGames**](DefaultApi.md#updateadminbowlgames) | **PATCH** /api/v1/admin/bowl_games/{id} |  |
 | [**updateAdminCoach**](DefaultApi.md#updateadmincoach) | **PATCH** /api/v1/admin/coaches/{id} |  |
 | [**updateAdminConferences**](DefaultApi.md#updateadminconferencesoperation) | **PATCH** /api/v1/admin/conferences/{id} |  |
 | [**updateAdminConferenceships**](DefaultApi.md#updateadminconferenceshipsoperation) | **PATCH** /api/v1/admin/conferenceships/{id} |  |
@@ -578,23 +538,17 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAdminFoiaRequestFinancials**](DefaultApi.md#updateadminfoiarequestfinancialsoperation) | **PATCH** /api/v1/admin/foia_requests/{id}/financials |  |
 | [**updateAdminFoiaRequestGames**](DefaultApi.md#updateadminfoiarequestgamesoperation) | **PATCH** /api/v1/admin/foia_requests/{id}/games |  |
 | [**updateAdminFoiaRequests**](DefaultApi.md#updateadminfoiarequests) | **PATCH** /api/v1/admin/foia_requests/{id} |  |
-| [**updateAdminGameContract**](DefaultApi.md#updateadmingamecontract) | **PATCH** /api/v1/admin/game_contracts/{id} |  |
 | [**updateAdminIncomeReport**](DefaultApi.md#updateadminincomereport) | **PATCH** /api/v1/admin/income_reports/{id} |  |
 | [**updateAdminInvoice**](DefaultApi.md#updateadmininvoice) | **PATCH** /api/v1/admin/invoices/{invoiceId} |  |
 | [**updateAdminNote**](DefaultApi.md#updateadminnoteoperation) | **PATCH** /api/v1/admin/notes/{id} |  |
-| [**updateAdminPlayer**](DefaultApi.md#updateadminplayer) | **PATCH** /api/v1/admin/players/{id} |  |
-| [**updateAdminPlayerStats**](DefaultApi.md#updateadminplayerstats) | **PATCH** /api/v1/admin/player_stats/{id} |  |
 | [**updateAdminPosition**](DefaultApi.md#updateadminposition) | **PATCH** /api/v1/admin/positions/{id} |  |
 | [**updateAdminPositionTypes**](DefaultApi.md#updateadminpositiontypes) | **PATCH** /api/v1/admin/position_types/{id} |  |
-| [**updateAdminRankings**](DefaultApi.md#updateadminrankingsoperation) | **POST** /api/v1/admin/rankings |  |
 | [**updateAdminRequestedItem**](DefaultApi.md#updateadminrequesteditemoperation) | **PATCH** /api/v1/admin/requested_items/{id} |  |
 | [**updateAdminRequestedItemRiNote**](DefaultApi.md#updateadminrequesteditemrinote) | **PATCH** /api/v1/admin/requested_items/{requested_item_id}/ri_note |  |
 | [**updateAdminSchoolDeal**](DefaultApi.md#updateadminschooldeal) | **PATCH** /api/v1/admin/schools/{school_id}/deals/{id} |  |
-| [**updateAdminSchoolGame**](DefaultApi.md#updateadminschoolgame) | **PATCH** /api/v1/admin/schools/{school_id}/games/{id} |  |
 | [**updateAdminSchoolGroup**](DefaultApi.md#updateadminschoolgroupoperation) | **PATCH** /api/v1/admin/school_groups/{id} |  |
 | [**updateAdminSchoolNames**](DefaultApi.md#updateadminschoolnamesoperation) | **PATCH** /api/v1/admin/school_names/{id} |  |
 | [**updateAdminSchools**](DefaultApi.md#updateadminschools) | **PATCH** /api/v1/admin/schools/{id} |  |
-| [**updateAdminSeasonStatsEditor**](DefaultApi.md#updateadminseasonstatseditor) | **PATCH** /api/v1/admin/season_stats_editor/{id} |  |
 | [**updateAdminSport**](DefaultApi.md#updateadminsport) | **PATCH** /api/v1/admin/sports/{id} |  |
 | [**updateAdminSystemSetting**](DefaultApi.md#updateadminsystemsettingoperation) | **PATCH** /api/v1/admin/system_setting |  |
 | [**updateAdminTerminationAgreement**](DefaultApi.md#updateadminterminationagreement) | **PATCH** /api/v1/admin/termination_agreements/{id} |  |
@@ -632,13 +586,12 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateTeamScheduleFavorite**](DefaultApi.md#updateteamschedulefavoriteoperation) | **PATCH** /api/v1/team_schedule_favorites/{id} |  |
 | [**updateUser**](DefaultApi.md#updateuseroperation) | **PATCH** /api/v1/users/{userId} |  |
 | [**updateVerifiedAdminDeal**](DefaultApi.md#updateverifiedadmindealoperation) | **PATCH** /api/v1/admin/deals/{id}/update_verified |  |
-| [**uploadAdminPlayerStats**](DefaultApi.md#uploadadminplayerstats) | **POST** /api/v1/admin/player_stats/upload |  |
-| [**uploadAdminPlayersCsv**](DefaultApi.md#uploadadminplayerscsv) | **POST** /api/v1/admin/players/upload |  |
 | [**upsertEarnedIncentive**](DefaultApi.md#upsertearnedincentive) | **PUT** /api/v1/earned_incentives |  |
 | [**upsertTeamScheduleNote**](DefaultApi.md#upsertteamschedulenoteoperation) | **PUT** /api/v1/team_schedule_notes/{fil_team_id} |  |
 | [**upsertTeamSeasonResult**](DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
 | [**validateAdminDeskReport**](DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate |  |
+| [**verifyAdminContract**](DefaultApi.md#verifyadmincontract) | **PATCH** /api/v1/admin/contracts/{id}/verification |  |
 | [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
 | [**viewInvoiceFile**](DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file |  |
@@ -1364,84 +1317,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## bulkUpdateAdminSeasonStatsEditor
-
-> BulkUpdateAdminSeasonStatsEditor200Response bulkUpdateAdminSeasonStatsEditor(bulkUpdateAdminSeasonStatsEditorRequest)
-
-
-
-Save several seasons\&#39; editable stat fields in one transaction (the old page\&#39;s single submit); nothing is saved if any row fails (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { BulkUpdateAdminSeasonStatsEditorOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // BulkUpdateAdminSeasonStatsEditorRequest
-    bulkUpdateAdminSeasonStatsEditorRequest: ...,
-  } satisfies BulkUpdateAdminSeasonStatsEditorOperationRequest;
-
-  try {
-    const data = await api.bulkUpdateAdminSeasonStatsEditor(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **bulkUpdateAdminSeasonStatsEditorRequest** | [BulkUpdateAdminSeasonStatsEditorRequest](BulkUpdateAdminSeasonStatsEditorRequest.md) |  | |
-
-### Return type
-
-[**BulkUpdateAdminSeasonStatsEditor200Response**](BulkUpdateAdminSeasonStatsEditor200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Every season saved |  -  |
-| **400** | seasons is missing, empty or not a map of season ids to field values |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found - an unknown season id |  -  |
-| **422** | Nothing was saved; one message per failed row (&lt;Sport&gt;: ...) or the raw error for a value too large for its column |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## bulkUpdateGamePostSearches
 
 > BulkGamePostSearchResult bulkUpdateGamePostSearches(bulkUpdateGamePostSearchesRequest)
@@ -1676,6 +1551,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## copyAdminCompensationToNextYear
+
+> AdminCompensation copyAdminCompensationToNextYear(id)
+
+
+
+Copy a compensation to the next year; needs a position for that year (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CopyAdminCompensationToNextYearRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies CopyAdminCompensationToNextYearRequest;
+
+  try {
+    const data = await api.copyAdminCompensationToNextYear(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCompensation**](AdminCompensation.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Compensation copied |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Cannot copy (for example no position next year) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## copyForYearAdminPositions
 
 > CopyPositionsForYearResponse copyForYearAdminPositions(copyPositionsForYearRequest)
@@ -1899,82 +1851,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - requires account admin role |  -  |
 | **422** | Validation errors |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminBowlGames
-
-> AdminBowlGameDetail createAdminBowlGames(createAdminBowlGamesRequest)
-
-
-
-Create a bowl game (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminBowlGamesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // CreateAdminBowlGamesRequest
-    createAdminBowlGamesRequest: ...,
-  } satisfies CreateAdminBowlGamesOperationRequest;
-
-  try {
-    const data = await api.createAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createAdminBowlGamesRequest** | [CreateAdminBowlGamesRequest](CreateAdminBowlGamesRequest.md) |  | |
-
-### Return type
-
-[**AdminBowlGameDetail**](AdminBowlGameDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Bowl game created |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | Validation errors, or a text value is longer than its column (e.g. 255 characters) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -3683,234 +3559,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## createAdminGameContractsUploader
-
-> RegenerateRawContractPdf200Response createAdminGameContractsUploader(importFile)
-
-
-
-Upload a CSV of game contracts to queue for import via GameContractCsvImporter, after validating required headers (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminGameContractsUploaderRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-  } satisfies CreateAdminGameContractsUploaderRequest;
-
-  try {
-    const data = await api.createAdminGameContractsUploader(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Queued for processing |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected, the file is not a CSV, invalid or unreadable CSV headers (including an empty file), or the file could not be staged/queued (\&quot;An error occurred: ...\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminGamesMassUpdate
-
-> QueueAdminPlayerStatsExport202Response createAdminGamesMassUpdate(importFile)
-
-
-
-Queue a games CSV mass update
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminGamesMassUpdateRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-  } satisfies CreateAdminGamesMassUpdateRequest;
-
-  try {
-    const data = await api.createAdminGamesMassUpdate(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**QueueAdminPlayerStatsExport202Response**](QueueAdminPlayerStatsExport202Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Queued for processing |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected, the file is not a CSV, or the file could not be staged/queued (\&quot;An error occurred: ...\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminGamesUpload
-
-> QueueAdminPlayerStatsExport202Response createAdminGamesUpload(importFile)
-
-
-
-Queue a games CSV import
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminGamesUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-  } satisfies CreateAdminGamesUploadRequest;
-
-  try {
-    const data = await api.createAdminGamesUpload(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**QueueAdminPlayerStatsExport202Response**](QueueAdminPlayerStatsExport202Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Queued for processing |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected, the file is not a CSV, or the file could not be staged/queued (\&quot;An error occurred: ...\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## createAdminImpersonations
 
 > AdminImpersonation createAdminImpersonations(createAdminImpersonationsRequest)
@@ -4146,158 +3794,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## createAdminPlayer
-
-> AdminPlayerDetail createAdminPlayer(createPlayerRequest)
-
-
-
-Create a new player, optionally with an initial player stat line (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminPlayerRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // CreatePlayerRequest
-    createPlayerRequest: ...,
-  } satisfies CreateAdminPlayerRequest;
-
-  try {
-    const data = await api.createAdminPlayer(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createPlayerRequest** | [CreatePlayerRequest](CreatePlayerRequest.md) |  | |
-
-### Return type
-
-[**AdminPlayerDetail**](AdminPlayerDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Player created |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | Validation errors, a text value longer than its column (e.g. 255 characters), or a number too large for its column (e.g. \&quot;A number is too large to save\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminPlayerStats
-
-> AdminPlayerStat createAdminPlayerStats(createPlayerStatRequest)
-
-
-
-Create a new player stat, resolving the Season from school_id/sport_id/year (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // CreatePlayerStatRequest
-    createPlayerStatRequest: ...,
-  } satisfies CreateAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.createAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createPlayerStatRequest** | [CreatePlayerStatRequest](CreatePlayerStatRequest.md) |  | |
-
-### Return type
-
-[**AdminPlayerStat**](AdminPlayerStat.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Player stat created |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | Unable to create the player stat |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## createAdminPosition
 
 > AdminPosition createAdminPosition(createAdminPositionRequest)
@@ -4446,85 +3942,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **422** | Unable to create the Position Type |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminRankingsUpload
-
-> RegenerateRawContractPdf200Response createAdminRankingsUpload(importFile, year)
-
-
-
-Queues a rankings CSV import for a given year (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminRankingsUploadRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-    // string (optional)
-    year: year_example,
-  } satisfies CreateAdminRankingsUploadRequest;
-
-  try {
-    const data = await api.createAdminRankingsUpload(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-| **year** | `string` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Queued for processing |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected, the file is not a CSV, no year was given, or the file could not be staged/queued (\&quot;An error occurred: ...\&quot;) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -4683,86 +4100,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **422** | Validation errors |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminSchoolGame
-
-> AdminGame createAdminSchoolGame(schoolId, createAdminSchoolGameRequest)
-
-
-
-Create a game for a school
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminSchoolGameOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-    // CreateAdminSchoolGameRequest
-    createAdminSchoolGameRequest: ...,
-  } satisfies CreateAdminSchoolGameOperationRequest;
-
-  try {
-    const data = await api.createAdminSchoolGame(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **createAdminSchoolGameRequest** | [CreateAdminSchoolGameRequest](CreateAdminSchoolGameRequest.md) |  | |
-
-### Return type
-
-[**AdminGame**](AdminGame.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Game created |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation errors, a number too large for its column, a text value is longer than its column (e.g. 255 characters), or an unknown school/state/game contract id (e.g. \&quot;State does not exist\&quot;) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -5162,82 +4499,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **422** | Unable to create the school |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createAdminSeasonStatsImport
-
-> RegenerateRawContractPdf200Response createAdminSeasonStatsImport(importFile)
-
-
-
-Upload a CSV of season stats to queue for import via SeasonStatsImporter (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminSeasonStatsImportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-  } satisfies CreateAdminSeasonStatsImportRequest;
-
-  try {
-    const data = await api.createAdminSeasonStatsImport(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Queued for processing |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected, the file is not a CSV, or the file could not be staged/queued (\&quot;An error occurred: ...\&quot;) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -11035,82 +10296,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## destroyAdminBowlGames
-
-> destroyAdminBowlGames(id)
-
-
-
-Delete a bowl game (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DestroyAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies DestroyAdminBowlGamesRequest;
-
-  try {
-    const data = await api.destroyAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Bowl game deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## destroyAdminCoach
 
 > destroyAdminCoach(id)
@@ -12027,82 +11212,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## destroyAdminGameContract
-
-> destroyAdminGameContract(id)
-
-
-
-Delete a game contract, preserving its source document and all other document links (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DestroyAdminGameContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies DestroyAdminGameContractRequest;
-
-  try {
-    const data = await api.destroyAdminGameContract(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Game contract deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## destroyAdminImpersonations
 
 > DestroyAdminImpersonations200Response destroyAdminImpersonations()
@@ -12319,158 +11428,6 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## destroyAdminPlayer
-
-> destroyAdminPlayer(id)
-
-
-
-Delete a player (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DestroyAdminPlayerRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies DestroyAdminPlayerRequest;
-
-  try {
-    const data = await api.destroyAdminPlayer(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Player deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## destroyAdminPlayerStats
-
-> destroyAdminPlayerStats(id)
-
-
-
-Delete a single player stat (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DestroyAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies DestroyAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.destroyAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Player stat deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
@@ -12934,85 +11891,6 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Deal destroyed |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## destroyAdminSchoolGame
-
-> destroyAdminSchoolGame(schoolId, id)
-
-
-
-Delete a game
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DestroyAdminSchoolGameRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-    // number
-    id: 56,
-  } satisfies DestroyAdminSchoolGameRequest;
-
-  try {
-    const data = await api.destroyAdminSchoolGame(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Game deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
@@ -14324,91 +13202,9 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## downloadAdminGameContractsUploaderCsvTemplate
-
-> Blob downloadAdminGameContractsUploaderCsvTemplate(sports, schoolId, seasonYear)
-
-
-
-Download a per-school/sports/season-year Game Contract CSV template (Game.generate_csv_data) (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DownloadAdminGameContractsUploaderCsvTemplateRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Array<number>
-    sports: ...,
-    // number (optional)
-    schoolId: 56,
-    // number (optional)
-    seasonYear: 56,
-  } satisfies DownloadAdminGameContractsUploaderCsvTemplateRequest;
-
-  try {
-    const data = await api.downloadAdminGameContractsUploaderCsvTemplate(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sports** | `Array<number>` |  | |
-| **schoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **seasonYear** | `number` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-**Blob**
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `text/csv`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | CSV template file |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No sport selected, or the school id is not a number |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## downloadAdminUploads
 
-> QueueAdminPlayerStatsExport202Response downloadAdminUploads()
+> DownloadAdminUploads202Response downloadAdminUploads()
 
 
 
@@ -14451,7 +13247,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**QueueAdminPlayerStatsExport202Response**](QueueAdminPlayerStatsExport202Response.md)
+[**DownloadAdminUploads202Response**](DownloadAdminUploads202Response.md)
 
 ### Authorization
 
@@ -14543,82 +13339,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Watermarked PDF attachment |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## editAdminPlayerStats
-
-> EditAdminPlayerStat editAdminPlayerStats(id)
-
-
-
-Retrieve a single player stat (with derived school_id/sport_id/year) plus selectable options, for the Edit Player Stat admin form (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { EditAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies EditAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.editAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**EditAdminPlayerStat**](EditAdminPlayerStat.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Edit player stat form data retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -14926,82 +13646,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## exportAdminSchoolGames
-
-> RegenerateRawContractPdf200Response exportAdminSchoolGames(schoolId)
-
-
-
-Queue a CSV export of the school\&#39;s games (admin-only). GamesExportJob emails the CSV to the current user.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ExportAdminSchoolGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-  } satisfies ExportAdminSchoolGamesRequest;
-
-  try {
-    const data = await api.exportAdminSchoolGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**RegenerateRawContractPdf200Response**](RegenerateRawContractPdf200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Export queued |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## exportRevenueSearches
 
 > Blob exportRevenueSearches(schoolId, year)
@@ -15076,73 +13720,6 @@ example().catch(console.error);
 | **200** | CSV file download |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## filterOptionsAdminPlayerStats
-
-> AdminPlayerStatFilterOptions filterOptionsAdminPlayerStats()
-
-
-
-Retrieve men\&#39;s basketball schools for the index search sidebar\&#39;s School select (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { FilterOptionsAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.filterOptionsAdminPlayerStats();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminPlayerStatFilterOptions**](AdminPlayerStatFilterOptions.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Filter options retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -15444,82 +14021,6 @@ example().catch(console.error);
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super_admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminBowlGames
-
-> AdminBowlGameDetail getAdminBowlGames(id)
-
-
-
-Retrieve a bowl game with its associated postseason results (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies GetAdminBowlGamesRequest;
-
-  try {
-    const data = await api.getAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminBowlGameDetail**](AdminBowlGameDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Bowl game found |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -17358,359 +15859,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getAdminGameContract
-
-> AdminGameContract getAdminGameContract(id)
-
-
-
-Retrieve a game contract (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminGameContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies GetAdminGameContractRequest;
-
-  try {
-    const data = await api.getAdminGameContract(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminGameContract**](AdminGameContract.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game contract retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminGameContractSeries
-
-> GetAdminGameContractSeries200Response getAdminGameContractSeries(id)
-
-
-
-Retrieve the game contracts sharing this one\&#39;s raw contract (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminGameContractSeriesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies GetAdminGameContractSeriesRequest;
-
-  try {
-    const data = await api.getAdminGameContractSeries(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**GetAdminGameContractSeries200Response**](GetAdminGameContractSeries200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Series retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminGameContractsUploader
-
-> AdminGameContractsUploaderList getAdminGameContractsUploader()
-
-
-
-Get the Upload Game Contract CSV form data (schools, guarantee-eligible sports, season-year options, Sidekiq job status) (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminGameContractsUploaderRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminGameContractsUploader();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminGameContractsUploaderList**](AdminGameContractsUploaderList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game contract uploader form data retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminGamesMassUpdateStatus
-
-> AdminGamesMassUpdateStatus getAdminGamesMassUpdateStatus()
-
-
-
-Games CSV mass-updater job status + required/optional headers
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminGamesMassUpdateStatusRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminGamesMassUpdateStatus();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminGamesMassUpdateStatus**](AdminGamesMassUpdateStatus.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Job status retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminGamesUploadStatus
-
-> AdminGamesUploadStatus getAdminGamesUploadStatus()
-
-
-
-Games CSV importer job status + required/optional headers
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminGamesUploadStatusRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminGamesUploadStatus();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminGamesUploadStatus**](AdminGamesUploadStatus.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Job status retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## getAdminIncomeReport
 
 > AdminIncomeReport getAdminIncomeReport(id)
@@ -17960,216 +16108,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## getAdminPlayer
-
-> AdminPlayerDetail getAdminPlayer(id)
-
-
-
-Retrieve a single player plus its player stats (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminPlayerRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies GetAdminPlayerRequest;
-
-  try {
-    const data = await api.getAdminPlayer(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminPlayerDetail**](AdminPlayerDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Player found |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminPlayerFormOptions
-
-> AdminPlayerFormOptions getAdminPlayerFormOptions()
-
-
-
-Retrieve selectable schools/sports/eligible/year options for the New Player dialog\&#39;s nested stat fields (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminPlayerFormOptionsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminPlayerFormOptions();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminPlayerFormOptions**](AdminPlayerFormOptions.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Form options retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminPlayersUploadStatus
-
-> AdminPlayerImportJobs getAdminPlayersUploadStatus()
-
-
-
-Retrieve current Sidekiq job status for the Players CSV import (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminPlayersUploadStatusRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminPlayersUploadStatus();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminPlayerImportJobs**](AdminPlayerImportJobs.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Import job status retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## getAdminPosition
 
 > AdminPosition getAdminPosition(id)
@@ -18307,73 +16245,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Copy form options |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminRankingsUploadInfo
-
-> AdminRankingsUploadInfo getAdminRankingsUploadInfo()
-
-
-
-Required/optional CSV headers + current rankings_importer sidekiq job status (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminRankingsUploadInfoRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminRankingsUploadInfo();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminRankingsUploadInfo**](AdminRankingsUploadInfo.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Rankings upload info retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 
@@ -18525,85 +16396,6 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Note found |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminSchoolGame
-
-> AdminGame getAdminSchoolGame(schoolId, id)
-
-
-
-Retrieve a game belonging to the school in the URL (home or away); an unrelated school/game pair returns 404
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminSchoolGameRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-    // number
-    id: 56,
-  } satisfies GetAdminSchoolGameRequest;
-
-  try {
-    const data = await api.getAdminSchoolGame(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminGame**](AdminGame.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
@@ -18834,73 +16626,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminSeasonStatsImports
-
-> AdminSeasonStatsImportsList getAdminSeasonStatsImports()
-
-
-
-Get the Upload Season Stats form data (CSV field requirements + Sidekiq job status) (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminSeasonStatsImportsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.getAdminSeasonStatsImports();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AdminSeasonStatsImportsList**](AdminSeasonStatsImportsList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Season stats import form data retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -34085,91 +31810,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## listAdminBowlGames
-
-> AdminBowlGamesList listAdminBowlGames(page, perPage, qNameCont, qS)
-
-
-
-List bowl games (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-    // string | Case-insensitive name search (optional)
-    qNameCont: qNameCont_example,
-    // 'name asc' | 'name desc' | Name sort order (defaults to ascending) (optional)
-    qS: qS_example,
-  } satisfies ListAdminBowlGamesRequest;
-
-  try {
-    const data = await api.listAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-| **qNameCont** | `string` | Case-insensitive name search | [Optional] [Defaults to `undefined`] |
-| **qS** | `name asc`, `name desc` | Name sort order (defaults to ascending) | [Optional] [Defaults to `undefined`] [Enum: name asc, name desc] |
-
-### Return type
-
-[**AdminBowlGamesList**](AdminBowlGamesList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Bowl games retrieved |  -  |
-| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## listAdminCoachAprUploadJobs
 
 > listAdminCoachAprUploadJobs()
@@ -34752,6 +32392,82 @@ example().catch(console.error);
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCompensationChangeHistory
+
+> AdminCompensationChangeHistory listAdminCompensationChangeHistory(coachId)
+
+
+
+The change history (PaperTrail versions) of a coach\&#39;s compensations, newest first (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCompensationChangeHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    coachId: 56,
+  } satisfies ListAdminCompensationChangeHistoryRequest;
+
+  try {
+    const data = await api.listAdminCompensationChangeHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCompensationChangeHistory**](AdminCompensationChangeHistory.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Change history retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Coach not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -35847,92 +33563,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## listAdminFilteredGameContracts
-
-> ListAdminFilteredGameContracts200Response listAdminFilteredGameContracts(schoolId, sportId, homeSchoolId, awaySchoolId)
-
-
-
-Retrieve game contracts filtered by sport/home school/away school, for the game create/edit form\&#39;s game_contract_id dropdown (admin-only). Blank filters match every game contract.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminFilteredGameContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-    // number (optional)
-    sportId: 56,
-    // number (optional)
-    homeSchoolId: 56,
-    // number (optional)
-    awaySchoolId: 56,
-  } satisfies ListAdminFilteredGameContractsRequest;
-
-  try {
-    const data = await api.listAdminFilteredGameContracts(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **sportId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **homeSchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **awaySchoolId** | `number` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**ListAdminFilteredGameContracts200Response**](ListAdminFilteredGameContracts200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Matching game contracts retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | A filter id is not a number or is too large (e.g. \&quot;sport_id is invalid\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## listAdminFinancialStats
 
 > AdminFinancialStatsList listAdminFinancialStats(page, qSeasonSchoolNameCont, qSeasonYearEq)
@@ -36855,109 +34485,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## listAdminGameContracts
-
-> ListAdminGameContracts200Response listAdminGameContracts(qForDivision, qForSubdivision, qForConference, qForSchool, qSportIdEq, qSeasonYearEq, qVerifiedEq, qS, page, perPage)
-
-
-
-List/search game contracts for QC (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminGameContractsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number (optional)
-    qForDivision: 56,
-    // number (optional)
-    qForSubdivision: 56,
-    // number (optional)
-    qForConference: 56,
-    // number (optional)
-    qForSchool: 56,
-    // number (optional)
-    qSportIdEq: 56,
-    // number (optional)
-    qSeasonYearEq: 56,
-    // boolean (optional)
-    qVerifiedEq: true,
-    // string (optional)
-    qS: qS_example,
-    // number (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-  } satisfies ListAdminGameContractsRequest;
-
-  try {
-    const data = await api.listAdminGameContracts(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **qForDivision** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qForSubdivision** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qForConference** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qForSchool** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qSportIdEq** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qSeasonYearEq** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qVerifiedEq** | `boolean` |  | [Optional] [Defaults to `undefined`] |
-| **qS** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **page** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-
-### Return type
-
-[**ListAdminGameContracts200Response**](ListAdminGameContracts200Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game contracts retrieved |  -  |
-| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## listAdminIncomeReports
 
 > AdminIncomeReportList listAdminIncomeReports(coachId, contractStatusId, year, page, perPage, q)
@@ -37122,185 +34649,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **200** | Paginated list of notes |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## listAdminPlayerStats
-
-> AdminPlayerStatsList listAdminPlayerStats(page, perPage, qPlayerFirstNameStart, qPlayerLastNameStart, qSeasonSchoolIdEq, qSeasonYearEq)
-
-
-
-Retrieve a paginated list of player season stat lines, filterable by player first/last name, school, and season year (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-    // string (optional)
-    qPlayerFirstNameStart: qPlayerFirstNameStart_example,
-    // string (optional)
-    qPlayerLastNameStart: qPlayerLastNameStart_example,
-    // number (optional)
-    qSeasonSchoolIdEq: 56,
-    // number (optional)
-    qSeasonYearEq: 56,
-  } satisfies ListAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.listAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-| **qPlayerFirstNameStart** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **qPlayerLastNameStart** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **qSeasonSchoolIdEq** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **qSeasonYearEq** | `number` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminPlayerStatsList**](AdminPlayerStatsList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Player stats retrieved |  -  |
-| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## listAdminPlayers
-
-> AdminPlayerList listAdminPlayers(page, perPage, qFirstNameStart, qLastNameStart, qS)
-
-
-
-Retrieve a paginated list of players, filterable by first/last name (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminPlayersRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-    // string (optional)
-    qFirstNameStart: qFirstNameStart_example,
-    // string (optional)
-    qLastNameStart: qLastNameStart_example,
-    // string | Ransack sort column and direction. Admin controls support first_name, last_name, external_code, height and weight, ascending or descending; bookmark URLs retain this value. (optional)
-    qS: height desc,
-  } satisfies ListAdminPlayersRequest;
-
-  try {
-    const data = await api.listAdminPlayers(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-| **qFirstNameStart** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **qLastNameStart** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **qS** | `string` | Ransack sort column and direction. Admin controls support first_name, last_name, external_code, height and weight, ascending or descending; bookmark URLs retain this value. | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminPlayerList**](AdminPlayerList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Players retrieved |  -  |
-| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 
@@ -37483,84 +34831,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Positions retrieved |  -  |
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## listAdminRankings
-
-> AdminRankingsEditor listAdminRankings(conferenceId, year)
-
-
-
-Rankings editor grid (conferences/years pickers + selected conference/year\&#39;s schools with their Directors Cup / USNWR values) (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminRankingsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number (optional)
-    conferenceId: 56,
-    // string (optional)
-    year: year_example,
-  } satisfies ListAdminRankingsRequest;
-
-  try {
-    const data = await api.listAdminRankings(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **conferenceId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **year** | `string` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminRankingsEditor**](AdminRankingsEditor.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Rankings editor data retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 
@@ -37921,82 +35191,6 @@ example().catch(console.error);
 | **200** | Game counts retrieved |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## listAdminSchoolGames
-
-> AdminGamesList listAdminSchoolGames(schoolId)
-
-
-
-List a school\&#39;s games plus the Sport/State picker lists (admin-only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminSchoolGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-  } satisfies ListAdminSchoolGamesRequest;
-
-  try {
-    const data = await api.listAdminSchoolGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminGamesList**](AdminGamesList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | School games retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -38676,91 +35870,6 @@ This endpoint does not need any parameter.
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **422** | Scraper service error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## listAdminSeasonStatsEditor
-
-> AdminSeasonStatsEditorList listAdminSeasonStatsEditor(schoolId, year, page, perPage)
-
-
-
-Season stats editor table (School / Year pickers, editable field definitions and the selected school\&#39;s seasons for the year, paginated, ordered by sport name) (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminSeasonStatsEditorRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | School to show; defaults to the first D1/D2 school alphabetically. An unknown id is a 404. (optional)
-    schoolId: 56,
-    // number | Season year; defaults to the current year. (optional)
-    year: 56,
-    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-  } satisfies ListAdminSeasonStatsEditorRequest;
-
-  try {
-    const data = await api.listAdminSeasonStatsEditor(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` | School to show; defaults to the first D1/D2 school alphabetically. An unknown id is a 404. | [Optional] [Defaults to `undefined`] |
-| **year** | `number` | Season year; defaults to the current year. | [Optional] [Defaults to `undefined`] |
-| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-
-### Return type
-
-[**AdminSeasonStatsEditorList**](AdminSeasonStatsEditorList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Season stats editor data retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found - unknown school_id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -40844,81 +37953,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## newAdminPlayerStats
-
-> NewAdminPlayerStat newAdminPlayerStats(playerId)
-
-
-
-Retrieve selectable players/schools/sports/year/eligible options for the New Player Stat admin form (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { NewAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | Prefill the player select (linking in from a player\'s page) (optional)
-    playerId: 56,
-  } satisfies NewAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.newAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **playerId** | `number` | Prefill the player select (linking in from a player\&#39;s page) | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**NewAdminPlayerStat**](NewAdminPlayerStat.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | New player stat form data retrieved |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## newAdminPositionType
 
 > NewAdminPositionType newAdminPositionType()
@@ -41596,73 +38630,6 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden. The user is not an admin or the token lacks winad_write. |  -  |
 | **422** | Both or neither stage given, won missing, an unknown id, or a tournament round of another sport than the season (errors.&lt;field&gt;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## queueAdminPlayerStatsExport
-
-> QueueAdminPlayerStatsExport202Response queueAdminPlayerStatsExport()
-
-
-
-Queue the existing PlayerStatsExportJob for all rows and email the result to the signed-in administrator.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { QueueAdminPlayerStatsExportRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  try {
-    const data = await api.queueAdminPlayerStatsExport();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**QueueAdminPlayerStatsExport202Response**](QueueAdminPlayerStatsExport202Response.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **202** | Export queued |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Super administrator required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -42425,7 +39392,7 @@ example().catch(console.error);
 
 ## runAdminScraper
 
-> QueueAdminPlayerStatsExport202Response runAdminScraper(id, runAdminScraperRequest)
+> DownloadAdminUploads202Response runAdminScraper(id, runAdminScraperRequest)
 
 
 
@@ -42479,7 +39446,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**QueueAdminPlayerStatsExport202Response**](QueueAdminPlayerStatsExport202Response.md)
+[**DownloadAdminUploads202Response**](DownloadAdminUploads202Response.md)
 
 ### Authorization
 
@@ -43645,86 +40612,6 @@ example().catch(console.error);
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 | **422** | Validation errors |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateAdminBowlGames
-
-> AdminBowlGameDetail updateAdminBowlGames(id, createAdminBowlGamesRequest)
-
-
-
-Update a bowl game (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-    // CreateAdminBowlGamesRequest
-    createAdminBowlGamesRequest: ...,
-  } satisfies UpdateAdminBowlGamesRequest;
-
-  try {
-    const data = await api.updateAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **createAdminBowlGamesRequest** | [CreateAdminBowlGamesRequest](CreateAdminBowlGamesRequest.md) |  | |
-
-### Return type
-
-[**AdminBowlGameDetail**](AdminBowlGameDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Bowl game updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation errors, or a text value is longer than its column (e.g. 255 characters) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -45149,131 +42036,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## updateAdminGameContract
-
-> AdminGameContract updateAdminGameContract(id, gameContractHomeSchoolId, gameContractAwaySchoolId, gameContractSportId, gameContractGameType, gameContractGameDate, gameContractGameDateTbd, gameContractOffSiteLocation, gameContractCompDollars, gameContractCompTbd, gameContractVariable, gameContractCancelFeeDollars, gameContractCancelled, gameContractVerified, gameContractSignedOn, gameContractRawContractId, rawContractFile)
-
-
-
-Update a game contract, optionally attaching/uploading its raw contract (admin, super-admin only). The previous source document and its other links are retained.
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminGameContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-    // UpdateAdminGameContractRequestGameContractHomeSchoolId (optional)
-    gameContractHomeSchoolId: ...,
-    // UpdateAdminGameContractRequestGameContractHomeSchoolId (optional)
-    gameContractAwaySchoolId: ...,
-    // number (optional)
-    gameContractSportId: 56,
-    // string (optional)
-    gameContractGameType: gameContractGameType_example,
-    // string (optional)
-    gameContractGameDate: gameContractGameDate_example,
-    // string (optional)
-    gameContractGameDateTbd: gameContractGameDateTbd_example,
-    // string (optional)
-    gameContractOffSiteLocation: gameContractOffSiteLocation_example,
-    // string (optional)
-    gameContractCompDollars: gameContractCompDollars_example,
-    // boolean (optional)
-    gameContractCompTbd: true,
-    // boolean (optional)
-    gameContractVariable: true,
-    // string (optional)
-    gameContractCancelFeeDollars: gameContractCancelFeeDollars_example,
-    // boolean (optional)
-    gameContractCancelled: true,
-    // boolean (optional)
-    gameContractVerified: true,
-    // string (optional)
-    gameContractSignedOn: gameContractSignedOn_example,
-    // number (optional)
-    gameContractRawContractId: 56,
-    // Blob (optional)
-    rawContractFile: BINARY_DATA_HERE,
-  } satisfies UpdateAdminGameContractRequest;
-
-  try {
-    const data = await api.updateAdminGameContract(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **gameContractHomeSchoolId** | [UpdateAdminGameContractRequestGameContractHomeSchoolId](UpdateAdminGameContractRequestGameContractHomeSchoolId.md) |  | [Optional] [Defaults to `undefined`] |
-| **gameContractAwaySchoolId** | [UpdateAdminGameContractRequestGameContractHomeSchoolId](UpdateAdminGameContractRequestGameContractHomeSchoolId.md) |  | [Optional] [Defaults to `undefined`] |
-| **gameContractSportId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractGameType** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractGameDate** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractGameDateTbd** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractOffSiteLocation** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractCompDollars** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractCompTbd** | `boolean` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractVariable** | `boolean` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractCancelFeeDollars** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractCancelled** | `boolean` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractVerified** | `boolean` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractSignedOn** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **gameContractRawContractId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **rawContractFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminGameContract**](AdminGameContract.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game contract updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation failed, a compensation/cancel fee too large to save, or an unknown home school, away school or sport (e.g. \&quot;Home school does not exist\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## updateAdminIncomeReport
 
 > AdminIncomeReport updateAdminIncomeReport(id, changeNote, incomeReport, rawContract)
@@ -45520,166 +42282,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## updateAdminPlayer
-
-> AdminPlayerDetail updateAdminPlayer(id, updatePlayerRequest)
-
-
-
-Update a player (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminPlayerRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-    // UpdatePlayerRequest
-    updatePlayerRequest: ...,
-  } satisfies UpdateAdminPlayerRequest;
-
-  try {
-    const data = await api.updateAdminPlayer(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **updatePlayerRequest** | [UpdatePlayerRequest](UpdatePlayerRequest.md) |  | |
-
-### Return type
-
-[**AdminPlayerDetail**](AdminPlayerDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Player updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation errors, a text value longer than its column (e.g. 255 characters), or a number too large for its column (e.g. \&quot;A number is too large to save\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateAdminPlayerStats
-
-> AdminPlayerStat updateAdminPlayerStats(id, createPlayerStatRequest)
-
-
-
-Update a player stat, re-resolving the Season if school_id/sport_id/year change (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-    // CreatePlayerStatRequest
-    createPlayerStatRequest: ...,
-  } satisfies UpdateAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.updateAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **createPlayerStatRequest** | [CreatePlayerStatRequest](CreatePlayerStatRequest.md) |  | |
-
-### Return type
-
-[**AdminPlayerStat**](AdminPlayerStat.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Player stat updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Unable to update the player stat |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## updateAdminPosition
 
 > AdminPosition updateAdminPosition(id, createAdminPositionRequest)
@@ -45836,82 +42438,6 @@ example().catch(console.error);
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unable to update the Position Type |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateAdminRankings
-
-> AdminRankingsEditor updateAdminRankings(updateAdminRankingsRequest)
-
-
-
-Bulk-upserts Directors Cup / USNWR ranking values per school for a conference/year (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminRankingsOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // UpdateAdminRankingsRequest (optional)
-    updateAdminRankingsRequest: ...,
-  } satisfies UpdateAdminRankingsOperationRequest;
-
-  try {
-    const data = await api.updateAdminRankings(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **updateAdminRankingsRequest** | [UpdateAdminRankingsRequest](UpdateAdminRankingsRequest.md) |  | [Optional] |
-
-### Return type
-
-[**AdminRankingsEditor**](AdminRankingsEditor.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Rankings updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | A value failed validation or is too large for its column (one message per failed ranking, prefixed with the school name and Directors Cup/USNWR; nothing is saved), or the year is not a number |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -46159,89 +42685,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## updateAdminSchoolGame
-
-> AdminGame updateAdminSchoolGame(schoolId, id, createAdminSchoolGameRequest)
-
-
-
-Update a game
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminSchoolGameRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    schoolId: 56,
-    // number
-    id: 56,
-    // CreateAdminSchoolGameRequest
-    createAdminSchoolGameRequest: ...,
-  } satisfies UpdateAdminSchoolGameRequest;
-
-  try {
-    const data = await api.updateAdminSchoolGame(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **schoolId** | `number` |  | [Defaults to `undefined`] |
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **createAdminSchoolGameRequest** | [CreateAdminSchoolGameRequest](CreateAdminSchoolGameRequest.md) |  | |
-
-### Return type
-
-[**AdminGame**](AdminGame.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Game updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation errors, a number too large for its column, a text value is longer than its column (e.g. 255 characters), or an unknown school/state/game contract id (e.g. \&quot;State does not exist\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## updateAdminSchoolGroup
 
 > updateAdminSchoolGroup(id, updateAdminSchoolGroupRequest)
@@ -46478,86 +42921,6 @@ example().catch(console.error);
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unable to update the school |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateAdminSeasonStatsEditor
-
-> AdminSeasonStatsEditorSeason updateAdminSeasonStatsEditor(id, updateAdminSeasonStatsRequest)
-
-
-
-Update one season\&#39;s editable stat fields; an empty string clears a value, other keys are ignored (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminSeasonStatsEditorRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-    // UpdateAdminSeasonStatsRequest
-    updateAdminSeasonStatsRequest: ...,
-  } satisfies UpdateAdminSeasonStatsEditorRequest;
-
-  try {
-    const data = await api.updateAdminSeasonStatsEditor(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **updateAdminSeasonStatsRequest** | [UpdateAdminSeasonStatsRequest](UpdateAdminSeasonStatsRequest.md) |  | |
-
-### Return type
-
-[**AdminSeasonStatsEditorSeason**](AdminSeasonStatsEditorSeason.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Season updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation errors (one message, prefixed with the sport name) or a value too large for its column, e.g. a description over 255 characters (the raw error message) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -48723,7 +45086,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 | **409** | The position kept being moved to other coaches by other requests while this one took its locks (errors.position). Nothing was saved; reload the position and retry. A single move is not an error: the update is applied to the position under the coach that now owns it. |  -  |
-| **422** | Unable to update position. Also returned (errors.departing) when the request would change departing on a position that has recorded departure details, because that would erase them with no user or position change log; use PATCH /positions/{positionId}/departure for that change. Any other change to departing is refused the same way (so every departure carries its date, reason and source); callers should use PATCH /positions/{positionId}/departure for departures and for undoing one (departing false). |  -  |
+| **422** | Unable to update position. Also returned (errors.departing) when the request would change departing on a position that has recorded departure details, because that would erase them with no user or position change log; use PATCH /positions/{positionId}/departure for that change. When the server has POSITIONS_REFUSE_PLAIN_DEPARTING on, any change to departing is refused the same way (so every departure carries its date, reason and source); callers should use PATCH /positions/{positionId}/departure for departures and for undoing one (departing false). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -48734,7 +45097,7 @@ example().catch(console.error);
 
 
 
-Fully replace a position\&#39;s departure details. Setting departing to true requires a date, reason, and public source URL. Setting false clears the date; omitted details become null. Records the user and the optional top-level change_note on the PaperTrail version, and writes the position change log. A client-credentials token (e.g. the directory scraper) is accepted too: its version records its OAuth application\&#39;s name as the whodunnit, and no position change log entry is written, since that log needs a user. Identical requests are no-ops: no version is created, so no note is stored.
+Fully replace a position\&#39;s departure details. Setting departing to true requires a date, reason, and public source URL. Setting false clears the date; omitted details become null. Records the user and the optional top-level change_note on the PaperTrail version, and writes the position change log. Identical requests are no-ops: no version is created, so no note is stored.
 
 ### Example
 
@@ -48801,7 +45164,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Updated departure read back from the database |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | The winad_write scope and permission to update positions are required, and a client-credentials token\&#39;s OAuth application must have a name. Nothing is saved. |  -  |
+| **403** | A persisted user-backed OAuth token, winad_write scope, and permission to update positions are required. Client-credentials tokens are rejected without saving changes. |  -  |
 | **404** | Position not found |  -  |
 | **409** | The position kept being moved to other coaches by other requests while this one took its locks (errors.position). Nothing was saved; reload the position and retry. A single move is not an error: the update is applied to the position under the coach that now owns it. |  -  |
 | **422** | Invalid fields or values, or a change_note that is not a string (errors.change_note); no changes were saved. |  -  |
@@ -49519,164 +45882,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## uploadAdminPlayerStats
-
-> uploadAdminPlayerStats(importFile, importSportId, importSeasonYear)
-
-
-
-Queue a legacy CSV player-stats upload for async processing (admin, super-admin only; superseded by Players Upload)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UploadAdminPlayerStatsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-    // number (optional)
-    importSportId: 56,
-    // number (optional)
-    importSeasonYear: 56,
-  } satisfies UploadAdminPlayerStatsRequest;
-
-  try {
-    const data = await api.uploadAdminPlayerStats(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-| **importSportId** | `number` |  | [Optional] [Defaults to `undefined`] |
-| **importSeasonYear** | `number` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Queued for processing |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## uploadAdminPlayersCsv
-
-> AdminPlayerImportJobs uploadAdminPlayersCsv(importFile)
-
-
-
-Queue an uploaded CSV file for asynchronous player import (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UploadAdminPlayersCsvRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // Blob (optional)
-    importFile: BINARY_DATA_HERE,
-  } satisfies UploadAdminPlayersCsvRequest;
-
-  try {
-    const data = await api.uploadAdminPlayersCsv(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **importFile** | `Blob` |  | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminPlayerImportJobs**](AdminPlayerImportJobs.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **202** | Import queued |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **422** | No file selected, the file is not a CSV, or the file could not be staged/queued (\&quot;An error occurred: ...\&quot;) |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## upsertEarnedIncentive
 
 > EarnedIncentive upsertEarnedIncentive(earnedIncentiveInput)
@@ -50051,6 +46256,85 @@ example().catch(console.error);
 | **200** | Findings (empty when clean) |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## verifyAdminContract
+
+> AdminContract verifyAdminContract(id, verified)
+
+
+
+Mark a contract verified or not verified (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { VerifyAdminContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+    // boolean
+    verified: true,
+  } satisfies VerifyAdminContractRequest;
+
+  try {
+    const data = await api.verifyAdminContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+| **verified** | `boolean` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminContract**](AdminContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Verification changed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

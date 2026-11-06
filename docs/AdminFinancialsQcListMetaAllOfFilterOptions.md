@@ -10,7 +10,7 @@ Name | Type
 `divisions` | [Array&lt;IdName&gt;](IdName.md)
 `subdivisions` | [Array&lt;IdName&gt;](IdName.md)
 `schools` | [Array&lt;IdName&gt;](IdName.md)
-`years` | [Array&lt;AdminPlayerStatFilterOptionsYearOptionsInner&gt;](AdminPlayerStatFilterOptionsYearOptionsInner.md)
+`years` | [Array&lt;AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner&gt;](AdminFinancialsQcListMetaAllOfFilterOptionsYearsInner.md)
 
 ## Example
 

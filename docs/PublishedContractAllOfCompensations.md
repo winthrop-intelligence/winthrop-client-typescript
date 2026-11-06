@@ -9,8 +9,6 @@ Name | Type
 `id` | number
 `schoolId` | number
 `year` | number
-`relocationCents` | number
-`relocationTaxable` | boolean
 
 ## Example
 
@@ -22,8 +20,6 @@ const example = {
   "id": null,
   "schoolId": null,
   "year": null,
-  "relocationCents": null,
-  "relocationTaxable": null,
 } satisfies PublishedContractAllOfCompensations
 
 console.log(example)

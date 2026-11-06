@@ -12,8 +12,6 @@ Name | Type
 `baseSalaryCents` | number
 `bonusCents` | number
 `deferredCompCents` | number
-`relocationCents` | number
-`relocationTaxable` | boolean
 
 ## Example
 
@@ -28,8 +26,6 @@ const example = {
   "baseSalaryCents": null,
   "bonusCents": null,
   "deferredCompCents": null,
-  "relocationCents": null,
-  "relocationTaxable": null,
 } satisfies CoachCompensationTabChartDataTotalCompOverTimeInner
 
 console.log(example)
