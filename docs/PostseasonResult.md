@@ -1,7 +1,7 @@
 
 # PostseasonResult
 
-The furthest postseason stage a season reached (one row per season). Either the bowl_game_* or the tournament_* fields are set.
+The furthest postseason stage a season reached (one row per season). Either fb_bowl_name or the tournament_* fields are set (bowl_game_id and bowl_game_name are the legacy catalog form, kept until it is removed).
 
 ## Properties
 
@@ -12,6 +12,7 @@ Name | Type
 `schoolId` | number
 `sportId` | number
 `seasonYear` | number
+`fbBowlName` | string
 `bowlGameId` | number
 `bowlGameName` | string
 `tournamentRoundId` | number
@@ -35,6 +36,7 @@ const example = {
   "schoolId": null,
   "sportId": null,
   "seasonYear": null,
+  "fbBowlName": null,
   "bowlGameId": null,
   "bowlGameName": null,
   "tournamentRoundId": null,

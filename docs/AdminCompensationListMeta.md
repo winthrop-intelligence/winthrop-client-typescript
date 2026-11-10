@@ -9,6 +9,8 @@ Name | Type
 `totalEntries` | number
 `contractStatusOptions` | [Array&lt;AdminCompensationListMetaContractStatusOptionsInner&gt;](AdminCompensationListMetaContractStatusOptionsInner.md)
 `coachContractOptions` | [Array&lt;AdminCompensationListMetaCoachContractOptionsInner&gt;](AdminCompensationListMetaCoachContractOptionsInner.md)
+`contracts` | [Array&lt;AdminCompensationListMetaContractsInner&gt;](AdminCompensationListMetaContractsInner.md)
+`incomeReports` | [Array&lt;AdminCompensationListMetaIncomeReportsInner&gt;](AdminCompensationListMetaIncomeReportsInner.md)
 
 ## Example
 
@@ -20,6 +22,8 @@ const example = {
   "totalEntries": null,
   "contractStatusOptions": null,
   "coachContractOptions": null,
+  "contracts": null,
+  "incomeReports": null,
 } satisfies AdminCompensationListMeta
 
 console.log(example)

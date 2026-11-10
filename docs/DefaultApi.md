@@ -17,6 +17,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**confirmEmailAdminUser**](DefaultApi.md#confirmemailadminuser) | **POST** /api/v1/admin/users/{id}/confirm_email |  |
+| [**copyAdminCompensationToNextYear**](DefaultApi.md#copyadmincompensationtonextyear) | **POST** /api/v1/admin/compensations/{id}/copy_to_next_year |  |
 | [**copyForYearAdminPositions**](DefaultApi.md#copyforyearadminpositions) | **POST** /api/v1/admin/positions/copy_for_year |  |
 | [**copyToNextYearAdminPosition**](DefaultApi.md#copytonextyearadminposition) | **POST** /api/v1/admin/positions/{id}/copy_to_next_year |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
@@ -447,6 +448,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**listAdminCoachMergeLogs**](DefaultApi.md#listadmincoachmergelogs) | **GET** /api/v1/admin/coach_merge_logs |  |
 | [**listAdminCoachUploadJobs**](DefaultApi.md#listadmincoachuploadjobs) | **GET** /api/v1/admin/coaches/upload |  |
 | [**listAdminCoaches**](DefaultApi.md#listadmincoaches) | **GET** /api/v1/admin/coaches |  |
+| [**listAdminCompensationChangeHistory**](DefaultApi.md#listadmincompensationchangehistory) | **GET** /api/v1/admin/compensations/change_history |  |
 | [**listAdminCompensations**](DefaultApi.md#listadmincompensations) | **GET** /api/v1/admin/compensations |  |
 | [**listAdminConferenceSchoolsDirectory**](DefaultApi.md#listadminconferenceschoolsdirectory) | **GET** /api/v1/admin/conferences/schools |  |
 | [**listAdminConferences**](DefaultApi.md#listadminconferences) | **GET** /api/v1/admin/conferences |  |
@@ -639,6 +641,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**upsertTeamSeasonResult**](DefaultApi.md#upsertteamseasonresult) | **PUT** /api/v1/team_season_results |  |
 | [**userMe**](DefaultApi.md#userme) | **GET** /api/v1/users/me |  |
 | [**validateAdminDeskReport**](DefaultApi.md#validateadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/validate |  |
+| [**verifyAdminContract**](DefaultApi.md#verifyadmincontract) | **PATCH** /api/v1/admin/contracts/{id}/verification |  |
 | [**verifyOtpCode**](DefaultApi.md#verifyotpcodeoperation) | **POST** /api/v1/otp/verify |  |
 | [**verifyUserIntercollegiateAccess**](DefaultApi.md#verifyuserintercollegiateaccess) | **GET** /api/v1/users/verify_user_intercollegiate_access |  |
 | [**viewInvoiceFile**](DefaultApi.md#viewinvoicefile) | **GET** /api/v1/subscriptions/{subscriptionId}/invoices/{invoiceId}/view_file |  |
@@ -1672,6 +1675,83 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## copyAdminCompensationToNextYear
+
+> AdminCompensation copyAdminCompensationToNextYear(id)
+
+
+
+Copy a compensation to the next year; needs a position for that year (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CopyAdminCompensationToNextYearRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies CopyAdminCompensationToNextYearRequest;
+
+  try {
+    const data = await api.copyAdminCompensationToNextYear(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCompensation**](AdminCompensation.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Compensation copied |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Not Found |  -  |
+| **422** | Cannot copy (for example no position next year) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -27801,7 +27881,7 @@ example().catch(console.error);
 
 
 
-Retrieve postseason results, the furthest stage each season reached (a bowl game or a tournament round, and whether it was won). Filter by season_id, or by school_id, sport_id and season_year.
+Retrieve postseason results, the furthest stage each season reached (a football bowl by name or a tournament round, and whether it was won). Filter by season_id, or by school_id, sport_id and season_year.
 
 ### Example
 
@@ -34752,6 +34832,82 @@ example().catch(console.error);
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listAdminCompensationChangeHistory
+
+> AdminCompensationChangeHistory listAdminCompensationChangeHistory(coachId)
+
+
+
+The change history (PaperTrail versions) of a coach\&#39;s compensations, newest first (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminCompensationChangeHistoryRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    coachId: 56,
+  } satisfies ListAdminCompensationChangeHistoryRequest;
+
+  try {
+    const data = await api.listAdminCompensationChangeHistory(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **coachId** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminCompensationChangeHistory**](AdminCompensationChangeHistory.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Change history retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Coach not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -50051,6 +50207,85 @@ example().catch(console.error);
 | **200** | Findings (empty when clean) |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## verifyAdminContract
+
+> AdminContract verifyAdminContract(id, verified)
+
+
+
+Mark a contract verified or not verified (admin, super-admin only)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { VerifyAdminContractRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+    // boolean
+    verified: true,
+  } satisfies VerifyAdminContractRequest;
+
+  try {
+    const data = await api.verifyAdminContract(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+| **verified** | `boolean` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminContract**](AdminContract.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Verification changed |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
