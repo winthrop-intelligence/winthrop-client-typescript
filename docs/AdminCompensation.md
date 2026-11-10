@@ -32,7 +32,7 @@ Name | Type
 `hasRawContract` | boolean
 `formattedBuyoutTerms` | string
 `rawContractId` | number
-`school` | [AdminCoachCurrentSchool](AdminCoachCurrentSchool.md)
+`school` | [AdminCompensationSchool](AdminCompensationSchool.md)
 `contractStatus` | [AdminCoachHometownState](AdminCoachHometownState.md)
 
 ## Example
