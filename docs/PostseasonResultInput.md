@@ -1,7 +1,7 @@
 
 # PostseasonResultInput
 
-Give exactly one of fb_bowl_name and tournament_round_id (bowl_game_id is the deprecated form of fb_bowl_name). The write replaces the season\'s row.
+Give exactly one of fb_bowl_name and tournament_round_id. The write replaces the season\'s row.
 
 ## Properties
 
@@ -9,7 +9,6 @@ Name | Type
 ------------ | -------------
 `seasonId` | number
 `fbBowlName` | string
-`bowlGameId` | number
 `tournamentRoundId` | number
 `won` | boolean
 `changeNote` | string
@@ -23,7 +22,6 @@ import type { PostseasonResultInput } from '@winthrop-intelligence/winthrop-clie
 const example = {
   "seasonId": null,
   "fbBowlName": null,
-  "bowlGameId": null,
   "tournamentRoundId": null,
   "won": null,
   "changeNote": null,

@@ -15,13 +15,15 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**bulkUpdateAdminContractRequestSearches**](DefaultApi.md#bulkupdateadmincontractrequestsearchesoperation) | **POST** /api/v1/admin/contract_request_searches/bulk_update |  |
 | [**bulkUpdateAdminSeasonStatsEditor**](DefaultApi.md#bulkupdateadminseasonstatseditoroperation) | **PATCH** /api/v1/admin/season_stats_editor/bulk_update |  |
 | [**bulkUpdateGamePostSearches**](DefaultApi.md#bulkupdategamepostsearchesoperation) | **POST** /api/v1/game_post_searches/bulk_update |  |
+| [**cancelAdminArchiveTransferRequest**](DefaultApi.md#canceladminarchivetransferrequest) | **DELETE** /api/v1/admin/archive_transfer_requests/{id} |  |
+| [**closeCompensationRequestedItem**](DefaultApi.md#closecompensationrequesteditem) | **POST** /api/v1/requested_items/{requestedItemId}/compensation_closure |  |
 | [**compareColi**](DefaultApi.md#comparecoli) | **GET** /api/v1/schools/compare_coli |  |
 | [**confirmEmailAdminUser**](DefaultApi.md#confirmemailadminuser) | **POST** /api/v1/admin/users/{id}/confirm_email |  |
 | [**copyAdminCompensationToNextYear**](DefaultApi.md#copyadmincompensationtonextyear) | **POST** /api/v1/admin/compensations/{id}/copy_to_next_year |  |
 | [**copyForYearAdminPositions**](DefaultApi.md#copyforyearadminpositions) | **POST** /api/v1/admin/positions/copy_for_year |  |
 | [**copyToNextYearAdminPosition**](DefaultApi.md#copytonextyearadminposition) | **POST** /api/v1/admin/positions/{id}/copy_to_next_year |  |
 | [**createAccountUser**](DefaultApi.md#createaccountuseroperation) | **POST** /api/v1/account_users |  |
-| [**createAdminBowlGames**](DefaultApi.md#createadminbowlgamesoperation) | **POST** /api/v1/admin/bowl_games |  |
+| [**createAdminArchiveTransferRequest**](DefaultApi.md#createadminarchivetransferrequest) | **POST** /api/v1/admin/archive_transfer_requests |  |
 | [**createAdminCoach**](DefaultApi.md#createadmincoachoperation) | **POST** /api/v1/admin/coaches |  |
 | [**createAdminCoachAprUpload**](DefaultApi.md#createadmincoachaprupload) | **POST** /api/v1/admin/coaches/coach_apr_upload |  |
 | [**createAdminCoachContract**](DefaultApi.md#createadmincoachcontract) | **POST** /api/v1/admin/coach_contracts |  |
@@ -140,7 +142,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**deleteTeamSeasonResult**](DefaultApi.md#deleteteamseasonresult) | **DELETE** /api/v1/team_season_results/{teamSeasonResultId} |  |
 | [**deleteUpload**](DefaultApi.md#deleteupload) | **DELETE** /api/v1/uploads/{uploadId} |  |
 | [**destroyAdminAvatars**](DefaultApi.md#destroyadminavatars) | **DELETE** /api/v1/admin/avatars/{id} |  |
-| [**destroyAdminBowlGames**](DefaultApi.md#destroyadminbowlgames) | **DELETE** /api/v1/admin/bowl_games/{id} |  |
 | [**destroyAdminCoach**](DefaultApi.md#destroyadmincoach) | **DELETE** /api/v1/admin/coaches/{id} |  |
 | [**destroyAdminCompensation**](DefaultApi.md#destroyadmincompensation) | **DELETE** /api/v1/admin/compensations/{id} |  |
 | [**destroyAdminConferences**](DefaultApi.md#destroyadminconferences) | **DELETE** /api/v1/admin/conferences/{id} |  |
@@ -198,7 +199,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAccountUserActivation**](DefaultApi.md#getaccountuseractivation) | **GET** /api/v1/account_user_activation |  |
 | [**getAccountUsers**](DefaultApi.md#getaccountusers) | **GET** /api/v1/account_users |  |
 | [**getAccounts**](DefaultApi.md#getaccounts) | **GET** /api/v1/accounts |  |
-| [**getAdminBowlGames**](DefaultApi.md#getadminbowlgames) | **GET** /api/v1/admin/bowl_games/{id} |  |
 | [**getAdminCoach**](DefaultApi.md#getadmincoach) | **GET** /api/v1/admin/coaches/{id} |  |
 | [**getAdminCoachMergeLog**](DefaultApi.md#getadmincoachmergelog) | **GET** /api/v1/admin/coach_merge_logs/{id} |  |
 | [**getAdminConferences**](DefaultApi.md#getadminconferences) | **GET** /api/v1/admin/conferences/{id} |  |
@@ -257,7 +257,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getAthleticProfileSearch**](DefaultApi.md#getathleticprofilesearch) | **GET** /api/v1/athletic_profile_searches/{athleticProfileSearchId} |  |
 | [**getAuditedFinancialReportStatus**](DefaultApi.md#getauditedfinancialreportstatus) | **GET** /api/v1/audited_financial_report_statuses/{auditedFinancialReportStatusId} |  |
 | [**getAuditedFinancialReportStatuses**](DefaultApi.md#getauditedfinancialreportstatuses) | **GET** /api/v1/audited_financial_report_statuses |  |
-| [**getBowlGames**](DefaultApi.md#getbowlgames) | **GET** /api/v1/bowl_games |  |
 | [**getCashflow**](DefaultApi.md#getcashflow) | **GET** /api/v1/cashflows/{cashflowId} |  |
 | [**getCashflowGroups**](DefaultApi.md#getcashflowgroups) | **GET** /api/v1/cashflow_groups |  |
 | [**getCashflows**](DefaultApi.md#getcashflows) | **GET** /api/v1/cashflows |  |
@@ -439,7 +438,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**getVendors**](DefaultApi.md#getvendors) | **GET** /api/v1/vendors |  |
 | [**getWireChanges**](DefaultApi.md#getwirechanges) | **GET** /api/v1/wire_changes |  |
 | [**hideAdminDeskReport**](DefaultApi.md#hideadmindeskreportoperation) | **POST** /api/v1/admin/desk_reports/{uuid}/hide |  |
-| [**listAdminBowlGames**](DefaultApi.md#listadminbowlgames) | **GET** /api/v1/admin/bowl_games |  |
+| [**listAdminArchiveTransferRequests**](DefaultApi.md#listadminarchivetransferrequests) | **GET** /api/v1/admin/archive_transfer_requests |  |
 | [**listAdminCoachAprUploadJobs**](DefaultApi.md#listadmincoachapruploadjobs) | **GET** /api/v1/admin/coaches/coach_apr_upload |  |
 | [**listAdminCoachContracts**](DefaultApi.md#listadmincoachcontracts) | **GET** /api/v1/admin/coach_contracts |  |
 | [**listAdminCoachContractsOutsideIncome**](DefaultApi.md#listadmincoachcontractsoutsideincome) | **GET** /api/v1/admin/coach_contracts/outside_income |  |
@@ -561,7 +560,6 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**updateAccountUser**](DefaultApi.md#updateaccountuseroperation) | **PATCH** /api/v1/account_users/{accountUserId} |  |
 | [**updateAccountUserActivation**](DefaultApi.md#updateaccountuseractivationoperation) | **PATCH** /api/v1/account_user_activation |  |
 | [**updateAdminAvatars**](DefaultApi.md#updateadminavatars) | **PATCH** /api/v1/admin/avatars/{id} |  |
-| [**updateAdminBowlGames**](DefaultApi.md#updateadminbowlgames) | **PATCH** /api/v1/admin/bowl_games/{id} |  |
 | [**updateAdminCoach**](DefaultApi.md#updateadmincoach) | **PATCH** /api/v1/admin/coaches/{id} |  |
 | [**updateAdminConferences**](DefaultApi.md#updateadminconferencesoperation) | **PATCH** /api/v1/admin/conferences/{id} |  |
 | [**updateAdminConferenceships**](DefaultApi.md#updateadminconferenceshipsoperation) | **PATCH** /api/v1/admin/conferenceships/{id} |  |
@@ -1521,6 +1519,164 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## cancelAdminArchiveTransferRequest
+
+> AdminArchiveTransferRequest cancelAdminArchiveTransferRequest(id)
+
+
+
+Cancel a waiting copy request, or ask a running one to stop after the batch it is working on (super-admin only). The request is kept and returned.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CancelAdminArchiveTransferRequestRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number
+    id: 56,
+  } satisfies CancelAdminArchiveTransferRequestRequest;
+
+  try {
+    const data = await api.cancelAdminArchiveTransferRequest(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `number` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminArchiveTransferRequest**](AdminArchiveTransferRequest.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Request cancelled, or asked to stop |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden - user is not a super admin |  -  |
+| **404** | Unknown request |  -  |
+| **422** | The request has already ended |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## closeCompensationRequestedItem
+
+> CompensationClosureResponse closeCompensationRequestedItem(requestedItemId, compensationClosureRequest)
+
+
+
+Close one pending or received Compensation requested item as not available, in one transaction. The requested item becomes not_available and gets the operator\&#39;s note; its Compensation becomes NOT_AVAILABLE and gets the same note as a comment sentence. Volunteer and graduate_assistant also add their position type to every position of the Compensation. Requires a user-backed token; the change is recorded as that user. Any failed check leaves both records unchanged.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CloseCompensationRequestedItemRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // number | ID of the Compensation requested item to close
+    requestedItemId: 56,
+    // CompensationClosureRequest
+    compensationClosureRequest: ...,
+  } satisfies CloseCompensationRequestedItemRequest;
+
+  try {
+    const data = await api.closeCompensationRequestedItem(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestedItemId** | `number` | ID of the Compensation requested item to close | [Defaults to `undefined`] |
+| **compensationClosureRequest** | [CompensationClosureRequest](CompensationClosureRequest.md) |  | |
+
+### Return type
+
+[**CompensationClosureResponse**](CompensationClosureResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Both records after the change, read back from the database |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden, or the token has no user behind it |  -  |
+| **404** | The requested item does not exist |  -  |
+| **409** | The requested item status no longer matches expected_status, its FOIA request or label is no longer active, or another change to the same records was in progress (safe to retry) |  -  |
+| **422** | Invalid payload, not a Compensation item, or the Compensation does not belong to the request school and person |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## compareColi
 
 > COLIAdjusted compareColi(schoolId, otherPersonSchoolId, otherPersonTotalCompensation)
@@ -1983,13 +2139,13 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## createAdminBowlGames
+## createAdminArchiveTransferRequest
 
-> AdminBowlGameDetail createAdminBowlGames(createAdminBowlGamesRequest)
+> AdminArchiveTransferRequest createAdminArchiveTransferRequest(createAdminArchiveTransferRequest)
 
 
 
-Create a bowl game (admin, super-admin only)
+Request a copy of old history into the archive (super-admin only). The transfer CronJob runs it within a few minutes, copy-only. Refused while the copy job is not checking in, cannot copy, or a request for the same table (or for every table) is waiting or running.
 
 ### Example
 
@@ -1998,7 +2154,7 @@ import {
   Configuration,
   DefaultApi,
 } from '@winthrop-intelligence/winthrop-client-typescript';
-import type { CreateAdminBowlGamesOperationRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+import type { CreateAdminArchiveTransferRequestRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
 async function example() {
   console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
@@ -2011,12 +2167,12 @@ async function example() {
   const api = new DefaultApi(config);
 
   const body = {
-    // CreateAdminBowlGamesRequest
-    createAdminBowlGamesRequest: ...,
-  } satisfies CreateAdminBowlGamesOperationRequest;
+    // CreateAdminArchiveTransferRequest
+    createAdminArchiveTransferRequest: ...,
+  } satisfies CreateAdminArchiveTransferRequestRequest;
 
   try {
-    const data = await api.createAdminBowlGames(body);
+    const data = await api.createAdminArchiveTransferRequest(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -2032,11 +2188,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAdminBowlGamesRequest** | [CreateAdminBowlGamesRequest](CreateAdminBowlGamesRequest.md) |  | |
+| **createAdminArchiveTransferRequest** | [CreateAdminArchiveTransferRequest](CreateAdminArchiveTransferRequest.md) |  | |
 
 ### Return type
 
-[**AdminBowlGameDetail**](AdminBowlGameDetail.md)
+[**AdminArchiveTransferRequest**](AdminArchiveTransferRequest.md)
 
 ### Authorization
 
@@ -2051,10 +2207,10 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Bowl game created |  -  |
+| **201** | Request recorded |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
-| **422** | Validation errors, or a text value is longer than its column (e.g. 255 characters) |  -  |
+| **422** | Invalid request, a clashing open request, or a copy job that cannot run it |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -11115,82 +11271,6 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## destroyAdminBowlGames
-
-> destroyAdminBowlGames(id)
-
-
-
-Delete a bowl game (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { DestroyAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies DestroyAdminBowlGamesRequest;
-
-  try {
-    const data = await api.destroyAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-`void` (Empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Bowl game deleted |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
 ## destroyAdminCoach
 
 > destroyAdminCoach(id)
@@ -15524,82 +15604,6 @@ example().catch(console.error);
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super_admin |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getAdminBowlGames
-
-> AdminBowlGameDetail getAdminBowlGames(id)
-
-
-
-Retrieve a bowl game with its associated postseason results (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-  } satisfies GetAdminBowlGamesRequest;
-
-  try {
-    const data = await api.getAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-
-### Return type
-
-[**AdminBowlGameDetail**](AdminBowlGameDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Bowl game found |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -19989,83 +19993,6 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Audited financial report statuses were found |  -  |
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getBowlGames
-
-> BowlGameCollection getBowlGames(page, perPage)
-
-
-
-Retrieve the bowl games, to find the bowl_game_id of a postseason result
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { GetBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-  } satisfies GetBowlGamesRequest;
-
-  try {
-    const data = await api.getBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-
-### Return type
-
-[**BowlGameCollection**](BowlGameCollection.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Bowl games were found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -34165,13 +34092,13 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## listAdminBowlGames
+## listAdminArchiveTransferRequests
 
-> AdminBowlGamesList listAdminBowlGames(page, perPage, qNameCont, qS)
+> AdminArchiveTransferStatus listAdminArchiveTransferRequests()
 
 
 
-List bowl games (admin, super-admin only)
+Admin &gt; Archive copies (super-admin only). The archive copy job\&#39;s last check-in, each archive table\&#39;s latest transfer run (progress, counts, copy speed, rows left behind, conflicts) and the 25 most recent copy requests.
 
 ### Example
 
@@ -34180,7 +34107,7 @@ import {
   Configuration,
   DefaultApi,
 } from '@winthrop-intelligence/winthrop-client-typescript';
-import type { ListAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+import type { ListAdminArchiveTransferRequestsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
 
 async function example() {
   console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
@@ -34192,19 +34119,8 @@ async function example() {
   });
   const api = new DefaultApi(config);
 
-  const body = {
-    // number | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with `Invalid pagination parameter: page`. (optional)
-    page: 56,
-    // number | number of results per page. At most 2147483647 (a larger value is a 400 with `Invalid pagination parameter: per_page`); most endpoints also cap it at 100. (optional)
-    perPage: 56,
-    // string | Case-insensitive name search (optional)
-    qNameCont: qNameCont_example,
-    // 'name asc' | 'name desc' | Name sort order (defaults to ascending) (optional)
-    qS: qS_example,
-  } satisfies ListAdminBowlGamesRequest;
-
   try {
-    const data = await api.listAdminBowlGames(body);
+    const data = await api.listAdminArchiveTransferRequests();
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -34217,17 +34133,11 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | `number` | results page to retrieve. At most 2147483647 (a signed 32-bit integer); a larger value, like 0 or a non-number, is a 400 with &#x60;Invalid pagination parameter: page&#x60;. | [Optional] [Defaults to `1`] |
-| **perPage** | `number` | number of results per page. At most 2147483647 (a larger value is a 400 with &#x60;Invalid pagination parameter: per_page&#x60;); most endpoints also cap it at 100. | [Optional] [Defaults to `20`] |
-| **qNameCont** | `string` | Case-insensitive name search | [Optional] [Defaults to `undefined`] |
-| **qS** | `name asc`, `name desc` | Name sort order (defaults to ascending) | [Optional] [Defaults to `undefined`] [Enum: name asc, name desc] |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**AdminBowlGamesList**](AdminBowlGamesList.md)
+[**AdminArchiveTransferStatus**](AdminArchiveTransferStatus.md)
 
 ### Authorization
 
@@ -34242,8 +34152,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Bowl games retrieved |  -  |
-| **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
+| **200** | Archive copy status |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden - user is not a super admin |  -  |
 
@@ -43801,86 +43710,6 @@ example().catch(console.error);
 | **403** | Forbidden - user is not a super admin |  -  |
 | **404** | Not Found |  -  |
 | **422** | Validation errors |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## updateAdminBowlGames
-
-> AdminBowlGameDetail updateAdminBowlGames(id, createAdminBowlGamesRequest)
-
-
-
-Update a bowl game (admin, super-admin only)
-
-### Example
-
-```ts
-import {
-  Configuration,
-  DefaultApi,
-} from '@winthrop-intelligence/winthrop-client-typescript';
-import type { UpdateAdminBowlGamesRequest } from '@winthrop-intelligence/winthrop-client-typescript';
-
-async function example() {
-  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKey
-    apiKey: "YOUR API KEY",
-    // To configure OAuth2 access token for authorization: Oauth2 application
-    accessToken: "YOUR ACCESS TOKEN",
-  });
-  const api = new DefaultApi(config);
-
-  const body = {
-    // number
-    id: 56,
-    // CreateAdminBowlGamesRequest
-    createAdminBowlGamesRequest: ...,
-  } satisfies UpdateAdminBowlGamesRequest;
-
-  try {
-    const data = await api.updateAdminBowlGames(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `number` |  | [Defaults to `undefined`] |
-| **createAdminBowlGamesRequest** | [CreateAdminBowlGamesRequest](CreateAdminBowlGamesRequest.md) |  | |
-
-### Return type
-
-[**AdminBowlGameDetail**](AdminBowlGameDetail.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Bowl game updated |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden - user is not a super admin |  -  |
-| **404** | Not Found |  -  |
-| **422** | Validation errors, or a text value is longer than its column (e.g. 255 characters) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
