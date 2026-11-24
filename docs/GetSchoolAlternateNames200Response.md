@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`data` | Array&lt;string&gt;
+`alternateNames` | Array&lt;string&gt;
 
 ## Example
 
@@ -15,7 +15,7 @@ import type { GetSchoolAlternateNames200Response } from '@winthrop-intelligence/
 
 // TODO: Update the object below with actual values
 const example = {
-  "data": [Alabama, UA, Bama],
+  "alternateNames": [UNCW],
 } satisfies GetSchoolAlternateNames200Response
 
 console.log(example)

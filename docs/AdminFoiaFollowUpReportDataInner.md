@@ -31,6 +31,7 @@ Name | Type
 `schoolNotes` | [Array&lt;AdminFoiaRequestNote&gt;](AdminFoiaRequestNote.md)
 `followUpEmailText` | string
 `alreadyProcessedToday` | boolean
+`followUpCycleKey` | string
 
 ## Example
 
@@ -64,6 +65,7 @@ const example = {
   "schoolNotes": null,
   "followUpEmailText": null,
   "alreadyProcessedToday": null,
+  "followUpCycleKey": null,
 } satisfies AdminFoiaFollowUpReportDataInner
 
 console.log(example)

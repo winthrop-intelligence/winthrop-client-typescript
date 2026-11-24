@@ -8,6 +8,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 | [**createPendingContract**](ContractsApi.md#creatependingcontract) | **POST** /api/v1/contracts |  |
 | [**deletePendingContract**](ContractsApi.md#deletependingcontract) | **DELETE** /api/v1/contracts/{contractId} |  |
 | [**getCompensationVerificationStatus**](ContractsApi.md#getcompensationverificationstatus) | **GET** /api/v1/compensation_verification_status | Verification status of every compensation row of some schools in one season |
+| [**getCompensationVerificationStatusCounts**](ContractsApi.md#getcompensationverificationstatuscounts) | **GET** /api/v1/compensation_verification_status/counts | Verification status counts for some schools in one season, no rows |
 | [**getContractHistory**](ContractsApi.md#getcontracthistory) | **GET** /api/v1/contract_history |  |
 | [**listContractVerifications**](ContractsApi.md#listcontractverifications) | **GET** /api/v1/contract_verifications | List verification events across contracts |
 | [**publishPendingContract**](ContractsApi.md#publishpendingcontractoperation) | **POST** /api/v1/contracts/{contractId}/publish |  |
@@ -23,7 +24,7 @@ All URIs are relative to *http://api-gateway.default.svc.cluster.local*
 
 
 
-Step 1 of filing a pending contract PDF over the gateway\&#39;s 1 MiB body limit. Creates the storage blob and returns the URL and headers to PUT the PDF bytes to, plus &#x60;signed_id&#x60; to send as &#x60;file_signed_id&#x60; to POST /contracts. Same payload as Active Storage\&#39;s direct upload, behind the OAuth token. &#x60;winad_write&#x60; scope. Only application/pdf is accepted (422 otherwise), and byte_size must be 1 to 104857600 (100 MiB, the same limit as the Drive source). The returned &#x60;signed_id&#x60; is single-purpose and expires after 2 hours; filing it later is refused with 422 (errors.file_signed_id). When the contract is filed the stored bytes are checked against the declared byte_size and checksum (422, code checksum_mismatch) and then as a PDF (422, code invalid_pdf). 
+Step 1 of filing a pending contract PDF over the gateway\&#39;s 1 MiB body limit. Creates the storage blob and returns the URL and headers to PUT the PDF bytes to, plus &#x60;signed_id&#x60; to send as &#x60;file_signed_id&#x60; to POST /contracts (or to PUT /raw_contracts/{raw_contractId}/file, to replace a vendor deal\&#39;s PDF, WINAD-10820). Same payload as Active Storage\&#39;s direct upload, behind the OAuth token. &#x60;winad_write&#x60; scope. Only application/pdf is accepted (422 otherwise), and byte_size must be 1 to 104857600 (100 MiB, the same limit as the Drive source). The returned &#x60;signed_id&#x60; is single-purpose and expires after 2 hours; filing it later is refused with 422 (errors.file_signed_id). When the contract is filed the stored bytes are checked against the declared byte_size and checksum (422, code checksum_mismatch) and then as a PDF (422, code invalid_pdf). 
 
 ### Example
 
@@ -362,6 +363,88 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | One page of rows |  -  |
 | **400** | A &#x60;q[...]&#x60; condition names an attribute, association path, predicate or scope the resource does not expose, or names an attribute without a predicate (&#x60;q[name]&#x3D;x&#x60; instead of &#x60;q[name_eq]&#x3D;x&#x60; or &#x60;q[name_cont]&#x3D;x&#x60;, and a &#x60;q[c]&#x60; list entry without &#x60;p&#x60;). The search is refused instead of silently ignoring the condition, which would return the unfiltered collection. &#x60;errors.q&#x60; has one entry per bad condition: &#x60;unknown condition: &lt;name&gt;&#x60;, or &#x60;condition has no predicate: &lt;name&gt; (use &lt;name&gt;_eq, &lt;name&gt;_cont, ...)&#x60;. Sorting (&#x60;q[s]&#x60;), the combinator (&#x60;q[m]&#x60;), groups (&#x60;q[g]&#x60;) and a condition whose value is blank are not refused. A 400 on these operations can also be an invalid pagination parameter, or a &#x60;q&#x60; of the wrong shape (&#x60;Unexpected format for q param: ...&#x60;: &#x60;q&#x60; must be a hash, a JSON object string, or absent, and &#x60;q[c]&#x60; and &#x60;q[g]&#x60; a hash or a list of hashes, so &#x60;q[]&#x3D;x&#x60; and &#x60;q[c]&#x3D;x&#x60; are refused instead of returning the unfiltered collection); for these &#x60;errors&#x60; is a list of messages. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Missing winad_read scope, or not permitted to update contracts (staff only) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCompensationVerificationStatusCounts
+
+> GetCompensationVerificationStatusCounts200Response getCompensationVerificationStatusCounts(season, schoolIds, conferenceId)
+
+Verification status counts for some schools in one season, no rows
+
+WINAD-10768. The &#x60;counts_by_status&#x60; of GET /compensation_verification_status for the same scope and the same status rules (the same code decides each row), without building the rows: only the rows whose latest covering event is &#x60;passed&#x60; have their edit history read, and the authors of the changes are not looked up. Computed on request; &#x60;meta.as_of&#x60; is the time the read started. &#x60;status[]&#x60;, &#x60;q&#x60; and paging do not apply (as they do not to &#x60;meta.counts_by_status&#x60; of the rows). A hidden coach\&#39;s rows are left out for a caller who cannot manage coaches. Errors and authorization are those of GET /compensation_verification_status. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ContractsApi,
+} from '@winthrop-intelligence/winthrop-client-typescript';
+import type { GetCompensationVerificationStatusCountsRequest } from '@winthrop-intelligence/winthrop-client-typescript';
+
+async function example() {
+  console.log("🚀 Testing @winthrop-intelligence/winthrop-client-typescript SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKey
+    apiKey: "YOUR API KEY",
+    // To configure OAuth2 access token for authorization: Oauth2 application
+    accessToken: "YOUR ACCESS TOKEN",
+  });
+  const api = new ContractsApi(config);
+
+  const body = {
+    // number | Season-ending year, a positive whole number.
+    season: 56,
+    // Array<number> | The schools to read, as one comma separated list (school_ids=1,2; the form with explode false, because repeated school_ids=1&school_ids=2 keeps only the last) or school_ids[]=1&school_ids[]=2. At most 300. Give exactly one of school_ids and conference_id. (optional)
+    schoolIds: ...,
+    // number | The schools whose primary conference this is. At most 300 schools. (optional)
+    conferenceId: 56,
+  } satisfies GetCompensationVerificationStatusCountsRequest;
+
+  try {
+    const data = await api.getCompensationVerificationStatusCounts(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **season** | `number` | Season-ending year, a positive whole number. | [Defaults to `undefined`] |
+| **schoolIds** | `Array<number>` | The schools to read, as one comma separated list (school_ids&#x3D;1,2; the form with explode false, because repeated school_ids&#x3D;1&amp;school_ids&#x3D;2 keeps only the last) or school_ids[]&#x3D;1&amp;school_ids[]&#x3D;2. At most 300. Give exactly one of school_ids and conference_id. | [Optional] |
+| **conferenceId** | `number` | The schools whose primary conference this is. At most 300 schools. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetCompensationVerificationStatusCounts200Response**](GetCompensationVerificationStatusCounts200Response.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey), [Oauth2 application](../README.md#Oauth2-application)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Rows per status |  -  |
+| **400** | A parameter is missing or invalid, keyed by its name |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Missing winad_read scope, or not permitted to update contracts (staff only) |  -  |
 

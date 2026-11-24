@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
+`alternateNames` | Array&lt;string&gt;
 `shortName` | string
 `location` | string
 `createdAt` | Date
@@ -56,6 +57,7 @@ import type { School } from '@winthrop-intelligence/winthrop-client-typescript'
 const example = {
   "id": 1,
   "name": University of Alabama,
+  "alternateNames": ["UNCW"],
   "shortName": Alabama,
   "location": Tuscaloosa, AL,
   "createdAt": 2019-01-01T00:00Z,

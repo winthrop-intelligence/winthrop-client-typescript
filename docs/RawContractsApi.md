@@ -494,11 +494,11 @@ example().catch(console.error);
 
 ## replaceRawContractFile
 
-> RawContract replaceRawContractFile(rawContractId, file, changeNote)
+> RawContract replaceRawContractFile(rawContractId, file, changeNote, fileSignedId)
 
 
 
-Replace the PDF of a vendor deal\&#39;s RawContract (WINAD-10684). Send multipart/form-data with the new PDF as &#x60;file&#x60; and an optional &#x60;change_note&#x60;. The RawContract keeps its id and its &#x60;deal_id&#x60; link. The old file (and its OCR copy) is replaced, not kept as an attachment; the stored text is cleared and Mistral OCR is queued once, the way the admin\&#39;s Re-extract does, so &#x60;text&#x60; (and GET /raw_contracts/{id}/ocr_text) reflect the new file once the extraction finishes. The structured &#x60;contract_terms&#x60; are not touched (they read as stale against the new text). &#x60;asset_file_name&#x60;, &#x60;asset_file_size&#x60; and &#x60;asset_content_type&#x60; are set from the new file and &#x60;updated_at&#x60; moves, so the response shows the new file name, size and time.  Vendor RawContracts only: a RawContract with no deal, one that belongs to a coach contract (use PUT /contracts/{contractId}/file) or one that a game contract, income report, termination agreement, subscription or system setting also uses is refused with 422 (errors.base) and nothing changes. The file must really be a PDF (its bytes are checked, not its name).  The replacement is recorded as exactly one PaperTrail version of the RawContract (no empty touch versions) with a &#x60;file&#x60; change (filename, byte_size, checksum and content_type, old and new) together with the legacy file columns, the acting user, the API client and the change_note. It is not linked to a contract, so GET /contract_history does not list it. Requires winad_write and a user-backed OAuth token (client-credentials tokens are refused) with permission to update the RawContract. 
+Replace the PDF of a vendor deal\&#39;s RawContract (WINAD-10684). Send multipart/form-data with the new PDF by EXACTLY ONE of &#x60;file&#x60; or &#x60;file_signed_id&#x60;, and an optional &#x60;change_note&#x60;. The RawContract keeps its id and its &#x60;deal_id&#x60; link. The old file (and its OCR copy) is replaced, not kept as an attachment; the stored text is cleared and Mistral OCR is queued once, the way the admin\&#39;s Re-extract does, so &#x60;text&#x60; (and GET /raw_contracts/{id}/ocr_text) reflect the new file once the extraction finishes. The structured &#x60;contract_terms&#x60; are not touched (they read as stale against the new text). &#x60;asset_file_name&#x60;, &#x60;asset_file_size&#x60; and &#x60;asset_content_type&#x60; are set from the new file and &#x60;updated_at&#x60; moves, so the response shows the new file name, size and time.  1. &#x60;file&#x60;: a multipart upload of the PDF. Larger bodies than the API gateway\&#39;s request limit (1 MiB by default) cannot take this route (413). 2. &#x60;file_signed_id&#x60; (WINAD-10820): the signed id returned by POST /contracts/direct_uploads, after the PDF bytes (up to 100 MiB) were PUT to the returned URL. The stored bytes are read back, checked against the declared size and checksum and as a PDF, and that stored file becomes the RawContract\&#39;s file. The signed id expires after 2 hours and works once.  A request with neither or with both is refused with 422 (errors.file and errors.file_signed_id, code invalid_input). A signed id that is unknown, expired, already in use or whose bytes were never uploaded is refused with 422 (errors.file_signed_id, code invalid_input); stored bytes that differ from what was declared are code checksum_mismatch, and bytes that are not a PDF or an invalid file name are code invalid_pdf. A refusal for the number of inputs or for change_note happens before the signed id is looked at, so the same signed id can be sent again. A request refused after the signed id was accepted (its bytes, its file name or the RawContract) removes the uploaded file, so ask for a new signed id before trying again. The server tolerates an empty field as \&quot;not sent\&quot;.  Vendor RawContracts only: a RawContract with no deal, one that belongs to a coach contract (use PUT /contracts/{contractId}/file) or one that a game contract, income report, termination agreement, subscription or system setting also uses is refused with 422 (errors.base) and nothing changes. The file must really be a PDF (its bytes are checked, not its name).  The replacement is recorded as exactly one PaperTrail version of the RawContract (no empty touch versions) with a &#x60;file&#x60; change (filename, byte_size, checksum and content_type, old and new) together with the legacy file columns, the acting user, the API client and the change_note. It is not linked to a contract, so GET /contract_history does not list it. Requires winad_write and a user-backed OAuth token (client-credentials tokens are refused) with permission to update the RawContract. 
 
 ### Example
 
@@ -522,10 +522,12 @@ async function example() {
   const body = {
     // number | ID of the vendor deal\'s RawContract whose PDF is replaced
     rawContractId: 56,
-    // Blob | The new contract PDF
+    // Blob | The new contract PDF as a multipart upload. Exactly one of file and file_signed_id is required.
     file: BINARY_DATA_HERE,
     // string | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates. At most 500 characters after trimming; blank is the same as omitted; a value that is not text or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. (optional)
     changeNote: changeNote_example,
+    // string | Signed id returned by POST /contracts/direct_uploads after the PDF bytes were PUT to the returned URL. Exactly one of file and file_signed_id is required. (optional)
+    fileSignedId: fileSignedId_example,
   } satisfies ReplaceRawContractFileRequest;
 
   try {
@@ -546,8 +548,9 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **rawContractId** | `number` | ID of the vendor deal\&#39;s RawContract whose PDF is replaced | [Defaults to `undefined`] |
-| **file** | `Blob` | The new contract PDF | [Defaults to `undefined`] |
+| **file** | `Blob` | The new contract PDF as a multipart upload. Exactly one of file and file_signed_id is required. | [Defaults to `undefined`] |
 | **changeNote** | `string` | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates. At most 500 characters after trimming; blank is the same as omitted; a value that is not text or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. | [Optional] [Defaults to `undefined`] |
+| **fileSignedId** | `string` | Signed id returned by POST /contracts/direct_uploads after the PDF bytes were PUT to the returned URL. Exactly one of file and file_signed_id is required. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -570,7 +573,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope, a client-credentials token with no user, or not permitted to update the RawContract) |  -  |
 | **404** | Not Found (no such RawContract, or a coach contract\&#39;s document the caller may not see, or the RawContract was deleted while the request ran). The body is a short &#x60;error&#x60; message naming the model and id; it never repeats the caller\&#39;s visibility rule. |  -  |
-| **422** | Missing or non-PDF file, a file name longer than 255 characters (counted after Active Storage\&#39;s sanitiser; the legacy &#x60;asset_file_name&#x60; column holds 255) or with a NUL character or bytes that are not UTF-8 (all errors.file), a RawContract that is not a vendor deal\&#39;s (errors.base), or an invalid change_note (errors.change_note). The old file is untouched and nothing is stored. |  -  |
+| **422** | Neither or both of file and file_signed_id, a refused file_signed_id (errors.file_signed_id, with a code), a non-PDF file, a file name longer than 255 characters (counted after Active Storage\&#39;s sanitiser; the legacy &#x60;asset_file_name&#x60; column holds 255) or with a NUL character or bytes that are not UTF-8 (all errors.file, or errors.file_signed_id for a direct upload), a RawContract that is not a vendor deal\&#39;s (errors.base), or an invalid change_note (errors.change_note). The old file is untouched and nothing is attached. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
