@@ -522,7 +522,7 @@ async function example() {
   const body = {
     // number | ID of the vendor deal\'s RawContract whose PDF is replaced
     rawContractId: 56,
-    // Blob | The new contract PDF as a multipart upload. Exactly one of file and file_signed_id is required.
+    // Blob | The new contract PDF as a multipart upload. Exactly one of file and file_signed_id is required. (optional)
     file: BINARY_DATA_HERE,
     // string | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates. At most 500 characters after trimming; blank is the same as omitted; a value that is not text or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. (optional)
     changeNote: changeNote_example,
@@ -548,7 +548,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **rawContractId** | `number` | ID of the vendor deal\&#39;s RawContract whose PDF is replaced | [Defaults to `undefined`] |
-| **file** | `Blob` | The new contract PDF as a multipart upload. Exactly one of file and file_signed_id is required. | [Defaults to `undefined`] |
+| **file** | `Blob` | The new contract PDF as a multipart upload. Exactly one of file and file_signed_id is required. | [Optional] [Defaults to `undefined`] |
 | **changeNote** | `string` | Optional. Why this change is being made, for the internal audit history. It is stored on every audit version this write creates. At most 500 characters after trimming; blank is the same as omitted; a value that is not text or is longer is refused with 422 (errors.change_note) before anything is written. Never returned by the write. | [Optional] [Defaults to `undefined`] |
 | **fileSignedId** | `string` | Signed id returned by POST /contracts/direct_uploads after the PDF bytes were PUT to the returned URL. Exactly one of file and file_signed_id is required. | [Optional] [Defaults to `undefined`] |
 
