@@ -266,7 +266,7 @@ example().catch(console.error);
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden (missing winad_write scope or not permitted to update deals) |  -  |
 | **404** | Not Found (no such deal, or a pending one for a caller who cannot read it) |  -  |
-| **422** | The deal is not pending (errors.base), a field or value was refused (unknown or other-type fields, bad dates, a missing end date or vendor) or change_note is not text or is longer than 500 characters (errors.change_note). Nothing was written and the deal is still pending. |  -  |
+| **422** | The deal is not pending, or is pending but verified (errors.base, \&#39;A verified deal cannot be published\&#39;), a field or value was refused (unknown or other-type fields, bad dates, a missing end date or vendor) or change_note is not text or is longer than 500 characters (errors.change_note). Nothing was written and the deal is still pending. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

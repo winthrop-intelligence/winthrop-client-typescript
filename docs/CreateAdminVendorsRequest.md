@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`changeNote` | string
 `vendor` | [CreateAdminVendorsRequestVendor](CreateAdminVendorsRequestVendor.md)
 
 ## Example
@@ -15,6 +16,7 @@ import type { CreateAdminVendorsRequest } from '@winthrop-intelligence/winthrop-
 
 // TODO: Update the object below with actual values
 const example = {
+  "changeNote": null,
   "vendor": null,
 } satisfies CreateAdminVendorsRequest
 

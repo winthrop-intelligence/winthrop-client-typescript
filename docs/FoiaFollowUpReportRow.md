@@ -6,6 +6,8 @@
 
 Name | Type
 ------------ | -------------
+`updatedAt` | Date
+`followUpDateExplicit` | boolean
 `foiaRequestId` | number
 `foiaRequestAdminUrl` | string
 `schoolAdminUrl` | string
@@ -75,6 +77,8 @@ import type { FoiaFollowUpReportRow } from '@winthrop-intelligence/winthrop-clie
 
 // TODO: Update the object below with actual values
 const example = {
+  "updatedAt": null,
+  "followUpDateExplicit": null,
   "foiaRequestId": null,
   "foiaRequestAdminUrl": null,
   "schoolAdminUrl": null,
